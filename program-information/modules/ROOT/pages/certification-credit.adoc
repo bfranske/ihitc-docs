@@ -7,7 +7,7 @@ Due to constantly evolving industry certifications specific exams are no longer 
 
 *The table below is a general guideline of common course equivalencies and does not assure the academic credit will be granted for specific exams.*  Exams vary in content and structure over time and may not measure the current outcomes and objectives of a course; in such cases, credit cannot be given for current courses. A faculty member from the ITC department will review all credit equivalencies for ITC courses and determine whether the exam taken or certification obtained substantially corresponds to the course.
 
-[width="80%",options="header"]
+[width="100%",options="header"]
 |===
 |Exam/Certification |Course No. |Course Description |Credits
 |CompTIA A+ Certification (2 Exams)
