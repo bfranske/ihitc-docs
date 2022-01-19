@@ -5,6 +5,7 @@ site:
 content:
   sources: 
   - url: https://github.com/bfranske/ihitc-docs.git
+    start_path: program-information/
     branches: HEAD
 ui: 
   bundle:
