@@ -11,7 +11,7 @@ Your specific course sequence may vary depending on whether you start in a Fall 
 
 * You can find a copy of the *2015-2016* suggested course sequence document https://docs.google.com/spreadsheets/d/1k6ru7Bh5BjzEQ1pqeVMoy-8ArZtwVOlDLLiDFk-MBPI/edit?usp=sharing[here on Google Sheets]. Note the tabs at the bottom of the document for different degree programs.
 
-=Assumptions=
+== Assumptions
 In determining the course sequence (and the schedule for our classes) we need to make some assumptions. It's OK if you don't match these assumptions but it will likely mean that you will need more than 4 semesters (2 years) to complete your degree. This depends on your specific situation. In any case we do not recommend taking any class before you have completed all of the prerequisites for the class. IT courses build on one another so you should finish any required prerequisite course listed before taking a class.
 
 * *We assume you start in the Fall semester.* We do have some class options if you start in the Spring but you will likely have to wait for some classes too because we just don't have enough students starting in the Spring to run a second copy of every course and, as noted above, IT courses tend to build on one another. If you start in the Spring it's most likely that you will have some lighter semesters (fewer credits) but will probably take an extra semester to graduate.
