@@ -1,0 +1,5 @@
+name: software-info
+title: Software Information
+version: '2022.SP'
+nav:
+ - modules/ROOT/navtop.adoc

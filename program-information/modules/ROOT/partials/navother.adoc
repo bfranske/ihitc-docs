@@ -1,5 +1,0 @@
-.xref:franske-courses:ROOT:index.adoc[Dr. Franske's Course Pages]
-
-.Technical Information
-
-.Software Discounts and Resources

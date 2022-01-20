@@ -8,6 +8,7 @@ content:
     start_paths: 
     - program-information/
     - franske-course-information/
+    - technical-information/
     branches: HEAD
 ui: 
   bundle:

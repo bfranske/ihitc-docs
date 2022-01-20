@@ -1,0 +1,5 @@
+name: tech-info
+title: Technical Information
+version: '2022.SP'
+nav:
+ - modules/ROOT/navtop.adoc

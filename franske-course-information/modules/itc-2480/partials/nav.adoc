@@ -1,4 +1,4 @@
 * ITC-2480
-** xref:index.adoc[Course Home]
-** xref:syllabus.adoc[Syllabus]
-** xref:schedule.adoc[Schedule]
+** xref:itc2480:index.adoc[Course Home]
+** xref:itc2480:syllabus.adoc[Syllabus]
+** xref:itc2480:schedule.adoc[Schedule]
