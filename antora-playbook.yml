@@ -5,10 +5,9 @@ site:
 content:
   sources: 
   - url: https://github.com/bfranske/ihitc-docs.git
-    start_path: program-information/
-    branches: HEAD
-  - url: https://github.com/bfranske/ihitc-docs.git
-    start_path: franske-course-information/
+    start_paths: 
+    - program-information/
+    - franske-course-information/
     branches: HEAD
 ui: 
   bundle:
