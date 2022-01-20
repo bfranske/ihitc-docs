@@ -1,0 +1,8 @@
+* xref:program-info:ROOT:index.adoc[Program Information]
+* xref:franske-courses:ROOT:index.adoc[Dr. Franske's Course Pages]
++
+--
+include::itc-2480:partial$nav.adoc[]
+--
+* Technical Information
+* Software Discounts and Resources
