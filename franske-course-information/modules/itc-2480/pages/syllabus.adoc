@@ -1,27 +1,29 @@
 = ITC-2480 Syllabus
-[%hardbreaks]
-Course Name: Administering Linux Operating Systems
-Course Number: ITC-2830
-Instructor: Dr. Ben Franske
-Term: Spring 2022 (1/12/2022-5/11/2022)
-Meetings: No required meetings
+Course Name: Administering Linux Operating Systems +
+Course Number: ITC-2830 +
+Instructor: Dr. Ben Franske +
+Term: Spring 2022 (1/12/2022-5/11/2022) +
+Meetings: No required meetings +
 Location: Online
 
 == Instructor Contact Information
-[%hardbreaks]
 *E-mail:*
+
 * ben@ihitc.net (when emailing please include your course number, section number and full name)
 
 *Text Messaging/Chat:*
+
 * Find me on Microsoft Teams, it's available as a Website, Desktop application, Android, and IOS application. To make the best use of it you are encouraged to have it installed on your computer as well as a smartphone.
 ** Access Instructions: Get instructions for installing the latest Office 365 apps on your computer which includes Teams and/or sign on to the Teams web app at office.com with <YourStarID>@go.minnstate.edu and/or sign in to the Microsoft Teams mobile app with <YourStarID>@go.minnstate.edu
 
 *Office and Hours:*
+
 * Online office hours (email during these times and we can setup a Zoom or phone call right away): Weds 11:00am-1:00pm, 2:30-4:00pm
 * On campus office hours and lab assistance time (subject to change to online based on COVID-19 recommendations) look for me in the Business Building room B120 or B143: Tues 2:00-4:30pm
 * Webcam/phone/in-person meetings also available other times by appointment.
 
 *Phone:*
+
 * Office: 651-450-3575 (leave a message with details and I will get back to you)
 
 == General Course Information
@@ -45,10 +47,11 @@ No optional resources have been suggested for this course.
 * ITC Class Server (https://class.ihitc.net - access through link in D2L to sign in)
 
 == Lab Time
-All lab activities can be completed remotely but campus ITC labs will be available for your use during during office hours on a first come, first served basis. Open lab time may also be available under the supervision of the lab assistant, see the xref:program-information:ROOT:facstaff.adoc[faculty and staff page] for lab assistant contact information to reserve times. Students who do not show up for lab hours they have scheduled may be restricted from reserving lab hours in the future. 
+All lab activities can be completed remotely but campus ITC labs will be available for your use during during office hours on a first come, first served basis. Open lab time may also be available under the supervision of the lab assistant, see the xref:program-info:ROOT:facstaff.adoc[faculty and staff page] for lab assistant contact information to reserve times. Students who do not show up for lab hours they have scheduled may be restricted from reserving lab hours in the future. 
 
 == Course Objectives
 Students will be able to:
+
 * Determine and configure hardware settings
 * Explain, configure and troubleshoot Linux booting
 * Change runlevels and shutdown or reboot the system
@@ -189,7 +192,7 @@ In accordance with federal and state laws, Inver Hills Community College is comm
 
 It is the responsibility of students to notify instructors of the need for accommodation at the beginning of the course or as soon as a situation arises. If a mutually agreed accommodation is not made, a student may initiate a complaint. The procedure for filing a complaint is described in the Catalog and on the Inver Hills website. The complaint must be filed within 15 days of a denied accommodation request. 
 
-==Updates to this Syllabus
+== Updates to this Syllabus
 The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
 
 [%hardbreaks]
