@@ -1,2 +1,4 @@
+* xref:facstaff.adoc[Meet the Faculty and Staff]
 * xref:degree-course-sequencing.adoc[Degree Course Sequencing]
+* xref:certification-info.adoc[Certification Information]
 * xref:certification-credit.adoc[ITC Course Credit Equivalency for IT Exams]
