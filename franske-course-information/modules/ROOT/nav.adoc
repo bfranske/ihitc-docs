@@ -2,7 +2,5 @@
 * xref:program-info:index.adoc[ITC Program Information]
 
 .Dr. Franske's Course Pages
-+
---
+* xref:index.adoc[Home]
 include:itc-2480:partial$nav.adoc[]
---

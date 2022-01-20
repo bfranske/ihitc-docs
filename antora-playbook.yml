@@ -1,5 +1,5 @@
 site:
-  title: IHITC Docs
+  title: IHITC Info
   url: https://bfranske.github.io/ihitc-docs/
   start_page: program-info::index.adoc 
 content:
