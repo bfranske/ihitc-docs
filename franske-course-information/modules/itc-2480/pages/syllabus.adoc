@@ -128,7 +128,7 @@ Grades for this course are calculated based on a weighted points system. Each as
 |30%
 |Written Final Exam 
 |15%
-|Skills Based Final Exam 
+|Skills Based Final Exam
 |15%
 |Homework, Activities & Participation 
 |20% 
