@@ -1,3 +1,6 @@
 name: franske-courses
-title: Franske Course Information
+title: Dr. Franske's Course Pages
 version: '2022.SP'
+nav:
+ - modules/ROOT/nav.adoc
+ - modules/itc-2480/nav.adoc

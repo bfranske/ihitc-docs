@@ -1,0 +1,2 @@
+.Other Areas
+* xref:franske-courses:index.adoc[Dr. Franske's Course Pages]

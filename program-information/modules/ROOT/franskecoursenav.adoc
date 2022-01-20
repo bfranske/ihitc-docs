@@ -1,3 +1,0 @@
-* xref:franske-courses:itc-2480:index.adoc[ITC-2480 Home]
-** xref:franske-courses:itc-2480:syllabus.adoc[Syllabus]
-** xref:franske-courses:itc-2480:schedule.adoc[Schedule]

@@ -1,0 +1,92 @@
+Inver Hills Community College will grant credit equivalencies to many Information Technology & Careers (ITC, CS) courses based on certification exam results indicating a passing score which meet the following criteria:
+. Exam is administered by Pearson VUE, Thomson/Prometric, Certiport or a future authorized industry certification testing company. Certification results are confirmed directly from certifying agent (e.g., Cisco, Microsoft, CompTIA) through mail, secure website or other means initiated by the certifying agent. The student is responsible for making arrangements to provide this documentation.
+. The certification exam is based on outcomes and objectives that correspond substantially to the content being taught in current courses. In cases where the current course content is based on technology that is substantially different from the certification exam taken by the student, credit will not be granted. Students my retake exams to qualify for credit equivalency.
+. In the case of certifications with expiration dates the certification is not expired. In the case of individual exams or certifications without expiration dates the exam taken is the most current version.
+
+Due to constantly evolving industry certifications specific exams are no longer listed in the course catalog with course equivalencies. A faculty member from the ITC department will review all credit equivalencies for ITC courses and determine whether the exam taken or certification obtained substantially corresponds to the course. A general guideline of common course equivalencies can be found on the ITC department website or by contacting one of the ITC instructors. Examples of certifications commonly accepted for course credit include the CompTIA A+, Cisco CCNA, CCNA Specializations, CCNP, Microsoft MCITP and Microsoft Office Specialist tracks.
+
+*The table below is a general guideline of common course equivalencies and does not assure the academic credit will be granted for specific exams.*  Exams vary in content and structure over time and may not measure the current outcomes and objectives of a course; in such cases, credit cannot be given for current courses. A faculty member from the ITC department will review all credit equivalencies for ITC courses and determine whether the exam taken or certification obtained substantially corresponds to the course.
+
+[width="100%",options="header"]
+|===
+|Exam/Certification |Course No. |Course Description |Credits
+|CompTIA A+ Certification (2 Exams)
+|ITC 2000
+|PC Hardware and Software (A+)
+|3
+|LPI Linux Essentials
+|ITC 1480
+|Linux Essentials
+|3
+|Microsoft MD-100: Windows 10
+|ITC 2410
+|Installing and Configuring Windows Clients
+|3
+|Microsoft MD-101: Managing Modern Desktops
+|ITC 2420
+|Configuring Windows Devices
+|3
+|Microsoft 70-740: Installation, Storage, and Compute with Windows Server 2016
+|ITC 2430
+|Installing and Configuring Windows Servers
+|3
+|Microsoft 70-742: Identity with Windows Server 2016
+|ITC 2440
+|Windows Server Identity & Directory Services
+|3
+|Microsoft 70-741: Networking with Windows Server 2016
+|ITC 2450
+|Windows Server Networking
+|3
+|Cisco CCNA
+|ITC 2510
+|Introduction to Networks (CCNA1)
+|3
+|Cisco CCNA
+|ITC 2520
+|Switching, Routing, and Wireless Essentials (CCNA 2)
+|3
+|Cisco CCNA
+|ITC 2530
+|Enterprise Networking, Security, and Automation (CCNA 3)
+|3
+|Cisco 350-401: Implementing and Operating Cisco Enterprise Network Core Technologies (ENCOR) Exam
+|ITC 2611
+|Cisco Enterprise Network Core Technologies (CCNP 1)
+|3
+|Cisco 300-410: Implementing Cisco Enterprise Advanced Routing and Services (ENARSI) Exam
+|ITC 2621
+|Cisco Enterprise Advanced Routing and Services (CCNP 2)
+|3
+|Cisco 300-430: Implementing Cisco Enterprise Wireless Networks (ENWLSI) Exam
+|ITC 2710
+|Wireless LAN Technology
+|3
+|Cisco 350-801: Implementing and Operating Cisco Collaboration Core Technologies (CLCOR) Exam
+|ITC 2720
+|Building the Foundation to IP Telephony
+|3
+|Cisco 300-815: Implementing Cisco Advanced Call Control and Mobility Services (CLACCM) Exam
+|ITC 2730
+|Quality of Service (QoS)
+|2
+|Cisco 300-810: Implementing Cisco Collaboration Applications (CLICA) Exam
+|ITC 2740
+|Cisco IP Telephony Integration Part I
+|3
+|Cisco CCNA Cyber Ops Certification (2 Exams)
+|ITC 2810
+|CCNA Cybersecurity Operations
+|3
+|Cisco 350-701: Implementing and Operating Cisco Security Core Technologies (SCOR) Exam
+|ITC 2820
+|Information Systems Security Advanced
+|3
+|Cisco 300-710: Securing Networks with Cisco Firepower (SNCF) Exam
+|ITC 2830
+|Implementing Cisco IOS Network Security (CCNA Security)
+|3
+|CompTIA IT Fundamentals
+|ITC 1400
+|IT Fundamentals
+|3|===
