@@ -2,12 +2,14 @@
 
 == Faculty
 === Dr. Ben Franske, Professor
+[%hardbreaks]
 Email: b.franske@inverhills.edu
 Phone: 651-450-3575
 
 Ben has been a faculty member at Inver Hills Community College in the ITC department since 2009.
 
 === Mr. Saul Acevedo, Professor
+[%hardbreaks]
 Email: SAcevedo@inverhills.edu
 Phone: 651-450-3844
 
@@ -16,6 +18,7 @@ Email: DHenninger@inverhills.edu
 
 == Staff
 === Mr. Tom McArdell, Lab Assistant
+[%hardbreaks]
 Email: t.mcardell@inverhills.edu
 Phone: 651-450-3460
 

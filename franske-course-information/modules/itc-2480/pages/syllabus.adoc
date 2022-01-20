@@ -1,4 +1,5 @@
 = ITC-2480 Syllabus
+[%hardbreaks]
 Course Name: Administering Linux Operating Systems
 Course Number: ITC-2830
 Instructor: Dr. Ben Franske
@@ -7,6 +8,7 @@ Meetings: No required meetings
 Location: Online
 
 == Instructor Contact Information
+[%hardbreaks]
 *E-mail:*
 * ben@ihitc.net (when emailing please include your course number, section number and full name)
 
@@ -26,19 +28,25 @@ Location: Online
 === Prerequisite(s)
 * ITC 1480 or Linux Essentials Certificate (see course notes).
 * Placement into ENG 1108 or completion of both ENG 0099 and READ 0093/0094 with a grade of C or higher.
+
 === Course Description
 Covers the installation, configuration and maintenance of Linux systems with an emphasis on server administration. A major focus of this course is learning the Linux command line interface for system administration tasks. Other topics involve providing network services such as routing, firewalls, DNS, DHCP, file, web, and email servers to network clients. 
+
 === Required Resources
 * https://debian-handbook.info/get/now/[The Debian Administrator's Handbook (Debian 10 Edition) by Raphaël Hertzog and Roland Mas] (ISBN: 979-1091414197) Available Free Online!
 * http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line (2nd Edition or 5th Internet Edition) by William Shotts] (ISBN: 978-1593279523) Available Free Online!
 * Various Online Readings (see course assignments page)
+
 === Optional Resources
 No optional resources have been suggested for this course.
+
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
 * ITC Class Server (https://class.ihitc.net - access through link in D2L to sign in)
+
 == Lab Time
 All lab activities can be completed remotely but campus ITC labs will be available for your use during during office hours on a first come, first served basis. Open lab time may also be available under the supervision of the lab assistant, see the xref:program-information:ROOT:facstaff.adoc[faculty and staff page] for lab assistant contact information to reserve times. Students who do not show up for lab hours they have scheduled may be restricted from reserving lab hours in the future. 
+
 == Course Objectives
 Students will be able to:
 * Determine and configure hardware settings
@@ -82,14 +90,18 @@ Students will be able to:
 * Utilize SSH for remote access to a system
 * Practice business soft skills including written, active listening, and oral presentation
 * Document evidence of business skill practice in an electronic portfolio
+
 == Course Design
 This course will be taught as an online course. You will be responsible for completing required readings in the textbook or online, watching tutorial videos, listening to recorded podcasts, completing labs in the IHCC virtual lab environment, participating in online discussions, and completing online exams. 
+
 == Assignments and Grading
 Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments and directions for assignments are available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
 
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your course grade depending on the type of the assignment.
+
 === Late Assignments and Extensions
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor. 
+
 === Grading Scale
 [options="header"]
 |===
@@ -162,18 +174,24 @@ All instances of cheating will be reported to the college administration. In add
 Students must initiate requests for withdrawal from a course by filing the appropriate form with Enrollment Services. Students who stop attending classes without completing the withdrawal process may receive a grade of “F,” and are responsible for all tuition/fees associated with the course registration. The last day to withdraw from your course will be the date on which 80% of the course has elapsed. The last day to withdraw for each course can be viewed in E-Services by searching for the course at the following link: https://webproc.mnscu.edu/registration/search/basic.html?campusid=157. Click on the course title to view additional details about the course, including last day to withdraw. 
 
 There are limits as to the latest date you can withdraw from the course and still receive a refund as well as the last date to withdraw from the course at all. Please see the Add, Drop and Withdraw page on the IHCC website: https://inverhills.edu/Registration/AddDropWithdraw.aspx
+
 === E-mail Communications
 Recognizing the value and efficiency of communication between faculty/staff and students through electronic mail Inver Hills Community College has designated e-mail as an official mode of communication. At the same time, email raises some issues concerning security and the identity of each individual in an email exchange. Therefore, students are asked to regularly check and utilize the email address they have registered with the college. If your email address has changed it is your responsibility to make sure the college has an up-to date email address where you can be contacted. You should check your email on a regular basis as course changes and communications may be sent by email. 
+
 === Pass/Fail Grade Option
 A student may elect to take a course on a pass/fail (P/F) grading basis by contacting the instructor within the first 5 business days of the semester, or within 1 business day of the start date for a course beginning after the first week of the semester. If the instructor approves, they will submit approval to the Enrollment Center. Not all courses are approved for students to elect the P/F grading method and there may be limits to the total number of classes which can be taken pass/fail in your degree or certificate program. Contact your instructor for details about what level of achievement in the course will be required to receive a pass in the course. 
+
 === Access and Accommodations
 Inver Hills values diversity and inclusion; we are committed to fostering mutual respect and full participation for all students. My goal is to create a learning environment that is equitable, inclusive and welcoming. If any aspects of instruction or course design result in barriers to your inclusion or learning, please notify me. The Office of Accessibility Resources (OAR) provides reasonable accommodations and assistive technologies for students who encounter barriers in the learning environment. Services are available to students with a wide range of disabilities including, but not limited to, physical disabilities, medical conditions, learning disabilities, attention deficit disorder, depression, and anxiety. If you have already registered with OAR and have your Letter of Accommodation, please meet with me early in the course to discuss, plan, and implement your accommodations in the course. For additional information, please contact OAR located within the Learning Center (L207), 651-450-3884, accessibilityresources@inverhills.edu or https://www.inverhills.edu/LearningSupport/AccessibilityResources/index.aspx
+
 === Religious Accommodation Statement
 In accordance with federal and state laws, Inver Hills Community College is committed to a policy of free expression and respect for the diversity of beliefs, including religious observances, among our academic community. It is the policy of the college to provide reasonable accommodations for students when religious beliefs and/or observances conflict with classroom activities or course requirements.
 
 It is the responsibility of students to notify instructors of the need for accommodation at the beginning of the course or as soon as a situation arises. If a mutually agreed accommodation is not made, a student may initiate a complaint. The procedure for filing a complaint is described in the Catalog and on the Inver Hills website. The complaint must be filed within 15 days of a denied accommodation request. 
+
 ==Updates to this Syllabus
 The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
 
+[%hardbreaks]
 Document Build Time: {localdatetime}
 Page Version: {page-component-version}

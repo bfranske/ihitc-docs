@@ -179,5 +179,6 @@
 * https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Python Instant Hacking]
 * https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[dreamsys Python Scripting Tutorial]
 
+[%hardbreaks]
 Document Build Time: {localdatetime}
 Page Version: {page-component-version}
