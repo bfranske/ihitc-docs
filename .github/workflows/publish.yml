@@ -9,7 +9,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Run Antora
-        uses: kameshsampath/antora-site-action@v0.3.0
+        uses: kameshsampath/antora-site-action@3fcb79815255c9d39edf9013aae94c401b536df6
         with:
           antora_playbook: antora-playbook.yml
       - name: Publish to GitHub Pages
