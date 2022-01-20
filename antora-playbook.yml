@@ -9,6 +9,7 @@ content:
     - program-information/
     - franske-course-information/
     - technical-information/
+    - software-information/
     branches: HEAD
 ui: 
   bundle:
