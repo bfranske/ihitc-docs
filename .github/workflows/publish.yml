@@ -12,6 +12,8 @@ jobs:
         uses: kameshsampath/antora-site-action@3fcb79815255c9d39edf9013aae94c401b536df6
         with:
           antora_playbook: antora-playbook.yml
+          antora_generator: 'antora-site-generator-lunr'
+          antora_docsearch_enabled: 'true'
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
