@@ -7,6 +7,9 @@ content:
   - url: https://github.com/bfranske/ihitc-docs.git
     start_path: program-information/
     branches: HEAD
+  - url: https://github.com/bfranske/ihitc-docs.git
+    start_path: franske-course-information/
+    branches: HEAD
 ui: 
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable

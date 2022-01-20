@@ -1,0 +1,5 @@
+name: franske-courses
+title: Franske Course Information
+version: '2022.SP'
+nav:
+ - modules/itc-2480/nav.adoc
