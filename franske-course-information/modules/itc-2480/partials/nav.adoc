@@ -2,3 +2,4 @@
 ** xref:itc2480:index.adoc[Course Home]
 ** xref:itc2480:syllabus.adoc[Syllabus]
 ** xref:itc2480:schedule.adoc[Schedule]
+** xref:itc2480:assignments.adoc[Assignments]
