@@ -1,4 +1,4 @@
-.xref:franske-courses:index.adoc[Dr. Franske's Course Pages]
+.xref:franske-courses:ROOT:index.adoc[Dr. Franske's Course Pages]
 
 .Technical Information
 
