@@ -1,5 +1,6 @@
 = ITC-2480 Official Course Schedule and Readings
-== Schedule
+
+== Official Course Schedule
 * DH refers to the https://debian-handbook.info/get/now/[Debian Administrator's Handbook (Debian 10 Edition) by Raphaël Hertzog and Roland Mas]
 * LCL refers to http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 * Other online readings are linked to below the schedule table
