@@ -12,6 +12,7 @@ jobs:
         uses: bfranske/antora-site-action@master
         with:
           antora_playbook: antora-playbook.yml
+          antora_lunr_docsearch_enabled: true
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
