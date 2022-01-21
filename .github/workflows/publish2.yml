@@ -12,8 +12,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Install Antora
-        run: npm install -g @antora/cli@3.0.0 @antora/site-generator@3.0.0
+      - name: Install Antora and Lunr
+        run: npm install -g @antora/cli@3.0.0 @antora/site-generator@3.0.0 @antora/lunr-extension
       - name: Generate Site
         run: antora antora-playbook.yml
       - name: List Files
