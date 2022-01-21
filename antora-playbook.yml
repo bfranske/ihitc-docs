@@ -19,3 +19,7 @@ ui:
 urls:
   html_extension_style: drop
   latest_version_segment: current
+antora:
+  extensions:
+  - require: '@antora/lunr-extension'
+    index_latest_only: true
