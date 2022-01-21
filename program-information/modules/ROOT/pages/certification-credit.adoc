@@ -1,3 +1,5 @@
+= ITC Course Credit Equivalency for IT Exams
+
 Inver Hills Community College will grant credit equivalencies to many Information Technology & Careers (ITC, CS) courses based on certification exam results indicating a passing score which meet the following criteria:
 . Exam is administered by Pearson VUE, Thomson/Prometric, Certiport or a future authorized industry certification testing company. Certification results are confirmed directly from certifying agent (e.g., Cisco, Microsoft, CompTIA) through mail, secure website or other means initiated by the certifying agent. The student is responsible for making arrangements to provide this documentation.
 . The certification exam is based on outcomes and objectives that correspond substantially to the content being taught in current courses. In cases where the current course content is based on technology that is substantially different from the certification exam taken by the student, credit will not be granted. Students my retake exams to qualify for credit equivalency.
