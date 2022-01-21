@@ -93,3 +93,7 @@ Due to constantly evolving industry certifications specific exams are no longer 
 |IT Fundamentals
 |3
 |===
+
+[%hardbreaks]
+Document Build Time: {localdatetime}
+Page Version: {page-component-version}

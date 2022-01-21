@@ -1,6 +1,8 @@
 = Certification Information
+
 == Vouchers and Discounts
-== Cisco Academy Voucher Information
+
+=== Cisco Academy Voucher Information
 Discount vouchers are available from the Cisco Networking Academy to allow qualified Networking Academy students to take certain Cisco certification exams at a reduced cost after completing specific courses. You must request and use your voucher by certain dates after you take your final exam, see the https://www.netacad.com/portal/faq-page/discount-process[Netacad Discount Process FAQ] for details.
 
 If you meet the voucher eligibility requirements (see below) you will qualify for a discount voucher which can be used for your exam. Discount vouchers can only be used once! Once you request the voucher no one can make changes to it or stop it from being issued. Make sure your Netacad profile information is correct before requesting a voucher (see below). No exchanges or refunds are available. When you become eligible for a certification exam discount voucher, a Request Voucher link will appear on the Learn tab on your Cisco NetSpace home page. It may take up to three days for the link to appear after your course instructor has passed you in the grade book. You are not eligible if the link does not appear.
@@ -18,7 +20,7 @@ It is strongly suggested you read the https://www.netacad.com/portal/faq-page/di
 
 Discounts are country-specific and are not interchangeable. Vouchers are non-transferable and are valid for three months following the date of your qualifying course final exam. Individuals who use any unauthorized discount or promotional code may have their exam results invalidated and risk a lifetime ban on all future exams and the nullification of all previous certifications. Cisco will not replace any voucher that is found to be fraudulent or used. 
 
-=== Before requesting a voucher
+==== Before requesting a voucher
 Before beginning the discount request process, please check your NetAcad profile for accuracy (see below). Click your name in the top navigation bar and select “My Profile”. Make any needed updates.
 * Your name matches your legal identification
 ** If you already have a CSCO account, make sure the name in your NetAcad account matches so a duplicate account is not created
@@ -28,11 +30,12 @@ Before beginning the discount request process, please check your NetAcad profile
 ** This is used in the discount request process and must be input in order to begin the process
 
 
-== CompTIA A+ Voucher Information
+=== CompTIA A+ Voucher Information
 Discounted vouchers for the CompTIA A+ certification can be purchased by ITC students through the https://academic-store.comptia.org/comptia-acad-a-plus-exam-voucher/p/ACADCompTIAA[CompTIA A+ Academic Discount Voucher Program] This will require an EDU email address. Remember you need to pass two different exams to earn the CompTIA A+ certification so you will need to purchase two vouchers. When registering for your exam you can enter in your voucher ID as the payment option and it will cover the price of the exam even though the voucher was less expensive than the normal exam rate.
 
-== Transcripts
+== Certification Transcripts
 In order to receive credit for courses (or for employers) you may be required to produce a certification transcript. Follow the instructions below depending on your specific certification program. 
+
 === Cisco Transcripts
 . Login to the http://www.cisco.com/go/certifications/login[Cisco Certification Tracker website]
 . Once logged in click the https://www.certmetrics.com/cisco/candidate/transcripts.aspx["Transcripts"] link at the top right of the page.
@@ -46,6 +49,7 @@ In order to receive credit for courses (or for employers) you may be required to
 . Check your transcript to make sure it is accurate and has your certifications and/or exams listed.
 . Copy the URL of your transcript from the browser bar. It should look something like: https://www.certmetrics.com/cisco/public/transcript.aspx?transcript=XXXXXXXXXXXXXXXX
 . Email that URL link to whoever needs to verify your certification.
+
 === CompTIA Transcripts
 . Go to the https://www.comptia.org/[CompTIA website]
 . Click the https://my.comptia.org/["Login" button] in the upper right corner
@@ -63,6 +67,7 @@ In order to receive credit for courses (or for employers) you may be required to
 . Check your transcript to make sure it is accurate and has your certification listed.
 . Copy the URL of your transcript from the browser bar. It should look something like: https://www.certmetrics.com/comptia/public/transcript.aspx?transcript=XXXXXXXXXXXXXXXX
 . Email that URL link to whoever needs to verify your certification.
+
 === Microsoft Transcripts
 . Go to the https://docs.microsoft.com/en-us/learn/certifications/[Microsoft Learn Certifications Page]
 . Click the https://www.microsoft.com/learning/dashboard.aspx[Go to certification dashboard] button
