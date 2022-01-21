@@ -91,4 +91,5 @@ Due to constantly evolving industry certifications specific exams are no longer 
 |CompTIA IT Fundamentals
 |ITC 1400
 |IT Fundamentals
-|3|===
+|3
+|===
