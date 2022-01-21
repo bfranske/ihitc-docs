@@ -1,0 +1,18 @@
+name: Publish to GitHub Pages on Distpatch
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run Antora
+        uses: bfranske/antora-site-action@master
+        with:
+          antora_playbook: antora-playbook.yml
+          antora_lunr_docsearch_enabled: true
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: build/site
