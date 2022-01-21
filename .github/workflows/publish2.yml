@@ -11,7 +11,7 @@ jobs:
       - name: Setup NPM
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
       - name: Install Antora and Lunr
         run: npm install -g @antora/cli@3.0.0 @antora/site-generator@3.0.0 @antora/lunr-extension
       - name: Generate Site
