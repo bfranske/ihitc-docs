@@ -5,7 +5,7 @@
 * LCL refers to http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 * Other online readings are linked to below the schedule table
 
-[options="header"]
+[%autowidth,options="header"]
 |===
 |Date |Week |Topic # |Topic |Readings to do before this date |Lab Activities to do before the next date |Assignments Due Today by 11:59pm
 |12-Jan

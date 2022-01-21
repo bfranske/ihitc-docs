@@ -106,7 +106,7 @@ Failure to turn in one or more assignments without approval from the instructor 
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor. 
 
 === Grading Scale
-[options="header"]
+[%autowidth,options="header"]
 |===
 |Letter Grade |Percentage Range |Description
 |A
@@ -134,7 +134,7 @@ If assignments are turned in late 10% will be deducted for each day or partial d
 
 === Grading Method and Availability
 Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
-[options="header"]
+[%autowidth,options="header"]
 |===
 |Category |Percent of Final Grade
 |Topic Assessments 
