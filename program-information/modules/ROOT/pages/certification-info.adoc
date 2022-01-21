@@ -8,6 +8,7 @@ Discount vouchers are available from the Cisco Networking Academy to allow quali
 If you meet the voucher eligibility requirements (see below) you will qualify for a discount voucher which can be used for your exam. Discount vouchers can only be used once! Once you request the voucher no one can make changes to it or stop it from being issued. Make sure your Netacad profile information is correct before requesting a voucher (see below). No exchanges or refunds are available. When you become eligible for a certification exam discount voucher, a Request Voucher link will appear on the Learn tab on your Cisco NetSpace home page. It may take up to three days for the link to appear after your course instructor has passed you in the grade book. You are not eligible if the link does not appear.
 
 Discount Vouchers are Available After Completing These Courses:
+
 * ITC 2536 -- CCNAv7 Enterprise Networking, Security, and Automation -- CCNA Certification Exam
 ** Note that this course ends mid-semester at Inver Hills. Be sure to pay attention to the dates vounchers must be requested and used by!
 ** You must achieve 70% or higher on first attempt of final exam and be marked as complete by your instructor in the gradebook
@@ -22,6 +23,7 @@ Discounts are country-specific and are not interchangeable. Vouchers are non-tra
 
 ==== Before requesting a voucher
 Before beginning the discount request process, please check your NetAcad profile for accuracy (see below). Click your name in the top navigation bar and select “My Profile”. Make any needed updates.
+
 * Your name matches your legal identification
 ** If you already have a CSCO account, make sure the name in your NetAcad account matches so a duplicate account is not created
 * Email address is correct
