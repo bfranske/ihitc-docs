@@ -12,7 +12,5 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Run NPM Stuff
-        run: | 
-          npm install
-          npm test
+      - name: Install Antora
+        run: npm install @antora/cli@3.0.0
