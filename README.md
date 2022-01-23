@@ -1,1 +1,0 @@
-# ihitc-docs

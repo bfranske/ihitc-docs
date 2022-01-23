@@ -1,0 +1,6 @@
+= Inver Hills ITC Department Information Site
+This site is designed to eventually replace the https://wiki.ihitc.net[ITC Wiki].
+
+It is built using Antora with the Lunr search engine and uses the AsciiDoc format for documentation.
+
+The built site is available at https://bfranske.github.io/ihitc-docs/
