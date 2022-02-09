@@ -6,7 +6,11 @@ IT infrastructure personnel are responsible for installing, configuring, operati
 
 Many of the classes in our degrees and certificates are aligned with professional industry certifications. If you already have one or more of these certifications you may be able to receive credit for courses. Review the xref:certification-credit.adoc[ITC Course Credit Equivalency for IT Exams] chart and then contact a faculty member for more information.
 
-*Important Note:* Many of the courses in ITC degree programs have prerequisites which effectively limit the number of technical courses which can be take in any one semester. In order to ensure timely graduation, appropriate course loads, and the correct mix of technical and liberal arts courses students are strongly encouraged to meet with an academic advisor, counselor, and having that plan reviewed by a faculty member from the ITC department before registering for classes to determine a degree plan. You can also  xref:degree-course-sequencing.adoc[review a suggested course sequence online] to give you a starting point.
+[WARNING]
+.Important Note
+====
+Many of the courses in ITC degree programs have prerequisites which effectively limit the number of technical courses which can be take in any one semester. In order to ensure timely graduation, appropriate course loads, and the correct mix of technical and liberal arts courses students are strongly encouraged to meet with an academic advisor, counselor, and having that plan reviewed by a faculty member from the ITC department before registering for classes to determine a degree plan. You can also  xref:degree-course-sequencing.adoc[review a suggested course sequence online] to give you a starting point.
+====
 
 === Certificate: IT Helpdesk and Cybersecurity Operations - 18 Credits
 *Official Description:* This certificate provides the knowledge and skills for employment in entry-level positions in the information technology field that support security operations center and technology end-users. Students will learn the essential components and function of hardware and software systems used in modern businesses as well as analysis techniques used in security operations centers. Courses in this certificate help prepare students for the CompTIA IT Fundamentals, CompTIA A+, LPI Linux Essentials, Cisco CyberOps Associate, and Microsoft Windows 10 industry certifications.
