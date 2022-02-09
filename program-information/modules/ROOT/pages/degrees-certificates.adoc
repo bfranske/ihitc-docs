@@ -7,7 +7,7 @@ IT infrastructure personnel are responsible for installing, configuring, operati
 Many of the classes in our degrees and certificates are aligned with professional industry certifications. If you already have one or more of these certifications you may be able to receive credit for courses. Review the xref:certification-credit.adoc[ITC Course Credit Equivalency for IT Exams] chart and then contact a faculty member for more information.
 
 [WARNING]
-.Important Note
+.Course Order
 ====
 Many of the courses in ITC degree programs have prerequisites which effectively limit the number of technical courses which can be take in any one semester. In order to ensure timely graduation, appropriate course loads, and the correct mix of technical and liberal arts courses students are strongly encouraged to meet with an academic advisor, counselor, and having that plan reviewed by a faculty member from the ITC department before registering for classes to determine a degree plan. You can also  xref:degree-course-sequencing.adoc[review a suggested course sequence online] to give you a starting point.
 ====
