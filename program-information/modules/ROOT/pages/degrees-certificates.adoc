@@ -16,18 +16,29 @@ Many of the courses in ITC degree programs have prerequisites which effectively 
 
 === Certificate: IT Helpdesk and Cybersecurity Operations - 18 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate provides the knowledge and skills for employment in entry-level positions in the information technology field that support security operations center and technology end-users. Students will learn the essential components and function of hardware and software systems used in modern businesses as well as analysis techniques used in security operations centers. Courses in this certificate help prepare students for the CompTIA IT Fundamentals, CompTIA A+, LPI Linux Essentials, Cisco CyberOps Associate, and Microsoft Windows 10 industry certifications.
 
 *The Bottom Line:* This is a great option if you are unsure about your technical skills but are interested in getting into a computer career or continuing on towards a degree. This certificate can be completed in two semesters (one year) and will prepare you for several industry certifications, especially the CompTIA A+ which is required for many entry level IT positions and may be all you need to start working in IT. All of the credits in this certificate will count towards the AAS in Information Technology Support if you decide to continue towards a degree.
+====
 
 === Certificate: IT System Administrator - 18 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate provides IT employees with knowledge and skills needed to administer Linux and Windows clients and servers. Courses in this certificate help prepare students for the Microsoft 365 Certified: Modern Desktop Administrator Associate, Microsoft Certified: Windows Server Hybrid Administrator Associate, and LPI Linux Essentials industry certifications.
 
 *The Bottom Line:* This is a great option if you want to move from an entry level helpdesk position into a server administrator position where you will manage Windows or Linux servers. This certificate can be completed in two semesters (one year) if you already have helpdesk experience and will prepare you for several industry certifications. All of the credits in this certificate will count towards the AAS in Information Technology Support if you decide to continue towards a degree.
+====
 
 === AAS in Information Technology Support - 60 Credits
 
+.Find out more about this degree
+[%collapsible]
+====
 *Official Description:* The Information Technology Support program trains workers for employment providing service to computer users, including hardware and software installation and technical assistance. Coursework includes experiences and instruction in communication and problem-solving skills, as well as technical training with hardware, software, operating systems, applications software, security, and computer network operations. Designed to prepare graduates to select, maintain, configure, and oversee installation of business-oriented personal computers, software, and to support and train users.  This program provides the student training for a variety of IT industry certifications including the CompTIA A+, Microsoft Windows Server Hybrid Administrator Associate, and Cisco Cyber Operations Associate.
 
 *The Bottom Line:* This degree is designed to prepare you for entry level IT support, system administration, networking, and cybersecurity positions. Starting from the very basics of IT you will learn the skills required to support users and business needs. This degree can be completed in four semesters (two years) and includes preparing you for many industry certifications including the CompTIA A+ which is required for many entry level IT positions.
@@ -35,21 +46,33 @@ Many of the courses in ITC degree programs have prerequisites which effectively 
 *The Big Bonus:* You will earn the IT Helpdesk and Cybersecurity Operations and IT System Administrator certificates (one each year) while you complete this degree so you will graduate with three credentials!
 
 *Continuing Your Education:* Inver Hills has relationships with multiple 4-year schools where you can transfer all your credits if you would like to continue on to a bachelor's degree program. You may also decide to double-major at IHCC and continue on to finish requirements for the AAS in Network Technology and Security to prepare you for more advanced IT positions.
+====
 
 === Certificate: Networking and Cybersecruity Operations - 18 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate provides students with knowledge and skills essential to configuring, securing, and maintaining modern business networks and Internet connections. Centered around preparation for the Cisco Certified Network Associate industry credential this certificate bolsters confidence in small and medium sized business networks with courses about user facing network devices and security operations center skills. Courses in this certificate help prepare students for the CompTIA A+, Cisco Certified Network Associate, and Cisco CyberOps Associate industry certifications.
 
 *The Bottom Line:* This is a great option if you want to prepare for a network or security administrator position where you will manage routers, switches, and firewalls. This certificate can be completed in two semesters (one year) and will prepare you for several industry certifications, especially the CompTIA A+ which is required for many entry level IT positions and may be all you need to start working in IT and the Cisco Certified Network Associate (CCNA) which is the most widely recognized entry level network administration certification. All of the credits in this certificate will count towards the AAS in Network Technology and Security if you decide to continue towards a degree.
+====
 
 === Certificate: Enterprise Networking - 18 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate provides students with knowledge and skills to configure and maintaining large enterprise networks and WAN connections. Centered around preparation for the Cisco Certified Network Associate and Cisco CCNP Enterprise industry credentials this certificate includes hands-on experience with EIGRP, OSPF, BGP, multicast, QoS, wireless, overlay networks, and network programmability. Courses in this certificate help prepare students for the Cisco Certified Network Associate, and CCNP Enterprise industry certifications.
 
 *The Bottom Line:* This is a great option if you want to prepare for a more advanced network administrator position where you will manage routers, switches, and firewalls at a large enterprise with advanced routing protocols and technologies. This certificate can be completed in two semesters (one year) if you have CCNA experience and will prepare you for the next level of several industry certification, namely the widely respected Cisco Certified Network Professional (CCNP) Enterprise Advanced Routing and Services. All of the credits in this certificate will count towards the AAS in Network Technology and Security if you decide to continue towards a degree.
+====
 
 === AAS in Network Technology and Security - 60 Credits
 
+.Find out more about this degree
+[%collapsible]
+====
 *Official Description:* This program prepares students for rewarding careers in the dynamic field of computer networking and security. The continued growth of the Internet, wide area networks (WANs) and local area networks (LANs) requires people with the broad knowledge and skills needed to design, manage, secure, and troubleshoot sophisticated information storage, retrieval and presentation systems. The program covers the workings of networks and systems from desktop and mobile devices to cloud servers that could be located anywhere in the world. The curriculum has been designed to encompass many of the same competencies that are covered by several recognized IT industry certifications, for example CompTIA’s A+; Cisco’s CCNA, CCNP, and CyberOps Associate; and Microsoft’s Administering Windows Server Hybrid Core Infrastructure, so students will gain the knowledge and skills that are recognized as important for employment in the field. 
 
 *The Bottom Line:* This degree is designed to prepare you for network, system administration, and cybersecurity positions. You will build on a foundation of PC support to learn about more complex network design, server administration, and security concepts the very basics of IT you will learn the skills required to support users and business needs. This degree can be completed in four semesters (two years) and includes preparing you for many industry certifications including the CompTIA A+, Cisco Certified Network Associate (CCNA), Cisco Certified Network Professional (CCNP) Advanced Routing and Services, and more!
@@ -57,18 +80,27 @@ Many of the courses in ITC degree programs have prerequisites which effectively 
 *The Big Bonus:* You will earn the Networking and Cybersecruity Operations and Enterprise Networking certificates (one each year) while you complete this degree so you will graduate with three credentials!
 
 *Continuing Your Education:* Inver Hills has relationships with multiple 4-year schools where you can transfer all your credits if you would like to continue on to a bachelor's degree program. You may also decide to continue on to more advanced technical studies in networking and/or cybersecuirty at IHCC by finishing the requirements for one or more of our advanced certificates.
+====
 
 === Certificate: Advanced Network Technology - 18-21 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate program provides an opportunity for IT professionals who have large enterprise network administration responsibilities or experience to learn about state-of-the-art networking concepts and configuration beyond that covered in the Network Technology and Security degree program. Courses cover network programmability, QoS, advanced BGP, advanced OSPF, advanced EIGRP, overlay networks, VPNs, wireless networking, and multicast. Courses in this certificate help prepare students for the Cisco DevNet Associate, CCNP Enterprise, and additional CCNP Enterprise concentration areas based on the student’s career path and interests.
 
 *The Bottom Line:* This is a great option if you want to move beyond traditional networking into the world of DevOps, network as code, and additional CCNP concentration areas such as SD-WAN, network design, enterprise wireless, or automation. These advanced networking technologies are in demand by the biggest companies. This certificate can be completed in one or two semesters (one half to one year) if you have CCNP Enterprise Advanced Routing and Services experience and will prepare you for the the Cisco DevNet Associate and another CCNP concentration.
+====
 
 === Certificate: Advanced Cybersecurity Infrastructure - 18-21 Credits
 
+.Find out more about this certificate
+[%collapsible]
+====
 *Official Description:* This certificate program provides an opportunity for IT professionals who have network security and information assurance responsibilities or experience to learn about advanced cybersecurity concepts and configuration beyond that covered in the Network Technology and Security degree program. Courses cover industry standard topics including security incident management, firewalls, pen testing, VPNs, intrusion detection, and overall security policy and practices. Courses in this certificate help prepare students for the Cisco CyberOps Associate, EC-Council CEH, and other professional security certifications such as CCNP Security, CISSP, GSEC, CISM, or CISA based on the student’s career path and interests.
 
 *The Bottom Line:* This is a great option if you want to gain advanced experience in cybersecurity including penetration testing, network security device configuration, and security management. This certificate can be completed in one or two semesters (one half to one year) if you have basic security, networking, and systems administration experience and will prepare you for the the EC-Council CEH and at least one other professional security certification.
+====
 
 == Computer Science/Programming
 
@@ -76,14 +108,22 @@ Computer programmers are responsible for designing and writing the software appl
 
 === AS Computer Science Transfer Pathway – 60 credits
 
+.Find out more about this degree
+[%collapsible]
+====
 *Official Description:* The Computer Science Transfer Pathway A.S. offers students a powerful option: the opportunity to complete an Associate of Science degree with course credits that directly transfer to designated Computer Science bachelor’s degree programs at Minnesota State universities. The curriculum has been specifically designed so that students completing the pathway degree and transferring to one of the seven Minnesota State Universities* enter the university with junior-year status. All courses in the Transfer Pathway associate degree will directly transfer and apply to the designated bachelor’s degree programs in a related field.
 
 The Computer Science Pathway consists of the Required Pathway Curriculum and select Minnesota Transfer Curriculum (MnTC) requirements to bring your credit total to 60 credits.
 
 *Universities within the Minnesota State system include Bemidji State University; Metropolitan State University; Minnesota State University, Mankato; Minnesota State University, Moorhead; Southwest Minnesota State University; St. Cloud State University; and Winona State University. 
+====
 
 === AAS Computer Programmer – 60 credits
 
+.Find out more about this degree
+[%collapsible]
+====
 *Official Description:* Graduates of this program are well-prepared in software programming and software engineering abilities to help execute a wide variety of information technology projects. 
+====
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
