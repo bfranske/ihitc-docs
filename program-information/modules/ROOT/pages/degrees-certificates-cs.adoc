@@ -1,0 +1,17 @@
+= Computer Science/Programming
+
+Computer programmers are responsible for designing and writing the software applications (apps) which are used on computers, phones, and webservers. Computer scientists are responsible for studying and designing the algorithms to do useful things with computers and to be implemented by computer programmers.
+
+== AS Computer Science Transfer Pathway – 60 credits
+
+*Official Description:* The Computer Science Transfer Pathway A.S. offers students a powerful option: the opportunity to complete an Associate of Science degree with course credits that directly transfer to designated Computer Science bachelor’s degree programs at Minnesota State universities. The curriculum has been specifically designed so that students completing the pathway degree and transferring to one of the seven Minnesota State Universities* enter the university with junior-year status. All courses in the Transfer Pathway associate degree will directly transfer and apply to the designated bachelor’s degree programs in a related field.
+
+The Computer Science Pathway consists of the Required Pathway Curriculum and select Minnesota Transfer Curriculum (MnTC) requirements to bring your credit total to 60 credits.
+
+*Universities within the Minnesota State system include Bemidji State University; Metropolitan State University; Minnesota State University, Mankato; Minnesota State University, Moorhead; Southwest Minnesota State University; St. Cloud State University; and Winona State University. 
+
+=== AAS Computer Programmer – 60 credits
+
+*Official Description:* Graduates of this program are well-prepared in software programming and software engineering abilities to help execute a wide variety of information technology projects.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
