@@ -94,8 +94,4 @@ Due to constantly evolving industry certifications specific exams are no longer 
 |3
 |===
 
-[%hardbreaks]
-Document Build Time: {localdatetime}
-Page Version: {page-component-version}
-image::CCYSA.png[Creative Commons License]
-This work is licensed under a http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License]
+include::program-info:ROOT:partial$stdfooter.adoc[]
