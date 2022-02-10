@@ -6,3 +6,4 @@ include::itc-2480:partial$nav.adoc[]
 --
 * xref:tech-info:ROOT:index.adoc[Technical Information]
 * xref:software-info:ROOT:index.adoc[Software Discounts and Resources]
+* xref:tech-info:ROOT:about-site.adoc[About This Site]

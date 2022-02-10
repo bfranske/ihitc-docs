@@ -6,3 +6,4 @@
 --
 include::partial$nav.adoc[]
 --
+* xref:tech-info:ROOT:about-site.adoc[About This Site]

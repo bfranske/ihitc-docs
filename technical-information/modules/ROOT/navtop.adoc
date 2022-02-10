@@ -6,3 +6,4 @@
 include::partial$nav.adoc[]
 --
 * xref:software-info:ROOT:index.adoc[Software Discounts and Resources]
+* xref:tech-info:ROOT:about-site.adoc[About This Site]

@@ -1,0 +1,56 @@
+= About this Site
+
+This site is maintained by xref:program-info:ROOT:facstaff.adoc[Dr. Ben Franske], faculty member in the IHCC Information Technology Careers department, for the benefit of prospective, current, and alumni students in the department. This page explains how the site works and how to make updates to the site.
+
+== How the Site is Built
+
+The site is comprised of static pages hosted on GitHub pages which are generated programmatically from https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] files using the https://docs.antora.org/antora/latest/[Antora] site generator. The complete source code for the site can be found in the https://github.com/bfranske/ihitc-docs[itc-docs GitHub repository].
+
+A GitHub workflow exists which automatically runs the https://docs.antora.org/antora/latest/[Antora] site generator and then deploys the site to GitHub pages each time a push to the main branch is made. The code for this workflow https://github.com/bfranske/ihitc-docs/blob/main/.github/workflows/publish.yml[is also in the same repository].
+
+== How to Make Changes to the Site
+
+If you do not have commit access to the https://github.com/bfranske/ihitc-docs[itc-docs repository] you will need to fork the repository on GitHub, download a copy, edit the files, upload to your forked repository, and then submit a https://github.com/bfranske/ihitc-docs/pulls[pull request]. It is strongly suggested that you setup the same Antora build workflow on your forked repository or run Antora locally to build and test your edits before submitting the pull request.
+
+If you do have commit access to the https://github.com/bfranske/ihitc-docs[itc-docs repository] you can update your local branch, make changes, commit, and push to GitHub as you would with any normal source repository.
+
+.Update your local branch
+[source,bash]
+----
+git pull
+----
+
+.Commit changes to all modified files with an short explanation of the changes
+[source,bash]
+----
+git add -A
+git commit -m "a short explanation of what has been changed"
+----
+
+.Upload changes to the remote repository (assuming you have commit permission there)
+[source,bash]
+----
+git push
+----
+
+== Syntax for Site Content
+
+As mentioned, the site uses https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] as the format for individual pages. The documentation for AsciiDoc is the first place to start if you want to know how to format something on a page. Because the site itself is built using the https://docs.antora.org/antora/latest/[Antora] program their documentation explains the heirarchy of directories and files, as well as some quirks to the AsciiDoc format specific to Antora.
+
+== Finding Source for a Page
+
+The easiest way is to click the "Edit this Page" link in the upper right corner of any page. This will take you to an edit screen showing the page source and location. However, unless you have commit access to the repository you will need to fork the repository and submit a pull request as described above in order to make a change on the live site.
+
+Antora organizes things into "components" which are parents to "modules". Each module can hold a number of pages, snippets (called partials), examples, images, and attachments. The idea is that the different components can be pulled from different Git repositories at build time and so can have different owners/permissions. Things can be linked or included between components and modules as needed.
+
+For this site the major sections of the site, including a separate section for each faculty member that wants one (so they can be pulled from individual repositories), are their oen components. Most components are only using a "root" module at this time as there are a relatively limited number of pages in most components. The notable exception to this is that faculty components are likely to be divided into a module for each course so that various course pages, lab activities, images, attachments, etc. can be held together.
+
+== Site Design and Layout
+
+The design and layout of the site is controlled by the https://docs.antora.org/antora/latest/playbook/configure-ui/[UI bundle] which is part of the Antora playbook.
+
+== Search Capability
+
+A JavaScript based search capability has been added to the site using the Lunr module for Antora. This is included in the build process https://github.com/bfranske/ihitc-docs/blob/main/.github/workflows/publish.yml[through the build workflow] and enabled in https://github.com/bfranske/ihitc-docs/blob/main/antora-playbook.yml[the playbook].
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
