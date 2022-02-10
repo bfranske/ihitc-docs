@@ -2,5 +2,5 @@
 Document Build Time: {localdatetime}
 Page Version: {page-component-version}
 
-image::program-info:ROOT:CCYSA.png[Creative Commons License]
+image::program-info:ROOT:CCBYSA.png[Creative Commons License]
 This work is licensed under a http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License]
