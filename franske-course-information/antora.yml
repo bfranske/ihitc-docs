@@ -1,5 +1,5 @@
 name: franske-courses
 title: Dr. Franske's Course Pages
-version: '2022.01'
+version: true
 nav:
  - modules/ROOT/navtop.adoc

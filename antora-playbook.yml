@@ -10,7 +10,7 @@ content:
     - franske-course-information/
     - technical-information/
     - software-information/
-    branches: HEAD
+    branches: [{0..9}{0..9}{0..9}{0..9}.{0..9}{0..9}]
 ui: 
   bundle:
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable

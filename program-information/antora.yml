@@ -1,5 +1,5 @@
 name: program-info
 title: Program Information
-version: '2022.01'
+version: true
 nav:
  - modules/ROOT/navtop.adoc
