@@ -97,3 +97,5 @@ Due to constantly evolving industry certifications specific exams are no longer 
 [%hardbreaks]
 Document Build Time: {localdatetime}
 Page Version: {page-component-version}
+image::https://i.creativecommons.org/l/by-sa/4.0/88x31.png[Creative Commons License]
+This work is licensed under a http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License]
