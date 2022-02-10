@@ -6,6 +6,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Set Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "America/Chicago"
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Setup NPM
