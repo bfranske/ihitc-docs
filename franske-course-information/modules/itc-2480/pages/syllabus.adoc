@@ -195,6 +195,4 @@ It is the responsibility of students to notify instructors of the need for accom
 == Updates to this Syllabus
 The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
 
-[%hardbreaks]
-Document Build Time: {localdatetime}
-Page Version: {page-component-version}
+include::program-info:ROOT:partial$stdfooter.adoc[]

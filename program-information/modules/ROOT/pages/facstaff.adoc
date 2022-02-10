@@ -23,3 +23,5 @@ Email: t.mcardell@inverhills.edu
 Phone: 651-450-3460
 
 Tom is our departmental lab assistant. Contact him to schedule time outside of class to work on labs and for inquiries about equipment or software.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

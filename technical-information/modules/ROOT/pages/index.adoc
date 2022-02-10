@@ -1,3 +1,5 @@
 = Technical Information
 
 Welcome to my new page!
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

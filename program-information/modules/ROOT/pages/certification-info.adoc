@@ -78,3 +78,5 @@ In order to receive credit for courses (or for employers) you may be required to
 . You will be shown a transcript ID and will need to create an access code for your transcript 
 . Selecting "Share" will generate a URL where someone can provide your transcript ID and access code to view it.
 . Email the URL, the transcript ID, and the access code to whoever needs to verify your certification.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

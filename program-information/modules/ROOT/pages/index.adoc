@@ -1,3 +1,5 @@
 = Welcome to the Inver Hills ITC Information Site
 
 Welcome to my new page!
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

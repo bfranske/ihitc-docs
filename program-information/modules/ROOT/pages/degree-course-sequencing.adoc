@@ -19,3 +19,4 @@ In determining the course sequence (and the schedule for our classes) we need to
 * *We assume you do not need to re-take any classes.* Depending on what class it is this could throw you off the track of pre-requisites and that would mean one or two additional semesters before you can get the class you need to continue on your track so graduation will take one or two semesters longer.
 * *We assume you do not need to take remedial classes.* If you are not yet ready for any of the classes on the sequence (e.g. you have not placed in to ENG 1108, or haven't tested out of ITC-1200 and want to do the Network Technology & Security degree) that would be additional time beyond the sequence of classes we have laid out as those classes are not really part of the degree itself.
 
+include::program-info:ROOT:partial$stdfooter.adoc[]

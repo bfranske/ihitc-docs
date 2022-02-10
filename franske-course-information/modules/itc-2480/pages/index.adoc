@@ -1,3 +1,5 @@
 = Future ITC-2480 Home Page
 
 Welcome to my new page!
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
