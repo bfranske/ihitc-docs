@@ -1,4 +1,5 @@
 = Inver Hills ITC Department Information Site
+
 This site is designed to eventually replace the https://wiki.ihitc.net[ITC Wiki]. It will slowly gain new information but is not expected to be live until Fall 2022.
 
 It is built using Antora with the Lunr search engine and uses the AsciiDoc format for documentation.
