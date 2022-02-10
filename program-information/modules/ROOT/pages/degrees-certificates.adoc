@@ -2,7 +2,7 @@
 
 Like most IT departments Inver Hills Community College divides offerings related to computers into two broad areas (though there is some crossover), information technology infrastructure and computer science or programming. There are two degrees and six certificates in the information technology infrastructure area and two degrees in the programming area. Networking, Internet access, server administration, hardware, operating systems, and PCs tend to fall in the information technology infrastructure area. Writing software, apps, sofware design, and algorithms tend to fall into the computer science/programming area.
 
-Before making a decision on what specific certificate or degree you want to pursue you'll want to figure out whether the broad area of IT Infrastructure or Computer Science is more interesting to you.
+Before making a decision on what specific certificate or degree you want to pursue you'll want to figure out whether the broad area of IT Infrastructure or Computer Science is more interesting to you. In addition to the information on this page xref:attachment$IT_CS.pdf[this handout provides a comparison of the two areas].
 
 == Information Technology Infrastructure
 
