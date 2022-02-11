@@ -6,13 +6,13 @@ This site is maintained by xref:program-info:ROOT:facstaff.adoc[Dr. Ben Franske]
 
 The site is comprised of static pages hosted on GitHub pages which are generated programmatically from https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] files using the https://docs.antora.org/antora/latest/[Antora] site generator. The complete source code for the site can be found in the https://github.com/bfranske/ihitc-docs[itc-docs GitHub repository].
 
-A GitHub workflow exists which automatically runs the https://docs.antora.org/antora/latest/[Antora] site generator and then deploys the site to GitHub pages each time a push to the main branch is made. The code for this workflow https://github.com/bfranske/ihitc-docs/blob/main/.github/workflows/publish.yml[is also in the same repository].
+A GitHub workflow exists which automatically runs the https://docs.antora.org/antora/latest/[Antora] site generator and then deploys the site to GitHub pages each time a push to any YYYY.MM branch is made. The code for this workflow https://github.com/bfranske/ihitc-docs/blob/main/.github/workflows/publish.yml[is also in the same repository].
 
 == How to Make Changes to the Site
 
 If you do not have commit access to the https://github.com/bfranske/ihitc-docs[itc-docs repository] you will need to fork the repository on GitHub, download a copy, edit the files, upload to your forked repository, and then submit a https://github.com/bfranske/ihitc-docs/pulls[pull request]. It is strongly suggested that you setup the same Antora build workflow on your forked repository or run Antora locally to build and test your edits before submitting the pull request.
 
-If you do have commit access to the https://github.com/bfranske/ihitc-docs[itc-docs repository] you can update your local branch, make changes, commit, and push to GitHub as you would with any normal source repository.
+If you do have commit access to the https://github.com/bfranske/ihitc-docs[itc-docs repository] you can update your local copy, make changes, commit, and push to GitHub as you would with any normal source repository.
 
 .Update your local branch
 [source,bash]
@@ -30,6 +30,31 @@ git commit -m "a short explanation of what has been changed"
 .Upload changes to the remote repository (assuming you have commit permission there)
 [source,bash]
 ----
+git push
+----
+
+== Site Versioning
+
+Antora is setup to automatically build multiple versions of the site based on the branches in Git that are identified by a branch name like YYYY.MM. The idea is that a new branch will be created from the main branch at the beginning of each semester in the YYYY.MM format. This branch will be used for changes made during that semester. At the end of the semester the changes will be merged back into the main branch. That way the final version of the site each semester will continue to be available as the latest commit of each branch. The YYYY.MM format was chosen as they will sort correctly to find the latest branch. For example at the beginning of Fall 2022 a branch 2022.08 will be created and at the beginning of Spring 2023 a branch 2023.01 will be created.
+
+.Create a branch at the beginning of the semester and switch to that branch
+[source,bash]
+----
+git pull
+git checkout -b "YYYY.MM"
+----
+
+.Upload changes to the new branch the first time by specifying it
+[source,bash]
+----
+git push --set-upstream origin YYYY.MM
+----
+
+.At the end of the semester merge changes back into the main branch and upload it
+[source,bash]
+----
+git checkout main
+git merge YYYY.MM
 git push
 ----
 
