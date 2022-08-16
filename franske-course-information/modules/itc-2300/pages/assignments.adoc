@@ -1,0 +1,20 @@
+= ITC-2480 Assignment Details and Directions
+This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
+
+== Lab Assignments
+You are responsible for completing ALL of these labs. You must submit a lab report (click for details about how to write these) for each topic (except topics 13/14 which have a combined report). Each lab report is worth up to 20 points.
+
+== Homework, Activities & Participation 
+* Participate in an online forum discussion (typically 3 quality posts or more) of each topic on the ITC CLASS site. See forum posting page for details. (up to 10 points each chapter based on quality)
+* Weekly Progress Self-Evaluation - Complete on the ITC CLASS Server Website (10 points possible each week)
+
+== Topic Assessments
+You are responsible for completing an online assessment for each topic, some topics may have combined assessments. These fall into the online assessments category of your course grade. These assessments are open-book, open-note exams but are timed.
+
+== Written Final Exam 
+You will take a comprehensive online exam on the ITC CLASS Server which includes questions from all aspects of the course. This exam is an open-book, open-note exam but it is timed and there is generally less time per question than on topic assessments.
+
+== Skills Based Final Exam
+The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. You will start with an empty virtual machine and need to install Linux as well as perform many of the tasks practiced in lab acitivites though in slightly different ways or with different settings.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

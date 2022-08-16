@@ -1,0 +1,5 @@
+* ITC-2516
+** xref:itc-2516:index.adoc[Course Home]
+** xref:itc-2516:syllabus.adoc[Syllabus]
+** xref:itc-2516:schedule.adoc[Schedule]
+** xref:itc-2516:assignments.adoc[Assignments]

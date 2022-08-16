@@ -1,0 +1,5 @@
+* ITC-2611
+** xref:itc-2611:index.adoc[Course Home]
+** xref:itc-2611:syllabus.adoc[Syllabus]
+** xref:itc-2611:schedule.adoc[Schedule]
+** xref:itc-2611:assignments.adoc[Assignments]

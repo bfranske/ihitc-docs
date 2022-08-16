@@ -2,7 +2,10 @@
 * xref:franske-courses:ROOT:index.adoc[Dr. Franske's Course Pages]
 +
 --
+include::itc-2300:partial$nav.adoc[]
 include::itc-2480:partial$nav.adoc[]
+include::itc-2516:partial$nav.adoc[]
+include::itc-2611:partial$nav.adoc[]
 --
 * xref:tech-info:ROOT:index.adoc[Technical Information]
 * xref:software-info:ROOT:index.adoc[Software Discounts and Resources]

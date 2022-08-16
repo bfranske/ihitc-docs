@@ -1,0 +1,5 @@
+* ITC-2300
+** xref:itc-2300:index.adoc[Course Home]
+** xref:itc-2300:syllabus.adoc[Syllabus]
+** xref:itc-2300:schedule.adoc[Schedule]
+** xref:itc-2300:assignments.adoc[Assignments]
