@@ -44,7 +44,10 @@ For each module having lab activities you will need to submit one lab report whi
 . PT 3.5.5 - Investigate the TCP/IP and OSI Models in Action
 . Lab 3.7.10 - Use Wireshark to View Network Traffic
 . Lab 4.6.6 - View Wired and Wireless NIC Information
++
+--
 NOTE: Use your own computer for the wireless portion, the lab computers only have wired connections.
+--
 . Lab 7.1.6 - Use Wireshark to Examine Ethernet Frames
 . Lab 7.2.7 - View Network Device MAC Addresses
 . Lab 7.3.7 - View the Switch MAC Address Table
@@ -62,7 +65,10 @@ NOTE: Use your own computer for the wireless portion, the lab computers only hav
 . PT 17.5.9 - Interpret Show Command Output
 . Lab 17.7.6 - Troubleshoot Connectivity Issues
 . Lab 17.8.1 - Design and Build a Small Business Network
++
+--
 NOTE: Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the NetAcad site for this assignment.
+--
 
 === Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
@@ -143,7 +149,10 @@ For each chapter having lab activities you will need to submit one lab report wh
 . Lab 3.6.2 - Implement VLANs and Trunking
 . Lab 4.2.8 - Configure Router-on-a-Stick Inter-VLAN Routing
 . Lab 4.4.9 - Troubleshoot Inter-VLAN Routing
++
+--
 NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+--
 . Lab 4.5.2 - Implement Inter-VLAN Routing
 . PT 5.1.9 - Investigate STP Loop Prevention
 . Lab 6.4.2 - Implement EtherChannel
@@ -153,6 +162,7 @@ NOTE: In this lab you need to start by loading a starting configuration onto you
 [NOTE]
 ====
 This lab contains substantial errors! Please make these corrections to your lab before starting:
+
 * In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.
 * In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."
 * In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.
