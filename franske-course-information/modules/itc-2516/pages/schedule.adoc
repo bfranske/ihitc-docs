@@ -1,4 +1,4 @@
-= ITC-516 Official Course Schedule
+= ITC-2516 Official Course Schedule
 
 == Official Course Schedule
 [%autowidth,options="header"]
