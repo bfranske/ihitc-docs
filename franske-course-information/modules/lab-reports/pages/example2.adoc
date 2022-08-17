@@ -1,0 +1,38 @@
+= Lab Report Example - Linux System Administration Class
+
+== Example Report
+
+*What I Did/What was the Purpose*
+
+The main purpose of this lab was to set up VPN on my personal machine, log into the VMWare vSphere web client, and install Debian on my virtual machine. Once this was done, I recorded my VM's IP address so I could check my ability to connect with it remotely with VPN + SSH and with FileZilla. 
+
+*Difficulties I Faced/How I Overcame Them*
+
+My difficulties were many and varied. While the VPN software install was easy, my password was incorrect, preventing me from connecting with the ITC server. Eventually my password was reset and I was able to connect.
+
+Next was the vSphere web client. While I was a little worried that the directions in Step 8.3 asked me to do something I could not do (grayed-out "Browse" button), I kept going, figuring since the file name looked right, everything would be ok. Unfortunately the network autoconfig step failed, which prevented further steps. Eventually I got stuck with the "install sudo" step since I had no network connection.
+
+I came in on Friday morning and asked Tom to let me into B-109 so I could work on this some more. He suggested that I simply start over the install, so we went into BIOS, switch the boot order to CD first, and proceeded with the re-install. This time there were no problems with the install.
+
+When I tried to test the remote connection via SSH, I initially failed because I had powered down the VM. Once it was back up, I still could not get in. However, I was using "j.gower" instead of "jason" for my user name - d'oh!
+
+My final problem was with changing my password on the ITC server. Specifically, Ctrl + Alt + Del did not give me a "Change password" option. Eventually I tried Ctrl + Alt + End and I did get the option, so was able to change my password. 
+
+*How I Tested My Lab*
+
+I tested the VPN software by simply activating the software and entering my credentials (once I had the correct credentials). I got a message saying I was connected, but there was no install yet, so that's all I could do at that point. Similarly, vSphere accepted my login credentials, so they were correct.
+
+The install itself was tested by powering down the VM and powering it back on. Sure enough, my screen showed a login so the install took.
+
+Next I checked the sudo install when I attempted to discover the VM's IP address with ifconfig. I then checked that IP address by using VPN + SSH to make a remote connection from home, which worked. This was further checked by using FileZilla to SFTP in and see what little I have in my home directory. 
+
+*What I Learned*
+
+I had never really used a VPN before, but no biggie -- it's just an application that I need to have up and running before I can remotely access my VM. I also have never used a VM, but again, no biggie -- once we have the install, I'll SSH in and won't really notice the difference between being on a VM or just a remote machine. I had used Telnet/SSH many years ago, so nothing new there, either.
+
+What I did learn is how easy it is to install Debian, at least in a very basic configuration. I had heard stories in the past that Debian was harder to get into than some of the other distros. Or maybe I'm confusing Debian with Slackware?) In any case, it was so easy, I think I'll install it on an old laptop and run through the labs on it, just to get additional practice.
+
+Finally, I had never worked with FileZilla before. In the past, I would just use a browser and enter in "sftp://...". So I learned how cool FileZilla is -- it's very nice to have the two views, one for my local machine file system and one for the remote machine's file system. Cool! 
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

@@ -1,0 +1,43 @@
+= Lab Report Example - PC Hardware and Software Class
+
+== Discussion/Feedback
+Overall this is a pretty good lab report. The various sections of the report are clearly identified and all sections of the report were addresses/included in the report. There are a few typos and grammatical mistakes in the report and there is probably a little too much detail included in the "What we did/What was the purpose" section of the report.
+
+== Example Report
+
+*What we did/What was the purpose*
+
+Today we disassembled and reassembled a desktop computer. After putting on an anti-ESD wrist strap and grounding it, Adam and I started by removing both sides of the case and taking out the mounting screws for the optical drive and HDD. Doing this first, but not intentionally, reminded us to make sure we had a means to keep our tiny screws contained and organized. We then started disconnecting all power cables from the PSU, the serial port, the front panel wires to the motherboard and both SATA cables. (I’m actually glad we didn’t look before blindly disconnecting them, as it only reinforced the need to cross check the diagrams on the inside of the case later on.)  With all cables disconnected we could start taking out components. Without any screws keeping them safely stable, the first two taken out were the optical and HDD, then the serial port and the GPU. With all components out the way we could now remove the motherboard. (We waited on its mounting screws so as not to accidentally dislodge the board and damage it earlier on.) After removing the board we could now take out the RAM, take off the CPU fan and remove the CPU from the ZIF, placing them safely on some anti-static plastic. Fully disassembled we were ready for reassembly.
+
+Reassembly abridged: RAM, CPU, fan, mobo w/mounting screws, serial, GPU (later discovered to be a pain in the butt when trying to connect front panel audio power), optical drive and HDD w/mounting screws, power connectors, data cables.
+
+After reassembly assessment, we failed to properly install the CPU fan and serial cable. Reasons for both included guesswork letting us down. It “seemed” tight enough and it “looked” like it was connected right. Nope. After they were fixed we finished closing it up, connected peripherals and powered it on. All was good except for the power light indicator. This was the only connection in the whole reassembly that seemed to fight logic as the wire label didn’t logically aim away from the board like the rest of the wires. Logic failed us. Or maybe the other way around. After the fix, it was smooth sailing till the end.
+
+Both Adam and I have built our own desktops in the past and so had a collective knowledge decent enough to complete the exercise. We did a nice job working through the disassembly and reassembly taking turns nonchalantly disconnecting and reconnecting components all the while having a fun time and getting it done in a timely manner.
+
+This lab provided us not just a hands-on reinforcement of the last chapters, but also a means of getting comfortable working with a partner and relying on them. And we had fun doing it. Bonus!
+
+*Difficulties we faced/how we overcame them*
+
+Labs are perfect for learning from your failures and doing so promptly without catastrophic consequences. We did make a few mistakes, but luckily they were pretty minimal. We connected a few cables in the wrong direction, and we did not lock the pegs of the CPU fan into place during installation. The two cables that we connected incorrectly were the case power light cable, and the serial cable. In both of these cases there was a visual cue on the cable that allowed us to correctly orient them when we went back to fix it
+
+Had we slowed down during the lab, we probably would have made fewer mistakes. We could have checked and rechecked ourselves and made it perfect, but instead, we not only eventually made it perfect, but learned how to commit to a deadline, accept and rectify our failures and move on as a team. Which not only can happen, but will happen and knowing how to do this effectively is paramount in all professions. That of course doesn’t mean that we won’t intend on it being perfect.
+
+*How we tested our lab*
+
+During the lab we tested our PC a few times using just a monitor. We performed our first test at the very beginning, right after we got our computer. Before we even started the disassembly, we wanted to test the status of the computer before we made any changes. This was mostly to avoid confusing any previous issues with problems that may be caused by us during the disassembly/assembly process. Fortunately the PC  worked as expected when we turned it on, and we were able to start disassembling it.
+
+The second Time we tested our PC was toward the end of the lab, after the reassembly. We wanted to check that we correctly replaced all of the components and cables, and that nothing was damaged during reassembly. Simply speaking, we wanted to make sure that everything worked again. After turning on the computer, we were happy to see that it booted and displayed something on the monitor. During this test, we neglected to check the case lights on the front, but we were later told that we had connected the case wires to the motherboard incorrectly.
+
+Our third test was a duplicate of the second one. Finally it resulted in a successful boot, something on the monitor, and functional case lights.
+
+*What we learned*
+
+As mentioned before, we have both built computers outside of class, so we were pretty confident going into the lab. Despite our previous knowledge, there were a few things that we were unsure about. Anywhere we were unsure we made a mistake, but the mistakes provided the most opportunity for learning.
+
+When we installed the CPU fan, we pushed the pegs down without locking them into place. During the lab we had a small discussion about which direction the arrow was supposed to point. Because we were both unsure, we ended up installing the fan incorrectly. From our mistake we learned that the fan pegs are unlocked when the arrows are pointing inward.
+
+We also connected a couple of cables in the wrong orientation. The cables were not keyed, which contributed to our confusion, but it prevented us from breaking things. Both of the cables that we connected incorrectly have visual cues that indicate their direction. On the small 2-pin case wires the white wire connects to the negative pin, and on the serial wire, the red line indicates the side with the firs pin. Because we connected the wires incorrectly, we were able to reinforce the visual cues by fixing our mistake.
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

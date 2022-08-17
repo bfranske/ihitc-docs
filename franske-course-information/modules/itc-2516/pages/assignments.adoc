@@ -30,7 +30,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 17.8.3 - Troubleshooting Challenge (15 points)
 
 ==== Lab Reports
-For each module having lab activities you will need to submit one lab report which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 [NOTE] 
 .When Using Netlab Remote Lab System
@@ -141,7 +141,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 16.3.1 - Troubleshoot Static and Default Routes (10 points)
 
 ==== Lab Reports
-For each chapter having lab activities you will need to submit one lab report which covers all of the lab activities listed below in the chapter. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 . Lab 1.1.7 - Basic Switch Configuration
 . PT 1.5.10 - Verify Directly Connected Networks
@@ -211,6 +211,7 @@ Change the router settings as indicated in the lab, use these for the NEW settin
 * Wireless Passphrase: Cisco456!
 
 *NOTE:* Do not complete Part 4 of this lab which is listed as optional.
+
 *NOTE:* Before packing up your equipment be sure to reset your router back to factory defaults'''
 ====
 --

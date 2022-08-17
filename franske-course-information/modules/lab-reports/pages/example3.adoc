@@ -1,0 +1,41 @@
+= Lab Report Example - Network Security Class
+
+== Example Report
+
+*What We Did/What was the Purpose*
+
+Part 1: In this lab we configured the network to fit the topology presented in the beginning of the lab document. After, we set up the different interfaces on the routers and made sure the connections were working as expected. Our next task was configuring OSPF routing on the network, and after a few hiccups in the configuration we were able to continue to configure the PC's and verify the overall connection of our network using OSPF.
+
+Part 2: We added passwords for logging in, the enable class, telnet, and ssh in this section, as well as configuring the SSH server on the routers. Then we preceded to encrypt all of the passwords being used so they were no longer a security risk in a real setting, as well as add a MOTD warning banner. After we made sure SSH was working, we experimented with using SCP and configuring the server for it on a router so that the configuration file of Router 1 could be saved to flash memory and copied over to Router 3.
+
+Part 3: The next section had us making many administrative roles in the routers, varying from the main admin to an assistant admin, and even a technician. We then altered all of the roles with custom rule sets on the commands they could operate with and messed around in all of them to see the limited set up.
+
+Part 4: This section had us secure different boot files so they could not be viewed from within the router unless a user had privileges to make them no longer secure. Followed by configuring SNMP Security on the network. This included setting up a standard access list to add the SNMP view to, and then make a group and user to allow it to be used. The next part of the section was using a router as a synchronized clock for the network using NTP on our network. The last part of the section was configuring Syslog on the router and installing a Syslog Server and enabling it.
+
+Part 5: We then configured a key chain on the three routers using the SHA256 encryption. Then we applied the OSPF key-chain to all of the interfaces that called for it, and again verified it was all working.
+
+Part 6: This last section was fairly straight forward and we used AutoSexure Cisco feature to secure the router with only a few prompts for us the fill in. The interesting part of the section was comparing the configuration it came up with the one pulled off R1 by R3 using SCP. 
+
+*Issues We Faced/How We Overcame Them*
+
+While cabling our lab we ran into a few issues, our PCs were plugged into the wrong switch ports which resulted in not being able to ping our default gateways. This turned out to be an easy fix, however we had to do a fair amount of troubleshooting to figure out the issue. Obviously within the OSI model, we should have defaulted to looking at our physical hardware as a starting point for troubleshooting this issue. After fixing that issue, we had a difficult time getting OSPF configured on router 3. We did our due diligence and double checked our static routes, however we still couldn't so a show ip ospf neighbor. What we ended up realizing, after a little assistance from Ben, was that OSPF was configured with the same routes on all three routers. After modifying our configs, we had OSPF up and running, and were able to ping each other’s PCs. The last major roadblock we encountered was after enabling OSPF authentication using SHA256. After inputting the show ip ospf neighbor command we still weren’t getting our routes to show up so we turned our attention to R2. After digging through the output of a sh run on R2 we determined that we never set up OSPF authentication on R2. After plugging in our authentication key commands we saw confirmation messages on both R1 and R3.  
+
+*How We Tested Our Lab*
+
+Part 1: To test OSPF we used show ip ospf neighbor to view from each router what they could see as their neighbors. We looked for the addresses of the other networks we knew should be able to be seen and were able to troubleshoot the configuration until each router's return of the command was what we wanted. Show ip route was also used to verify the connections made by the routers. And the final bit of testing was making sure R1 could ping R3, and PC-A could ping PC-C.
+
+Part 2: To test the minimum password we made sure one with less characters returned an error message. After making all the passwords and encrypting them, we used show run to go back and view them and make sure they appeared encrypted in the configuration file. Then to make sure the passwords were working as intended we logged out of the routers and then logged back in making sure the passwords were applied correctly, and we did the same thing for the SSH and telnet connections. Making sure the passwords we included were functioning as intended and encrypted. We also tested our password fail retry policy and attempts made to make sure it was also function. Testing the SCP server was done by completing the task of pulling the R1 configuration file from it to R3, and when that was done and we verified the file was good to go we knew that section was done.
+
+Part 3: To test the administrative roles we created, after making each one we entered into the view using parser view X and made sure the password assigned to was working correctly, and that it could not preform any of the commands that were not alotted to it. To do this we tested commands that shouldn't work and they did not. And we made sure commands that were able to work did.
+
+Part 4: To verify the image and configuration files were secured, we made sure they did not appear in the flash read out after being secured. And that they were again visible after being unsecured. To test the SNMP security, we used show snmp group to view the configurations we made and to verify they looked as they should. And the show snmp user command to make sure the user was configured correctly as well. To make sure the NTP and clock was working we used the show clock to verify the times between all the routers were done correctly. The debug ntp all command to make sure the messages between the routers were coming and going.
+
+Part 5: After configuring the key-chain and OSPF configuration again, we used show ip ospf neighbor to verify the routers could see the ones neighboring them, as well as show ip route to make sure the routers have all of the connections they should.
+
+Part 6: This was tested by just making the new configuration had been implemented correctly by AutoSecure and looked at the differences between it and the one that had been loaded over from R1. 
+
+*What We Learned*
+
+In this lab we learned a few things about securing our routers. Part 1 and Part 2 were mainly set up for the rest of the lab, and mostly review. In Part 3 we started learning about securing our routers and maintaining control over those accessing the router. We configured multiple different role views that had varying levels of privileges. This is a very important step in maintaining control of the network. Our goal is always to be using the principle of least privilege. There is no reason that a level 1 network technician should be messing with routing protocols, but it might be beneficial for them to view them. This is a very good way to make sure these privileges are separate. In Part 4 we learned about Cisco IOS Resilience which is a good way of making sure our routers are behaving properly using monitoring tools. Syslog is a great way of creating a timestamped log file to be later referenced. In Part 5 of this lab we learned about securing the control plane. Making sure the way our routers are communicating with each other does not change unless it should be a very important step in security. By setting up OSPF authentication we can prevent unauthorized access to modification of OSPF routes. Part 6 was interesting because on the face of it, required very little interacting from us. We answered a few questions and AutoSecure was able to provide us with a secure configuration for the router. While it’s important to make sure you know what kind of security and commands are applied to your router, AutoSecure seems like an equally beneficial way to go. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
