@@ -2,6 +2,7 @@
 
 == Example 1 
 This example post comes from an early chapter in the CCNA Security course. You can see that both the most important and most interesting parts of the chapter were clearly discusses as well as what the author thinks is the reason they are interesting and important. Questions related to the content of the chapter have been included making it easier for other students to respond to the posting.
+
 === Post
 *Most Important:* It seemed like the most important topic covered by this chapter was an overview of security threats in section 1.2 (i.e. threat vectors, virus/trojan/worm/malware, hackers), the types of hackers (black/grey/white hat, hacktivists, state-sponsored), the types of tools they employ (password crackers, packet sniffers/crafters, rootkits to name a few), and the categories of attacks (eavesdropping, spoofing, DoS, man-in-the-middle, reconnaissance, etc) to give us an idea of how important security is in today's networks and ways to potentially mitigate against those threats (as covered in section 1.3).
 
@@ -16,6 +17,7 @@ Also, when a virtual machine hosted on cloud computing that has outdated securit
 
 == Example 2  
 This post comes from an early chapter in the PC Hardware & Software class. It clearly describes what the author thought the most important and interesting parts of the chapter where and why as well as a couple of questions related to the content of the chapter.
+
 === Post
 I personally thought the most important concept from chapter one was the compatibility of components. For example processors manufactured by AMD have a physically different design to those manufactured by Intel. So, If a technician is building a computer, they must select a CPU that is compatible with the motherboard they have chosen. This is important because incompatibility can cause a computer to fail, even if all the components are operational.
 

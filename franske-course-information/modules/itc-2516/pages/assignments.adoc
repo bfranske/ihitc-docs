@@ -1,8 +1,10 @@
 = ITC-2516 Assignment Details and Directions
+
 == CCNA 1 Assignment Details and Directions
 This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
 
 === Lab & Homework Assignments
+
 ==== Packet Tracer Online Submissions
 Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
 
