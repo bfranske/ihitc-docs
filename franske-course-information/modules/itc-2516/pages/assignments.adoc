@@ -85,7 +85,7 @@ Homework activities will require submitting the actual answers to each question 
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
-== Participation Activities
+=== Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
 * Complete the system test exam (5 points for completing)
