@@ -324,11 +324,27 @@
 <div class="paragraph">
 <p>For each module having lab activities you will need to submit one lab report which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.</p>
 </div>
-<div class="paragraph">
-<p><strong>Note:</strong> The password for CAASP Pod PCs in Netlab is: Cisco123</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">When Using Netalb Remote Lab System</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The login password for CAASP Pod PCs in Netlab is: Cisco123</p>
+</li>
+<li>
+<p>The login password for Internet Pod PCs in Netlab is: netlab</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p><strong>Note:</strong> The password for Internet Pod PCs in Netlab is: netlab</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -717,6 +733,9 @@
 <pre>R1(config)# ipv6 route ::/0 2001:db8:acad:2::2</pre>
 </div>
 </div>
+<div class="paragraph">
+<p>R2(config)# ipv6 route ::/0 2001:db8:acad:2::1</p>
+</div>
 </li>
 </ul>
 </div>
@@ -725,107 +744,61 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>R2(config)# ipv6 route ::/0 2001:db8:acad:2::1</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>+
+<pre>+
 . Lab 11.6.2 - Switch Security Configuration
 . Lab 13.1.11 - Configure a Wireless Network
-* <strong>FALL 2021 NOTE:</strong> Complete the Packet Tracer version of this lab this year, wireless networking is not supported on Netlab. You should still submit a lab report as normal for this PT lab.
-* <strong>NOTE:</strong> Change the router settings as indicated in the lab, use these for the NEW settings:
-<strong> Router IP Address: 172.17.99.1
-</strong> Router Subnet Mask: 255.255.255.0
-<strong> Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
-</strong> DHCP Starting IP Address: 172.17.99.21
-<strong> DHCP Maximum Number of Users: 20
-</strong> Router Username: admin
-<strong> Password: Password123!
-</strong> Wireless SSID: CCNA-Wxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
-<strong>* Wireless Passphrase: Cisco456!
-* *NOTE:</strong> Do not complete Part 4 of this lab which is listed as optional.
-* <strong>NOTE:</strong> Before packing up your equipment be sure to reset your router back to factory defaults'''
+* *FALL 2021 NOTE:* Complete the Packet Tracer version of this lab this year, wireless networking is not supported on Netlab. You should still submit a lab report as normal for this PT lab.
+* *NOTE:* Change the router settings as indicated in the lab, use these for the NEW settings:
+** Router IP Address: 172.17.99.1
+** Router Subnet Mask: 255.255.255.0
+** Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+** DHCP Starting IP Address: 172.17.99.21
+** DHCP Maximum Number of Users: 20
+** Router Username: admin
+** Password: Password123!
+** Wireless SSID: CCNA-Wxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+** Wireless Passphrase: Cisco456!
+* *NOTE:* Do not complete Part 4 of this lab which is listed as optional.
+* *NOTE:* Before packing up your equipment be sure to reset your router back to factory defaults'''
 . Lab 15.6.2 - Configure IPv4 and IPv6 Static and Default Routes
 . Lab 16.3.2 - Troubleshoot Static and Default Routes
-* <strong>NOTE:</strong> In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_homework_2"><a class="anchor" href="#_homework_2"></a>Homework</h3>
-<div class="paragraph">
-<p>Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See forum posting page for details. (up to 10 points each module based on quality)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_participation_activities_2"><a class="anchor" href="#_participation_activities_2"></a>Participation Activities</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Complete the online course feedback form (5 points for completing)</p>
-</li>
-<li>
-<p>Complete the online practice final exam (10 points for attempting)</p>
-</li>
-<li>
-<p>Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_unit_assessments_2"><a class="anchor" href="#_unit_assessments_2"></a>Unit Assessments</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade.
+* *NOTE:* In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+
+=== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See forum posting page for details. (up to 10 points each module based on quality)
+
+== Participation Activities
+* Complete the online course feedback form (5 points for completing)
+* Complete the online practice final exam (10 points for attempting)
+* Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)
+
+== Unit Assessments
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade.
 * Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
 * Modules 5 - 6: Redundant Networks Exam
 * Modules 7 - 9: Available and Reliable Networks Exam
 * Modules 10 - 13: L2 Security and WLANs Exam
-* Modules 14 - 16: Routing Concepts and Configuration Exam</p>
+* Modules 14 - 16: Routing Concepts and Configuration Exam
+
+== Skills Final Exam
+The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+
+* Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
+
+== Online Final Exam
+You will need to complete an online final exam on the NetSpace site.
+
+'''
+[%hardbreaks]
+Document Build Time: {localdatetime}
+Page Version: {page-component-version}
+image:program-info:ROOT:CCBYSA.png[Creative Commons License]
+This work is licensed under a http://creativecommons.org/licenses/by-sa/4.0/[Creative Commons Attribution-ShareAlike 4.0 International License]</pre>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_skills_final_exam_2"><a class="anchor" href="#_skills_final_exam_2"></a>Skills Final Exam</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.</p>
-</li>
-<li>
-<p>Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_online_final_exam_2"><a class="anchor" href="#_online_final_exam_2"></a>Online Final Exam</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You will need to complete an online final exam on the NetSpace site.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p>Document Build Time: 2022-08-17 10:29:43 -0500<br>
-Page Version: 2022.08<br>
-<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
-This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
 </div>
 </div>
 </div>
