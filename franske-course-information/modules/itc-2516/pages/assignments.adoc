@@ -31,9 +31,12 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 === Lab Reports
 For each module having lab activities you will need to submit one lab report which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
-*Note:* The password for CAASP Pod PCs in Netlab is: Cisco123
-
-*Note:* The password for Internet Pod PCs in Netlab is: netlab
+[NOTE] 
+.When Using Netalb Remote Lab System
+==== 
+* The login password for CAASP Pod PCs in Netlab is: Cisco123
+* The login password for Internet Pod PCs in Netlab is: netlab
+====
 
 . PT 2.3.7 - Navigate the IOS
 . Lab 2.3.8 - Navigate the IOS by Using Tera Term for Console Connectivity
