@@ -1,9 +1,38 @@
-= ITC-2611 Assignment Details and Directions
+= ITC-2516 Assignment Details and Directions
 
-== Lab & Homework Assignments
+== CCNA 1 Assignment Details and Directions
+This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
 
-=== Lab Reports
-For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. Each lab report is worth up to 20 points.
+=== Lab & Homework Assignments
+
+==== Packet Tracer Online Submissions
+Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
+
+. PT 2.5.5 - Configure Initial Switch Settings (5 points)
+. PT 2.7.6 - Implement Basic Connectivity (5 points)
+. PT 2.9.1 - Basic Switch and End Device Configuration (5 points)
+. PT 4.6.5 - Connect a Wired and Wireless LAN (5 points)
+. PT 4.7.1 - Connect the Physical Layer (5 points)
+. PT 10.1.4 - Configure Initial Router Settings (5 points)
+. PT 10.3.4 - Connect a Router to a LAN (5 points)
+. PT 10.3.5 - Troubleshoot Default Gateway Issues (5 points)
+. PT 10.4.3 - Basic Device Configuration (5 points)
+. PT 11.5.5 - Subnet and IPv4 Network (5 points)
+. PT 11.7.5 - Subnetting Scenario (5 points)
+. PT 11.9.3 - VLSM Design and Implementation Practice (5 points)
+. PT 11.10.1 - Design and Implement a VLSM Addressing Scheme (5 points)
+. PT 12.6.6 - Configure IPv6 Addressing (5 points)
+. PT 12.9.1 - Implement a Subnetted IPv6 Addressing Scheme (5 points)
+. PT 13.2.7 - Use Ping and Traceroute to Test Network Connectivity (5 points)
+. PT 13.3.1 - Use ICMP to Test and Correct Network Connectivity (5 points)
+. PT 16.4.6 - Configure Secure Passwords and SSH (5 points)
+. PT 16.5.1 - Secure Network Devices (5 points)
+. PT 17.7.7 - Troubleshoot Connectivity Issues (5 points)
+. PT 17.8.2 - Skills Integration Challenge (15 points)
+. PT 17.8.3 - Troubleshooting Challenge (15 points)
+
+==== Lab Reports
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
@@ -11,67 +40,47 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 .When Using Netlab Remote Lab System
 ==== 
 * The login password for CAASP Pod PCs in Netlab is: Cisco123
+* The login password for Internet Pod PCs in Netlab is: netlab
 ====
 
-. Lab 1.1.2 - Implement Inter-VLAN Routing
-. Lab 2.1.2 - Observe STP Topology Changes and Implement RSTP
-. Lab 3.1.2 - Implement Advanced STP Modifications and Mechanisms
-. Lab 4.1.2 - Implement MST
-. Lab 5.1.2 - Implement VTP
-. Lab 5.1.3 - Implement EtherChannel
-. Lab 5.1.4 - Tuning EtherChannel
-. Lab 6.1.2 - Investigate Static Routes
-. Lab 6.1.3 - Implement VRF-Lite
-. Lab 8.1.2 - Implement Single-Area OSPFv2
-. Lab 9.1.2 - Implement Mult-Area OSPFv2
-. Lab 9.1.3 - OSPFv2 Route Summarization and Filtering
-. Lab 10.1.2 - Implement Multiarea OSPFv3
-. Lab 11.1.2 - Implement eBGP for IPv4
-. Lab 11.1.3 - Implement MP-BGP
-. Lab 12.1.2 - Implement BGP Path Manipulation
-. Lab 12.1.3 - Implement BGP Communities
-. Lab 15.1.2 - Implement NTP
-. Lab 15.1.3 - Implement HSRP
-. Lab 15.1.4 - Implement VRRP
+. PT 2.3.7 - Navigate the IOS
+. Lab 2.3.8 - Navigate the IOS by Using Tera Term for Console Connectivity
+. Lab 2.9.2 - Basic Switch and End Device Configuration
+. PT 3.5.5 - Investigate the TCP/IP and OSI Models in Action
+. Lab 3.7.10 - Use Wireshark to View Network Traffic
+. Lab 4.6.6 - View Wired and Wireless NIC Information
 +
 --
-TIP: If you have a problem activating VRRP on a switch it's possible the IP Services license is not active. You can go ahead and activate if needed.
+NOTE: Use your own computer for the wireless portion, the lab computers only have wired connections.
 --
-. Lab 15.1.5 - Implement GLBP
-. Lab 15.1.6 - Implement NAT
-. Lab 16.1.2 - Implement a GRE Tunnel
-. Lab 16.1.3 - Implement IPsec Site-to-Site
+. Lab 7.1.6 - Use Wireshark to Examine Ethernet Frames
+. Lab 7.2.7 - View Network Device MAC Addresses
+. Lab 7.3.7 - View the Switch MAC Address Table
+. PT 9.1.3 - Identify MAC and IP Addresses
+. PT 9.2.9 - Examine the ARP Table
+. PT 9.3.4 - IPv6 Neighbor Discovery
+. Lab 10.4.4 - Build a Switch and Router Network
+. Lab 12.9.2 - Configure IPv6 Addresses on Network Devices
+. PT 13.2.6 - Verify IPv4 and IPv6 Addressing
+. Lab 13.3.2 - Use Ping and Traceroute to Test Network Connectivity
+. PT 14.8.1 - TCP and UDP Communications
+. Lab 15.4.8 - Observe DNS Resolution
+. Lab 16.4.7 - Configure Network Devices with SSH
+. Lab 16.5.2 - Secure Network Devices
+. PT 17.5.9 - Interpret Show Command Output
+. Lab 17.7.6 - Troubleshoot Connectivity Issues
+. Lab 17.8.1 - Design and Build a Small Business Network
 +
 --
-TIP: If you have a problem configuring IPSec on a router it's possible the Security license is not active. You can go ahead and activate if needed.
+NOTE: Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the NetAcad site for this assignment.
 --
-. Lab 16.1.4 - Implement GRE over IPsec Site-to-Site VPNs
-. Lab 16.1.5 - Implement IPsec VTI Site-to-Site VPNs
-. Lab 24.1.2 - Use Connectivity Tests and Debug for Network Assurance
-. Lab 24.1.3 - Implement SNMP and Syslog
-. Lab 24.1.4 - Implement Flexible Netflow
-. Lab 24.1.5 - Implement SPAN Technologies
-. Lab 24.1.6 - Implement IP SLA
-. Lab 25.1.2 - Install the CCNP Virtual Machine
-+
---
-NOTE: You can find the CCNP Virtual Machine OVA file in the CCNP folder on the desktop of each PC in the Pod. Be sure to randomize the MAC address when you import the OVA file.
---
-. Lab 26.1.2 - Implement IPv4 ACLs
-. Lab 26.1.3 - Configure Protections for Passwords and Terminal Lines
-. Lab 26.1.4 - Configure Local and Server-Based AAA Authentication
-+
---
-NOTE: You will be using the CCNP VM in Virtual Box on your Pod PC. Be sure the MAC address is different on each Pod PC if you run the VM on more than one PC.
---
-. Lab 26.1.6 - Implement CoPP
-. Lab 28.1.2 - Construct a Basic Python Script
-. Lab 28.1.3 - Use the Netmiko Python Module to Configure a Router
-. Lab 28.1.4 - Use NETCONF To Access an IOS XE Device
-. Lab 28.1.5 - Use RESTCONF to Access an IOS XE Device
 
 ==== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
+* Lab 11.6.6 - Calculate IPv4 Subnets (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
+* Lab 11.10.2 - Design and Implement a VLSM Addressing Scheme (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
+* Lab 12.7.4 - Identify IPv6 Addresses (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
 * Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
@@ -79,29 +88,174 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 === Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
+* Complete the system test exam (5 points for completing)
 * Complete the online course feedback form (5 points for completing)
-* Complete the online certification practice exam (10 points for attempting)
+* Complete the online practice final exam (10 points for attempting)
 * Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)
 
 === Unit Assessments
 You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. 
 
-* Chapters 1 - 5: L2 Redundancy Exam
-* Chapters 6 - 7: Routing Essentials and EIGRP Exam
-* Chapters 8 - 10: OSPF Exam
-* Chapters 11 - 12: BGP Exam
-* Chapters 13 - 14: Multicast and QoS Exam
-* Chapters 15 - 16: IP Services and VPNs Exam
-* Chapters 17 - 19: Wireless Essentials Exam
-* Chapters 20 - 21: Wireless Security and Connectivity Exam
-* Chapters 22 - 24: Network Design and Monitoring Exam
-* Chapters 25 - 26: Access Control and Infrastructure Security Exam
-* Chapters 27 - 29: Virtualization, Automation, and Programmability Exam
+* Modules 1 - 3: Basic Network Connectivity and Communications Exam
+* Modules 4 - 7: Ethernet Concepts Exam
+* Modules 8 - 10: Communicating Between Networks Exam
+* Modules 11 - 13: IP Addressing Exam
+* Modules 14 - 15: Network Application Communications Exam
+* Modules 16 - 17: Building and Securing a Small Network Exam
 
 === Skills Final Exam
-The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. Your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam. 
+The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+
+* Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment (PTSA) at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
 === Online Final Exam
-You will need to complete an online final exam on the Netacad site.
+You will need to complete an online final exam on the NetSpace site.
+
+== CCNA 2 Assignment Details and Directions
+=== Lab & Homework Assignments
+
+==== Packet Tracer Online Submissions
+Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting.
+
+. PT 1.3.6 - Configure SSH (5 points)
+. PT 1.4.7 - Configure Router Interfaces (5 points)
+. PT 1.6.1 - Implement a Small Network (5 points)
+. PT 3.3.12 - VLAN Configuration (5 points)
+. PT 3.4.5 - Configure Trunks (5 points)
+. PT 3.5.5 - Configure DTP (5 points)
+. PT 3.6.1 - Implement VLANs and Trunking (10 points)
+. PT 4.2.7 - Configure Router-on-a-Stick Inter-VLAN Routing (5 points)
+. PT 4.3.8 - Configure Layer 3 Switching and Inter-VLAN Routing (5 points)
+. PT 4.4.8 - Troubleshoot Inter-VLAN Routing (10 points)
+. PT 4.5.1 - Inter-VLAN Routing Challenge (10 points)
+. PT 6.2.4 - Configure EtherChannel (5 points)
+. PT 6.3.4 - Troubleshoot EtherChannel (5 points)
+. PT 6.4.1 - Implement EtherChannel (5 points)
+. PT 7.2.10 - Configure DHCPv4 (5 points)
+. PT 7.4.1 - Implement DHCPv4 (5 points)
+. PT 9.3.3 - HSRP Configuration Guide (5 points)
+. PT 11.1.10 - Implement Port Security (5 points)
+. PT 11.6.1 - Switch Security Configuration (5 points)
+. PT 13.1.10 - Configure a Wireless Network (5 points)
+. PT 13.2.7 - Configure a Basic WLAN on the WLC (10 points)
+. PT 13.3.12 - Configure a WPA2 Enterprise WLAN on the WLC (7 points)
+. PT 13.4.5 - Troubleshoot WLAN Issues (7 points)
+. PT 13.5.1 - WLAN Configuration (5 points)
+. PT 14.3.5 - Basic Router Configuration Review (5 points)
+. PT 15.6.1 - Configure IPv4 and IPv6 Static and Default Routes (10 points)
+. PT 16.3.1 - Troubleshoot Static and Default Routes (10 points)
+
+==== Lab Reports
+For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+
+. Lab 1.1.7 - Basic Switch Configuration
+. PT 1.5.10 - Verify Directly Connected Networks
+. Lab 1.6.2 - Configure Basic Router Settings
+. PT 3.1.4 - Who Hears the Broadcast?
+. PT 3.2.8 - Investigate a VLAN Implementation
+. Lab 3.4.6 - Configure VLANs and Trunking
+. Lab 3.6.2 - Implement VLANs and Trunking
+. Lab 4.2.8 - Configure Router-on-a-Stick Inter-VLAN Routing
+. Lab 4.4.9 - Troubleshoot Inter-VLAN Routing
++
+--
+NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+--
+. Lab 4.5.2 - Implement Inter-VLAN Routing
+. PT 5.1.9 - Investigate STP Loop Prevention
+. Lab 6.4.2 - Implement EtherChannel
+. Lab 7.4.2 - Implement DHCPv4
++
+--
+[NOTE]
+====
+This lab contains substantial errors! Please make these corrections to your lab before starting:
+
+* In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.
+* In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."
+* In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.
+* In Part 1, Step 5c you are asked to configure default routes on each router but we have not learned how to do this yet. We'll learn about this in module 15. Please enter these commands, one on R1 and one on R2, in the configure terminal mode of the router:
+----
+R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2
+----
+----
+R2(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1
+----
+====
+--
+. Lab 8.5.1 - Configure DHCPv6
++
+--
+[NOTE]
+====
+In Part 1, Step 4b this lab asks you to configure a default route on each router pointed towards the other router. We haven't learned how to configure default routes yet though so you can run the following configuration commands (one on R1 and one on R2) to fix this.
+----
+R1(config)# ipv6 route ::/0 2001:db8:acad:2::2
+----
+----
+R2(config)# ipv6 route ::/0 2001:db8:acad:2::1
+----
+====
+--
+. Lab 11.6.2 - Switch Security Configuration
+. Lab 13.1.11 - Configure a Wireless Network
++
+--
+[NOTE]
+====
+Change the router settings as indicated in the lab, use these for the NEW settings:
+
+* Router IP Address: 172.17.99.1
+* Router Subnet Mask: 255.255.255.0
+* Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+* DHCP Starting IP Address: 172.17.99.21
+* DHCP Maximum Number of Users: 20
+* Router Username: admin
+* Password: Password123!
+* Wireless SSID: CCNA-Wxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+* Wireless Passphrase: Cisco456!
+
+*NOTE:* Do not complete Part 4 of this lab which is listed as optional.
+
+*NOTE:* Before packing up your equipment be sure to reset your router back to factory defaults'''
+====
+--
+. Lab 15.6.2 - Configure IPv4 and IPv6 Static and Default Routes
+. Lab 16.3.2 - Troubleshoot Static and Default Routes
++
+--
+NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+--
+
+==== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
+=== Participation Activities
+* Complete the online course feedback form (5 points for completing)
+* Complete the online practice final exam (10 points for attempting)
+* Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)
+
+=== Unit Assessments
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade.
+
+* Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
+* Modules 5 - 6: Redundant Networks Exam
+* Modules 7 - 9: Available and Reliable Networks Exam 
+* Modules 10 - 13: L2 Security and WLANs Exam 
+* Modules 14 - 16: Routing Concepts and Configuration Exam 
+
+=== Skills Final Exam
+The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+
+* Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
+
+=== Online Final Exam
+You will need to complete an online final exam on the NetSpace site.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

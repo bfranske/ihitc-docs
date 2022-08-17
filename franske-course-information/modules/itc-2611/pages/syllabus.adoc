@@ -28,14 +28,20 @@ TIP: The first edition printed version of this book has many errors in it. You c
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
 * Cisco Networking Academy (http://www.netacad.com)
++
+--
 WARNING: It is important that you keep an accurate email address on file with the Cisco Networking Academy site and/or regularly sign on to the site to check your Networking Academy Inbox. Important and time-sensitive course information may be distributed through the Networking Academy messaging system. If you have an accurate email address you can receive the information by email as well.
+--
 
 == Lab Time
 * Packet Tracer can not be used to complete labs in this course
 * All labs for this class may be completed remotely using the Netlab system
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
 * Open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
++
+--
 TIP: If you are struggling with labs it's strongly suggested you make arrangements to come to campus and work on them where you can get more immediate help if you get stuck.
+--
 
 == Course Objectives
 The student will be able to:
