@@ -40,17 +40,12 @@ For each module having lab activities you will need to submit one lab report whi
 
 . PT 2.3.7 - Navigate the IOS
 . Lab 2.3.8 - Navigate the IOS by Using Tera Term for Console Connectivity
-* The password for the PCs in this lab is: Cisco123
 . Lab 2.9.2 - Basic Switch and End Device Configuration
-* The password for the PCs in this lab is: Cisco123
 . PT 3.5.5 - Investigate the TCP/IP and OSI Models in Action
 . Lab 3.7.10 - Use Wireshark to View Network Traffic
-* The password for the PCs in this lab is: netlab
 . Lab 4.6.6 - View Wired and Wireless NIC Information
-* The password for the PCs in this lab is: netlab
-* *Note:* Use your own computer for the wireless portion, the lab computers only have wired connections
+NOTE: Use your own computer for the wireless portion, the lab computers only have wired connections.
 . Lab 7.1.6 - Use Wireshark to Examine Ethernet Frames
-* The password for the PCs in this lab is: netlab
 . Lab 7.2.7 - View Network Device MAC Addresses
 . Lab 7.3.7 - View the Switch MAC Address Table
 . PT 9.1.3 - Identify MAC and IP Addresses
@@ -67,7 +62,7 @@ For each module having lab activities you will need to submit one lab report whi
 . PT 17.5.9 - Interpret Show Command Output
 . Lab 17.7.6 - Troubleshoot Connectivity Issues
 . Lab 17.8.1 - Design and Build a Small Business Network
-* *Note:* Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the NetAcad site for this assignment.
+NOTE: Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the NetAcad site for this assignment.
 
 === Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
@@ -148,18 +143,27 @@ For each chapter having lab activities you will need to submit one lab report wh
 . Lab 3.6.2 - Implement VLANs and Trunking
 . Lab 4.2.8 - Configure Router-on-a-Stick Inter-VLAN Routing
 . Lab 4.4.9 - Troubleshoot Inter-VLAN Routing
-* NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
 . Lab 4.5.2 - Implement Inter-VLAN Routing
 . PT 5.1.9 - Investigate STP Loop Prevention
 . Lab 6.4.2 - Implement EtherChannel
 . Lab 7.4.2 - Implement DHCPv4
-* NOTE: This lab contains substantial errors! Please make these corrections to your lab before starting:
-** In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.
-** In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."
-** In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.
-** In Part 1, Step 5c you are asked to configure default routes on each router but we have not learned how to do this yet. We'll learn about this in module 15. Please enter these commands, one on R1 and one on R2, in the configure terminal mode of the router:
-*** <pre>R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2</pre>
-*** <pre>R2(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1</pre>
++
+--
+[NOTE]
+====
+This lab contains substantial errors! Please make these corrections to your lab before starting:
+* In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.
+* In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."
+* In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.
+* In Part 1, Step 5c you are asked to configure default routes on each router but we have not learned how to do this yet. We'll learn about this in module 15. Please enter these commands, one on R1 and one on R2, in the configure terminal mode of the router:
+----
+R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2
+----
+R2(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1
+----
+====
+--
 . Lab 8.5.1 - Configure DHCPv6
 * NOTE: In Part 1, Step 4b this lab asks you to configure a default route on each router pointed towards the other router. We haven't learned how to configure default routes yet though so you can run the following configuration commands (one on R1 and one on R2) to fix this.
 +
