@@ -32,7 +32,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 For each module having lab activities you will need to submit one lab report which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 [NOTE] 
-.When Using Netalb Remote Lab System
+.When Using Netlab Remote Lab System
 ==== 
 * The login password for CAASP Pod PCs in Netlab is: Cisco123
 * The login password for Internet Pod PCs in Netlab is: netlab
@@ -163,12 +163,14 @@ For each chapter having lab activities you will need to submit one lab report wh
 . Lab 8.5.1 - Configure DHCPv6
 * NOTE: In Part 1, Step 4b this lab asks you to configure a default route on each router pointed towards the other router. We haven't learned how to configure default routes yet though so you can run the following configuration commands (one on R1 and one on R2) to fix this.
 +
+--
 ----
 R1(config)# ipv6 route ::/0 2001:db8:acad:2::2
 ----
+----
 R2(config)# ipv6 route ::/0 2001:db8:acad:2::1
 ----
-+
+--
 . Lab 11.6.2 - Switch Security Configuration
 . Lab 13.1.11 - Configure a Wireless Network
 * *FALL 2021 NOTE:* Complete the Packet Tracer version of this lab this year, wireless networking is not supported on Netlab. You should still submit a lab report as normal for this PT lab.
