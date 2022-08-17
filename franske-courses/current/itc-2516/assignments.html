@@ -675,13 +675,33 @@
 <div class="ulist">
 <ul>
 <li>
-<p>NOTE: This lab contains substantial errors! Please make these corrections to your lab before starting:
-<strong>. In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.
-*. In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."
-*. In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.
-*. In Part 1, Step 5c you are asked to configure default routes on each router but we have not learned how to do this yet. We&#8217;ll learn about this in module 15. Please enter these commands, one on R1 and one on R2, in the configure terminal mode of the router:
-*.</strong> &lt;pre&gt;R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2&lt;/pre&gt;
-<strong>.</strong> &lt;pre&gt;R2(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1&lt;/pre&gt;</p>
+<p>NOTE: This lab contains substantial errors! Please make these corrections to your lab before starting:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In Part 1, Step 1a '''DO NOT''' "Record the second IP address in the Address Table for S1 VLAN 200 and enter the associated default gateway." this text is an error, you will not use the second IP address from Subnet A for anything special.</p>
+</li>
+<li>
+<p>In Part 1, Step 1b there is no place in the address table to record an address for '''S1 VLAN 1'''. Instead you should "Record the second IP address in the Address Table for '''S1 VLAN 200''' and enter the associated default gateway."</p>
+</li>
+<li>
+<p>In Part 1, Step 1c You should "Record the second IP address in the Address Table for '''S2 VLAN 1''' and enter the associated default gateway." even though the lab does not mention this.</p>
+</li>
+<li>
+<p>In Part 1, Step 5c you are asked to configure default routes on each router but we have not learned how to do this yet. We&#8217;ll learn about this in module 15. Please enter these commands, one on R1 and one on R2, in the configure terminal mode of the router:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>&lt;pre&gt;R1(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.2&lt;/pre&gt;</p>
+</li>
+<li>
+<p>&lt;pre&gt;R2(config)# ip route 0.0.0.0 0.0.0.0 10.0.0.1&lt;/pre&gt;</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -691,80 +711,43 @@
 <div class="ulist">
 <ul>
 <li>
-<p>NOTE: In Part 1, Step 4b this lab asks you to configure a default route on each router pointed towards the other router. We haven&#8217;t learned how to configure default routes yet though so you can run the following configuration commands (one on R1 and one on R2) to fix this.
-.<strong> &lt;pre&gt;R1(config)# ipv6 route ::/0 2001:db8:acad:2::2&lt;/pre&gt;
-.</strong> &lt;pre&gt;R2(config)# ipv6 route ::/0 2001:db8:acad:2::1&lt;/pre&gt;</p>
-</li>
-</ul>
+<p>NOTE: In Part 1, Step 4b this lab asks you to configure a default route on each router pointed towards the other router. We haven&#8217;t learned how to configure default routes yet though so you can run the following configuration commands (one on R1 and one on R2) to fix this.</p>
+<div class="listingblock">
+<div class="content">
+<pre>R1(config)# ipv6 route ::/0 2001:db8:acad:2::2</pre>
 </div>
-</li>
-<li>
-<p>Lab 11.6.2 - Switch Security Configuration</p>
-</li>
-<li>
-<p>Lab 13.1.11 - Configure a Wireless Network</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>FALL 2021 NOTE:</strong> Complete the Packet Tracer version of this lab this year, wireless networking is not supported on Netlab. You should still submit a lab report as normal for this PT lab.</p>
-</li>
-<li>
-<p><strong>NOTE:</strong> Change the router settings as indicated in the lab, use these for the NEW settings:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Router IP Address: 172.17.99.1</p>
-</li>
-<li>
-<p>Router Subnet Mask: 255.255.255.0</p>
-</li>
-<li>
-<p>Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)</p>
-</li>
-<li>
-<p>DHCP Starting IP Address: 172.17.99.21</p>
-</li>
-<li>
-<p>DHCP Maximum Number of Users: 20</p>
-</li>
-<li>
-<p>Router Username: admin</p>
-</li>
-<li>
-<p>Password: Password123!</p>
-</li>
-<li>
-<p>Wireless SSID: CCNA-Wxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)</p>
-</li>
-<li>
-<p>Wireless Passphrase: Cisco456!</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>'''NOTE:''' Do not complete Part 4 of this lab which is listed as optional.</p>
-</li>
-<li>
-<p>'''NOTE: Before packing up your equipment be sure to reset your router back to factory defaults'''</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Lab 15.6.2 - Configure IPv4 and IPv6 Static and Default Routes</p>
-</li>
-<li>
-<p>Lab 16.3.2 - Troubleshoot Static and Default Routes</p>
-<div class="ulist">
-<ul>
-<li>
-<p>NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!</p>
 </li>
 </ul>
 </div>
 </li>
 </ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>R2(config)# ipv6 route ::/0 2001:db8:acad:2::1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>+
+. Lab 11.6.2 - Switch Security Configuration
+. Lab 13.1.11 - Configure a Wireless Network
+* <strong>FALL 2021 NOTE:</strong> Complete the Packet Tracer version of this lab this year, wireless networking is not supported on Netlab. You should still submit a lab report as normal for this PT lab.
+* <strong>NOTE:</strong> Change the router settings as indicated in the lab, use these for the NEW settings:
+<strong> Router IP Address: 172.17.99.1
+</strong> Router Subnet Mask: 255.255.255.0
+<strong> Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+</strong> DHCP Starting IP Address: 172.17.99.21
+<strong> DHCP Maximum Number of Users: 20
+</strong> Router Username: admin
+<strong> Password: Password123!
+</strong> Wireless SSID: CCNA-Wxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+<strong>* Wireless Passphrase: Cisco456!
+* *NOTE:</strong> Do not complete Part 4 of this lab which is listed as optional.
+* <strong>NOTE:</strong> Before packing up your equipment be sure to reset your router back to factory defaults'''
+. Lab 15.6.2 - Configure IPv4 and IPv6 Static and Default Routes
+. Lab 16.3.2 - Troubleshoot Static and Default Routes
+* <strong>NOTE:</strong> In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!</p>
 </div>
 </div>
 <div class="sect2">
@@ -839,7 +822,7 @@
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-08-17 10:11:01 -0500<br>
+<p>Document Build Time: 2022-08-17 10:27:24 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
