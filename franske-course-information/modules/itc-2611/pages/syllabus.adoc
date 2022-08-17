@@ -132,9 +132,7 @@ If you miss or do poorly on a regular unit/module/chapter exam (not a final exam
 |===
 
 === Grading Method and Availability
-This course is a combination of two Cisco Networking Academy courses, CCNA 1 and CCNA 2. Grades for each of these two courses will be calculated separately following the method below and then the two courses will be averaged for a final grade in the single 6 credit college course.
-
-Grades for each course is calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
+Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
  
 [%autowidth,options="header"]
 |===
