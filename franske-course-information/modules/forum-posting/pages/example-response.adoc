@@ -1,0 +1,9 @@
+= Discussion Forum Examples - Response Posts
+
+== Example 1 
+Coming Soon!
+
+=== Post
+Coming Soon!
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

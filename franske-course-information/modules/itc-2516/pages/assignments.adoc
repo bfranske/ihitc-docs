@@ -79,7 +79,7 @@ Homework activities will require submitting the actual answers to each question 
 * Lab 11.6.6 - Calculate IPv4 Subnets (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
 * Lab 11.10.2 - Design and Implement a VLSM Addressing Scheme (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
 * Lab 12.7.4 - Identify IPv6 Addresses (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
-* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See forum posting page for details. (up to 10 points each module based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
 == Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
@@ -227,7 +227,7 @@ NOTE: In this lab you need to start by loading a starting configuration onto you
 ==== Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
-* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See forum posting page for details. (up to 10 points each module based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
 === Participation Activities
 * Complete the online course feedback form (5 points for completing)

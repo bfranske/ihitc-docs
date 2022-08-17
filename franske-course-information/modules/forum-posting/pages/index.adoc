@@ -1,0 +1,70 @@
+= Franske Forum Posting Format
+
+== Introduction
+In this class you will be participating in an online class forum with other members of the class and your instructor. You will be graded based on your participation in the online discussion and the quality of your posts and interaction with others online. As with many classes there is typically a three-post minimum for each chapter to be considered as participating. In all cases though you are better served by posting more and quality is just as important as quantity. In fact, you can get full points even with less than three posts if your posts are extremely high quality, substantially contribute to the discussion, and aid in assisting other members of the course understand the material.
+
+While only 3 posts are generally required, if you are more active in the forum than that and helping people you can earn additional points (up to the maximum for each topic) for additional response posts so if you forget the initial post or some of your posts are not quite high enough quality to earn all the points typically given for that post type you could still potentially earn all of the points by being active and helpful with more posts.
+
+When grading posts the biggest factor in getting a good score is how much new and unique information you have contributed to the discussion. This is why simply agreeing with someone else about what they thought was important or interesting will likely not earn you any points for that post no matter how long of a post it is. This means you can write an entire page of text but if it basically summarizes to "I agree with you" or "I found what you posted helpful" it's not worth anything. Normally though a longer, more detailed, post will get a higher score than a shorter post. Also, inclusion of helpful outside materials (links to relevant articles, YouTube videos, etc.) is helpful in raising the score on your post though it should be clear you didn't just do a search and added some links you should have read and reviewed the video/links and speak as to the specific content or way each might be helpful. Be sure to talk about and integrate the outside information into your post though and not just spam a bunch of links, that wouldn't really be contributing any of your own thoughts and doesn't show you have read the article or given much thought to it.
+
+*Under no circumstances can forum posts be turned in late (after the response posts are due for a chapter).* Because forum postings require a back-and-forth between multiple members of the class it is simply not possible to accept these late under any circumstances. You can always still try to get all the points even if you miss the first post by being exceptionally active and high quality in your response posts (making many more than the minimum and high in quality) but after the due date for the response posts there is no guarantee you will be able to make these up in any way.
+
+See below for some specific details about how each type of post should be handled. I do not generally grade on grammar but if your poor grammar makes it difficult or impossible to understand what you are trying to say or you break other rules below you can absolutely receive a zero on a post (or even many posts). 
+
+== First Post
+The first post you make for each chapter is typically the longest and most detailed. It should include a brief discussion of what you thought the most important parts of the chapter were _and why_ they are important for you to know, what you thought the most interesting parts were _and why_ you found them interesting, and at least one question related either directly to the readings or the general topic covered in the readings.
+
+If forum posts for each chapter/topic in the course are worth a total of 10 points (this varies a bit from class to class) you can usually earn up to 5 points for this initial post.
+
+*DO:*
+
+* Separate your post into at least three paragraphs/headings: "Most Important", "Most Interesting", and "Questions"
+* Pick _one_ specific thing from the chapter that was the most interesting to you and talk about _why_ it is so interesting to you. Use at the *very minimum* three sentences to explain this. It's pretty easy to get to five sentences if you're doing a good job explaining why you think this the most interesting thing.
+* Pick _one_ specific thing from the chapter that you think was the most important and talk about _why_ you think it is so important for you to know. Use at the *very minimum* three sentences to explain this. It's pretty easy to get to five sentences if you're doing a good job explaining why you think this the most important thing.
+* End with one or two questions about something related to the chapter. They could be something you didn't quite understand from the chapter or they could be something related to a topic from the chapter but not specifically covered. Ensure your question(s) are clear to others and if someone responds back to you about them you should give them some feedback about their answer, ask for more clarification, etc.
+* Make sure that your post is clearly and thoroughly communicating the ideas you want to share following general English grammar and writing rules.
+* Use complete sentences to express your thoughts.
+* Relate the topic to yourself. Think about things you may need to do in the future and what would be important or interesting to know and why it would be important for you to know or interesting to you.
+
+*DO NOT:*
+
+* Summarize the entire chapter/module/topic
+* Say that everything was important or just repeat the name of the chapter/module/topic as important
+* Say that everything was interesting or just repeat the name of the chapter/module/topic as interesting
+* Post something which is not easily understood by another person (related to the grammar of the post)
+* Forget to explain why you found things important to know or interesting to you. Think about things you may need to do in the future and what would be important or interesting to know.
+* Use any kind of automatic summarization tools or have anyone else summarize for you. (see the academic integrity section of the syllabus)
+* Turn in someone else's work (see the academic integrity section of the syllabus)
+* Skip writing 1-2 questions for other people to respond to because you "understood everything". It's great if you understood everything but then you should have questions about the topic which were not covered in the readings that you are wondering about.
+
+
+== Response Posts
+After you make your initial post you should continue to contribute to the forum by regularly reading the postings of other class members and responding as appropriate. Particularly, try to assist in answering their questions, pointing them to additional related resources you found helpful including YouTube videos, other sites, locations in the readings, etc.
+
+These posts should be much more than just agreeing with what someone else stated or saying that you found their post helpful. You need to *substantially contribute and add new information* to an ongoing discussion about the topic in order to be considered as participating. Simple agreement posts will not be worth any points.
+
+If forum posts for each chapter/topic in the course are worth a total of 10 points (this varies a bit from class to class) you can usually earn up to 2-3 points for each response post.
+
+*DO:*
+
+* Try to answer questions that people have posed
+* Try to do some research on people's questions instead of just providing an opinion without any support
+* Include links to outside resources such as reputable websites, videos, etc.
+* Try to be helpful or ask for help if you are having a problem with a related lab activity or anything else related to the topic.
+* Post more times than the minimum required if you want to be sure to get all the points.
+* Respond thoroughly and clearly. To clearly communicate an idea in less than 3-5 sentences is very difficult in most cases.
+* Use complete sentences to express your thoughts.
+
+*DO NOT:*
+
+* Post links without any of your own description/details/how you found them helpful. You need to review the material you're linking to and talk about it in your response post too.
+* Just agree with other people or provide posts with minimal useful contribution to the discussion
+* Expect points just for posting, you need to follow the rules and be really contributing to helping other people in order to get points
+* Be too brief with your post to be useful
+
+== Sample Forum Posts
+
+* xref:example-first.adoc[Sample First Posts]
+* xref:example-response.adoc[Sample Response Posts]
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
