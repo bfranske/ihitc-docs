@@ -1,5 +1,22 @@
-= Future ITC-2480 Home Page
+= Dr. Franske's ITC-2516 Home Page
 
-Welcome to my new page!
+This is the homepage for the ITC-2516 classes taught by Dr. Ben Franske. 
+
+== General Course Information
+
+* xref:syllabus.adoc[Course Syllabus]
+* xref:schedule.adoc[Official Course Schedule]
+* xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
+* xref:lab-reports:index.adoc[Instructions for Writing Lab Reports and Sample Lab Reports]
+* xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
+
+== Resources
+
+=== Subnetting
+
+* http://www.learntosubnet.com[LearnToSubnet.com]
+* http://www.subnettingmadeeasy.blogspot.com/2007/11/subnetting-made-easy-lesson.html[Subnetting Made Easy]
+* http://www.kirkwood.edu/pdf/uploaded/569/vlsm_variable-length_subnet_mask_iworkbook-student-v2.0.pdf[VLSM Workbook 2.0]
+* http://systemstechblog.files.wordpress.com/2012/04/ip-subnetting-workbook.pdf[IP Subnetting Workbook 2.0]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
