@@ -34,7 +34,7 @@ Course Note: The prerequisite for this course can be waived upon proof of passin
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
 * Cisco Networking Academy (http://www.netacad.com)
-** NOTE: It is important that you keep an accurate email address on file with the Cisco Networking Academy site and/or regularly sign on to the site to check your Networking Academy Inbox. Important and time-sensitive course information may be distributed through the Networking Academy messaging system. If you have an accurate email address you can receive the information by email as well.
+WARNING: It is important that you keep an accurate email address on file with the Cisco Networking Academy site and/or regularly sign on to the site to check your Networking Academy Inbox. Important and time-sensitive course information may be distributed through the Networking Academy messaging system. If you have an accurate email address you can receive the information by email as well.
 
 == Lab Time
 * Equipment Labs in the CCNA 1 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
@@ -145,7 +145,7 @@ Detailed information about assignments and which category they are included in i
 
 Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
 
-Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
 
 === Extra Credit
 Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Unless otherwise noted extra credit will be added to the Lab/Homework Assignments category. 

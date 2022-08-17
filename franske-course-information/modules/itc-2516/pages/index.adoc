@@ -9,6 +9,7 @@ This is the homepage for the ITC-2516 classes taught by Dr. Ben Franske.
 * xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
 * xref:lab-reports:index.adoc[Instructions for Writing Lab Reports and Sample Lab Reports]
 * xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
+* Assessments and online curriculum available at http://www.netacad.com
 
 == Resources
 
