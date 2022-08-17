@@ -1,0 +1,21 @@
+= Clearing Cisco IP Phone Security Files
+
+When a Cisco IP phone has been connected to a CUCM 8.0 or later server it is given a security certificate which will prevent that phone from making a connection to a TFTP server other than one with the appropriate certificate. This is done in order to prevent a man-in-the-middle attack where someone gets phones to register to a fake server and can then monitor and tamper with all voice traffic. This also means that in a lab environment once a phone is connected to a specific CUCM server it will only register to that server unless you clear the Initial Trust List (ITL) and Certificate Trust List (CTL) files from the phone. This requires having physical access to the phone (well, there is actually one way to do it remotely with a password and some extra setup but that's outside of the scope of this document).
+
+First, try clearing the network settings:
+. Press the Settings button and navigate to "Network Settings" but do not enter the submenu.
+. Unlock the configuration menu by pressing "* * #" on the phone. If you see a small padlock in the upper right corner of the screen it will switch to an unlocked padlock.
+. Press the Erase softkey (the buttons along the bottom of the screen). If you don't see Erase you may need to press More one or more times to get to a screen which has Erase.
+. The phone should reset with cleared network settings.
+
+Next, try clearing the ITL file:
+* On the 79xx series phones:
+. Press the Settings button and navigate to and enter the Security > Trust List > ITL File submenu.
+. Unlock the configuration if it is not currently unlocked (look at the padlock in the upper right corner) by pressing "* * #" on the phone. The small padlock in the upper right corner of the screen it will switch to an unlocked padlock.
+. Press the Erase softkey (the buttons along the bottom of the screen). If you don't see Erase you may need to press More one or more times to get to a screen which has Erase.
+. The phone should reset with an empty ITL file.
+* On the 89xx/99xx series phones:
+. Press the Settings button and navigate to and enter the Administrator Settings > Reset Settings > Security Settings option.
+. The phone should reset with an empty ITL file.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

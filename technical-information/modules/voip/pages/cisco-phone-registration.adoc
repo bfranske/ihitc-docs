@@ -1,0 +1,44 @@
+= Cisco IP Phone Registration Troubleshooting
+
+One common problem you may have in the frequent setup and teardown of labs for this course is that phones will not register. This guide will give you some tips on troubleshooting phone registration. We will assume that the phone has power and is booting properly and that the phone is using an SCCP firmware image as opposed to a SIP image.
+
+== Phone Boot Process
+During troubleshooting it is helpful to remember what happens during the phone boot process:
+. The phone receives power, either through PoE or from an external power supply as well as a network connection.
+. The phone received voice VLAN information from the switch using CDP. This puts the phone onto the correct VLAN which is important for the next step.
+. The phone makes a DHCP request (a broadcast) on whatever VLAN has been assigned. Assuming that a DHCP server is properly operating on that VLAN it sends back an IP address, mask, default gateway, and option 150 information which tells the phone what TFTP server to check with for the next step.
+. The phone makes a request to the TFTP server specified by option 150 in the DHCP reply. The exact filename(s) requested varies depending on the phone model and firmware and can be specific to a single phone or a generic file which applies to multiple phones. This file can contain information about what firmware version should be loaded/upgraded on the phone as well as the IP address of the Call Manager server to connect to in the next step and other basic device configuration settings.
+. The phone attempts to register with the IP address for the Call Manager server which has been delivered by TFTP.
+
+== Troubleshooting
+Each of these boot steps can potentially have a problem associated with it which would prevent the phone from registering and it makes sense to check each step for potential problems. With experience you can learn which step is most likely to be causing the problem based on the information you see but for now it's probably best to work through each step in order.
+
+=== Verify Power
+* Make sure the phone has power to it, either from a PoE device such as a switch or from an external power supply. If you are using PoE some possibilities for problems could be the phone requesting more power than the switch has available, PoE not being turned on for the phone's port, or using a non-PoE capable switch.
+
+=== Voice VLAN Configuration
+* Check your switch configuration and make sure that you have set a voice vlan on the port which the phone is connected to.
+* Check the phone itself within the Settings -> Network Configuration for a correct "VLAN Id" setting which the phone should be getting from the switch.
+* Check to make sure that the Voice VLAN is allowed and active on the trunk link between your switch and router. If your Voice VLAN can't be seen by the router it will not be able to provide DHCP addressing or CME services to the phone.
+
+=== IP Configuration
+* Check to see if your phone is getting an IP address from your DHCP server. This is probably easiest done from the phone in the Settings -> Network Configuration menu of the phone. You should have an IP address, subnet mask, and default gateway coming from your DHCP server.
+* If your phone appears to have correct IP addressing information make sure that you can route traffic to and from your phone. Try pinging from a PC on your lab network to the IP address of the phone and try opening a web browser to the IP address of your phone. These should be successful indicating correct layer 3 networking to the the phone. If you fail to make a connection to the IP address of the phone you have something entirely outside of the VoIP configuration not working, could be a routing problem, VLAN problem, switch problem, etc. but the problem is not specific to VoIP configuration.
+* If your DHCP server is not directly connected to the Voice VLAN (if you're running a DHCP server on the router, as is typical in the labs, this is not an issue) make sure that you have correct ip helper-address settings in place.
+
+=== TFTP Configuration
+* Check to see that your phone is getting the correct TFTP server address from the DHCP server. Again, you should be able to find this on the phone in the Settings -> Network Configuration menu. For our labs the correct TFTP server address will either be the address of the router interface which is setup as the ip source-address in your config-telephony setup (for CME labs) or the address of your CUCM server (for CUCM labs). This address should be set as a DHCP option 150 in your DHCP server configuration. Note, the address may not always be on the same VLAN/subnet as the Voice VLAN (especially when you get into CUCM labs), that is OK! As long as routing is working properly and the phone can reach the TFTP IP through it's default gateway things will work fine. You can put a test device, like a computer, into the voice VLAN on a different port and make sure it gets a correct IP address in the Voice VLAN range and is able to ping the TFTP server address.
+* Make sure that the TFTP configuration files were created on your router (the '''create-cnf files''' command)
+
+=== Call Processing Server Registration
+* Try xref:voip:cisco-phone-security.adoc[clearing the CTL/ITL security files from the phone]. Even a "factory reset" of the phone will leave these files in place. The phone will not register to a new server unless these files are deleted which must be done from the phone itself.
+
+==== On CME Systems
+* If you are running CME and have made it this far the most likely problem is a misconfiguration of your ephone settings on CME, an incorrect MAC address or something along those lines.
+* If you can't figure it out by looking at the config you can watch the registration process using the *debug ephone detail* command. Use *undebug all* to disable debugging mode. Note that by default debugging will only go to the local console port, if you are connected by telnet/SSH to the router you will need to enter the additional *terminal monitor* command to see debugging messages.
+
+==== On CUCM Systems
+* Have you manually setup the phone or are you relying on auto registration? If you are using Auto Registration it's likely you have run out of extensions in the auto registration range you have configured. Once an auto-registration DN is used it cannot be used again by another device (even if you later change the device to have a different DN). Try expanding your auto-registration range or deleting the unused DNs:
+** To delete unused DNs: Go to Cisco Unified CM Administration Page > Call Routing > Route Plan Report. Click the Find button and look for DNs from your auto registration range which are currently unassigned. Check the check box next to the directory numbers you wish to delete and click Delete Selected. Confirm the deletion.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

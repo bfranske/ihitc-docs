@@ -1,0 +1,3 @@
+* VoIP
+** xref:voip:cisco-phone-registration.adoc[Cisco IP Phone Registration Troubleshooting]
+** xref:voip:cisco-phone-security.adoc[Clearing Cisco IP Phone Security Files]

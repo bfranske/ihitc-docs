@@ -3,7 +3,7 @@
 * xref:tech-info:ROOT:index.adoc[Technical Information]
 +
 --
-include::partial$nav.adoc[]
+include::voip:partial$nav.adoc[]
 --
 * xref:software-info:ROOT:index.adoc[Software Discounts and Resources]
 * xref:tech-info:ROOT:about-site.adoc[About This Site]
