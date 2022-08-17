@@ -81,6 +81,8 @@ Homework activities will require submitting the actual answers to each question 
 * Lab 12.7.4 - Identify IPv6 Addresses (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
 * Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
 == Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
@@ -228,6 +230,8 @@ NOTE: In this lab you need to start by loading a starting configuration onto you
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
 * Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
 === Participation Activities
 * Complete the online course feedback form (5 points for completing)
