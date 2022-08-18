@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: IHITC Info</title>
+    <title>Proxmox VE Installation Lab :: IHITC Info</title>
     <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-proxmox-containersclusters">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -218,6 +218,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../program-info/current/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-proxmox-containersclusters">Proxmox VE Installation Lab</a></li>
+  </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
@@ -233,7 +237,214 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-
+<h1 class="page">Proxmox VE Installation Lab</h1>
+<div class="sect1">
+<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Subnet Mask: 255.255.255.0</p>
+</li>
+<li>
+<p>Default Gateway: 192.168.1.1</p>
+</li>
+<li>
+<p>DNS Server 192.168.1.1</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">System</th>
+<th class="tableblock halign-left valign-top">IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.11</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to make a reservation for the Proxmox Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you need to split your work up across multiple reservations be sure to safely shutdown your Proxmox VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you make a mistake and need to have one or both of your HV VMs erased so you can re-install Proxmox you will need to contact your instructor or the ITC lab assistant to have them reset.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Boot both your Proxmox VE Server systems</p>
+</li>
+<li>
+<p>Check the available container templates on your PVE server and make sure you have downloaded the latest Debian system templates. Also download at least one of the Turnkey Linux appliance templates such as the Wordpress template.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you have an incomplete list of container templates it&#8217;s likely the case that your system was powered off when the auto-run script went to check the list of available templates. You can refresh this list manually from the PVE command line using information from the <a href="https://pve.proxmox.com/wiki/Linux_Container#pct_container_images">ProxMox Linux Containers</a> page.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>After you have the containers downloaded go ahead and deploy a container based on the Debian template, use DHCP addressing.</p>
+</li>
+<li>
+<p>Try using the Debian container to see if it feels any different than a regular Debian VM.</p>
+</li>
+<li>
+<p>Create a Proxmox cluster for your pod named "PodX" where X is replaced with your pod letter. Do this on the Proxmox node containing your VMs, nodes to be added will not be able to have VMs until after they are added.</p>
+</li>
+<li>
+<p>Add your Proxmox server B to your Proxmox cluster.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you&#8217;re having difficulty with this there are two critical requirements that must be met per the documentation and in the instructions from the previous lab: the hostnames of the two Proxmox servers MUST be different AND there can be no VMs on servers being added to a cluster (in this case server B is being added to the cluster). Make sure you have met both requirements.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Deploy a Ubuntu container to a node in your Proxmox cluster, verify it is working</p>
+</li>
+<li>
+<p>Deploy a Wordpress server container to a node in your Proxmox cluster, verify it is working</p>
+</li>
+<li>
+<p>Try migrating one of your VMs from the last lab which is NOT powered on from one node to another node in the cluster and then powering up and verifying the VM still works</p>
+</li>
+<li>
+<p>Try migrating one of your Linux containers from one node to another node in the cluster. Note that containers will be powered off while being moved and will then be restarted once the move is complete.</p>
+</li>
+<li>
+<p>Setup some kind of remote access to one of your VMs. That could be Remote Desktop to a Windows VM or SSH to a Linux VM.</p>
+</li>
+<li>
+<p>Use PC-C to open a connection directly to the VM with remote access (SSH to Linux or Remote Desktop to Windows)</p>
+</li>
+<li>
+<p>Try migrating the VM with a remote access connection open (while it is powered on) from one node to another node in the cluster. Make sure you can maintain connectivity and work on the VM the entire time the VM is being migrated.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to remove any CD images from the system before it can be migrated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Try modifying an existing VM by adding extra storage, in the form of an additional virtual disk and ensure you can see and use the space inside your VM</p>
+</li>
+<li>
+<p>Try modifying an existing container by adding extra storage, in the form of an additional mount point and ensure you can see and use the space inside your container</p>
+</li>
+<li>
+<p>Try cloning one of your VMs</p>
+</li>
+<li>
+<p>Safely shut down all your containers and VMs</p>
+</li>
+<li>
+<p>Safely shutdown your Proxmox VE servers</p>
+</li>
+<li>
+<p>End your Netlab Reservation</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2022-08-18 09:11:03 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
