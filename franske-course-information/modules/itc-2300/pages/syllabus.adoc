@@ -86,7 +86,7 @@ Grades for this course are calculated based on a weighted points system. Each as
 [%autowidth,options="header"]
 |===
 |Category |Percent of Final Grade
-|Unit Assessments 
+|Topic Assessments 
 |20%
 |Lab/Homework Assignments 
 |40%

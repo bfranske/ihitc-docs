@@ -31,7 +31,7 @@ Find instructions for the xref:lab-vmware-vsphereadmin.adoc[vmWare vSphere Admin
 --
 NOTE: In this lab activity you will, amongst other things download and install the OpenConnect VPN client which is used to connect to the DevNet sandbox labs. Unfortunately there is a bug in this software which prevents OpenVPN (which you may use for connecting to ITCnet in other classes) from resetting Windows DNS server addresses. This will prevent you from accessing ITCnet resources, even after disconnecting from the DevNet sandbox VPN in OpenConnect. To fix this after EACH time you use OpenConnect to access DevNet sandboxes after disconnecting you will need to open your network adapter properties for the "TAP-Windows Adapter" and open the IPv4 settings. You will see that OpenConnect has left DNS set as "Use the following DNS server addresses" with two addresses filled in. Change the setting back to "Obtain DNS server address automatically" and save the settings. The next time you connect to OpenVPN you should have access to the ITCnet DNS server and resources again.
 --
-* Complete the Programming Fundamentals Module from the [https://developer.cisco.com/learning/tracks/devnet-beginner DevNet Beginner] track
+* Complete the Programming Fundamentals Module from the https://developer.cisco.com/learning/tracks/devnet-beginner[DevNet Beginner] track
 +
 --
 NOTE: In Step 2 of the "A Brief Introduction to Git" lab you are told you should have already downloaded a Git repository or you should follow the link at the top with instructions for setting up your workstation. Follow that link and see the section titled *Using Git to Copy Code and Setting Up the Local Environment*. You should clone and use the Data Center Infrastructure: https://github.com/CiscoDevNet/dciv2-code repository.
@@ -65,14 +65,62 @@ NOTE: The SSH instructions in the "Exploring IOS XE YANG Data Models with NETCON
 * Complete the https://developer.cisco.com/learning/modules/industrial-netdevops/iot-industrial-netdevops-ansible/step/1["Managing IoT Harware with Ansible" module].
 
 == Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
 == Participation Activities
+Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
+* For each topic you need to meet with the instructor at least once to check on your status and understanding of the topic. Each meeting will be worth up to 10 points.
+* You will need to complete peer evaluations of all course projects, these evaluations will be worth 10 participation points total.
 
-== Unit Assessments
+== Topic Assessments
+You are responsible for completing an online assessment for each topic. These fall into the topic assessments category of your course grade. 
 
-== Other
+== Final Exam
+You are responsible for completing a final exam, this will go into the regular final exam category of your course grade.
 
 == Course Project
+The course project will take the place of the final skills exam in this course and will allow you and your lab partner to continue to experiment with one of the topic areas covered in the course. You will need to present your project in a presentation/demonstration to the class which is expected to last 10 minutes and you will need to write and submit project report.
+
+The project should be related to one of the three main units covered in the course. You may either expand on one of the tools that we used in the course or explore a different tool in the same topic area. Your project plan should be approved by the instructor. Remember that the project is 15% of your final grade so it is expected to be a substantial amount of work. 
+
+=== Presentation Tips
+
+* Presentations should be very close to 10 minutes in length. While there is not a part of your score that is directly tied to timing if they are much longer or shorter you probably have either over-covered or under-covered what you did (or didn't do enough work) which will definitely show up in your score.
+* I suggest spending about half the time giving some background on your project (why you chose it, what are the key things you learned, what all did you do). You can have slides for this if you'd like.
+* If you use slides I normally suggest no more than one slide per minute of presentation time (excluding a title slide) so probably stick to only about 5 slides of content. Also, follow good presentation tips for using slides (don't make them overly complicated, don't try to put too much information on one slide, don't read your slides to us as part of your presentation, etc.) There are lots of good resources online that talk about creating effective presentation slides. Two examples are: https://edu.gcfglobal.org/en/powerpoint-tips/simple-rules-for-better-powerpoint-presentations/1/ and https://www.unl.edu/gradstudies/connections/tips-creative-effective-powerpoint-presentations
+* I suggest spending the other half of the time giving a demonstration about some part of your project. Don't try to show off everything you did, cramming 3 weeks of work into 5 minutes is not possible. Pick one specific part of your project that you can demonstrate in 5 minutes and show that. You're not trying to give a "how-to" presentation so you don't need to show every step. Just give people an idea of what you did in your project. Stage things ahead of time and skip steps as needed to keep on time.
+
+
+=== Lab Report Tips
+
+* The format is the same as a regular lab report (what you did, problems you had, how you tested, and what you learned) but the report must be much longer (about 4 pages single spaced) because it includes 3 weeks of work. It should be clear how you spent the three weeks and that it really was the equivalent amount of work as three weeks of regular classwork.
+* You should thoroughly describe what you did (not exact steps, but an overview of the major things you accomplished), and what new things you learned by doing the project.
+* It should be clear how the project relates to one of the topics from class.
+* This should also be written like a paper explaining your project so don't include a bunch of lists, etc. which are just there to fill space as that will not produce a quality report.
+
+=== Project Grading
+
+There will be two primary components to your grade for the project, a lab report and a presentation.
+
+You will be turning in a lab report using the same format you have used for other lab reports in the class but it will be longer as this is a much more substantial project. Lab reports for this project should be about 4 pages long (single spaced) and include all the regular sections of a lab report (what you did, what problems you had, how you tested, and what you learned. The project lab report will be worth 100 points.
+
+In addition you will receive a grade on a 10 minute presentation to the class. The presentation should be interesting, engaging, informative, and factually correct. It is a good idea to show off your actual work as much as possible (not just talk about it) so you are strongly encouraged to find a way to demonstrate something "live" during the presentation.
+
+The presentation score is comprised of:
+* Topic Content (30 Points)
+** Was the topic appropriate for the course project? Was the content presented accurate and did it provide a good overview of the topic and the work done? Was the amount of work done appropriate for a large course project?
+* Presentation Skills (30 Points)
+** How well did the group do ''explaining'' the content? Were they able to adequately answer appropriate questions from the class? Was the presentation professional and well prepared?
+* Engagement (20 Points)
+** How well did the group engage the class in their presentation? This could include getting or asking questions of the class, using appropriate visual aids, etc. How well did the group express excitement and interest in the topic of their presentation?
+* Overall Quality (20 Points)
+** Did you learn something or get something clarified in your mind? Did you feel listening to this presentation was worth your time? Was this a "good" presentation? Are you interested to learn more about this topic having heard this presentation? Do you have a good understanding of how you could use this to solve future problems you come across?
+
+Finally, a small portion of your grade for the project presentation (10% of the presentation score) will be writing a short review of each of the other project presentations. These are not simply participation points for filling out a review, your review will be graded for quality so be sure you listen carefully and provide useful feedback in your review.
 
 == Archived Labs
 
