@@ -9,6 +9,7 @@ First, try clearing the network settings:
 . The phone should reset with cleared network settings.
 
 Next, try clearing the ITL file:
+
 * On the 79xx series phones:
 . Press the Settings button and navigate to and enter the Security > Trust List > ITL File submenu.
 . Unlock the configuration if it is not currently unlocked (look at the padlock in the upper right corner) by pressing "* * #" on the phone. The small padlock in the upper right corner of the screen it will switch to an unlocked padlock.
