@@ -22,6 +22,20 @@ Find instructions for the xref:lab-vmware-vcenterinstallation.adoc[vmWare vSpher
 ==== vmWare vSphere Administration Lab
 Find instructions for the xref:lab-vmware-vsphereadmin.adoc[vmWare vSphere Administration Lab here]].
 
+=== Voice over IP (VoIP) Labs
+
+==== Introduction to VoIP with Asterisk Lab
+Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
+
+==== VoIP Provisioning, Voicemail, and SIP Labs
+Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Voicemail, and SIP Lab here].
+
+==== VoIP T1 and PSTN Access Lab
+Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
+
+==== VoIP GUI Asterisk Configuration Lab
+Find instructions for the xref:lab-asterisk-guiconfig.adoc[vmWare vSphere vCenter Server Installation Lab here]].
+
 === Network Programmability Labs
 
 ==== Getting Started with DevNet Lab
@@ -111,6 +125,7 @@ You will be turning in a lab report using the same format you have used for othe
 In addition you will receive a grade on a 10 minute presentation to the class. The presentation should be interesting, engaging, informative, and factually correct. It is a good idea to show off your actual work as much as possible (not just talk about it) so you are strongly encouraged to find a way to demonstrate something "live" during the presentation.
 
 The presentation score is comprised of:
+
 * Topic Content (30 Points)
 ** Was the topic appropriate for the course project? Was the content presented accurate and did it provide a good overview of the topic and the work done? Was the amount of work done appropriate for a large course project?
 * Presentation Skills (30 Points)
@@ -123,5 +138,8 @@ The presentation score is comprised of:
 Finally, a small portion of your grade for the project presentation (10% of the presentation score) will be writing a short review of each of the other project presentations. These are not simply participation points for filling out a review, your review will be graded for quality so be sure you listen carefully and provide useful feedback in your review.
 
 == Archived Labs
+*This section contains information about labs that have been used in this class in the past. You are NOT responsible for completing these labs.*
+
+
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

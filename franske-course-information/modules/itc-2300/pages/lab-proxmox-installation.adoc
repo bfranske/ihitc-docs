@@ -1,0 +1,73 @@
+=Proxmox VE Installation Lab
+
+== IP Addressing
+You will be assigning static IPs to your systems in this lab. Please use these settings:
+
+* Subnet Mask: 255.255.255.0
+* Default Gateway: 192.168.1.1
+* DNS Server 192.168.1.1
+
+[%autowidth,options="header"]
+|===
+|System |IP
+
+|HV-A |192.168.1.10
+
+|HV-B |192.168.1.11
+|===
+
+== Instructions
+. You will be installing a Proxmox VE server on the two hypervisor (hv) VMs assigned to you (so do all these steps, unless otherwise indicated, on each computer). If you are unsure about how to do something try checking the https://pve.proxmox.com/wiki/Main_Page[Proxmox Wiki site] first.
++
+--
+NOTE: Be sure to use a unique hostname on each Proxmox server, otherwise you will have issues connecting them together in a future lab.
+--
+. Two hypervisor VMs (labeled HV-A and HV-B) have been provided for you which you will be installing ProxMox VE on, each has:
+* 24GB RAM
+* 300GB Hard Drive
+* 2 CPUs
+* Enabled VTi/VTx Virtualization for the processors
+. VMs are located on the https://netlab.ihitc.net Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system
++
+--
+NOTE: You will need to make a reservation for the Proxmox Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
+
+WARNING: If you need to split your work up across multiple reservations be sure to safely shutdown your Proxmox VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
+
+NOTE: If you make a mistake and need to have one or both of your HV VMs erased so you can re-install Proxmox you will need to contact your instructor or the ITC lab assistant to have them reset.
+--
+. The Proxmox VE installer ISO file has been pre-loaded into the CD drive of each of your HV VMs
+. Start the Proxmox VE installation (on both VMs) making note of these options:
+* Set the Country to United States and Timezone to America/Chicago
+* Record the administrative password for future use, it is strongly suggested you use "itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
+* Set the IP address for each Proxmox system using table above
+* Make sure the hostname is different on each Proxmox VE server and ends with .itc2300.campus.ihitc.net
+** It is recommended you set the name to "podXproxmoxA.itc2300.ihitc.net" (change as needed for your pod letter and HV VM ID letter)
+. Once installation is finished use a web browser on PC-C to access the Proxmox VE server's web interface as the root user (username root) and password set during the installation
++
+--
+NOTE: The password for the "Nelab User" account on PC-C is "netlab"
+--
+. Add a second user account to Proxmox VE and set it up with administrative access. Set the second account up as a Proxmox VE Authentication Server realm account meaning it will only be available in Proxmox and not on the underlying Linux system.
++
+--
+NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management#pveum_permission_management[objects and paths] for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
+--
+. Log out of the root account and login to the Proxmox web administrative interface using the secondary account you just created
+. Use PC-C to upload Windows 10 and Linux Mint ISO files to the Proxmox VE server using the web interface
+* You may have problems uploading the ISO files with the Edge browser so Firefox or Chrome is suggested if you have issues uploading
+* The ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
+** Fileshares in Windows 10 can be accessed by clicking on the start menu and just typing the UNC path to a fileshare like \\172.17.139.70\
+. Try creating both a Windows 10 and Linux Mint VM (only on Proxmox VE server A!) and complete the installation (use KVM as the VM type)
++
+--
+NOTE: It is recommended that you disconnect/disable the virtual network interface on the Windows 10 system before installing so that you will not need to sign in with a Microsoft account. Don't forget to re-enable the network interface after completing the installation.
+
+NOTE: Choose that you don't have a product key when installing Windows, we'll just use the trial version of Windows 10 Education
+--
+. Safely shut down your Windows and Linux Mint guest systems
+. Safely shutdown your Proxmox VE servers
+. End your Netlab Reservation
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
