@@ -1,0 +1,60 @@
+= VMware ESXi Installation Lab
+
+== IP Addressing
+You will be assigning static IPs to your systems in this lab. Please use these settings:
+
+* Subnet Mask: 255.255.255.0
+* Default Gateway: 192.168.1.1
+* DNS Server 192.168.1.1
+
+[%autowidth,options="header"]
+|===
+|System |IP
+
+|HV-A |192.168.1.20
+
+|HV-B |192.168.1.21
+|===
+
+== Instructions
+
+. You will be installing a VMware ESXi server on the two hypervisor (hv) VMs assigned to you (so do all these steps, unless otherwise indicated, on each computer).
++
+--
+WARNING: Be sure to use a unique hostname on each ESXi server, otherwise you will have issues connecting them together in a future lab.
+--
+. Two hypervisor VMs (labeled HV-A and HV-B) have been provided for you which you will be installing ESXi on, each has:
+* 24GB RAM
+* 300GB Hard Drive
+* 2 CPUs
+* Enabled VTi/VTx Virtualization for the processors
+. VMs are located on the https://netlab.ihitc.net Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system
++
+--
+NOTE: You will need to make a reservation for the ESXi Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
+
+WARNING: If you need to split your work up across multiple reservations be sure to safely shutdown your ESXi VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
+
+NOTE: If you make a mistake and need to have one or both of your HV VMs erased so you can re-install ESXi you will need to contact your instructor or the ITC lab assistant to have them reset.
+--
+. The ESXi installer ISO file has been pre-loaded into the CD drive of each of your HV VMs
+. Begin the ESXi installation process
+. Set the root password on your ESXi system during the installation, it needs to be at least 7 characters and contain multiple character types.
++
+--
+CAUTION: *Be sure to write your password down!* It is strongly suggested you use "ESXi#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab. If you forget your password you will need to have your VMs reset and start over again. You will need this in future labs as well!
+--
+. Browse to the ESXi system in a web browser from PC-C. Note that it will NOT yet be at the IP address in the table above, we will set a static IP in the next lab. For now your ESXi system should have a DHCP IP address which is displayed on it's console screen.
+. Login as the root user.
+. Add a new account and give it administrative permissions to the ESXi system. Log out of the root account and in with the new user account.
+. Create a new folder on your ESXi datastore for ISO files.
+. Log out and back in to the ESXi web interface using your new login credentials (not the root account)
+. Use the PC-C VM to upload the Windows 10 and Linux Mint ISO files to the new ISO folder on your ESXi server datastore.
+* The ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
+. Create a new VM on your ESXi system where you can install the Linux Mint system.
+. Complete the installation of Linux Mint as a VM on your ESXi host
+. Safely shutdown your ESXi servers
+. End your Netlab Reservation
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
