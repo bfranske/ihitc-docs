@@ -1,4 +1,4 @@
-=Proxmox VE Installation Lab
+= Proxmox VE Installation Lab
 
 == IP Addressing
 You will be assigning static IPs to your systems in this lab. Please use these settings:

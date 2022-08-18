@@ -34,7 +34,7 @@ Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Vo
 Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
 
 ==== VoIP GUI Asterisk Configuration Lab
-Find instructions for the xref:lab-asterisk-guiconfig.adoc[vmWare vSphere vCenter Server Installation Lab here]].
+Find instructions for the xref:lab-asterisk-guiconfig.adoc[vmWare vSphere vCenter Server Installation Lab here].
 
 === Network Programmability Labs
 
