@@ -38,7 +38,7 @@ WARNING: It is important that you keep an accurate email address on file with th
 
 == Lab Time
 * Equipment Labs in the CCNA 1 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
-* Equipment Labs in the CCNA 1 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission) unless the instructor gives you special permission to use remote access equipment.
+* Equipment Labs in the CCNA 2 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission) unless the instructor gives you special permission to use Netlab remote access equipment based on your progress in the course.
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
 * Packet Tracer Labs may be completed on campus or at home and submitted through the ScoreUP system.
 * Additional open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  

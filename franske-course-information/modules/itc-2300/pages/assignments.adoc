@@ -17,7 +17,7 @@ Find instructions for the xref:lab-proxmox-containersclusters.adoc[Proxmox VE Co
 Find instructions for the xref:lab-vmware-esxiinstallation.adoc[vmWare ESXi Installation Lab here].
 
 ==== vmWare vSphere vCenter Server Installation Lab
-Find instructions for the xref:lab-vmware-vcenterinstallation.adoc[vmWare vSphere vCenter Server Installation Lab here]].
+Find instructions for the xref:lab-vmware-vcenterinstallation.adoc[vmWare vSphere vCenter Server Installation Lab here].
 
 ==== vmWare vSphere Administration Lab
 Find instructions for the xref:lab-vmware-vsphereadmin.adoc[vmWare vSphere Administration Lab here]].

@@ -1,0 +1,61 @@
+= Introduction to VoIP with Asterisk Labs
+
+== Instructions
+
+. Use one of the Cisco 2811 routers and Cisco 3750 POE+ switches to create a segregated network for your VoIP environment. See the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations page] (need to be modified with correct IP addressing for your pod).
+* Connect Fa0/0 on the router to the ITCnet switch and configure it with the same IP address used for your VCSA system in the VMware labs
+* Setup Fa0/1.10 on the router as your "Internal VOIP Network" with an IP address of 192.168.10.1/24 on VLAN 10
+* Setup NAT Overload (PAT) on the router with Fa0/0 on the outside and Fa0/1.10 on the inside
+* Setup a DHCP server on the router on the 192.168.10.0/24 subnet with a default router of 192.168.10.1 and a DNS server of 172.17.139.10, exclude 192.168.10.1-192.168.10.20
+* Connect Port Fa0/1 on your router to a Cisco 3750 POE+ switch on Port 24 and setup the port as a trunk port and VLAN 10 as an active VLAN on the switch, use 192.168.10.2 as the management IP for the switch on VLAN 10
+. Move your PC to your "Internal VOIP Network" by connecting it to your switch on Gi1/0/1 configured as a VLAN 10 access port and ensure it gets a DHCP address and has working Internet connectivity
+. Create a new Virtual Machine named "Debian Asterisk CLI" and Install Debian Linux
+* VM Specs: 4GB RAM, 50GB HDD, Bridged Networking
+. Install Debian Linux onto the VM
+* Make sure you have a working Internet connection through your VoIP network to your host machine (and VM) before starting the installation
+* Set a hostname of PodX-AsteriskCLI (replace the X with your Pod number)
+* Be sure to choose an online mirror for packages or you won't be able to install packages from the Internet once your installation finishes
+* Be sure to *uncheck "Debian Desktop Environemnt"* when asked about packages to install. (Press the space bar when this option is highlighted to uncheck it)
+* You can save some time later if you *check "SSH Server"* when asked about packages to install. (Press the space bar when this option is highlighted to check it)
+. On your Debian system set a static IP Address of 192.168.10.3/24 Default Router of 192.168.10.1 and DNS Server of 172.17.139.10
+. On your Debian system comment out the CDROM source from /etc/apt/sources.list
+. Install the Asterisk VoIP PBX using the Debian Package Manager
+* *apt update*
+* *apt install asterisk*
+. Install the *tftpd-hpa* package on your Debian system to enable it to be a TFTP server 
+. Install the *openssh-server* package on your Debian system to enable SSH access to it from your PC (and your partner's PC if they connect their PC to VLAN 10 on the switch as well)
+. Install the *sudo* package on your Debian system and add your regular user to the sudo group on the system so the account has administrative command access
++
+--
+NOTE: After this point you have everything needed to connect to your Asterisk system with SSH for configuration and file transfer (PuTTY and Filezilla). It's strongly suggested you connect to and work on your system over SSH from this point on instead of trying to use the VMWare Workstation console. Cut and paste support is much better in PuTTY than in the VM console and you and your partner can both be logged in from different PCs (if they are on your internal VoIP network) and working on things at the same time (as long as you aren't trying to edit the same file at the same time).
+--
+. Create a file *XMLDefault.cnf.xml* on your host PC with [[ITC-2300 VoIP Lab XMLDefault File|these contents]] and transfer it to the */srv/tftp/XMLDefault.cnf.xml* location on your Debian system
+. Download the Chan-SCCP driver with *wget https://download.opensuse.org/repositories/home:/chan-sccp-b:/asterisk-16/Debian_10/amd64/chan-sccp_4.3.2_amd64.deb*
+. Install the Chan-SCCP driver with *dpkg --install chan-sccp_4.3.2_amd64.deb*
+. Edit the */etc/asterisk/modules.conf* file and disable loading of chan_skinny.so and enable loading of chan_sccp.so
++
+--
+NOTE: Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
+--
+. Restart the Asterisk software. This can be done with the *systemctl restart asterisk* command.
+. Open the Asterisk console on your Debian system *asterisk -rvvvvvc*
+. Connect two Cisco IP phones to ports Gi1/0/2 & Gi1/0/3 of your switch
+. After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the *sccp show devices* Asterisk CLI command to see a list of the phones.
++
+--
+NOTE: If one or more of your phones does not register it may be locked to a previous sever see the instructions for xref:tech-info:voip:cisco-phone-security.adoc[clearing Cisco IP phone security files]
+--
+. Configure your two IP phones in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].
+. Setup one line button on each phone with a valid [[ITC-2300 VoIP Lab Extensions and Numbers|extension number for your pod]]. Assign these lines to the default context.
++
+--
+NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].
+--
+. Connect to the Asterisk CLI and issue the *reload* command
+. Verify you can successfully place a call to Extension 1000
+. Modify your [[ITC-2300 VoIP Lab Sample extensions.conf File|'''extensions.conf''' file]] to add the two phone extensions and allow calling between phones
+. Test calling between phones
+. Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables. Be sure to note which phones you have so that next week you'll be able to get the same two phones.
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
