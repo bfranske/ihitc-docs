@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Introduction to VoIP with Asterisk Labs :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-introduction">
+    <title>ITC-2300 VoIP Labs Switch and Router Configurations :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-basic-swrconfigs">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -220,224 +220,224 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="lab-asterisk-introduction">Introduction to VoIP with Asterisk Labs</a></li>
+    <li><a href="lab-asterisk-basic-swrconfigs">ITC-2300 VoIP Labs Switch and Router Configurations</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="lab-asterisk-introduction">2022.08</a>
+    <a class="version is-current" href="lab-asterisk-basic-swrconfigs">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-introduction.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-basic-swrconfigs.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Introduction to VoIP with Asterisk Labs</h1>
+<h1 class="page">ITC-2300 VoIP Labs Switch and Router Configurations</h1>
 <div class="sect1">
-<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Use one of the Cisco 2811 routers and Cisco 3750 POE+ switches to create a segregated network for your VoIP environment. See the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations page</a> (need to be modified with correct IP addressing for your pod).</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Connect Fa0/0 on the router to the ITCnet switch and configure it with the same IP address used for your VCSA system in the VMware labs</p>
-</li>
-<li>
-<p>Setup Fa0/1.10 on the router as your "Internal VOIP Network" with an IP address of 192.168.10.1/24 on VLAN 10</p>
-</li>
-<li>
-<p>Setup NAT Overload (PAT) on the router with Fa0/0 on the outside and Fa0/1.10 on the inside</p>
-</li>
-<li>
-<p>Setup a DHCP server on the router on the 192.168.10.0/24 subnet with a default router of 192.168.10.1 and a DNS server of 172.17.139.10, exclude 192.168.10.1-192.168.10.20</p>
-</li>
-<li>
-<p>Connect Port Fa0/1 on your router to a Cisco 3750 POE+ switch on Port 24 and setup the port as a trunk port and VLAN 10 as an active VLAN on the switch, use 192.168.10.2 as the management IP for the switch on VLAN 10</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Don&#8217;t forget to modify for the information specific to your Pod:
+* Change the hostname of both the Router and Switch to include your Pod Number
+* Change the IP Address on the Router Fa0/0 interface to the correct IP for your pod</p>
 </div>
-</li>
-<li>
-<p>Move your PC to your "Internal VOIP Network" by connecting it to your switch on Gi1/0/1 configured as a VLAN 10 access port and ensure it gets a DHCP address and has working Internet connectivity</p>
-</li>
-<li>
-<p>Create a new Virtual Machine named "Debian Asterisk CLI" and Install Debian Linux</p>
-<div class="ulist">
-<ul>
-<li>
-<p>VM Specs: 4GB RAM, 50GB HDD, Bridged Networking</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>You may want to make some additional changes for administration ease:
+* Set an enable secret
+* Setup a username and secret on both devices
+* Setup SSH on both devices</p>
 </div>
-</li>
-<li>
-<p>Install Debian Linux onto the VM</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Make sure you have a working Internet connection through your VoIP network to your host machine (and VM) before starting the installation</p>
-</li>
-<li>
-<p>Set a hostname of PodX-AsteriskCLI (replace the X with your Pod number)</p>
-</li>
-<li>
-<p>Be sure to choose an online mirror for packages or you won&#8217;t be able to install packages from the Internet once your installation finishes</p>
-</li>
-<li>
-<p>Be sure to <strong>uncheck "Debian Desktop Environemnt"</strong> when asked about packages to install. (Press the space bar when this option is highlighted to uncheck it)</p>
-</li>
-<li>
-<p>You can save some time later if you <strong>check "SSH Server"</strong> when asked about packages to install. (Press the space bar when this option is highlighted to check it)</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>On your Debian system set a static IP Address of 192.168.10.3/24 Default Router of 192.168.10.1 and DNS Server of 172.17.139.10</p>
-</li>
-<li>
-<p>On your Debian system comment out the CDROM source from /etc/apt/sources.list</p>
-</li>
-<li>
-<p>Install the Asterisk VoIP PBX using the Debian Package Manager</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>apt update</strong></p>
-</li>
-<li>
-<p><strong>apt install asterisk</strong></p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>Install the <strong>tftpd-hpa</strong> package on your Debian system to enable it to be a TFTP server</p>
-</li>
-<li>
-<p>Install the <strong>openssh-server</strong> package on your Debian system to enable SSH access to it from your PC (and your partner&#8217;s PC if they connect their PC to VLAN 10 on the switch as well)</p>
-</li>
-<li>
-<p>Install the <strong>sudo</strong> package on your Debian system and add your regular user to the sudo group on the system so the account has administrative command access</p>
-<div class="openblock">
+<div class="sect1">
+<h2 id="_basic_router_configuration"><a class="anchor" href="#_basic_router_configuration"></a>Basic Router Configuration</h2>
+<div class="sectionbody">
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-After this point you have everything needed to connect to your Asterisk system with SSH for configuration and file transfer (PuTTY and Filezilla). It&#8217;s strongly suggested you connect to and work on your system over SSH from this point on instead of trying to use the VMWare Workstation console. Cut and paste support is much better in PuTTY than in the VM console and you and your partner can both be logged in from different PCs (if they are on your internal VoIP network) and working on things at the same time (as long as you aren&#8217;t trying to edit the same file at the same time).
-</td>
-</tr>
-</table>
+<pre>hostname PodX-Router
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.20
+!
+ip dhcp pool internal-voip
+   network 192.168.10.0 255.255.255.0
+   dns-server 172.17.139.10
+   default-router 192.168.10.1
+   option 150 ip 192.168.10.3
+!
+interface FastEthernet0/0
+ ip address 172.17.144.XX 255.255.255.0
+ ip nat outside
+ no shutdown
+!
+interface FastEthernet0/1
+ no shutdown
+!
+interface FastEthernet0/1.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+ ip nat inside
+ no shutdown
+!
+ip route 0.0.0.0 0.0.0.0 172.17.144.1
+!
+ip nat inside source list 1 interface FastEthernet0/0 overload
+!
+access-list 1 permit 192.168.10.0 0.0.0.255</pre>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Create a file <strong>XMLDefault.cnf.xml</strong> on your host PC with [[ITC-2300 VoIP Lab XMLDefault File|these contents]] and transfer it to the <strong>/srv/tftp/XMLDefault.cnf.xml</strong> location on your Debian system</p>
-</li>
-<li>
-<p>Download the Chan-SCCP driver with <strong>wget <a href="https://download.opensuse.org/repositories/home:/chan-sccp-b:/asterisk-16/Debian_10/amd64/chan-sccp_4.3.2_amd64.deb" class="bare">https://download.opensuse.org/repositories/home:/chan-sccp-b:/asterisk-16/Debian_10/amd64/chan-sccp_4.3.2_amd64.deb</a></strong></p>
-</li>
-<li>
-<p>Install the Chan-SCCP driver with <strong>dpkg --install chan-sccp_4.3.2_amd64.deb</strong></p>
-</li>
-<li>
-<p>Edit the <strong>/etc/asterisk/modules.conf</strong> file and disable loading of chan_skinny.so and enable loading of chan_sccp.so</p>
-<div class="openblock">
+</div>
+<div class="sect1">
+<h2 id="_basic_switch_configuration"><a class="anchor" href="#_basic_switch_configuration"></a>Basic Switch Configuration</h2>
+<div class="sectionbody">
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
-</td>
-</tr>
-</table>
+<pre>hostname PodX-Switch
+!
+vtp mode transparent
+!
+vlan 10
+!
+spanning-tree portfast default
+!
+!
+interface GigabitEthernet1/0/1
+ description Asterisk Server PC
+ switchport access vlan 10
+ switchport mode access
+!
+interface GigabitEthernet1/0/2
+ description VoIP Phone 1
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/3
+ description VoIP Phone 2
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/10
+ description Second PC
+ switchport access vlan 10
+ spanning-tree portfast
+!
+!
+interface GigabitEthernet1/0/24
+ description Trunk Connection to Router
+ switchport mode trunk
+ no shutdown
+!
+interface Vlan10
+ ip address 192.168.10.2 255.255.255.0
+!
+ip route 0.0.0.0 0.0.0.0 192.168.10.1
+!</pre>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Restart the Asterisk software. This can be done with the <strong>systemctl restart asterisk</strong> command.</p>
-</li>
-<li>
-<p>Open the Asterisk console on your Debian system <strong>asterisk -rvvvvvc</strong></p>
-</li>
-<li>
-<p>Connect two Cisco IP phones to ports Gi1/0/2 &amp; Gi1/0/3 of your switch</p>
-</li>
-<li>
-<p>After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the <strong>sccp show devices</strong> Asterisk CLI command to see a list of the phones.</p>
-<div class="openblock">
+</div>
+<div class="sect1">
+<h2 id="_adding_nat_for_sip_trunking_support_to_the_router"><a class="anchor" href="#_adding_nat_for_sip_trunking_support_to_the_router"></a>Adding NAT for SIP Trunking Support to the Router</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In order to get SIP signaling traffic (port 5060) and RTP audio traffic (ports 10000-20000) to our Asterisk system from our SIP trunking provider we need to forward that traffic to the internal IP address of our Asterisk system. On some firewall devices you could do this just with port forwarding but Cisco does not have a way to forward a large number of ports with a single command (ports 10000-20000 need to all be forwarded for RTP audio traffic). So on our router we&#8217;ll use a second outside IP address and forward all traffic to that IP address to our Asterisk server. Note that this effectively puts our Asterisk server on an outside IP address and in a production environment we would want to ensure the Asterisk system has a firewall and other safeguards such as intrusion prevention systems in place to block dangerous traffic.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If one or more of your phones does not register it may be locked to a previous sever see the instructions for <a href="../../../tech-info/current/voip/cisco-phone-security" class="xref page">clearing Cisco IP phone security files</a>
-</td>
-</tr>
-</table>
+<pre>! Change the XX on this line to the same IP as the ESXi-1 server address for your pod.
+ip nat inside source static 192.168.10.3 172.17.144.XX</pre>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Configure your two IP phones in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].</p>
-</li>
-<li>
-<p>Setup one line button on each phone with a valid [[ITC-2300 VoIP Lab Extensions and Numbers|extension number for your pod]]. Assign these lines to the default context.</p>
-<div class="openblock">
+</div>
+<div class="sect1">
+<h2 id="_adding_isdn_sip_gateway_support_to_the_router"><a class="anchor" href="#_adding_isdn_sip_gateway_support_to_the_router"></a>Adding ISDN &lt;&#8594; SIP Gateway Support to the Router</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These additions to the configuration of your router allow it to act as a VoIP gateway which converts a digital ISDN PRI trunk from the Public Switched Telephone Network (PSTN) to a SIP trunk which Asterisk can send and receive calls on. This means that calls sent to the router (only from the IP of our Asterisk server thanks to the ACLs) are able to be sent to the PSTN over a T1 PRI voice trunk with guaranteed quality and calls coming from the PSTN can be converted into VoIP by the router and sent on to Asterisk.</p>
+</div>
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This requires putting a button line in for the phone device section as well as creating a line configuration section in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].
-</td>
-</tr>
-</table>
+<pre>! Put the T1/E1 card found in slot 0 , subslot 3 into T1 mode
+card type t1 0 3
+!
+! Setup ISDN on the router to use signaling for PRI connections to a National ISDN switch
+isdn switch-type primary-ni
+!
+! Tell the router to synchronize the DSP clock to the card in WIC slot 3
+network-clock-participate wic 3
+!
+! Enable SIP VoIP capabilities on the router and set the router to use the IP on the VoIP internal network for SIP signalling
+voice service voip
+ sip
+  bind control source-interface FastEthernet0/1.10
+  bind media source-interface FastEthernet0/1.10
+!
+! Configure the T1 settings on port 0 in subslot 3, slot 0 to use the correct modes for the ISDN switch and to use only the first 6 channels on the T1 PRI (due to limited DSP resources on our routers)
+controller T1 0/3/0
+ framing esf
+ linecode b8zs
+ clock source line
+ pri-group timeslots 1-6
+!
+! Prevent any connections to the router's SIP port from the outside network
+ip access-list extended block-sip-outside
+ ! change the next two lines to have the correct outside IP address for your router
+ deny   tcp any host 172.17.144.XX eq 5060
+ deny   udp any host 172.17.144.XX eq 5060
+ permit ip any any
+!
+! Prevent any connections to the router's SIP port from the inside EXCEPT from the Asterisk server
+ip access-list extended block-sip-inside
+ permit udp host 192.168.10.3 host 192.168.10.1 eq 5060
+ deny   tcp any host 192.168.10.1 eq 5060
+ deny   udp any host 192.168.10.1 eq 5060
+ permit ip any any
+!
+! Apply the outside ACL
+interface FastEthernet0/0
+ ip access-group block-sip-outside in
+!
+! Apply the inside ACL
+interface FastEthernet0/1.10
+ ip access-group block-sip-inside in
+!
+! Send calls to any phone number received by the router (from Asterisk) to the PSTN over the T1.
+!   Note this is why we need the ACLs to only allow access from Asterisk, otherwise anyone could send a SIP call to the router out over our T1 which could cause us to be charged!
+dial-peer voice 1 pots
+ description Calls from Asterisk to PSTN
+ destination-pattern .T
+ port 0/3/0:23
+!
+! Send calls to 510555ZZ.. numbers to the Asterisk server using SIP to route further
+dial-peer voice 2 voip
+ description Calls from PSTN to Asterisk
+ ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
+ destination-pattern 510555ZZ..
+ session protocol sipv2
+ session target ipv4:192.168.10.3:5060
+ incoming called-number .T
+ dtmf-relay rtp-nte
+ codec g711ulaw
+ no vad
+!
+dial-peer voice 3 pots
+ description Inbound calls from PSTN will pass to dial peer 2 which will send them to Asterisk
+ ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
+ incoming called-number 510555ZZ..
+ direct-inward-dial
+ port 0/3/0:23
+!</pre>
 </div>
-</div>
-</div>
-</li>
-<li>
-<p>Connect to the Asterisk CLI and issue the <strong>reload</strong> command</p>
-</li>
-<li>
-<p>Verify you can successfully place a call to Extension 1000</p>
-</li>
-<li>
-<p>Modify your [[ITC-2300 VoIP Lab Sample extensions.conf File|'''extensions.conf''' file]] to add the two phone extensions and allow calling between phones</p>
-</li>
-<li>
-<p>Test calling between phones</p>
-</li>
-<li>
-<p>Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables. Be sure to note which phones you have so that next week you&#8217;ll be able to get the same two phones.</p>
-</li>
-</ol>
 </div>
 <hr>
 <div class="paragraph">

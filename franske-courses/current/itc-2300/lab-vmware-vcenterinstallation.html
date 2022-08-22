@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: IHITC Info</title>
+    <title>VMware vSphere vCenter Server Installation Lab :: IHITC Info</title>
     <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-vmware-vcenterinstallation">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -218,6 +218,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../program-info/current/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-vmware-vcenterinstallation">VMware vSphere vCenter Server Installation Lab</a></li>
+  </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
@@ -233,7 +237,238 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-
+<h1 class="page">VMware vSphere vCenter Server Installation Lab</h1>
+<div class="sect1">
+<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Subnet Mask: 255.255.255.0</p>
+</li>
+<li>
+<p>Default Gateway: 192.168.1.1</p>
+</li>
+<li>
+<p>DNS Server 192.168.1.1</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">System</th>
+<th class="tableblock halign-left valign-top">IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VCSA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.22</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to make a reservation for the ESXi Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you need to split your work up across multiple reservations be sure to safely shutdown your ESXi VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you make a mistake and need to have one or both of your HV VMs erased so you can re-install ESXi you will need to contact your instructor or the ITC lab assistant to have them reset.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Boot your ESXi Server systems (the two HV systems)</p>
+</li>
+<li>
+<p>Obtain static IP addressing information from the table above and change the IP address of each ESXi server in your pod to a unique static IP address.</p>
+</li>
+<li>
+<p>Use the PC-C VM to mount the VCSA installation ISO file by double clicking on it.
+.* The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like <a href="mailto:username@campus.ihitc.net">username@campus.ihitc.net</a> to access the files.</p>
+</li>
+<li>
+<p>Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you&#8217;re unfamiliar with the installation process you can refer back to your readings as well as <a href="https://featurewalkthrough.vmware.com/t/vsphere-6-5/vcenter-server-appliance-embedded-deployment/">a VMware walk-through</a>.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The readings and walkthough may be for vCenter Server 6.5 and we are installing 6.7 but the process is substantially the same.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>During the installation you will need to select ONE of your pod&#8217;s ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!</p>
+</li>
+<li>
+<p>Set a root password for your VCSA server during the installation process, be sure to write this down! It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.</p>
+</li>
+<li>
+<p>When given the option you should install vCenter Server with an Embedded Platform Services Controller</p>
+</li>
+<li>
+<p>When asked about the appliance size choose a "Tiny" installation and "Default" storage size.</p>
+</li>
+<li>
+<p>Select the checkbox to enable "Thin-Disk Mode"</p>
+</li>
+<li>
+<p>Use the correct static IP address for the VCSA from the allocation you received for your pod above and choose to synchronize time with the ESXi appliance host. The IP address should also be used as the system name.</p>
+</li>
+<li>
+<p>The first phase of the installation will take quite a while to complete. Once it is done you will be prompted to start stage 2</p>
+</li>
+<li>
+<p>Choose to synchronize time with the ESXi host and enable ssh access</p>
+</li>
+<li>
+<p>When creating a new SSO domain use "podX.local" (where X is replaced by your pod letter) as your SSO Domain Name</p>
+</li>
+<li>
+<p>Set the site name to Pod-X (where X is replaced by your pod letter)</p>
+</li>
+<li>
+<p>After the installation completes use your credentials (<a href="mailto:administrator@podX.local">administrator@podX.local</a>) to log in to the VCSA web client at the address provided.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You do not need to access the web interface through the remote PC client system. Because it&#8217;s just a web interface you can connect from the browser on your home system if you are connected to the ITCnet VPN or from a computer in the campus lab if it is connected to ITCnet.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Spend a few minutes exploring the VCSA web client interface</p>
+</li>
+<li>
+<p>Create a new Datacenter and give it a name</p>
+</li>
+<li>
+<p>Add the all the ESXi hosts in your pod to the datacenter</p>
+</li>
+<li>
+<p>Create a few more VMs through VCSA on both ESXi hosts.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to upload the ISOs to the datastore on the ESXi system which you are creating the VM on before you can install the systems. This uploading can be done through VCSA from PC-C.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Various OS installation ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like <a href="mailto:username@campus.ihitc.net">username@campus.ihitc.net</a> to access the files.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Safely shutdown all running VMs except VCSA</p>
+</li>
+<li>
+<p>Safely shutdown the VCSA appliance</p>
+</li>
+<li>
+<p>Safely shutdown all ESXi hosts</p>
+</li>
+<li>
+<p>End your Netlab Reservation</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2022-08-22 18:04:22 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>
