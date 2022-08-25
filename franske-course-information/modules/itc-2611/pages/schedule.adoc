@@ -2,7 +2,7 @@
 
 == Official Course Schedule
 [%autowidth,options="header"]
-|============================================================================================================================================================================================================================================================================================================================================================================
+|=====
 | Date    | Week     | Readings to do before the end of the week  | Work to do before the end of the week                                                                        | Assignments Due (Today by 6:00pm unless otherwise noted)                                                                      | Notes 
 | 23-Aug  | 1        | Chapters 1 & 2                             | Chapter 1 & 2 Lab Activities, Chapter 1 & 2 Online Discussion First Post                                     |                                                                                                                               |                                                           
 | 30-Aug  | 2        | Chapters 3 & 4                             | Chapter 3 & 4 Lab Activities, Chapter 1 & 2 Discussion All Posts, Chapter 3 & 4 Discussion First Posts       | Chapter 1 & 2 Discussion First Posts                                                                                          |                                                           
@@ -21,6 +21,6 @@
 | 29-Nov  | 15       | Chapter 29                                 | Chapter 27 & 28 Discussion All Posts, Chapter 29 Discussion First Posts                                      | Chapter 28 Lab Reports, Chapter 25 & 26 Discussion All Posts, Chapter 27 & 28 Discussion First Posts                          |                                                           
 | 6-Dec   | 16       |                                            | Skills Exam                                                                                                  | Chapter 29 Discussion All Posts, Chapter 27-29 Exam, ENCOR Certification Practice Exam                                        | Instructor meeting not required this week                 
 | 13-Dec  | FE Week  |                                            |                                                                                                              | Skills Exam, Online Final Exam, Course Feedback                                                                               | Instructor meeting not required this week                 
-|====
+|=====
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
