@@ -39,7 +39,7 @@ NOTE: Click the link that you do not have a key and install the standard version
 
 NOTE: You will need to upload the ISOs to the datastore on the ESXi system which you are creating the VM on before you can install the systems. This uploading can be done through VCSA from PC-C.
 --
-* The Windows Server 2019 installation ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
+* The Windows Server 2019 installation ISO files can be found on the internal website http://172.17.139.70:8080 which you can access from PC-C.
 . Add the Active Directory Domain Services role to the server. Use "podX-ad.local" (where X is your pod letter) as the root domain name and "podX-ad" as the NetBIOS domain name.
 . While the Active Directory role is installed and the domain controller promotion script is running (these will take some time to complete) continue through this lab.
 . It's sometimes the case that you may have a malfunctioning web interface and need to start some critical VMs such as VCSA and some Active Directory servers only through the host command line interface. We'll simulate this setup by checking the status and powering on one of your previously installed Linux or Windows VMs through this host console.

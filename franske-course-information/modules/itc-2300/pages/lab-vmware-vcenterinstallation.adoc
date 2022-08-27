@@ -32,7 +32,7 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 . Boot your ESXi Server systems (the two HV systems)
 . Obtain static IP addressing information from the table above and change the IP address of each ESXi server in your pod to a unique static IP address.
 . Use the PC-C VM to mount the VCSA installation ISO file by double clicking on it.
-.* The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
+* The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the internal website http://172.17.139.70:8080 which you can access from PC-C.
 . Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you're unfamiliar with the installation process you can refer back to your readings as well as https://featurewalkthrough.vmware.com/t/vsphere-6-5/vcenter-server-appliance-embedded-deployment/[a VMware walk-through].
 +
 --

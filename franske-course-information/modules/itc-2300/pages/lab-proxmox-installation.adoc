@@ -56,8 +56,7 @@ NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management
 . Log out of the root account and login to the Proxmox web administrative interface using the secondary account you just created
 . Use PC-C to upload Windows 10 and Linux Mint ISO files to the Proxmox VE server using the web interface
 * You may have problems uploading the ISO files with the Edge browser so Firefox or Chrome is suggested if you have issues uploading
-* The ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
-** Fileshares in Windows 10 can be accessed by clicking on the start menu and just typing the UNC path to a fileshare like \\172.17.139.70\
+* The ISO files can be found on internal website http://172.17.139.70:8080 which you can access from PC-C.
 . Try creating both a Windows 10 and Linux Mint VM (only on Proxmox VE server A!) and complete the installation (use KVM as the VM type)
 +
 --

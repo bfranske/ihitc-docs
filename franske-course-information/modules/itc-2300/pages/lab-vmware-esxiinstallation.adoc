@@ -50,7 +50,7 @@ CAUTION: *Be sure to write your password down!* It is strongly suggested you use
 . Create a new folder on your ESXi datastore for ISO files.
 . Log out and back in to the ESXi web interface using your new login credentials (not the root account)
 . Use the PC-C VM to upload the Windows 10 and Linux Mint ISO files to the new ISO folder on your ESXi server datastore.
-* The ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
+* The ISO files can be found on internal website http://172.17.139.70:8080 which you can access from PC-C.
 . Create a new VM on your ESXi system where you can install the Linux Mint system.
 . Complete the installation of Linux Mint as a VM on your ESXi host
 . Safely shutdown your ESXi servers
