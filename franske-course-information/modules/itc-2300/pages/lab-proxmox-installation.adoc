@@ -51,7 +51,7 @@ NOTE: The password for the "Nelab User" account on PC-C is "netlab"
 . Add a second user account to Proxmox VE and set it up with administrative access. Set the second account up as a Proxmox VE Authentication Server realm account meaning it will only be available in Proxmox and not on the underlying Linux system.
 +
 --
-NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management#pveum_permission_management[objects and paths] for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
+NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management#_objects_and_paths[objects and paths] for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
 --
 . Log out of the root account and login to the Proxmox web administrative interface using the secondary account you just created
 . Use PC-C to upload Windows 10 and Linux Mint ISO files to the Proxmox VE server using the web interface
@@ -63,7 +63,11 @@ NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management
 NOTE: It is recommended that you disconnect/disable the virtual network interface on the Windows 10 system before installing so that you will not need to sign in with a Microsoft account. Don't forget to re-enable the network interface after completing the installation.
 
 NOTE: Choose that you don't have a product key when installing Windows, we'll just use the trial version of Windows 10 Education
+
+NOTE: If you do not see a hard drive to install Windows too it's possibly your hard drive controller is a model which does not have a driver built in to Windows 10. For example, Windows 10 does not have VirtIO drivers built in by default so it can't see any drives attached to a VirtIO controller. In this case you'll need to pick a different controller (which Windows does have built-in drivers for) to get Windows installed. VirtIO devices have better performance though which is why most hypervisors want you to use VirtIO by default. After installing Windows you can manually install drivers for VirtIO support, usually a hypervisor includes a set of drivers on a CD image you can install. VMware calls these additional drivers "VMware Tools", VirtualBox calles them "Guest Additions", Proxmox has the most unfriendly process of the three which involes installing a https://pve.proxmox.com/wiki/Qemu-guest-agent#Windows["qemu-guest-agent"] to support shutdown commands and https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers["VirtIO Drivers"] to achieve the same results. VirtIO drivers are usually baked into Linux installers but must be done manually for Windows (or included in a custom Windows ISO but making one of those is outside the scope of this course).
 --
+. Install the https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers["VirtIO Drivers"] on your Windows guest system and then change the Windows system to use VirtIO as the hard disk SCSI controller which will improve performance.
+. Install the https://pve.proxmox.com/wiki/Qemu-guest-agent["qemu-guest-agent"] on both your Windows and Linux guest systems so that you can shut down and monitor the systems from Proxmox.
 . Safely shut down your Windows and Linux Mint guest systems
 . Safely shutdown your Proxmox VE servers
 . End your Netlab Reservation
