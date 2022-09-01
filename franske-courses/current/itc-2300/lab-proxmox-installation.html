@@ -426,7 +426,7 @@ The password for the "Nelab User" account on PC-C is "netlab"
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-You may want to read up about <a href="https://pve.proxmox.com/wiki/User_Management#pveum_permission_management">objects and paths</a> for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
+You may want to read up about <a href="https://pve.proxmox.com/wiki/User_Management#_objects_and_paths">objects and paths</a> for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
 </td>
 </tr>
 </table>
@@ -478,8 +478,26 @@ Choose that you don&#8217;t have a product key when installing Windows, we&#8217
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you do not see a hard drive to install Windows too it&#8217;s possibly your hard drive controller is a model which does not have a driver built in to Windows 10. For example, Windows 10 does not have VirtIO drivers built in by default so it can&#8217;t see any drives attached to a VirtIO controller. In this case you&#8217;ll need to pick a different controller (which Windows does have built-in drivers for) to get Windows installed. VirtIO devices have better performance though which is why most hypervisors want you to use VirtIO by default. After installing Windows you can manually install drivers for VirtIO support, usually a hypervisor includes a set of drivers on a CD image you can install. VMware calls these additional drivers "VMware Tools", VirtualBox calles them "Guest Additions", Proxmox has the most unfriendly process of the three which involes installing a <a href="https://pve.proxmox.com/wiki/Qemu-guest-agent#Windows">"qemu-guest-agent"</a> to support shutdown commands and <a href="https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers">"VirtIO Drivers"</a> to achieve the same results. VirtIO drivers are usually baked into Linux installers but must be done manually for Windows (or included in a custom Windows ISO but making one of those is outside the scope of this course).
+</td>
+</tr>
+</table>
 </div>
 </div>
+</div>
+</li>
+<li>
+<p>Install the <a href="https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers">"VirtIO Drivers"</a> on your Windows guest system and then change the Windows system to use VirtIO as the hard disk SCSI controller which will improve performance.</p>
+</li>
+<li>
+<p>Install the <a href="https://pve.proxmox.com/wiki/Qemu-guest-agent">"qemu-guest-agent"</a> on both your Windows and Linux guest systems so that you can shut down and monitor the systems from Proxmox.</p>
 </li>
 <li>
 <p>Safely shut down your Windows and Linux Mint guest systems</p>
@@ -494,7 +512,7 @@ Choose that you don&#8217;t have a product key when installing Windows, we&#8217
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-08-31 18:02:03 -0500<br>
+<p>Document Build Time: 2022-08-31 20:42:05 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
