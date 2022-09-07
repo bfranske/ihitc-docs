@@ -58,16 +58,7 @@ NOTE: You will need to upload the ISOs to the datastore on the ESXi system which
 . An even more powerful tool is to be able to migrate VMs while they are running, VMware calls this feature vMotion. Take the same VM and try the migration process again (back to the original host) while the machine is powered on.
 . This may take quite a bit longer to complete so let's go back to our Windows Server setup while the vMotion magic is happening.
 . It would be nice to have a single sign on for VMware vCenter Server users which is backed by our Active Directory domain so let's see if we can get that running.
-. Follow the https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html[VMware instructions for adding a vCenter Server Single Sign-On identity source]. You may also need to read the https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.psc.doc/GUID-98B36135-CDC1-435C-8F27-5E0D0187FF7E.html[Active Directory Identity Source Settings].
-+
---
-NOTE: You will need to know the Base DN for the users and groups in your Active Directory. A Base DN is a path to the location in Active Directory where something is stored (in this case user accounts and groups). You may need to do some research online and make some inferences to figure out what your Base DNs are.
---
-. You are going to want to setup Active Directory as an LDAP server so that you don't need to join your VCSA system to your domain. https://www.virten.net/2017/01/how-to-add-ad-authentication-in-vcenter-6-5/[Instructions for setting that up can be found here].
-+
---
-NOTE: If you instead want to try joining your VCSA system to the domain and using Integrated Windows Authentication see https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-08EA2F92-78A7-4EFF-880E-2B63ACC962F3.html[how to join the vCenter Server Appliance to an Active Directory Domain].
---
+. Add your Active Directory server as a SSO Identity Source for your vCenter Server using either Integrated Windows Authentication or Active Directory over LDAP.
 . Create a new user account in AD and then try adding it as an administrator in vCenter Server.
 . Try logging in with the new account to your vCenter Server web interface.
 . Safely shutdown all running VMs except VCSA
