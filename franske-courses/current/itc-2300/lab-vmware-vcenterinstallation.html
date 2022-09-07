@@ -350,7 +350,13 @@ If you make a mistake and need to have one or both of your HV VMs erased so you 
 </div>
 </li>
 <li>
-<p>Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you&#8217;re unfamiliar with the installation process you can refer back to your readings as well as <a href="https://featurewalkthrough.vmware.com/t/vsphere-6-5/vcenter-server-appliance-embedded-deployment/">a VMware walk-through</a>.</p>
+<p>Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you&#8217;re unfamiliar with the installation process you can refer back to your readings.</p>
+</li>
+<li>
+<p>During the installation you will need to select ONE of your pod&#8217;s ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!</p>
+</li>
+<li>
+<p>Set a root password for your VCSA server during the installation process, be sure to write this down!</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -360,19 +366,13 @@ If you make a mistake and need to have one or both of your HV VMs erased so you 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The readings and walkthough may be for vCenter Server 6.5 and we are installing 6.7 but the process is substantially the same.
+It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>During the installation you will need to select ONE of your pod&#8217;s ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!</p>
-</li>
-<li>
-<p>Set a root password for your VCSA server during the installation process, be sure to write this down! It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.</p>
 </li>
 <li>
 <p>When given the option you should install vCenter Server with an Embedded Platform Services Controller</p>
@@ -400,22 +400,6 @@ The readings and walkthough may be for vCenter Server 6.5 and we are installing 
 </li>
 <li>
 <p>After the installation completes use your credentials (<a href="mailto:administrator@podX.local">administrator@podX.local</a>) to log in to the VCSA web client at the address provided.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You do not need to access the web interface through the remote PC client system. Because it&#8217;s just a web interface you can connect from the browser on your home system if you are connected to the ITCnet VPN or from a computer in the campus lab if it is connected to ITCnet.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 </li>
 <li>
 <p>Spend a few minutes exploring the VCSA web client interface</p>
@@ -442,14 +426,19 @@ You will need to upload the ISOs to the datastore on the ESXi system which you a
 </tr>
 </table>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Various OS installation ISO files can be found on internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Various OS installation ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like <a href="mailto:username@campus.ihitc.net">username@campus.ihitc.net</a> to access the files.</p>
-</li>
-</ul>
 </div>
 </li>
 <li>
@@ -468,7 +457,7 @@ You will need to upload the ISOs to the datastore on the ESXi system which you a
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-08-31 20:42:05 -0500<br>
+<p>Document Build Time: 2022-09-07 12:11:56 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
