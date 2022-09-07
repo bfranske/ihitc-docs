@@ -435,42 +435,7 @@ You will need to upload the ISOs to the datastore on the ESXi system which you a
 <p>It would be nice to have a single sign on for VMware vCenter Server users which is backed by our Active Directory domain so let&#8217;s see if we can get that running.</p>
 </li>
 <li>
-<p>Follow the <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html">VMware instructions for adding a vCenter Server Single Sign-On identity source</a>. You may also need to read the <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.psc.doc/GUID-98B36135-CDC1-435C-8F27-5E0D0187FF7E.html">Active Directory Identity Source Settings</a>.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will need to know the Base DN for the users and groups in your Active Directory. A Base DN is a path to the location in Active Directory where something is stored (in this case user accounts and groups). You may need to do some research online and make some inferences to figure out what your Base DNs are.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>You are going to want to setup Active Directory as an LDAP server so that you don&#8217;t need to join your VCSA system to your domain. <a href="https://www.virten.net/2017/01/how-to-add-ad-authentication-in-vcenter-6-5/">Instructions for setting that up can be found here</a>.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you instead want to try joining your VCSA system to the domain and using Integrated Windows Authentication see <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vcsa.doc/GUID-08EA2F92-78A7-4EFF-880E-2B63ACC962F3.html">how to join the vCenter Server Appliance to an Active Directory Domain</a>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
+<p>Add your Active Directory server as a SSO Identity Source for your vCenter Server using either Integrated Windows Authentication or Active Directory over LDAP.</p>
 </li>
 <li>
 <p>Create a new user account in AD and then try adding it as an administrator in vCenter Server.</p>
@@ -494,7 +459,7 @@ If you instead want to try joining your VCSA system to the domain and using Inte
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-09-07 12:11:56 -0500<br>
+<p>Document Build Time: 2022-09-07 15:55:43 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
