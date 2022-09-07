@@ -44,7 +44,11 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 --
 CAUTION: *Be sure to write your password down!* It is strongly suggested you use "ESXi#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab. If you forget your password you will need to have your VMs reset and start over again. You will need this in future labs as well!
 --
-. Browse to the ESXi system in a web browser from PC-C. Note that it will NOT yet be at the IP address in the table above, we will set a static IP in the next lab. For now your ESXi system should have a DHCP IP address which is displayed on it's console screen.
+. Browse to the ESXi system in a web browser from PC-C. 
++
+--
+NOTE: It will NOT yet be at the IP address in the table above, we will set a static IP in the next lab. For now your ESXi system should have a DHCP IP address which is displayed on it's console screen.
+--
 . Login as the root user.
 . Add a new account and give it administrative permissions to the ESXi system. Log out of the root account and in with the new user account.
 . Create a new folder on your ESXi datastore for ISO files.

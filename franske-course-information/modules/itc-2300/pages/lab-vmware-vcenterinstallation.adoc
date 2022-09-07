@@ -33,13 +33,13 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 . Obtain static IP addressing information from the table above and change the IP address of each ESXi server in your pod to a unique static IP address.
 . Use the PC-C VM to mount the VCSA installation ISO file by double clicking on it.
 * The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the internal website http://172.17.139.70:8080 which you can access from PC-C.
-. Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you're unfamiliar with the installation process you can refer back to your readings as well as https://featurewalkthrough.vmware.com/t/vsphere-6-5/vcenter-server-appliance-embedded-deployment/[a VMware walk-through].
+. Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you're unfamiliar with the installation process you can refer back to your readings.
+. During the installation you will need to select ONE of your pod's ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!
+. Set a root password for your VCSA server during the installation process, be sure to write this down! 
 +
 --
-NOTE: The readings and walkthough may be for vCenter Server 6.5 and we are installing 6.7 but the process is substantially the same.
+NOTE: It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
 --
-. During the installation you will need to select ONE of your pod's ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!
-. Set a root password for your VCSA server during the installation process, be sure to write this down! It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
 . When given the option you should install vCenter Server with an Embedded Platform Services Controller
 . When asked about the appliance size choose a "Tiny" installation and "Default" storage size.
 . Select the checkbox to enable "Thin-Disk Mode"
@@ -49,19 +49,16 @@ NOTE: The readings and walkthough may be for vCenter Server 6.5 and we are insta
 . When creating a new SSO domain use "podX.local" (where X is replaced by your pod letter) as your SSO Domain Name
 . Set the site name to Pod-X (where X is replaced by your pod letter)
 . After the installation completes use your credentials (administrator@podX.local) to log in to the VCSA web client at the address provided.
-+
---
-NOTE: You do not need to access the web interface through the remote PC client system. Because it's just a web interface you can connect from the browser on your home system if you are connected to the ITCnet VPN or from a computer in the campus lab if it is connected to ITCnet.
---
 . Spend a few minutes exploring the VCSA web client interface
 . Create a new Datacenter and give it a name
 . Add the all the ESXi hosts in your pod to the datacenter
 . Create a few more VMs through VCSA on both ESXi hosts. 
 +
 --
-NOTE:  You will need to upload the ISOs to the datastore on the ESXi system which you are creating the VM on before you can install the systems. This uploading can be done through VCSA from PC-C.
+NOTE: You will need to upload the ISOs to the datastore on the ESXi system which you are creating the VM on before you can install the systems. This uploading can be done through VCSA from PC-C.
+
+NOTE: Various OS installation ISO files can be found on internal website http://172.17.139.70:8080 which you can access from PC-C.
 --
-* Various OS installation ISO files can be found on the Windows SMB fileshare "\\172.17.139.70\Student Files\ITC2300" which you can access from PC-C. Use your VPN login credentials but with @campus.ihitc.net on the end like username@campus.ihitc.net to access the files.
 . Safely shutdown all running VMs except VCSA
 . Safely shutdown the VCSA appliance
 . Safely shutdown all ESXi hosts
