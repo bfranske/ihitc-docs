@@ -52,6 +52,8 @@ NOTE: The password for the "Nelab User" account on PC-C is "netlab"
 +
 --
 NOTE: You may want to read up about https://pve.proxmox.com/wiki/User_Management#_objects_and_paths[objects and paths] for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
+
+TIP: Other students have used the power of Internet searching to find https://techviewleo.com/create-users-groups-permissions-proxmox/[this site about users, groups and permissions in Proxmox VE] which they have found helpful.
 --
 . Log out of the root account and login to the Proxmox web administrative interface using the secondary account you just created
 . Use PC-C to upload Windows 10 and Linux Mint ISO files to the Proxmox VE server using the web interface
