@@ -1,5 +1,33 @@
 = Introduction to VoIP with Asterisk Labs
 
+== Work You Can Do Remotely
+. Start the Debian Linux *non-graphical* installer
+. Choose the appropriate language and keyboard
+. Select *ens192* as the primary network interface. This interface is the one connected to the Internet, ens224 is connected to your Pod LAN where you will attach your phones.
+. Set the hostname of the system to *podX-asterisk* where X is replaced by your pod ID letter.
+. Set the domain name to *podX.local* where X is replaced by your pod ID letter.
+. Set the root password to something you will not forget. It is suggested you write it down and/or use the password *itc2300#voip*
+. Create a new user with a username of your choice and password of your choice which you will not forget. Write these down somewhere.
+. Select the correct timezone
+. Use guided partitioning with all files in one partition and write the changes to disk to begin the installation
+. There is no extra installation media for you to scan
+. Select the US Debian Archive mirror *deb.debian.org* from the list with no HTTP proxy
+. Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.
+. On the software selection screen *unselect* "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.
++
+--
+IMPORTANT: To select and unselect options move your cursor over the option and press the _space bar_ *do not* press the _enter key_ until after you have selected the correct options or you will move to the next screen and begin installing incorrect things.
+--
+. Choose *Yes* that you want to install GRUB on your primary drive which is */dev/sda*.
+. Choose *Continue* to reboot into your new installation of Debian
+. Log in with the username *root* and password you set.
+. Update the package manager with the latest software lists by running *apt update*
+. Install the sudo package with *apt install sudo*
+. Add your user to the sudo group with a command like *adduser YOURUSERNAMEHERE sudo*
+. Install the *asterisk* and *tftpd-hpa* packages in a similar manner to how you installed sudo.
+. Download the chan-sccp plugin to your Debian system like *wget xref:attachment$chan-sccp_4.3.4_amd64.deb*
+. Install chap-sccp with *dpkg -i chan-sccp_4.3.4_amd64.deb*
+
 == Instructions
 
 . Use one of the Cisco 2811 routers and Cisco 3750 POE+ switches to create a segregated network for your VoIP environment. See the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations page] (need to be modified with correct IP addressing for your pod).
