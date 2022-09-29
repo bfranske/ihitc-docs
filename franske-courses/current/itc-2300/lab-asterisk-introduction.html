@@ -239,6 +239,97 @@
 <article class="doc">
 <h1 class="page">Introduction to VoIP with Asterisk Labs</h1>
 <div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work You Can Do Remotely</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the Debian Linux <strong>non-graphical</strong> installer</p>
+</li>
+<li>
+<p>Choose the appropriate language and keyboard</p>
+</li>
+<li>
+<p>Select <strong>ens192</strong> as the primary network interface. This interface is the one connected to the Internet, ens224 is connected to your Pod LAN where you will attach your phones.</p>
+</li>
+<li>
+<p>Set the hostname of the system to <strong>podX-asterisk</strong> where X is replaced by your pod ID letter.</p>
+</li>
+<li>
+<p>Set the domain name to <strong>podX.local</strong> where X is replaced by your pod ID letter.</p>
+</li>
+<li>
+<p>Set the root password to something you will not forget. It is suggested you write it down and/or use the password <strong>itc2300#voip</strong></p>
+</li>
+<li>
+<p>Create a new user with a username of your choice and password of your choice which you will not forget. Write these down somewhere.</p>
+</li>
+<li>
+<p>Select the correct timezone</p>
+</li>
+<li>
+<p>Use guided partitioning with all files in one partition and write the changes to disk to begin the installation</p>
+</li>
+<li>
+<p>There is no extra installation media for you to scan</p>
+</li>
+<li>
+<p>Select the US Debian Archive mirror <strong>deb.debian.org</strong> from the list with no HTTP proxy</p>
+</li>
+<li>
+<p>Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.</p>
+</li>
+<li>
+<p>On the software selection screen <strong>unselect</strong> "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To select and unselect options move your cursor over the option and press the <em>space bar</em> <strong>do not</strong> press the <em>enter key</em> until after you have selected the correct options or you will move to the next screen and begin installing incorrect things.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Choose <strong>Yes</strong> that you want to install GRUB on your primary drive which is <strong>/dev/sda</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Continue</strong> to reboot into your new installation of Debian</p>
+</li>
+<li>
+<p>Log in with the username <strong>root</strong> and password you set.</p>
+</li>
+<li>
+<p>Update the package manager with the latest software lists by running <strong>apt update</strong></p>
+</li>
+<li>
+<p>Install the sudo package with <strong>apt install sudo</strong></p>
+</li>
+<li>
+<p>Add your user to the sudo group with a command like <strong>adduser YOURUSERNAMEHERE sudo</strong></p>
+</li>
+<li>
+<p>Install the <strong>asterisk</strong> and <strong>tftpd-hpa</strong> packages in a similar manner to how you installed sudo.</p>
+</li>
+<li>
+<p>Download the chan-sccp plugin to your Debian system like <strong>wget xref:attachment$chan-sccp_4.3.4_amd64.deb</strong></p>
+</li>
+<li>
+<p>Install chap-sccp with <strong>dpkg -i chan-sccp_4.3.4_amd64.deb</strong></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
 <div class="sectionbody">
 <div class="olist arabic">
@@ -441,7 +532,7 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-09-28 20:28:03 -0500<br>
+<p>Document Build Time: 2022-09-29 11:52:44 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
