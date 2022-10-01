@@ -239,18 +239,176 @@
 <article class="doc">
 <h1 class="page">Introduction to VoIP with Asterisk Labs</h1>
 <div class="sect1">
-<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work You Can Do Remotely</h2>
+<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Asterisk Server:
+* Default Gateway: 172.17.55.1
+* DNS Server: 172.17.139.11</p>
+</div>
+<div class="paragraph">
+<p>Pod Router:
+* Default Gateway: 172.17.144.1
+* DNS Server: 172.17.139.11</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phone_extension_information"><a class="anchor" href="#_phone_extension_information"></a>Phone Extension Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the extension numbers assigned to your pod which you can use for phones and lines in your pod.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Extension Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+</tr>
+</tbody>
+</table>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_install_debian_linux"><a class="anchor" href="#_install_debian_linux"></a>Install Debian Linux</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Start the Debian Linux <strong>non-graphical</strong> installer</p>
 </li>
 <li>
-<p>Choose the appropriate language and keyboard</p>
-</li>
-<li>
-<p>Select <strong>ens192</strong> as the primary network interface. This interface is the one connected to the Internet, ens224 is connected to your Pod LAN where you will attach your phones.</p>
+<p>Choose the appropriate language, country, and keymap</p>
 </li>
 <li>
 <p>Set the hostname of the system to <strong>podX-asterisk</strong> where X is replaced by your pod ID letter.</p>
@@ -268,7 +426,7 @@
 <p>Select the correct timezone</p>
 </li>
 <li>
-<p>Use guided partitioning with all files in one partition and write the changes to disk to begin the installation</p>
+<p>Use guided partitioning entire disk with all files in one partition and write the changes to disk to begin the installation</p>
 </li>
 <li>
 <p>There is no extra installation media for you to scan</p>
@@ -290,7 +448,7 @@
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-To select and unselect options move your cursor over the option and press the <em>space bar</em> <strong>do not</strong> press the <em>enter key</em> until after you have selected the correct options or you will move to the next screen and begin installing incorrect things.
+To select and unselect options move your cursor over the option and press the <em>space bar</em> <strong>do not</strong> press the <em>enter key</em> until after you have selected the correct options or you will move to the next screen and begin installing incorrect things. You will need to ask your instructor to reset your system and start over again if you do this.
 </td>
 </tr>
 </table>
@@ -306,9 +464,35 @@ To select and unselect options move your cursor over the option and press the <e
 </li>
 <li>
 <p>Log in with the username <strong>root</strong> and password you set.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are not continuing past this point be sure to safely shutdown your Linux server with the <strong>shutdown -h now</strong> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_the_asterisk_pbx_server_and_other_software"><a class="anchor" href="#_install_the_asterisk_pbx_server_and_other_software"></a>Install the Asterisk PBX Server and Other Software</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your Debian server with the username <strong>root</strong> and password you set if you are not already logged in.</p>
 </li>
 <li>
-<p>Update the package manager with the latest software lists by running <strong>apt update</strong></p>
+<p>Update the package manager with the latest software lists on your Debian server by running <strong>apt update</strong></p>
 </li>
 <li>
 <p>Install the sudo package with <strong>apt install sudo</strong></p>
@@ -320,104 +504,7 @@ To select and unselect options move your cursor over the option and press the <e
 <p>Install the <strong>asterisk</strong> and <strong>tftpd-hpa</strong> packages in a similar manner to how you installed sudo.</p>
 </li>
 <li>
-<p>Download the chan-sccp plugin to your Debian system like <strong>wget xref:attachment$chan-sccp_4.3.4_amd64.deb</strong></p>
-</li>
-<li>
-<p>Install chap-sccp with <strong>dpkg -i chan-sccp_4.3.4_amd64.deb</strong></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Use one of the Cisco 2811 routers and Cisco 3750 POE+ switches to create a segregated network for your VoIP environment. See the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations page</a> (need to be modified with correct IP addressing for your pod).</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Connect Fa0/0 on the router to the ITCnet switch and configure it with the same IP address used for your VCSA system in the VMware labs</p>
-</li>
-<li>
-<p>Setup Fa0/1.10 on the router as your "Internal VOIP Network" with an IP address of 192.168.10.1/24 on VLAN 10</p>
-</li>
-<li>
-<p>Setup NAT Overload (PAT) on the router with Fa0/0 on the outside and Fa0/1.10 on the inside</p>
-</li>
-<li>
-<p>Setup a DHCP server on the router on the 192.168.10.0/24 subnet with a default router of 192.168.10.1 and a DNS server of 172.17.139.10, exclude 192.168.10.1-192.168.10.20</p>
-</li>
-<li>
-<p>Connect Port Fa0/1 on your router to a Cisco 3750 POE+ switch on Port 24 and setup the port as a trunk port and VLAN 10 as an active VLAN on the switch, use 192.168.10.2 as the management IP for the switch on VLAN 10</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Move your PC to your "Internal VOIP Network" by connecting it to your switch on Gi1/0/1 configured as a VLAN 10 access port and ensure it gets a DHCP address and has working Internet connectivity</p>
-</li>
-<li>
-<p>Create a new Virtual Machine named "Debian Asterisk CLI" and Install Debian Linux</p>
-<div class="ulist">
-<ul>
-<li>
-<p>VM Specs: 4GB RAM, 50GB HDD, Bridged Networking</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Install Debian Linux onto the VM</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Make sure you have a working Internet connection through your VoIP network to your host machine (and VM) before starting the installation</p>
-</li>
-<li>
-<p>Set a hostname of PodX-AsteriskCLI (replace the X with your Pod number)</p>
-</li>
-<li>
-<p>Be sure to choose an online mirror for packages or you won&#8217;t be able to install packages from the Internet once your installation finishes</p>
-</li>
-<li>
-<p>Be sure to <strong>uncheck "Debian Desktop Environemnt"</strong> when asked about packages to install. (Press the space bar when this option is highlighted to uncheck it)</p>
-</li>
-<li>
-<p>You can save some time later if you <strong>check "SSH Server"</strong> when asked about packages to install. (Press the space bar when this option is highlighted to check it)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>On your Debian system set a static IP Address of 192.168.10.3/24 Default Router of 192.168.10.1 and DNS Server of 172.17.139.10</p>
-</li>
-<li>
-<p>On your Debian system comment out the CDROM source from /etc/apt/sources.list</p>
-</li>
-<li>
-<p>Install the Asterisk VoIP PBX using the Debian Package Manager</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>apt update</strong></p>
-</li>
-<li>
-<p><strong>apt install asterisk</strong></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Install the <strong>tftpd-hpa</strong> package on your Debian system to enable it to be a TFTP server</p>
-</li>
-<li>
-<p>Install the <strong>openssh-server</strong> package on your Debian system to enable SSH access to it from your PC (and your partner&#8217;s PC if they connect their PC to VLAN 10 on the switch as well)</p>
-</li>
-<li>
-<p>Install the <strong>sudo</strong> package on your Debian system and add your regular user to the sudo group on the system so the account has administrative command access</p>
+<p>Download the chan-sccp plugin to your Debian system like <strong>wget <a href="_attachments/chan-sccp_4.3.4_amd64.deb" class="xref attachment">attachment$chan-sccp_4.3.4_amd64.deb</a></strong></p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -427,7 +514,7 @@ To select and unselect options move your cursor over the option and press the <e
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-After this point you have everything needed to connect to your Asterisk system with SSH for configuration and file transfer (PuTTY and Filezilla). It&#8217;s strongly suggested you connect to and work on your system over SSH from this point on instead of trying to use the VMWare Workstation console. Cut and paste support is much better in PuTTY than in the VM console and you and your partner can both be logged in from different PCs (if they are on your internal VoIP network) and working on things at the same time (as long as you aren&#8217;t trying to edit the same file at the same time).
+To save time and reduce complexity in our lab I have built this packaged version of the chan-sccp-b plugin which works with our Debian systems and version of Asterisk. The actual plugin and normal installation instructions are at <a href="https://github.com/chan-sccp/chan-sccp" class="bare">https://github.com/chan-sccp/chan-sccp</a>
 </td>
 </tr>
 </table>
@@ -436,13 +523,26 @@ After this point you have everything needed to connect to your Asterisk system w
 </div>
 </li>
 <li>
-<p>Create a file <strong>XMLDefault.cnf.xml</strong> on your host PC with [[ITC-2300 VoIP Lab XMLDefault File|these contents]] and transfer it to the <strong>/srv/tftp/XMLDefault.cnf.xml</strong> location on your Debian system</p>
+<p>Install the <strong>gettext</strong> package which is required by chan-sccp</p>
 </li>
 <li>
-<p>Download the Chan-SCCP driver with <strong>wget <a href="https://download.opensuse.org/repositories/home:/chan-sccp-b:/asterisk-16/Debian_10/amd64/chan-sccp_4.3.2_amd64.deb" class="bare">https://download.opensuse.org/repositories/home:/chan-sccp-b:/asterisk-16/Debian_10/amd64/chan-sccp_4.3.2_amd64.deb</a></strong></p>
-</li>
-<li>
-<p>Install the Chan-SCCP driver with <strong>dpkg --install chan-sccp_4.3.2_amd64.deb</strong></p>
+<p>Install chap-sccp with <strong>dpkg -i chan-sccp_4.3.4_amd64.deb</strong></p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The reason this package is installed with dpkg instead of with apt is that we have manually downloaded the package from an independent website instead of automatically downloading it from the official Debian repository we selected during the installation process. We need to do this because Debian does not have an official chan-sccp package.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </li>
 <li>
 <p>Edit the <strong>/etc/asterisk/modules.conf</strong> file and disable loading of chan_skinny.so and enable loading of chan_sccp.so</p>
@@ -464,7 +564,88 @@ Changes to which modules are loaded and not loaded need to be in the [modules] s
 </div>
 </li>
 <li>
-<p>Restart the Asterisk software. This can be done with the <strong>systemctl restart asterisk</strong> command.</p>
+<p>Restart the Asterisk software to change the loaded modules. This can be done with the <strong>systemctl restart asterisk</strong> command.</p>
+</li>
+<li>
+<p>Set the IP address on your Debian server to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.</p>
+</li>
+<li>
+<p>Apply the new network address by rebooting your server then verify it is set correctly by using the <strong>ip address show</strong> command and <strong>ping google.com</strong></p>
+</li>
+<li>
+<p>This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the <strong>shutdown -h now</strong> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_need_to_do_on_campus"><a class="anchor" href="#_work_you_need_to_do_on_campus"></a>Work you need to do on campus</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_network_device_configuration_and_testing_connectivity"><a class="anchor" href="#_network_device_configuration_and_testing_connectivity"></a>Network device configuration and testing connectivity</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In order to connect your IP phones to your Asterisk server you will need to setup a LAN with a router and switch.</p>
+</li>
+<li>
+<p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
+</li>
+<li>
+<p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
+</li>
+<li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
+<p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
+</li>
+<li>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping the IP address of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Of course, make sure that your Asterisk server is up and running!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asterisk_confgiuration"><a class="anchor" href="#_asterisk_confgiuration"></a>Asterisk confgiuration</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a file XMLDefault.cnf.xml on your lab PC <a href="lab-asterisk-xmldefault" class="xref page">following the template and instructions here</a> and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server.</p>
 </li>
 <li>
 <p>Open the Asterisk console on your Debian system <strong>asterisk -rvvvvvc</strong></p>
@@ -492,10 +673,10 @@ If one or more of your phones does not register it may be locked to a previous s
 </div>
 </li>
 <li>
-<p>Configure your two IP phones in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].</p>
+<p>Configure your two IP phones in the <a href="#lab-asterisk-sccpconf"><strong>sccp.conf</strong> file</a>.</p>
 </li>
 <li>
-<p>Setup one line button on each phone with a valid [[ITC-2300 VoIP Lab Extensions and Numbers|extension number for your pod]]. Assign these lines to the default context.</p>
+<p>Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -505,7 +686,7 @@ If one or more of your phones does not register it may be locked to a previous s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This requires putting a button line in for the phone device section as well as creating a line configuration section in the [[ITC-2300 VoIP Lab Sample sccp.conf File|'''sccp.conf''' file]].
+This requires putting a button line in for the phone device section as well as creating a line configuration section in the <a href="#lab-asterisk-sccpconf"><strong>sccp.conf</strong> file</a>.
 </td>
 </tr>
 </table>
@@ -517,10 +698,10 @@ This requires putting a button line in for the phone device section as well as c
 <p>Connect to the Asterisk CLI and issue the <strong>reload</strong> command</p>
 </li>
 <li>
-<p>Verify you can successfully place a call to Extension 1000</p>
+<p>Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.</p>
 </li>
 <li>
-<p>Modify your [[ITC-2300 VoIP Lab Sample extensions.conf File|'''extensions.conf''' file]] to add the two phone extensions and allow calling between phones</p>
+<p>Modify your <a href="#lab-asterisk-extensionsconf"><strong>extensions.conf</strong> file</a> to add the two phone extensions and allow calling between phones</p>
 </li>
 <li>
 <p>Test calling between phones</p>
@@ -532,10 +713,11 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-09-29 11:52:44 -0500<br>
+<p>Document Build Time: 2022-10-01 16:22:47 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
 </div>
 </div>
 </div>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Franske Lab Report Format :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/lab-reports/">
+    <title>ITC-2300 VoIP Lab Sample sccp.conf File :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-sccpconf">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -75,16 +75,16 @@
     <span class="nav-text">ITC-2300</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2300/">Course Home</a>
+    <a class="nav-link" href="./">Course Home</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2300/syllabus">Syllabus</a>
+    <a class="nav-link" href="syllabus">Syllabus</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2300/schedule">Schedule</a>
+    <a class="nav-link" href="schedule">Schedule</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2300/assignments">Assignments</a>
+    <a class="nav-link" href="assignments">Assignments</a>
   </li>
 </ul>
   </li>
@@ -220,127 +220,137 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="./">Franske Lab Report Format</a></li>
+    <li><a href="lab-asterisk-sccpconf">ITC-2300 VoIP Lab Sample sccp.conf File</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="./">2022.08</a>
+    <a class="version is-current" href="lab-asterisk-sccpconf">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/lab-reports/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-sccpconf.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Franske Lab Report Format</h1>
+<h1 class="page">ITC-2300 VoIP Lab Sample sccp.conf File</h1>
 <div class="sect1">
-<h2 id="_the_basics"><a class="anchor" href="#_the_basics"></a>The Basics</h2>
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this class credit for completing labs will be based on turning in a written lab report. If labs in this class are done in groups you should turn in a single lab report for each lab completed. If labs are individual you will need to turn in your own lab report which is unique to you. Lab reports should be typed and should include the following information:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Lab group members (only names on the report for a lab will receive credit for it, also do not list someone who did not actually work on the lab that is cheating)</p>
-</li>
-<li>
-<p>Course and section number</p>
-</li>
-<li>
-<p>Lab number and title</p>
-</li>
-<li>
-<p>A detailed description of what you did for the lab in your own words</p>
-</li>
-<li>
-<p>A detailed description of any problems or difficulties you encountered with the lab as well as how you solved them</p>
-</li>
-<li>
-<p>A description of how you tested your lab and what the results were</p>
-</li>
-<li>
-<p>A description of what new material or skills you learned in this lab</p>
-</li>
-</ul>
+<p>The following shows an example of the things you may need to change in your sccp.conf file.</p>
 </div>
 <div class="paragraph">
-<p>See detailed information about some of these sections below.</p>
-</div>
-<div class="paragraph">
-<p>Please be as detailed as possible. Remember, points will be awarded based on the information on this report. The less information included the fewer opportunities for the instructor to award points. Lab reports serve multiple purposes including getting you to think critically about what you&#8217;ve just done (metacognition) as well as to provide evidence that you were able to successfully complete the lab. Showing that you are thinking critically about the lab is a good way to score highly on lab reports. If there is evidence that you did not actually complete the lab yourself you may receive a zero on the lab report even if the submitted report is well written.</p>
+<p>Don&#8217;t forget to modify for the information specific to your Pod:
+* Change the MAC addresses of the phones to match your phones
+* Change the descriptions, line names, caller ID names, etc.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_concept"><a class="anchor" href="#_the_concept"></a>The Concept</h2>
+<h2 id="_example_minimal_sccp_conf_file_changes"><a class="anchor" href="#_example_minimal_sccp_conf_file_changes"></a>Example Minimal sccp.conf File Changes</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Instead of asking you to complete questions found in lab books you will create a narrative report on the lab in much the same format you might do in a science or other lab-based course. The advantages of this format is that you will do better quality lab work, get a better understanding of the lab concepts, and have an opportunity to practice valuable technical writing soft-skills.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_format"><a class="anchor" href="#_the_format"></a>The Format</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We have developed a lab report format which focuses on four key areas for reflection. These areas are: a description of what you did, what difficulties you had and how you overcame those difficulties, a description of how you tested the lab and a look back on what you learned from the lab. Significant thought was given to selecting these as the key areas for the reports and below are some thoughts about the what the intended purpose and outcome of each area is.</p>
-</div>
-<div class="sect2">
-<h3 id="_what_you_didwhat_was_the_purpose"><a class="anchor" href="#_what_you_didwhat_was_the_purpose"></a>What you did/What was the purpose</h3>
-<div class="paragraph">
-<p>The purpose of this section is to engage you in a metacognitive exercise thinking about what they did in this particular lab. Particularly in the case of highly prescriptive, step-oriented, labs students often will go through them following the directions but have no idea at the end about what they just did at a broader level and why it is an important thing to learn. In this section we’re looking for a description of the lab in your own words. At a higher level of evaluation we’re looking for evidence that you are aware of how this lab fits into the content of the course as a whole and into the IT field. In the grading of lab reports we often give less emphasis to this area as it’s intended more to force you to think about what they have done. We want you to think about that but we already know what you did, or at least what you were supposed to do so it’s less important from a grading perspective.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_what_difficulties_you_facedhow_you_overcame_them"><a class="anchor" href="#_what_difficulties_you_facedhow_you_overcame_them"></a>What difficulties you faced/How you overcame them</h3>
-<div class="paragraph">
-<p>The purpose of this section is to assist us in determining what the “hard parts” of the lab were for you and to confirm that you were able to work through them or that you need additional reinforcement on these concepts. An added benefit here is that you need to think though what your troubleshooting process was and ideally what additional efficiencies might be gained or what worked well in that process. This is a critical area from a grading perspective. We can gain significant insight into how the lab worked out for you and what the learning process was for you by reading this section.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_how_you_tested_your_lab"><a class="anchor" href="#_how_you_tested_your_lab"></a>How you tested your lab</h3>
-<div class="paragraph">
-<p>Particularly in labs which are less step-by-step in nature you may often think “are we done with this lab?”. This section requires students think about what it means to have been successful in completing the lab. Just as in the workplace students need to know when they can move on to another project or if there is more to do. We want to get you used to checking to make sure things are working as they expect after doing any system configuration or making a change as well as look to see that you did successfully complete the lab activity. In a similar way to the first section we want to force you to go though the process of thinking about testing the lab but it’s not critical from a grading perspective so we generally weight this section somewhat less than the others.</p>
-</div>
-<div class="paragraph">
-<p>You should be extremely thorough in this section. Every new concept or command that is introduced in the lab should be thoroughly tested and the testing documented in the report. Many times the lab instructions themselves do '''not''' thoroughly test the technologies used in the lab. Part of doing the lab is to come up with a testing plan ''yourself'' and to document and carry out that testing. It is absolutely unacceptable to simply say that testing of the lab was done by following the instructions. This does not show you know anything about what is supposed to work at all.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_what_you_learned"><a class="anchor" href="#_what_you_learned"></a>What you learned</h3>
-<div class="paragraph">
-<p>This is a high value section of the lab report. Fundamentally the purpose of labs is to teach you new skills and to have you practice those skills. This section forces you to think about what you got, or should have gotten, out of doing the lab exercise. Sometimes you may have a difficult time understanding why we do lab exercises and you don’t immediately see the value in doing them. Here the goal is to have you try and come up with a narrative about what new things you learned or what was reinforced by the exercise, which is of course the purpose of having you do it. Hopefully we can see evidence that it was a worthwhile activity for you and that you truly did engage in the learning process. Undoubtedly this is the most critical section for grading purposes. Just as you want to know that they accomplished something worthwhile we are fundamentally interested in knowing that you had a positive learning outcome as well.</p>
+<div class="listingblock">
+<div class="content">
+<pre>[general]
+dateformat = M/D/YA
+
+[SEP001819B93171] ; Change to your Phone MAC Address
+description = Sally Student Phone ; Change to Your/Partner Name
+devicetype = 7961
+button = line,sally-line1,default ; Change the line name as appropriate
+button = empty
+button = empty
+button = empty
+button = empty
+button = empty
+type = device
+
+[SEP000D28D75841] ; Change to your other Phone MAC Address
+description = John Smith Phone ; Change to Your/Partner Name
+devicetype = 7940
+button = line,john-line1,default ; Change the line name as appropriate
+button = empty
+type = device
+
+[sally-line1] ; Change the line name as appropriate
+type=line
+id = 1
+pin = 1234
+label = 2901 ; Change to a correct Extension Number for your Pod
+description = Sally's Line 1 ; Change as appropriate
+context = default
+cid_num = 2901 ; Change to a correct Extension Number for your Pod
+cid_name = Sally Student ; Change to correct Caller ID Name
+
+[john-line1] ; Change the line name as appropriate
+type=line
+id = 1
+pin = 1234
+label = 2902 ; Change to a correct Extension Number for your Pod
+description = John's Line 1 ; Change as appropriate
+context = default
+cid_num = 2902 ; Change to a correct Extension Number for your Pod
+cid_name = John Smith ; Change to correct Caller ID Name</pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_example_lab_reports"><a class="anchor" href="#_example_lab_reports"></a>Example Lab Reports</h2>
+<h2 id="_voicemail_sccp_conf_file_changes"><a class="anchor" href="#_voicemail_sccp_conf_file_changes"></a>Voicemail sccp.conf File Changes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Below are some example lab reports posted by students. These are certainly not perfect lab reports but are meant to give you a starting point about what a lab report might look like. You should look at many of these, not just ones for your class, so that you have a good idea of what sort of thing is expected in your reports.</p>
+<p>When you get to the lab where you are enabling voicemail these additional changes to sccp.conf add the ability to enable the Message Waiting Indicator (MWI) lamp on SCCP phones when there is a message in a mailbox. To do this you need to add the mailbox = xxxx option to each of the lines you wish to monitor in sccp.conf</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="example1" class="xref page">Lab Report Example - PC Hardware and Software Class</a></p>
-</li>
-<li>
-<p><a href="example2" class="xref page">Lab Report Example - Linux Class</a></p>
-</li>
-<li>
-<p><a href="example3" class="xref page">Lab Report Example - Network Security Class</a></p>
-</li>
-<li>
-<p><a href="example4" class="xref page">Lab Report Example - CCNA 3 Class</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[sally-line1]
+type=line
+label = 2901
+context = default
+mailbox = 2901</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also set the voicemail button on the phone (newer Cisco phones have a picture of an envelope on this button) to be a speed dial button which calls the extension to check messages. To do this you need to add the vmnum = xxxx option to each of the lines you wish to monitor in sccp.conf</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[sally-line1]
+type=line
+label = 2901
+context = default
+vmnum = 2999</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After making changes to the MWI you will need to reload the sccp configuration in Asterisk and reboot/reset the phones before the MWI light status will begin being updated.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reloading_after_configuration_changes"><a class="anchor" href="#_reloading_after_configuration_changes"></a>Reloading After Configuration Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you make changes to the sccp.conf file and need to get Asterisk to re-load the configuration you can run the <strong>sccp reload</strong> command from the Asterisk CLI to re-read the file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additonal_resources"><a class="anchor" href="#_additonal_resources"></a>Additonal Resources</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For more information about options see the comments in the <a href="https://raw.githubusercontent.com/chan-sccp/chan-sccp/develop/conf/sccp.conf.annotated">sample sccp.conf file on GitHub.</a></p>
 </div>
 <hr>
 <div class="paragraph">

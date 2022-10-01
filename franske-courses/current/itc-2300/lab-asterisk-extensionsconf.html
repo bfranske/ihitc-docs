@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ITC-2300 VoIP Lab Sample extensions.conf File :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-extensionsconf">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-extensionsconf">ITC-2300 VoIP Lab Sample extensions.conf File</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version is-current" href="lab-asterisk-extensionsconf">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-extensionsconf.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">ITC-2300 VoIP Lab Sample extensions.conf File</h1>
+<div class="sect1">
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Below you will find some sample <em>snippets</em> from the extensions.conf file. <strong>These are not complete configurations, just small portions, and will also need to be modified for your Pod.</strong></p>
+</div>
+<div class="paragraph">
+<p>You will not need these all for the first lab, this is a refernce which you will use as you configure various things across all the VoIP Asterisk labs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic_sccp_phone_extensions_in_the_default_context"><a class="anchor" href="#_basic_sccp_phone_extensions_in_the_default_context"></a>Basic SCCP Phone Extensions in the Default Context</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>[default]
+exten =&gt; 2901,1,Dial(SCCP/sally-line1,120) ; Modify with correct extension number and line name
+exten =&gt; 2902,1,Dial(SCCP/john-line1,120) ; Modify with correct extension number and line name</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_placing_calls_to_the_pstn_over_t1isdn_sip_gateway"><a class="anchor" href="#_placing_calls_to_the_pstn_over_t1isdn_sip_gateway"></a>Placing Calls to the PSTN over T1/ISDN SIP Gateway</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It&#8217;s a good idea to separate different types of outgoing calls into different contexts in your dialplan so that you can restrict which extensions are able to place which types of calls. For example, you probably do not want to allow calls anywhere except to the operator and 911 from a phone in the elevator, only internal extensions and local calls from the lobby, and only allow executives to place international calls. In order to do this you would want to divide up your outgoing patterns into different contexts and then include those contexts into various other contexts which are assigned to various phones/lines.</p>
+</div>
+<div class="paragraph">
+<p>For example you might have some internal extensions assigned to the [lobby] context, others to the [elevator] context, others to [general_staff] and still others to [executive]. Note these assignments are done in channel driver file (e.g. PJSIP, SCCP, etc.) and NOT in the dialplan! Tee dialplan only shows what extensions you can actually DIAL once you are in a specific context.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s start just by allowing a test call to directory assistance if someone dials 9-411 in the default context since we haven&#8217;t done any dividing of extensions into different contexts just yet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[default]
+exten =&gt; 9411,1,Dial(PJSIP/411@ISDNrouter,120)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To allow calls that we don&#8217;t know the exact number for requires that we do some pattern matching like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[default]
+exten =&gt; _9NXXXXXX,1,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The X&#8217;s in the extension number will match digits 0-9 and the N digits 2-9. All local numbers are 7 digits and can&#8217;t start with a 0 or 1 so this should match all local calls. We then send the extension on to our ISDNrouter SIP gateway but we need to change the number we&#8217;re sending a little bit. First, our ISDN provider requires 10 digit dialing even for local numbers so we&#8217;ve told Asterisk to always add a 510 area code onto the front of 7 digit numbers. Secondly, we don&#8217;t want to include the 9 to get an outside line in our ISDN call so we use ${EXTEN:1} instead of ${EXTEN} to remove the first digit from whatever number was dialed.</p>
+</div>
+<div class="paragraph">
+<p>You can create similar rules for other types of calls like 10-digit local, long distance, international, toll-free, 1-900, etc.</p>
+</div>
+<div class="paragraph">
+<p>But what if we want to follow best practice of dividing up all the different types of calls? In this case we need to make several changes to our dialplan structure and move everything out of the default context:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[internal_extensions]
+; In this context you will want to include numbers for each internal line someone could call
+exten =&gt; 2901,1,Dial(SCCP/sally-line1,120)
+exten =&gt; 2902,1,Dial(SCCP/john-line1,120)
+
+[PSTN_emergency]
+; In this context you want to include the rules used to dial out to emergency numbers
+exten =&gt; 9911,1,Dial(PJSIP/911@ISDNrouter,120)
+exten =&gt; 911,1,Dial(PJSIP/911@ISDNrouter,120)
+
+[PSTN_directoryassist]
+; In this context you want to include the rules used to dial out to directory assistance
+exten =&gt; 9411,1,Dial(PJSIP/411@ISDNrouter,120)
+
+[PSTN_local]
+; In this context you want to include the rules used to dial out to local numbers
+exten =&gt; _9NXXXXXX,1,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)
+exten =&gt; _9510NXXXXXX,1,Dial(PJSIP/${EXTEN:1}@ISDNrouter,120)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can create similar contexts for patterns that match long distance, international, 1-900, and toll-free numbers. Of course once you have done this you still need to determine which phones can call which of these numbers. To do this you need to assign each phone line to a context in it&#8217;s channel driver configuration file (like PJSIP or SCCP). You can then include the contexts you created above into these contexts. Assuming you have placed different phones/lines into some of these contexts your dialplan might include something like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[elevator]
+; The elevator should only be able to call emergency services
+include =&gt; PSTN_emergency
+
+[lobby]
+; The lobby phone can call any internal extension, or local PSTN numbers
+include =&gt; PSTN_emergency
+include =&gt; internal_extensions
+include =&gt; PSTN_local
+
+[general_staff]
+; Most people can call internal extensions, directory assistance, local, and long distance numbers
+include =&gt; PSTN_emergency
+include =&gt; internal_extensions
+include =&gt; PSTN_local
+include =&gt; PSTN_directoryassist
+include =&gt; PSTN_long_distance
+
+[executives]
+; Executives can call the same things as the general staff plus internationally
+include =&gt; PSTN_emergency
+include =&gt; internal_extensions
+include =&gt; PSTN_local
+include =&gt; PSTN_directoryassist
+include =&gt; PSTN_long_distance
+include =&gt; PSTN_international</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fixing_caller_id"><a class="anchor" href="#_fixing_caller_id"></a>Fixing Caller ID</h3>
+<div class="paragraph">
+<p>First, let&#8217;s get some terminology right. When you place a call over a T1/ISDN line you can send a number the call is being placed from, but not a name, this is called ANI (Automatic Number Identification) data. Caller ID is actually a service where the recipient of a call can look this number up against a directory maintained by the phone company and match it to a name which they can then display. So, to change the name that is displayed by people with Caller ID you need to get the name set correctly in the phone company&#8217;s directory for each of your DID numbers. But you CAN control what ANI data you send with each call by telling your ISDN/T1 gateway what the source phone number is.</p>
+</div>
+<div class="paragraph">
+<p>In Asterisk you can change the source phone number is after a particular extension or pattern is dialed like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>exten =&gt; _9NXXXXXX,1,Set(CALLERID(num)=5105552900)
+exten =&gt; _9NXXXXXX,2,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that we have added an additional priority before we actually dial out to the PSTN where we run the Set(CALLERID(num)=&#8230;&#8203;) command which changes the Caller ID number which our ISDN/T1 gateway will use to tell the phone company what number the call is coming from using ANI. In this case we&#8217;ve decided to always set our calling number to 5105552900 but you might want to set it to 510555XXXX where XXXX is the internal extension number (which we set as the Caller ID value in the channel driver) since we&#8217;ve setup extensions to receive calls on all these DIDs too:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>exten =&gt; _9NXXXXXX,1,Set(CALLERID(num)=510555${CALLERID(num)})
+exten =&gt; _9NXXXXXX,2,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_receiving_calls_from_the_pstn_through_a_t1isdn_sip_gateway"><a class="anchor" href="#_receiving_calls_from_the_pstn_through_a_t1isdn_sip_gateway"></a>Receiving Calls from the PSTN through a T1/ISDN SIP Gateway</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The gateway&#8217;s PJSIP configuration will put incoming calls from the PSTN in a certain dialplan context (such as [from_PSTN]). The dialed number will be whatever 10-digit number was dialed by the original caller which is reported over the T1 using Dialed Number Identification Service (DNIS) so you need to create an "extension" in this context for each incoming number and then direct it to wherever you want it to go.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[from_PSTN]
+exten =&gt; _5105552901,1,Goto(internal_extensions,2901,1) ; Send outside calls to 510-555-2901 to extension 2901 in the internal_extensions context
+exten =&gt; _5105552902,1,Goto(internal_extensions,2902,1) ; Send outside calls to 510-555-2902 to extension 2902 in the internal_extensions context</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you didn&#8217;t want to create a separate entry for every one of your 100 DID numbers you could use some fancy pattern matching like:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[from_PSTN]
+exten =&gt; _51055529XX,1,Goto(internal_extensions,${EXTEN:6:4},1) ; Send outside calls to 510-555-29XX to extension 29XX in the internal_extensions context</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_placing_and_receiving_calls_to_the_pstn_over_sip"><a class="anchor" href="#_placing_and_receiving_calls_to_the_pstn_over_sip"></a>Placing and Receiving Calls to the PSTN over SIP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From the standpoint of an Asterisk dialplan there is really no difference between placing and receiving calls to/from the PSTN through an ISDN/T1 SIP gateway or directly to/from a SIP PSTN provider. All of the same security considerations apply about dividing up different destinations, changing CID/ANI numbers for outbound calls, etc. Essentially you are just having someone else (a SIP ITSP) run the gateway for you. So the only thing you&#8217;d need to change in your dialplan is the actual Dial&#8230;&#8203; command to point to the correct PJSIP endpoint for your ITSP.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reloading_after_configuration_changes"><a class="anchor" href="#_reloading_after_configuration_changes"></a>Reloading After Configuration Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you make changes to the extensions.conf file and need to get Asterisk to re-load the dialplan you can run the <strong>dialplan reload</strong> command from the Asterisk CLI to re-read the file.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2022-10-01 16:22:47 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
