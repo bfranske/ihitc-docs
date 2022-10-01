@@ -3,7 +3,7 @@
 == Notes
 
 Don't forget to modify for the information specific to your Pod:
-* Change the hostname of both the Router and Switch to include your Pod Number
+* Change the hostname of both the Router and Switch to include your Pod ID
 * Change the IP Address on the Router Fa0/0 interface to the correct IP for your pod
 
 You may want to make some additional changes for administration ease:
@@ -20,9 +20,10 @@ ip dhcp excluded-address 192.168.10.1 192.168.10.20
 !
 ip dhcp pool internal-voip
    network 192.168.10.0 255.255.255.0
-   dns-server 172.17.139.10
+   dns-server 172.17.139.11
    default-router 192.168.10.1
-   option 150 ip 192.168.10.3
+   ! Change the IP on the next line to the IP address of your pods asterisk server (which is where the TFTP server is which this line points to)
+   option 150 ip 172.17.55.XX
 !
 interface FastEthernet0/0
  ip address 172.17.144.XX 255.255.255.0
@@ -58,9 +59,10 @@ spanning-tree portfast default
 !
 !
 interface GigabitEthernet1/0/1
- description Asterisk Server PC
+ description Lab PC
  switchport access vlan 10
  switchport mode access
+ spanning-tree portfast
 !
 interface GigabitEthernet1/0/2
  description VoIP Phone 1
@@ -76,11 +78,6 @@ interface GigabitEthernet1/0/3
  switchport voice vlan 10
  spanning-tree portfast
 !
-interface GigabitEthernet1/0/10
- description Second PC
- switchport access vlan 10
- spanning-tree portfast
-!
 !
 interface GigabitEthernet1/0/24
  description Trunk Connection to Router
@@ -94,17 +91,11 @@ ip route 0.0.0.0 0.0.0.0 192.168.10.1
 !
 ----
 
-== Adding NAT for SIP Trunking Support to the Router
-
-In order to get SIP signaling traffic (port 5060) and RTP audio traffic (ports 10000-20000) to our Asterisk system from our SIP trunking provider we need to forward that traffic to the internal IP address of our Asterisk system. On some firewall devices you could do this just with port forwarding but Cisco does not have a way to forward a large number of ports with a single command (ports 10000-20000 need to all be forwarded for RTP audio traffic). So on our router we'll use a second outside IP address and forward all traffic to that IP address to our Asterisk server. Note that this effectively puts our Asterisk server on an outside IP address and in a production environment we would want to ensure the Asterisk system has a firewall and other safeguards such as intrusion prevention systems in place to block dangerous traffic.
-
-----
-! Change the XX on this line to the same IP as the ESXi-1 server address for your pod.
-ip nat inside source static 192.168.10.3 172.17.144.XX
-----
-
 == Adding ISDN <-> SIP Gateway Support to the Router
 
+--
+NOTE: You will not need this configuration until you get to the T1 gateway lab.
+--
 These additions to the configuration of your router allow it to act as a VoIP gateway which converts a digital ISDN PRI trunk from the Public Switched Telephone Network (PSTN) to a SIP trunk which Asterisk can send and receive calls on. This means that calls sent to the router (only from the IP of our Asterisk server thanks to the ACLs) are able to be sent to the PSTN over a T1 PRI voice trunk with guaranteed quality and calls coming from the PSTN can be converted into VoIP by the router and sent on to Asterisk.
 
 ----
@@ -117,11 +108,11 @@ isdn switch-type primary-ni
 ! Tell the router to synchronize the DSP clock to the card in WIC slot 3
 network-clock-participate wic 3
 !
-! Enable SIP VoIP capabilities on the router and set the router to use the IP on the VoIP internal network for SIP signalling 
+! Enable SIP VoIP capabilities on the router and set the router to use the IP outside network for SIP signalling because that is where Asterisk is
 voice service voip
  sip
-  bind control source-interface FastEthernet0/1.10
-  bind media source-interface FastEthernet0/1.10
+  bind control source-interface FastEthernet0/0
+  bind media source-interface FastEthernet0/0
 !
 ! Configure the T1 settings on port 0 in subslot 3, slot 0 to use the correct modes for the ISDN switch and to use only the first 6 channels on the T1 PRI (due to limited DSP resources on our routers)
 controller T1 0/3/0
@@ -130,16 +121,17 @@ controller T1 0/3/0
  clock source line
  pri-group timeslots 1-6
 !
-! Prevent any connections to the router's SIP port from the outside network
+! Prevent any connections to the router's SIP port from the outside network EXCEPT from the Asterisk server
 ip access-list extended block-sip-outside
+ ! change the next line to have the correct IP for your pods asterisk server and outside IP address for your router
+ permit udp host 172.17.55.XX host 172.17.144.XX eq 5060
  ! change the next two lines to have the correct outside IP address for your router
  deny   tcp any host 172.17.144.XX eq 5060
  deny   udp any host 172.17.144.XX eq 5060
  permit ip any any
 !
-! Prevent any connections to the router's SIP port from the inside EXCEPT from the Asterisk server
+! Prevent any connections to the router's SIP port from the inside
 ip access-list extended block-sip-inside
- permit udp host 192.168.10.3 host 192.168.10.1 eq 5060
  deny   tcp any host 192.168.10.1 eq 5060
  deny   udp any host 192.168.10.1 eq 5060
  permit ip any any
@@ -165,7 +157,8 @@ dial-peer voice 2 voip
  ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
  destination-pattern 510555ZZ..
  session protocol sipv2
- session target ipv4:192.168.10.3:5060
+ ! change the IP in the next line to be the IP of your Asterisk server
+ session target ipv4:172.17.55.XX:5060
  incoming called-number .T
  dtmf-relay rtp-nte
  codec g711ulaw
