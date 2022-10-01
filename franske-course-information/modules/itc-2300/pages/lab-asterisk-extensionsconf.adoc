@@ -1,0 +1,141 @@
+= ITC-2300 VoIP Lab Sample extensions.conf File
+
+== Notes
+
+Below you will find some sample _snippets_ from the extensions.conf file. *These are not complete configurations, just small portions, and will also need to be modified for your Pod.*
+
+You will not need these all for the first lab, this is a refernce which you will use as you configure various things across all the VoIP Asterisk labs.
+
+== Basic SCCP Phone Extensions in the Default Context
+
+----
+[default]
+exten => 2901,1,Dial(SCCP/sally-line1,120) ; Modify with correct extension number and line name
+exten => 2902,1,Dial(SCCP/john-line1,120) ; Modify with correct extension number and line name
+----
+
+== Placing Calls to the PSTN over T1/ISDN SIP Gateway
+
+It's a good idea to separate different types of outgoing calls into different contexts in your dialplan so that you can restrict which extensions are able to place which types of calls. For example, you probably do not want to allow calls anywhere except to the operator and 911 from a phone in the elevator, only internal extensions and local calls from the lobby, and only allow executives to place international calls. In order to do this you would want to divide up your outgoing patterns into different contexts and then include those contexts into various other contexts which are assigned to various phones/lines.
+
+For example you might have some internal extensions assigned to the [lobby] context, others to the [elevator] context, others to [general_staff] and still others to [executive]. Note these assignments are done in channel driver file (e.g. PJSIP, SCCP, etc.) and NOT in the dialplan! Tee dialplan only shows what extensions you can actually DIAL once you are in a specific context.
+
+Let's start just by allowing a test call to directory assistance if someone dials 9-411 in the default context since we haven't done any dividing of extensions into different contexts just yet. 
+
+----
+[default]
+exten => 9411,1,Dial(PJSIP/411@ISDNrouter,120)
+----
+
+To allow calls that we don't know the exact number for requires that we do some pattern matching like this: 
+
+----
+[default]
+exten => _9NXXXXXX,1,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)
+----
+
+The X's in the extension number will match digits 0-9 and the N digits 2-9. All local numbers are 7 digits and can't start with a 0 or 1 so this should match all local calls. We then send the extension on to our ISDNrouter SIP gateway but we need to change the number we're sending a little bit. First, our ISDN provider requires 10 digit dialing even for local numbers so we've told Asterisk to always add a 510 area code onto the front of 7 digit numbers. Secondly, we don't want to include the 9 to get an outside line in our ISDN call so we use ${EXTEN:1} instead of ${EXTEN} to remove the first digit from whatever number was dialed.
+
+You can create similar rules for other types of calls like 10-digit local, long distance, international, toll-free, 1-900, etc.
+
+But what if we want to follow best practice of dividing up all the different types of calls? In this case we need to make several changes to our dialplan structure and move everything out of the default context: 
+
+----
+[internal_extensions]
+; In this context you will want to include numbers for each internal line someone could call
+exten => 2901,1,Dial(SCCP/sally-line1,120)
+exten => 2902,1,Dial(SCCP/john-line1,120)
+
+[PSTN_emergency]
+; In this context you want to include the rules used to dial out to emergency numbers
+exten => 9911,1,Dial(PJSIP/911@ISDNrouter,120)
+exten => 911,1,Dial(PJSIP/911@ISDNrouter,120)
+
+[PSTN_directoryassist]
+; In this context you want to include the rules used to dial out to directory assistance
+exten => 9411,1,Dial(PJSIP/411@ISDNrouter,120)
+
+[PSTN_local]
+; In this context you want to include the rules used to dial out to local numbers
+exten => _9NXXXXXX,1,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)
+exten => _9510NXXXXXX,1,Dial(PJSIP/${EXTEN:1}@ISDNrouter,120)
+----
+
+You can create similar contexts for patterns that match long distance, international, 1-900, and toll-free numbers. Of course once you have done this you still need to determine which phones can call which of these numbers. To do this you need to assign each phone line to a context in it's channel driver configuration file (like PJSIP or SCCP). You can then include the contexts you created above into these contexts. Assuming you have placed different phones/lines into some of these contexts your dialplan might include something like this: 
+
+----
+[elevator]
+; The elevator should only be able to call emergency services
+include => PSTN_emergency
+
+[lobby]
+; The lobby phone can call any internal extension, or local PSTN numbers
+include => PSTN_emergency
+include => internal_extensions
+include => PSTN_local
+
+[general_staff]
+; Most people can call internal extensions, directory assistance, local, and long distance numbers
+include => PSTN_emergency
+include => internal_extensions
+include => PSTN_local
+include => PSTN_directoryassist
+include => PSTN_long_distance
+
+[executives]
+; Executives can call the same things as the general staff plus internationally
+include => PSTN_emergency
+include => internal_extensions
+include => PSTN_local
+include => PSTN_directoryassist
+include => PSTN_long_distance
+include => PSTN_international
+----
+
+=== Fixing Caller ID
+
+First, let's get some terminology right. When you place a call over a T1/ISDN line you can send a number the call is being placed from, but not a name, this is called ANI (Automatic Number Identification) data. Caller ID is actually a service where the recipient of a call can look this number up against a directory maintained by the phone company and match it to a name which they can then display. So, to change the name that is displayed by people with Caller ID you need to get the name set correctly in the phone company's directory for each of your DID numbers. But you CAN control what ANI data you send with each call by telling your ISDN/T1 gateway what the source phone number is.
+
+In Asterisk you can change the source phone number is after a particular extension or pattern is dialed like this: 
+
+----
+exten => _9NXXXXXX,1,Set(CALLERID(num)=5105552900)
+exten => _9NXXXXXX,2,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)
+----
+
+Note that we have added an additional priority before we actually dial out to the PSTN where we run the Set(CALLERID(num)=...) command which changes the Caller ID number which our ISDN/T1 gateway will use to tell the phone company what number the call is coming from using ANI. In this case we've decided to always set our calling number to 5105552900 but you might want to set it to 510555XXXX where XXXX is the internal extension number (which we set as the Caller ID value in the channel driver) since we've setup extensions to receive calls on all these DIDs too: 
+
+----
+exten => _9NXXXXXX,1,Set(CALLERID(num)=510555${CALLERID(num)})
+exten => _9NXXXXXX,2,Dial(PJSIP/510${EXTEN:1}@ISDNrouter,120)
+----
+
+== Receiving Calls from the PSTN through a T1/ISDN SIP Gateway
+
+The gateway's PJSIP configuration will put incoming calls from the PSTN in a certain dialplan context (such as [from_PSTN]). The dialed number will be whatever 10-digit number was dialed by the original caller which is reported over the T1 using Dialed Number Identification Service (DNIS) so you need to create an "extension" in this context for each incoming number and then direct it to wherever you want it to go.
+
+For example: 
+
+----
+[from_PSTN]
+exten => _5105552901,1,Goto(internal_extensions,2901,1) ; Send outside calls to 510-555-2901 to extension 2901 in the internal_extensions context
+exten => _5105552902,1,Goto(internal_extensions,2902,1) ; Send outside calls to 510-555-2902 to extension 2902 in the internal_extensions context
+----
+
+If you didn't want to create a separate entry for every one of your 100 DID numbers you could use some fancy pattern matching like: 
+
+----
+[from_PSTN]
+exten => _51055529XX,1,Goto(internal_extensions,${EXTEN:6:4},1) ; Send outside calls to 510-555-29XX to extension 29XX in the internal_extensions context
+----
+
+== Placing and Receiving Calls to the PSTN over SIP
+
+From the standpoint of an Asterisk dialplan there is really no difference between placing and receiving calls to/from the PSTN through an ISDN/T1 SIP gateway or directly to/from a SIP PSTN provider. All of the same security considerations apply about dividing up different destinations, changing CID/ANI numbers for outbound calls, etc. Essentially you are just having someone else (a SIP ITSP) run the gateway for you. So the only thing you'd need to change in your dialplan is the actual Dial... command to point to the correct PJSIP endpoint for your ITSP. 
+
+== Reloading After Configuration Changes
+
+If you make changes to the extensions.conf file and need to get Asterisk to re-load the dialplan you can run the *dialplan reload* command from the Asterisk CLI to re-read the file. 
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

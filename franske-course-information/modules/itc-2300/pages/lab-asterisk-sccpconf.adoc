@@ -1,0 +1,93 @@
+= ITC-2300 VoIP Lab Sample sccp.conf File
+
+== Notes
+
+The following shows an example of the things you may need to change in your sccp.conf file. 
+
+Don't forget to modify for the information specific to your Pod:
+* Change the MAC addresses of the phones to match your phones
+* Change the descriptions, line names, caller ID names, etc.
+
+== Example Minimal sccp.conf File Changes
+
+----
+[general]
+dateformat = M/D/YA
+
+[SEP001819B93171] ; Change to your Phone MAC Address
+description = Sally Student Phone ; Change to Your/Partner Name
+devicetype = 7961
+button = line,sally-line1,default ; Change the line name as appropriate
+button = empty
+button = empty
+button = empty
+button = empty
+button = empty
+type = device
+
+[SEP000D28D75841] ; Change to your other Phone MAC Address
+description = John Smith Phone ; Change to Your/Partner Name
+devicetype = 7940
+button = line,john-line1,default ; Change the line name as appropriate
+button = empty
+type = device
+
+[sally-line1] ; Change the line name as appropriate
+type=line
+id = 1
+pin = 1234
+label = 2901 ; Change to a correct Extension Number for your Pod
+description = Sally's Line 1 ; Change as appropriate
+context = default
+cid_num = 2901 ; Change to a correct Extension Number for your Pod
+cid_name = Sally Student ; Change to correct Caller ID Name
+
+[john-line1] ; Change the line name as appropriate
+type=line
+id = 1
+pin = 1234
+label = 2902 ; Change to a correct Extension Number for your Pod
+description = John's Line 1 ; Change as appropriate
+context = default
+cid_num = 2902 ; Change to a correct Extension Number for your Pod
+cid_name = John Smith ; Change to correct Caller ID Name
+----
+
+== Voicemail sccp.conf File Changes
+
+When you get to the lab where you are enabling voicemail these additional changes to sccp.conf add the ability to enable the Message Waiting Indicator (MWI) lamp on SCCP phones when there is a message in a mailbox. To do this you need to add the mailbox = xxxx option to each of the lines you wish to monitor in sccp.conf 
+
+For example:
+
+----
+[sally-line1]
+type=line
+label = 2901
+context = default
+mailbox = 2901
+----
+
+You can also set the voicemail button on the phone (newer Cisco phones have a picture of an envelope on this button) to be a speed dial button which calls the extension to check messages. To do this you need to add the vmnum = xxxx option to each of the lines you wish to monitor in sccp.conf
+
+For example: 
+
+----
+[sally-line1]
+type=line
+label = 2901
+context = default
+vmnum = 2999
+----
+
+After making changes to the MWI you will need to reload the sccp configuration in Asterisk and reboot/reset the phones before the MWI light status will begin being updated. 
+
+== Reloading After Configuration Changes
+
+If you make changes to the sccp.conf file and need to get Asterisk to re-load the configuration you can run the *sccp reload* command from the Asterisk CLI to re-read the file. 
+
+== Additonal Resources
+
+For more information about options see the comments in the https://raw.githubusercontent.com/chan-sccp/chan-sccp/develop/conf/sccp.conf.annotated[sample sccp.conf file on GitHub.]
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
