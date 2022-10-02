@@ -1,30 +1,32 @@
 = Introduction to VoIP with Asterisk Labs
 
-== IP Addressing
+== IP Addressing & Phone Extensions
+
+These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.
 
 [%autowidth,options="header"]
 |===
-|Pod |Asterisk IP |Pod Router Fa0/0 IP
+|Pod |Asterisk IP |Pod Router Fa0/0 IP |Phone Extension Range
 
-|Pod A |172.17.55.11/24 |172.17.144.11/24
+|Pod A |172.17.55.11/24 |172.17.144.11/24 |2100-2199
 
-|Pod B |172.17.55.12/24 |172.17.144.12/24
+|Pod B |172.17.55.12/24 |172.17.144.12/24 |2200-2299
 
-|Pod C |172.17.55.13/24 |172.17.144.13/24
+|Pod C |172.17.55.13/24 |172.17.144.13/24 |2300-2399
 
-|Pod D |172.17.55.14/24 |172.17.144.14/24
+|Pod D |172.17.55.14/24 |172.17.144.14/24 |2400-2499
 
-|Pod E |172.17.55.15/24 |172.17.144.15/24
+|Pod E |172.17.55.15/24 |172.17.144.15/24 |2500-2599
 
-|Pod F |172.17.55.16/24 |172.17.144.16/24
+|Pod F |172.17.55.16/24 |172.17.144.16/24 |2600-2699
 
-|Pod G |172.17.55.17/24 |172.17.144.17/24
+|Pod G |172.17.55.17/24 |172.17.144.17/24 |2700-2799
 
-|Pod H |172.17.55.18/24 |172.17.144.18/24
+|Pod H |172.17.55.18/24 |172.17.144.18/24 |2800-2899
 
-|Pod I |172.17.55.19/24 |172.17.144.19/24
+|Pod I |172.17.55.19/24 |172.17.144.19/24 |2900-2999
 
-|Pod J |172.17.55.20/24 |172.17.144.20/24
+|Pod J |172.17.55.20/24 |172.17.144.20/24 |3000-3099
 |===
 
 Asterisk Server:
@@ -36,35 +38,6 @@ Pod Router:
 
 * Default Gateway: 172.17.144.1
 * DNS Server: 172.17.139.11
-
-== Phone Extension Information
-
-These are the extension numbers assigned to your pod which you can use for phones and lines in your pod.
-
-[%autowidth,options="header"]
-|===
-|Pod |Extension Range
-
-|Pod A |2100-2199
-
-|Pod B |2200-2299
-
-|Pod C |2300-2399
-
-|Pod D |2400-2499
-
-|Pod E |2500-2599
-
-|Pod F |2600-2699
-
-|Pod G |2700-2799
-
-|Pod H |2800-2899
-
-|Pod I |2900-2999
-
-|Pod J |3000-3099
-|===
 
 --
 NOTE: The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
