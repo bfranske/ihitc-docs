@@ -3,10 +3,12 @@
 == Notes
 
 Don't forget to modify for the information specific to your Pod:
+
 * Change the hostname of both the Router and Switch to include your Pod ID
 * Change the IP Address on the Router Fa0/0 interface to the correct IP for your pod
 
 You may want to make some additional changes for administration ease:
+
 * Set an enable secret
 * Setup a username and secret on both devices
 * Setup SSH on both devices

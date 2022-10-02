@@ -5,6 +5,7 @@
 The following shows an example of the things you may need to change in your sccp.conf file. 
 
 Don't forget to modify for the information specific to your Pod:
+
 * Change the MAC addresses of the phones to match your phones
 * Change the descriptions, line names, caller ID names, etc.
 

@@ -28,10 +28,12 @@
 |===
 
 Asterisk Server:
+
 * Default Gateway: 172.17.55.1
 * DNS Server: 172.17.139.11
 
 Pod Router:
+
 * Default Gateway: 172.17.144.1
 * DNS Server: 172.17.139.11
 
@@ -93,23 +95,23 @@ IMPORTANT: To select and unselect options move your cursor over the option and p
 . Log in with the username *root* and password you set.
 +
 --
-WARNING: If you are not continuing past this point be sure to safely shutdown your Linux server with the *shutdown -h now* command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+WARNING: If you are not continuing past this point be sure to safely shutdown your Linux server with the `*shutdown -h now*` command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
 --
 
 === Install the Asterisk PBX Server and Other Software
 
 . Log in to your Debian server with the username *root* and password you set if you are not already logged in.
-. Update the package manager with the latest software lists on your Debian server by running *apt update*
-. Install the sudo package with *apt install sudo*
-. Add your user to the sudo group with a command like *adduser YOURUSERNAMEHERE sudo*
+. Update the package manager with the latest software lists on your Debian server by running `*apt update*`
+. Install the sudo package with `*apt install sudo*`
+. Add your user to the sudo group with a command like `*adduser _YOURUSERNAMEHERE_ sudo`*
 . Install the *asterisk* and *tftpd-hpa* packages in a similar manner to how you installed sudo.
-. Download the chan-sccp plugin to your Debian system like *wget xref:attachment$chan-sccp_4.3.4_amd64.deb[]*
+. Download the chan-sccp plugin to your Debian system like `*wget xref:attachment$chan-sccp_4.3.4_amd64.deb[]*`
 +
 --
 NOTE: To save time and reduce complexity in our lab I have built this packaged version of the chan-sccp-b plugin which works with our Debian systems and version of Asterisk. The actual plugin and normal installation instructions are at https://github.com/chan-sccp/chan-sccp
 --
 . Install the *gettext* package which is required by chan-sccp
-. Install chap-sccp with *dpkg -i chan-sccp_4.3.4_amd64.deb*
+. Install chap-sccp with `*dpkg -i chan-sccp_4.3.4_amd64.deb*`
 +
 --
 NOTE: The reason this package is installed with dpkg instead of with apt is that we have manually downloaded the package from an independent website instead of automatically downloading it from the official Debian repository we selected during the installation process. We need to do this because Debian does not have an official chan-sccp package.
@@ -119,10 +121,10 @@ NOTE: The reason this package is installed with dpkg instead of with apt is that
 --
 NOTE: Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
 --
-. Restart the Asterisk software to change the loaded modules. This can be done with the *systemctl restart asterisk* command.
+. Restart the Asterisk software to change the loaded modules. This can be done with the `*systemctl restart asterisk*` command.
 . Set the IP address on your Debian server to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.
-. Apply the new network address by rebooting your server then verify it is set correctly by using the *ip address show* command and *ping google.com*
-. This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the *shutdown -h now* command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+. Apply the new network address by rebooting your server then verify it is set correctly by using the `*ip address show*` command and `*ping google.com*`
+. This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the `*shutdown -h now*` command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
 
 == Work you need to do on campus
 
@@ -145,22 +147,22 @@ NOTE: It's strongly suggested you connect to and work on your Asterisk server ov
 
 === Asterisk confgiuration
 . Create a file XMLDefault.cnf.xml on your lab PC xref:lab-asterisk-xmldefault.adoc[following the template and instructions here] and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server.
-. Open the Asterisk console on your Debian system *asterisk -rvvvvvc*
+. Open the Asterisk console on your Debian system `*asterisk -rvvvvvc*`
 . Connect two Cisco IP phones to ports Gi1/0/2 & Gi1/0/3 of your switch
-. After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the *sccp show devices* Asterisk CLI command to see a list of the phones.
+. After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the `*sccp show devices*` Asterisk CLI command to see a list of the phones.
 +
 --
 NOTE: If one or more of your phones does not register it may be locked to a previous sever see the instructions for xref:tech-info:voip:cisco-phone-security.adoc[clearing Cisco IP phone security files]
 --
-. Configure your two IP phones in the xref:lab-asterisk-sccpconf[*sccp.conf* file].
+. Configure your two IP phones in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
 . Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.
 +
 --
-NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the xref:lab-asterisk-sccpconf[*sccp.conf* file].
+NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
 --
-. Connect to the Asterisk CLI and issue the *reload* command
+. Connect to the Asterisk CLI and issue the `*reload*` command
 . Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.
-. Modify your xref:lab-asterisk-extensionsconf[*extensions.conf* file] to add the two phone extensions and allow calling between phones
+. Modify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] to add the two phone extensions and allow calling between phones
 . Test calling between phones
 . Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables. Be sure to note which phones you have so that next week you'll be able to get the same two phones.
 
