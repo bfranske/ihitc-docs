@@ -135,7 +135,7 @@ From the standpoint of an Asterisk dialplan there is really no difference betwee
 
 == Reloading After Configuration Changes
 
-If you make changes to the extensions.conf file and need to get Asterisk to re-load the dialplan you can run the *dialplan reload* command from the Asterisk CLI to re-read the file. 
+If you make changes to the extensions.conf file and need to get Asterisk to re-load the dialplan you can run the `*dialplan reload*` command from the Asterisk CLI to re-read the file. 
 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

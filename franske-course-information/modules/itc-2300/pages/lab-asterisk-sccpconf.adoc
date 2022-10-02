@@ -84,7 +84,7 @@ After making changes to the MWI you will need to reload the sccp configuration i
 
 == Reloading After Configuration Changes
 
-If you make changes to the sccp.conf file and need to get Asterisk to re-load the configuration you can run the *sccp reload* command from the Asterisk CLI to re-read the file. 
+If you make changes to the sccp.conf file and need to get Asterisk to re-load the configuration you can run the `*sccp reload*` command from the Asterisk CLI to re-read the file. 
 
 == Additonal Resources
 
