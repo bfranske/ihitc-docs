@@ -239,10 +239,14 @@
 <article class="doc">
 <h1 class="page">Introduction to VoIP with Asterisk Labs</h1>
 <div class="sect1">
-<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.</p>
+</div>
 <table class="tableblock frame-all grid-all fit-content">
 <colgroup>
+<col>
 <col>
 <col>
 <col>
@@ -252,6 +256,7 @@
 <th class="tableblock halign-left valign-top">Pod</th>
 <th class="tableblock halign-left valign-top">Asterisk IP</th>
 <th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
 </tr>
 </thead>
 <tbody>
@@ -259,51 +264,61 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.11/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.12/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.13/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.14/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.15/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.16/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.17/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.18/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.19/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.55.20/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
 </tr>
 </tbody>
 </table>
@@ -333,68 +348,6 @@
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_phone_extension_information"><a class="anchor" href="#_phone_extension_information"></a>Phone Extension Information</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>These are the extension numbers assigned to your pod which you can use for phones and lines in your pod.</p>
-</div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Pod</th>
-<th class="tableblock halign-left valign-top">Extension Range</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
-</tr>
-</tbody>
-</table>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -520,7 +473,7 @@ If you are not continuing past this point be sure to safely shutdown your Linux 
 <p>Install the <strong>asterisk</strong> and <strong>tftpd-hpa</strong> packages in a similar manner to how you installed sudo.</p>
 </li>
 <li>
-<p>Download the chan-sccp plugin to your Debian system like <code><strong>wget <a href="_attachments/chan-sccp_4.3.4_amd64.deb" class="xref attachment">attachment$chan-sccp_4.3.4_amd64.deb</a></strong></code></p>
+<p>Download the chan-sccp plugin to your Debian system like <code><strong>wget <a href="_attachments/chan-sccp_4.3.4_amd64.deb" class="xref attachment"><a href="https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4_amd64.deb" class="bare">https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4_amd64.deb</a></a></strong></code></p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -729,7 +682,7 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-02 13:36:43 -0500<br>
+<p>Document Build Time: 2022-10-02 13:43:30 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
