@@ -308,14 +308,30 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>Asterisk Server:
-* Default Gateway: 172.17.55.1
-* DNS Server: 172.17.139.11</p>
+<p>Asterisk Server:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.55.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Pod Router:
-* Default Gateway: 172.17.144.1
-* DNS Server: 172.17.139.11</p>
+<p>Pod Router:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.144.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -473,7 +489,7 @@ To select and unselect options move your cursor over the option and press the <e
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-If you are not continuing past this point be sure to safely shutdown your Linux server with the <strong>shutdown -h now</strong> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+If you are not continuing past this point be sure to safely shutdown your Linux server with the <code><strong>shutdown -h now</strong></code> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
 </td>
 </tr>
 </table>
@@ -492,19 +508,19 @@ If you are not continuing past this point be sure to safely shutdown your Linux 
 <p>Log in to your Debian server with the username <strong>root</strong> and password you set if you are not already logged in.</p>
 </li>
 <li>
-<p>Update the package manager with the latest software lists on your Debian server by running <strong>apt update</strong></p>
+<p>Update the package manager with the latest software lists on your Debian server by running <code><strong>apt update</strong></code></p>
 </li>
 <li>
-<p>Install the sudo package with <strong>apt install sudo</strong></p>
+<p>Install the sudo package with <code><strong>apt install sudo</strong></code></p>
 </li>
 <li>
-<p>Add your user to the sudo group with a command like <strong>adduser YOURUSERNAMEHERE sudo</strong></p>
+<p>Add your user to the sudo group with a command like <code><strong>adduser <em>YOURUSERNAMEHERE</em> sudo</code></strong></p>
 </li>
 <li>
 <p>Install the <strong>asterisk</strong> and <strong>tftpd-hpa</strong> packages in a similar manner to how you installed sudo.</p>
 </li>
 <li>
-<p>Download the chan-sccp plugin to your Debian system like <strong>wget <a href="_attachments/chan-sccp_4.3.4_amd64.deb" class="xref attachment">attachment$chan-sccp_4.3.4_amd64.deb</a></strong></p>
+<p>Download the chan-sccp plugin to your Debian system like <code><strong>wget <a href="_attachments/chan-sccp_4.3.4_amd64.deb" class="xref attachment">attachment$chan-sccp_4.3.4_amd64.deb</a></strong></code></p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -526,7 +542,7 @@ To save time and reduce complexity in our lab I have built this packaged version
 <p>Install the <strong>gettext</strong> package which is required by chan-sccp</p>
 </li>
 <li>
-<p>Install chap-sccp with <strong>dpkg -i chan-sccp_4.3.4_amd64.deb</strong></p>
+<p>Install chap-sccp with <code><strong>dpkg -i chan-sccp_4.3.4_amd64.deb</strong></code></p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -564,16 +580,16 @@ Changes to which modules are loaded and not loaded need to be in the [modules] s
 </div>
 </li>
 <li>
-<p>Restart the Asterisk software to change the loaded modules. This can be done with the <strong>systemctl restart asterisk</strong> command.</p>
+<p>Restart the Asterisk software to change the loaded modules. This can be done with the <code><strong>systemctl restart asterisk</strong></code> command.</p>
 </li>
 <li>
 <p>Set the IP address on your Debian server to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.</p>
 </li>
 <li>
-<p>Apply the new network address by rebooting your server then verify it is set correctly by using the <strong>ip address show</strong> command and <strong>ping google.com</strong></p>
+<p>Apply the new network address by rebooting your server then verify it is set correctly by using the <code><strong>ip address show</strong></code> command and <code><strong>ping google.com</strong></code></p>
 </li>
 <li>
-<p>This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the <strong>shutdown -h now</strong> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.</p>
+<p>This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the <code><strong>shutdown -h now</strong></code> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.</p>
 </li>
 </ol>
 </div>
@@ -648,13 +664,13 @@ It&#8217;s strongly suggested you connect to and work on your Asterisk server ov
 <p>Create a file XMLDefault.cnf.xml on your lab PC <a href="lab-asterisk-xmldefault" class="xref page">following the template and instructions here</a> and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server.</p>
 </li>
 <li>
-<p>Open the Asterisk console on your Debian system <strong>asterisk -rvvvvvc</strong></p>
+<p>Open the Asterisk console on your Debian system <code><strong>asterisk -rvvvvvc</strong></code></p>
 </li>
 <li>
 <p>Connect two Cisco IP phones to ports Gi1/0/2 &amp; Gi1/0/3 of your switch</p>
 </li>
 <li>
-<p>After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the <strong>sccp show devices</strong> Asterisk CLI command to see a list of the phones.</p>
+<p>After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the <code><strong>sccp show devices</strong></code> Asterisk CLI command to see a list of the phones.</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -673,7 +689,7 @@ If one or more of your phones does not register it may be locked to a previous s
 </div>
 </li>
 <li>
-<p>Configure your two IP phones in the <a href="#lab-asterisk-sccpconf"><strong>sccp.conf</strong> file</a>.</p>
+<p>Configure your two IP phones in the <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.</p>
 </li>
 <li>
 <p>Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.</p>
@@ -686,7 +702,7 @@ If one or more of your phones does not register it may be locked to a previous s
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This requires putting a button line in for the phone device section as well as creating a line configuration section in the <a href="#lab-asterisk-sccpconf"><strong>sccp.conf</strong> file</a>.
+This requires putting a button line in for the phone device section as well as creating a line configuration section in the <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.
 </td>
 </tr>
 </table>
@@ -695,13 +711,13 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 </li>
 <li>
-<p>Connect to the Asterisk CLI and issue the <strong>reload</strong> command</p>
+<p>Connect to the Asterisk CLI and issue the <code><strong>reload</strong></code> command</p>
 </li>
 <li>
 <p>Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.</p>
 </li>
 <li>
-<p>Modify your <a href="#lab-asterisk-extensionsconf"><strong>extensions.conf</strong> file</a> to add the two phone extensions and allow calling between phones</p>
+<p>Modify your <a href="lab-asterisk-extensionsconf" class="xref page"><strong>extensions.conf</strong> file</a> to add the two phone extensions and allow calling between phones</p>
 </li>
 <li>
 <p>Test calling between phones</p>
@@ -713,7 +729,7 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-01 16:22:47 -0500<br>
+<p>Document Build Time: 2022-10-02 13:36:43 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
