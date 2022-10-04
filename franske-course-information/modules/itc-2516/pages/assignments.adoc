@@ -12,7 +12,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 2.7.6 - Implement Basic Connectivity (5 points)
 . PT 2.9.1 - Basic Switch and End Device Configuration (5 points)
 . PT 4.6.5 - Connect a Wired and Wireless LAN (5 points)
-. PT 4.7.1 - Connect the Physical Layer (5 points)
+. PT 4.7.2 - Connect the Physical Layer (5 points)
 . PT 10.1.4 - Configure Initial Router Settings (5 points)
 . PT 10.3.4 - Connect a Router to a LAN (5 points)
 . PT 10.3.5 - Troubleshoot Default Gateway Issues (5 points)
@@ -27,7 +27,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 13.3.1 - Use ICMP to Test and Correct Network Connectivity (5 points)
 . PT 16.4.6 - Configure Secure Passwords and SSH (5 points)
 . PT 16.5.1 - Secure Network Devices (5 points)
-. PT 17.7.7 - Troubleshoot Connectivity Issues (5 points)
+. PT 17.7.6 - Troubleshoot Connectivity Issues (5 points)
 . PT 17.8.2 - Skills Integration Challenge (15 points)
 . PT 17.8.3 - Troubleshooting Challenge (15 points)
 
