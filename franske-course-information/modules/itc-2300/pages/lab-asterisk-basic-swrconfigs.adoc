@@ -6,6 +6,8 @@ Don't forget to modify for the information specific to your Pod:
 
 * Change the hostname of both the Router and Switch to include your Pod ID
 * Change the IP Address on the Router Fa0/0 interface to the correct IP for your pod
+* Change the extension numbers/phone numbers to those appropriate for your pod
+* Read through all lines in the configurations, especially comment lines starting with a !
 
 You may want to make some additional changes for administration ease:
 
@@ -24,10 +26,12 @@ ip dhcp pool internal-voip
    network 192.168.10.0 255.255.255.0
    dns-server 172.17.139.11
    default-router 192.168.10.1
-   ! Change the IP on the next line to the IP address of your pods asterisk server (which is where the TFTP server is which this line points to)
-   option 150 ip 172.17.55.XX
+   ! Option 150 is used by Cisco phones to find the TFTP server where they get their configuration.
+   ! We are running the TFTP server on our Asterisk server so we can use the IP of that server.
+   option 150 ip 192.168.10.3
 !
 interface FastEthernet0/0
+ ! Rememeber to change the IP address on this interface to match the IP address assigned to your pod.
  ip address 172.17.144.XX 255.255.255.0
  ip nat outside
  no shutdown
@@ -80,6 +84,39 @@ interface GigabitEthernet1/0/3
  switchport voice vlan 10
  spanning-tree portfast
 !
+interface GigabitEthernet1/0/4
+ description VoIP Phone 3
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/5
+ description VoIP Phone 4
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/6
+ description VoIP Phone 5
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/7
+ description VoIP Phone 6
+ switchport access vlan 10
+ switchport mode access
+ switchport voice vlan 10
+ spanning-tree portfast
+!
+interface GigabitEthernet1/0/23
+ description Layer 2 connection to Asterisk server ens224 interface on internal 192.168.10.0/24 subnet
+ switchport access vlan 10
+ switchport mode access
+ no shutdown
 !
 interface GigabitEthernet1/0/24
  description Trunk Connection to Router
@@ -123,17 +160,16 @@ controller T1 0/3/0
  clock source line
  pri-group timeslots 1-6
 !
-! Prevent any connections to the router's SIP port from the outside network EXCEPT from the Asterisk server
+! Prevent any connections to the router's SIP port from the outside network
 ip access-list extended block-sip-outside
- ! change the next line to have the correct IP for your pods asterisk server and outside IP address for your router
- permit udp host 172.17.55.XX host 172.17.144.XX eq 5060
  ! change the next two lines to have the correct outside IP address for your router
  deny   tcp any host 172.17.144.XX eq 5060
  deny   udp any host 172.17.144.XX eq 5060
  permit ip any any
 !
-! Prevent any connections to the router's SIP port from the inside
+! Prevent any connections to the router's SIP port from the inside EXCEPT from the Asterisk server
 ip access-list extended block-sip-inside
+ permit udp host 192.168.10.3 host 192.168.10.1 eq 5060
  deny   tcp any host 192.168.10.1 eq 5060
  deny   udp any host 192.168.10.1 eq 5060
  permit ip any any
@@ -159,15 +195,15 @@ dial-peer voice 2 voip
  ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
  destination-pattern 510555ZZ..
  session protocol sipv2
- ! change the IP in the next line to be the IP of your Asterisk server
- session target ipv4:172.17.55.XX:5060
+ ! The IP in the next line should be the internal network IP of your Asterisk server
+ session target ipv4:192.168.10.3:5060
  incoming called-number .T
  dtmf-relay rtp-nte
  codec g711ulaw
  no vad
 !
 dial-peer voice 3 pots
- description Inbound calls from PSTN will pass to dial peer 2 which will send them to Asterisk
+ description Passes inbound calls from PSTN on to dial peer 2 which will send them to Asterisk
  ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
  incoming called-number 510555ZZ..
  direct-inward-dial

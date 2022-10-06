@@ -2,7 +2,11 @@
 
 == Notes
 
-The following shows an example of the things you may need to change in your sccp.conf file. 
+The following shows an example of the things you may need to set in your sccp.conf file. 
+
+--
+NOTE: It is suggested that you create fresh phone device sections for each phone and line sections for each line in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
+--
 
 Don't forget to modify for the information specific to your Pod:
 
@@ -77,6 +81,7 @@ For example:
 type=line
 label = 2901
 context = default
+mailbox = 2901
 vmnum = 2999
 ----
 

@@ -2,11 +2,7 @@
 
 == Notes
 
-This file is requested by Cisco IP phones from the TFTP server which is set in option 150 of the DHCP settings. In our case we have setup option 150 to point to our Debian server which is also running a TFTP server. This file tells the phones what the IP address of our VoIP server is so they can connect to it. In our case that IP is the same as the TFTP server because Asterisk is running on the same server.
-
-Don't forget to modify for the information specific to your Pod:
-
-* Change the IP Address in the processNodeName section to be the IP address of your Asterisk server
+This file is requested by Cisco IP phones from the TFTP server which is set in option 150 of the DHCP settings. In our case we have setup option 150 to point to our Debian server which is also running a TFTP server. Once the phones download this file from the TFTP server they read it and attempt to register with the VoIP server IP address specfied inside. In our case that IP is the same as the TFTP server because Asterisk is running on the same server.
 
 == XMLDefault.cnf.xml Sample File Contents
 
@@ -19,7 +15,7 @@ Don't forget to modify for the information specific to your Pod:
 <ports>
 <ethernetPhonePort>2000</ethernetPhonePort>
 </ports>
-<processNodeName>172.17.55.XX</processNodeName>
+<processNodeName>192.168.10.3</processNodeName>
 </callManager>
 </member>
 </members>

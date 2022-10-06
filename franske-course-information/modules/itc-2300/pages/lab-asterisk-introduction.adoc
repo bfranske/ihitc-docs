@@ -6,33 +6,46 @@ These are the IP addresses and phone extension numbers assigned to your pod whic
 
 [%autowidth,options="header"]
 |===
-|Pod |Asterisk IP |Pod Router Fa0/0 IP |Phone Extension Range
+|Pod |Asterisk ens192 IP |Pod Router Fa0/0 IP |Phone Extension Range |Classroom Switch Asterisk Port
 
-|Pod A |172.17.219.11/24 |172.17.144.11/24 |2100-2199
+|Pod A |172.17.219.11/24 |172.17.144.11/24 |2100-2199 |Gi1/0/31
 
-|Pod B |172.17.219.12/24 |172.17.144.12/24 |2200-2299
+|Pod B |172.17.219.12/24 |172.17.144.12/24 |2200-2299 |Gi1/0/32
 
-|Pod C |172.17.219.13/24 |172.17.144.13/24 |2300-2399
+|Pod C |172.17.219.13/24 |172.17.144.13/24 |2300-2399 |Gi1/0/33
 
-|Pod D |172.17.219.14/24 |172.17.144.14/24 |2400-2499
+|Pod D |172.17.219.14/24 |172.17.144.14/24 |2400-2499 |Gi1/0/34
 
-|Pod E |172.17.219.15/24 |172.17.144.15/24 |2500-2599
+|Pod E |172.17.219.15/24 |172.17.144.15/24 |2500-2599 |Gi1/0/35
 
-|Pod F |172.17.219.16/24 |172.17.144.16/24 |2600-2699
+|Pod F |172.17.219.16/24 |172.17.144.16/24 |2600-2699 |Gi1/0/36
 
-|Pod G |172.17.219.17/24 |172.17.144.17/24 |2700-2799
+|Pod G |172.17.219.17/24 |172.17.144.17/24 |2700-2799 |Gi1/0/37
 
-|Pod H |172.17.219.18/24 |172.17.144.18/24 |2800-2899
+|Pod H |172.17.219.18/24 |172.17.144.18/24 |2800-2899 |Gi1/0/38
 
-|Pod I |172.17.219.19/24 |172.17.144.19/24 |2900-2999
+|Pod I |172.17.219.19/24 |172.17.144.19/24 |2900-2999 |Gi1/0/39
 
-|Pod J |172.17.219.20/24 |172.17.144.20/24 |3000-3099
+|Pod J |172.17.219.20/24 |172.17.144.20/24 |3000-3099 |Gi1/0/40
 |===
 
-Asterisk Server:
+Asterisk Server ens192 Interface:
+
+--
+NOTE: The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+--
 
 * Default Gateway: 172.17.219.1
 * DNS Server: 172.17.139.11
+
+Asterisk Server ens224 Interface:
+
+--
+NOTE: The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+--
+
+* IP Address (same for all pods because it's inside behind your NAT): 192.168.10.3/24
+* No default gateway or DNS servers for this interface
 
 Pod Router:
 
@@ -44,6 +57,14 @@ NOTE: The XX99 extension will be used for future voicemail capability so that on
 --
 
 == Work you can do remotely
+
+=== Important information to read
+
+The VoIP labs in this class use a bit of an unusual network setup. In particular the Asterisk server has two NICs, one of which is connected directly out to the "Internet" outside of your company (ens192) and the other is connected inside your company directly to your pod switch (ens224). You would probably never use such as setup in real world applications and there would be additional security implications if you did. Normally, the Asterisk server would be fully behind your firewall/router and you would do port forwarding to make the ports needed for SIP signalling and RTP audio available from the outside. In the case of "hosted" or "cloud" PBX servers the entire server would be on the outside network. The unusal part we do is to have the server straddle the line with one outside and one inside interface.
+
+Even with putting a VoIP server behind your firewall and opening only the required ports there are a lot of attempts at VoIP fraud online by hackers looking to take advantage of SIP ports open to the Internet so if you were do that you would need to use appropriate security features to blacklist IPs which are making failed connection attempts (attempted brute forcing SIP credentials) along with other precautions within your dialplan to prevent hopping through your PBX (and either impersonating your company or racking up charges. 
+
+The reason for this unusual network setup in our case is to simplify the amount of network configuration you need to do for this course. We are able to avoid dealing with NAT forwarding rules which are cumbersome on Cisco routers (and which do not allow just port forwarding). This also allows us to give you SSH and Filezilla access to your Asterisk server over the ITCnet VPN which makes transferring configuration files much easier when working on them remotely.
 
 === Install Debian Linux
 
@@ -95,8 +116,9 @@ NOTE: The reason this package is installed with dpkg instead of with apt is that
 NOTE: Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
 --
 . Restart the Asterisk software to change the loaded modules. This can be done with the `*systemctl restart asterisk*` command.
-. Set the IP address on your Debian server to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.
-. Apply the new network address by rebooting your server then verify it is set correctly by using the `*ip address show*` command and `*ping google.com*`
+. Set the IP address on your Debian server's outside ens192 interface to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.
+. Set the IP address on your Debian server's inside ens224 interface to the static address indicated at the top of this lab. Note that all pods use the same IP address on the inside interface and do not need a gateway or DNS server on this interface. These changes should be made in your /etc/network/interfaces file.
+. Apply the new network addresses by rebooting your server then verify it is set correctly by using the `*ip address show*` command and `*ping google.com*`
 . This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the `*shutdown -h now*` command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
 
 == Work you need to do on campus
@@ -104,11 +126,12 @@ NOTE: Changes to which modules are loaded and not loaded need to be in the [modu
 === Network device configuration and testing connectivity
 
 . In order to connect your IP phones to your Asterisk server you will need to setup a LAN with a router and switch.
+. Use the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations] (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.
 . Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.
 . Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.
-. Use the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations] (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.
+. Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server's ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).
 . Sign in to a second PC in the classroom. _After_ you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.
-. Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping the IP address of your pod's Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).
+. Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod's Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).
 +
 --
 NOTE: Of course, make sure that your Asterisk server is up and running!
@@ -119,7 +142,7 @@ NOTE: It's strongly suggested you connect to and work on your Asterisk server ov
 --
 
 === Asterisk confgiuration
-. Create a file XMLDefault.cnf.xml on your lab PC xref:lab-asterisk-xmldefault.adoc[following the template and instructions here] and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server.
+. Create a file XMLDefault.cnf.xml on your lab PC xref:lab-asterisk-xmldefault.adoc[following the template and instructions here] and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server. The transfer can be done using the Filezilla software which will allow you to create and edit the file in Notepad on your lab PC first.
 . Open the Asterisk console on your Debian system `*asterisk -rvvvvvc*`
 . Connect two Cisco IP phones to ports Gi1/0/2 & Gi1/0/3 of your switch
 . After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the `*sccp show devices*` Asterisk CLI command to see a list of the phones.
@@ -127,11 +150,14 @@ NOTE: It's strongly suggested you connect to and work on your Asterisk server ov
 --
 NOTE: If one or more of your phones does not register it may be locked to a previous sever see the instructions for xref:tech-info:voip:cisco-phone-security.adoc[clearing Cisco IP phone security files]
 --
-. Configure your two IP phones in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
+. Configure your two IP phones in the SCCP configuration file see the example xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
 . Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.
 +
 --
 NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
+--
+--
+NOTE: It is suggested that you create fresh phone device sections and line sections in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
 --
 . Connect to the Asterisk CLI and issue the `*reload*` command
 . Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.
