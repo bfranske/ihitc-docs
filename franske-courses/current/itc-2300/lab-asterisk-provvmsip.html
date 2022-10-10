@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Untitled :: IHITC Info</title>
+    <title>Provisioning, Voicemail, and SIP Labs :: IHITC Info</title>
     <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-provvmsip">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -218,6 +218,10 @@
 <button class="nav-toggle"></button>
   <a href="../../../program-info/current/" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-provvmsip">Provisioning, Voicemail, and SIP Labs</a></li>
+  </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
@@ -233,7 +237,564 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-
+<h1 class="page">Provisioning, Voicemail, and SIP Labs</h1>
+<div class="sect1">
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk ens192 IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Asterisk Server ens192 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.219.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Asterisk Server ens224 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP Address (same for all pods because it&#8217;s inside behind your NAT): 192.168.10.3/24</p>
+</li>
+<li>
+<p>No default gateway or DNS servers for this interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pod Router:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.144.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In genreal you will be able to change all the configuration files and do all the software installation work remotely if you want. You will need to come to campus and setup the network with the router, switch, and phones in order to test anything, get the correct MAC addresses to put in the configurations, etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will be able to configure the files to enable voicemail on the extensions you setup in the previous lab.</p>
+</li>
+<li>
+<p>You will be able to do the SIP configuration work (transport, lines, authenticaion, AoRs, voicemail)</p>
+</li>
+<li>
+<p>You will be able to install, register, and license the DPMA software</p>
+</li>
+<li>
+<p>You will be able to do the phone and line configuration for the DPMA phones, but will need to use fake MAC addresses until you get to campus and find the MAC addresses for your phones</p>
+</li>
+<li>
+<p>You will be able to do the extensions and voicemail configuration for all of the phones</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_internal_network_setup"><a class="anchor" href="#_internal_network_setup"></a>Internal Network Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you are on campus and working with your IP phones you will need to setup your internal network with your pod router and switch as you did for the previous lab.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
+<p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
+</li>
+<li>
+<p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
+</li>
+<li>
+<p>Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server&#8217;s ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).</p>
+</li>
+<li>
+<p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
+</li>
+<li>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Of course, make sure that your Asterisk server is up and running!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Setup your two Cisco IP phones and ensure they are working (can call each other and can call the extension 1000 demo).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voicemail"><a class="anchor" href="#_voicemail"></a>Voicemail</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>+</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s expected that you have done your readings before beginning this lab. The lab will outline the tasks to do and give helpful tips but the readings contain details about how to configure the various parts of this lab.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new extension xx99 (with the correct replacement for the x&#8217;s depending on your pod&#8201;&#8212;&#8201;see the chart at the top) which will call into the voicemail system and allow users to retrieve messages</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+What file manages the dialplan? You&#8217;ll need to edit this file and add a new extension which calls into the Voicemail application when a user dials that extension.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create voicemail mailboxes for your xx01 and xx02 extensions with the PIN set to 1234</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+This is done in the voicemail configuration file. You will need to add two new extensions with PINs to this file. You don&#8217;t need fancy features like email setup. Just a simple mailbox with a PIN is needed for each extension.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Try accessing both voicemail boxes by dialing xx99 and change the greetings on each voicemail box so that you can tell the two apart. Note that you will need to reload the dialplan and voicemail configurations in Asterisk after making the changes to them.</p>
+</li>
+<li>
+<p>Create and modify the required entries in your dialplan to send callers for both the xx01 and xx02 extensions to the correct voicemail box with the unavailable greeting if the call is not answered within 10 seconds.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Remember that you will need to reload the dialplan in Asterisk after making the changes to it before they take effect.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You&#8217;ll need to add more priorities to each extension. The first one will ring the phone for 10 seconds and the phone for the specified amount of time and then if it&#8217;s no answered the second will send the call to the voicemail box and play the unavailable greeting.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Test leaving and retrieving messages from both extensions.</p>
+</li>
+<li>
+<p>Enable and test the Message Waiting Indicator (MWI) for the phones in the SCCP configuration. See the <a href="lab-asterisk-sccpconf" class="xref page">sample sccp.conf file</a> and the pages linked to from there for hints on doing this.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may need to restart the Asterisk software on your VM in order to get the MWI lights to work. This can be done with the <code><strong>systemctl restart asterisk</strong></code> command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generic_sip_phone_setup"><a class="anchor" href="#_generic_sip_phone_setup"></a>Generic SIP Phone Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section of the lab you will manually provision a generic SIP phone, the Digium A25 in this case. Note that almost all SIP phones have a way to do automated provisioning, some are better than others though. Typically this involves using some DHCP option to provide the IP address of a TFTP server. Unlike the Cisco SCCP and Digium DPMA protocols though you usually need to have a unique configuration file for each phone on the TFTP server which is identified by MAC address and that configuration files includes all of the settings for each line. Some manufacturers provideo software to help generate all these files faster, in other cases software must be purchased or written yourself if you do not want to manually create all the files.</p>
+</div>
+<div class="paragraph">
+<p>We will manually configure the SIP phone with settings through it&#8217;s web user interface instead of using TFTP configuration methods. Most generic SIP phones can be configured this way through a web interface though it is typically only feasible for very small VoIP installations as it is simple to do but slow.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Configure port Gi1/0/4 on your switch the same way your other VoIP phone ports are configured</p>
+</li>
+<li>
+<p>Get an Asterisk A25 phone and connect it to port Gi1/0/4 on your switch through the classroom wiring.</p>
+</li>
+<li>
+<p>Use the menus on the phone to obtain the IP address for your new phone</p>
+</li>
+<li>
+<p>Since we will be manually provisioning the phone using the web interface open a web browser on a PC attached to your internal network and browse to the IP address of the new phone. Login with the username <strong>admin</strong> and password <strong>789</strong></p>
+</li>
+<li>
+<p>Edit your <code><strong>pjsip.conf</strong></code> file as required to create a new transport, line, authentication, and AoR section to use on the phone at extension xx03. See the <a href="#lab-asterisk-pjsipconf.adoc" class="xref unresolved">sample pjsip.conf file</a> for some hints.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+After modifying the pjsip.conf file you will need to at least reload the pjsip configuration in Asterisk and if you are setting up your first transport you should restart Asterisk instead of just reloading the configuration. This can be done with the <code><strong>systemctl restart asterisk</strong></code> command.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>On the phone admin line settings webpage configure SIP Line 1 with the required user name, display name, authentication name, authentication password, SIP Proxy server address (the internal IP of your Asterisk server), and check the box to activate the line.</p>
+</li>
+<li>
+<p>Modify your dialplan to configure extension xx03 to call your PJSIP line. Remember that you need to reload your dialplan to have this take effect.</p>
+</li>
+<li>
+<p>Create a voicemail box for xx03 and enable support for MWI subscribe notifications in the PJSIP configuration file</p>
+</li>
+<li>
+<p>Modify the advanced SIP Line configuration webpage on the phone to enable "Subscribe for Voice Message" and set the Voice Message Number to xx99</p>
+</li>
+<li>
+<p>Test leaving a voicemail for the new phone and ensure the MWI light blinks when there is a message.</p>
+</li>
+<li>
+<p>Modify the advanced Phone Settings &#8594; Power LED settings webpage on the phone to enable the SMS/MWI function.</p>
+</li>
+<li>
+<p>Test leaving a voicemail for the new phone and ensure the power led comes on when there is a message.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_digium_dpma_phone_provisioning"><a class="anchor" href="#_digium_dpma_phone_provisioning"></a>Digium DPMA Phone Provisioning</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sign up for an account on the Digium store and <a href="https://store.digium.com/cart.php?action=add&amp;product_code=804-00032&amp;quantity=1">"purchase" a free DPMA key</a>.</p>
+</li>
+<li>
+<p>Install the <strong>avahi-daemon</strong> and <strong>libavahi-client3</strong> packages on your Debian server. These packages support Multicast DNS (aka mDNS or Bonjour) which is one way that the DPMA phones can find your Asterisk server and the method we will use. Because multicast traffic does not generally work outside of a single layer 2 subnet if you had your Asterisk server on a different subnet you would need to use an alternative method such as the <a href="https://wiki.asterisk.org/wiki/display/DIGIUM/Provisioning#Provisioning-ConfigurationwhenMulticastisNotAvailable">DHCP option 66 method</a>.</p>
+</li>
+<li>
+<p>Follow the <a href="https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Installation">Asterisk DPMA installation instructions</a> to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure to get the current one for Asterisk Version 16. If you get one for a different version of Asterisk you will crash Asterisk when you try to load it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Configure ports Gi1/0/5 and Gi1/0/6 on your switch the same way your other VoIP phone ports are configured</p>
+</li>
+<li>
+<p>Get two Digium D60 phones. Do NOT connect them to the switch yet.</p>
+</li>
+<li>
+<p>Create a basic <code>res_digium_phone.conf</code> file for your phone with the correct MAC addresses and settingss for a xx04 and xx05 extension. See the <a href="#lab-asterisk-resdigiumconf.adoc" class="xref unresolved">sample res_digium_phone.conf file</a> for some hints.</p>
+</li>
+<li>
+<p>Create the required global entries in your PJSIP file for DPMA configuration use</p>
+</li>
+<li>
+<p>Create the required entries for the xx04 and xx05 lines in your PJSIP, Voicemail, and dialplan configuration files as well.</p>
+</li>
+<li>
+<p>You probably want to restart the Asterisk software on your system again at this point to re-load all the configuration files and re-load all the modules. If you make further changes to configuration files make sure that the config file is reloaded by Asterisk so the changes are applied.</p>
+</li>
+<li>
+<p>Plug your two D60 phones into the switch. They should find the Asterisk server and configure themselves in a similar way to the SCCP phones</p>
+</li>
+<li>
+<p>Test calling to and from the D60 phones as well as leaving and retrieving messages from the phones. Be sure to test the voicemail button on the phone to see an example of a visual voicemail application as well.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cleanup"><a class="anchor" href="#_cleanup"></a>Cleanup</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Safely shutdown your Debian system</p>
+</li>
+<li>
+<p>Erase your switch/router configuration</p>
+</li>
+<li>
+<p>Put away all equipment and cables. Be sure to note which phones you have so that next week you&#8217;ll be able to get the same five phones.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2022-10-10 11:52:31 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
 </article>
   </div>
 </main>

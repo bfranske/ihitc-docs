@@ -250,13 +250,15 @@
 <col>
 <col>
 <col>
+<col>
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Pod</th>
-<th class="tableblock halign-left valign-top">Asterisk IP</th>
+<th class="tableblock halign-left valign-top">Asterisk ens192 IP</th>
 <th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
 <th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
 </tr>
 </thead>
 <tbody>
@@ -265,65 +267,91 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p>Asterisk Server:</p>
+<p>Asterisk Server ens192 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="ulist">
 <ul>
@@ -332,6 +360,35 @@
 </li>
 <li>
 <p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Asterisk Server ens224 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP Address (same for all pods because it&#8217;s inside behind your NAT): 192.168.10.3/24</p>
+</li>
+<li>
+<p>No default gateway or DNS servers for this interface</p>
 </li>
 </ul>
 </div>
@@ -369,6 +426,18 @@ The XX99 extension will be used for future voicemail capability so that one shou
 <div class="sect1">
 <h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_important_information_to_read"><a class="anchor" href="#_important_information_to_read"></a>Important information to read</h3>
+<div class="paragraph">
+<p>The VoIP labs in this class use a bit of an unusual network setup. In particular the Asterisk server has two NICs, one of which is connected directly out to the "Internet" outside of your company (ens192) and the other is connected inside your company directly to your pod switch (ens224). You would probably never use such as setup in real world applications and there would be additional security implications if you did. Normally, the Asterisk server would be fully behind your firewall/router and you would do port forwarding to make the ports needed for SIP signalling and RTP audio available from the outside. In the case of "hosted" or "cloud" PBX servers the entire server would be on the outside network. The unusal part we do is to have the server straddle the line with one outside and one inside interface.</p>
+</div>
+<div class="paragraph">
+<p>Even with putting a VoIP server behind your firewall and opening only the required ports there are a lot of attempts at VoIP fraud online by hackers looking to take advantage of SIP ports open to the Internet so if you were do that you would need to use appropriate security features to blacklist IPs which are making failed connection attempts (attempted brute forcing SIP credentials) along with other precautions within your dialplan to prevent hopping through your PBX (and either impersonating your company or racking up charges.</p>
+</div>
+<div class="paragraph">
+<p>The reason for this unusual network setup in our case is to simplify the amount of network configuration you need to do for this course. We are able to avoid dealing with NAT forwarding rules which are cumbersome on Cisco routers (and which do not allow just port forwarding). This also allows us to give you SSH and Filezilla access to your Asterisk server over the ITCnet VPN which makes transferring configuration files much easier when working on them remotely.</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_install_debian_linux"><a class="anchor" href="#_install_debian_linux"></a>Install Debian Linux</h3>
 <div class="olist arabic">
@@ -536,10 +605,13 @@ Changes to which modules are loaded and not loaded need to be in the [modules] s
 <p>Restart the Asterisk software to change the loaded modules. This can be done with the <code><strong>systemctl restart asterisk</strong></code> command.</p>
 </li>
 <li>
-<p>Set the IP address on your Debian server to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.</p>
+<p>Set the IP address on your Debian server&#8217;s outside ens192 interface to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.</p>
 </li>
 <li>
-<p>Apply the new network address by rebooting your server then verify it is set correctly by using the <code><strong>ip address show</strong></code> command and <code><strong>ping google.com</strong></code></p>
+<p>Set the IP address on your Debian server&#8217;s inside ens224 interface to the static address indicated at the top of this lab. Note that all pods use the same IP address on the inside interface and do not need a gateway or DNS server on this interface. These changes should be made in your /etc/network/interfaces file.</p>
+</li>
+<li>
+<p>Apply the new network addresses by rebooting your server then verify it is set correctly by using the <code><strong>ip address show</strong></code> command and <code><strong>ping google.com</strong></code></p>
 </li>
 <li>
 <p>This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the <code><strong>shutdown -h now</strong></code> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.</p>
@@ -560,19 +632,22 @@ Changes to which modules are loaded and not loaded need to be in the [modules] s
 <p>In order to connect your IP phones to your Asterisk server you will need to setup a LAN with a router and switch.</p>
 </li>
 <li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
 <p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
 </li>
 <li>
 <p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
 </li>
 <li>
-<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+<p>Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server&#8217;s ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).</p>
 </li>
 <li>
 <p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
 </li>
 <li>
-<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping the IP address of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -614,7 +689,7 @@ It&#8217;s strongly suggested you connect to and work on your Asterisk server ov
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Create a file XMLDefault.cnf.xml on your lab PC <a href="lab-asterisk-xmldefault" class="xref page">following the template and instructions here</a> and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server.</p>
+<p>Create a file XMLDefault.cnf.xml on your lab PC <a href="lab-asterisk-xmldefault" class="xref page">following the template and instructions here</a> and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server. The transfer can be done using the Filezilla software which will allow you to create and edit the file in Notepad on your lab PC first.</p>
 </li>
 <li>
 <p>Open the Asterisk console on your Debian system <code><strong>asterisk -rvvvvvc</strong></code></p>
@@ -642,10 +717,10 @@ If one or more of your phones does not register it may be locked to a previous s
 </div>
 </li>
 <li>
-<p>Configure your two IP phones in the <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.</p>
+<p>Configure your two IP phones in the SCCP configuration file see the example <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.</p>
 </li>
 <li>
-<p>Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.</p>
+<p>Setup one line button on each phone with an extension number for your pod (xx01 and xx02) based on the chart at the beginning of this lab. Assign these lines to the default context.</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -663,6 +738,26 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 </div>
 </li>
+</ol>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is suggested that you create fresh phone device sections and line sections in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Connect to the Asterisk CLI and issue the <code><strong>reload</strong></code> command</p>
 </li>
@@ -682,7 +777,7 @@ This requires putting a button line in for the phone device section as well as c
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-05 19:23:18 -0500<br>
+<p>Document Build Time: 2022-10-10 11:52:31 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>

@@ -242,17 +242,7 @@
 <h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This file is requested by Cisco IP phones from the TFTP server which is set in option 150 of the DHCP settings. In our case we have setup option 150 to point to our Debian server which is also running a TFTP server. This file tells the phones what the IP address of our VoIP server is so they can connect to it. In our case that IP is the same as the TFTP server because Asterisk is running on the same server.</p>
-</div>
-<div class="paragraph">
-<p>Don&#8217;t forget to modify for the information specific to your Pod:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Change the IP Address in the processNodeName section to be the IP address of your Asterisk server</p>
-</li>
-</ul>
+<p>This file is requested by Cisco IP phones from the TFTP server which is set in option 150 of the DHCP settings. In our case we have setup option 150 to point to our Debian server which is also running a TFTP server. Once the phones download this file from the TFTP server they read it and attempt to register with the VoIP server IP address specfied inside. In our case that IP is the same as the TFTP server because Asterisk is running on the same server.</p>
 </div>
 </div>
 </div>
@@ -269,7 +259,7 @@
 &lt;ports&gt;
 &lt;ethernetPhonePort&gt;2000&lt;/ethernetPhonePort&gt;
 &lt;/ports&gt;
-&lt;processNodeName&gt;172.17.55.XX&lt;/processNodeName&gt;
+&lt;processNodeName&gt;192.168.10.3&lt;/processNodeName&gt;
 &lt;/callManager&gt;
 &lt;/member&gt;
 &lt;/members&gt;
@@ -279,7 +269,7 @@
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-05 19:23:18 -0500<br>
+<p>Document Build Time: 2022-10-10 11:52:31 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>

@@ -242,7 +242,23 @@
 <h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The following shows an example of the things you may need to change in your sccp.conf file.</p>
+<p>The following shows an example of the things you may need to set in your sccp.conf file.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is suggested that you create fresh phone device sections for each phone and line sections for each line in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Don&#8217;t forget to modify for the information specific to your Pod:</p>
@@ -338,6 +354,7 @@ mailbox = 2901</pre>
 type=line
 label = 2901
 context = default
+mailbox = 2901
 vmnum = 2999</pre>
 </div>
 </div>
@@ -362,7 +379,7 @@ vmnum = 2999</pre>
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-05 19:23:18 -0500<br>
+<p>Document Build Time: 2022-10-10 11:52:31 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
