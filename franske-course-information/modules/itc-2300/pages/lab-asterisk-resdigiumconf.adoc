@@ -1,0 +1,51 @@
+= ITC-2300 VoIP Lab Sample res_digium_phone.conf File
+
+== Notes
+
+The following shows an example of the things you may need to change in your res_digium_phone.conf file.
+
+Don't forget to modify for the information specific to your Pod:
+
+* Change the MAC addresses of the phones to match your phones
+* Change the descriptions, line names, caller ID names, etc.
+
+== Example Minimal res_digium_phone.conf File Changes
+
+----
+[network1]
+type=network
+alias=My Default Network ; This is the name of the network profile
+cidr=192.168.10.0/24
+registration_address=192.168.10.3 ; This is the IP address of your Asterisk server
+registration_port=5060
+transport=udp
+
+[echosphone] ; This line sets the name of the phone
+type=phone
+mac=000FD30D1F8B ; Be sure to set the correct MAC address for your phone
+network=network1 ; This line sets the network the phone is connected to (above) 
+pin=1234
+group_pin=1234
+line=echo2904 ; This is the name of the line to configure on the phone
+active_locale=en_US
+timezone=America/Chicago
+
+[echo2904] ; This is the line configuration, it must match the line= setting in the phone configuration above and the line name in the PJSIP file
+type=line
+line_label=2904 ; This is the text to display next to the line button on the phone display
+mailbox=2904 ; This is the voicemail box
+digit_map=[0-8]xxx|911|9411|9611|9011xxx.T3|91xxxxxxxxxx|9[2-9]xxxxxx|*xxx.T3
+transport=udp
+----
+
+== Reloading After Configuration Changes
+
+If you make changes to the pjsip.conf file and need to get Asterisk to re-load the configuration you can run the `*module reload res_digium_phone.so*` command from the Asterisk CLI to re-read the file.
+
+After to re-read the file you can run the `*digium_phones reconfigure all*` command to have the phones get reconfigured with the new settings. 
+
+== Additonal Resources
+
+* https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Configuration[DPMA Configuration]
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

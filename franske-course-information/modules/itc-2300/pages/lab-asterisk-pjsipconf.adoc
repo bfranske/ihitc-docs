@@ -1,0 +1,194 @@
+= ITC-2300 VoIP Lab Sample pjsip.conf File
+
+== Notes
+
+The following shows an example of the things you may need to change in your pjsip.conf file.
+
+Don't forget to modify for the information specific to your Pod:
+
+* Change the MAC addresses of the phones to match your phones
+* Change the descriptions, line names, caller ID names, etc.
+
+== Example Minimal sccp.conf File Changes
+
+----
+[simpletrans]
+type=transport
+protocol=udp
+bind=0.0.0.0
+
+[2903] ; The value inside the [] will be the SIP line user name on the endpoint
+type=endpoint
+context=default
+disallow=all
+allow=ulaw
+transport=simpletrans
+auth=debra-auth ; This will be the name for the authentication section of the configuration found below
+aors=2903 ; This will be the name for the AoRs registration section of the configuration found below it must match the username in the [ ] above
+trust_id_outbound=yes
+callerid=Debra Donaldson <2903> ; This is the caller ID name and extension (in the < >)
+
+[2903] ; This is the AoRs registration entry. The value in the [ ] must match the endpoint aors line and username on the device
+type=aor
+max_contacts=1
+
+[debra-auth] ; This is the authentication entry. The value in the [ ] must match the endpoint auth line
+type=auth
+auth_type=userpass
+password=debrapass ; This is the authentication password used by the endpoint for sip registration
+username=debra ; This is the authentication name used by the endpoint for sip registration
+----
+
+== Voicemail pjsip.conf File Changes
+
+You can add the ability to enable the Message Waiting Indicator (MWI) lamp on SIP phones when there is a message in a mailbox. By default Asterisk will send SIP NOTIFY messages when a voicemail is left. Some phones need to subscribe to the MWI information. In that case you need to modify the AoRs section for the phone and add a mailboxes= section.
+
+For Example:
+
+----
+[2903]
+type=aor
+max_contacts=1
+mailboxes=2903@default
+----
+
+== DPMA pjsip.conf File Changes
+
+When you get to the part of the lab where you are setting up DPMA phones a default_outbound_endpoint needs to be enabled in pjsip.conf. This is accomplished by configuring a basic endpoint to use and then setting that endpoint as the default.
+
+For Example:
+
+----
+[global]
+type=global
+default_outbound_endpoint=dpma_endpoint
+
+[dpma_endpoint]
+type=endpoint
+----
+
+You will also need to create a SIP line for the phone to use.
+
+For Example:
+
+----
+[echo2904]
+type = aor
+max_contacts = 1
+mailboxes = 2904@default
+
+[echo2904]
+type = auth
+auth_type = userpass
+password = 2904
+username = 2904
+
+[echo2904]
+type = endpoint
+aors=echo2904
+auth=echo2904
+callerid=Echo Early
+context = default
+direct_media = yes
+trust_id_inbound = yes
+trust_id_outbound=yes
+send_pai = yes
+transport=simpletrans
+callerid=Echo Early <2904>
+disallow = all
+allow = alaw
+----
+
+== ISDN Router <-> SIP pjsip.conf File Changes
+
+When you get to the lab where you are using your router as a PSTN gateway to provide access over a T1 line you will need to create a SIP endpoint for the router to connect to so that calls can be made and received.
+
+----
+[ISDNrouter]
+type=endpoint
+; You want to choose a context that any calls coming in from the gateway will go to and be careful to limit where these calls can go so that people can't "loop through" your Asterisk system and run up your phone bill or otherwise manipulate the system
+context=from_PSTN
+disallow=all
+allow=ulaw
+aors=ISDNrouter
+
+[ISDNrouter]
+; This will send SIP traffic to our router’s IP address if it’s sent to the ISDNrouter SIP device
+type=aor
+contact=sip:192.168.10.1:5060
+
+[ISDNrouter]
+; This will match the SIP traffic incoming from the ISDN line attached to our router
+type=identify
+endpoint=ISDNrouter
+match=192.168.10.1
+----
+
+== IP Telephony Service Provider (ITSP) PSTN pjsip.conf File Changes
+
+When you get to the part of the lab where you are configuring an IP Teleophony Service provider for PSTN access instead of using the T1 connection you will need to setup SIP access to and from your PSTN SIP provider.
+
+--
+NOTE: You will need to modify the username for registration, the authentication username and password, and the endpoint user to be your Pod so you receive calls to the correct numbers!
+--
+
+----
+[simpletrans]
+; We need to make some changes here because we are behind NAT so that when we register to the ITSP they get our public IP (which is being forwarded to Asterisk by our router) instead of our internal IP address
+type=transport
+protocol=udp
+bind=0.0.0.0
+local_net=192.168.10.0/24 ; Set the IP address(es) for the local network, these devices will use the actual IP address of the Asterisk server
+; Change these IP addresses to point to the ESXi-1 address for your pod (and which your router is forwarding the ports through to Asterisk)
+external_media_address=172.17.144.XX ; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
+external_signaling_address=172.17.144.XX; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
+
+[sipPSTN]
+type=registration
+transport=simpletrans
+outbound_auth=sipPSTN
+server_uri=sip:172.17.139.25 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
+client_uri=sip:pod8@172.17.139.25 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
+endpoint=sipPSTN
+line=yes
+
+[sipPSTN]
+type=auth
+auth_type=userpass
+; Be sure to modify the username and password as appropriate for your pod
+password=pod8-password
+username=pod8
+
+[sipPSTN]
+type=endpoint
+transport=simpletrans
+context=from_external ; What context calls from the ITSP should end up in
+disallow=all
+allow=ulaw
+outbound_auth=sipPSTN
+aors=sipPSTN
+direct_media=no ; This line tells Asterisk to not just handle the call setup information but to pass the audio through Asterisk as well and is required because we are behind NAT and only have ports forwarded to the Asterisk server
+from_user=pod8 ; The username to use in the SIP messages for calls out to the PSTN be sure to set correctly for your pod!
+
+[sipPSTN]
+type=aor
+contact=sip:172.17.139.25:5060 ; All calls to the ITSP will go to this IP address and port
+
+[sipPSTN]
+type=identify
+endpoint=sippstn
+match=172.17.139.25 ; All calls from the ITSP will come from this IP address
+----
+
+== Reloading After Configuration Changes
+
+If you make changes to the pjsip.conf file and need to get Asterisk to re-load the configuration you can run the `*pjsip reload*` command from the Asterisk CLI to re-read the file. 
+
+== Additonal Resources
+
+* https://wiki.asterisk.org/wiki/display/AST/PJSIP+Configuration+Sections+and+Relationships[PJSIP Config Sections and Relationships]
+* https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+Configuration_res_pjsip[Core PJSIP Configuration Options]
+* https://wiki.asterisk.org/wiki/display/DIGIUM/Digium+Phones+when+used+with+DPMA[SIP Configuration for DPMA Phones]
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
