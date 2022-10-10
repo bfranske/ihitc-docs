@@ -151,7 +151,7 @@ NOTE: It's strongly suggested you connect to and work on your Asterisk server ov
 NOTE: If one or more of your phones does not register it may be locked to a previous sever see the instructions for xref:tech-info:voip:cisco-phone-security.adoc[clearing Cisco IP phone security files]
 --
 . Configure your two IP phones in the SCCP configuration file see the example xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
-. Setup one line button on each phone with a valid extension number for your pod based on the chart at the beginning of this lab. Assign these lines to the default context.
+. Setup one line button on each phone with an extension number for your pod (xx01 and xx02) based on the chart at the beginning of this lab. Assign these lines to the default context.
 +
 --
 NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].

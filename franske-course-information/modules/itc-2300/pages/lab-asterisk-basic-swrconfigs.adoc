@@ -84,34 +84,6 @@ interface GigabitEthernet1/0/3
  switchport voice vlan 10
  spanning-tree portfast
 !
-interface GigabitEthernet1/0/4
- description VoIP Phone 3
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/5
- description VoIP Phone 4
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/6
- description VoIP Phone 5
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/7
- description VoIP Phone 6
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
 interface GigabitEthernet1/0/23
  description Layer 2 connection to Asterisk server ens224 interface on internal 192.168.10.0/24 subnet
  switchport access vlan 10
