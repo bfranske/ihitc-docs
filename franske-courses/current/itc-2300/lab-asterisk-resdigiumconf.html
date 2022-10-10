@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>VMware ESXi Installation Lab :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-vmware-esxiinstallation">
+    <title>ITC-2300 VoIP Lab Sample res_digium_phone.conf File :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-resdigiumconf">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -220,232 +220,98 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="lab-vmware-esxiinstallation">VMware ESXi Installation Lab</a></li>
+    <li><a href="lab-asterisk-resdigiumconf">ITC-2300 VoIP Lab Sample res_digium_phone.conf File</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="lab-vmware-esxiinstallation">2022.08</a>
+    <a class="version is-current" href="lab-asterisk-resdigiumconf">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-vmware-esxiinstallation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-resdigiumconf.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">VMware ESXi Installation Lab</h1>
+<h1 class="page">ITC-2300 VoIP Lab Sample res_digium_phone.conf File</h1>
 <div class="sect1">
-<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+<p>The following shows an example of the things you may need to change in your res_digium_phone.conf file.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to modify for the information specific to your Pod:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Subnet Mask: 255.255.255.0</p>
+<p>Change the MAC addresses of the phones to match your phones</p>
 </li>
 <li>
-<p>Default Gateway: 192.168.1.1</p>
-</li>
-<li>
-<p>DNS Server 192.168.1.1</p>
+<p>Change the descriptions, line names, caller ID names, etc.</p>
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">System</th>
-<th class="tableblock halign-left valign-top">IP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.20</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.21</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<h2 id="_example_minimal_res_digium_phone_conf_file_changes"><a class="anchor" href="#_example_minimal_res_digium_phone_conf_file_changes"></a>Example Minimal res_digium_phone.conf File Changes</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>You will be installing a VMware ESXi server on the two hypervisor (hv) VMs assigned to you (so do all these steps, unless otherwise indicated, on each computer).</p>
-<div class="openblock">
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Be sure to use a unique hostname on each ESXi server, otherwise you will have issues connecting them together in a future lab.
-</td>
-</tr>
-</table>
+<pre>[network1]
+type=network
+alias=My Default Network ; This is the name of the network profile
+cidr=192.168.10.0/24
+registration_address=192.168.10.3 ; This is the IP address of your Asterisk server
+registration_port=5060
+transport=udp
+
+[echosphone] ; This line sets the name of the phone
+type=phone
+mac=000FD30D1F8B ; Be sure to set the correct MAC address for your phone
+network=network1 ; This line sets the network the phone is connected to (above)
+pin=1234
+group_pin=1234
+line=echo2904 ; This is the name of the line to configure on the phone
+active_locale=en_US
+timezone=America/Chicago
+
+[echo2904] ; This is the line configuration, it must match the line= setting in the phone configuration above and the line name in the PJSIP file
+type=line
+line_label=2904 ; This is the text to display next to the line button on the phone display
+mailbox=2904 ; This is the voicemail box
+digit_map=[0-8]xxx|911|9411|9611|9011xxx.T3|91xxxxxxxxxx|9[2-9]xxxxxx|*xxx.T3
+transport=udp</pre>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Two hypervisor VMs (labeled HV-A and HV-B) have been provided for you which you will be installing ESXi on, each has:</p>
+</div>
+<div class="sect1">
+<h2 id="_reloading_after_configuration_changes"><a class="anchor" href="#_reloading_after_configuration_changes"></a>Reloading After Configuration Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you make changes to the pjsip.conf file and need to get Asterisk to re-load the configuration you can run the <code><strong>module reload res_digium_phone.so</strong></code> command from the Asterisk CLI to re-read the file.</p>
+</div>
+<div class="paragraph">
+<p>After to re-read the file you can run the <code><strong>digium_phones reconfigure all</strong></code> command to have the phones get reconfigured with the new settings.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additonal_resources"><a class="anchor" href="#_additonal_resources"></a>Additonal Resources</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>24GB RAM</p>
-</li>
-<li>
-<p>300GB Hard Drive</p>
-</li>
-<li>
-<p>2 CPUs</p>
-</li>
-<li>
-<p>Enabled VTi/VTx Virtualization for the processors</p>
+<p><a href="https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Configuration">DPMA Configuration</a></p>
 </li>
 </ul>
-</div>
-</li>
-<li>
-<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will need to make a reservation for the ESXi Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If you need to split your work up across multiple reservations be sure to safely shutdown your ESXi VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you make a mistake and need to have one or both of your HV VMs erased so you can re-install ESXi you will need to contact your instructor or the ITC lab assistant to have them reset.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>The ESXi installer ISO file has been pre-loaded into the CD drive of each of your HV VMs</p>
-</li>
-<li>
-<p>Begin the ESXi installation process</p>
-</li>
-<li>
-<p>Set the root password on your ESXi system during the installation, it needs to be at least 7 characters and contain multiple character types.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<strong>Be sure to write your password down!</strong> It is strongly suggested you use "ESXi#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab. If you forget your password you will need to have your VMs reset and start over again. You will need this in future labs as well!
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Browse to the ESXi system in a web browser from PC-C.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-It will NOT yet be at the IP address in the table above, we will set a static IP in the next lab. For now your ESXi system should have a DHCP IP address which is displayed on it&#8217;s console screen.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Login as the root user.</p>
-</li>
-<li>
-<p>Add a new account and give it administrative permissions to the ESXi system. Log out of the root account and in with the new user account.</p>
-</li>
-<li>
-<p>Create a new folder on your ESXi datastore for ISO files.</p>
-</li>
-<li>
-<p>Log out and back in to the ESXi web interface using your new login credentials (not the root account)</p>
-</li>
-<li>
-<p>Use the PC-C VM to upload the Windows 10 and Linux Mint ISO files to the new ISO folder on your ESXi server datastore.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The ISO files can be found on internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Create a new VM on your ESXi system where you can install the Linux Mint system.</p>
-</li>
-<li>
-<p>Complete the installation of Linux Mint as a VM on your ESXi host</p>
-</li>
-<li>
-<p>Safely shutdown your ESXi servers</p>
-</li>
-<li>
-<p>End your Netlab Reservation</p>
-</li>
-</ol>
 </div>
 <hr>
 <div class="paragraph">

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>VMware ESXi Installation Lab :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-vmware-esxiinstallation">
+    <title>ITC-2300 VoIP Lab Sample pjsip.conf File :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-pjsipconf">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -220,232 +220,280 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="lab-vmware-esxiinstallation">VMware ESXi Installation Lab</a></li>
+    <li><a href="lab-asterisk-pjsipconf">ITC-2300 VoIP Lab Sample pjsip.conf File</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="lab-vmware-esxiinstallation">2022.08</a>
+    <a class="version is-current" href="lab-asterisk-pjsipconf">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-vmware-esxiinstallation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-pjsipconf.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">VMware ESXi Installation Lab</h1>
+<h1 class="page">ITC-2300 VoIP Lab Sample pjsip.conf File</h1>
 <div class="sect1">
-<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+<p>The following shows an example of the things you may need to change in your pjsip.conf file.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to modify for the information specific to your Pod:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Subnet Mask: 255.255.255.0</p>
+<p>Change the MAC addresses of the phones to match your phones</p>
 </li>
 <li>
-<p>Default Gateway: 192.168.1.1</p>
-</li>
-<li>
-<p>DNS Server 192.168.1.1</p>
+<p>Change the descriptions, line names, caller ID names, etc.</p>
 </li>
 </ul>
 </div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">System</th>
-<th class="tableblock halign-left valign-top">IP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.20</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.21</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<h2 id="_example_minimal_sccp_conf_file_changes"><a class="anchor" href="#_example_minimal_sccp_conf_file_changes"></a>Example Minimal sccp.conf File Changes</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>You will be installing a VMware ESXi server on the two hypervisor (hv) VMs assigned to you (so do all these steps, unless otherwise indicated, on each computer).</p>
+<div class="listingblock">
+<div class="content">
+<pre>[simpletrans]
+type=transport
+protocol=udp
+bind=0.0.0.0
+
+[2903] ; The value inside the [] will be the SIP line user name on the endpoint
+type=endpoint
+context=default
+disallow=all
+allow=ulaw
+transport=simpletrans
+auth=debra-auth ; This will be the name for the authentication section of the configuration found below
+aors=2903 ; This will be the name for the AoRs registration section of the configuration found below it must match the username in the [ ] above
+trust_id_outbound=yes
+callerid=Debra Donaldson &lt;2903&gt; ; This is the caller ID name and extension (in the &lt; &gt;)
+
+[2903] ; This is the AoRs registration entry. The value in the [ ] must match the endpoint aors line and username on the device
+type=aor
+max_contacts=1
+
+[debra-auth] ; This is the authentication entry. The value in the [ ] must match the endpoint auth line
+type=auth
+auth_type=userpass
+password=debrapass ; This is the authentication password used by the endpoint for sip registration
+username=debra ; This is the authentication name used by the endpoint for sip registration</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voicemail_pjsip_conf_file_changes"><a class="anchor" href="#_voicemail_pjsip_conf_file_changes"></a>Voicemail pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can add the ability to enable the Message Waiting Indicator (MWI) lamp on SIP phones when there is a message in a mailbox. By default Asterisk will send SIP NOTIFY messages when a voicemail is left. Some phones need to subscribe to the MWI information. In that case you need to modify the AoRs section for the phone and add a mailboxes= section.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[2903]
+type=aor
+max_contacts=1
+mailboxes=2903@default</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dpma_pjsip_conf_file_changes"><a class="anchor" href="#_dpma_pjsip_conf_file_changes"></a>DPMA pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the part of the lab where you are setting up DPMA phones a default_outbound_endpoint needs to be enabled in pjsip.conf. This is accomplished by configuring a basic endpoint to use and then setting that endpoint as the default.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[global]
+type=global
+default_outbound_endpoint=dpma_endpoint
+
+[dpma_endpoint]
+type=endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will also need to create a SIP line for the phone to use.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[echo2904]
+type = aor
+max_contacts = 1
+mailboxes = 2904@default
+
+[echo2904]
+type = auth
+auth_type = userpass
+password = 2904
+username = 2904
+
+[echo2904]
+type = endpoint
+aors=echo2904
+auth=echo2904
+callerid=Echo Early
+context = default
+direct_media = yes
+trust_id_inbound = yes
+trust_id_outbound=yes
+send_pai = yes
+transport=simpletrans
+callerid=Echo Early <i class="conum" data-value="2904"></i><b>(2904)</b>
+disallow = all
+allow = alaw</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_isdn_router_sip_pjsip_conf_file_changes"><a class="anchor" href="#_isdn_router_sip_pjsip_conf_file_changes"></a>ISDN Router &lt;&#8594; SIP pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the lab where you are using your router as a PSTN gateway to provide access over a T1 line you will need to create a SIP endpoint for the router to connect to so that calls can be made and received.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ISDNrouter]
+type=endpoint
+; You want to choose a context that any calls coming in from the gateway will go to and be careful to limit where these calls can go so that people can't "loop through" your Asterisk system and run up your phone bill or otherwise manipulate the system
+context=from_PSTN
+disallow=all
+allow=ulaw
+aors=ISDNrouter
+
+[ISDNrouter]
+; This will send SIP traffic to our router’s IP address if it’s sent to the ISDNrouter SIP device
+type=aor
+contact=sip:192.168.10.1:5060
+
+[ISDNrouter]
+; This will match the SIP traffic incoming from the ISDN line attached to our router
+type=identify
+endpoint=ISDNrouter
+match=192.168.10.1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_telephony_service_provider_itsp_pstn_pjsip_conf_file_changes"><a class="anchor" href="#_ip_telephony_service_provider_itsp_pstn_pjsip_conf_file_changes"></a>IP Telephony Service Provider (ITSP) PSTN pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the part of the lab where you are configuring an IP Teleophony Service provider for PSTN access instead of using the T1 connection you will need to setup SIP access to and from your PSTN SIP provider.</p>
+</div>
 <div class="openblock">
 <div class="content">
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Be sure to use a unique hostname on each ESXi server, otherwise you will have issues connecting them together in a future lab.
+You will need to modify the username for registration, the authentication username and password, and the endpoint user to be your Pod so you receive calls to the correct numbers!
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Two hypervisor VMs (labeled HV-A and HV-B) have been provided for you which you will be installing ESXi on, each has:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[simpletrans]
+; We need to make some changes here because we are behind NAT so that when we register to the ITSP they get our public IP (which is being forwarded to Asterisk by our router) instead of our internal IP address
+type=transport
+protocol=udp
+bind=0.0.0.0
+local_net=192.168.10.0/24 ; Set the IP address(es) for the local network, these devices will use the actual IP address of the Asterisk server
+; Change these IP addresses to point to the ESXi-1 address for your pod (and which your router is forwarding the ports through to Asterisk)
+external_media_address=172.17.144.XX ; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
+external_signaling_address=172.17.144.XX; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
+
+[sipPSTN]
+type=registration
+transport=simpletrans
+outbound_auth=sipPSTN
+server_uri=sip:172.17.139.25 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
+client_uri=sip:pod8@172.17.139.25 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
+endpoint=sipPSTN
+line=yes
+
+[sipPSTN]
+type=auth
+auth_type=userpass
+; Be sure to modify the username and password as appropriate for your pod
+password=pod8-password
+username=pod8
+
+[sipPSTN]
+type=endpoint
+transport=simpletrans
+context=from_external ; What context calls from the ITSP should end up in
+disallow=all
+allow=ulaw
+outbound_auth=sipPSTN
+aors=sipPSTN
+direct_media=no ; This line tells Asterisk to not just handle the call setup information but to pass the audio through Asterisk as well and is required because we are behind NAT and only have ports forwarded to the Asterisk server
+from_user=pod8 ; The username to use in the SIP messages for calls out to the PSTN be sure to set correctly for your pod!
+
+[sipPSTN]
+type=aor
+contact=sip:172.17.139.25:5060 ; All calls to the ITSP will go to this IP address and port
+
+[sipPSTN]
+type=identify
+endpoint=sippstn
+match=172.17.139.25 ; All calls from the ITSP will come from this IP address</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reloading_after_configuration_changes"><a class="anchor" href="#_reloading_after_configuration_changes"></a>Reloading After Configuration Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you make changes to the pjsip.conf file and need to get Asterisk to re-load the configuration you can run the <code><strong>pjsip reload</strong></code> command from the Asterisk CLI to re-read the file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additonal_resources"><a class="anchor" href="#_additonal_resources"></a>Additonal Resources</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>24GB RAM</p>
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/PJSIP+Configuration+Sections+and+Relationships">PJSIP Config Sections and Relationships</a></p>
 </li>
 <li>
-<p>300GB Hard Drive</p>
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+Configuration_res_pjsip">Core PJSIP Configuration Options</a></p>
 </li>
 <li>
-<p>2 CPUs</p>
-</li>
-<li>
-<p>Enabled VTi/VTx Virtualization for the processors</p>
+<p><a href="https://wiki.asterisk.org/wiki/display/DIGIUM/Digium+Phones+when+used+with+DPMA">SIP Configuration for DPMA Phones</a></p>
 </li>
 </ul>
-</div>
-</li>
-<li>
-<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will need to make a reservation for the ESXi Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If you need to split your work up across multiple reservations be sure to safely shutdown your ESXi VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you make a mistake and need to have one or both of your HV VMs erased so you can re-install ESXi you will need to contact your instructor or the ITC lab assistant to have them reset.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>The ESXi installer ISO file has been pre-loaded into the CD drive of each of your HV VMs</p>
-</li>
-<li>
-<p>Begin the ESXi installation process</p>
-</li>
-<li>
-<p>Set the root password on your ESXi system during the installation, it needs to be at least 7 characters and contain multiple character types.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<strong>Be sure to write your password down!</strong> It is strongly suggested you use "ESXi#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab. If you forget your password you will need to have your VMs reset and start over again. You will need this in future labs as well!
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Browse to the ESXi system in a web browser from PC-C.</p>
-<div class="openblock">
-<div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-It will NOT yet be at the IP address in the table above, we will set a static IP in the next lab. For now your ESXi system should have a DHCP IP address which is displayed on it&#8217;s console screen.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Login as the root user.</p>
-</li>
-<li>
-<p>Add a new account and give it administrative permissions to the ESXi system. Log out of the root account and in with the new user account.</p>
-</li>
-<li>
-<p>Create a new folder on your ESXi datastore for ISO files.</p>
-</li>
-<li>
-<p>Log out and back in to the ESXi web interface using your new login credentials (not the root account)</p>
-</li>
-<li>
-<p>Use the PC-C VM to upload the Windows 10 and Linux Mint ISO files to the new ISO folder on your ESXi server datastore.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The ISO files can be found on internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Create a new VM on your ESXi system where you can install the Linux Mint system.</p>
-</li>
-<li>
-<p>Complete the installation of Linux Mint as a VM on your ESXi host</p>
-</li>
-<li>
-<p>Safely shutdown your ESXi servers</p>
-</li>
-<li>
-<p>End your Netlab Reservation</p>
-</li>
-</ol>
 </div>
 <hr>
 <div class="paragraph">
