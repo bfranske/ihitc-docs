@@ -34,7 +34,7 @@ Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Vo
 Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
 
 ==== VoIP GUI Asterisk Configuration Lab
-Find instructions for the xref:lab-asterisk-guiconfig.adoc[vmWare vSphere vCenter Server Installation Lab here].
+Find instructions for the xref:lab-asterisk-guiconfig.adoc[VoIP GUI Asterisk Configuration Lab here].
 
 === Network Programmability Labs
 
@@ -45,38 +45,35 @@ Find instructions for the xref:lab-asterisk-guiconfig.adoc[vmWare vSphere vCente
 --
 NOTE: In this lab activity you will, amongst other things download and install the OpenConnect VPN client which is used to connect to the DevNet sandbox labs. Unfortunately there is a bug in this software which prevents OpenVPN (which you may use for connecting to ITCnet in other classes) from resetting Windows DNS server addresses. This will prevent you from accessing ITCnet resources, even after disconnecting from the DevNet sandbox VPN in OpenConnect. To fix this after EACH time you use OpenConnect to access DevNet sandboxes after disconnecting you will need to open your network adapter properties for the "TAP-Windows Adapter" and open the IPv4 settings. You will see that OpenConnect has left DNS set as "Use the following DNS server addresses" with two addresses filled in. Change the setting back to "Obtain DNS server address automatically" and save the settings. The next time you connect to OpenVPN you should have access to the ITCnet DNS server and resources again.
 --
-* Complete the Programming Fundamentals Module from the https://developer.cisco.com/learning/tracks/devnet-beginner[DevNet Beginner] track
-+
---
-NOTE: In Step 2 of the "A Brief Introduction to Git" lab you are told you should have already downloaded a Git repository or you should follow the link at the top with instructions for setting up your workstation. Follow that link and see the section titled *Using Git to Copy Code and Setting Up the Local Environment*. You should clone and use the Data Center Infrastructure: https://github.com/CiscoDevNet/dciv2-code repository.
---
+* Complete the https://developer.cisco.com/learning/tracks/Coding-APIs-v0/Coding-APIs-Fundamentals-v0/[Coding & APIs - Fundamentals Module]
 
 ==== REST API Fundamentals & Network Programmability Lab
 
-* Complete the REST API Fundamentals Module from the https://developer.cisco.com/learning/tracks/devnet-beginner[DevNet Beginner] track
-* Complete the Network Programmability Module from the https://developer.cisco.com/learning/tracks/devnet-beginner[DevNet Beginner] track
+* Complete the https://developer.cisco.com/learning/tracks/Coding-APIs-v0/Coding-APIs-TIF-v0/[Coding & APIs Taking It Further Module]
+* Complete the https://developer.cisco.com/learning/tracks/netprog-eng/dnac-rest-apis/[Cisco DNA Center REST APIs Module] from the Network Programmability for Network Engineers track
 +
---
-NOTE: On page 2 of the "Cisco DNA Center Platform - Authentication" lab and in some future labs you may receive an error about SSL certificates when running code. Because the Cisco DNAC has a self-signed certificate you will need to change Python Requests function calls from things like: <code>requests.post(url, auth=HTTPBasicAuth(DNAC_USER, DNAC_PASSWORD))</code> to things like <code>requests.post(url, auth=HTTPBasicAuth(DNAC_USER, DNAC_PASSWORD), verify=False)</code> by setting the verify flag to false you can tell the Python requests library to ignore SSL certificate verification.
---
-NOTE: In the "End to End Visibility and Assurance with Path Trace and Cisco DNA Center Platform" lab you should re-check the "How To Setup Your Own Computer" link at the top of the page. There is a new GitHub repo to clone which contains the path_trace.py file. Also, we don't expect you to be able to write the entire path_trace.py program by yourself at this point. Instead, you should reference that file while reading through the lab's explanation of some of the functions so you can see (and hopefully understand) how the program works and what sorts of information are being pulled from the API when you execute the program. You can also try using Postman to make the same API requests and get the same data that you're getting though Python.
 --
 NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like you can go to https://sandboxdnac2.cisco.com and sign in with the username devnet and password Cisco123!
 --
 
 ==== Model Driven Network Programmability and IOS XE Lab
 
-* Complete all modules in the https://developer.cisco.com/learning/tracks/iosxe-programmability[IOS XE Programmability] track
+* Complete the https://developer.cisco.com/learning/tracks/netprog-eng/intro-device-level-interfaces/[Introduction to Model Driven Programmability Module] from the Network Programmability for Network Engineers track
+* Complete the https://developer.cisco.com/learning/tracks/iosxr-programmability/iosxr-cli-automation/[IOS XR CLI Automation Module] from the IOS XR Programmability track
+* Complete the https://developer.cisco.com/learning/tracks/iosxr-programmability/iosxr-streaming-telemetry/[IOS XR Streaming Telemetry Module] from the IOS XR Programmability track
 +
 --
-NOTE: The SSH instructions in the "Exploring IOS XE YANG Data Models with NETCONF" lab are designed for use on an *NIX based system so they will work best with a Linux computer/VM, a Mac, or in the Windows Subsystem for Linux (WSL).
+NOTE: Skip the "Creating your first c++ Telemetry Collector" lab
 --
 
 ==== Getting Started with Ansible for Network Programmability Lab
 
-* Complete all modules in the https://developer.cisco.com/learning/modules/sdx-ansible-intro[Introduction to Ansible] track
-* Complete the "Introduction to Configuration Management" and "Introduction to Ansible" modules in the https://developer.cisco.com/learning/modules/intro-ansible-iosxe[Introduction to Ansible for IOS XE Configuration Management] track
-* Complete the https://developer.cisco.com/learning/modules/industrial-netdevops/iot-industrial-netdevops-ansible/step/1["Managing IoT Harware with Ansible" module].
+* Complete the https://developer.cisco.com/learning/tracks/programming-dna/intro-ansible-iosxe/[Introduction to Ansible for IOS XE Configuration Management Module]
+* Complete the https://developer.cisco.com/learning/tracks/IOT-Edge-v0/IOT-Edge-TIF-v0/iot-industrial-netdevops-ansible/overview/[Getting Started with Ansible on Cisco IoT Hardware lab] in the IOT & Edge Computing-Taking it Further module.
++
+--
+NOTE: Just do the Getting Started with Ansible on Cisco IoT Hardware lab from this module
+--
 
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.

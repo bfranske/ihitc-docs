@@ -94,7 +94,7 @@ trust_id_inbound = yes
 trust_id_outbound=yes
 send_pai = yes
 transport=simpletrans
-callerid=Echo Early <2904>
+callerid=Echo Early <2904> ; This is the caller ID name and extension (in the < >)
 disallow = all
 allow = alaw
 ----
@@ -133,22 +133,13 @@ NOTE: You will need to modify the username for registration, the authentication 
 --
 
 ----
-[simpletrans]
-; We need to make some changes here because we are behind NAT so that when we register to the ITSP they get our public IP (which is being forwarded to Asterisk by our router) instead of our internal IP address
-type=transport
-protocol=udp
-bind=0.0.0.0
-local_net=192.168.10.0/24 ; Set the IP address(es) for the local network, these devices will use the actual IP address of the Asterisk server
-; Change these IP addresses to point to the ESXi-1 address for your pod (and which your router is forwarding the ports through to Asterisk)
-external_media_address=172.17.144.XX ; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
-external_signaling_address=172.17.144.XX; This IP addresses will be used for handling audio (media) with people outside our local network (like the ITSP)
-
 [sipPSTN]
 type=registration
 transport=simpletrans
 outbound_auth=sipPSTN
-server_uri=sip:172.17.139.25 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
-client_uri=sip:pod8@172.17.139.25 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
+server_uri=sip:172.17.219.2 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
+; Update the username in the following line for your pod!
+client_uri=sip:podX@172.17.219.2 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
 endpoint=sipPSTN
 line=yes
 
@@ -156,8 +147,8 @@ line=yes
 type=auth
 auth_type=userpass
 ; Be sure to modify the username and password as appropriate for your pod
-password=pod8-password
-username=pod8
+password=podX-password
+username=podX
 
 [sipPSTN]
 type=endpoint
@@ -167,17 +158,17 @@ disallow=all
 allow=ulaw
 outbound_auth=sipPSTN
 aors=sipPSTN
-direct_media=no ; This line tells Asterisk to not just handle the call setup information but to pass the audio through Asterisk as well and is required because we are behind NAT and only have ports forwarded to the Asterisk server
-from_user=pod8 ; The username to use in the SIP messages for calls out to the PSTN be sure to set correctly for your pod!
+direct_media=no ; This line tells Asterisk to not just handle the call setup information but to pass the audio through Asterisk as well and is required because we are using Asterisk to connect between the public network (ens192) and our pod network (ens224) where our phones are
+from_user=podX ; The username to use in the SIP messages for calls out to the PSTN be sure to set correctly for your pod!
 
 [sipPSTN]
 type=aor
-contact=sip:172.17.139.25:5060 ; All calls to the ITSP will go to this IP address and port
+contact=sip:172.17.219.2:5060 ; All calls to the ITSP will go to this IP address and port
 
 [sipPSTN]
 type=identify
 endpoint=sippstn
-match=172.17.139.25 ; All calls from the ITSP will come from this IP address
+match=172.17.219.2 ; All calls from the ITSP will come from this IP address
 ----
 
 == Reloading After Configuration Changes

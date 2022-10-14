@@ -1,0 +1,163 @@
+= T1 and PSTN Access Labs
+
+== IP Addressing & Phone Extensions
+
+These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.
+
+[%autowidth,options="header"]
+|===
+|Pod |Asterisk ens192 IP |Pod Router Fa0/0 IP |Phone Extension Range |Classroom Switch Asterisk Port
+
+|Pod A |172.17.219.11/24 |172.17.144.11/24 |2100-2199 |Gi1/0/31
+
+|Pod B |172.17.219.12/24 |172.17.144.12/24 |2200-2299 |Gi1/0/32
+
+|Pod C |172.17.219.13/24 |172.17.144.13/24 |2300-2399 |Gi1/0/33
+
+|Pod D |172.17.219.14/24 |172.17.144.14/24 |2400-2499 |Gi1/0/34
+
+|Pod E |172.17.219.15/24 |172.17.144.15/24 |2500-2599 |Gi1/0/35
+
+|Pod F |172.17.219.16/24 |172.17.144.16/24 |2600-2699 |Gi1/0/36
+
+|Pod G |172.17.219.17/24 |172.17.144.17/24 |2700-2799 |Gi1/0/37
+
+|Pod H |172.17.219.18/24 |172.17.144.18/24 |2800-2899 |Gi1/0/38
+
+|Pod I |172.17.219.19/24 |172.17.144.19/24 |2900-2999 |Gi1/0/39
+
+|Pod J |172.17.219.20/24 |172.17.144.20/24 |3000-3099 |Gi1/0/40
+|===
+
+Asterisk Server ens192 Interface:
+
+--
+NOTE: The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+--
+
+* Default Gateway: 172.17.219.1
+* DNS Server: 172.17.139.11
+
+Asterisk Server ens224 Interface:
+
+--
+NOTE: The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+--
+
+* IP Address (same for all pods because it's inside behind your NAT): 192.168.10.3/24
+* No default gateway or DNS servers for this interface
+
+Pod Router:
+
+* Default Gateway: 172.17.144.1
+* DNS Server: 172.17.139.11
+
+--
+NOTE: The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+--
+
+== Work you can do remotely
+
+In genreal you will be able to change all the configuration files and do all the software installation work remotely if you want. You will need to come to campus and setup the network with the router, switch, and phones in order to test anything, get the correct MAC addresses to put in the configurations, etc.
+
+* You will be able to modify your extensions.conf and pjsip.conf files for T1 PSTN access.
+* You will be able to modify your pjsip.conf file for SIP PSTN access, you will *not* be able to modify the extensions.conf file for that yet as it can only be configured for either T1 or SIP access to the PSTN at one time and not both.
+
+== Internal Network Setup
+
+When you are on campus and working with your IP phones you will need to setup your internal network with your pod router and switch as you did for the previous lab.
+
+. Use the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations] (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.
+. Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.
+. Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.
+. Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server's ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).
+. Sign in to a second PC in the classroom. _After_ you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.
+. Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod's Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).
++
+--
+NOTE: Of course, make sure that your Asterisk server is up and running!
+--
++
+--
+NOTE: It's strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+--
+. Setup at least four IP phones (any mix of Cisco, generic SIP, or DPMA) and ensure they are working (can call each other and can call the extension 1000 demo).
+
+== T1 PSTN Access
+
+In this activity we will configure your Asterisk server to contact the Public Switched Telephone Network (PSTN) using a dedicated T1 PRI voice trunk to a telephone company. This would normally be a service which you would pay for incoming and outgoing (termination and origination) connections to the PSTN and which you would access over a dedicated digital T1 voice trunk. In our case you will connect to a simulated PSTN connection which will be able to call several test numbers and other pods but is not actually connected to the real PSTN.
+
+. Get an ISDN PRI T1 connection from the "phone company" (your instructor) to your router. This will require connecting a T1 crossover cable to the correct port on the PSTN ISDN Switch Simulator.
++
+--
+NOTE: Just like with a regular phone line coming in the wall you need to plug your Pod into the correct port on the PSTN ISDN Switch Simulator. This is not an IP network where you can plug in wherever you'd like. Pod A goes into the farthest right port on the PSTN ISDN Switch Simulator and pod letters increase as you go to the left. Also, be sure to use a special T1 crossover cable for this connection.
+--
+. Update your xref:lab-asterisk-basic-swrconfigs.adoc[router configuration] to allow it to serve as an ISDN<->SIP gateway device which will convert ISDN T1 calls to and from SIP VoIP calls which can be routed by Asterisk.
+. Update your xref:lab-asterisk-pjsipconf.adoc[pjsip.conf file] to add the router as a SIP endpoint which can be used to place calls out to the PSTN or receive calls from the PSTN. 
++
+--
+NOTE: We specify the IP address for the router for incoming and outgoing calls instead of having the router register with a username and password to the PJSIP module. This is somewhat common when using T1-SIP gateways and is the only way Cisco routers support being a gateway which is why we are using it.
+--
+. Modify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] to allow internal extensions to place calls out to the PSTN through the ISDNrouter SIP device (which will convert the calls to a T1 PRI trunk call) if the number begins with a 9 for an outside line.
++
+--
+NOTE: You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
+--
+NOTE: Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
+--
+. Try placing calls out to the PSTN and make sure things are all working
+** Test at least the following types of calls:
+... Local calls (both by dialing 7-digit numbers and 10-digit numbers)
+... Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)
+... Toll-free numbers (1-800, 1-888, etc.)
+... Per-minute premium charge numbers (1-900)
+... Emergency Services (911, 9-911)
+... Directory Assistance (411)
+... International Numbers (Numbers beginning with 011)
+. While you are placing test calls monitor the output from your router's console port, you should see the calls being placed over the T1 connection. You should also try placing calls and while the call is active running the *show voice call status* command on the router. Finally try turning on ISDN Q.931 debugging with the *debug isdn q931* command before placing a test call. You should see the router dialing the phone number on the ISDN T1 connection to the PSTN as the call is being setup. Run *undebug all* on your router to disable the debugging.
+. It's important to think about toll fraud and you should setup your dialplan (at least after initial testing) to restrict callers from places like elevators calling certain numbers. In Asterisk you can do this using a variety of different dialplan contexts. Follow the xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] instructions for dividing up your extensions into elevator/lobby/general staff/executive restrictions on calls. Put one of your extensions in each of these different contexts and verify the restrictions are working.
+. Modify your xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number).
+. Find another pod who has calling out to the PSTN working over their T1 and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.
++
+--
+IMPORTANT: In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
+--
+
+== ITSP SIP PSTN Access
+
+In this activity we will configure your Asterisk server to contact the Public Switched Telephone Network (PSTN) using a SIP trunk to an Internet Telephony Service Provider (ITSP). This would normally be a service which you would pay for incoming and outgoing (termination and origination) connections to the PSTN and which you would access over your regular Internet connection. In our case you will connect to a simulated PSTN connection which will be able to call several test numbers and other pods but is not actually connected to the real PSTN.
+
+. Disconnect the ISDN PRI T1 connection from the "phone company" (your instructor) to your router.
+. Update your xref:lab-asterisk-pjsipconf.adoc[pjsip.conf file] to add the required registration, endpoint, aors, auth, and identity sections required to connect to your ITSP.
+. Modify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] to allow internal extensions to place calls out to the PSTN through the sipPSTN SIP device (which is the connection to your ITSP) if the number begins with a 9 for an outside line. If you had a working T1 SIP gateway PSTN configuration this will just involve changing which endpoint those calls are being directed to.
++
+--
+NOTE: You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
+--
+NOTE: Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
+--
+. Try placing calls out to the PSTN and make sure things are all working
+** Test at least the following types of calls:
+... Local calls (both by dialing 7-digit numbers and 10-digit numbers)
+... Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)
+... Toll-free numbers (1-800, 1-888, etc.)
+... Per-minute premium charge numbers (1-900)
+... Emergency Services (911, 9-911)
+... Directory Assistance (411)
+... International Numbers (Numbers beginning with 011)
+. Verify all your toll-fraud preventions you had in place for calling out from various types of extensions to the PSTN for the T1 gateway are still working.
+. Verify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] is still setup to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number). If the calls from your ITSP are coming into the same context as the calls from your T1 gateway were there should be no changes required.
+. Find another pod who has calling out to the PSTN working over the ITSP and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.
++
+--
+IMPORTANT: In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
+--
+
+== Cleanup
+
+. Safely shutdown your Debian system
+. Erase your switch/router configuration
+. Put away all equipment and cables. Be sure to note which phones you have so that next week you'll be able to get the same five phones.
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
