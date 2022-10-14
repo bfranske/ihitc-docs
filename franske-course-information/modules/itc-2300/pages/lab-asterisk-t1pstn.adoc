@@ -123,6 +123,7 @@ NOTE: Most states now require phone systems to allow people to dial 911 directly
 IMPORTANT: In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
 --
 
+
 == ITSP SIP PSTN Access
 
 In this activity we will configure your Asterisk server to contact the Public Switched Telephone Network (PSTN) using a SIP trunk to an Internet Telephony Service Provider (ITSP). This would normally be a service which you would pay for incoming and outgoing (termination and origination) connections to the PSTN and which you would access over your regular Internet connection. In our case you will connect to a simulated PSTN connection which will be able to call several test numbers and other pods but is not actually connected to the real PSTN.
