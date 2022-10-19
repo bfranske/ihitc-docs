@@ -1,0 +1,54 @@
+= VoIP Lab Addendum for B143 Lab
+
+--
+IMPORTANT: This document outlines changes you will need to make if you are working on VoIP labs in the B143 lab instead of the normal B144 lab.
+--
+NOTE: It is not possible to do labs using the T1 connections in the B143 lab because the room does not have a PSTN simulator and the routers in B143 do not support voice T1 use. All other VoIP labs can be completed in B143 though.
+--
+
+== General Pod Differences in B143
+
+. The B143 lab uses Cisco 1941 routers instead of Cisco 2811 routers. 
+.* These routers are newer, but less powerful. Most notably instead of FastEthernet interfaces the 1941 routers have GigabitEthernet interfaces so Fa0/0 becomes Gi0/0 and Fa0/1 becomes Gi0/1. The 1941 routers in B143 also do not have voice T1 capabilitities so T1 labs can not be completed in B143.
+. Not all switches in B143 support Power over Ethernet (PoE) which provides power to your VoIP phones. Only pods 3, 6, and 7 have PoE switches.
+.* You will see these pods have 4 switches instead of 3. The 4th switch is a PoE switch, be sure to use the PoE switch for your phones.
+. You will need to power on your pod equipment by using the power switch located above the top router on each pod.
+.* Remember to erase your configurations and power off your pod equipment when you are done with the lab.
+
+== IP Addressing & Phone Extensions
+
+In the B143 lab you will need to adjust the IP address of the Router 0/0 interface. Instead of 172.17.144.xx/24 you will use 172.17.143.xx/24
+
+The chart below shows the changed addresses you should use
+
+[%autowidth,options="header"]
+|===
+|Pod |Asterisk ens192 IP |Pod Router Gi0/0 IP |Phone Extension Range |Classroom Switch Asterisk Port
+
+|Pod A |172.17.219.11/24 |172.17.143.11/24 |2100-2199 |Gi1/0/31
+
+|Pod B |172.17.219.12/24 |172.17.143.12/24 |2200-2299 |Gi1/0/32
+
+|Pod C |172.17.219.13/24 |172.17.143.13/24 |2300-2399 |Gi1/0/33
+
+|Pod D |172.17.219.14/24 |172.17.143.14/24 |2400-2499 |Gi1/0/34
+
+|Pod E |172.17.219.15/24 |172.17.143.15/24 |2500-2599 |Gi1/0/35
+
+|Pod F |172.17.219.16/24 |172.17.143.16/24 |2600-2699 |Gi1/0/36
+
+|Pod G |172.17.219.17/24 |172.17.143.17/24 |2700-2799 |Gi1/0/37
+
+|Pod H |172.17.219.18/24 |172.17.143.18/24 |2800-2899 |Gi1/0/38
+
+|Pod I |172.17.219.19/24 |172.17.143.19/24 |2900-2999 |Gi1/0/39
+
+|Pod J |172.17.219.20/24 |172.17.143.20/24 |3000-3099 |Gi1/0/40
+|===
+
+--
+NOTE: There are no changes needed to your Asterisk server IP addresses or extension numbers to work in B143
+--
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

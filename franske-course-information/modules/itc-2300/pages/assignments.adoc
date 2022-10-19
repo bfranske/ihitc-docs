@@ -24,6 +24,10 @@ Find instructions for the xref:lab-vmware-vsphereadmin.adoc[vmWare vSphere Admin
 
 === Voice over IP (VoIP) Labs
 
+--
+NOTE: If you need additional time to complete these labs you may need to work in the B143 lab instead of our normal B144 lab. In that case be sure to read the xref:lab-asterisk-b143.adoc[B143 lab modification addendum] which explains changes you need to make to the lab setup to make things work in B143.
+--
+
 ==== Introduction to VoIP with Asterisk Lab
 Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
 
