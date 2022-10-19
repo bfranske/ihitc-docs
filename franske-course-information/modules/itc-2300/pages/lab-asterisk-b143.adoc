@@ -6,14 +6,17 @@ IMPORTANT: This document outlines changes you will need to make if you are worki
 NOTE: It is not possible to do labs using the T1 connections in the B143 lab because the room does not have a PSTN simulator and the routers in B143 do not support voice T1 use. All other VoIP labs can be completed in B143 though.
 --
 
+
 == General Pod Differences in B143
 
+
 . The B143 lab uses Cisco 1941 routers instead of Cisco 2811 routers. 
-.* These routers are newer, but less powerful. Most notably instead of FastEthernet interfaces the 1941 routers have GigabitEthernet interfaces so Fa0/0 becomes Gi0/0 and Fa0/1 becomes Gi0/1. The 1941 routers in B143 also do not have voice T1 capabilitities so T1 labs can not be completed in B143.
+** These routers are newer, but less powerful. Most notably instead of FastEthernet interfaces the 1941 routers have GigabitEthernet interfaces so Fa0/0 becomes Gi0/0 and Fa0/1 becomes Gi0/1. The 1941 routers in B143 also do not have voice T1 capabilitities so T1 labs can not be completed in B143.
 . Not all switches in B143 support Power over Ethernet (PoE) which provides power to your VoIP phones. Only pods 3, 6, and 7 have PoE switches.
-.* You will see these pods have 4 switches instead of 3. The 4th switch is a PoE switch, be sure to use the PoE switch for your phones.
+** You will see these pods have 4 switches instead of 3. The 4th switch is a PoE switch, be sure to use the PoE switch for your phones.
 . You will need to power on your pod equipment by using the power switch located above the top router on each pod.
-.* Remember to erase your configurations and power off your pod equipment when you are done with the lab.
+** Remember to erase your configurations and power off your pod equipment when you are done with the lab.
+
 
 == IP Addressing & Phone Extensions
 
