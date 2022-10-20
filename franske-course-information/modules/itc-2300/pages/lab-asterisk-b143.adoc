@@ -3,10 +3,9 @@
 --
 IMPORTANT: This document outlines changes you will need to make if you are working on VoIP labs in the B143 lab instead of the normal B144 lab.
 --
+--
 NOTE: It is not possible to do labs using the T1 connections in the B143 lab because the room does not have a PSTN simulator and the routers in B143 do not support voice T1 use. All other VoIP labs can be completed in B143 though.
 --
-
-
 
 == General Pod Differences in B143
 
@@ -16,8 +15,6 @@ NOTE: It is not possible to do labs using the T1 connections in the B143 lab bec
 ** You will see these pods have 4 switches instead of 3. The 4th switch is a PoE switch, be sure to use the PoE switch for your phones.
 . You will need to power on your pod equipment by using the power switch located above the top router on each pod.
 ** Remember to erase your configurations and power off your pod equipment when you are done with the lab.
-
-
 
 == IP Addressing & Phone Extensions
 
