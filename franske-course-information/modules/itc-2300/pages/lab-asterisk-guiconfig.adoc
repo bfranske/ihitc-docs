@@ -38,7 +38,7 @@ NOTE: The eth0 interface on your Asterisk server is used to connect with other p
 * Default Gateway: 172.17.219.1
 * DNS Server: 172.17.139.11
 
-Asterisk Server ens224 Interface:
+Asterisk Server eth1 Interface:
 
 --
 NOTE: The eth1 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
