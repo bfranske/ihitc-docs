@@ -118,6 +118,7 @@ NOTE: Most states now require phone systems to allow people to dial 911 directly
 . It's important to think about toll fraud and you should setup your dialplan (at least after initial testing) to restrict callers from places like elevators calling certain numbers. In Asterisk you can do this using a variety of different dialplan contexts. Follow the xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] instructions for dividing up your extensions into elevator/lobby/general staff/executive restrictions on calls. Put one of your extensions in each of these different contexts and verify the restrictions are working.
 . Modify your xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number).
 . Find another pod who has calling out to the PSTN working over their T1 and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.
++
 --
 IMPORTANT: In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
 --
@@ -132,6 +133,8 @@ In this activity we will configure your Asterisk server to contact the Public Sw
 +
 --
 NOTE: You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
+--
++
 --
 NOTE: Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
 --

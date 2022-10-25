@@ -1,0 +1,151 @@
+= GUI Asterisk Configuration Labs
+
+== IP Addressing & Phone Extensions
+
+These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.
+
+[%autowidth,options="header"]
+|===
+|Pod |Asterisk eth0 IP |Pod Router Fa0/0 IP |Phone Extension Range |Classroom Switch Asterisk Port
+
+|Pod A |172.17.219.11/24 |172.17.144.11/24 |2100-2199 |Gi1/0/31
+
+|Pod B |172.17.219.12/24 |172.17.144.12/24 |2200-2299 |Gi1/0/32
+
+|Pod C |172.17.219.13/24 |172.17.144.13/24 |2300-2399 |Gi1/0/33
+
+|Pod D |172.17.219.14/24 |172.17.144.14/24 |2400-2499 |Gi1/0/34
+
+|Pod E |172.17.219.15/24 |172.17.144.15/24 |2500-2599 |Gi1/0/35
+
+|Pod F |172.17.219.16/24 |172.17.144.16/24 |2600-2699 |Gi1/0/36
+
+|Pod G |172.17.219.17/24 |172.17.144.17/24 |2700-2799 |Gi1/0/37
+
+|Pod H |172.17.219.18/24 |172.17.144.18/24 |2800-2899 |Gi1/0/38
+
+|Pod I |172.17.219.19/24 |172.17.144.19/24 |2900-2999 |Gi1/0/39
+
+|Pod J |172.17.219.20/24 |172.17.144.20/24 |3000-3099 |Gi1/0/40
+|===
+
+Asterisk Server eth0 Interface:
+
+--
+NOTE: The eth0 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+--
+
+* Default Gateway: 172.17.219.1
+* DNS Server: 172.17.139.11
+
+Asterisk Server ens224 Interface:
+
+--
+NOTE: The eth1 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+--
+
+* IP Address (same for all pods because it's inside behind your NAT): 192.168.10.3/24
+* No default gateway or DNS servers for this interface
+
+Pod Router:
+
+* Default Gateway: 172.17.144.1
+* DNS Server: 172.17.139.11
+
+--
+NOTE: The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+--
+
+== Work you can do remotely
+
+In general you will be able to install FreePBX. If you have VPN access to the ITCnet you will also be able to configure FreePBX through it's web interface. You will need to come to campus and setup the network with the router, switch, and phones in order to test anything, get the correct MAC addresses to put in the configurations, etc.
+
+== Internal Network Setup
+
+When you are on campus and working with your IP phones you will need to setup your internal network with your pod router and switch as you did for the previous lab.
+
+. Use the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations] (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.
+. Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.
+. Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.
+. Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server's ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).
+. Sign in to a second PC in the classroom. _After_ you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.
+. Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod's Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).
++
+--
+NOTE: Of course, make sure that your Asterisk server is up and running!
+--
++
+--
+NOTE: It's strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+--
+
+== Install FreePBX
+
+. Ask your instructor to reset your virtual machine and load the FreePBX install CD.
+. Install "FreePBX XX (Asterisk XX) - Recommended" 
+** Use "Installation - Output to VGA" and the "FreePBX Standard" options
++
+--
+NOTE: Be sure to set the root password to something you will remember or write down.
+--
+. Login to the CLI as the root user to obtain the IP address and then visit that IP address in a browser on a system on the ITCnet network or your Pod network.
+. Create an "admin" user account
+. Login and register/activate your FreePBX system
+. In the Admin -> System Admin -> Network Settings page of FreePBX set a static IP Address on the eth0 and eth1 interfaces using the table and information at the top of this lab.
+
+== Configure Generic SIP Phones
+
+. Connect your Digium A-25 phone and Grandstream 2135 phone to the network
+. Add the required PJSIP extensions in FreePBX for the phones
++
+--
+NOTE: You will need to update the phone username/password and voicemail number (*97) configured on the phone. You should let FreePBX create a new user for the phone automatically (probably the extension number) and then use that username but the extension "secret" as the password on the phones
+--
+. Test calling yourself and leaving a message, MWI capability, and checking the message
+
+== Configuring SIP Trunks
+
+. Make sure the "External Address" under Settings -> Asterisk SIP Settings correctly reflects the outside IP of your eth0 interface.
+. Create a new FreePBX PJSIP trunk pointed to the ITC SIP Phone Company (172.17.219.2) using your Pod credentials.
++
+--
+NOTE: In addition to setting your username and secret you also need to set the "From User" on the advanced page of PJSIP trunk settings. THis should be set to the same username you use for registration to the ITSP.
+--
+. Create outbound routes for the different types of outside numbers you can call (emergency, premium, international, long distance, toll-free, local) which route the traffic out the SIP trunk to the ITSP
+. Try placing calls out to the PSTN and make sure things are all working
+** Test at least the following types of calls:
+... Local calls (both by dialing 7-digit numbers and 10-digit numbers)
+... Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)
+... Toll-free numbers (1-800, 1-888, etc.)
+... Per-minute premium charge numbers (1-900)
+... Emergency Services (911, 9-911)
+... Directory Assistance (411)
+... International Numbers (Numbers beginning with 011)
+. Create at least one inbound route for one of your 5105552XXX numbers and point it to your extension
+. Test inbound calling by having another pod call you through the ITSP
+
+== Configuring DPMA Phones
+
+. Go to Connectivity -> Digium Phones and follow the instructions to install the DPMA module
+. Reboot your FreePBX system to enable the DPMA module
+. Create another PJSIP extension with voicemail
+. Connect your Digium D-series phone to your VoIP network
+. Select the new extension on the D-series phone to configure the phone with the extension
+. Test calling between extensions, voicemail, calling out to the PSTN through the ITSP, and all other functionality configured so far
+
+== Configuring SCCP Phones
+
+. Install Chan-SCCP following the instructions from your readings for FreePBX
+. Restart your FreePBX VM
+. Setup a phone, button, line, etc. in your sccp.conf file as we have done before
+. Add a "Custom Extension" for the SCCP phone in FreePBX being sure to set a dial string for the SCCP device.
+. Test calling between extensions, voicemail, calling out to the PSTN through the ITSP, and all other functionality configured so far
+
+== Cleanup
+
+. Safely shutdown your Debian system
+. Erase your switch/router configuration
+. Put away all equipment and cables. Be sure to note which phones you have so that next week you'll be able to get the same five phones.
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
