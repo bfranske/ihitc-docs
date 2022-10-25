@@ -103,6 +103,8 @@ NOTE: We specify the IP address for the router for incoming and outgoing calls i
 --
 NOTE: You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
 --
++
+--
 NOTE: Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
 --
 . Try placing calls out to the PSTN and make sure things are all working
