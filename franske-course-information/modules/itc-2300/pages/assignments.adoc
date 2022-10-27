@@ -60,7 +60,7 @@ NOTE: In this lab activity you will, amongst other things download and install t
 NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like you can go to https://sandboxdnac2.cisco.com and sign in with the username devnet and password Cisco123!
 --
 
-==== Model Driven Network Programmability and IOS XE Lab
+==== Model Driven Network Programmability and IOS XR Lab
 
 * Complete the https://developer.cisco.com/learning/tracks/netprog-eng/intro-device-level-interfaces/[Introduction to Model Driven Programmability Module] from the Network Programmability for Network Engineers track
 * Complete the https://developer.cisco.com/learning/tracks/iosxr-programmability/iosxr-cli-automation/[IOS XR CLI Automation Module] from the IOS XR Programmability track
