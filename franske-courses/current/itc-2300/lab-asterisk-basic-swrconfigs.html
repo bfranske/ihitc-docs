@@ -409,8 +409,8 @@ network-clock-participate wic 3
 ! Enable SIP VoIP capabilities on the router and set the router to use the IP outside network for SIP signalling because that is where Asterisk is
 voice service voip
  sip
-  bind control source-interface FastEthernet0/0
-  bind media source-interface FastEthernet0/0
+  bind control source-interface FastEthernet0/1.10
+  bind media source-interface FastEthernet0/1.10
 !
 ! Configure the T1 settings on port 0 in subslot 3, slot 0 to use the correct modes for the ISDN switch and to use only the first 6 channels on the T1 PRI (due to limited DSP resources on our routers)
 controller T1 0/3/0
@@ -472,7 +472,7 @@ dial-peer voice 3 pots
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-25 16:46:51 -0500<br>
+<p>Document Build Time: 2022-10-26 20:07:55 -0500<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
