@@ -528,16 +528,57 @@ Be sure to set the root password to something you will remember or write down.
 </div>
 </li>
 <li>
-<p>Login to the CLI as the root user to obtain the IP address and then visit that IP address in a browser on a system on the ITCnet network or your Pod network.</p>
+<p>Login to the CLI as the root user to obtain the IP address of eth0 and then visit that IP address in a browser on a system on the ITCnet network or your Pod network.</p>
 </li>
 <li>
 <p>Create an "admin" user account</p>
 </li>
 <li>
-<p>Login and register/activate your FreePBX system</p>
+<p>Login to the administration interface</p>
 </li>
 <li>
-<p>In the Admin &#8594; System Admin &#8594; Network Settings page of FreePBX set a static IP Address on the eth0 and eth1 interfaces using the table and information at the top of this lab.</p>
+<p>Set the locales
+.Complete the Firewall wizard</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Trust your current client</p>
+</li>
+<li>
+<p>Trust your current network</p>
+</li>
+<li>
+<p>Enable the responsive firewall</p>
+</li>
+<li>
+<p>Automaticlly configure the firewall Asterisk IP Settings</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On the Connectivity &#8594; Firewall page click on the "Networks" tab and set 172.17.0.0/16 as a "Trusted (Excluded from Firewall)" network.</p>
+</li>
+<li>
+<p>Go to the Admin &#8594; System Admin page and click the link on the right to register/activate your FreePBX system</p>
+</li>
+<li>
+<p>Update all your modules if you are prompted.</p>
+</li>
+<li>
+<p>Double check that all modules have successfully upgraded by going to the Admin &#8594; Module Admin and clicking the "Check Online" button. Review the data and install any upgrades you can. Repeat this process until all modules say "Enabled and up to date". This may take several passes through the list as many modules require other modules be enabled and updated before they will update.</p>
+</li>
+<li>
+<p>In the Admin &#8594; System Admin &#8594; Network Settings page of FreePBX set a static IP Address on the eth0 and eth1 interfaces using the table and information at the top of this lab. You will need to "Save and apply" after changing each interface. Be sure both interfaces are set to start automatically.</p>
+</li>
+<li>
+<p>Go back to the Connectivity &#8594; Firewall page and click on the "Interfaces" tab. Ensure both eth0 and eth1 are "Trusted (Excluded from Firewall)" for our lab purposes.</p>
+</li>
+<li>
+<p>On the Connectivity &#8594; Firewall page click on the "Networks" tab and set 192.168.10.0/24 as a "Trusted (Excluded from Firewall)" network.</p>
+</li>
+<li>
+<p>Click the red "Apply Config" button in the upper right corner of the page.</p>
 </li>
 </ol>
 </div>
@@ -550,6 +591,9 @@ Be sure to set the root password to something you will remember or write down.
 <ol class="arabic">
 <li>
 <p>Connect your Digium A-25 phone and Grandstream 2135 phone to the network</p>
+</li>
+<li>
+<p>Under Settings &#8594; Asterisk SIP Settings &#8594; General SIP Settings add 192.168.10.0/24 as a local network, save, and apply.</p>
 </li>
 <li>
 <p>Add the required PJSIP extensions in FreePBX for the phones</p>
@@ -658,13 +702,78 @@ In addition to setting your username and secret you also need to set the "From U
 <div class="olist arabic">
 <ol class="arabic">
 <li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Global Settings page and switch "Use DPMA" to Yes. Wait while the module installs.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive a "permission denied" error you will need to acces your FreePBX CLI console in Netlab and run the <code>fwconsole chown</code> command, then try enabling DPMA again.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Set the Internal Address on the swttings page to the IP address on eth1</p>
+</li>
+<li>
+<p>Click the "Save Global" button</p>
+</li>
+<li>
+<p>Click the "DPMA Management" button.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Set the phone authentication method to "None" for lab purposes.</p>
+</li>
+<li>
+<p>Set the mDNS Discovery Address to the IP address on eth1</p>
+</li>
+<li>
+<p>Save the DPMA management settings</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click the red "Apply Config" button in the upper right corner</p>
+</li>
+<li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Brands &#8594; Sangoma page and open the D&amp;P Series Phones page</p>
+</li>
+<li>
+<p>Modify the digium_default template</p>
+</li>
+<li>
+<p>Ensure the D60 phone model is activated for the template.</p>
+</li>
+<li>
+<p>Ensure the Destination and Provisioning Server addresses match the internal (eth1) interface address on your server.</p>
+</li>
+<li>
+<p>Go to the Applications &#8594; Extensions page and create at least one new extension with Voicemail for each DPMA phone</p>
+</li>
+<li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Extension Mapping page</p>
+</li>
+<li>
+<p>Add a new extension mapping and choose the Extension/Name, the first available Account on the phone, a Sangoma D&amp;P Series Phone, and the correct model number (D60) for your phone. Leave the MAC address blank so you can select the line on the phone.</p>
+</li>
+<li>
+<p>Click the "Use Selected" button next to the "Save and Rebuild Config(s)" dropdown.</p>
+</li>
+<li>
 <p>Go to Connectivity &#8594; Digium Phones and follow the instructions to install the DPMA module</p>
 </li>
 <li>
-<p>Reboot your FreePBX system to enable the DPMA module</p>
-</li>
-<li>
-<p>Create another PJSIP extension with voicemail</p>
+<p>Click the red "Apply Config" button in the upper right corner</p>
 </li>
 <li>
 <p>Connect your Digium D-series phone to your VoIP network</p>
@@ -685,13 +794,16 @@ In addition to setting your username and secret you also need to set the "From U
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Install Chan-SCCP following the instructions from your readings for FreePBX</p>
+<p>Install Chan-SCCP following the instructions from your readings for FreePBX. Be sure to disable chan_skinny.so and load chan</p>
+</li>
+<li>
+<p>Run the <code>fwconsole chown</code> command on the CLI to assign permissions</p>
 </li>
 <li>
 <p>Restart your FreePBX VM</p>
 </li>
 <li>
-<p>Setup a phone, button, line, etc. in your sccp.conf file as we have done before</p>
+<p>Setup a phone, button, line, etc. in your sccp.conf file as we have done before. You may be able do this in the GUI from the Admin &#8594; Config Edit page by selecting the sccp.conf file as long as you don&#8217;t see an error message about it being not writable.</p>
 </li>
 <li>
 <p>Add a "Custom Extension" for the SCCP phone in FreePBX being sure to set a dial string for the SCCP device.</p>
@@ -721,7 +833,7 @@ In addition to setting your username and secret you also need to set the "From U
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2022-10-27 16:27:58 -0500<br>
+<p>Document Build Time: 2022-11-30 19:57:48 -0600<br>
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
