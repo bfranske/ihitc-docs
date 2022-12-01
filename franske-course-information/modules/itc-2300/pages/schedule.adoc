@@ -76,6 +76,7 @@ NOTE: This is an older reference and the SIP configuration shown uses sip.conf w
 * https://wiki.freepbx.org/display/FPG/Configuring+Your+PBX[FreePBX: Configuring Your PBX] - Skip the section on "Setting Up SIPStation Trunks"
 * https://wiki.freepbx.org/display/FPG/Extensions+Module+-+PJSIP+Extension[FreePBX PJSIP Extensions]
 * https://wiki.freepbx.org/display/FPG/Trunks+Module+-+User+Guide[FreePBX Trunks]
+* https://wiki.freepbx.org/display/FPG/EPM-DPMA+for+Digium+Phones[EndPoint Manager for DPMA Phones]
 * https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Installation[Chan-SCCP FreePBX Installation]
 * https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Dialplan[Chan-SCCP FreePBX Dialplan]
 * https://github.com/PhantomVl/sccp_manager/blob/extension_mobility/README.md[Chan-SCCP FreePBX Manager Readme]
