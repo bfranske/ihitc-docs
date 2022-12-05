@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Lab Report Example - CCNA 3 Class :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/lab-reports/example4">
+    <title>Troubleshooting Starting Configurations for CCNA 2 Lab 4.4.9 :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2516/lab2-4-4-9-configs">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -111,16 +111,16 @@
     <span class="nav-text">ITC-2516</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/">Course Home</a>
+    <a class="nav-link" href="./">Course Home</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+    <a class="nav-link" href="syllabus">Syllabus</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+    <a class="nav-link" href="schedule">Schedule</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+    <a class="nav-link" href="assignments">Assignments</a>
   </li>
 </ul>
   </li>
@@ -220,59 +220,156 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="example4">Lab Report Example - CCNA 3 Class</a></li>
+    <li><a href="lab2-4-4-9-configs">Troubleshooting Starting Configurations for CCNA 2 Lab 4.4.9</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="example4">2022.08</a>
+    <a class="version is-current" href="lab2-4-4-9-configs">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/lab-reports/pages/example4.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2516/pages/lab2-4-4-9-configs.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Lab Report Example - CCNA 3 Class</h1>
+<h1 class="page">Troubleshooting Starting Configurations for CCNA 2 Lab 4.4.9</h1>
 <div class="sect1">
-<h2 id="_example_report"><a class="anchor" href="#_example_report"></a>Example Report</h2>
+<h2 id="_router_r1"><a class="anchor" href="#_router_r1"></a>Router R1</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Lab 3 – Redundant Links, Rapid PVST+, PortFast, &amp; BPDU Guard</p>
+<div class="listingblock">
+<div class="content">
+<pre>enable
+configure terminal
+hostname R1
+no ip domain lookup
+enable secret class
+line con 0
+ password cisco
+ login
+ logging synch
+line vty 0 4
+ password cisco
+ login
+service password-encryption
+banner motd $ Authorized Users Only! $
+interface g0/0/1
+ no shut
+interface g0/0/1.3
+ encap dot1q 3
+ ip add 10.3.0.1 255.255.255.0
+interface g0/0/1.4
+ encap dot1q 4 native
+ ip address 10.4.0.1 255.255.255.0
+interface g0/0/1.8
+! encap dot1q 8 native
+ encap dot1q 8
+interface g0/0/1.13
+ encap dot1q 13
+ ip address 10.13.0.1 255.255.255.0
+end</pre>
 </div>
-<div class="paragraph">
-<p><strong>What We Did/What was the Purpose</strong></p>
 </div>
-<div class="paragraph">
-<p>There were 2 labs in this chapter. The purpose of the first lab was to configure a switched network with redundant links so that we could examine the process of determining a root bridge and see how STP selects ports based on cost or priority. The objective of the second lab configure a switched network to examine convergence in a PVST+ network versus Rapid PVST+ with PortFast and BPDU Guard. For both labs, we followed the instructions as outlined.</p>
 </div>
-<div class="paragraph">
-<p><strong>Problems &amp; Solutions</strong></p>
 </div>
-<div class="paragraph">
-<p>We only had 1 problem while working through these 2 labs. We didn’t check that all of the switches had been reloaded properly. We incorrectly made the assumption that if the first was clear, then the rest would be, too. This became a problem when we checked the VLANs we’d created and noticed there were a few there that we had not created. Since we’d already configured quite a bit, we decided to use the <strong>no vlan &lt;vlan_id&gt;</strong> command to remove the unwanted VLANs from the database so we didn’t have to delete vlan.dat and reload the switch. Once we had all the VLANs matching on the three switches, we were able to verify connectivity.</p>
+<h1 id="_switch_s1" class="sect0"><a class="anchor" href="#_switch_s1"></a>Switch S1</h1>
+<div class="listingblock">
+<div class="content">
+<pre>enable
+config terminal
+hostname S1
+no ip domain-lookup
+enable secret class
+line con 0
+ password cisco
+ login
+ logging synch
+line vty 0 15
+ password cisco
+ login
+service password-encryption
+banner motd $ Authorized Users Only! $
+vlan 3
+ name Management
+vlan 4
+ name Operations
+vlan 7
+ name ParkingLot
+vlan 8
+ name Native
+interface vlan 3
+ ip address 10.3.0.11 255.255.255.0
+ no shut
+exit
+ip default-gateway 10.3.0.1
+interface range f0/2-4, f0/7-24, G0/1-2
+ switchport mode access
+ switchport access vlan 7
+ shutdown
+interface f0/1
+ switchport mode trunk
+ switchport trunk allowed vlan 4,8,13
+ no shutdown
+interface f0/6
+ switchport mode access
+ switchport access vlan 4
+ no shutdown
+interface f0/5
+ switchport mode access
+ switchport trunk native vlan 8
+ switchport access vlan 3
+ no shut
+end</pre>
 </div>
-<div class="paragraph">
-<p><strong>How We Tested the Lab</strong></p>
 </div>
-<div class="paragraph">
-<p>As usual, we tested the labs by making sure our output matched what was expected according to the lab instructions. For the first lab, we tested connectivity of switches after initial configuration and setup by using the <strong>ping</strong> command. After configuring STP, we used the <strong>show spanning-tree</strong> command to determine the root bridge, as well as the bridge priority and port roles on each switch. We used the same command to view STP changes after we changed the port cost on the blocked port, as well as when we viewed changes based on port priority.</p>
+<h1 id="_switch_s2" class="sect0"><a class="anchor" href="#_switch_s2"></a>Switch S2</h1>
+<div class="listingblock">
+<div class="content">
+<pre>enable
+config terminal
+hostname S2
+no ip domain-lookup
+enable secret class
+line con 0
+ password cisco
+ login
+ logging synch
+line vty 0 15
+ password cisco
+ login
+service password-encryption
+banner motd $ Authorized Users Only! $
+vlan 3
+ name Management
+vlan 4
+ name Operations
+vlan 7
+ name ParkingLot
+vlan 8
+ name Native
+vlan 13
+ name Maintenance
+interface vlan 3
+ ip address 10.3.0.12 255.255.255.0
+ no shut
+interface range f0/2-17, f0/19-24, G0/1-2
+ switchport mode access
+ switchport access vlan 7
+ shutdown
+interface f0/18
+ switchport mode access
+ switchport access vlan 13
+interface f0/1
+ switchport mode trunk
+ switchport trunk native vlan 8
+ switchport trunk allowed vlan 4,8
+ip default-gateway 10.3.0.1
+end</pre>
 </div>
-<div class="paragraph">
-<p>In the second lab, we didn’t verify anything until after configuring VLANs. We used the <strong>show vlan brief</strong> command to check that we’d configured the correct VLANs ad assigned the required ports. (This is where we noticed that one of the switches had not been properly reloaded by the last user.) We checked trunk interfaces by using the show interfaces trunk command. We also verified all the other configuration settings we made by using the show running-config command. Then we tested connectivity of our configuration with a ping from PC-A to PC-B. We used the <strong>debug spanning-tree events</strong> to watch the process of convergence happening after we shutdown a port. (We used <strong>no debug spanning-tree events</strong> to turn it off.) We used the same commands to view convergence with PVST+ and Rapid PVST+ configurations. All of our tests with both labs were successful.</p>
-</div>
-<div class="paragraph">
-<p><strong>What We Learned</strong></p>
-</div>
-<div class="paragraph">
-<p>In the first lab, we learned there are several numbers that can affect the election of the root bridge in STP. First, the switches look to the priority number (or combination of priority number and vlan id). If the priority is equal, then the switches will use the lowest MAC address. In order to determine port roles, switches look at the port cost for each port involved. Because defaults might lead to sub-optimal network switching, both the priority and port cost can be configured by an administrator. Finally, if port cost and bridge IDs are equal, port roles are determined by the port number, with the lowest port number taking priority.</p>
-</div>
-<div class="paragraph">
-<p>In the second lab, we learned about PVST+ and Rapid PVST+. The default setting for spanning-tree mode on Cisco switches is PVST+. We learned how to configure a primary and secondary root bridge using the <strong>spanning-tree vlan &lt;vlan_id&gt; root primary</strong> and <strong>spanning-tree vlan &lt;vlan_id&gt; root secondary</strong> commands. While using a debug command to watch network convergence, we learned that Rapid PVST+ converges noticeably quicker that PVST+. Using PortFast helps with faster convergence, because it allows configured ports to go directly into forwarding mode, rather than cycling through all the steps to get there. Additionally, BPDU Guard helps protect a port by shutting it down if it receives a BPDU packet (which is not the expectation on a port where it is enabled), allowing time for an administrator to check and see if some topology change happened which would require re-configuration of the port. Overall, we learned there are several configuration factors that can be set to influence traffic patterns on a network.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -280,8 +377,6 @@
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
-</div>
-</div>
 </div>
 </article>
   </div>
