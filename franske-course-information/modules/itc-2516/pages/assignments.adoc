@@ -225,7 +225,7 @@ Change the router settings as indicated in the lab, use these for the NEW settin
 . Lab 16.3.2 - Troubleshoot Static and Default Routes
 +
 --
-NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+NOTE: In this lab you need to start by loading a starting configuration onto your network devices. xref:lab2-16-3-2.adoc[Click here to get the configruations you should copy and paste into your routers and switches before beginning the lab].
 --
 
 ==== Homework
