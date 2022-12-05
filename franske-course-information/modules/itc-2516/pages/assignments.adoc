@@ -160,7 +160,7 @@ For each chapter having lab activities you will need to submit one xref:lab-repo
 . Lab 4.4.9 - Troubleshoot Inter-VLAN Routing
 +
 --
-NOTE: In this lab you need to start by loading a starting configuration onto your network devices. INSERT LINK TO STARTING CONFIGS HERE!
+NOTE: In this lab you need to start by loading a starting configuration onto your network devices. xref:lab2-4-4-9.adoc[Click here to get the configruations you should copy and paste into your routers and switches before beginning the lab].
 --
 . Lab 4.5.2 - Implement Inter-VLAN Routing
 . PT 5.1.9 - Investigate STP Loop Prevention
