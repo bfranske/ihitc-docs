@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>VMware vSphere vCenter Server Installation Lab :: IHITC Info</title>
-    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-vmware-vcenterinstallation">
+    <title>Troubleshooting Starting Configurations for CCNA 2 Lab 16.3.2 :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2516/lab2-16-3-2-configs">
     <meta name="generator" content="Antora 3.0.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -75,16 +75,16 @@
     <span class="nav-text">ITC-2300</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="./">Course Home</a>
+    <a class="nav-link" href="../itc-2300/">Course Home</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="syllabus">Syllabus</a>
+    <a class="nav-link" href="../itc-2300/syllabus">Syllabus</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="schedule">Schedule</a>
+    <a class="nav-link" href="../itc-2300/schedule">Schedule</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="assignments">Assignments</a>
+    <a class="nav-link" href="../itc-2300/assignments">Assignments</a>
   </li>
 </ul>
   </li>
@@ -111,16 +111,16 @@
     <span class="nav-text">ITC-2516</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/">Course Home</a>
+    <a class="nav-link" href="./">Course Home</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+    <a class="nav-link" href="syllabus">Syllabus</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+    <a class="nav-link" href="schedule">Schedule</a>
   </li>
   <li class="nav-item" data-depth="3">
-    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+    <a class="nav-link" href="assignments">Assignments</a>
   </li>
 </ul>
   </li>
@@ -220,240 +220,123 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../">Dr. Franske's Course Pages</a></li>
-    <li><a href="lab-vmware-vcenterinstallation">VMware vSphere vCenter Server Installation Lab</a></li>
+    <li><a href="lab2-16-3-2-configs">Troubleshooting Starting Configurations for CCNA 2 Lab 16.3.2</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
   <div class="version-menu">
-    <a class="version is-current" href="lab-vmware-vcenterinstallation">2022.08</a>
+    <a class="version is-current" href="lab2-16-3-2-configs">2022.08</a>
     <a class="version is-missing" href="../../2022.01/">2022.01</a>
   </div>
 </div>
-  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-vmware-vcenterinstallation.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2516/pages/lab2-16-3-2-configs.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">VMware vSphere vCenter Server Installation Lab</h1>
+<h1 class="page">Troubleshooting Starting Configurations for CCNA 2 Lab 16.3.2</h1>
 <div class="sect1">
-<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<h2 id="_router_r1"><a class="anchor" href="#_router_r1"></a>Router R1</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+<div class="listingblock">
+<div class="content">
+<pre>enable
+config terminal
+hostname R1
+ipv6 unicast-routing
+interface g0/0/1
+ ip address 192.168.0.17 255.255.255.240
+ ipv6 address fe80::1 link-local
+ ipv6 address 2001:db8:acad:16::1/64
+ no shutdown
+interface g0/0/0
+ ip address 192.168.0.1 255.255.255.240
+ ipv6 address fe80::1 link-local
+ ipv6 address 2001:db8:acad::1/64
+ no shutdown
+interface loopback 1
+ ip address 172.16.1.1 255.255.255.0
+ ipv6 address fe80::1 link-local
+ ipv6 address 2001:db8:acad:171::1/64
+interface loopback 2
+ ip address 209.165.200.1 255.255.255.128
+ ipv6 address fe80::1 link-local
+ ipv6 address 2001:db8:acad:209::1/64
+!ip route 209.165.200.128 255.255.255.128 192.168.0.30
+ip route 209.165.200.128 255.255.255.128 192.168.0.3
+ip route 0.0.0.0 0.0.0.0 192.168.0.14 80
+!ip route 0.0.0.0 0.0.0.0 192.168.0.14
+!ip route 0.0.0.0 0.0.0.0 192.168.0.30 80
+ip route 0.0.0.0 0.0.0.0 192.168.0.3
+ipv6 route ::/0 2001:db8:acad:16::2</pre>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Subnet Mask: 255.255.255.0</p>
-</li>
-<li>
-<p>Default Gateway: 192.168.1.1</p>
-</li>
-<li>
-<p>DNS Server 192.168.1.1</p>
-</li>
-</ul>
 </div>
-<table class="tableblock frame-all grid-all fit-content">
-<colgroup>
-<col>
-<col>
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">System</th>
-<th class="tableblock halign-left valign-top">IP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.20</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.21</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">VCSA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.22</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<h2 id="_router_r2"><a class="anchor" href="#_router_r2"></a>Router R2</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
-<div class="openblock">
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will need to make a reservation for the ESXi Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-If you need to split your work up across multiple reservations be sure to safely shutdown your ESXi VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If you make a mistake and need to have one or both of your HV VMs erased so you can re-install ESXi you will need to contact your instructor or the ITC lab assistant to have them reset.
-</td>
-</tr>
-</table>
+<pre>enable
+config terminal
+hostname R2
+no ip domain lookup
+ipv6 unicast-routing
+interface g0/0/0
+ ip address 192.168.0.14 255.255.255.240
+ ipv6 address fe80::2 link-local
+ ipv6 address 2001:db8:acad::14/64
+ no shutdown
+interface g0/0/1
+ ip address 192.168.0.30 255.255.255.240
+ ipv6 address fe80::2 link-local
+ ipv6 address 2001:db8:acad:16::2/64
+ no shutdown
+interface loopback 1
+ ip address 172.16.2.1 255.255.255.0
+ ipv6 address fe80::2 link-local
+ ipv6 address 2001:db8:acad:172::1/64
+interface loopback 2
+ ip address 209.165.200.129 255.255.255.128
+ ipv6 address fe80::2 link-local
+ ipv6 address 2001:db8:acad:210::1/64
+! ipv6 route 2001:db8:acad:209::/64 2001:db8:acad:16::1
+ipv6 route 2001:db8:acad:209::/64 2001:db7:acad:16::1
+! ipv6 route ::/0 2001:db8:acad::1
+ipv6 route ::/0 2001:db8:acad::1 90
+! ipv6 route ::/0 2001:db8:acad:16::1 80
+ipv6 route ::/0 2001:db8:acad:15::1
+ip route 0.0.0.0 0.0.0.0 192.168.0.17
+end</pre>
 </div>
 </div>
 </div>
-</li>
-<li>
-<p>Boot your ESXi Server systems (the two HV systems)</p>
-</li>
-<li>
-<p>Obtain static IP addressing information from the table above and change the IP address of each ESXi server in your pod to a unique static IP address.</p>
-</li>
-<li>
-<p>Use the PC-C VM to mount the VCSA installation ISO file by double clicking on it.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you&#8217;re unfamiliar with the installation process you can refer back to your readings.</p>
-</li>
-<li>
-<p>During the installation you will need to select ONE of your pod&#8217;s ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!</p>
-</li>
-<li>
-<p>Set a root password for your VCSA server during the installation process, be sure to write this down!</p>
-<div class="openblock">
+<h1 id="_switch_s1" class="sect0"><a class="anchor" href="#_switch_s1"></a>Switch S1</h1>
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
-</td>
-</tr>
-</table>
+<pre>enable
+config terminal
+hostname S1
+interface range f0/1-3, f0/6-24, g0/1-2
+ shutdown
+end</pre>
 </div>
 </div>
-</div>
-</li>
-<li>
-<p>When given the option you should install vCenter Server with an Embedded Platform Services Controller</p>
-</li>
-<li>
-<p>When asked about the appliance size choose a "Tiny" installation and "Default" storage size.</p>
-</li>
-<li>
-<p>Select the checkbox to enable "Thin-Disk Mode"</p>
-</li>
-<li>
-<p>Use the correct static IP address for the VCSA from the allocation you received for your pod above and choose to synchronize time with the ESXi appliance host. The IP address should also be used as the system name.</p>
-</li>
-<li>
-<p>The first phase of the installation will take quite a while to complete. Once it is done you will be prompted to start stage 2</p>
-</li>
-<li>
-<p>Choose to synchronize time with the ESXi host and enable ssh access</p>
-</li>
-<li>
-<p>When creating a new SSO domain use "podX.local" (where X is replaced by your pod letter) as your SSO Domain Name</p>
-</li>
-<li>
-<p>Set the site name to Pod-X (where X is replaced by your pod letter)</p>
-</li>
-<li>
-<p>After the installation completes use your credentials (<a href="mailto:administrator@podX.local">administrator@podX.local</a>) to log in to the VCSA web client at the address provided.</p>
-</li>
-<li>
-<p>Spend a few minutes exploring the VCSA web client interface</p>
-</li>
-<li>
-<p>Create a new Datacenter and give it a name</p>
-</li>
-<li>
-<p>Add the all the ESXi hosts in your pod to the datacenter</p>
-</li>
-<li>
-<p>Create a few more VMs through VCSA on both ESXi hosts.</p>
-<div class="openblock">
+<h1 id="_switch_s2" class="sect0"><a class="anchor" href="#_switch_s2"></a>Switch S2</h1>
+<div class="listingblock">
 <div class="content">
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-You will need to upload the ISOs to the datastore on the ESXi system which you are creating the VM on before you can install the systems. This uploading can be done through VCSA from PC-C.
-</td>
-</tr>
-</table>
+<pre>enable
+config terminal
+hostname S2
+interface range f0/1-3, f0/6-24, g0/1-2
+ shutdown
+end</pre>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Various OS installation ISO files can be found on internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Safely shutdown all running VMs except VCSA</p>
-</li>
-<li>
-<p>Safely shutdown the VCSA appliance</p>
-</li>
-<li>
-<p>Safely shutdown all ESXi hosts</p>
-</li>
-<li>
-<p>End your Netlab Reservation</p>
-</li>
-</ol>
 </div>
 <hr>
 <div class="paragraph">
@@ -461,8 +344,6 @@ Various OS installation ISO files can be found on internal website <a href="http
 Page Version: 2022.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
-</div>
-</div>
 </div>
 </article>
   </div>
