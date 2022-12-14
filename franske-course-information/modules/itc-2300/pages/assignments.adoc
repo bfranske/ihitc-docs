@@ -90,7 +90,6 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
 * For each topic you need to meet with the instructor at least once to check on your status and understanding of the topic. Each meeting will be worth up to 10 points.
-* You will need to complete peer evaluations of all course projects, these evaluations will be worth 10 participation points total.
 
 == Topic Assessments
 You are responsible for completing an online assessment for each topic. These fall into the topic assessments category of your course grade. 
