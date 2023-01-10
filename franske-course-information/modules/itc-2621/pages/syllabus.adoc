@@ -73,7 +73,7 @@ The student will be able to:
 * Troubleshoot network problems using Cisco DNA Center assurance (connectivity, monitoring, device health, network health)
 
 == Course Design
-This course will be taught as a fully online course with regular synchronous instructor meetings. This means that you will be meeting regularly with the instructor in an online web conference call during the scheduled course time to assess your progress. Additional details about this are available on the course website. 
+This course will be taught as a fully online course with your choice of instructor meetings or written progress reports. This means that you will be able to meet with the instructor during a scheduled time each week or turn in a written progress report each week. Additional details about this are available on the assignments page of the course website. 
 
 == Assignments and Grading
 Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.

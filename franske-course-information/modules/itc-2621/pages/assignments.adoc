@@ -70,7 +70,20 @@ Any participation activities completed in the course will go here. This falls in
 
 * Complete the online course feedback form (5 points for completing)
 * Complete the online certification practice exam (10 points for attempting)
-* Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)
+
+You must do one of the following choices at least once a week (up to 10 points each based on progress):
+* Meet with the instructor online Tuesdays 6:00-8:30pm to discuss course progress and ask questions. *Note that you must send an email by 7pm on Tuesday if you want to meet after 7pm. I will only stay until 7pm unless someone has notified me they will be coming later*.
+* Meet with the instructor at another time during the week scheduled in advance. *Availability is not guaranteed so you should schedule this early.*
+* Submit a written statement on your progress in the course by email. You must meet the following requirements with your statement:
+** It must be emailed to ben@ihitc.net
+** The subject line on Tuesday of each week before 7:00pm. For weekly tracking purposes it cannot be sent before Tueday.
+** The subject line must be "ITC-2621 Weekly Update"
+** It must answer the following questions and should be about 400-500 words:
+*** What is your full name
+*** Where are you with the schedule? Are you on track, everything due done? Are you behind, how far? Are you ahead, how far?
+*** What things did you learn this week?
+*** How did any labs go for you this week?
+*** What questions do you have about the content or course this week?
 
 === Unit Assessments
 You are responsible for completing all of the online unit assessments listed below. Multiple chapters are included in single exams. These exams fall into the online assessments category of your course grade. 
