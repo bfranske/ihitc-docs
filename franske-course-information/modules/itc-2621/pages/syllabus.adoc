@@ -3,7 +3,7 @@ Course Name: Cisco Enterprise Advanced Routing and Services (CCNP 2) +
 Course Number: ITC-2621-91 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2023 (1/10/2023-5/9/2023) +
-Meetings: Tu 6:00-8:30pm +
+Meetings: Not Required +
 Location: Online
 
 == Instructor Contact Information
@@ -18,8 +18,14 @@ Explores the implementation and troubleshooting of advanced routing technologies
 
 === Required Resources
 * CCNP Enterprise Advanced Routing ENARSI 300-410 Official Cert Guide (Lacoste, Edgeworth) ISBN: 978-1587145254  
++
+--
 CAUTION: Yes, This textbook really is required. Unlike many Cisco Networking Academy classes there is not a free online version on Netacad!
+--
++
+--
 TIP: The first edition printed version of this book has many errors in it. You can avoid these errors by getting the ebook version _from the publisher_ Cisco Press. Note that Amazon and other ebook versions are not necessarily updated.
+--
 * CCNP and CCIE Enterprise Core & CCNP Enterprise Advanced Routing Portable Command Guide (Empson, Gargano) ISBN: 978-0135768167
 
 === Optional Resources
