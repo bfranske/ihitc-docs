@@ -79,7 +79,7 @@ You must do one of the following choices at least once a week (up to 10 points e
 ** It must be emailed to ben@ihitc.net
 ** The subject line on Tuesday of each week before 7:00pm. For weekly tracking purposes it cannot be sent before Tueday.
 ** The subject line must be "ITC-2621 Weekly Update"
-** It must answer the following questions and should be about 400-500 words:
+** It must answer the following questions and should be about 300-400 words:
 *** What is your full name
 *** Where are you with the schedule? Are you on track, everything due done? Are you behind, how far? Are you ahead, how far?
 *** What things did you learn this week?
