@@ -69,7 +69,7 @@
 === Assignments Due by 6pm Today
 * Chapter 5 Lab Report
 * Chapter 6 Lab Report
-* Chapters 1-5 Exam
+* Chapters 1 - 5: Routing and EIGRP Exam
 
 == Feb 14
 === Readings to do this week
@@ -112,7 +112,7 @@
 === Assignments Due by 6pm Today
 * Chapter 9 Lab Report
 * Chapter 10 Lab Report
-* Chapters 6-10 Exam
+* Chapters 6 - 10: OSPF Exam
 
 == Mar 7
 * Spring Break!
@@ -121,6 +121,7 @@
 === Readings to do this week
 * Chapter 12
 * Chapter 13
+
 === Other Work to do this week
 * Online Discussion Forum Chapter 11 Response Posts
 * Online Discussion Forum Chapters 12 First Post
@@ -160,7 +161,7 @@
 
 === Assignments Due by 6pm Today
 * Chapter 14 Lab Report
-* Chapters 11-14 Exam
+* Chapters 11 - 14: BGP Exam
 
 == Apr 4
 === Readings to do this week
@@ -197,7 +198,7 @@
 === Assignments Due by 6pm Today
 * Chapter 17 Lab Report
 * Chapter 18 Lab Report
-* Chapters 15-17 Exam
+* Chapters 15 - 17: Conditional Forwarding and Route Redistribution Exam
 
 == Apr 18
 === Readings to do this week
@@ -215,7 +216,7 @@
 === Assignments Due by 6pm Today
 * Chapter 19 Lab Report
 * Chapter 20 Lab Report
-* Chapters 18-20 Exam
+* Chapters 18 - 20: VPNs Exam
 
 == Apr 25
 === Readings to do this week
@@ -241,7 +242,7 @@
 * Take Certification Practice Exam
 
 === Assignments Due by 6pm Today
-* Chapters 21-23 Exam
+* Chapters 21 - 23: Infrastructure Security and Management Exam
 * Chapter 22 Lab Report
 
 == May 9
