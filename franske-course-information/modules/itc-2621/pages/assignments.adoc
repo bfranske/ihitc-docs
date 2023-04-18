@@ -76,8 +76,9 @@ You must do one of the following choices at least once a week (up to 10 points e
 * Meet with the instructor online Tuesdays 6:00-8:30pm to discuss course progress and ask questions. *Note that you must send an email by 7pm on Tuesday if you want to meet after 7pm. I will only stay until 7pm unless someone has notified me they will be coming later*.
 * Meet with the instructor at another time during the week scheduled in advance. *Availability is not guaranteed so you should schedule this early.*
 * Submit a written statement on your progress in the course by email. You must meet the following requirements with your statement:
+** The instructor may revoke this option at any time. You will be notified by email or verbally if this option is no longer possible in which case you must use one of the other options until notified otherwise.
 ** It must be emailed to ben@ihitc.net
-** The subject line on Tuesday of each week before 7:00pm. For weekly tracking purposes it cannot be sent before Tueday.
+** It must be emailed on Tuesday of each week before 7:00pm. For weekly tracking purposes it cannot be sent before Tueday or after Tuesday.
 ** The subject line must be "ITC-2621 Weekly Update"
 ** It must answer the following questions and should be about 300-400 words:
 *** What is your full name

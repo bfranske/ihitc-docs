@@ -243,7 +243,7 @@
 
 === Assignments Due by 6pm Today
 * Chapters 21 - 23: Infrastructure Security and Management Exam
-* Chapter 22 Lab Report
+* Chapter 23 Lab Report
 
 == May 9
 === Notes
