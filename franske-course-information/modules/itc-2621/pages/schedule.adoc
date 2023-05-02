@@ -24,6 +24,7 @@
 * Chapter 3 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 1 First Post
 * Chapter 1 Lab Report
 
 == Jan 24
@@ -37,6 +38,9 @@
 * Chapter 4 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 1 Response Posts
+* Online Discussion Forum Chapters 2 First Post
+* Online Discussion Forum Chapters 3 First Post
 * Chapter 2 Lab Report
 * Chapter 3 Lab Report
 
@@ -54,6 +58,9 @@
 * Take Chapters 1-5 Exam
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 2 Response Posts
+* Online Discussion Forum Chapter 3 Response Posts
+* Online Discussion Forum Chapters 4 First Post
 * Chapter 4 Lab Report
 
 == Feb 7
@@ -67,6 +74,9 @@
 * Chapter 7 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 4 Response Posts
+* Online Discussion Forum Chapters 5 First Post
+* Online Discussion Forum Chapters 6 First Post
 * Chapter 5 Lab Report
 * Chapter 6 Lab Report
 * Chapters 1 - 5: Routing and EIGRP Exam
@@ -81,6 +91,9 @@
 * Chapter 8 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 5 Response Posts
+* Online Discussion Forum Chapter 6 Response Posts
+* Online Discussion Forum Chapters 7 First Post
 * Chapter 7 Lab Report
 
 == Feb 21
@@ -97,6 +110,8 @@
 * Take Chapters 6-10 Exam
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 7 Response Posts
+* Online Discussion Forum Chapters 8 First Post
 * Chapter 8 Lab Report
 
 == Feb 28
@@ -110,6 +125,9 @@
 * Chapter 11 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 8 Response Posts
+* Online Discussion Forum Chapters 9 First Post
+* Online Discussion Forum Chapters 10 First Post
 * Chapter 9 Lab Report
 * Chapter 10 Lab Report
 * Chapters 6 - 10: OSPF Exam
@@ -130,6 +148,9 @@
 * Chapter 13 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 9 Response Posts
+* Online Discussion Forum Chapter 10 Response Posts
+* Online Discussion Forum Chapters 11 First Post
 * Chapter 11 Lab Report
 
 == Mar 21
@@ -144,6 +165,9 @@
 * Take Chapters 11-14 Exam
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 11 Response Posts
+* Online Discussion Forum Chapters 12 First Post
+* Online Discussion Forum Chapters 13 First Post
 * Chapter 12 Lab Report
 * Chapter 13 Lab Report
 
@@ -160,6 +184,9 @@
 * Chapter 16 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 12 Response Posts
+* Online Discussion Forum Chapter 13 Response Posts
+* Online Discussion Forum Chapters 14 First Post
 * Chapter 14 Lab Report
 * Chapters 11 - 14: BGP Exam
 
@@ -178,6 +205,9 @@
 * Take Chapters 15-17 Exam
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 14 Response Posts
+* Online Discussion Forum Chapters 15 First Post
+* Online Discussion Forum Chapters 16 First Post
 * Chapter 15 Lab Report
 * Chapter 16 Lab Report
 
@@ -196,6 +226,10 @@
 * Take Chapters 18-20 Exam
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 15 Response Posts
+* Online Discussion Forum Chapter 16 Response Posts
+* Online Discussion Forum Chapters 17 First Post
+* Online Discussion Forum Chapters 18 First Post
 * Chapter 17 Lab Report
 * Chapter 18 Lab Report
 * Chapters 15 - 17: Conditional Forwarding and Route Redistribution Exam
@@ -214,6 +248,10 @@
 * Chapter 22 Labs
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 17 Response Posts
+* Online Discussion Forum Chapter 18 Response Posts
+* Online Discussion Forum Chapters 19 First Post
+* Online Discussion Forum Chapters 20 First Post
 * Chapter 19 Lab Report
 * Chapter 20 Lab Report
 * Chapters 18 - 20: VPNs Exam
@@ -230,6 +268,10 @@
 * Review for final exams
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapter 19 Response Posts
+* Online Discussion Forum Chapter 20 Response Posts
+* Online Discussion Forum Chapters 21 First Post
+* Online Discussion Forum Chapters 22 First Post
 * Chapter 21 Lab Report
 * Chapter 22 Lab Report
 
@@ -238,11 +280,15 @@
 * No course meeting required today, contact your instructor if you would like to schedule one.
 
 === Other Work to do this week
+* Online Discussion Forum Chapters 23 Response Post
 * Take Skills Final Exam (two parts!) *Must be done between May 2-6!*
 * Take Certification Practice Exam
 
 === Assignments Due by 6pm Today
 * Chapters 21 - 23: Infrastructure Security and Management Exam
+* Online Discussion Forum Chapter 21 Response Posts
+* Online Discussion Forum Chapter 22 Response Posts
+* Online Discussion Forum Chapters 23 First Post
 * Chapter 23 Lab Report
 
 == May 9
@@ -250,6 +296,7 @@
 * No course meeting required today, contact your instructor if you would like to schedule one.
 
 === Assignments Due by 6pm Today
+* Online Discussion Forum Chapters 23 Response Post
 * Certification Practice Exam
 
 === Assignments Due by 11:59pm Today
