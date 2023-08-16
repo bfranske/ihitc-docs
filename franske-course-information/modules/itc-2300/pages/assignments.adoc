@@ -22,24 +22,6 @@ Find instructions for the xref:lab-vmware-vcenterinstallation.adoc[vmWare vSpher
 ==== vmWare vSphere Administration Lab
 Find instructions for the xref:lab-vmware-vsphereadmin.adoc[vmWare vSphere Administration Lab here].
 
-=== Voice over IP (VoIP) Labs
-
---
-NOTE: If you need additional time to complete these labs you may need to work in the B143 lab instead of our normal B144 lab. In that case be sure to read the xref:lab-asterisk-b143.adoc[B143 lab modification addendum] which explains changes you need to make to the lab setup to make things work in B143.
---
-
-==== Introduction to VoIP with Asterisk Lab
-Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
-
-==== VoIP Provisioning, Voicemail, and SIP Labs
-Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Voicemail, and SIP Lab here].
-
-==== VoIP T1 and PSTN Access Lab
-Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
-
-==== VoIP GUI Asterisk Configuration Lab
-Find instructions for the xref:lab-asterisk-guiconfig.adoc[VoIP GUI Asterisk Configuration Lab here].
-
 === Network Programmability Labs
 
 ==== Getting Started with DevNet Lab
@@ -78,6 +60,24 @@ NOTE: Skip the "Creating your first c++ Telemetry Collector" lab
 --
 NOTE: Just do the Getting Started with Ansible on Cisco IoT Hardware lab from this module
 --
+
+=== Voice over IP (VoIP) Labs
+
+--
+NOTE: If you need additional time to complete these labs you may need to work in the B143 lab instead of our normal B144 lab. In that case be sure to read the xref:lab-asterisk-b143.adoc[B143 lab modification addendum] which explains changes you need to make to the lab setup to make things work in B143.
+--
+
+==== Introduction to VoIP with Asterisk Lab
+Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
+
+==== VoIP Provisioning, Voicemail, and SIP Labs
+Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Voicemail, and SIP Lab here].
+
+==== VoIP T1 and PSTN Access Lab
+Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
+
+==== VoIP GUI Asterisk Configuration Lab
+Find instructions for the xref:lab-asterisk-guiconfig.adoc[VoIP GUI Asterisk Configuration Lab here].
 
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
