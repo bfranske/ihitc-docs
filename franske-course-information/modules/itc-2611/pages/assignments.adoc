@@ -62,7 +62,7 @@ NOTE: You can find the CCNP Virtual Machine OVA file in the CCNP folder on the d
 . Lab 26.1.4 - Configure Local and Server-Based AAA Authentication
 +
 --
-NOTE: You will be using the CCNP VM in Virtual Box on your Pod PC. Be sure the MAC address is different on each Pod PC if you run the VM on more than one PC.
+NOTE: You will be using the CCNP VM in Virtual Box on your Pod PC. Be sure the MAC address of the VM is different on each Pod PC if you run the VM on more than one PC.
 --
 . Lab 26.1.6 - Implement CoPP
 . Lab 28.1.2 - Construct a Basic Python Script
@@ -70,20 +70,20 @@ NOTE: You will be using the CCNP VM in Virtual Box on your Pod PC. Be sure the M
 . Lab 28.1.4 - Use NETCONF To Access an IOS XE Device
 . Lab 28.1.5 - Use RESTCONF to Access an IOS XE Device
 
-==== Homework
+=== Homework
 
 * Participate in an online forum discussion (typically 3 quality posts or more) of each chapter on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each chapter based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
-=== Participation Activities
+== Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
 * Complete the online course feedback form (5 points for completing)
 * Complete the online certification practice exam (10 points for attempting)
 * Meet with the instructor once per week to discuss course progress and ask questions (up to 10 points each based on progress)
 
-=== Unit Assessments
+== Unit Assessments
 You are responsible for completing all of the online unit assessments listed below. Multiple chapters are included in single exams. These exams fall into the online assessments category of your course grade. 
 
 * Chapters 1 - 5: L2 Redundancy Exam
@@ -98,10 +98,10 @@ You are responsible for completing all of the online unit assessments listed bel
 * Chapters 25 - 26: Access Control and Infrastructure Security Exam
 * Chapters 27 - 29: Virtualization, Automation, and Programmability Exam
 
-=== Skills Final Exam
+== Skills Final Exam
 The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. Your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam. 
 
-=== Online Final Exam
+== Online Final Exam
 You will need to complete an online final exam on the Netacad site.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
