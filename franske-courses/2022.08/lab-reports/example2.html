@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab Report Example - Linux System Administration Class :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/lab-reports/example2">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2023.08</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="example2">Lab Report Example - Linux System Administration Class</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/lab-reports/example2">2023.08</a>
+    <a class="version is-current" href="example2">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/lab-reports/pages/example2.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab Report Example - Linux System Administration Class</h1>
+<div class="sect1">
+<h2 id="_example_report"><a class="anchor" href="#_example_report"></a>Example Report</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>What I Did/What was the Purpose</strong></p>
+</div>
+<div class="paragraph">
+<p>The main purpose of this lab was to set up VPN on my personal machine, log into the VMWare vSphere web client, and install Debian on my virtual machine. Once this was done, I recorded my VM&#8217;s IP address so I could check my ability to connect with it remotely with VPN + SSH and with FileZilla.</p>
+</div>
+<div class="paragraph">
+<p><strong>Difficulties I Faced/How I Overcame Them</strong></p>
+</div>
+<div class="paragraph">
+<p>My difficulties were many and varied. While the VPN software install was easy, my password was incorrect, preventing me from connecting with the ITC server. Eventually my password was reset and I was able to connect.</p>
+</div>
+<div class="paragraph">
+<p>Next was the vSphere web client. While I was a little worried that the directions in Step 8.3 asked me to do something I could not do (grayed-out "Browse" button), I kept going, figuring since the file name looked right, everything would be ok. Unfortunately the network autoconfig step failed, which prevented further steps. Eventually I got stuck with the "install sudo" step since I had no network connection.</p>
+</div>
+<div class="paragraph">
+<p>I came in on Friday morning and asked Tom to let me into B-109 so I could work on this some more. He suggested that I simply start over the install, so we went into BIOS, switch the boot order to CD first, and proceeded with the re-install. This time there were no problems with the install.</p>
+</div>
+<div class="paragraph">
+<p>When I tried to test the remote connection via SSH, I initially failed because I had powered down the VM. Once it was back up, I still could not get in. However, I was using "j.gower" instead of "jason" for my user name - d&#8217;oh!</p>
+</div>
+<div class="paragraph">
+<p>My final problem was with changing my password on the ITC server. Specifically, Ctrl + Alt + Del did not give me a "Change password" option. Eventually I tried Ctrl + Alt + End and I did get the option, so was able to change my password.</p>
+</div>
+<div class="paragraph">
+<p><strong>How I Tested My Lab</strong></p>
+</div>
+<div class="paragraph">
+<p>I tested the VPN software by simply activating the software and entering my credentials (once I had the correct credentials). I got a message saying I was connected, but there was no install yet, so that&#8217;s all I could do at that point. Similarly, vSphere accepted my login credentials, so they were correct.</p>
+</div>
+<div class="paragraph">
+<p>The install itself was tested by powering down the VM and powering it back on. Sure enough, my screen showed a login so the install took.</p>
+</div>
+<div class="paragraph">
+<p>Next I checked the sudo install when I attempted to discover the VM&#8217;s IP address with ifconfig. I then checked that IP address by using VPN + SSH to make a remote connection from home, which worked. This was further checked by using FileZilla to SFTP in and see what little I have in my home directory.</p>
+</div>
+<div class="paragraph">
+<p><strong>What I Learned</strong></p>
+</div>
+<div class="paragraph">
+<p>I had never really used a VPN before, but no biggie&#8201;&#8212;&#8201;it&#8217;s just an application that I need to have up and running before I can remotely access my VM. I also have never used a VM, but again, no biggie&#8201;&#8212;&#8201;once we have the install, I&#8217;ll SSH in and won&#8217;t really notice the difference between being on a VM or just a remote machine. I had used Telnet/SSH many years ago, so nothing new there, either.</p>
+</div>
+<div class="paragraph">
+<p>What I did learn is how easy it is to install Debian, at least in a very basic configuration. I had heard stories in the past that Debian was harder to get into than some of the other distros. Or maybe I&#8217;m confusing Debian with Slackware?) In any case, it was so easy, I think I&#8217;ll install it on an old laptop and run through the labs on it, just to get additional practice.</p>
+</div>
+<div class="paragraph">
+<p>Finally, I had never worked with FileZilla before. In the past, I would just use a browser and enter in "sftp://&#8230;&#8203;". So I learned how cool FileZilla is&#8201;&#8212;&#8201;it&#8217;s very nice to have the two views, one for my local machine file system and one for the remote machine&#8217;s file system. Cool!</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2023-08-16 10:31:50 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

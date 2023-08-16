@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VoIP Lab Addendum for B143 Lab :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-b143">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2023.08</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-b143">VoIP Lab Addendum for B143 Lab</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-asterisk-b143">2023.08</a>
+    <a class="version is-current" href="lab-asterisk-b143">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-b143.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">VoIP Lab Addendum for B143 Lab</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This document outlines changes you will need to make if you are working on VoIP labs in the B143 lab instead of the normal B144 lab.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is not possible to do labs using the T1 connections in the B143 lab because the room does not have a PSTN simulator and the routers in B143 do not support voice T1 use. All other VoIP labs can be completed in B143 though.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_pod_differences_in_b143"><a class="anchor" href="#_general_pod_differences_in_b143"></a>General Pod Differences in B143</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The B143 lab uses Cisco 1941 routers instead of Cisco 2811 routers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>These routers are newer, but less powerful. Most notably instead of FastEthernet interfaces the 1941 routers have GigabitEthernet interfaces so Fa0/0 becomes Gi0/0 and Fa0/1 becomes Gi0/1. The 1941 routers in B143 also do not have voice T1 capabilitities so T1 labs can not be completed in B143.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Not all switches in B143 support Power over Ethernet (PoE) which provides power to your VoIP phones. Only pods 3, 6, and 7 have PoE switches.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You will see these pods have 4 switches instead of 3. The 4th switch is a PoE switch, be sure to use the PoE switch for your phones.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You will need to power on your pod equipment by using the power switch located above the top router on each pod.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remember to erase your configurations and power off your pod equipment when you are done with the lab.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the B143 lab you will need to adjust the IP address of the Router 0/0 interface. Instead of 172.17.144.xx/24 you will use 172.17.143.xx/24</p>
+</div>
+<div class="paragraph">
+<p>The chart below shows the changed addresses you should use</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk ens192 IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Gi0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.143.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are no changes needed to your Asterisk server IP addresses or extension numbers to work in B143
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2023-08-16 10:31:49 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

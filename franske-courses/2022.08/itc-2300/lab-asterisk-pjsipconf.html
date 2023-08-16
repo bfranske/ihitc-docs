@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ITC-2300 VoIP Lab Sample pjsip.conf File :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-pjsipconf">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2023.08</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-pjsipconf">ITC-2300 VoIP Lab Sample pjsip.conf File</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-asterisk-pjsipconf">2023.08</a>
+    <a class="version is-current" href="lab-asterisk-pjsipconf">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-pjsipconf.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">ITC-2300 VoIP Lab Sample pjsip.conf File</h1>
+<div class="sect1">
+<h2 id="_notes"><a class="anchor" href="#_notes"></a>Notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following shows an example of the things you may need to change in your pjsip.conf file.</p>
+</div>
+<div class="paragraph">
+<p>Don&#8217;t forget to modify for the information specific to your Pod:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Change the MAC addresses of the phones to match your phones</p>
+</li>
+<li>
+<p>Change the descriptions, line names, caller ID names, etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_minimal_pjsip_conf_file_changes"><a class="anchor" href="#_example_minimal_pjsip_conf_file_changes"></a>Example Minimal pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre>[simpletrans]
+type=transport
+protocol=udp
+bind=0.0.0.0
+
+[2903] ; The value inside the [] will be the SIP line user name on the endpoint
+type=endpoint
+context=default
+disallow=all
+allow=ulaw
+transport=simpletrans
+auth=debra-auth ; This will be the name for the authentication section of the configuration found below
+aors=2903 ; This will be the name for the AoRs registration section of the configuration found below it must match the username in the [ ] above
+trust_id_outbound=yes
+callerid=Debra Donaldson &lt;2903&gt; ; This is the caller ID name and extension (in the &lt; &gt;)
+
+[2903] ; This is the AoRs registration entry. The value in the [ ] must match the endpoint aors line and username on the device
+type=aor
+max_contacts=1
+
+[debra-auth] ; This is the authentication entry. The value in the [ ] must match the endpoint auth line
+type=auth
+auth_type=userpass
+password=debrapass ; This is the authentication password used by the endpoint for sip registration
+username=debra ; This is the authentication name used by the endpoint for sip registration</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_voicemail_pjsip_conf_file_changes"><a class="anchor" href="#_voicemail_pjsip_conf_file_changes"></a>Voicemail pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can add the ability to enable the Message Waiting Indicator (MWI) lamp on SIP phones when there is a message in a mailbox. By default Asterisk will send SIP NOTIFY messages when a voicemail is left. Some phones need to subscribe to the MWI information. In that case you need to modify the AoRs section for the phone and add a mailboxes= section.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[2903]
+type=aor
+max_contacts=1
+mailboxes=2903@default</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dpma_pjsip_conf_file_changes"><a class="anchor" href="#_dpma_pjsip_conf_file_changes"></a>DPMA pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the part of the lab where you are setting up DPMA phones a default_outbound_endpoint needs to be enabled in pjsip.conf. This is accomplished by configuring a basic endpoint to use and then setting that endpoint as the default.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[global]
+type=global
+default_outbound_endpoint=dpma_endpoint
+
+[dpma_endpoint]
+type=endpoint</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will also need to create a SIP line for the phone to use.</p>
+</div>
+<div class="paragraph">
+<p>For Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[echo2904]
+type = aor
+max_contacts = 1
+mailboxes = 2904@default
+
+[echo2904]
+type = auth
+auth_type = userpass
+password = 2904
+username = 2904
+
+[echo2904]
+type = endpoint
+aors=echo2904
+auth=echo2904
+callerid=Echo Early
+context = default
+direct_media = yes
+trust_id_inbound = yes
+trust_id_outbound=yes
+send_pai = yes
+transport=simpletrans
+callerid=Echo Early &lt;2904&gt; ; This is the caller ID name and extension (in the &lt; &gt;)
+disallow = all
+allow = alaw</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_isdn_router_sip_pjsip_conf_file_changes"><a class="anchor" href="#_isdn_router_sip_pjsip_conf_file_changes"></a>ISDN Router &lt;&#8594; SIP pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the lab where you are using your router as a PSTN gateway to provide access over a T1 line you will need to create a SIP endpoint for the router to connect to so that calls can be made and received.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[ISDNrouter]
+type=endpoint
+; You want to choose a context that any calls coming in from the gateway will go to and be careful to limit where these calls can go so that people can't "loop through" your Asterisk system and run up your phone bill or otherwise manipulate the system
+context=from_PSTN
+disallow=all
+allow=ulaw
+aors=ISDNrouter
+
+[ISDNrouter]
+; This will send SIP traffic to our router’s IP address if it’s sent to the ISDNrouter SIP device
+type=aor
+contact=sip:192.168.10.1:5060
+
+[ISDNrouter]
+; This will match the SIP traffic incoming from the ISDN line attached to our router
+type=identify
+endpoint=ISDNrouter
+match=192.168.10.1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_telephony_service_provider_itsp_pstn_pjsip_conf_file_changes"><a class="anchor" href="#_ip_telephony_service_provider_itsp_pstn_pjsip_conf_file_changes"></a>IP Telephony Service Provider (ITSP) PSTN pjsip.conf File Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you get to the part of the lab where you are configuring an IP Teleophony Service provider for PSTN access instead of using the T1 connection you will need to setup SIP access to and from your PSTN SIP provider.</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to modify the username for registration, the authentication username and password, and the endpoint user to be your Pod so you receive calls to the correct numbers!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[sipPSTN]
+type=registration
+transport=simpletrans
+outbound_auth=sipPSTN
+server_uri=sip:172.17.219.2 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
+; Update the username in the following line for your pod!
+client_uri=sip:podX@172.17.219.2 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
+endpoint=sipPSTN
+line=yes
+
+[sipPSTN]
+type=auth
+auth_type=userpass
+; Be sure to modify the username and password as appropriate for your pod
+password=podX-password
+username=podX
+
+[sipPSTN]
+type=endpoint
+transport=simpletrans
+context=from_external ; What context calls from the ITSP should end up in
+disallow=all
+allow=ulaw
+outbound_auth=sipPSTN
+aors=sipPSTN
+direct_media=no ; This line tells Asterisk to not just handle the call setup information but to pass the audio through Asterisk as well and is required because we are using Asterisk to connect between the public network (ens192) and our pod network (ens224) where our phones are
+from_user=podX ; The username to use in the SIP messages for calls out to the PSTN be sure to set correctly for your pod!
+
+[sipPSTN]
+type=aor
+contact=sip:172.17.219.2:5060 ; All calls to the ITSP will go to this IP address and port
+
+[sipPSTN]
+type=identify
+endpoint=sippstn
+match=172.17.219.2 ; All calls from the ITSP will come from this IP address</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_reloading_after_configuration_changes"><a class="anchor" href="#_reloading_after_configuration_changes"></a>Reloading After Configuration Changes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you make changes to the pjsip.conf file and need to get Asterisk to re-load the configuration you can run the <code><strong>pjsip reload</strong></code> command from the Asterisk CLI to re-read the file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_additonal_resources"><a class="anchor" href="#_additonal_resources"></a>Additonal Resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/PJSIP+Configuration+Sections+and+Relationships">PJSIP Config Sections and Relationships</a></p>
+</li>
+<li>
+<p><a href="https://wiki.asterisk.org/wiki/display/AST/Asterisk+12+Configuration_res_pjsip">Core PJSIP Configuration Options</a></p>
+</li>
+<li>
+<p><a href="https://wiki.asterisk.org/wiki/display/DIGIUM/Digium+Phones+when+used+with+DPMA">SIP Configuration for DPMA Phones</a></p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2023-08-16 10:31:49 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

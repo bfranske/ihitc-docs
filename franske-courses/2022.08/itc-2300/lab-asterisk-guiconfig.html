@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>GUI Asterisk Configuration Labs :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-guiconfig">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2023.08</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-guiconfig">GUI Asterisk Configuration Labs</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-asterisk-guiconfig">2023.08</a>
+    <a class="version is-current" href="lab-asterisk-guiconfig">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-guiconfig.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">GUI Asterisk Configuration Labs</h1>
+<div class="sect1">
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk eth0 IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Asterisk Server eth0 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The eth0 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.219.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Asterisk Server eth1 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The eth1 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP Address (same for all pods because it&#8217;s inside behind your NAT): 192.168.10.3/24</p>
+</li>
+<li>
+<p>No default gateway or DNS servers for this interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pod Router:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.144.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In general you will be able to install FreePBX. If you have VPN access to the ITCnet you will also be able to configure FreePBX through it&#8217;s web interface. You will need to come to campus and setup the network with the router, switch, and phones in order to test anything, get the correct MAC addresses to put in the configurations, etc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_internal_network_setup"><a class="anchor" href="#_internal_network_setup"></a>Internal Network Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you are on campus and working with your IP phones you will need to setup your internal network with your pod router and switch as you did for the previous lab.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
+<p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
+</li>
+<li>
+<p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
+</li>
+<li>
+<p>Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server&#8217;s ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).</p>
+</li>
+<li>
+<p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
+</li>
+<li>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Of course, make sure that your Asterisk server is up and running!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install_freepbx"><a class="anchor" href="#_install_freepbx"></a>Install FreePBX</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ask your instructor to reset your virtual machine and load the FreePBX install CD.</p>
+</li>
+<li>
+<p>Install "FreePBX XX (Asterisk XX) - Recommended"</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use "Installation - Output to VGA" and the "FreePBX Standard" options</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Be sure to set the root password to something you will remember or write down.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Login to the CLI as the root user to obtain the IP address of eth0 and then visit that IP address in a browser on a system on the ITCnet network or your Pod network.</p>
+</li>
+<li>
+<p>Create an "admin" user account</p>
+</li>
+<li>
+<p>Login to the administration interface</p>
+</li>
+<li>
+<p>Set the locales
+.Complete the Firewall wizard</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Trust your current client</p>
+</li>
+<li>
+<p>Trust your current network</p>
+</li>
+<li>
+<p>Enable the responsive firewall</p>
+</li>
+<li>
+<p>Automaticlly configure the firewall Asterisk IP Settings</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On the Connectivity &#8594; Firewall page click on the "Networks" tab and set 172.17.0.0/16 as a "Trusted (Excluded from Firewall)" network.</p>
+</li>
+<li>
+<p>Go to the Admin &#8594; System Admin page and click the link on the right to register/activate your FreePBX system</p>
+</li>
+<li>
+<p>Update all your modules if you are prompted.</p>
+</li>
+<li>
+<p>Double check that all modules have successfully upgraded by going to the Admin &#8594; Module Admin and clicking the "Check Online" button. Review the data and install any upgrades you can. Repeat this process until all modules say "Enabled and up to date". This may take several passes through the list as many modules require other modules be enabled and updated before they will update.</p>
+</li>
+<li>
+<p>In the Admin &#8594; System Admin &#8594; Network Settings page of FreePBX set a static IP Address on the eth0 and eth1 interfaces using the table and information at the top of this lab. You will need to "Save and apply" after changing each interface. Be sure both interfaces are set to start automatically.</p>
+</li>
+<li>
+<p>Go back to the Connectivity &#8594; Firewall page and click on the "Interfaces" tab. Ensure both eth0 and eth1 are "Trusted (Excluded from Firewall)" for our lab purposes.</p>
+</li>
+<li>
+<p>On the Connectivity &#8594; Firewall page click on the "Networks" tab and set 192.168.10.0/24 as a "Trusted (Excluded from Firewall)" network.</p>
+</li>
+<li>
+<p>Click the red "Apply Config" button in the upper right corner of the page.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configure_generic_sip_phones"><a class="anchor" href="#_configure_generic_sip_phones"></a>Configure Generic SIP Phones</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect your Digium A-25 phone and Grandstream 2135 phone to the network</p>
+</li>
+<li>
+<p>Under Settings &#8594; Asterisk SIP Settings &#8594; General SIP Settings add 192.168.10.0/24 as a local network, save, and apply.</p>
+</li>
+<li>
+<p>Add the required PJSIP extensions in FreePBX for the phones</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to update the phone username/password and voicemail number (*97) configured on the phone. You should let FreePBX create a new user for the phone automatically (probably the extension number) and then use that username but the extension "secret" as the password on the phones
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Test calling yourself and leaving a message, MWI capability, and checking the message</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_sip_trunks"><a class="anchor" href="#_configuring_sip_trunks"></a>Configuring SIP Trunks</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure the "External Address" under Settings &#8594; Asterisk SIP Settings correctly reflects the outside IP of your eth0 interface.</p>
+</li>
+<li>
+<p>Create a new FreePBX PJSIP trunk pointed to the ITC SIP Phone Company (172.17.219.2) using your Pod credentials.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In addition to setting your username and secret you also need to set the "From User" on the advanced page of PJSIP trunk settings. THis should be set to the same username you use for registration to the ITSP.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create outbound routes for the different types of outside numbers you can call (emergency, premium, international, long distance, toll-free, local) which route the traffic out the SIP trunk to the ITSP</p>
+</li>
+<li>
+<p>Try placing calls out to the PSTN and make sure things are all working</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Test at least the following types of calls:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Local calls (both by dialing 7-digit numbers and 10-digit numbers)</p>
+</li>
+<li>
+<p>Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)</p>
+</li>
+<li>
+<p>Toll-free numbers (1-800, 1-888, etc.)</p>
+</li>
+<li>
+<p>Per-minute premium charge numbers (1-900)</p>
+</li>
+<li>
+<p>Emergency Services (911, 9-911)</p>
+</li>
+<li>
+<p>Directory Assistance (411)</p>
+</li>
+<li>
+<p>International Numbers (Numbers beginning with 011)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Create at least one inbound route for one of your 5105552XXX numbers and point it to your extension</p>
+</li>
+<li>
+<p>Test inbound calling by having another pod call you through the ITSP</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_dpma_phones"><a class="anchor" href="#_configuring_dpma_phones"></a>Configuring DPMA Phones</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Global Settings page and switch "Use DPMA" to Yes. Wait while the module installs.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you receive a "permission denied" error you will need to acces your FreePBX CLI console in Netlab and run the <code>fwconsole chown</code> command, then try enabling DPMA again.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Set the Internal Address on the swttings page to the IP address on eth1</p>
+</li>
+<li>
+<p>Click the "Save Global" button</p>
+</li>
+<li>
+<p>Click the "DPMA Management" button.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Set the phone authentication method to "None" for lab purposes.</p>
+</li>
+<li>
+<p>Set the mDNS Discovery Address to the IP address on eth1</p>
+</li>
+<li>
+<p>Save the DPMA management settings</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click the red "Apply Config" button in the upper right corner</p>
+</li>
+<li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Brands &#8594; Sangoma page and open the D&amp;P Series Phones page</p>
+</li>
+<li>
+<p>Modify the digium_default template</p>
+</li>
+<li>
+<p>Ensure the D60 phone model is activated for the template.</p>
+</li>
+<li>
+<p>Ensure the Destination and Provisioning Server addresses match the internal (eth1) interface address on your server.</p>
+</li>
+<li>
+<p>Go to the Applications &#8594; Extensions page and create at least one new extension with Voicemail for each DPMA phone</p>
+</li>
+<li>
+<p>Go to the Settings &#8594; EndPoint Manager &#8594; Extension Mapping page</p>
+</li>
+<li>
+<p>Add a new extension mapping and choose the Extension/Name, the first available Account on the phone, a Sangoma D&amp;P Series Phone, and the correct model number (D60) for your phone. Leave the MAC address blank so you can select the line on the phone.</p>
+</li>
+<li>
+<p>Click the "Use Selected" button next to the "Save and Rebuild Config(s)" dropdown.</p>
+</li>
+<li>
+<p>Go to Connectivity &#8594; Digium Phones and follow the instructions to install the DPMA module</p>
+</li>
+<li>
+<p>Click the red "Apply Config" button in the upper right corner</p>
+</li>
+<li>
+<p>Connect your Digium D-series phone to your VoIP network</p>
+</li>
+<li>
+<p>Select the new extension on the D-series phone to configure the phone with the extension</p>
+</li>
+<li>
+<p>Test calling between extensions, voicemail, calling out to the PSTN through the ITSP, and all other functionality configured so far</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuring_sccp_phones"><a class="anchor" href="#_configuring_sccp_phones"></a>Configuring SCCP Phones</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Chan-SCCP following the instructions from your readings for FreePBX. Be sure to disable chan_skinny.so and load chan</p>
+</li>
+<li>
+<p>Run the <code>fwconsole chown</code> command on the CLI to assign permissions</p>
+</li>
+<li>
+<p>Restart your FreePBX VM</p>
+</li>
+<li>
+<p>Setup a phone, button, line, etc. in your sccp.conf file as we have done before. You may be able do this in the GUI from the Admin &#8594; Config Edit page by selecting the sccp.conf file as long as you don&#8217;t see an error message about it being not writable.</p>
+</li>
+<li>
+<p>Add a "Custom Extension" for the SCCP phone in FreePBX being sure to set a dial string for the SCCP device.</p>
+</li>
+<li>
+<p>Test calling between extensions, voicemail, calling out to the PSTN through the ITSP, and all other functionality configured so far</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cleanup"><a class="anchor" href="#_cleanup"></a>Cleanup</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Safely shutdown your Debian system</p>
+</li>
+<li>
+<p>Erase your switch/router configuration</p>
+</li>
+<li>
+<p>Put away all equipment and cables. Be sure to note which phones you have so that next week you&#8217;ll be able to get the same five phones.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2023-08-16 10:31:49 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Proxmox VE Installation Lab :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-proxmox-installation">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2022.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2022.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2023.08</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-proxmox-installation">Proxmox VE Installation Lab</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2022.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-proxmox-installation">2023.08</a>
+    <a class="version is-current" href="lab-proxmox-installation">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2022.08/franske-course-information/modules/itc-2300/pages/lab-proxmox-installation.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Proxmox VE Installation Lab</h1>
+<div class="sect1">
+<h2 id="_ip_addressing"><a class="anchor" href="#_ip_addressing"></a>IP Addressing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You will be assigning static IPs to your systems in this lab. Please use these settings:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Subnet Mask: 255.255.255.0</p>
+</li>
+<li>
+<p>Default Gateway: 192.168.1.1</p>
+</li>
+<li>
+<p>DNS Server 192.168.1.1</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">System</th>
+<th class="tableblock halign-left valign-top">IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.11</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_instructions"><a class="anchor" href="#_instructions"></a>Instructions</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You will be installing a Proxmox VE server on the two hypervisor (hv) VMs assigned to you (so do all these steps, unless otherwise indicated, on each computer). If you are unsure about how to do something try checking the <a href="https://pve.proxmox.com/wiki/Main_Page">Proxmox Wiki site</a> first.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Be sure to use a unique hostname on each Proxmox server, otherwise you will have issues connecting them together in a future lab.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Two hypervisor VMs (labeled HV-A and HV-B) have been provided for you which you will be installing ProxMox VE on, each has:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>24GB RAM</p>
+</li>
+<li>
+<p>300GB Hard Drive</p>
+</li>
+<li>
+<p>2 CPUs</p>
+</li>
+<li>
+<p>Enabled VTi/VTx Virtualization for the processors</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>VMs are located on the <a href="https://netlab.ihitc.net" class="bare">https://netlab.ihitc.net</a> Netlab system, be sure you are signed in to the ITC Passport site through D2L before attempting to access this system</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to make a reservation for the Proxmox Labs in this class before you are able to access the VMs. Changes will be saved between your reservations so you will be able to make multiple reservations over several days as needed to complete labs.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you need to split your work up across multiple reservations be sure to safely shutdown your Proxmox VMs before ending your Netlab reservation. Otherwise when your reservation ends Netlab will simply power off your VMs (without shutting them down first) which could cause data corruption.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you make a mistake and need to have one or both of your HV VMs erased so you can re-install Proxmox you will need to contact your instructor or the ITC lab assistant to have them reset.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>The Proxmox VE installer ISO file has been pre-loaded into the CD drive of each of your HV VMs</p>
+</li>
+<li>
+<p>Start the Proxmox VE installation (on both VMs) making note of these options:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Set the Country to United States and Timezone to America/Chicago</p>
+</li>
+<li>
+<p>Record the administrative password for future use, it is strongly suggested you use "itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.</p>
+</li>
+<li>
+<p>Set the IP address for each Proxmox system using table above</p>
+</li>
+<li>
+<p>Make sure the hostname is different on each Proxmox VE server and ends with .itc2300.campus.ihitc.net</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It is recommended you set the name to "podXproxmoxA.itc2300.campus.ihitc.net" (change as needed for your pod letter and HV VM ID letter)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Once installation is finished use a web browser on PC-C to access the Proxmox VE server&#8217;s web interface at the IP address of the hypervisor and login as the root user (username root) and password set during the installation</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The password for the "Nelab User" account on PC-C is "netlab"
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Add a second user account to Proxmox VE and set it up with administrative access. Set the second account up as a Proxmox VE Authentication Server realm account meaning it will only be available in Proxmox and not on the underlying Linux system.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You may want to read up about <a href="https://pve.proxmox.com/wiki/User_Management#_objects_and_paths">objects and paths</a> for user accounts in Proxmox you will need to set a path for the account in order to get administrative permissions working. This is a bit trickier to get right than it may seem at first.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Other students have used the power of Internet searching to find <a href="https://techviewleo.com/create-users-groups-permissions-proxmox/">this site about users, groups and permissions in Proxmox VE</a> which they have found helpful.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Log out of the root account and login to the Proxmox web administrative interface using the secondary account you just created</p>
+</li>
+<li>
+<p>Use PC-C to upload Windows 10 and Linux Mint ISO files to the Proxmox VE server using the web interface</p>
+<div class="ulist">
+<ul>
+<li>
+<p>You may have problems uploading the ISO files with the Edge browser so Firefox or Chrome is suggested if you have issues uploading</p>
+</li>
+<li>
+<p>The ISO files can be found on internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Try creating both a Windows 10 and Linux Mint VM (only on Proxmox VE server A!) and complete the installation (use KVM as the VM type)</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is recommended that you disconnect/disable the virtual network interface on the Windows 10 system before installing so that you will not need to sign in with a Microsoft account. Don&#8217;t forget to re-enable the network interface after completing the installation.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Choose that you don&#8217;t have a product key when installing Windows, we&#8217;ll just use the trial version of Windows 10 Education
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you do not see a hard drive to install Windows too it&#8217;s possibly your hard drive controller is a model which does not have a driver built in to Windows 10. For example, Windows 10 does not have VirtIO drivers built in by default so it can&#8217;t see any drives attached to a VirtIO controller. In this case you&#8217;ll need to pick a different controller (which Windows does have built-in drivers for) to get Windows installed. VirtIO devices have better performance though which is why most hypervisors want you to use VirtIO by default. After installing Windows you can manually install drivers for VirtIO support, usually a hypervisor includes a set of drivers on a CD image you can install. VMware calls these additional drivers "VMware Tools", VirtualBox calles them "Guest Additions", Proxmox has the most unfriendly process of the three which involes installing a <a href="https://pve.proxmox.com/wiki/Qemu-guest-agent#Windows">"qemu-guest-agent"</a> to support shutdown commands and <a href="https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers">"VirtIO Drivers"</a> to achieve the same results. VirtIO drivers are usually baked into Linux installers but must be done manually for Windows (or included in a custom Windows ISO but making one of those is outside the scope of this course).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install the <a href="https://pve.proxmox.com/wiki/Windows_VirtIO_Drivers">"VirtIO Drivers"</a> on your Windows guest system and then change the Windows system to use VirtIO as the hard disk SCSI controller which will improve performance.</p>
+</li>
+<li>
+<p>Install the <a href="https://pve.proxmox.com/wiki/Qemu-guest-agent">"qemu-guest-agent"</a> on both your Windows and Linux guest systems so that you can shut down and monitor the systems from Proxmox.</p>
+</li>
+<li>
+<p>Safely shut down your Windows and Linux Mint guest systems</p>
+</li>
+<li>
+<p>Safely shutdown your Proxmox VE servers</p>
+</li>
+<li>
+<p>End your Netlab Reservation</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2023-08-16 10:31:49 -0500<br>
+Page Version: 2022.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
