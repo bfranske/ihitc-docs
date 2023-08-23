@@ -221,6 +221,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 
 === Other Work to do this week
 * Getting Started with Ansible for Network Programmability All Posts
+* Getting Started with Ansible for Network Programmability Exam
 * Introduction to VoIP All Posts
 * VoIP: Provisioning, Voicemail, and SIP First Posts
 * Introduction to VoIP Exam
@@ -263,6 +264,7 @@ NOTE: This is an older reference and the SIP configuration shown uses sip.conf w
 === Assignments Due by 6pm Today
 * Introduction to VoIP Lab Report
 * Getting Started with Ansible for Network Programmability All Posts
+* Getting Started with Ansible for Network Programmability Exam
 * Introduction to VoIP All Posts
 * VoIP: Provisioning, Voicemail, and SIP First Posts
 * Introduction to VoIP Exam
