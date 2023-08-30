@@ -291,24 +291,40 @@
 <colgroup>
 <col>
 <col>
+<col>
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">System</th>
 <th class="tableblock halign-left valign-top">IP</th>
+<th class="tableblock halign-left valign-top">FQDN Hostname</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HV-A</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">proxmoxA.podX.itc2300.campus.ihitc.net</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">HV-B</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">192.168.1.11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">proxmoxB.podX.itc2300.campus.ihitc.net</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Replace podX in the hostname with your pod ID letter such as hv-a.podA.local
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -414,14 +430,7 @@ If you make a mistake and need to have one or both of your HV VMs erased so you 
 <p>Set the IP address for each Proxmox system using table above</p>
 </li>
 <li>
-<p>Make sure the hostname is different on each Proxmox VE server and ends with .itc2300.campus.ihitc.net</p>
-<div class="ulist">
-<ul>
-<li>
-<p>It is recommended you set the name to "podXproxmoxA.itc2300.campus.ihitc.net" (change as needed for your pod letter and HV VM ID letter)</p>
-</li>
-</ul>
-</div>
+<p>Make sure the hostname is different on each Proxmox VE server and is set as identified in the table above</p>
 </li>
 </ul>
 </div>
@@ -554,7 +563,7 @@ If you do not see a hard drive to install Windows too it&#8217;s possibly your h
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-08-23 11:24:22 -0500<br>
+<p>Document Build Time: 2023-08-29 22:22:28 -0500<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
