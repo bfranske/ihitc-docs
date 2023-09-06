@@ -32,7 +32,7 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 . Boot your ESXi Server systems (the two HV systems)
 . Obtain static IP addressing information from the table above and change the IP address of each ESXi server in your pod to a unique static IP address.
 . Use the PC-C VM to mount the VCSA installation ISO file by double clicking on it.
-* The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the internal website http://172.17.139.70:8080 which you can access from PC-C.
+* The VCSA ISO file is named "VMware-VCSA-all-8.0.1-22088981.iso" and can be found on the internal website http://172.17.139.70:8080 which you can access from PC-C.
 . Open the installer.exe file found in the vcsa-ui-installer\win32 directory of the VCSA ISO image and click install to begin the installation process. If you're unfamiliar with the installation process you can refer back to your readings.
 . During the installation you will need to select ONE of your pod's ESXi servers to install the vCenter appliance onto. Only one VCSA installation per pod!
 . Set a root password for your VCSA server during the installation process, be sure to write this down! 
