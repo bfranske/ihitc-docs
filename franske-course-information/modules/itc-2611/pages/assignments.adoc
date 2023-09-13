@@ -18,8 +18,16 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 . Lab 3.1.2 - Implement Advanced STP Modifications and Mechanisms
 . Lab 4.1.2 - Implement MST
 . Lab 5.1.2 - Implement VTP
++
+--
+NOTE: In Part 2, step 2c of this lab you are asked to create vlan 2048 on switch D1. You will encounter an error when trying to do this. There is a note about the error in the lab but it is wrong. VTP version 1 or 2 cannot do extended range vlans (above 1005) regardless of the type of IOS on the switch. Only VTPv3 supoports these. Instead of vlan 2048 you can create vlan 948 and see the same thing (that it is not created on D2 or A1 automatically through VTP because they are now in a different domain).
+--
 . Lab 5.1.3 - Implement EtherChannel
 . Lab 5.1.4 - Tuning EtherChannel
++
+--
+NOTE: In Part 2, step 2a-d of this lab you are asked to configure an LACP EtherChannel bundle between D1 and D2. The directions are a bit unclear but you should configure the ports on both D1 and D2. Be sure the port channel comes up and the ports are included/working in the bundle as expected, if you only configure D2 the port channel won't come up or work.
+--
 . Lab 6.1.2 - Investigate Static Routes
 . Lab 6.1.3 - Implement VRF-Lite
 . Lab 8.1.2 - Implement Single-Area OSPFv2
