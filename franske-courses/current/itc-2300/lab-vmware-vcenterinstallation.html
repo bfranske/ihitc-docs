@@ -374,7 +374,7 @@ If you make a mistake and need to have one or both of your HV VMs erased so you 
 <div class="ulist">
 <ul>
 <li>
-<p>The VCSA ISO file is named "VMware-VCSA-all-6.7.0-15976714.iso" and can be found on the internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
+<p>The VCSA ISO file is named "VMware-VCSA-all-8.0.1-22088981.iso" and can be found on the internal website <a href="http://172.17.139.70:8080" class="bare">http://172.17.139.70:8080</a> which you can access from PC-C.</p>
 </li>
 </ul>
 </div>
@@ -396,7 +396,7 @@ If you make a mistake and need to have one or both of your HV VMs erased so you 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-It is strongly suggested you use "VCSA#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
+It is strongly suggested you use "VCSAroot#itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
 </td>
 </tr>
 </table>
@@ -405,16 +405,13 @@ It is strongly suggested you use "VCSA#itc2300" as the administrative password s
 </div>
 </li>
 <li>
-<p>When given the option you should install vCenter Server with an Embedded Platform Services Controller</p>
-</li>
-<li>
 <p>When asked about the appliance size choose a "Tiny" installation and "Default" storage size.</p>
 </li>
 <li>
 <p>Select the checkbox to enable "Thin-Disk Mode"</p>
 </li>
 <li>
-<p>Use the correct static IP address for the VCSA from the allocation you received for your pod above and choose to synchronize time with the ESXi appliance host. The IP address should also be used as the system name.</p>
+<p>Set the correct static IP address for the VCSA from the allocation you received for your pod above.</p>
 </li>
 <li>
 <p>The first phase of the installation will take quite a while to complete. Once it is done you will be prompted to start stage 2</p>
@@ -423,10 +420,7 @@ It is strongly suggested you use "VCSA#itc2300" as the administrative password s
 <p>Choose to synchronize time with the ESXi host and enable ssh access</p>
 </li>
 <li>
-<p>When creating a new SSO domain use "podX.local" (where X is replaced by your pod letter) as your SSO Domain Name</p>
-</li>
-<li>
-<p>Set the site name to Pod-X (where X is replaced by your pod letter)</p>
+<p>When creating a new SSO domain use "podX.local" (where X is replaced by your pod ID letter) as your SSO Domain Name. Set the single-sign on password to VCSAsso#itc2300</p>
 </li>
 <li>
 <p>After the installation completes use your credentials (<a href="mailto:administrator@podX.local">administrator@podX.local</a>) to log in to the VCSA web client at the address provided.</p>
@@ -487,7 +481,7 @@ Various OS installation ISO files can be found on internal website <a href="http
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-09-05 19:26:01 -0500<br>
+<p>Document Build Time: 2023-09-12 20:07:03 -0500<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
