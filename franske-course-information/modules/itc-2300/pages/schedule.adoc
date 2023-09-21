@@ -129,7 +129,7 @@ NOTE: There will be no required instructor meetings tonight (or next week) and t
 NOTE: There will be no required instructor meetings tonight (they restart next week). Instead of a synchonous meeting you must complete a course progress evaluation on the Netacad site betweek 6:00 and 7:30pm tonight.
 
 === Readings to do before next week
-* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Prgammability Lab Activities] for this week.
+* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
 === Other Work to do this week
 * Getting Started with DevNet Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
@@ -140,14 +140,14 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * VMware vCenter Administration Discussion All Posts
 * VMware vCenter and Administration Exam
 
-== Oct 10
+== Oct 11
 === Special Notes
 
 NOTE: We return to the classroom lab tonight, be sure to come for your weekly instructor meeting.
 
 
 === Readings to do before next week
-* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Prgammability Lab Activities] for this week.
+* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
 === Other Work to do this week
 * REST API Fundamentals & Network Programmability Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
@@ -161,7 +161,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 
 == Oct 18
 === Readings to do this week
-* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Prgammability Lab Activities] for this week.
+* Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
 === Other Work to do this week
 * Model Driven Network Programmability and IOS XR Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
