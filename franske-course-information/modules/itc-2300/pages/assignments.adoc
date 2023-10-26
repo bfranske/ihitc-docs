@@ -59,11 +59,13 @@ NOTE: Skip the "Creating your first c++ Telemetry Collector" lab
 [NOTE]
 ====
 You will see some references to dCloud in these labs. We do not have access to dCloud but can still work with an IOS XE device using the DevNet Sandbox reservation system.
+
 # Make a reservation for the "IOS XE on Cat 8kv Latest Code" sandbox on the https://devnetsandbox.cisco.com/RM/Topology[DevNet Sandbox Site] note that it will take a few minutes for your reservation to setup and you will need access to your email to obtain the VPN credentials which will be emailed to you. 
 # Get the Server domain name, VPN Username, and VPN password from the email Cisco will send you when your reservation is ready. Use the `export` commands as described in the lab instructions to connect to the VPN from the shell in your browser. You do NOT need to install the AnyConnect/OpenConnect client on your computer for this lab as you will be using the terminal in your browser which already has it installed.
 # When you setup your `hosts` inventory file change the `ansible_user` to the username from the DevNet Sandbox webpage in the "Catalyst 8000v Credentials and Information" section (it is probably `developer`)
 # When you setup your `hosts` inventory file you will only have one IP address in the `[iosxe]` section instead of two and the IP address will be the Host address in the "Catalyst 8000v Credentials and Information" section of the DevNet Sandbox webpage (it is probably `10.10.20.48`)
 # Note that you can connect to your sandbox router over SSH if you connect to the VPN from your computer with OpenConnect/AnyConnect. After connecting to the VPN use PuTTY/SSH and the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.
+
 Otherwise follow the lab as normal and you should get output using the developer terminal in your browser as expected (though only on one router instead of two).
 ====
 * Complete the https://developer.cisco.com/learning/tracks/IOT-Edge-v0/IOT-Edge-TIF-v0/iot-industrial-netdevops-ansible/overview/[Getting Started with Ansible on Cisco IoT Hardware lab] in the IOT & Edge Computing-Taking it Further module.
@@ -75,6 +77,7 @@ NOTE: Just do the "Managing IoT Hardware with Ansible: Getting Started" lab from
 [NOTE]
 ====
 This lab mentions that a sandbox reservation is optional but you will need to create one unless you own your own IOS XE device. Use the Sandbox lab indicated below and not the "virtual VSR1000V IOS XE" one they mention in the lab whihc no longer exists.
+
 # Make a reservation for the "IOS XE on Cat 8kv Latest Code" sandbox on the https://devnetsandbox.cisco.com/RM/Topology[DevNet Sandbox Site] note that it will take a few minutes for your reservation to setup and you will need access to your email to obtain the VPN credentials which will be emailed to you. You WILL need to install the AnyConnect/OpenConnect client on your computer for this lab as you will be connecting from your computer directly to the sandbox.
 # On several pages in the lab there is a "On Devbox" set of instructions followed by a "On your Compuer or Laptop" section. These are supposed to be one OR the other not both. It will be much easier for you if you follow the "On Devbox" instuctions and skip over the "On your Computer or Laptop" sections as you will not need to install nearly as much stuff on your computer.
 # Note that you can connect to your sandbox router over SSH as long as you are connected via VPN using the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.
