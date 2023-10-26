@@ -1,5 +1,9 @@
 = Introduction to VoIP with Asterisk Labs
 
+== Topology Diagram
+
+image::Netlab_Asterisk_Basic_Topology.svg
+
 == IP Addressing & Phone Extensions
 
 These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.
