@@ -2,7 +2,7 @@
 
 == Topology Diagram
 
-image::Netlab_Asterisk_Basic_Topology.svg
+image::Netlab_Asterisk_Basic_Topology.svg[]
 
 == IP Addressing & Phone Extensions
 
