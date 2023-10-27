@@ -493,6 +493,9 @@ Just do the "Managing IoT Hardware with Ansible: Getting Started" lab from this 
 <p>On several pages in the lab there is a "On Devbox" set of instructions followed by a "On your Compuer or Laptop" section. These are supposed to be one OR the other not both. It will be much easier for you if you follow the "On Devbox" instuctions and skip over the "On your Computer or Laptop" sections as you will not need to install nearly as much stuff on your computer.</p>
 </li>
 <li>
+<p>You will need to update the IP address of your router in the Ansible hosts file too. Make sure to use the actual IP address of your router as shown on the DevNet Sandbox page (it is probably <code>10.10.20.48</code>).</p>
+</li>
+<li>
 <p>Note that you can connect to your sandbox router over SSH as long as you are connected via VPN using the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.</p>
 </li>
 </ol>
@@ -500,6 +503,22 @@ Just do the "Managing IoT Hardware with Ansible: Getting Started" lab from this 
 </td>
 </tr>
 </table>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There is an error on the "Ansible hands-on: Show Commands" page of this lab. The first command to execute a playbook is given as <code>ansible-playbook playbook-simple-ping.yml</code> but Ansible is not aware of the password to your router. There is a note in the "Explanation" section below this command about the -k argument and the correct command (though with a wrong playbook filename) is shown in the "Expected Output" section below that which is <code>ansible-playbook playbook-simple-ping.yml -k</code> When this is entered you should be prompted for the router password (see the DevNet Sandbox page) when you run the playbook.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </li>
 </ul>
@@ -728,7 +747,7 @@ Discussion forum posts are usually worth a larger portion of your final grade th
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-10-25 20:27:22 -0500<br>
+<p>Document Build Time: 2023-10-26 20:42:51 -0500<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
