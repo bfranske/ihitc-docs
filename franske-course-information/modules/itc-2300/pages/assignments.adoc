@@ -80,8 +80,13 @@ This lab mentions that a sandbox reservation is optional but you will need to cr
 
 . Make a reservation for the "IOS XE on Cat 8kv Latest Code" sandbox on the https://devnetsandbox.cisco.com/RM/Topology[DevNet Sandbox Site] note that it will take a few minutes for your reservation to setup and you will need access to your email to obtain the VPN credentials which will be emailed to you. You WILL need to install the AnyConnect/OpenConnect client on your computer for this lab as you will be connecting from your computer directly to the sandbox.
 . On several pages in the lab there is a "On Devbox" set of instructions followed by a "On your Compuer or Laptop" section. These are supposed to be one OR the other not both. It will be much easier for you if you follow the "On Devbox" instuctions and skip over the "On your Computer or Laptop" sections as you will not need to install nearly as much stuff on your computer.
+. You will need to update the IP address of your router in the Ansible hosts file too. Make sure to use the actual IP address of your router as shown on the DevNet Sandbox page (it is probably `10.10.20.48`).
 . Note that you can connect to your sandbox router over SSH as long as you are connected via VPN using the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.
 ====
++
+--
+NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this lab. The first command to execute a playbook is given as `ansible-playbook playbook-simple-ping.yml` but Ansible is not aware of the password to your router. There is a note in the "Explanation" section below this command about the -k argument and the correct command (though with a wrong playbook filename) is shown in the "Expected Output" section below that which is `ansible-playbook playbook-simple-ping.yml -k` When this is entered you should be prompted for the router password (see the DevNet Sandbox page) when you run the playbook.
+--
 
 === Voice over IP (VoIP) Labs
 
