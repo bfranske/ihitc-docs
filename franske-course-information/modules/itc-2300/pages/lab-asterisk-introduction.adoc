@@ -103,13 +103,13 @@ WARNING: If you are not continuing past this point be sure to safely shutdown yo
 . Install the sudo package with `*apt install sudo*`
 . Add your user to the sudo group with a command like `*adduser _YOURUSERNAMEHERE_ sudo`*
 . Install the *asterisk* and *tftpd-hpa* packages in a similar manner to how you installed sudo.
-. Download the chan-sccp plugin to your Debian system like `*wget xref:attachment$chan-sccp_4.3.4_amd64.deb[https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4_amd64.deb]*`
+. Download the chan-sccp plugin to your Debian system like `*wget xref:attachment$chan-sccp_4.3.4-1_amd64.deb[https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4-1_amd64.deb]*`
 +
 --
 NOTE: To save time and reduce complexity in our lab I have built this packaged version of the chan-sccp-b plugin which works with our Debian systems and version of Asterisk. The actual plugin and normal installation instructions are at https://github.com/chan-sccp/chan-sccp
 --
 . Install the *gettext* package which is required by chan-sccp
-. Install chap-sccp with `*dpkg -i chan-sccp_4.3.4_amd64.deb*`
+. Install chap-sccp with `*dpkg -i chan-sccp_4.3.4-1_amd64.deb*`
 +
 --
 NOTE: The reason this package is installed with dpkg instead of with apt is that we have manually downloaded the package from an independent website instead of automatically downloading it from the official Debian repository we selected during the installation process. We need to do this because Debian does not have an official chan-sccp package.
