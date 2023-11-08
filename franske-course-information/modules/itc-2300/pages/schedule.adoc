@@ -195,6 +195,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 * Getting Started with Ansible for Network Programmability First Posts
 * Introduction to VoIP with Asterisk First Posts
 * Model Driven Network Programmability and IOS XE Exam
+* OPTIONAL but highly recommended is to do the remote pre-work in the "Introduction to VoIP Labs" (see Assignments page)
 
 === Assignments Due by 6pm Today
 * Model Driven Network Programmability and IOS XR Lab Report
@@ -233,7 +234,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 * Introduction to VoIP with Asterisk First Posts
 * Model Driven Network Programmability and IOS XE Exam
 
-== Nov 7
+== Nov 8
 === Readings to do before next week
 * http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-OutsideConn-SECT-1.html[The Basics of Trunking]
 * https://www.voip-info.org/did/[DIDs and Trunking]
