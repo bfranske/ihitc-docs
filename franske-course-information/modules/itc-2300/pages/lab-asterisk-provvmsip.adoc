@@ -88,7 +88,6 @@ NOTE: It's strongly suggested you connect to and work on your Asterisk server ov
 
 == Voicemail
 
-+
 --
 NOTE: It's expected that you have done your readings before beginning this lab. The lab will outline the tasks to do and give helpful tips but the readings contain details about how to configure the various parts of this lab.
 --
@@ -143,9 +142,9 @@ NOTE: After modifying the pjsip.conf file you will need to at least reload the p
 
 == Digium DPMA Phone Provisioning
 
-. Sign up for an account on the Digium store and https://store.digium.com/cart.php?action=add&product_code=804-00032&quantity=1["purchase" a free DPMA key].
+. Sign up for an account on the https://my.digium.com/en/users/viewprofile/[Digium store] and after logging in https://store.digium.com/cart.php?action=add&product_code=804-00032&quantity=1[click here to "purchase" a free DPMA key].
 . Install the *avahi-daemon* and *libavahi-client3* packages on your Debian server. These packages support Multicast DNS (aka mDNS or Bonjour) which is one way that the DPMA phones can find your Asterisk server and the method we will use. Because multicast traffic does not generally work outside of a single layer 2 subnet if you had your Asterisk server on a different subnet you would need to use an alternative method such as the https://wiki.asterisk.org/wiki/display/DIGIUM/Provisioning#Provisioning-ConfigurationwhenMulticastisNotAvailable[DHCP option 66 method].
-. Follow the https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Installation[Asterisk DPMA installation instructions] to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)
+. Follow the http://downloads.digium.com/pub/telephony/res_digium_phone/README[Asterisk DPMA installation instructions] (you will need to download this README file and open in a text editor to get the instructions) to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)
 +
 --
 NOTE: Make sure to get the current one for Asterisk Version 16. If you get one for a different version of Asterisk you will crash Asterisk when you try to load it.
