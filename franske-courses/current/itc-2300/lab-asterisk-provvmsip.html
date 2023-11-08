@@ -548,9 +548,6 @@ It&#8217;s strongly suggested you connect to and work on your Asterisk server ov
 <div class="sect1">
 <h2 id="_voicemail"><a class="anchor" href="#_voicemail"></a>Voicemail</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>+</p>
-</div>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -748,13 +745,13 @@ After modifying the pjsip.conf file you will need to at least reload the pjsip c
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Sign up for an account on the Digium store and <a href="https://store.digium.com/cart.php?action=add&amp;product_code=804-00032&amp;quantity=1">"purchase" a free DPMA key</a>.</p>
+<p>Sign up for an account on the <a href="https://my.digium.com/en/users/viewprofile/">Digium store</a> and after logging in <a href="https://store.digium.com/cart.php?action=add&amp;product_code=804-00032&amp;quantity=1">click here to "purchase" a free DPMA key</a>.</p>
 </li>
 <li>
 <p>Install the <strong>avahi-daemon</strong> and <strong>libavahi-client3</strong> packages on your Debian server. These packages support Multicast DNS (aka mDNS or Bonjour) which is one way that the DPMA phones can find your Asterisk server and the method we will use. Because multicast traffic does not generally work outside of a single layer 2 subnet if you had your Asterisk server on a different subnet you would need to use an alternative method such as the <a href="https://wiki.asterisk.org/wiki/display/DIGIUM/Provisioning#Provisioning-ConfigurationwhenMulticastisNotAvailable">DHCP option 66 method</a>.</p>
 </li>
 <li>
-<p>Follow the <a href="https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Installation">Asterisk DPMA installation instructions</a> to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)</p>
+<p>Follow the <a href="http://downloads.digium.com/pub/telephony/res_digium_phone/README">Asterisk DPMA installation instructions</a> (you will need to download this README file and open in a text editor to get the instructions) to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)</p>
 <div class="openblock">
 <div class="content">
 <div class="admonitionblock note">
@@ -818,7 +815,7 @@ Make sure to get the current one for Asterisk Version 16. If you get one for a d
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-11-08 11:44:36 -0600<br>
+<p>Document Build Time: 2023-11-08 17:54:11 -0600<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
