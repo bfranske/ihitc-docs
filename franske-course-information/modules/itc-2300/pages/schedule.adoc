@@ -246,9 +246,9 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 --
 NOTE: This is an older reference and the SIP configuration shown uses sip.conf which is slightly different than the pjsip.conf we are using, just be aware that the concepts are sound but the exact SIP configuration will be a bit different
 --
-* https://wiki.asterisk.org/wiki/display/AST/res_pjsip+Configuration+Examples#res_pjsipConfigurationExamples-ASIPtrunktoyourserviceprovider,includingoutboundregistration[PJSIP Configuration for Trunk to Service Provider Including Registration]
+* https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/res_pjsip-Configuration-Examples/#a-sip-trunk-to-your-service-provider-including-outbound-registration[PJSIP Configuration for Trunk to Service Provider Including Registration]
 * http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/OutsideConnectivity_id291313.html[Emergency Dialing]
-* https://wiki.asterisk.org/wiki/display/AST/Dialplan+Security[Asterisk Dialplan Security]
+* https://docs.asterisk.org/Deployment/Important-Security-Considerations/Dialplan-Security/?h=dialplan+security[Asterisk Dialplan Security]
 * https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/dialpeer/configuration/15-mt/vd-15-mt-book/vd-dp-overview.html[Cisco IOS Dial Peer Configuration Guide: Dial Peer Overview]
 * https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/dialpeer/configuration/15-mt/vd-15-mt-book/vd-dp-feat-cfg.html[Cisco IOS Dial Peer Configuration Guide: Dial Peer Features and Configuration]
 * https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/voiceport/configuration/15-mt/vp-15-mt-book/vp-overview.html[Cisco IOS Voice Port Configuration Guide: Voice Port Configuration Overview]
