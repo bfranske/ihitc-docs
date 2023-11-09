@@ -272,16 +272,16 @@ NOTE: This is an older reference and the SIP configuration shown uses sip.conf w
 
 == Nov 15
 === Readings to do before next week
-* https://wiki.freepbx.org/display/PPS/Installing+SNG7+Official+Distro[FreePBX Installation Guide]
-* https://wiki.freepbx.org/display/FPG/FreePBX+Distro[FreePBX Registration]
-* https://wiki.freepbx.org/display/FPG/Configuring+Your+PBX[FreePBX: Configuring Your PBX] - Skip the section on "Setting Up SIPStation Trunks"
-* https://wiki.freepbx.org/display/FPG/Extensions+Module+-+PJSIP+Extension[FreePBX PJSIP Extensions]
-* https://wiki.freepbx.org/display/FPG/Trunks+Module+-+User+Guide[FreePBX Trunks]
-* https://wiki.freepbx.org/display/FPG/EPM-DPMA+for+Digium+Phones[EndPoint Manager for DPMA Phones]
+* https://help.sangoma.com/community/s/article/PBX-Platforms-Installing-SNG7-Official-Distro[FreePBX Installation Guide]
+* https://help.sangoma.com/community/s/article/PBX-GUI-FreePBX-Distro[FreePBX Registration]
+* https://help.sangoma.com/community/s/article/PBX-GUI-Configuring-Your-PBX[FreePBX: Configuring Your PBX] - Skip the section on "Setting Up SIPStation Trunks"
+* https://help.sangoma.com/community/s/article/PBX-GUI-Extensions-Module-PJSIP-Extension[FreePBX PJSIP Extensions]
+* https://help.sangoma.com/community/s/article/PBX-GUI-Trunks-Module-User-Guide[FreePBX Trunks]
+* https://help.sangoma.com/community/s/article/PBX-GUI-EPM-DPMA-for-Digium-Phones[EndPoint Manager for DPMA Phones]
 * https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Installation[Chan-SCCP FreePBX Installation]
 * https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Dialplan[Chan-SCCP FreePBX Dialplan]
 * https://github.com/PhantomVl/sccp_manager/blob/extension_mobility/README.md[Chan-SCCP FreePBX Manager Readme]
-* https://wiki.freepbx.org/display/PPS/FreePBX+Distro+First+Steps+After+Installation[FreePBX First Steps]
+* https://help.sangoma.com/community/s/article/PBX-Platforms-FreePBX-Distro-First-Steps-After-Installation[FreePBX First Steps]
 * https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Setup[Chan-SCCP FreePBX Setup]
 
 === Work to do in/during class time tonight
