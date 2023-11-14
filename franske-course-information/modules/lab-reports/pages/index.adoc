@@ -42,5 +42,6 @@ Below are some example lab reports posted by students. These are certainly not p
 * xref:example2.adoc[Lab Report Example - Linux Class]
 * xref:example3.adoc[Lab Report Example - Network Security Class]
 * xref:example4.adoc[Lab Report Example - CCNA 3 Class]
+* xref:example5.adoc[Lab Report Example - CCNP Class]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
