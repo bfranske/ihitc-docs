@@ -1,0 +1,22 @@
+= Lab Report Example - CCNA 3 Class
+
+== Example Report
+Lab 12 – Implementing BGP path manipulation and communities 
+
+*What We Did/What was the Purpose*
+
+In this lab, the first thing I did was configure BGP for R1, R2, and R3. I did this by setting the AS to each router and then the router-id. I also set the designated neighbors for ipv4 and ipv6. The last step in setting up BGP was configuring the IPv4 and IPv6 unicast address family. After the setup of BGP, I configured BGP path manipulation with ACL-base route filtering. On R3 I made an extended ACL to only send ASN300 networks to R1; it will not tell R1 that it knows about the networks in ASN200. Next, I configured a prefix list to configure R1 so that it only accepts ASN500 networks from R2; it will not accept information about ASN300 networks from R2. I also did AS-Path ACl and configured the ipv6 with prefix lists. I also created a route map to match the prefix list and set the matched networks to have a local preference of 250. I also configured BGP communities by first setting all routers to send community information. I then build a route map for IPv4 and IPv6 on R3 that uses the prefix list to set the no-export additive community on networks matching the prefix list, and the internet additive community on networks that do not match the prefix list. I also added private community information so that it adds custom community strings to IPv4 and IPv6 routes that it advertises to R2/ASN500.
+
+*Problems & Solutions*
+
+One difficulty that I faced was configuring MP-BGP on R2 and R3. I had a hard time with this because there were no specific directions on how to configure MP-BGP. For example, R1 had instructions on what to set the router ID to, but not for R2 and R3. I was able to overcome this problem by looking at the topology and assigning the R2 router ID to 2.2.2.2 and the R3 router ID to 3.3.3.3. I also used the topology for assigning the IPv4 and ipv6 addresses. The topology really helped me visually see the layout and the three different ASNs.
+
+*How We Tested the Lab*
+
+I was able to test my MP-BGP operation by using the command “show bgp ipv4 unicast summary” (also used for ipv6) to verify that BGP has established adjacencies and received prefixes. I also used the “show ip route bgp” and “show ipv6 route bgp” commands to view the routing tables. To verify my ACL based route filtering worked I used the command “show bgp ipv4 unicast | i 300” to see what prefixes routes ASN300 is sharing via BGP. To verify my prefix-list-based route filtering was working I used “show bgp ipv4 unicast | i 500” command to see what prefixes routes ASN500 is sharing via BGP. I also verified my route map was configured correctly by using the “show ip route bgp | begin Gateway” command and seeing the next hop address for the 192.168.3.0/27 and 192.168.3.64/26 networks were both 10.1.3.130. To verifying my BGP communities I used the “show bgp ipv4 unicast 192.168.3.0/27” command to verify BGP paths to 192.168.3.0/27 from R2. I also verified my private community information policy was working on R3 by Issue the command “show bgp ipv4 unicast 192.168.1.0/27 | i Community” and seeing no output meaning no paths to ASN6500 network and has been filtered.
+
+*What We Learned*
+
+One of the things I learned from this lab is understanding the topology much better. I was confused at first about the .2/::2 marks on the topology, but now I understand that’s the last octet in the IP address for that port. Another thing that I learned was that after configuring an access list and applying it to the neighbor interface you need to perform a reset of the outbound/inbound traffic. Without a reset, the ACL may not be implemented. Another thing I learned was that A BGP community is a 32-bit number that can be included as a flag or tag in a route.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
