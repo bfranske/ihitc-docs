@@ -777,6 +777,12 @@ Make sure to get the current one for Asterisk Version 16. If you get one for a d
 </div>
 </li>
 <li>
+<p>The DPMA Installation README instructions have some missing instructions. After downloading and extracting the res_digium_phone archive, they only tell you to copy the res_digium_phone.so file to the /usr/lib/asterisk/modules directory. However, you actually need to copy all 3 module files ending with .so from the extracted archive to the /usr/lib/asterisk/modules directory.</p>
+</li>
+<li>
+<p>After copying the extracted modules you should restart the asterisk software to load the modules.</p>
+</li>
+<li>
 <p>Configure ports Gi1/0/5 and Gi1/0/6 on your switch the same way your other VoIP phone ports are configured</p>
 </li>
 <li>
@@ -816,7 +822,7 @@ Make sure to get the current one for Asterisk Version 16. If you get one for a d
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-11-15 19:07:08 -0600<br>
+<p>Document Build Time: 2023-11-15 21:17:23 -0600<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
