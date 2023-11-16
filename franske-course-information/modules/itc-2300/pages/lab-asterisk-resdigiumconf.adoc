@@ -46,6 +46,6 @@ After to re-read the file you can run the `*digium_phones reconfigure all*` comm
 
 == Additonal Resources
 
-* https://wiki.asterisk.org/wiki/display/DIGIUM/DPMA+Configuration[DPMA Configuration]
+* https://help.sangoma.com/community/s/article/Phones-DPMA-Configuration[DPMA Configuration]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
