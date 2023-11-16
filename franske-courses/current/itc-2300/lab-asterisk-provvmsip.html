@@ -752,6 +752,12 @@ After modifying the pjsip.conf file you will need to at least reload the pjsip c
 <p>Install the <strong>avahi-daemon</strong> and <strong>libavahi-client3</strong> packages on your Debian server. These packages support Multicast DNS (aka mDNS or Bonjour) which is one way that the DPMA phones can find your Asterisk server and the method we will use. Because multicast traffic does not generally work outside of a single layer 2 subnet if you had your Asterisk server on a different subnet you would need to use an alternative method such as the <a href="https://wiki.asterisk.org/wiki/display/DIGIUM/Provisioning#Provisioning-ConfigurationwhenMulticastisNotAvailable">DHCP option 66 method</a>.</p>
 </li>
 <li>
+<p>Get two Digium D60 phones. Do NOT connect them to the switch yet.</p>
+</li>
+<li>
+<p>Create a basic <code>res_digium_phone.conf</code> file for your phone with the correct MAC addresses and settingss for a xx04 and xx05 extension. See the <a href="lab-asterisk-resdigiumconf" class="xref page">sample res_digium_phone.conf file</a> for some hints.</p>
+</li>
+<li>
 <p>Follow the <a href="http://downloads.digium.com/pub/telephony/res_digium_phone/README">Asterisk DPMA installation instructions</a> (you will need to download this README file and open in a text editor to get the instructions) to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)</p>
 <div class="openblock">
 <div class="content">
@@ -772,12 +778,6 @@ Make sure to get the current one for Asterisk Version 16. If you get one for a d
 </li>
 <li>
 <p>Configure ports Gi1/0/5 and Gi1/0/6 on your switch the same way your other VoIP phone ports are configured</p>
-</li>
-<li>
-<p>Get two Digium D60 phones. Do NOT connect them to the switch yet.</p>
-</li>
-<li>
-<p>Create a basic <code>res_digium_phone.conf</code> file for your phone with the correct MAC addresses and settingss for a xx04 and xx05 extension. See the <a href="lab-asterisk-resdigiumconf" class="xref page">sample res_digium_phone.conf file</a> for some hints.</p>
 </li>
 <li>
 <p>Create the required global entries in your PJSIP file for DPMA configuration use</p>
@@ -816,7 +816,7 @@ Make sure to get the current one for Asterisk Version 16. If you get one for a d
 </div>
 <hr>
 <div class="paragraph">
-<p>Document Build Time: 2023-11-14 17:55:23 -0600<br>
+<p>Document Build Time: 2023-11-15 18:57:02 -0600<br>
 Page Version: 2023.08<br>
 <span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
 This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
