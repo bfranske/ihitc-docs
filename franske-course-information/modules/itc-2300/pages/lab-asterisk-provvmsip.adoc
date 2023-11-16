@@ -151,6 +151,8 @@ NOTE: After modifying the pjsip.conf file you will need to at least reload the p
 --
 NOTE: Make sure to get the current one for Asterisk Version 16. If you get one for a different version of Asterisk you will crash Asterisk when you try to load it.
 --
+. The DPMA Installation README instructions have some missing instructions. After downloading and extracting the res_digium_phone archive, they only tell you to copy the res_digium_phone.so file to the /usr/lib/asterisk/modules directory. However, you actually need to copy all 3 module files ending with .so from the extracted archive to the /usr/lib/asterisk/modules directory.
+. After copying the extracted modules you should restart the asterisk software to load the modules.  
 . Configure ports Gi1/0/5 and Gi1/0/6 on your switch the same way your other VoIP phone ports are configured
 . Create the required global entries in your PJSIP file for DPMA configuration use
 . Create the required entries for the xx04 and xx05 lines in your PJSIP, Voicemail, and dialplan configuration files as well.
