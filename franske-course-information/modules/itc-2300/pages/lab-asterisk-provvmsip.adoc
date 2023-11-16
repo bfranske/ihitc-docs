@@ -144,14 +144,14 @@ NOTE: After modifying the pjsip.conf file you will need to at least reload the p
 
 . Sign up for an account on the https://my.digium.com/en/users/viewprofile/[Digium store] and after logging in https://store.digium.com/cart.php?action=add&product_code=804-00032&quantity=1[click here to "purchase" a free DPMA key].
 . Install the *avahi-daemon* and *libavahi-client3* packages on your Debian server. These packages support Multicast DNS (aka mDNS or Bonjour) which is one way that the DPMA phones can find your Asterisk server and the method we will use. Because multicast traffic does not generally work outside of a single layer 2 subnet if you had your Asterisk server on a different subnet you would need to use an alternative method such as the https://wiki.asterisk.org/wiki/display/DIGIUM/Provisioning#Provisioning-ConfigurationwhenMulticastisNotAvailable[DHCP option 66 method].
+. Get two Digium D60 phones. Do NOT connect them to the switch yet.
+. Create a basic `res_digium_phone.conf` file for your phone with the correct MAC addresses and settingss for a xx04 and xx05 extension. See the xref:lab-asterisk-resdigiumconf.adoc[sample res_digium_phone.conf file] for some hints.
 . Follow the http://downloads.digium.com/pub/telephony/res_digium_phone/README[Asterisk DPMA installation instructions] (you will need to download this README file and open in a text editor to get the instructions) to download the registration program (be sure to use the 64 bit one!) as well as to download and install the DPMA module (again you want the 64 bit one for Asterisk version 16)
 +
 --
 NOTE: Make sure to get the current one for Asterisk Version 16. If you get one for a different version of Asterisk you will crash Asterisk when you try to load it.
 --
 . Configure ports Gi1/0/5 and Gi1/0/6 on your switch the same way your other VoIP phone ports are configured
-. Get two Digium D60 phones. Do NOT connect them to the switch yet.
-. Create a basic `res_digium_phone.conf` file for your phone with the correct MAC addresses and settingss for a xx04 and xx05 extension. See the xref:lab-asterisk-resdigiumconf.adoc[sample res_digium_phone.conf file] for some hints.
 . Create the required global entries in your PJSIP file for DPMA configuration use
 . Create the required entries for the xx04 and xx05 lines in your PJSIP, Voicemail, and dialplan configuration files as well.
 . You probably want to restart the Asterisk software on your system again at this point to re-load all the configuration files and re-load all the modules. If you make further changes to configuration files make sure that the config file is reloaded by Asterisk so the changes are applied.
