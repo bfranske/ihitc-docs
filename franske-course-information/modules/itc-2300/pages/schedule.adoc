@@ -315,7 +315,7 @@ NOTE: This is an older reference and the SIP configuration shown uses sip.conf w
 * GUI Asterisk Configuration Discussion First Posts
 * T1 and PSTN Access Exam
 
-== Nov 28
+== Nov 29
 === Readings to do before next week
 * Readings as required for your case study projects
 
@@ -345,7 +345,7 @@ NOTE: This is an older reference and the SIP configuration shown uses sip.conf w
 === Assignments Due by 6pm Today
 * Final Online Exam
 
-== Dec 12
+== Dec 13
 === Special NOTE
 
 NOTE: You will be presenting your case studies in class tonight
