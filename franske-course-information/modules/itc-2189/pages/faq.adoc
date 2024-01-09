@@ -1,0 +1,70 @@
+= Frequently Asked Questions
+
+== How do I register for the ITC Internship class?
+
+First, you need to find an IT position you can use for internship credit. See FAQ #3 below and step 1 of the "ITC Internship Course Enrollment Steps" for more on that. Once you have a position see the section “ITC Internship Course Enrollment Steps” in the xref:guidelines-policies.adoc[guidelines and policies] section for detailed steps to get registered.
+
+The ITC Internship course is not a course where you register and then you find or are placed at an internship. Instead, you take this course to receive credit for internship work experience so you need to have an internship position accepted before you register, this is why instructor approval is required to register.
+
+The ITC Internship course is offered every term and, although it only shows a limited number of seats, the course will not fill up as we will expand the course as needed. You can also register for this course even after a term starts so there is not a rush to register for the course. See FAQ #6 for more details.
+
+== When am I ready to take the internship course?
+
+We normally recommend that you start looking for internship positions anytime after you have completed the ITC 2000 PC Hardware & Software course. The ITC Internship course is offered every term (including summer) and you can also register for this course even after a term starts so as soon as you are hired for a position and have approval from the ITC internship supervisor you can start.
+
+It's easier to get hired if you have previous experience in IT. However, we realize this is not normally the case for students! Especially if you do not have previous experience you will probably find it easier to get hired if you have passed professional certification exams so that people know you have some knowledge, skills, and abilities in the IT area. The CompTIA A+ professional certification is a good place to start. If you've taken the ITC PC Hardware & Software course you should be well on your way to passing that certification. It's suggested you contact your PC Hardware & Software instructor for advice on passing the certification and take some practice exams to help prepare you. If you already have the CompTIA A+ and have also completed all our CCNA courses passing the CCNA certification is another great way to show you know your way around even more complex IT systems.
+
+== How do I find an internship position?
+
+You will find your internship position the same way you would find any job in the IT field. IHCC does not normally place students at internships, you will seek and find a suitable position yourself. It is strongly suggested you work with the IHCC Career Development office to review your resume, brush up on interview skills, and get tips on job searching https://www.inverhills.edu/careerdevelopment 
+
+We realize there are very few positions advertised specifically as internships in the IT field. Most IT jobs can be used for credit in the internship course. See details elsewhere in this handbook for specific requirements for positions.
+
+Many ITC internship students are just getting into the IT field, in that case it is most likely that you will be looking for and hired into an IT Helpdesk type position. Those can work just fine for your internship as long as the position allow you to do a little bit of project work or job shadowing with other IT positions as well. In particular inside support positions (where you are providing support to other employees) usually have these kinds of opportunities, outside support positions (where you are providing support to customers of the company) usually do not allow for the required opportunities. See detailed position requirements in the Internship Guidelines and step 1 of the “ITC Internship Course Enrollment Steps” both of which are later in this handbook. Ask your IHCC ITC internship supervisor if you have questions about whether a specific job will meet the internship requirements.
+
+When searching for job openings it is useful to know that there are not standardized names for IT positions across companies. Some companies have titles like “Service Desk Analyst I” while others call the same position “IT Support”, “PC Technician”, “Level I Support Analyst”, etc. So, if it at first appears there aren't many open jobs try searching with some other terms and also be sure to read through job descriptions, even of jobs that have titles that don't sound like what you're looking for as they may still work.
+
+Your first IT position might be a "contract" position with a defined length (such as 6 months) instead of an open-ended job you keep until you leave, are fired, etc. Those contract positions are often easier to get as they typically do not offer benefits and are great options for getting early career experience like with the internship.
+
+Sometimes positions are advertised through a third party (not the company you will work for) sometimes called a recruiting firm, staffing agency, or headhunting firm. This is especially the case with entry level positions. In fact, you will often see the same position advertised by multiple different recruiting firms with slightly different language. These types positions can also work as internship positions and the recruiting firms can sometimes be of assistance in preparing you for interviews, etc. However, they can also sometimes lead you to apply for jobs which you're really not qualified for just so they can get some credit for bringing in people to interview. Be sure you’re not letting them waste too much of your time.
+
+The best way to find open jobs in IT is to “network”. Ask your friends, family, social media friends, etc. if they know of any open entry level IT positions. It never hurts to make a profile on job networking sites like LinkedIn as well. A good resource for looking for IT jobs is a job search website focused on the tech area. One example of such as site is https://www.dice.com It’s suggested that you upload your resume to these sites and you search the sites for jobs and apply to jobs. As mentioned above there are a lot of different titles for entry level IT jobs so you will probably need to search a lot of terms. Some suggested terms are:
+
+* Support
+* Technical Support
+* CompTIA A+
+* Helpdesk
+* Service Desk
+
+== What if I am unable to find a position titled intern or described as an internship?
+
+No problem! We realize there are very few positions advertised specifically as internships in the IT field. Most IT jobs can be used for credit in the internship course. See details elsewhere in this handbook for specific requirements for positions. For advice on looking for a position see the above question.
+
+== What about jobs that list a requirement for a degree or experience?
+You are encouraged to apply for jobs you think you're qualified for even if they list a degree (2 year or 4 year) or experience as a requirement which you don't have yet. In many cases these requirements are listed in the hopes they can get someone who has that qualification but that is often times wishful thinking on the part of employers. There is nothing about an entry level IT position, such as a helpdesk position, at most companies which requires a degree. Of course, you will be at an advantage if you do have a degree and apply. The same goes for experience or professional certifications. These things will give you a "leg up" during the hiring process but "requirements" are usually negotiable. If you don't have a degree or previous experience it is helpful to have one or more professional certifications though. This is why you are strongly encouraged in your classes to complete professional certifications such as the CompTIA A+ and CCNA. Once you have these certifications you should certainly include them on your resume and applications/interviews.
+
+== What if I don't have an internship position when classes start for the term or I won't have 192 hours done by the end of the term?
+
+This is why we require you have a position and receive approval before you are allowed to register for the internship course. Keep looking for a position. Internships are not like regular classes, we can register you for the internship course at any time during the semester, you do not need to register before the semester starts. As soon as you find and are hired for a position you can contact the ITC internship supervisor to get registered for the class even if it's the middle of the semester.
+
+We will normally register you for the course during the semester where the majority of your hours will be completed. This may mean that you start working at your internship even before you are registered for the course, that's OK as long as you have cleared it with the ITC internship supervisor and have completed all the assignments as described in the xref:itc-2189:guidelines-policies.adoc[Guidelines and Policies] and xref:itc-2189:syllabus.adoc[Syllabus] portions of the handbook.
+
+If you get to the end of a semester which you are registered for the internship course and have been working at an internship but don't have all your 192 hours or assignments completed yet you should contact your ITC internship supervisor. Our normal process is for you to request an "Incomplete" grade for the internship course, due to campus policy you must request and agree to the incomplete. You can then finish your hours and/or assignments and work with your ITC internship supervisor to get your final grade submitted and the course completed.
+
+If you are unable to complete the internship within one semester after the semester in which you are registered for the internship you will fail the internship course and need to re-take it to complete the internship requirement.
+
+== Can I get credit for work I did in the past? What if I worked somewhere last summer and want to get internship credit for that work?
+
+Sorry, no. You must contact the ITC internship supervisor, register for the class, and complete some of the assignments before you can begin counting your hours towards the internship. You then must do other assignments during the course of the 192 hours, and still others after the internship is over. You cannot do these assignments after the fact and need to collaborate with the ITC internship supervisor to get approval for your internship before you can count work towards the internship.
+
+== What if I already have a job and am unable to take an internship?
+
+Our goal with the internship course is to launch or propel your career in IT so it is important to get real-world work experience in the IT field.
+
+If you already work in the IT area (see the Internship Guidelines for details on what constitutes the IT area) it is possible that your existing job may be able to count for the internship. In this case you should read through the requirements in this handbook and then contact the ITC internship supervisor to discuss your situation and request approval to use your current job.
+
+If you do not currently work in the IT field you probably will not be able to count your current job for the internship and will need to find an internship which meets the requirements in this handbook. We do normally require that internships are paid (more information later in this handbook) so the internship course may provide an opportunity to leave your current position and begin your IT career.
+
+Finally, there is much flexibility in the internship program, while many students work 20-40 hours a week during their internship you don't have to do this, it's possible to complete the internship (over a longer period of time) working 5-10 hours a week if you have another job which you need to keep.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

@@ -1,0 +1,154 @@
+= Internship Guidelines and Policies
+
+Involvement in a professional field experience has significant value during your academic career. The practical application of classroom learning and practice gives meaning and fulfillment to formal education experienced and the world of full-time professional work.
+
+The purpose of this internship experience is to augment formal classroom instruction and to provide you with an opportunity to carry out the concepts discussed during formal classroom instruction. It is a goal of the Inver Hills Community College ITC Internship program to prepare you for the IT workplace by introducing you to an environment where you can exhibit resourcefulness, effectively execute situational leadership, think critically, and use problem-solving to determine solutions to a variety of technology related challenges.
+
+At least once during the course of your internship you will be visited by your supervising faculty member who will meet with your on-site supervisor at the same time at the site of employment. At the discretion of your supervising faculty member a second meeting may be required. Again, at the discretion of the supervising faculty member the first and/or followup meeting(s) may be conducted electronically (via video chat, telephone, etc.) It is generally desirable that at least one meeting must occur at the site of employment and in any event the student must participate from their primary work site unless extraordinary circumstances prevent this. At the end of the internship your on-site supervisor will be asked to complete an evaluation of you and return to your supervising faculty member.
+
+Internships provide an invaluable addition to your curriculum. Not only do they give you an introduction to the world of work, they also enable you to apply specific skills and knowledge acquired in the classroom. This work experience, coupled with the on-site supervisor's written evaluation, helps you carefully examine your career options within the information technology field.
+
+The internship also provides you with an opportunity to learn new skills, both technical and interpersonal. Hopefully, an additional benefit for many interns will be the chance to create opportunities for future employment.
+
+== Specific Internship Guidelines
+
+* There must be at least 192 hours of workplace experience for a three credit internship course.
+* You may sign up for the internship course on a standard graded course or a pass/fail basis.
+* Internship grades will, at a minimum, be based on an expectations paper, a work journal, a post-internship report, the meeting(s) with you and your on-site supervisor, and your on-site supervisor's written evaluation.
+* Except in very specific circumstances the US Department of Labor requires that interns be paid at least minimum wage by employers. Inver Hills Community College will not allow internships which do not meet US Department of Labor criteria. For more information see the US Department of Labor Wage and Hour Division Fact Sheet #71.
+* The internship must be in the IT career field. You do not need to work for an IT company, but do need to be working in an Information Technology position. It's understood that not all of your work may fall into IT but the majority of your tasks during the 192 hours of the internship should fall into the IT area.
+** Example jobs which typically could be approved for internship credit: helpdesk/service desk, system administrator, network administrator, computer/network security administrator, CIO, managed services technician, computer/network consultant
+** Example jobs which typically would not count for internship credit: data entry, Microsoft Office work (Word/Excel/PowerPoint/Outlook), and work primarily in a computer software application or supporting a computer software application
+** See also the notes in the ITC Internship Course Enrollment Step #1 below
+** Contact the faculty supervisor with any questions about the suitability of a job as they are the ultimate determinator of whether a job will qualify for internship credit.
+* You must be able to work on at least one IT project involving collaboration with others in the IT department, project meetings, change management, etc. In some cases being able to shadow other IT department personnel working on projects may meet this requirement. Contact the instructor for any questions.
+* If it is determined that a job will not qualify for internship credit you may not be permitted to register for the internship course, receive a lower score in the internship course, receive up to one additional semester to find a job which does qualify and complete the coure, or fail the internship course depending on the specific circumstances and when it was discovered that a job will not meet the requirements and why/to what extent the job does not meet the requirements.
+
+== ITC Internship Course Enrollment Steps
+
+. Find an employer willing to take you on as an intern, apply for and be accepted to the position. The position does not have to be specifically advertised as an internship position but it must be an IT position (see guidelines above and the notes below) and the employer must be willing to assist in developing you as an employee and fulfilling their role in the internship.
++
+--
+NOTE: Except in very specific circumstances the US Department of Labor requires that interns be paid at least minimum wage by employers. Inver Hills Community College will not allow internships which do not meet US Department of Labor criteria. For more information see the US Department of Labor Wage and Hour Division Fact Sheet #71.
+
+NOTE: Helpdesk work alone is not usually acceptable as an internship, though this can certainly be a large component of it. You are expected to participate in at least one bigger IT project which involves collaboration with others in the IT department, project meetings, change management, etc. or other such experiences above and beyond providing support. These types of opportunities usually exist for internal support but are uncommon in external support. In other words, if you are customer facing instead of employee facing the position may not be a good fit for an internship. If you have specific questions about whether a job would qualify as an internship discuss it with your faculty supervisor prior to signing up for the internship class.
+
+NOTE: Call-center type work or remote support positions where the position is focused on support which is only conducted through phone or electronic means does not usually meet the requirements for an internship.
+--
+. Contact your faculty supervisor and provide them with your name, your star ID, the name of your employer, your job title and job description, and the name and contact information for your on-site supervisor. Once this information is received and the faculty supervisor has approved your internship they will create a permission for you in eServices so you can register for the ITC 2189 course.
++
+--
+NOTE: Your internship does not necessarily need to start and end at the same time as the regular college semester schedule. We can accommodate internships which start before one semester begins and/or end after a semester normally ends. Typically, you will be assigned the internship course during the semester in which the majority of the work will occur. Contact your faculty supervisor for additional details.
+--
+. Prior to the beginning of your internship period (the 192 hours for a three credit internship) you must complete a goals and expectations paper and submit it to your faculty supervisor as well as your on-site supervisor. For more information see the assignments section of this document.
++
+--
+NOTE: Although you can be working at the employer before writing the goals and expectations paper you need to write it and submit it to your faculty supervisor before you can begin counting the 192 hours minimum and begin keeping your work logs.
+--
+
+== Employer Responsibilities
+
+The employer plays a key role in preparing you for the professional world. As an intern, you will gain insight into the information technology profession in a way not often attainable through classroom experiences. The on-site supervisor will help guide you through a progression of experiences ranging from site orientation to assuming progressively greater responsibilities. The expected responsibilities of the employer include:
+
+. Providing qualified supervision of the intern
+. Determining, with the intern, the types of learning experiences that are mutually beneficial and rewarding.
+. Preparing the firm's employees for the arrival of the intern.
+. Orienting the student to the mission, policies, programs, and services provided by the employer.
+. Participation in at least one meeting with the supervising faculty member to review internship progress and the facilitation of hosting that meeting at the workplace. Participation in a second meeting with the supervising faculty member at the discretion of the faculty member.
+. Integrating the intern, at all appropriate levels, as a fully functioning participant in the company's activities, projects, programs, and services.
+. Notifying the supervising faculty member promptly of any problems regarding the intern on the intern's conduct which may adversely affect the intern, your company, or Inver Hills Community College.
+. Evaluating the intern's performance and the degree to which the intern meets stated goals and objectives, completion of a final written evaluation. See details in the assignments section below.
+
+== Intern Conduct
+
+As an intern, you must accept the responsibilities and obligations of a professional staff member and adhere to the principles, practices, and policies of the organization. You will need to understand the nature of privacy, confidentiality, and human respect that are prime factors in the workplace. Even as an intern, you are also a representative of Inver Hills Community College and, as such are governed also by college policies and practices. A breach of conduct may have consequences detrimental to you, clients, employers, the ITC department, and the school.
+
+It is expected that you will respect, acknowledge, and abide the policies set forth by your employer as well as by Inver Hills Community College. Any variance from these policies is cause for immediate concern, and could ultimately result in the termination of your employment, failure or removal from the internship, and/or legal action.
+
+In all instances, you are expected to conduct yourself in a professional manner. That conduct should extend to writing reports, exchanging information, and interacting with staff and clients.
+
+== Assignments
+
+The following section will describe the core required assignments for successful completion of the internship. Your faculty supervisor may have additional assignments or questions for you which you will be notified of at the time you are enrolled in the internship.
+
+=== Goals and Expectations Paper
+
+Prior to the beginning of your internship period (the 192 hours for a three credit internship), but not necessarily before beginning your work, you must complete a goals and expectations paper and submit it to your faculty supervisor as well as your on-site supervisor. This paper should be about three pages (double spaced) in length and should, at a minimum, include:
+
+* Your name, the name of the company where you'll be interning, the dates your internship will start and is projected to end, and the name/contact information for your on-site supervisor
+* A description of the types of projects and work you expect to be doing as part of your internship
+* A description of the types of non-technical skills you expect will be important to a successful internship
+* A list and description of the broad goals you have for your internship. What do you hope to get out of the internship experience?
+* A list and description of any specific skills you would like to attain or improve upon as a result of your internship experience.
+
+=== Engineering Journal/Work Reflection Log
+
+You must maintain an engineering journal or work reflection log with entries at least once per week. The log must be submitted in its entirety to your supervising faculty member at least once per month, one week before any meetings the faculty supervisor has with you and your on-site supervisor, and a final copy at the conclusion of the internship. You must have at least one substantial entry per week in your journal but may have more. You must continue with your engineering journal or work reflections until you have completed all other internship requirements (such as faculty supervisor meetings) even if that means you have more than 192 hours. A substantial entry is typically 2-3 paragraphs in length. Entries should include topics such as:
+
+* Assignments and responsibilities
+* Insights about professionalism
+* Discoveries about the needs and trends of the profession
+* Problems encountered and how they were dealt with
+* How internship expectations and goals are being met or the challenges of meeting them
+
+*Each journal entry should emphasize your reactions to and reflections of your work situation in addition to a summarized description of your activities.*
+
+. Record the date the entry is being made as well as the hours worked each day and a total for the week. Remember that your internship must include working a total of at least 192 hours.
+. Describe a positive situation/comment, which happened at work this week, and why you think it happened.
+. Describe an area of your current performance, which you could improve, and how you could do so.
+. Evaluate your progress on meeting last week's goals.
+. Describe any problems or issues you are having at work, and what you could do about them.
+. Did last week's problems get resolved? How or why not?
+. Describe any interesting interaction or conversations with your on-site supervisor or co-workers.
+
+*In addition to the description of your activities every other week you should reflect on a professional aspect of your work experience. This means the entries every other week should be a bit longer (typically 4-5 paragraphs). The following topics may assist you in completing this part of your journal entries:*
+
+. Interview Process - Reflect on the interview process for your internship. What aspects of the process were easiest and which were the most difficult for you? What did you find helpful or unexpected in the interview process and what would you do differently in the future?
+. IT Careers - Research and identify major objectives of the IT department at the company and how the various positions within the IT department support those objectives. Focus on the differing types of careers available within the IT department and the knowledge, skills, abilities, education, and experience needed to achieve them.
+. Interpersonal - Reflect on how you fit within the IT department and organization. What types of teams (intra-departmental or cross-departmental) have you gotten to work on and how has that experience been? What types of interactions with your colleagues have you had and how is your work environment?
+. Current Events - Read enterprise IT trade magazines or news sites (such as ComputerWorld, NetworkWorld, etc.) on topics which impact the IT industry. Discuss these topics and current events in the world of IT with your on-site supervisor or another senior employee and reflect on how you believe your organization is addressing these trends and issues within the corporate environment.
+. Problem Solving - Reflect on some of the work challenges you have faced and the progress you have made on overcoming them including next steps and how you might do things differently in the future.
+. Management and Learning - Identify the different management styles you have experienced at the company (i.e. supporting, delegating, directing, and guiding). Explain a scenario showing how the management style was used, the skills you developed to work successfully in this management system, and what you learned from the experience.
+. Project Management - Track your progress while working on a major project reflecting on the work you have completed as well as the project management process. Identify project management tasks which were helpful in successful completion of the project as well as those which could be improved upon.
+
+=== Faculty Supervisor Meetings
+
+You are responsible for coordinating with your supervising faculty member and your on-site supervisor to arrange at least one meeting during the course of your internship. This meeting must take place with you at your workplace and should occur about halfway through your required internship hours. At the discretion of your faculty supervisor you may need to arrange at least one more meeting. 
+
+Meetings may be held on-site in-person or by Internet video conference at the discretion of your faculty supervisor The meeting(s) must include you, your on-site supervisor, and your supervising faculty member unless your faculty supervisor has specially indicated otherwise. Both your faculty supervisor and your workplace supervisor typically have busy schedules so you should start planning and scheduling this meeting early!
+
+The general purpose of these meetings is to review some of the content in your engineering journal, discuss how your internship is going, the technical and non-technical skills you are learning, and assess your growth in the internship process. You must continue making engineering journal or work reflection log entries until all required faculty supervisor meetings are complete and you have permission to move on to your reflection paper. Don't forget to make sure a copy of your current engineering journal is submitted to your supervising faculty member about one week before any meeting.
+
+These meetings typically last between 20-30 minutes. About 10-15 minutes will be primarily a discussion between you and the faculty supervisor and about 10-15 minutes will include your on-site supervisor. If the meeting is occurring in person any remaining time is an opportunity to show the faculty supervisor your workplace. If the intern or on site supervisor wishes to have some time alone with the faculty supervisor that can also be accommodated. If concerns are raised by the on-site or faculty supervisors additional meetings may be required.
+
+=== End of Internship Reflection Paper
+
+After completing your internship period (the 192 hours for a three credit internship as well as all required meetings with your faculty supervisor), but not necessarily before your last day of work, you must complete a reflection paper and submit it to your faculty supervisor as well as your on-site supervisor. This paper should be about 5-8 pages in length (double-spaced) and should, at a minimum, include:
+
+* Your name, the name of the company where you’ll be interning, the dates your internship started and is concluded, and the name/contact information for your on-site supervisor
+* An overall summary of your experience as an intern: things that surprised you, things that worked out about as you expected, things that challenged you, and an overall evaluation of the experience.
+* A summary of the main things you did throughout the internship, what did you spend most of your time doing? Look back at your goals and expectations paper and consider how what you ended up doing compares with what you thought you would be doing.
+** Be sure to mention what project(s) you worked on, who you worked with, or who you shadowed, etc.
+* A discussion of the non-technical skills you utilized as part of the internship and how important they were to the work environment. Were non-technical skills more or less important than you expected? Which skills were the most important and why?
+* Look back at your goals and expectations paper, how did you do at achieving the broad goals you set for the internship experience? 
+* What new skills did you learn or improve as a result of your experience?
+* How do you feel your internship prepared you for the IT workplace?
+* What advice do you have for future internship students?
+* Describe your greatest accomplishment or success.
+* How well did your Inver Hills Community College classes prepare you for this internship, as related to specific technical skills, broad skills for learning about new technologies, and non-technical skills?
+* How have your academic and career goals been affected by your internship experience? How about your personal growth?
+* What new insights have you gained about the IT profession?
+
+=== End of Internship Employer Performance Review
+
+After completing your internship period (the 192 hours for a three credit internship as well as all required meetings with your faculty supervisor), but not necessarily before your last day of work, you must obtain and submit to your supervising faculty member a performance review by your employer.
+
+The college does not proscribe a particular performance review form. We generally encourage employers to use the same process and forms used for their regular periodic employee evaluations. In the event a regular employee evaluation form is unavailable the employer may complete a generic employee evaluation form or provide a letter explaining areas of growth seen over the course of the internship as well as any notable areas for continued growth.
+
+These evaluations may be sent directly from the employer to the supervising faculty member or may be given to the student to submit to the supervising faculty member. Note that for privacy purposes many employers prefer to give the evaluation to the student who can then release it to the faculty member.
+
+== Nondiscrimination Statement
+
+Inver Hills Community College is a member of the Minnesota State Colleges and Universities System and an affirmative action, equal opportunity employer and educator. This information is available in an alternate format by calling 651-450-3508 or TTY/Minnesota Relay at 1-800-627-3529.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

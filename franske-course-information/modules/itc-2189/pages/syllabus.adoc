@@ -1,0 +1,95 @@
+= ITC-2189 Internship Syllabus
+
+== General Course Information
+
+=== Prerequisite(s)
+
+* Permission of Instructor, Approved Position, Approval of Sponsor
+
+=== Course Description
+Provides a supervised work experience utilizing and extending the skills learned in ITC networking and security courses.  The experience is intended to result in new learning and increased capabilities for the intern and the completion of authentic work for the sponsoring organization.  Internships may be arranged upon the mutual agreement of the student, instructor and sponsoring organization.  Internship depends on student qualifications and a successful interview for a particular position.  Interns are required to abide by all policies governing employees and meet expectations of regular employment.
+
+=== Required Resources
+
+This course requires only the ITC department internship handbook. This handbook as well as additional information related to this course is posted on the ITC Info site (http://info.ihitc.net) and/or course D2L pages.
+
+== Course Outcomes
+The student will be able to:
+
+* Develop a learning plan with specific objectives based on the role and duties of the defined position
+* Relate how classroom-based learning was applied in fulfilling the responsibilities encountered on the job
+* Specify new learning or enhanced skill sets that were acquired during the work experience
+* Evaluate their performance on the job and identify areas of strength and opportunities for improvement
+
+== Assignments and Grading
+Assignments in this course will consist of a goals and expectations paper, an engineering journal/work reflection log, two faculty supervisor meetings, an end of internship performance review by your employer, and an end of internship paper. A detailed description of these assignments and their requirements can be found in the ITC Internship Student Handbook xref:itc-2189:guidelines-policies.adoc[Guidelines and Policies section]. Failure to turn in one or more of these assignments without approval from your instructor may result in an additional lack of participation penalty of up to 20% of your final course grade depending on the type of assignment not completed.
+
+These assignments will also be used to verify that your internship meets the specific guidelines and requirements for internships in the ITC program as outlined in the ITC Internship Handbook. If your internship fails to meet one or more of the specific guidelines or requirements you should expect a substantially reduced grade on one or more of the assignments.
+
+Grades for the course will be computed by weighting these assignments as well as a participation grade based on feedback from your employer and observations by your instructor:
+
+[%autowidth,options="header"]
+|===
+|Assignment |Percentage of Final Grade 
+|Goals and Expectations Paper 
+|18%
+|Engineering Journal/Work Log 
+|25%
+|Faculty-Supervisor Meetings 
+|12%
+|End of Internship Paper 
+|25%
+|Employer Feedback/Observations 
+|20% 
+|===
+
+The instructor may round up based on student participation and individual improvement.
+
+=== Grading Scale
+[%autowidth,options="header"]
+|===
+|Letter Grade |Percentage Range |Description
+|A
+|100%-90%
+|achievement that is outstanding relative to the level necessary to meet course requirements
+|B
+|89%-80%
+|achievement that is significantly above the level necessary to meet course requirements
+|C
+|79%-70%
+|achievement that meets the course requirements in every respect
+|D
+|69%-65%
+|achievement that is worthy of credit even though it fails to meet fully the course requirements
+|F
+|64%-0%
+|Represents failure and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|N
+|
+|Represents no credit and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|I
+|
+|Represents incomplete and is assigned at the discretion of the instructor when, due to extraordinary circumstances, e.g., hospitalization, a student is prevented from completing the work of the course on time. Requires a written agreement between instructor and student. Students must request an incomplete from the instructor.
+|===
+
+== Course and Campus Policies
+
+=== Attendance
+
+Students in this course are expected to follow the attendance policy of their employer. A student may receive a course grade of FN or NC after two consecutive weeks of unexcused absence at any time during the semester.
+
+=== Substantial Changes to Your Internship
+
+In the event of any substantial changes to your internship situation (before all requirements are met and assignments are turned in) you must contact your instructor as soon as possible and inform them of the change to work out how this may impact your ability to complete the internship course or what steps need to be taken. Examples of situations where you need to do this include:
+
+* You are laid off or terminated during the course of your internship.
+* Your position description or title changes during the course of your internship
+* You realize that you will not be able to meet one or more of the guidelines or requirements for the internship as described in the ITC Internship Handbook
+
+
+include::ROOT:partial$campus-policies.adoc[]
+
+== Updates to this Syllabus
+The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
