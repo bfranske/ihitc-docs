@@ -1,0 +1,14 @@
+= ITC Internship Handbook and Syllabus
+:embedded-page:
+
+:leveloffset: 1
+
+include::faq.adoc[]
+
+include::guidelines-policies.adoc[]
+
+include::syllabus.adoc[]
+
+:leveloffset: 0
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

@@ -92,4 +92,6 @@ include::ROOT:partial$campus-policies.adoc[]
 == Updates to this Syllabus
 The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
 
+ifndef::embedded-page[]
 include::program-info:ROOT:partial$stdfooter.adoc[]
+endif::[]

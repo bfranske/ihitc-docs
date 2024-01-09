@@ -67,4 +67,6 @@ If you do not currently work in the IT field you probably will not be able to co
 
 Finally, there is much flexibility in the internship program, while many students work 20-40 hours a week during their internship you don't have to do this, it's possible to complete the internship (over a longer period of time) working 5-10 hours a week if you have another job which you need to keep.
 
+ifndef::embedded-page[]
 include::program-info:ROOT:partial$stdfooter.adoc[]
+endif::[]

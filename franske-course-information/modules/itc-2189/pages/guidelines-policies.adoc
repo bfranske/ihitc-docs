@@ -26,12 +26,12 @@ The internship also provides you with an opportunity to learn new skills, both t
 
 == ITC Internship Course Enrollment Steps
 
-. Find an employer willing to take you on as an intern, apply for and be accepted to the position. The position does not have to be specifically advertised as an internship position but it must be an IT position (see guidelines above and the notes below) and the employer must be willing to assist in developing you as an employee and fulfilling their role in the internship.
+. Find an employer willing to take you on as an intern, apply for, and be accepted to the position. The position does not have to be specifically advertised as an internship position but it must be an IT position (see guidelines above and the notes below) and the employer must be willing to assist in developing you as an employee and fulfilling their role in the internship.
 +
 --
 NOTE: Except in very specific circumstances the US Department of Labor requires that interns be paid at least minimum wage by employers. Inver Hills Community College will not allow internships which do not meet US Department of Labor criteria. For more information see the US Department of Labor Wage and Hour Division Fact Sheet #71.
 
-NOTE: Helpdesk work alone is not usually acceptable as an internship, though this can certainly be a large component of it. You are expected to participate in at least one bigger IT project which involves collaboration with others in the IT department, project meetings, change management, etc. or other such experiences above and beyond providing support. These types of opportunities usually exist for internal support but are uncommon in external support. In other words, if you are customer facing instead of employee facing the position may not be a good fit for an internship. If you have specific questions about whether a job would qualify as an internship discuss it with your faculty supervisor prior to signing up for the internship class.
+NOTE: Helpdesk work alone is not usually acceptable as an internship, though this can certainly be a large component of it. You are expected to participate in at least one bigger IT project which involves collaboration with others in the IT department, project meetings, change management, etc. or other such experiences above and beyond providing support. These types of opportunities usually exist for internal support but are uncommon in external support. In other words, if you are customer facing instead of employee facing the position may not be a good fit for an internship. _If you have specific questions about whether a job would qualify as an internship discuss it with your faculty supervisor prior to signing up for the internship class._
 
 NOTE: Call-center type work or remote support positions where the position is focused on support which is only conducted through phone or electronic means does not usually meet the requirements for an internship.
 --
@@ -151,4 +151,6 @@ These evaluations may be sent directly from the employer to the supervising facu
 
 Inver Hills Community College is a member of the Minnesota State Colleges and Universities System and an affirmative action, equal opportunity employer and educator. This information is available in an alternate format by calling 651-450-3508 or TTY/Minnesota Relay at 1-800-627-3529.
 
+ifndef::embedded-page[]
 include::program-info:ROOT:partial$stdfooter.adoc[]
+endif::[]
