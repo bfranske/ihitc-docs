@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>T1 and PSTN Access Labs :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-t1pstn">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2023.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2023.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2024.01</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-t1pstn">T1 and PSTN Access Labs</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2023.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-asterisk-t1pstn">2024.01</a>
+    <a class="version is-current" href="lab-asterisk-t1pstn">2023.08</a>
+    <a class="version" href="../../2022.08/itc-2300/lab-asterisk-t1pstn">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2023.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-t1pstn.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">T1 and PSTN Access Labs</h1>
+<div class="sect1">
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk ens192 IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Asterisk Server ens192 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.219.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Asterisk Server ens224 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP Address (same for all pods because it&#8217;s inside behind your NAT): 192.168.10.3/24</p>
+</li>
+<li>
+<p>No default gateway or DNS servers for this interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pod Router:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.144.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In genreal you will be able to change all the configuration files and do all the software installation work remotely if you want. You will need to come to campus and setup the network with the router, switch, and phones in order to test anything, get the correct MAC addresses to put in the configurations, etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will be able to modify your extensions.conf and pjsip.conf files for T1 PSTN access.</p>
+</li>
+<li>
+<p>You will be able to modify your pjsip.conf file for SIP PSTN access, you will <strong>not</strong> be able to modify the extensions.conf file for that yet as it can only be configured for either T1 or SIP access to the PSTN at one time and not both.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_internal_network_setup"><a class="anchor" href="#_internal_network_setup"></a>Internal Network Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you are on campus and working with your IP phones you will need to setup your internal network with your pod router and switch as you did for the previous lab.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
+<p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
+</li>
+<li>
+<p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
+</li>
+<li>
+<p>Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server&#8217;s ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).</p>
+</li>
+<li>
+<p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
+</li>
+<li>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Of course, make sure that your Asterisk server is up and running!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Setup at least four IP phones (any mix of Cisco, generic SIP, or DPMA) and ensure they are working (can call each other and can call the extension 1000 demo).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_t1_pstn_access"><a class="anchor" href="#_t1_pstn_access"></a>T1 PSTN Access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this activity we will configure your Asterisk server to contact the Public Switched Telephone Network (PSTN) using a dedicated T1 PRI voice trunk to a telephone company. This would normally be a service which you would pay for incoming and outgoing (termination and origination) connections to the PSTN and which you would access over a dedicated digital T1 voice trunk. In our case you will connect to a simulated PSTN connection which will be able to call several test numbers and other pods but is not actually connected to the real PSTN.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get an ISDN PRI T1 connection from the "phone company" (your instructor) to your router. This will require connecting a T1 crossover cable to the correct port on the PSTN ISDN Switch Simulator.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Just like with a regular phone line coming in the wall you need to plug your Pod into the correct port on the PSTN ISDN Switch Simulator. This is not an IP network where you can plug in wherever you&#8217;d like. Pod A goes into the farthest right port on the PSTN ISDN Switch Simulator and pod letters increase as you go to the left. Also, be sure to use a special T1 crossover cable for this connection.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Update your <a href="lab-asterisk-basic-swrconfigs" class="xref page">router configuration</a> to allow it to serve as an ISDN&lt;&#8594;SIP gateway device which will convert ISDN T1 calls to and from SIP VoIP calls which can be routed by Asterisk.</p>
+</li>
+<li>
+<p>Update your <a href="lab-asterisk-pjsipconf" class="xref page">pjsip.conf file</a> to add the router as a SIP endpoint which can be used to place calls out to the PSTN or receive calls from the PSTN.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We specify the IP address for the router for incoming and outgoing calls instead of having the router register with a username and password to the PJSIP module. This is somewhat common when using T1-SIP gateways and is the only way Cisco routers support being a gateway which is why we are using it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Modify your <a href="lab-asterisk-extensionsconf" class="xref page"><strong>extensions.conf</strong> file</a> to allow internal extensions to place calls out to the PSTN through the ISDNrouter SIP device (which will convert the calls to a T1 PRI trunk call) if the number begins with a 9 for an outside line.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Try placing calls out to the PSTN and make sure things are all working</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Test at least the following types of calls:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Local calls (both by dialing 7-digit numbers and 10-digit numbers)</p>
+</li>
+<li>
+<p>Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)</p>
+</li>
+<li>
+<p>Toll-free numbers (1-800, 1-888, etc.)</p>
+</li>
+<li>
+<p>Per-minute premium charge numbers (1-900)</p>
+</li>
+<li>
+<p>Emergency Services (911, 9-911)</p>
+</li>
+<li>
+<p>Directory Assistance (411)</p>
+</li>
+<li>
+<p>International Numbers (Numbers beginning with 011)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>While you are placing test calls monitor the output from your router&#8217;s console port, you should see the calls being placed over the T1 connection. You should also try placing calls and while the call is active running the <strong>show voice call status</strong> command on the router. Finally try turning on ISDN Q.931 debugging with the <strong>debug isdn q931</strong> command before placing a test call. You should see the router dialing the phone number on the ISDN T1 connection to the PSTN as the call is being setup. Run <strong>undebug all</strong> on your router to disable the debugging.</p>
+</li>
+<li>
+<p>It&#8217;s important to think about toll fraud and you should setup your dialplan (at least after initial testing) to restrict callers from places like elevators calling certain numbers. In Asterisk you can do this using a variety of different dialplan contexts. Follow the <a href="lab-asterisk-extensionsconf" class="xref page">sample <strong>extensions.conf</strong> file</a> instructions for dividing up your extensions into elevator/lobby/general staff/executive restrictions on calls. Put one of your extensions in each of these different contexts and verify the restrictions are working.</p>
+</li>
+<li>
+<p>Modify your <a href="lab-asterisk-extensionsconf" class="xref page">sample <strong>extensions.conf</strong> file</a> to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number).</p>
+</li>
+<li>
+<p>Find another pod who has calling out to the PSTN working over their T1 and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_itsp_sip_pstn_access"><a class="anchor" href="#_itsp_sip_pstn_access"></a>ITSP SIP PSTN Access</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this activity we will configure your Asterisk server to contact the Public Switched Telephone Network (PSTN) using a SIP trunk to an Internet Telephony Service Provider (ITSP). This would normally be a service which you would pay for incoming and outgoing (termination and origination) connections to the PSTN and which you would access over your regular Internet connection. In our case you will connect to a simulated PSTN connection which will be able to call several test numbers and other pods but is not actually connected to the real PSTN.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Disconnect the ISDN PRI T1 connection from the "phone company" (your instructor) to your router.</p>
+</li>
+<li>
+<p>Update your <a href="lab-asterisk-pjsipconf" class="xref page">pjsip.conf file</a> to add the required registration, endpoint, aors, auth, and identity sections required to connect to your ITSP.</p>
+</li>
+<li>
+<p>Modify your <a href="lab-asterisk-extensionsconf" class="xref page"><strong>extensions.conf</strong> file</a> to allow internal extensions to place calls out to the PSTN through the sipPSTN SIP device (which is the connection to your ITSP) if the number begins with a 9 for an outside line. If you had a working T1 SIP gateway PSTN configuration this will just involve changing which endpoint those calls are being directed to.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will want to think about all the different types of numbers someone could call and create dialplan rules in Asterisk to handle all of them. For some of these you will need to use pattern matching, for others like 911, you probably want to match the exact number for dialing timeout speed reasons.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Most states now require phone systems to allow people to dial 911 directly, without needing to dial 9-911 for an outside line. You should program your system to call 911 on the PSTN for BOTH 911 and 9-911.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Try placing calls out to the PSTN and make sure things are all working</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Test at least the following types of calls:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Local calls (both by dialing 7-digit numbers and 10-digit numbers)</p>
+</li>
+<li>
+<p>Long distance calls (calls to a different area code than the 510 area code, and which begin with a 1)</p>
+</li>
+<li>
+<p>Toll-free numbers (1-800, 1-888, etc.)</p>
+</li>
+<li>
+<p>Per-minute premium charge numbers (1-900)</p>
+</li>
+<li>
+<p>Emergency Services (911, 9-911)</p>
+</li>
+<li>
+<p>Directory Assistance (411)</p>
+</li>
+<li>
+<p>International Numbers (Numbers beginning with 011)</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Verify all your toll-fraud preventions you had in place for calling out from various types of extensions to the PSTN for the T1 gateway are still working.</p>
+</li>
+<li>
+<p>Verify your <a href="lab-asterisk-extensionsconf" class="xref page"><strong>extensions.conf</strong> file</a> is still setup to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number). If the calls from your ITSP are coming into the same context as the calls from your T1 gateway were there should be no changes required.</p>
+</li>
+<li>
+<p>Find another pod who has calling out to the PSTN working over the ITSP and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In our lab the simulated SIP and T1 PSTN are separate PSTN networks and you cannot place calls between the SIP and T1 PSTN so the other pod must be using the same type of PSTN connection. In the real world there is only one PSTN so how you connect to the PSTN should not affect who you can call.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cleanup"><a class="anchor" href="#_cleanup"></a>Cleanup</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Safely shutdown your Debian system</p>
+</li>
+<li>
+<p>Erase your switch/router configuration</p>
+</li>
+<li>
+<p>Put away all equipment and cables. Be sure to note which phones you have so that next week you&#8217;ll be able to get the same five phones.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2024-01-09 11:49:42 -0600<br>
+Page Version: 2023.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

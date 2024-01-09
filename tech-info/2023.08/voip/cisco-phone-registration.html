@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Cisco IP Phone Registration Troubleshooting :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/tech-info/current/voip/cisco-phone-registration">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="tech-info" data-version="2023.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../">Technical Information</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../franske-courses/current/">Dr. Franske&#8217;s Course Pages</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Technical Information</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">VoIP</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="cisco-phone-registration">Cisco IP Phone Registration Troubleshooting</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="cisco-phone-security">Clearing Cisco IP Phone Security Files</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Technical Information</span>
+    <span class="version">2023.08</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../../franske-courses/current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../franske-courses/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../franske-courses/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../franske-courses/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../franske-courses/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../../current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2024.01</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../current/">Technical Information</a></li>
+    <li>VoIP</li>
+    <li><a href="cisco-phone-registration">Cisco IP Phone Registration Troubleshooting</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2023.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/voip/cisco-phone-registration">2024.01</a>
+    <a class="version is-current" href="cisco-phone-registration">2023.08</a>
+    <a class="version" href="../../2022.08/voip/cisco-phone-registration">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2023.08/technical-information/modules/voip/pages/cisco-phone-registration.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Cisco IP Phone Registration Troubleshooting</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>One common problem you may have in the frequent setup and teardown of labs for this course is that phones will not register. This guide will give you some tips on troubleshooting phone registration. We will assume that the phone has power and is booting properly and that the phone is using an SCCP firmware image as opposed to a SIP image.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_phone_boot_process"><a class="anchor" href="#_phone_boot_process"></a>Phone Boot Process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During troubleshooting it is helpful to remember what happens during the phone boot process:
+. The phone receives power, either through PoE or from an external power supply as well as a network connection.
+. The phone received voice VLAN information from the switch using CDP. This puts the phone onto the correct VLAN which is important for the next step.
+. The phone makes a DHCP request (a broadcast) on whatever VLAN has been assigned. Assuming that a DHCP server is properly operating on that VLAN it sends back an IP address, mask, default gateway, and option 150 information which tells the phone what TFTP server to check with for the next step.
+. The phone makes a request to the TFTP server specified by option 150 in the DHCP reply. The exact filename(s) requested varies depending on the phone model and firmware and can be specific to a single phone or a generic file which applies to multiple phones. This file can contain information about what firmware version should be loaded/upgraded on the phone as well as the IP address of the Call Manager server to connect to in the next step and other basic device configuration settings.
+. The phone attempts to register with the IP address for the Call Manager server which has been delivered by TFTP.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_troubleshooting"><a class="anchor" href="#_troubleshooting"></a>Troubleshooting</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each of these boot steps can potentially have a problem associated with it which would prevent the phone from registering and it makes sense to check each step for potential problems. With experience you can learn which step is most likely to be causing the problem based on the information you see but for now it&#8217;s probably best to work through each step in order.</p>
+</div>
+<div class="sect2">
+<h3 id="_verify_power"><a class="anchor" href="#_verify_power"></a>Verify Power</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure the phone has power to it, either from a PoE device such as a switch or from an external power supply. If you are using PoE some possibilities for problems could be the phone requesting more power than the switch has available, PoE not being turned on for the phone&#8217;s port, or using a non-PoE capable switch.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_voice_vlan_configuration"><a class="anchor" href="#_voice_vlan_configuration"></a>Voice VLAN Configuration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Check your switch configuration and make sure that you have set a voice vlan on the port which the phone is connected to.</p>
+</li>
+<li>
+<p>Check the phone itself within the Settings &#8594; Network Configuration for a correct "VLAN Id" setting which the phone should be getting from the switch.</p>
+</li>
+<li>
+<p>Check to make sure that the Voice VLAN is allowed and active on the trunk link between your switch and router. If your Voice VLAN can&#8217;t be seen by the router it will not be able to provide DHCP addressing or CME services to the phone.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ip_configuration"><a class="anchor" href="#_ip_configuration"></a>IP Configuration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Check to see if your phone is getting an IP address from your DHCP server. This is probably easiest done from the phone in the Settings &#8594; Network Configuration menu of the phone. You should have an IP address, subnet mask, and default gateway coming from your DHCP server.</p>
+</li>
+<li>
+<p>If your phone appears to have correct IP addressing information make sure that you can route traffic to and from your phone. Try pinging from a PC on your lab network to the IP address of the phone and try opening a web browser to the IP address of your phone. These should be successful indicating correct layer 3 networking to the the phone. If you fail to make a connection to the IP address of the phone you have something entirely outside of the VoIP configuration not working, could be a routing problem, VLAN problem, switch problem, etc. but the problem is not specific to VoIP configuration.</p>
+</li>
+<li>
+<p>If your DHCP server is not directly connected to the Voice VLAN (if you&#8217;re running a DHCP server on the router, as is typical in the labs, this is not an issue) make sure that you have correct ip helper-address settings in place.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tftp_configuration"><a class="anchor" href="#_tftp_configuration"></a>TFTP Configuration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Check to see that your phone is getting the correct TFTP server address from the DHCP server. Again, you should be able to find this on the phone in the Settings &#8594; Network Configuration menu. For our labs the correct TFTP server address will either be the address of the router interface which is setup as the ip source-address in your config-telephony setup (for CME labs) or the address of your CUCM server (for CUCM labs). This address should be set as a DHCP option 150 in your DHCP server configuration. Note, the address may not always be on the same VLAN/subnet as the Voice VLAN (especially when you get into CUCM labs), that is OK! As long as routing is working properly and the phone can reach the TFTP IP through it&#8217;s default gateway things will work fine. You can put a test device, like a computer, into the voice VLAN on a different port and make sure it gets a correct IP address in the Voice VLAN range and is able to ping the TFTP server address.</p>
+</li>
+<li>
+<p>Make sure that the TFTP configuration files were created on your router (the '''create-cnf files''' command)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_call_processing_server_registration"><a class="anchor" href="#_call_processing_server_registration"></a>Call Processing Server Registration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Try <a href="cisco-phone-security" class="xref page">clearing the CTL/ITL security files from the phone</a>. Even a "factory reset" of the phone will leave these files in place. The phone will not register to a new server unless these files are deleted which must be done from the phone itself.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_on_cme_systems"><a class="anchor" href="#_on_cme_systems"></a>On CME Systems</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are running CME and have made it this far the most likely problem is a misconfiguration of your ephone settings on CME, an incorrect MAC address or something along those lines.</p>
+</li>
+<li>
+<p>If you can&#8217;t figure it out by looking at the config you can watch the registration process using the <strong>debug ephone detail</strong> command. Use <strong>undebug all</strong> to disable debugging mode. Note that by default debugging will only go to the local console port, if you are connected by telnet/SSH to the router you will need to enter the additional <strong>terminal monitor</strong> command to see debugging messages.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_on_cucm_systems"><a class="anchor" href="#_on_cucm_systems"></a>On CUCM Systems</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Have you manually setup the phone or are you relying on auto registration? If you are using Auto Registration it&#8217;s likely you have run out of extensions in the auto registration range you have configured. Once an auto-registration DN is used it cannot be used again by another device (even if you later change the device to have a different DN). Try expanding your auto-registration range or deleting the unused DNs:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>To delete unused DNs: Go to Cisco Unified CM Administration Page &gt; Call Routing &gt; Route Plan Report. Click the Find button and look for DNs from your auto registration range which are currently unassigned. Check the check box next to the directory numbers you wish to delete and click Delete Selected. Confirm the deletion.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2024-01-09 11:49:42 -0600<br>
+Page Version: 2023.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>

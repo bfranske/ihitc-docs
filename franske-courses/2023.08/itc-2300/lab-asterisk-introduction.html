@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Introduction to VoIP with Asterisk Labs :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2300/lab-asterisk-introduction">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2023.08">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../current/">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2480/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2023.08</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../current/">Dr. Franske's Course Pages</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../current/">2024.01</a>
+        </li>
+        <li class="version is-current">
+          <a href="../">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../program-info/current/">Program Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../software-info/current/">Software Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../tech-info/current/">Technical Information</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab-asterisk-introduction">Introduction to VoIP with Asterisk Labs</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2023.08</button>
+  <div class="version-menu">
+    <a class="version" href="../../current/itc-2300/lab-asterisk-introduction">2024.01</a>
+    <a class="version is-current" href="lab-asterisk-introduction">2023.08</a>
+    <a class="version" href="../../2022.08/itc-2300/lab-asterisk-introduction">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2023.08/franske-course-information/modules/itc-2300/pages/lab-asterisk-introduction.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Introduction to VoIP with Asterisk Labs</h1>
+<div class="sect1">
+<h2 id="_topology_diagram"><a class="anchor" href="#_topology_diagram"></a>Topology Diagram</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="_images/Netlab_Asterisk_Basic_Topology.png" alt="Netlab Asterisk Basic Topology">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ip_addressing_phone_extensions"><a class="anchor" href="#_ip_addressing_phone_extensions"></a>IP Addressing &amp; Phone Extensions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.</p>
+</div>
+<table class="tableblock frame-all grid-all fit-content">
+<colgroup>
+<col>
+<col>
+<col>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Pod</th>
+<th class="tableblock halign-left valign-top">Asterisk ens192 IP</th>
+<th class="tableblock halign-left valign-top">Pod Router Fa0/0 IP</th>
+<th class="tableblock halign-left valign-top">Phone Extension Range</th>
+<th class="tableblock halign-left valign-top">Classroom Switch Asterisk Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.11/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2100-2199</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/31</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod B</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.12/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2200-2299</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/32</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod C</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.13/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2300-2399</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/33</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod D</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.14/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2400-2499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/34</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod E</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.15/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2500-2599</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/35</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod F</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.16/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2600-2699</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/36</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod G</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.17/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2700-2799</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/37</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod H</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.18/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2800-2899</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/38</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod I</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.19/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2900-2999</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/39</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pod J</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.219.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">172.17.144.20/24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3000-3099</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gi1/0/40</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Asterisk Server ens192 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.219.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Asterisk Server ens224 Interface:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>IP Address (same for all pods because it&#8217;s inside behind your NAT): 192.168.10.3/24</p>
+</li>
+<li>
+<p>No default gateway or DNS servers for this interface</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Pod Router:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Default Gateway: 172.17.144.1</p>
+</li>
+<li>
+<p>DNS Server: 172.17.139.11</p>
+</li>
+</ul>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_can_do_remotely"><a class="anchor" href="#_work_you_can_do_remotely"></a>Work you can do remotely</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_important_information_to_read"><a class="anchor" href="#_important_information_to_read"></a>Important information to read</h3>
+<div class="paragraph">
+<p>The VoIP labs in this class use a bit of an unusual network setup. In particular the Asterisk server has two NICs, one of which is connected directly out to the "Internet" outside of your company (ens192) and the other is connected inside your company directly to your pod switch (ens224). You would probably never use such as setup in real world applications and there would be additional security implications if you did. Normally, the Asterisk server would be fully behind your firewall/router and you would do port forwarding to make the ports needed for SIP signalling and RTP audio available from the outside. In the case of "hosted" or "cloud" PBX servers the entire server would be on the outside network. The unusal part we do is to have the server straddle the line with one outside and one inside interface.</p>
+</div>
+<div class="paragraph">
+<p>Even with putting a VoIP server behind your firewall and opening only the required ports there are a lot of attempts at VoIP fraud online by hackers looking to take advantage of SIP ports open to the Internet so if you were do that you would need to use appropriate security features to blacklist IPs which are making failed connection attempts (attempted brute forcing SIP credentials) along with other precautions within your dialplan to prevent hopping through your PBX (and either impersonating your company or racking up charges.</p>
+</div>
+<div class="paragraph">
+<p>The reason for this unusual network setup in our case is to simplify the amount of network configuration you need to do for this course. We are able to avoid dealing with NAT forwarding rules which are cumbersome on Cisco routers (and which do not allow just port forwarding). This also allows us to give you SSH and Filezilla access to your Asterisk server over the ITCnet VPN which makes transferring configuration files much easier when working on them remotely.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_debian_linux"><a class="anchor" href="#_install_debian_linux"></a>Install Debian Linux</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start the Debian Linux <strong>non-graphical</strong> installer</p>
+</li>
+<li>
+<p>Choose the appropriate language, country, and keymap</p>
+</li>
+<li>
+<p>Set the hostname of the system to <strong>podX-asterisk</strong> where X is replaced by your pod ID letter.</p>
+</li>
+<li>
+<p>Set the domain name to <strong>podX.local</strong> where X is replaced by your pod ID letter.</p>
+</li>
+<li>
+<p>Set the root password to something you will not forget. It is suggested you write it down and/or use the password <strong>itc2300#voip</strong></p>
+</li>
+<li>
+<p>Create a new user with a username of your choice and password of your choice which you will not forget. Write these down somewhere.</p>
+</li>
+<li>
+<p>Select the correct timezone</p>
+</li>
+<li>
+<p>Use guided partitioning entire disk with all files in one partition and write the changes to disk to begin the installation</p>
+</li>
+<li>
+<p>There is no extra installation media for you to scan</p>
+</li>
+<li>
+<p>Select the US Debian Archive mirror <strong>deb.debian.org</strong> from the list with no HTTP proxy</p>
+</li>
+<li>
+<p>Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.</p>
+</li>
+<li>
+<p>On the software selection screen <strong>unselect</strong> "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+To select and unselect options move your cursor over the option and press the <em>space bar</em> <strong>do not</strong> press the <em>enter key</em> until after you have selected the correct options or you will move to the next screen and begin installing incorrect things. You will need to ask your instructor to reset your system and start over again if you do this.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Choose <strong>Yes</strong> that you want to install GRUB on your primary drive which is <strong>/dev/sda</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Continue</strong> to reboot into your new installation of Debian</p>
+</li>
+<li>
+<p>Log in with the username <strong>root</strong> and password you set.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you are not continuing past this point be sure to safely shutdown your Linux server with the <code><strong>shutdown -h now</strong></code> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_install_the_asterisk_pbx_server_and_other_software"><a class="anchor" href="#_install_the_asterisk_pbx_server_and_other_software"></a>Install the Asterisk PBX Server and Other Software</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to your Debian server with the username <strong>root</strong> and password you set if you are not already logged in.</p>
+</li>
+<li>
+<p>Update the package manager with the latest software lists on your Debian server by running <code><strong>apt update</strong></code></p>
+</li>
+<li>
+<p>Install the sudo package with <code><strong>apt install sudo</strong></code></p>
+</li>
+<li>
+<p>Add your user to the sudo group with a command like <code><strong>adduser <em>YOURUSERNAMEHERE</em> sudo</code></strong></p>
+</li>
+<li>
+<p>Install the <strong>asterisk</strong> and <strong>tftpd-hpa</strong> packages in a similar manner to how you installed sudo.</p>
+</li>
+<li>
+<p>Download the chan-sccp plugin to your Debian system like <code><strong>wget <a href="_attachments/chan-sccp_4.3.4-1_amd64.deb" class="xref attachment"><a href="https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4-1_amd64.deb" class="bare">https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4-1_amd64.deb</a></a></strong></code></p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To save time and reduce complexity in our lab I have built this packaged version of the chan-sccp-b plugin which works with our Debian systems and version of Asterisk. The actual plugin and normal installation instructions are at <a href="https://github.com/chan-sccp/chan-sccp" class="bare">https://github.com/chan-sccp/chan-sccp</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install the <strong>gettext</strong> package which is required by chan-sccp</p>
+</li>
+<li>
+<p>Install chap-sccp with <code><strong>dpkg -i chan-sccp_4.3.4-1_amd64.deb</strong></code></p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The reason this package is installed with dpkg instead of with apt is that we have manually downloaded the package from an independent website instead of automatically downloading it from the official Debian repository we selected during the installation process. We need to do this because Debian does not have an official chan-sccp package.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Edit the <strong>/etc/asterisk/modules.conf</strong> file and disable loading of chan_skinny.so and enable loading of chan_sccp.so</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Restart the Asterisk software to change the loaded modules. This can be done with the <code><strong>systemctl restart asterisk</strong></code> command.</p>
+</li>
+<li>
+<p>Set the IP address on your Debian server&#8217;s outside ens192 interface to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.</p>
+</li>
+<li>
+<p>Set the IP address on your Debian server&#8217;s inside ens224 interface to the static address indicated at the top of this lab. Note that all pods use the same IP address on the inside interface and do not need a gateway or DNS server on this interface. These changes should be made in your /etc/network/interfaces file.</p>
+</li>
+<li>
+<p>Apply the new network addresses by rebooting your server then verify it is set correctly by using the <code><strong>ip address show</strong></code> command and <code><strong>ping google.com</strong></code></p>
+</li>
+<li>
+<p>This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the <code><strong>shutdown -h now</strong></code> command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_work_you_need_to_do_on_campus"><a class="anchor" href="#_work_you_need_to_do_on_campus"></a>Work you need to do on campus</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_network_device_configuration_and_testing_connectivity"><a class="anchor" href="#_network_device_configuration_and_testing_connectivity"></a>Network device configuration and testing connectivity</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In order to connect your IP phones to your Asterisk server you will need to setup a LAN with a router and switch.</p>
+</li>
+<li>
+<p>Use the <a href="lab-asterisk-basic-swrconfigs" class="xref page">sample switch and router configurations</a> (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.</p>
+</li>
+<li>
+<p>Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.</p>
+</li>
+<li>
+<p>Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.</p>
+</li>
+<li>
+<p>Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server&#8217;s ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).</p>
+</li>
+<li>
+<p>Sign in to a second PC in the classroom. <em>After</em> you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.</p>
+</li>
+<li>
+<p>Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod&#8217;s Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Of course, make sure that your Asterisk server is up and running!
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It&#8217;s strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_asterisk_confgiuration"><a class="anchor" href="#_asterisk_confgiuration"></a>Asterisk confgiuration</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a file XMLDefault.cnf.xml on your lab PC <a href="lab-asterisk-xmldefault" class="xref page">following the template and instructions here</a> and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server. The transfer can be done using the Filezilla software which will allow you to create and edit the file in Notepad on your lab PC first.</p>
+</li>
+<li>
+<p>Open the Asterisk console on your Debian system <code><strong>asterisk -rvvvvvc</strong></code></p>
+</li>
+<li>
+<p>Connect two Cisco IP phones to ports Gi1/0/2 &amp; Gi1/0/3 of your switch</p>
+</li>
+<li>
+<p>After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the <code><strong>sccp show devices</strong></code> Asterisk CLI command to see a list of the phones.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If one or more of your phones does not register it may be locked to a previous sever see the instructions for <a href="../../../tech-info/current/voip/cisco-phone-security" class="xref page">clearing Cisco IP phone security files</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Configure your two IP phones in the SCCP configuration file see the example <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.</p>
+</li>
+<li>
+<p>Setup one line button on each phone with an extension number for your pod (xx01 and xx02) based on the chart at the beginning of this lab. Assign these lines to the default context.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This requires putting a button line in for the phone device section as well as creating a line configuration section in the <a href="lab-asterisk-sccpconf" class="xref page"><strong>sccp.conf</strong> file</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is suggested that you create fresh phone device sections and line sections in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Connect to the Asterisk CLI and issue the <code><strong>reload</strong></code> command</p>
+</li>
+<li>
+<p>Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.</p>
+</li>
+<li>
+<p>Modify your <a href="lab-asterisk-extensionsconf" class="xref page"><strong>extensions.conf</strong> file</a> to add the two phone extensions and allow calling between phones</p>
+</li>
+<li>
+<p>Test calling between phones</p>
+</li>
+<li>
+<p>Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables. Be sure to note which phones you have so that next week you&#8217;ll be able to get the same two phones.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>Document Build Time: 2024-01-09 11:49:42 -0600<br>
+Page Version: 2023.08<br>
+<span class="image"><img src="../../../program-info/current/_images/CCBYSA.png" alt="Creative Commons License"></span><br>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
