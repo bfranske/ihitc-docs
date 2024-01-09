@@ -1,4 +1,5 @@
 = ITC-2611 Syllabus
+
 Course Name: Cisco Enterprise Network Core Technologies (CCNP 1) +
 Course Number: ITC-2611-91 +
 Instructor: Dr. Ben Franske +
@@ -7,22 +8,27 @@ Meetings: Tu 6:00-7:30pm +
 Location: Online
 
 == Instructor Contact Information
+
 include::ROOT:partial$instructor-contact.adoc[]
 
 == General Course Information
 === Prerequisite(s)
+
 * ITC 2535, ITC 2530, or CCNA Certification 
 
 === Course Description
+
 Explores the core technologies of an enterprise network. Focuses on implementing core enterprise network technologies including dual stack (IPv4 and IPv6) architecture, virtualization, layer 2, 3, and wireless infrastructure, network assurance, security and automation. This is the first of two courses preparing students for the Cisco Certified Network Professional Enterprise certification. 
 
 === Required Resources
-* Official Cert Guide: CCNP and CCIE Enterprise Core ENCOR 350-401 (Edgeworth, Garza Rios, Gooley, Hucaby) ISBN: 978-1587145230 
+
+* Official Cert Guide: CCNP and CCIE Enterprise Core ENCOR 350-401 _2nd Edition_ (Edgeworth, Garza Rios, Gooley, Hucaby) ISBN: 978-013-8216764 
+
 +
 --
 CAUTION: Yes, This textbook really is required. Unlike many Cisco Networking Academy classes there is not a free online version on Netacad!
 
-TIP: The first edition printed version of this book has many errors in it. You can avoid these errors by getting the ebook version _from the publisher_ Cisco Press. Note that Amazon and other ebook versions are not necessarily updated.
+TIP: Make sure to get the second edition, the first edition printed version of this book has many errors in it. You can also avoid these errors by getting the ebook version _from the publisher_ Cisco Press. Note that Amazon and other ebook versions are not necessarily updated.
 --
 * CCNP and CCIE Enterprise Core & CCNP Enterprise Advanced Routing Portable Command Guide (Empson, Gargano) ISBN: 978-0135768167
 
@@ -30,16 +36,19 @@ TIP: The first edition printed version of this book has many errors in it. You c
 
 
 === Course Website(s)
+
 * ITC Info (https://info.ihitc.net)
 * Cisco Networking Academy (http://www.netacad.com)
+
 +
 --
 WARNING: It is important that you keep an accurate email address on file with the Cisco Networking Academy site and/or regularly sign on to the site to check your Networking Academy Inbox. Important and time-sensitive course information may be distributed through the Networking Academy messaging system. If you have an accurate email address you can receive the information by email as well.
 --
 
 == Lab Time
+
 * Packet Tracer can/may not be used to complete labs in this course
-* All labs for this class may be completed remotely using the Netlab system
+* All labs for this class may be completed remotely using the IHCC Netlab system
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
 * Open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
 +
@@ -48,6 +57,7 @@ TIP: If you are struggling with labs it's strongly suggested you make arrangemen
 --
 
 == Course Objectives
+
 The student will be able to:
 
 * Explain the different design principles used in an enterprise network
@@ -96,19 +106,23 @@ The student will be able to:
 * Compare agent vs. agentless orchestration tools, such as Chef, Puppet, Ansible, and SaltStack
 
 == Course Design
+
 This course will be taught as a fully online course with regular synchronous instructor meetings. This means that you will be meeting regularly with the instructor in an online web conference call during the scheduled course time to assess your progress. Additional details about this are available on the course website. 
 
 == Assignments and Grading
+
 Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
 
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment. 
 
 === Late Assignments and Extensions
+
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
 
 If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary. 
 
 === Grading Scale
+
 [%autowidth,options="header"]
 |===
 |Letter Grade |Percentage Range |Description
@@ -136,6 +150,7 @@ If you miss or do poorly on a regular unit/module/chapter exam (not a final exam
 |===
 
 === Grading Method and Availability
+
 Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
  
 [%autowidth,options="header"]
@@ -160,9 +175,11 @@ Mid-Term grades are not officially distributed but assignment scores are made av
 CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
 
 === Extra Credit
+
 Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Unless otherwise noted extra credit will be added to the Lab/Homework Assignments category. 
 
 === Special Note on Exam Cheating
+
 It is unacceptable to look for or find copies of exams, exam questions, or scenarios online and use them to complete your exam. Answering a question or scenario incorrectly based on the exam you are taking but in a way that was indicated as correct on a version of the exam which was found online will be seen as evidence of intentional cheating. You will receive a penalty and it will be reported as indicated in the course and campus policies section below.
 
 In plain English... I know some copies of exams for this course circulate online. I look at these and may modify the exam you are given so that a different answer is correct for what looks to be a similar question. You may call these "trick questions" but in this case they are only a trick question if you have seen a stolen copy of an old exam. If you answer one or more of these as shown on the stolen exam this will be evidence of cheating and you will be punished according to cheating policies. Do not cheat, do not look for or use stolen exams.
@@ -170,14 +187,17 @@ In plain English... I know some copies of exams for this course circulate online
 See the course and campus policies section below for additional information on cheating policies. 
 
 === Special Note on Lab Cheating
+
 In the case of lab activities which are designed to use physical lab equipment you must work on physical lab equipment, no simulators are allowed. Unless specific permission is given by the instructor this means you must use the IHCC lab equipment on campus or the IHCC Netlab remote lab system. Any evidence that you have turned in a lab report for a lab which is designed to be completed on physical equipment without using physical equipment will be treated as cheating.
 
 See the course and campus policies section below for additional information on cheating policies. 
 
 == Course and Campus Policies
+
 include::ROOT:partial$campus-policies.adoc[]
 
 == Updates to this Syllabus
+
 The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
