@@ -3,6 +3,7 @@
 == Lab & Homework Assignments
 
 === Lab Reports
+
 For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access or campus equipment. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
 
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
@@ -66,6 +67,7 @@ NOTE: For some reason Cisco forgot to create VLAN 10 on switch D1 in the trouble
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
 === Participation Activities
+
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
 * Complete the online course feedback form (5 points for completing)
@@ -73,12 +75,12 @@ Any participation activities completed in the course will go here. This falls in
 
 You must do one of the following choices at least once a week (up to 10 points each based on progress):
 
-* Meet with the instructor online Tuesdays 6:00-8:30pm to discuss course progress and ask questions. *Note that you must send an email by 7pm on Tuesday if you want to meet after 7pm. I will only stay until 7pm unless someone has notified me they will be coming later*.
-* Meet with the instructor at another time during the week scheduled in advance. *Availability is not guaranteed so you should schedule this early.*
+* Meet with the instructor online Tuesdays 6:00-8:30pm to discuss course progress and ask questions. *Note that due to the tutorial nature of this class in Spring 2024 you must send an email by noon on Tuesday if you want to meet along with the specific time you want to meet. I will not be on Zoom waiting for people to meet*.
+* Meet with the instructor at another time during the week scheduled in advance. This meeting must take place _before_ Tuesday at 8:30pm and _after_ the previous Tuesday at 8:30pm to receive credit for meeting in a given week. *Availability is not guaranteed so you should schedule this early.*
 * Submit a written statement on your progress in the course by email. You must meet the following requirements with your statement:
 ** The instructor may revoke this option at any time. You will be notified by email or verbally if this option is no longer possible in which case you must use one of the other options until notified otherwise.
 ** It must be emailed to ben@ihitc.net
-** It must be emailed on Tuesday of each week before 7:00pm. For weekly tracking purposes it cannot be sent before Tueday or after Tuesday.
+** It _must be emailed on Tuesday_ of each week before 8:30pm. For weekly tracking purposes it cannot be sent before Tueday or after Tuesday.
 ** The subject line must be "ITC-2621 Weekly Update"
 ** It must answer the following questions and should be about 300-400 words:
 *** What is your full name
@@ -88,6 +90,7 @@ You must do one of the following choices at least once a week (up to 10 points e
 *** What questions do you have about the content or course this week?
 
 === Unit Assessments
+
 You are responsible for completing all of the online unit assessments listed below. Multiple chapters are included in single exams. These exams fall into the online assessments category of your course grade. 
 
 * Chapters 1 - 5: Routing and EIGRP Exam
@@ -98,6 +101,7 @@ You are responsible for completing all of the online unit assessments listed bel
 * Chapters 21 - 23: Infrastructure Security and Management Exam
 
 === Skills Final Exam
+
 The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. Your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam. 
 
 Just like many of the topics in the class there will be *two parts to the skills exam in this course*:

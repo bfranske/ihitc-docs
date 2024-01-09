@@ -1,6 +1,6 @@
 = ITC-2621 Official Course Schedule
 
-== Jan 10
+== Jan 9
 === Readings to do this week
 * Chapter 1
 
@@ -11,7 +11,7 @@
 === Assignments Due by 6pm Today
 * None
 
-== Jan 17
+== Jan 16
 === Readings to do this week
 * Chapter 2
 * Chapter 3
@@ -27,7 +27,7 @@
 * Online Discussion Forum Chapter 1 First Post
 * Chapter 1 Lab Report
 
-== Jan 24
+== Jan 23
 === Readings to do this week
 * Chapter 4
 
@@ -44,7 +44,7 @@
 * Chapter 2 Lab Report
 * Chapter 3 Lab Report
 
-== Jan 31
+== Jan 30
 === Readings to do this week
 * Chapter 5
 * Chapter 6
@@ -63,7 +63,7 @@
 * Online Discussion Forum Chapters 4 First Post
 * Chapter 4 Lab Report
 
-== Feb 7
+== Feb 6
 === Readings to do this week
 * Chapter 7
 
@@ -81,7 +81,7 @@
 * Chapter 6 Lab Report
 * Chapters 1 - 5: Routing and EIGRP Exam
 
-== Feb 14
+== Feb 13
 === Readings to do this week
 * Chapter 8
 
@@ -96,7 +96,7 @@
 * Online Discussion Forum Chapters 7 First Post
 * Chapter 7 Lab Report
 
-== Feb 21
+== Feb 20
 === Readings to do this week
 * Chapter 9
 * Chapter 10
@@ -114,7 +114,7 @@
 * Online Discussion Forum Chapters 8 First Post
 * Chapter 8 Lab Report
 
-== Feb 28
+== Feb 27
 === Readings to do this week
 * Chapter 11
 
@@ -132,10 +132,10 @@
 * Chapter 10 Lab Report
 * Chapters 6 - 10: OSPF Exam
 
-== Mar 7
+== Mar 5
 * Spring Break!
 
-== Mar 14
+== Mar 12
 === Readings to do this week
 * Chapter 12
 * Chapter 13
@@ -153,7 +153,7 @@
 * Online Discussion Forum Chapters 11 First Post
 * Chapter 11 Lab Report
 
-== Mar 21
+== Mar 19
 === Readings to do this week
 * Chapter 14
 
@@ -171,7 +171,7 @@
 * Chapter 12 Lab Report
 * Chapter 13 Lab Report
 
-== Mar 28
+== Mar 26
 === Readings to do this week
 * Chapter 15
 * Chapter 16
@@ -190,7 +190,7 @@
 * Chapter 14 Lab Report
 * Chapters 11 - 14: BGP Exam
 
-== Apr 4
+== Apr 2
 === Readings to do this week
 * Chapter 17
 * Chapter 18
@@ -211,7 +211,7 @@
 * Chapter 15 Lab Report
 * Chapter 16 Lab Report
 
-== Apr 11
+== Apr 9
 === Readings to do this week
 * Chapter 19
 * Chapter 20
@@ -234,7 +234,7 @@
 * Chapter 18 Lab Report
 * Chapters 15 - 17: Conditional Forwarding and Route Redistribution Exam
 
-== Apr 18
+== Apr 16
 === Readings to do this week
 * Chapter 21
 * Chapter 22
@@ -256,7 +256,7 @@
 * Chapter 20 Lab Report
 * Chapters 18 - 20: VPNs Exam
 
-== Apr 25
+== Apr 23
 === Readings to do this week
 * Chapter 23
 
@@ -275,9 +275,7 @@
 * Chapter 21 Lab Report
 * Chapter 22 Lab Report
 
-== May 2
-=== Notes
-* No course meeting required today, contact your instructor if you would like to schedule one.
+== Apr 30
 
 === Other Work to do this week
 * Online Discussion Forum Chapters 23 Response Post
@@ -291,9 +289,9 @@
 * Online Discussion Forum Chapters 23 First Post
 * Chapter 23 Lab Report
 
-== May 9
+== May 7
 === Notes
-* No course meeting required today, contact your instructor if you would like to schedule one.
+* No course meeting or progress report required today, contact your instructor if you would like to schedule one.
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapters 23 Response Post
