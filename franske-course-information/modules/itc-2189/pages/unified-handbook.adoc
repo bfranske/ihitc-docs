@@ -5,7 +5,11 @@
 
 include::faq.adoc[]
 
+<<<
+
 include::guidelines-policies.adoc[]
+
+<<<
 
 include::syllabus.adoc[]
 
