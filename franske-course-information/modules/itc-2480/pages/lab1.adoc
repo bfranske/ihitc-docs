@@ -1,0 +1,334 @@
+= Lab 1: Linux Installation and First Steps
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Access your virtual machines through the NetLab environment
+* Install Debian Linux 12 (Bookworm)
+* Login locally to the system and check the IP address
+* Login remotely over SSH and transfer files over SFTP
+* Install a variety of basic system tools
+* Safely shutdown your system
+
+You will be introduced to the following commands:
+
+* apt
+* sudo
+* adduser
+* shutdown
+* ip address show
+
+== Netlab Access
+
+. Login to the https://netlab.ihitc.net[ITC NetLab website] using your previously established username and password.
++
+--
+NOTE: You need an ITC Passport cookie to access the NetLab website. Unless you have been instructed otherwise you'll get that by following the ITC Passport link in your D2L course section.
+
+NOTE: Your username is typically the same as your StarID unless you have been instructed otherwise. You can set your NetLab password using the ITC Passport site.
+--
+. Click the blue "New Lab Reservation" button
+. In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. As a result there is only one lab listed in this course "Linux System Administration Labs". Click on this lab title.
++
+--
+NOTE: You only need reservations in this class when working with the GUI, which will come later in the class, if you need to turn the power back on to your VM, during the installation process, or if you need local console access to your virtual machine to fix something. The rest of the time you will be able to connect directly to your Linux server using the SSH protocol, but more on that in a bit.
+
+NOTE: If you are enrolled in more than one class that is using Netlab you will be presented with a list of classes you are enrolled in, click on your Linux System Administration course of you see this screen.
+--
+. Use the calendar to choose a date, time, and specific pod to reserve for your lab activity (when you will begin your Debian server installation).
++
+--
+TIP: The red line on this screen indicates the current time. If you want to get started right away you can click just below this line. Pay attention to the title of the column at the top, it will say something like "LSA Pod Z". The letter at the end of this pod name is your "pod letter" which you will use to set the host name and IP address of your machine in the future so make note of it.
+--
+. You will be presented with a summary screen for your reservation where you can set the end time of your reservation (up to a maximum). It is suggested to make your reservation a couple hours long the first time you plan to install Debian, though you can extend it if needed. Click submit once you are ready to make the reservation.
+. You will see a confirmation screen that your reservation has been made. You are now ready to progress on to the Debian Linux Installation (as long as your reservation is scheduled to begin now).
+
+== Installing Debain Linux
+
+. Log in to the ITC NetLab system and your pod
+.. If you are not already signed in you'll need to start by signing in to the ITC NetLab website. 
+.. If you have a currently active reservation you will see a green "Enter Lab" button on your list of reservations. Click the green "Enter Lab" button. If not, you will need to make a reservation (see above) and then click the "Enter Lab" button.
+.. Your virtual machines (VMs) will automatically power on when your reservation begins and, because there is no operating system currently installed to their virtual hard drives, they will boot from their virtual CD/DVD drives which have been pre-loaded with the installation ISO DVD image file for Debian Linux.
+. Access your virtual machine console
+.. Once you are in your pod you can either click on the image of the "Linux Server" on the topology diagram or use the tabs across the top of your screen to access the console of your Linux Server VM.
+.. The console shows the display of your VM and allows you to type and interact with your VM just as if you were physically sitting down in front of a server with a monitor, keyboard, and mouse attached. Think of a virtual machine console window as a window to a seaparte computer that you are able to see in your web browser. You can see the "virtual monitor" and interact with a keyboard and mouse but just like a separate physical machine you will not be able to copy and paste text or drag and drop files in and out of this console window. We will use other utilities across the network connection to do those things just like we would with a physical server.
++
+--
+NOTE: There are some things special about physical access to a typical computer compared with network access. THese same things hold true for access to the console of a virtual machine compared with network acces to the virtual machine. In particular, you can observe the full boot process, work with the machine even if the network settings are incorrect or the system is disconnected from a network, and do things like enter "single user mode" or change GRUB boot settings for root account password recovery.
+--
+. Learn to "Power Cycle" your virtual machine
+.. By now your VM has likely already booted from it's virtual CD/DVD drive and should be at the "Debian GNU/Linux installer menu". Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the VMware Tools software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
+.. Try powering off your virtual machine
+. Power on you Virtual machine
+.. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system.
+. Install Debian Linux using the text mode installer
+.. Once the system has rebooted and is back to the "Debian GNU/Linux installer menu" choose "Install" and *not* "Graphical Install". If you make an incorrect choice you can reboot your virtual machine (power off and on) before installing to get back to the menu.
++
+image::lab01/001.png[Selecting text mode install,200]
+.. In the installer you will use the space bar to select and unselect "checkboxes", the tab key to move between fields and buttons, and the enter key to continue. You will be prompted for the following choices:
+... Select _English_ as the language, _United States_ as your location, and _American English_ as the keymap.
+... Set _ens192_ as your primary network interface.
++
+---
+IMPORTANT: The following two steps are critical to future success in labs, check your spelling carefully
+---
+... Set a hostname for the system to 2480 followed by a dash and then your pod ID letter, like _2480-Z_ for LSA Pod Z. Look up at the top of your screen above the line with the "Topology" and "Linux Server" tabs and you should see a line with "LSA Pod" followed by a letter, that letter is your pod ID letter.
+... Set the domain name to _itc2480.campus.ihitc.net_
+... Set the root password to something you will *not forget*, this is the main administrator account, _cisco_ could be a good choice for our purposes though that would not be secure for a system directly accessible from the Internet.
++
+--
+NOTE: We are protected by a firewall which you are getting through by being logged in to NetLab or in the future when you connect by VPN. In a situation where access to a Linux server is directly accessible over the Internet through SSH, SFTP, or similar it is *critical* that all passwords for all system users are strong passwords (or better yet you use SSH keys instead which we'll discuss in a future lab). Bad actors on the Internet are constantly scanning for systems they can try and access using password dictionaries and other attacks. If you use a simple password or have otherwise bad security on your system it will get compromised quite quickly.
+
+NOTE: If you forget your password it is possible to recover them because we have local console access to the system but that is not something covered in this course so you are on your own if that happens. The official method to get back into your system as far as this course is concerned is to format and reset your virtual machine and start over with a fresh installation. If you want to avoid this major annoyance it is very important that you do not forget or loose your passwords.
+--
+... Create a new user account by entering your name. The system will automatically use your first name (all lowercase) as the username and then you should set the password to another password you will not forget. It is strongly suggested you write down your username and password somewhere you can refer back to for future labs. We'll call this account your "standard user account" in future lab documentation to differentiate it from the root account.
+... Select your timezone.
+... Choose "Guided - Use entire disk" as the partitioning method and select the sda drive and "All files in one partition" as the partitioning scheme, "Finish partitioning and write the changes to the disk", and then finally confirm you want to write the changes. Note that you need to move the cursor over from No to Yes to confirm writing the changes to the disks.
+... You do not want to scan any other CDs or DVDs at this time.
+... We can stick with the default United States mirror of _deb.debian.org_ with no http proxy.
+... Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.
+... On the software selection screen *unselect* "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.
++
+--
+NOTE: To select and unselect options move your red cursor over the option using the arrow keys and press the *space bar*. *Do not press the enter key* until you are satisfied with your selections and are ready to move to the next screen.
+--
+... Choose that yes you want to install GRUB to your primary drive and choose _/dev/sda_ as the device for boot loader installation.
+. Complete the installation
+.. When the installation is complete you can select continue to "eject" the virtual CD and reboot into the new install
+
+== First Steps
+
+NOTE: This section assumes you are continuing from above and your system has just rebooted into your installation. If you have disconnected and are getting back to the lab you will need to Login to NetLab again, create a reservation, and access the console of your Linux Server VM.
+
+. Login to your Linux Server VM's console in NetLab with your root account and password (username _root_, password as set during the installation)
++
+--
+NOTE: When entering a password on the command line of a Linux system it is normal that nothing should appear and the cursor will not move when you are typing. This prevents someone who is able to see your computer screen from seeing what your password is or even how long it is. Just type your password and trust that the system is receiving it, press enter to submit your password.
+--
+. Install *sudo* from the command line
+.. For security purposes it is usually the case that you do not want to log in as the root user. Instead, best practice is to log in as a standard user and then execute specific commands that require root access with administrative privileges through the sudo program. The sudo program is not installed by default so our first order of business is to install it.
+.. A good practice is to update your system package lists before installing any new packages. Because we are logged in as the _root_ (main administrative) user we can just type `apt update` and press enter to do this. The output from this command will look something like:
++
+[source]
+----
+root@2480-Z:~# apt update
+Hit:1 http://security.debian.org/debian-security bookworm-security InRelease
+Hit:2 http://deb.debian.org/debian bookworm InRelease
+Hit:3 http://deb.debian.org/debian bookworm-updates InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+----
+.. Install the sudo package by typing `apt install sudo` and pressing enter.
+. Add sudo privileges to your standard user account by putting it in the sudo group
+.. Before your standard user account can be used to carry out administrative tasks with the sudo command they need to be added to the sudo user group on the system.
+.. To do this type `adduser _<username>_ sudo` where _<username>_ is replaced by the username of your standard user account and press enter.
+. Log out of the root user account and log in as your standard user
+.. Type `logout` and press enter to log out of the root user account.
+.. Log back in to the system using your standard user account username and password. These were set by you during the installation process.
+. Check the IP address of your virtual machine
+.. Run the `ip address show` command to see what the IP address is on the main network card of your virtual machine, in our case that is the _ens192_ interface which should have an _inet_ address of something like _172.17.50.xxx_. In the example below:
++
+[source]
+----
+ben@2480-Z:~$ ip address show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:50:56:a1:7f:4b brd ff:ff:ff:ff:ff:ff
+    altname enp11s0
+    inet 172.17.51.14/23 brd 172.17.51.255 scope global dynamic ens192
+       valid_lft 465sec preferred_lft 465sec
+    inet6 fe80::250:56ff:fea1:7f4b/64 scope link
+       valid_lft forever preferred_lft forever
+3: ens224: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 00:50:56:a1:ff:25 brd ff:ff:ff:ff:ff:ff
+    altname enp19s0
+----
+The IPv4 address of the system on the _ens192_ interface is 172.17.51.14
+.. Make a note of what your current IP address is as we'll use it in the next section of the lab.
+. Check that sudo administrative permissions are working your standard user account
+.. Run the `whoami` command to see that you are currently logged in with your standard user account.
+.. Run the `sudo whoami` command to see if your user has administrative command privileges to run commands with sudo. If sudo has been setup correctly you should see that when you put sudo in front of the `whoami` command it shows that the command is actually being run by the _root_ user instead of your standard user.
++
+--
+NOTE: You will be prompted to re-enter your standard user's password when executing a command as the administrative user with sudo. The system will then remember you have used your password until a period of inactivity. This ensures someone does not sit down at a terminal you have left logged in and start running administrative commands.
+--
+.. This is an example of the output similar to what you can expect
++
+[source]
+----
+ben@2480-Z:~$ whoami
+ben
+ben@2480-Z:~$ sudo whoami
+[sudo] password for ben:
+root
+ben@2480-Z:~$ 
+----
+. Log out of the local console
+.. Type `exit` or `logout` and press enter to log out of the local console.
+
+== Logging in to a Remote SSH Terminal
+
+A faster way to interact with your system is not through the Netlab local console but through a remote SSH (secure shell) session over the network directly to your server. Once you have mastered this you will be able to copy and paste text to your Linux server from your system administration PC and will not need to make a reservation in Netlab to work on labs.
+
+NOTE: This section assumes you are continuing from above and your virtual machine has not been powered off since you checked the IP address. Because your virtual machine is currently using a DHCP address a power off could mean it has a different IP address. If you have powered off your virtual machine you will need to connect to the local console in Netlab, start it back up, and check the IP address again (see above).
+
+NOTE: This section assumes the computer you are working from (your administration PC) is a Windows based system. However, there are SSH tools available for all modern operating systems if you are using a Mac or Linux system. For the purposes of this course we'll be giving instructions for Windows administration PCs so if you are using a Mac or Linux administration PC you have two choices. You can either figure out the SSH and SFTP tools needed on your own or you can use a Windows administation PC as a virtual machine through Netlab.
+
+NOTE: As mentioned earlier to keep things secure while you learn to setup a Linux server your Linux server is not directly accessible from the Internet. This means there is an extra step of connecting to the ITCnet Student VPN before attempting to access any devices on the 172.17.50.0/23 network (where your Linux server is). The only time this is not required is if your administration PC is already on the ITCnet network. For example you do not need to connect to the VPN if you are completing the lab from one of the ITC labs on campus and the computer you are using is plugged into an ITCnet connection or you are using the Windows administation PC as a virtual machine through Netlab. If one of these situations does not apply (such as if you are connecting directly from your home computer or from a laptop on the campus WiFi) you will need to connect to the VPN before opening an SSH session so that your system is on ITCnet.
+
+. Install Putty
+.. Assuming you are running Windows, install the https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[open source and free PuTTY software] on your home PC from this website.
+. Open an SSH session to your Linux server's IP address
+.. Run the PuTTY software on your computer and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
+.. If you have problems connecting try pinging the address from your administrative PC and make sure you are connected to the ITCnet (see notes above).
+.. The first time you connect to a new server (or if the server has changed SSH keys) you will be prompted as to whether to trust the host keys. This is a security precaution against a https://en.wikipedia.org/wiki/Man-in-the-middle_attack[MitM attack]. Ideally you would check the host key on your Linux server through another secure means to ensure that it matches, in practice because this is expected behavior the first time you connect to a server it's common to just click _Accept_ this time and only investigate further if you are prompted again connecting to the same server (meaning the key has changed).
+. Login with your standard user's username and password
+.. Remember that just like using the local console to login to your server it is normal that nothing will appear when you are typing in your password. Just continue typing it and press enter when you have entered it to login.
+. Run the `whoami` and `hostname` commands to verify you are connected and logged in to your Linux server
+.. Example output:
++
+[source]
+----
+ben@2480-Z:~$ whoami
+ben
+ben@2480-Z:~$ hostname
+2480-Z
+ben@2480-Z:~$
+----
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+
+== Remote File Transfer with SFTP
+
+The easiest way to transfer files to and from your VM is with SFTP software.
+
+NOTE: This section assumes you are continuing from above and your virtual machine has not been powered off since you checked the IP address. Because your virtual machine is currently using a DHCP address a power off could mean it has a different IP address. If you have powered off your virtual machine you will need to connect to the local console in Netlab, start it back up, and check the IP address again (see above).
+
+NOTE: This section assumes the computer you are working from (your administration PC) is a Windows based system. However, there are SSH tools available for all modern operating systems if you are using a Mac or Linux system. For the purposes of this course we'll be giving instructions for Windows administration PCs so if you are using a Mac or Linux administration PC you have two choices. You can either figure out the SSH and SFTP tools needed on your own or you can use a Windows administation PC as a virtual machine through Netlab.
+
+NOTE: As mentioned earlier to keep things secure while you learn to setup a Linux server your Linux server is not directly accessible from the Internet. This means there is an extra step of connecting to the ITCnet Student VPN before attempting to access any devices on the 172.17.50.0/23 network (where your Linux server is). The only time this is not required is if your administration PC is already on the ITCnet network. For example you do not need to connect to the VPN if you are completing the lab from one of the ITC labs on campus and the computer you are using is plugged into an ITCnet connection or you are using the Windows administation PC as a virtual machine through Netlab. If one of these situations does not apply (such as if you are connecting directly from your home computer or from a laptop on the campus WiFi) you will need to connect to the VPN before opening an SSH session so that your system is on ITCnet.
+
+. Install FileZilla
+.. Install the https://filezilla-project.org/download.php?show_all=1[FileZilla SFTP client software] on your administrative PC
+. Open a SFTP session to your server
+.. Run FileZilla and use the Quick Connect bar at the top of the screen to access your system.
+... Enter the IP address of your Linux system in the "Host:" box
+... Enter your standard username and password in the appropriate boxes
+... Enter 22 in the "Port:" box
+... Click the "Quickconnect" button.
+... You should see some connection text scroll on the top of the screen and some files on the right side of the screen now such as .bashrc and .profile The right side of the screen is the drive on your Linux system and the left side of the screen is the drive on your home system. Files and folders can be dragged between the two sides to transfer them back and forth.
+.. Try copying a small file to your Linux server from your administrative PC
+.. Close the FileZilla software to disconnect
+
+== Installing Additional Tools
+
+As we complete labs for this class we'll be installing a variety of additional software on your Linux server. However, there are a few tools which will either improve the performance of your server because of the virtual machine environment we are running in or which are used by some automated scripts that are special to this class. As a result there are some additioanl utilities we want to make sure are installed on your system before proceeding to other labs.
+
+. Open a SSH session to your Linux server using your standard user account
+.. Connect to your system from your administrative PC using the remote SSH console method explained above.
+. Install the *open-vm-tools* package since we are running on a VMware server
+.. A reminder that a good practice is to update your system package lists before installing any new packages. Because we are logged in a standard user and we need to execute package management commands with administrative permissions we need to put _sudo_ in front of the command like `sudo apt update` and pressing enter to do this. If it's been a while since we have run a command as the administrative user we will be prompted to enter our password again.
+.. After updating the software package lists we can install the _open-vm-tools_ package by entering `sudo apt install open-vm-tools` to install the package.
++
+--
+NOTE: The Debian installer may have figured out we're running on a VMware server and pre-installed the _open-vm-tools_ package for you. If that's the case there is no harm in running the command to install it. You'll just receive a message that "open-vm-tools is already the newest version"
+--
+. Install the *python3* package which is used for some automated scripts in this course. We'll also explore this scripting language more at the end of this course.
+.. Use the same command you used to install open-vm-tools above but modify it for the python3 package instead of open-vm-tools.
++
+--
+NOTE: Recent versions of Debian have started including Python in their default installation so this may also already be installed. If that is the case you'll just receive a message that "python3 is already the newest version"
+--
+. Install the *nmap* package which is used for checking open ports on a system. We'll learn more about using this utility later in the course but in the meantime some of our automated scripts also use this utility to check your system so we want to pre-install it now.
++
+--
+NOTE: Before we begin the installation of this tool it is important to remember that scanning a system is often seen as an attack against the system and should not be done unless you are the administrator of both the system that you are scanning from and the system you are scanning or have the explicit permission of the system administrator of those systems! In some areas people have been legally charged and prosecuted for scanning of systems which they are not authorized to do. You have been warned! In our case this should not be an issue because you will be scanning your own system and other systems which have specifically been allowed for this use.
+--
+.. Use the same command you used to install the packages above but modify it for the nmap package instead. You will be prompted about additional software packages required to be installed, type *y* and press enter to install the software.
+. Install the *curl* package which is used for downloading files from the web and can also be used to download and run automated scripts. This is also a part of the automated scripts to check your progress through labs in the course.
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+
+== Check Basic System Information
+
+In addition to some of the commands we have already looked at which show the currently logged in user (`whoami`), the name of a system (`hostname`), or the IP address (`ip address show`) there are several other commands which can give us important basic information about our Linux system.
+
+. If you are not still connected from the previous section open a SSH session to your Linux server using your standard user account
+.. Connect to your system from your administrative PC using the remote SSH console method explained above.
+. Get the distribution, version number, and codename of Linux which is running
+.. Use the `lsb_release -a` command to find what distribution, version number, and codename of Linux are running on your server.
+.. Although Debian does have version numbers it's more common that people will refer to each version by the codename. Different codenames have different versions of software available, different instructions for making changes to settings on the system, and different packages installed by default so it can be important to know what codename you are running when following instructions from the Internet or asking for help with an issue.
+.. Example output:
++
+[source]
+----
+ben@2480-Z:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 12 (bookworm)
+Release:        12
+Codename:       bookworm
+ben@2480-Z:~$
+----
+. Get the kernel release and version numbers
+.. Use the `uname -a` command to find the kernel release and version numbers.
+.. The kernel is the heart of the operating system, in fact as your readings have described it really is the "Linux" in the "GNU/Linux" operating system. Different releases of the kernel have different features available, especially as it relates to filesystems, hardware support, and driver compatibility. As a result it can be important to know the release the kernel running on your system is based on.
+.. Each distribution of Debian that builds (also known as compiles) it's own specific version of the kernel also assigns it a version number as various settings and features can also be enabled or disabled during the build process (this is why it is sometimes neccecary to build your own custom version of the kernel). So when checking for information about what might be included in the specific version of the kernel installed on your system it is also important to know what the version number assigned by the person who built the kernel is.
+.. Finally, every version of the kernel is built to target a certain processor or hardware architecture (i386, i686, amd64, arm, armhf, mips, m68k, sparc64, powerpc, etc.) and the kernel needs to match the hardware in the system to achieve the best performance (such as a 64 bit kernel on a 64 bit CPU) so it can also be important to check the architcture the kernel was built for.
+.. Example output:
++
+[source]
+----
+ben@2480-Z:~$ uname -a
+Linux 2480-Z 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux
+ben@2480-Z:~$
+----
+. Check how long your system has been running
+.. Use the `uptime` command to find out how long your system has been running, how many users are currently logged on, and the system load averages.
+.. This command will print a line like:
++
+[source]
+----
+ben@2480-Z:~$ uptime
+ 15:35:42 up  1:43,  2 users,  load average: 0.00, 0.00, 0.00
+----
+In this case the "15:35:42" is the current time, the "1:43" means the system has been running for 1 hour and 43 minutes, there are two users currently logged on to the server, and the system load average for the past 1, 5 and 15 minutes have all been nearly zero.
+.. In another example you may see a line like:
++
+[source]
+----
+ben@files:~$ uptime
+ 20:38:03 up 177 days,  2:19,  1 user,  load average: 0.50, 0.46, 0.42
+----
+In this case the "20:38:03" is the current time, the "177 days, 2:19" means the system has been running for 177 days 2 hours and 19 minutes, there is one user currently logged on to the server, and the system load average for the past 1 minute was 0.50, 5 minutes was 0.46, and 15 minutes was 0.42
+.. As stated in the manual for the `uptime` command:
++
+[quote,uptime man page]
+____
+System load averages is the average number of processes that are either in a runnable or uninterruptable state. A process in a runnable state is either using the CPU or waiting to use the CPU. A process in uninterruptable state is waiting for some I/O access, eg waiting for disk. The averages are taken over the three time intervals.  Load averages are not normalized for the number of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on a 4 CPU system it means it was idle 75% of the time.
+____
+Effectively this means if you divide the load average by the number of cores in your system you get roughly the percentage of CPU utilization on the system (in decimal format so multiply that by 100). In the example above with a one minute load average of 0.50 this means if this was a single core system over the past minute the CPU was about 50% utilized. If this was a dual core system the CPU was about 25% utilized (0.50/2*100=25) and if it was a quad core system it was about 12.5% utilized (0.50/4*100=12.5).
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+
+== Shutting Down Safely
+
+We will normally leave our Linux server VM running but it is important that you know how to shutdown a Linux system correctly so just this time we'll turn it off. Failure to safely shut down a Linux system can cause the same types of issues that it can with any other system, most notably filesystem corruption if the power is just suddenly cut off to the system. Note that in a virtual machine environment the power doesn't literally have to go off for this to happen, if the if the virtual machine is "powered off" by Netlab or VMware and the open-vm-tools are not installed or if the virtual machine is force powered off by Netlab or VMware it has the same effect as pulling out the power cable on a physical system.
+
+. Open a SSH session to your Linux server using your standard user account
+.. Connect to your system from your administrative PC using the remote SSH console method explained above.
+. Safely shutdown you server
+.. Run the `sudo shutdown -h now` command to safely shutdown the system.
+.. Note that it takes a little time for your system to go through the shutdown process during which you will get disconnected from the SSH session but if you have a local console window open on Netlab you will see shutdown messages on the display of your Linux server before it finally powers off.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system. You should do this each time you finish using the adminsitrative PC in future labs as well.
+. End your Netlab Reservation
+.. If you still have time left in your reservation in Netlab it's polite to end the reservation so other users can work on the system, only a limited number of reservations can be made at one time. You can do this by logging into Netlab, opening your lab, and clicking the "Reservation" menu at the top of the screen and choose to "End Reservation Now" followed by confirming that you want to end the reservation.
+. Congratulations! You have made it to the end of the first lab in the Linux System Administration course!
