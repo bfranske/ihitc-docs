@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab 1: Linux Installation and First Steps :: IHITC Info</title>
+    <link rel="canonical" href="https://bfranske.github.io/ihitc-docs/franske-courses/current/itc-2480/lab1">
+    <meta name="generator" content="Antora 3.0.1">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bfranske.github.io/ihitc-docs">IHITC Info</a>
+      <div class="navbar-item search hide-for-print">
+        <div id="search-field" class="field">
+          <input id="search-input" type="text" placeholder="Search the docs">
+        </div>
+      </div>
+      <button class="navbar-burger" aria-controls="topbar-nav" aria-expanded="false" aria-label="Toggle main menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Products</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Product A</a>
+            <a class="navbar-item" href="#">Product B</a>
+            <a class="navbar-item" href="#">Product C</a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">Services</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="#">Service A</a>
+            <a class="navbar-item" href="#">Service B</a>
+            <a class="navbar-item" href="#">Service C</a>
+          </div>
+        </div>
+        <div class="navbar-item">
+          <span class="control">
+            <a class="button is-primary" href="#">Download</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="franske-courses" data-version="2024.01">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <button class="nav-menu-toggle" aria-label="Toggle expand/collapse all" style="display: none"></button>
+    <h3 class="title"><a href="../">Dr. Franske&#x27;s Course Pages</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../program-info/current/">Program Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../">Dr. Franske&#8217;s Course Pages</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2189</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2189/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2189/faq">Frequently Asked Questions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2189/guidelines-policies">Guidelines and Policies</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2189/syllabus">Syllabus</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2300</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2300/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2480</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="./">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2516</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2516/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2611</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2611/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">ITC-2621</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/">Course Home</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/syllabus">Syllabus</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/schedule">Schedule</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../itc-2621/assignments">Assignments</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../software-info/current/">Software Discounts and Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../tech-info/current/about-site">About This Site</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Dr. Franske&#x27;s Course Pages</span>
+    <span class="version">2024.01</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <div class="title"><a href="../">Dr. Franske's Course Pages</a></div>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../program-info/current/">Program Information</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../program-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../program-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../software-info/current/">Software Information</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../software-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../software-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <div class="title"><a href="../../../tech-info/current/">Technical Information</a></div>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../tech-info/current/">2024.01</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2023.08/">2023.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.08/">2022.08</a>
+        </li>
+        <li class="version">
+          <a href="../../../tech-info/2022.01/">2022.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../program-info/current/" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../">Dr. Franske's Course Pages</a></li>
+    <li><a href="lab1">Lab 1: Linux Installation and First Steps</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2024.01</button>
+  <div class="version-menu">
+    <a class="version is-current" href="lab1">2024.01</a>
+    <a class="version is-missing" href="../../2023.08/">2023.08</a>
+    <a class="version is-missing" href="../../2022.08/">2022.08</a>
+    <a class="version is-missing" href="../../2022.01/">2022.01</a>
+  </div>
+</div>
+<div class="edit-this-page"><a href="https://github.com/bfranske/ihitc-docs/edit/2024.01/franske-course-information/modules/itc-2480/pages/lab1.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Lab 1: Linux Installation and First Steps</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this lab you will perform the following tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Access your virtual machines through the NetLab environment</p>
+</li>
+<li>
+<p>Install Debian Linux 12 (Bookworm)</p>
+</li>
+<li>
+<p>Login locally to the system and check the IP address</p>
+</li>
+<li>
+<p>Login remotely over SSH and transfer files over SFTP</p>
+</li>
+<li>
+<p>Install a variety of basic system tools</p>
+</li>
+<li>
+<p>Safely shutdown your system</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You will be introduced to the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>apt</p>
+</li>
+<li>
+<p>sudo</p>
+</li>
+<li>
+<p>adduser</p>
+</li>
+<li>
+<p>shutdown</p>
+</li>
+<li>
+<p>ip address show</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_netlab_access"><a class="anchor" href="#_netlab_access"></a>Netlab Access</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login to the <a href="https://netlab.ihitc.net">ITC NetLab website</a> using your previously established username and password.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You need an ITC Passport cookie to access the NetLab website. Unless you have been instructed otherwise you&#8217;ll get that by following the ITC Passport link in your D2L course section.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Your username is typically the same as your StarID unless you have been instructed otherwise. You can set your NetLab password using the ITC Passport site.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Click the blue "New Lab Reservation" button</p>
+</li>
+<li>
+<p>In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. As a result there is only one lab listed in this course "Linux System Administration Labs". Click on this lab title.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You only need reservations in this class when working with the GUI, which will come later in the class, if you need to turn the power back on to your VM, during the installation process, or if you need local console access to your virtual machine to fix something. The rest of the time you will be able to connect directly to your Linux server using the SSH protocol, but more on that in a bit.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are enrolled in more than one class that is using Netlab you will be presented with a list of classes you are enrolled in, click on your Linux System Administration course of you see this screen.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Use the calendar to choose a date, time, and specific pod to reserve for your lab activity (when you will begin your Debian server installation).</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The red line on this screen indicates the current time. If you want to get started right away you can click just below this line. Pay attention to the title of the column at the top, it will say something like "LSA Pod Z". The letter at the end of this pod name is your "pod letter" which you will use to set the host name and IP address of your machine in the future so make note of it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>You will be presented with a summary screen for your reservation where you can set the end time of your reservation (up to a maximum). It is suggested to make your reservation a couple hours long the first time you plan to install Debian, though you can extend it if needed. Click submit once you are ready to make the reservation.</p>
+</li>
+<li>
+<p>You will see a confirmation screen that your reservation has been made. You are now ready to progress on to the Debian Linux Installation (as long as your reservation is scheduled to begin now).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_debain_linux"><a class="anchor" href="#_installing_debain_linux"></a>Installing Debain Linux</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the ITC NetLab system and your pod</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If you are not already signed in you&#8217;ll need to start by signing in to the ITC NetLab website.</p>
+</li>
+<li>
+<p>If you have a currently active reservation you will see a green "Enter Lab" button on your list of reservations. Click the green "Enter Lab" button. If not, you will need to make a reservation (see above) and then click the "Enter Lab" button.</p>
+</li>
+<li>
+<p>Your virtual machines (VMs) will automatically power on when your reservation begins and, because there is no operating system currently installed to their virtual hard drives, they will boot from their virtual CD/DVD drives which have been pre-loaded with the installation ISO DVD image file for Debian Linux.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Access your virtual machine console</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Once you are in your pod you can either click on the image of the "Linux Server" on the topology diagram or use the tabs across the top of your screen to access the console of your Linux Server VM.</p>
+</li>
+<li>
+<p>The console shows the display of your VM and allows you to type and interact with your VM just as if you were physically sitting down in front of a server with a monitor, keyboard, and mouse attached. Think of a virtual machine console window as a window to a seaparte computer that you are able to see in your web browser. You can see the "virtual monitor" and interact with a keyboard and mouse but just like a separate physical machine you will not be able to copy and paste text or drag and drop files in and out of this console window. We will use other utilities across the network connection to do those things just like we would with a physical server.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There are some things special about physical access to a typical computer compared with network access. THese same things hold true for access to the console of a virtual machine compared with network acces to the virtual machine. In particular, you can observe the full boot process, work with the machine even if the network settings are incorrect or the system is disconnected from a network, and do things like enter "single user mode" or change GRUB boot settings for root account password recovery.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Learn to "Power Cycle" your virtual machine</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>By now your VM has likely already booted from it&#8217;s virtual CD/DVD drive and should be at the "Debian GNU/Linux installer menu". Before continuing let&#8217;s practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the VMware Tools software which allows for a graceful shutdown, so you&#8217;ll want to be careful to only do this if absolutely needed until then.</p>
+</li>
+<li>
+<p>Try powering off your virtual machine</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Power on you Virtual machine</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install Debian Linux using the text mode installer</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Once the system has rebooted and is back to the "Debian GNU/Linux installer menu" choose "Install" and <strong>not</strong> "Graphical Install". If you make an incorrect choice you can reboot your virtual machine (power off and on) before installing to get back to the menu.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/lab01/001.png" alt="Selecting text mode install" width="200">
+</div>
+</div>
+</li>
+<li>
+<p>In the installer you will use the space bar to select and unselect "checkboxes", the tab key to move between fields and buttons, and the enter key to continue. You will be prompted for the following choices:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Select <em>English</em> as the language, <em>United States</em> as your location, and <em>American English</em> as the keymap.</p>
+</li>
+<li>
+<p>Set <em>ens192</em> as your primary network interface.</p>
+<hr>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The following two steps are critical to future success in labs, check your spelling carefully
+---
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Set a hostname for the system to 2480 followed by a dash and then your pod ID letter, like <em>2480-Z</em> for LSA Pod Z. Look up at the top of your screen above the line with the "Topology" and "Linux Server" tabs and you should see a line with "LSA Pod" followed by a letter, that letter is your pod ID letter.</p>
+</li>
+<li>
+<p>Set the domain name to <em>itc2480.campus.ihitc.net</em></p>
+</li>
+<li>
+<p>Set the root password to something you will <strong>not forget</strong>, this is the main administrator account, <em>cisco</em> could be a good choice for our purposes though that would not be secure for a system directly accessible from the Internet.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We are protected by a firewall which you are getting through by being logged in to NetLab or in the future when you connect by VPN. In a situation where access to a Linux server is directly accessible over the Internet through SSH, SFTP, or similar it is <strong>critical</strong> that all passwords for all system users are strong passwords (or better yet you use SSH keys instead which we&#8217;ll discuss in a future lab). Bad actors on the Internet are constantly scanning for systems they can try and access using password dictionaries and other attacks. If you use a simple password or have otherwise bad security on your system it will get compromised quite quickly.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you forget your password it is possible to recover them because we have local console access to the system but that is not something covered in this course so you are on your own if that happens. The official method to get back into your system as far as this course is concerned is to format and reset your virtual machine and start over with a fresh installation. If you want to avoid this major annoyance it is very important that you do not forget or loose your passwords.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Create a new user account by entering your name. The system will automatically use your first name (all lowercase) as the username and then you should set the password to another password you will not forget. It is strongly suggested you write down your username and password somewhere you can refer back to for future labs. We&#8217;ll call this account your "standard user account" in future lab documentation to differentiate it from the root account.</p>
+</li>
+<li>
+<p>Select your timezone.</p>
+</li>
+<li>
+<p>Choose "Guided - Use entire disk" as the partitioning method and select the sda drive and "All files in one partition" as the partitioning scheme, "Finish partitioning and write the changes to the disk", and then finally confirm you want to write the changes. Note that you need to move the cursor over from No to Yes to confirm writing the changes to the disks.</p>
+</li>
+<li>
+<p>You do not want to scan any other CDs or DVDs at this time.</p>
+</li>
+<li>
+<p>We can stick with the default United States mirror of <em>deb.debian.org</em> with no http proxy.</p>
+</li>
+<li>
+<p>Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.</p>
+</li>
+<li>
+<p>On the software selection screen <strong>unselect</strong> "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+To select and unselect options move your red cursor over the option using the arrow keys and press the <strong>space bar</strong>. <strong>Do not press the enter key</strong> until you are satisfied with your selections and are ready to move to the next screen.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Choose that yes you want to install GRUB to your primary drive and choose <em>/dev/sda</em> as the device for boot loader installation.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Complete the installation</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>When the installation is complete you can select continue to "eject" the virtual CD and reboot into the new install</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_first_steps"><a class="anchor" href="#_first_steps"></a>First Steps</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes you are continuing from above and your system has just rebooted into your installation. If you have disconnected and are getting back to the lab you will need to Login to NetLab again, create a reservation, and access the console of your Linux Server VM.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Login to your Linux Server VM&#8217;s console in NetLab with your root account and password (username <em>root</em>, password as set during the installation)</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When entering a password on the command line of a Linux system it is normal that nothing should appear and the cursor will not move when you are typing. This prevents someone who is able to see your computer screen from seeing what your password is or even how long it is. Just type your password and trust that the system is receiving it, press enter to submit your password.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>Install <strong>sudo</strong> from the command line</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For security purposes it is usually the case that you do not want to log in as the root user. Instead, best practice is to log in as a standard user and then execute specific commands that require root access with administrative privileges through the sudo program. The sudo program is not installed by default so our first order of business is to install it.</p>
+</li>
+<li>
+<p>A good practice is to update your system package lists before installing any new packages. Because we are logged in as the <em>root</em> (main administrative) user we can just type <code>apt update</code> and press enter to do this. The output from this command will look something like:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">root@2480-Z:~# apt update
+Hit:1 http://security.debian.org/debian-security bookworm-security InRelease
+Hit:2 http://deb.debian.org/debian bookworm InRelease
+Hit:3 http://deb.debian.org/debian bookworm-updates InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install the sudo package by typing <code>apt install sudo</code> and pressing enter.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Add sudo privileges to your standard user account by putting it in the sudo group</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Before your standard user account can be used to carry out administrative tasks with the sudo command they need to be added to the sudo user group on the system.</p>
+</li>
+<li>
+<p>To do this type <code>adduser <em>&lt;username&gt;</em> sudo</code> where <em>&lt;username&gt;</em> is replaced by the username of your standard user account and press enter.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Log out of the root user account and log in as your standard user</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>logout</code> and press enter to log out of the root user account.</p>
+</li>
+<li>
+<p>Log back in to the system using your standard user account username and password. These were set by you during the installation process.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Check the IP address of your virtual machine</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the <code>ip address show</code> command to see what the IP address is on the main network card of your virtual machine, in our case that is the <em>ens192</em> interface which should have an <em>inet</em> address of something like <em>172.17.50.xxx</em>. In the example below:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ ip address show
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: ens192: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:50:56:a1:7f:4b brd ff:ff:ff:ff:ff:ff
+    altname enp11s0
+    inet 172.17.51.14/23 brd 172.17.51.255 scope global dynamic ens192
+       valid_lft 465sec preferred_lft 465sec
+    inet6 fe80::250:56ff:fea1:7f4b/64 scope link
+       valid_lft forever preferred_lft forever
+3: ens224: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 00:50:56:a1:ff:25 brd ff:ff:ff:ff:ff:ff
+    altname enp19s0</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The IPv4 address of the system on the <em>ens192</em> interface is 172.17.51.14</p>
+</div>
+</li>
+<li>
+<p>Make a note of what your current IP address is as we&#8217;ll use it in the next section of the lab.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Check that sudo administrative permissions are working your standard user account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the <code>whoami</code> command to see that you are currently logged in with your standard user account.</p>
+</li>
+<li>
+<p>Run the <code>sudo whoami</code> command to see if your user has administrative command privileges to run commands with sudo. If sudo has been setup correctly you should see that when you put sudo in front of the <code>whoami</code> command it shows that the command is actually being run by the <em>root</em> user instead of your standard user.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will be prompted to re-enter your standard user&#8217;s password when executing a command as the administrative user with sudo. The system will then remember you have used your password until a period of inactivity. This ensures someone does not sit down at a terminal you have left logged in and start running administrative commands.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+<li>
+<p>This is an example of the output similar to what you can expect</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ whoami
+ben
+ben@2480-Z:~$ sudo whoami
+[sudo] password for ben:
+root
+ben@2480-Z:~$</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Log out of the local console</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>exit</code> or <code>logout</code> and press enter to log out of the local console.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_logging_in_to_a_remote_ssh_terminal"><a class="anchor" href="#_logging_in_to_a_remote_ssh_terminal"></a>Logging in to a Remote SSH Terminal</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A faster way to interact with your system is not through the Netlab local console but through a remote SSH (secure shell) session over the network directly to your server. Once you have mastered this you will be able to copy and paste text to your Linux server from your system administration PC and will not need to make a reservation in Netlab to work on labs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes you are continuing from above and your virtual machine has not been powered off since you checked the IP address. Because your virtual machine is currently using a DHCP address a power off could mean it has a different IP address. If you have powered off your virtual machine you will need to connect to the local console in Netlab, start it back up, and check the IP address again (see above).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes the computer you are working from (your administration PC) is a Windows based system. However, there are SSH tools available for all modern operating systems if you are using a Mac or Linux system. For the purposes of this course we&#8217;ll be giving instructions for Windows administration PCs so if you are using a Mac or Linux administration PC you have two choices. You can either figure out the SSH and SFTP tools needed on your own or you can use a Windows administation PC as a virtual machine through Netlab.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned earlier to keep things secure while you learn to setup a Linux server your Linux server is not directly accessible from the Internet. This means there is an extra step of connecting to the ITCnet Student VPN before attempting to access any devices on the 172.17.50.0/23 network (where your Linux server is). The only time this is not required is if your administration PC is already on the ITCnet network. For example you do not need to connect to the VPN if you are completing the lab from one of the ITC labs on campus and the computer you are using is plugged into an ITCnet connection or you are using the Windows administation PC as a virtual machine through Netlab. If one of these situations does not apply (such as if you are connecting directly from your home computer or from a laptop on the campus WiFi) you will need to connect to the VPN before opening an SSH session so that your system is on ITCnet.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Putty</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Assuming you are running Windows, install the <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">open source and free PuTTY software</a> on your home PC from this website.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Open an SSH session to your Linux server&#8217;s IP address</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the PuTTY software on your computer and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.</p>
+</li>
+<li>
+<p>If you have problems connecting try pinging the address from your administrative PC and make sure you are connected to the ITCnet (see notes above).</p>
+</li>
+<li>
+<p>The first time you connect to a new server (or if the server has changed SSH keys) you will be prompted as to whether to trust the host keys. This is a security precaution against a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">MitM attack</a>. Ideally you would check the host key on your Linux server through another secure means to ensure that it matches, in practice because this is expected behavior the first time you connect to a server it&#8217;s common to just click <em>Accept</em> this time and only investigate further if you are prompted again connecting to the same server (meaning the key has changed).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Login with your standard user&#8217;s username and password</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Remember that just like using the local console to login to your server it is normal that nothing will appear when you are typing in your password. Just continue typing it and press enter when you have entered it to login.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Run the <code>whoami</code> and <code>hostname</code> commands to verify you are connected and logged in to your Linux server</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Example output:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ whoami
+ben
+ben@2480-Z:~$ hostname
+2480-Z
+ben@2480-Z:~$</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Close the SSH session</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>exit</code> to close the connection while leaving your Linux server VM running.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_remote_file_transfer_with_sftp"><a class="anchor" href="#_remote_file_transfer_with_sftp"></a>Remote File Transfer with SFTP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The easiest way to transfer files to and from your VM is with SFTP software.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes you are continuing from above and your virtual machine has not been powered off since you checked the IP address. Because your virtual machine is currently using a DHCP address a power off could mean it has a different IP address. If you have powered off your virtual machine you will need to connect to the local console in Netlab, start it back up, and check the IP address again (see above).
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section assumes the computer you are working from (your administration PC) is a Windows based system. However, there are SSH tools available for all modern operating systems if you are using a Mac or Linux system. For the purposes of this course we&#8217;ll be giving instructions for Windows administration PCs so if you are using a Mac or Linux administration PC you have two choices. You can either figure out the SSH and SFTP tools needed on your own or you can use a Windows administation PC as a virtual machine through Netlab.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As mentioned earlier to keep things secure while you learn to setup a Linux server your Linux server is not directly accessible from the Internet. This means there is an extra step of connecting to the ITCnet Student VPN before attempting to access any devices on the 172.17.50.0/23 network (where your Linux server is). The only time this is not required is if your administration PC is already on the ITCnet network. For example you do not need to connect to the VPN if you are completing the lab from one of the ITC labs on campus and the computer you are using is plugged into an ITCnet connection or you are using the Windows administation PC as a virtual machine through Netlab. If one of these situations does not apply (such as if you are connecting directly from your home computer or from a laptop on the campus WiFi) you will need to connect to the VPN before opening an SSH session so that your system is on ITCnet.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install FileZilla</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Install the <a href="https://filezilla-project.org/download.php?show_all=1">FileZilla SFTP client software</a> on your administrative PC</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Open a SFTP session to your server</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run FileZilla and use the Quick Connect bar at the top of the screen to access your system.</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Enter the IP address of your Linux system in the "Host:" box</p>
+</li>
+<li>
+<p>Enter your standard username and password in the appropriate boxes</p>
+</li>
+<li>
+<p>Enter 22 in the "Port:" box</p>
+</li>
+<li>
+<p>Click the "Quickconnect" button.</p>
+</li>
+<li>
+<p>You should see some connection text scroll on the top of the screen and some files on the right side of the screen now such as .bashrc and .profile The right side of the screen is the drive on your Linux system and the left side of the screen is the drive on your home system. Files and folders can be dragged between the two sides to transfer them back and forth.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Try copying a small file to your Linux server from your administrative PC</p>
+</li>
+<li>
+<p>Close the FileZilla software to disconnect</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installing_additional_tools"><a class="anchor" href="#_installing_additional_tools"></a>Installing Additional Tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As we complete labs for this class we&#8217;ll be installing a variety of additional software on your Linux server. However, there are a few tools which will either improve the performance of your server because of the virtual machine environment we are running in or which are used by some automated scripts that are special to this class. As a result there are some additioanl utilities we want to make sure are installed on your system before proceeding to other labs.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a SSH session to your Linux server using your standard user account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Connect to your system from your administrative PC using the remote SSH console method explained above.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install the <strong>open-vm-tools</strong> package since we are running on a VMware server</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>A reminder that a good practice is to update your system package lists before installing any new packages. Because we are logged in a standard user and we need to execute package management commands with administrative permissions we need to put <em>sudo</em> in front of the command like <code>sudo apt update</code> and pressing enter to do this. If it&#8217;s been a while since we have run a command as the administrative user we will be prompted to enter our password again.</p>
+</li>
+<li>
+<p>After updating the software package lists we can install the <em>open-vm-tools</em> package by entering <code>sudo apt install open-vm-tools</code> to install the package.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Debian installer may have figured out we&#8217;re running on a VMware server and pre-installed the <em>open-vm-tools</em> package for you. If that&#8217;s the case there is no harm in running the command to install it. You&#8217;ll just receive a message that "open-vm-tools is already the newest version"
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install the <strong>python3</strong> package which is used for some automated scripts in this course. We&#8217;ll also explore this scripting language more at the end of this course.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the same command you used to install open-vm-tools above but modify it for the python3 package instead of open-vm-tools.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Recent versions of Debian have started including Python in their default installation so this may also already be installed. If that is the case you&#8217;ll just receive a message that "python3 is already the newest version"
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install the <strong>nmap</strong> package which is used for checking open ports on a system. We&#8217;ll learn more about using this utility later in the course but in the meantime some of our automated scripts also use this utility to check your system so we want to pre-install it now.</p>
+<div class="openblock">
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Before we begin the installation of this tool it is important to remember that scanning a system is often seen as an attack against the system and should not be done unless you are the administrator of both the system that you are scanning from and the system you are scanning or have the explicit permission of the system administrator of those systems! In some areas people have been legally charged and prosecuted for scanning of systems which they are not authorized to do. You have been warned! In our case this should not be an issue because you will be scanning your own system and other systems which have specifically been allowed for this use.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the same command you used to install the packages above but modify it for the nmap package instead. You will be prompted about additional software packages required to be installed, type <strong>y</strong> and press enter to install the software.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Install the <strong>curl</strong> package which is used for downloading files from the web and can also be used to download and run automated scripts. This is also a part of the automated scripts to check your progress through labs in the course.</p>
+</li>
+<li>
+<p>Close the SSH session</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>exit</code> to close the connection while leaving your Linux server VM running.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_check_basic_system_information"><a class="anchor" href="#_check_basic_system_information"></a>Check Basic System Information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to some of the commands we have already looked at which show the currently logged in user (<code>whoami</code>), the name of a system (<code>hostname</code>), or the IP address (<code>ip address show</code>) there are several other commands which can give us important basic information about our Linux system.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you are not still connected from the previous section open a SSH session to your Linux server using your standard user account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Connect to your system from your administrative PC using the remote SSH console method explained above.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Get the distribution, version number, and codename of Linux which is running</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the <code>lsb_release -a</code> command to find what distribution, version number, and codename of Linux are running on your server.</p>
+</li>
+<li>
+<p>Although Debian does have version numbers it&#8217;s more common that people will refer to each version by the codename. Different codenames have different versions of software available, different instructions for making changes to settings on the system, and different packages installed by default so it can be important to know what codename you are running when following instructions from the Internet or asking for help with an issue.</p>
+</li>
+<li>
+<p>Example output:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 12 (bookworm)
+Release:        12
+Codename:       bookworm
+ben@2480-Z:~$</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Get the kernel release and version numbers</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the <code>uname -a</code> command to find the kernel release and version numbers.</p>
+</li>
+<li>
+<p>The kernel is the heart of the operating system, in fact as your readings have described it really is the "Linux" in the "GNU/Linux" operating system. Different releases of the kernel have different features available, especially as it relates to filesystems, hardware support, and driver compatibility. As a result it can be important to know the release the kernel running on your system is based on.</p>
+</li>
+<li>
+<p>Each distribution of Debian that builds (also known as compiles) it&#8217;s own specific version of the kernel also assigns it a version number as various settings and features can also be enabled or disabled during the build process (this is why it is sometimes neccecary to build your own custom version of the kernel). So when checking for information about what might be included in the specific version of the kernel installed on your system it is also important to know what the version number assigned by the person who built the kernel is.</p>
+</li>
+<li>
+<p>Finally, every version of the kernel is built to target a certain processor or hardware architecture (i386, i686, amd64, arm, armhf, mips, m68k, sparc64, powerpc, etc.) and the kernel needs to match the hardware in the system to achieve the best performance (such as a 64 bit kernel on a 64 bit CPU) so it can also be important to check the architcture the kernel was built for.</p>
+</li>
+<li>
+<p>Example output:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ uname -a
+Linux 2480-Z 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux
+ben@2480-Z:~$</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Check how long your system has been running</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Use the <code>uptime</code> command to find out how long your system has been running, how many users are currently logged on, and the system load averages.</p>
+</li>
+<li>
+<p>This command will print a line like:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ uptime
+ 15:35:42 up  1:43,  2 users,  load average: 0.00, 0.00, 0.00</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case the "15:35:42" is the current time, the "1:43" means the system has been running for 1 hour and 43 minutes, there are two users currently logged on to the server, and the system load average for the past 1, 5 and 15 minutes have all been nearly zero.</p>
+</div>
+</li>
+<li>
+<p>In another example you may see a line like:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">ben@files:~$ uptime
+ 20:38:03 up 177 days,  2:19,  1 user,  load average: 0.50, 0.46, 0.42</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this case the "20:38:03" is the current time, the "177 days, 2:19" means the system has been running for 177 days 2 hours and 19 minutes, there is one user currently logged on to the server, and the system load average for the past 1 minute was 0.50, 5 minutes was 0.46, and 15 minutes was 0.42</p>
+</div>
+</li>
+<li>
+<p>As stated in the manual for the <code>uptime</code> command:</p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>System load averages is the average number of processes that are either in a runnable or uninterruptable state. A process in a runnable state is either using the CPU or waiting to use the CPU. A process in uninterruptable state is waiting for some I/O access, eg waiting for disk. The averages are taken over the three time intervals.  Load averages are not normalized for the number of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on a 4 CPU system it means it was idle 75% of the time.</p>
+</div>
+</blockquote>
+<div class="attribution">
+&#8212; uptime man page
+</div>
+</div>
+<div class="paragraph">
+<p>Effectively this means if you divide the load average by the number of cores in your system you get roughly the percentage of CPU utilization on the system (in decimal format so multiply that by 100). In the example above with a one minute load average of 0.50 this means if this was a single core system over the past minute the CPU was about 50% utilized. If this was a dual core system the CPU was about 25% utilized (0.50/2*100=25) and if it was a quad core system it was about 12.5% utilized (0.50/4*100=12.5).</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Close the SSH session</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type <code>exit</code> to close the connection while leaving your Linux server VM running.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_shutting_down_safely"><a class="anchor" href="#_shutting_down_safely"></a>Shutting Down Safely</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will normally leave our Linux server VM running but it is important that you know how to shutdown a Linux system correctly so just this time we&#8217;ll turn it off. Failure to safely shut down a Linux system can cause the same types of issues that it can with any other system, most notably filesystem corruption if the power is just suddenly cut off to the system. Note that in a virtual machine environment the power doesn&#8217;t literally have to go off for this to happen, if the if the virtual machine is "powered off" by Netlab or VMware and the open-vm-tools are not installed or if the virtual machine is force powered off by Netlab or VMware it has the same effect as pulling out the power cable on a physical system.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open a SSH session to your Linux server using your standard user account</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Connect to your system from your administrative PC using the remote SSH console method explained above.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Safely shutdown you server</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the <code>sudo shutdown -h now</code> command to safely shutdown the system.</p>
+</li>
+<li>
+<p>Note that it takes a little time for your system to go through the shutdown process during which you will get disconnected from the SSH session but if you have a local console window open on Netlab you will see shutdown messages on the display of your Linux server before it finally powers off.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system. You should do this each time you finish using the adminsitrative PC in future labs as well.</p>
+</li>
+<li>
+<p>End your Netlab Reservation</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If you still have time left in your reservation in Netlab it&#8217;s polite to end the reservation so other users can work on the system, only a limited number of reservations can be made at one time. You can do this by logging into Netlab, opening your lab, and clicking the "Reservation" menu at the top of the screen and choose to "End Reservation Now" followed by confirming that you want to end the reservation.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Congratulations! You have made it to the end of the first lab in the Linux System Administration course!</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/search-ui.js" id="search-ui-script" data-site-root-path="../../.." data-snippet-length="100" data-stylesheet="../../../_/css/search.css"></script>
+<script async src="../../../search-index.js"></script>
+  </body>
+</html>
