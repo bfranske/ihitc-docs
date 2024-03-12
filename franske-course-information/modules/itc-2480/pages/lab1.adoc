@@ -13,11 +13,16 @@ In this lab you will perform the following tasks:
 
 You will be introduced to the following commands:
 
-* apt
-* sudo
 * adduser
-* shutdown
+* apt
+* hostname
 * ip address show
+* lsb_release
+* shutdown
+* sudo
+* uname
+* uptime
+* whoami
 
 == Netlab Access
 
@@ -74,7 +79,11 @@ image::lab01/001.png[Selecting text mode install,250,align=left,link=self]
 IMPORTANT: The following two steps are critical to future success in labs, check your spelling carefully
 --
 ... Set a hostname for the system to 2480 followed by a dash and then your pod ID letter, like _2480-Z_ for LSA Pod Z. Look up at the top of your screen above the line with the "Topology" and "Linux Server" tabs and you should see a line with "LSA Pod" followed by a letter, that letter is your pod ID letter.
++
+image::lab01/006.png[Setting the hostname,250,align=left,link=self]
 ... Set the domain name to _itc2480.campus.ihitc.net_
++
+image::lab01/007.png[Setting the domain name,250,align=left,link=self]
 ... Set the root password to something you will *not forget*, this is the main administrator account, _cisco_ could be a good choice for our purposes though that would not be secure for a system directly accessible from the Internet.
 +
 --
@@ -85,6 +94,8 @@ NOTE: If you forget your password it is possible to recover them because we have
 ... Create a new user account by entering your name. The system will automatically use your first name (all lowercase) as the username and then you should set the password to another password you will not forget. It is strongly suggested you write down your username and password somewhere you can refer back to for future labs. We'll call this account your "standard user account" in future lab documentation to differentiate it from the root account.
 ... Select your timezone.
 ... Choose "Guided - Use entire disk" as the partitioning method and select the sda drive and "All files in one partition" as the partitioning scheme, "Finish partitioning and write the changes to the disk", and then finally confirm you want to write the changes. Note that you need to move the cursor over from No to Yes to confirm writing the changes to the disks.
++
+image::lab01/019.png[Confirming writing changes to the disks,250,align=left,link=self]
 ... You do not want to scan any other CDs or DVDs at this time.
 ... We can stick with the default United States mirror of _deb.debian.org_ with no http proxy.
 ... Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.
@@ -93,6 +104,7 @@ NOTE: If you forget your password it is possible to recover them because we have
 --
 NOTE: To select and unselect options move your red cursor over the option using the arrow keys and press the *space bar*. *Do not press the enter key* until you are satisfied with your selections and are ready to move to the next screen.
 --
+image::lab01/025.png[Selecting the software to install,250,align=left,link=self]
 ... Choose that yes you want to install GRUB to your primary drive and choose _/dev/sda_ as the device for boot loader installation.
 . Complete the installation
 .. When the installation is complete you can select continue to "eject" the virtual CD and reboot into the new install
@@ -106,6 +118,7 @@ NOTE: This section assumes you are continuing from above and your system has jus
 --
 NOTE: When entering a password on the command line of a Linux system it is normal that nothing should appear and the cursor will not move when you are typing. This prevents someone who is able to see your computer screen from seeing what your password is or even how long it is. Just type your password and trust that the system is receiving it, press enter to submit your password.
 --
+image::lab01/032.png[Logging in to the system,250,align=left,link=self]
 . Install *sudo* from the command line
 .. For security purposes it is usually the case that you do not want to log in as the root user. Instead, best practice is to log in as a standard user and then execute specific commands that require root access with administrative privileges through the sudo program. The sudo program is not installed by default so our first order of business is to install it.
 .. A good practice is to update your system package lists before installing any new packages. Because we are logged in as the _root_ (main administrative) user we can just type `apt update` and press enter to do this. The output from this command will look something like:
@@ -189,8 +202,12 @@ NOTE: As mentioned earlier to keep things secure while you learn to setup a Linu
 .. Assuming you are running Windows, install the https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html[open source and free PuTTY software] on your home PC from this website.
 . Open an SSH session to your Linux server's IP address
 .. Run the PuTTY software on your computer and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+image::lab01/040.png[Entering the IP in PuTTY,250,align=left,link=self]
 .. If you have problems connecting try pinging the address from your administrative PC and make sure you are connected to the ITCnet (see notes above).
 .. The first time you connect to a new server (or if the server has changed SSH keys) you will be prompted as to whether to trust the host keys. This is a security precaution against a https://en.wikipedia.org/wiki/Man-in-the-middle_attack[MitM attack]. Ideally you would check the host key on your Linux server through another secure means to ensure that it matches, in practice because this is expected behavior the first time you connect to a server it's common to just click _Accept_ this time and only investigate further if you are prompted again connecting to the same server (meaning the key has changed).
++
+image::lab01/041.png[Confirming the host key,250,align=left,link=self]
 . Login with your standard user's username and password
 .. Remember that just like using the local console to login to your server it is normal that nothing will appear when you are typing in your password. Just continue typing it and press enter when you have entered it to login.
 . Run the `whoami` and `hostname` commands to verify you are connected and logged in to your Linux server
@@ -225,7 +242,11 @@ NOTE: As mentioned earlier to keep things secure while you learn to setup a Linu
 ... Enter your standard username and password in the appropriate boxes
 ... Enter 22 in the "Port:" box
 ... Click the "Quickconnect" button.
++
+image::lab01/043.png[FileZilla Connection Settings,250,align=left,link=self]
 ... You should see some connection text scroll on the top of the screen and some files on the right side of the screen now such as .bashrc and .profile The right side of the screen is the drive on your Linux system and the left side of the screen is the drive on your home system. Files and folders can be dragged between the two sides to transfer them back and forth.
++
+image::lab01/045.png[Successful FileZilla Connection,250,align=left,link=self]
 .. Try copying a small file to your Linux server from your administrative PC
 .. Close the FileZilla software to disconnect
 
