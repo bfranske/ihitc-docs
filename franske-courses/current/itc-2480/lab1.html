@@ -530,9 +530,9 @@ There are some things special about physical access to a typical computer compar
 <ol class="loweralpha" type="a">
 <li>
 <p>Once the system has rebooted and is back to the "Debian GNU/Linux installer menu" choose "Install" and <strong>not</strong> "Graphical Install". If you make an incorrect choice you can reboot your virtual machine (power off and on) before installing to get back to the menu.</p>
-<div class="imageblock">
+<div class="imageblock text-left">
 <div class="content">
-<img src="_images/lab01/001.png" alt="Selecting text mode install" width="200">
+<a class="image" href="image::lab01/001.png"><img src="_images/lab01/001.png" alt="Selecting text mode install" width="250"></a>
 </div>
 </div>
 </li>
@@ -545,7 +545,8 @@ There are some things special about physical access to a typical computer compar
 </li>
 <li>
 <p>Set <em>ens192</em> as your primary network interface.</p>
-<hr>
+<div class="openblock">
+<div class="content">
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -554,10 +555,11 @@ There are some things special about physical access to a typical computer compar
 </td>
 <td class="content">
 The following two steps are critical to future success in labs, check your spelling carefully
----
 </td>
 </tr>
 </table>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -752,7 +754,10 @@ Reading state information... Done
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Run the <code>ip address show</code> command to see what the IP address is on the main network card of your virtual machine, in our case that is the <em>ens192</em> interface which should have an <em>inet</em> address of something like <em>172.17.50.xxx</em>. In the example below:</p>
+<p>Run the <code>ip address show</code> command to see what the IP address is on the main network card of your virtual machine, in our case that is the <em>ens192</em> interface which should have an <em>inet</em> address of something like <em>172.17.50.xxx</em>.</p>
+</li>
+<li>
+<p>Example output (yours will have different addresses):</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-none hljs">ben@2480-Z:~$ ip address show
@@ -775,11 +780,11 @@ Reading state information... Done
 </div>
 </div>
 <div class="paragraph">
-<p>The IPv4 address of the system on the <em>ens192</em> interface is 172.17.51.14</p>
+<p>In this example the IPv4 address of the system on the <em>ens192</em> interface is 172.17.51.14</p>
 </div>
 </li>
 <li>
-<p>Make a note of what your current IP address is as we&#8217;ll use it in the next section of the lab.</p>
+<p>Make a note of what your own current IP address is as we&#8217;ll use it in the next section of the lab.</p>
 </li>
 </ol>
 </div>
