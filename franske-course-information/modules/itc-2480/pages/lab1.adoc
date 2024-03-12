@@ -65,7 +65,7 @@ NOTE: There are some things special about physical access to a typical computer 
 . Install Debian Linux using the text mode installer
 .. Once the system has rebooted and is back to the "Debian GNU/Linux installer menu" choose "Install" and *not* "Graphical Install". If you make an incorrect choice you can reboot your virtual machine (power off and on) before installing to get back to the menu.
 +
-image::lab01/001.png[Selecting text mode install,250,align=left,link=image::lab01/001.png]
+image::lab01/001.png[Selecting text mode install,250,align=left,link=self]
 .. In the installer you will use the space bar to select and unselect "checkboxes", the tab key to move between fields and buttons, and the enter key to continue. You will be prompted for the following choices:
 ... Select _English_ as the language, _United States_ as your location, and _American English_ as the keymap.
 ... Set _ens192_ as your primary network interface.
