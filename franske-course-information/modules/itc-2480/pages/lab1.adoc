@@ -123,7 +123,7 @@ image::lab01/032.png[Logging in to the system,250,align=left,link=self]
 .. For security purposes it is usually the case that you do not want to log in as the root user. Instead, best practice is to log in as a standard user and then execute specific commands that require root access with administrative privileges through the sudo program. The sudo program is not installed by default so our first order of business is to install it.
 .. A good practice is to update your system package lists before installing any new packages. Because we are logged in as the _root_ (main administrative) user we can just type `apt update` and press enter to do this. The output from this command will look something like:
 +
-[source]
+[source,console]
 ----
 root@2480-Z:~# apt update
 Hit:1 http://security.debian.org/debian-security bookworm-security InRelease
@@ -145,7 +145,7 @@ Reading state information... Done
 .. Run the `ip address show` command to see what the IP address is on the main network card of your virtual machine, in our case that is the _ens192_ interface which should have an _inet_ address of something like _172.17.50.xxx_. 
 .. Example output (yours will have different addresses):
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ ip address show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -176,7 +176,7 @@ NOTE: You will be prompted to re-enter your standard user's password when execut
 --
 .. This is an example of the output similar to what you can expect
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ whoami
 ben
@@ -213,7 +213,7 @@ image::lab01/041.png[Confirming the host key,250,align=left,link=self]
 . Run the `whoami` and `hostname` commands to verify you are connected and logged in to your Linux server
 .. Example output:
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ whoami
 ben
@@ -290,7 +290,7 @@ In addition to some of the commands we have already looked at which show the cur
 .. Although Debian does have version numbers it's more common that people will refer to each version by the codename. Different codenames have different versions of software available, different instructions for making changes to settings on the system, and different packages installed by default so it can be important to know what codename you are running when following instructions from the Internet or asking for help with an issue.
 .. Example output:
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ lsb_release -a
 No LSB modules are available.
@@ -307,7 +307,7 @@ ben@2480-Z:~$
 .. Finally, every version of the kernel is built to target a certain processor or hardware architecture (i386, i686, amd64, arm, armhf, mips, m68k, sparc64, powerpc, etc.) and the kernel needs to match the hardware in the system to achieve the best performance (such as a 64 bit kernel on a 64 bit CPU) so it can also be important to check the architcture the kernel was built for.
 .. Example output:
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ uname -a
 Linux 2480-Z 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux
@@ -317,7 +317,7 @@ ben@2480-Z:~$
 .. Use the `uptime` command to find out how long your system has been running, how many users are currently logged on, and the system load averages.
 .. This command will print a line like:
 +
-[source]
+[source,console]
 ----
 ben@2480-Z:~$ uptime
  15:35:42 up  1:43,  2 users,  load average: 0.00, 0.00, 0.00
@@ -325,7 +325,7 @@ ben@2480-Z:~$ uptime
 In this case the "15:35:42" is the current time, the "1:43" means the system has been running for 1 hour and 43 minutes, there are two users currently logged on to the server, and the system load average for the past 1, 5 and 15 minutes have all been nearly zero.
 .. In another example you may see a line like:
 +
-[source]
+[source,console]
 ----
 ben@files:~$ uptime
  20:38:03 up 177 days,  2:19,  1 user,  load average: 0.50, 0.46, 0.42
