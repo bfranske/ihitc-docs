@@ -20,9 +20,12 @@ ui:
     contents: |
       static_files:
       - CNAME
+      - shakespeare.tar.gz
   - path: CNAME
     contents: |
       info.ihitc.net
+  - path: shakespeare.tar.gz
+    contents: ./shakespeare.tar.gz
 urls:
   html_extension_style: drop
   latest_version_segment: current
