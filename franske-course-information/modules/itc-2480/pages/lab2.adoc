@@ -1,0 +1,238 @@
+= Lab 2: Command Line Basics, Filesystem Navigation, and Package Management
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Familiarize yourself with the Linux filesystem hierarchy
+* Downloading a compressed file
+* Creating files and directories
+* Copying and moving files
+* Creating and Extracting .tar.tz "tarball" files
+* Removing files and directories
+* Performing administrative tasks to software packages
+
+You will be introduced to the following commands:
+
+* apt
+* cd
+* cp
+* dpkg
+* ls
+* man
+* mkdir
+* mv
+* pwd
+* rm
+* rmdir
+* tar
+* touch
+* wget
+
+== Preliminaries
+
+. Ensure your Linux server virtual machine is powered on in Netlab
++
+--
+NOTE: At the end of the last lab you were instructed to shut down your virtual machine. Beginning in this lab you can just leave your Linux server powered on and running at the end of each lab. This means you in the future you can just connect via an SSH remote terminal over the VPN which will save you from having to login to Netlab at all unless you are using the Windows Administrative PC through Netlab instead of using your own computer, for one lab where we will be working with a Linux GUI, or if something unusual happens during a lab that disconnects your server's network connection.
+--
+.. Login to the https://netlab.ihitc.net[ITC NetLab website] using your previously established username and password.
+.. Click the blue "New Lab Reservation" button and schedule a lab reservation for this course right now.
+.. If you have a currently active reservation you will see a green "Enter Lab" button on your list of reservations. Click the green "Enter Lab" button. If not, you will need to make a reservation (see above) and then click the "Enter Lab" button.
+.. Your virtual machines (VMs) will automatically power on when your reservation begins.
+. Make sure you have the current IP address of your Linux system
+.. If your Linux VM has been powered off for some time since you checked the IP address in a previous lab you may have received a new IP address, so be sure to check your current IP address on the _ens192_ interface using the local console in Netlab again just like in the previous lab.
+. Power off the Windows Administrative PC and the Linux Desktop virtual machines in Netlab unless you know you will be using the Windows Administrative PC.
+. End your Netlab Reservation unless you know you will be using it to access the Windows Administrative PC.
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+image::lab01/040.png[Entering the IP in PuTTY,250,align=left,link=self]
+. Login with your standard user's username and password
+.. Remember that just like using the local console to login to your server it is normal that nothing will appear when you are typing in your password. Just continue typing it and press enter when you have entered it to login.
+
+== The Linux Filesystem and Basic Navigation
+
+It is important to know where various things are stored on Linux systems as well as how to get to them. Like most modern operating systems Linux uses a hierarchical filesystem where files are stored in directories and those directories can be stored in other directories and so on in order to organize information. It should be noted that it is common to refer to directories as "folders" because this is how they are most frequently visualized in graphical user interfaces. Directories and folders are functionally the same thing but the correct terminology, at least on Linux, is to call them directories.
+
+One difference in Linux (and other UNIX-like operating systems) is there is a concept of a _root directory_. The _root directory_ is represented by a single forward-slash `/` character. All files, other directories, and even many hardware devices and kernel settings are located within this _root directory_. 
+
+There are also no "drive letters" in Linux (or other UNIX-like operating systems) in the way there are in Windows. Instead disk drives and partitions are assigned an identifier which falls underneath the _root directory_ like `/dev/sda1`. These storage devices can then be mapped (called _mounting_) to some "directory" (technically called a _mount point_) within the filesystem hierarchy and all files and directories stored under that _mount point_ are physically stored on that device. One storage device is mounted to the root of the filesystem hierarchy `/` which serves to catch all the files and directories stored anywhere that is not under some other mount point. We'll explore storage devices, partitions, and mounts in much more detail later in the course but for now it is useful background on how the Linux filesystem hierarchy is used.
+
+. Read the manual page for the file-hierarchy
+.. Linux has a built in system of manual pages which contain important and useful information about the operating system as well as most software and commands installed on the system. These pages are accessed by running the `man _<command>_` command where _<command>_ is replaced by the command or manual page name you want more information on.
+.. Run the `man file-hierarchy` command to open the manual page explaining the filesystem hierarchy. The beginning of it looks something like this:
++
+[source,console]
+----
+ben@2480-Z:~$ man file-hierarchy
+FILE-HIERARCHY(7)               file-hierarchy               FILE-HIERARCHY(7)
+
+NAME
+       file-hierarchy - File system hierarchy overview
+
+DESCRIPTION
+       Operating systems using the systemd(1) system and service manager are
+       organized based on a file system hierarchy inspired by UNIX, more
+       specifically the hierarchy described in the File System Hierarchy[1]
+       specification and hier(7), with various extensions, partially
+       documented in the XDG Base Directory Specification[2] and XDG User
+       Directories[3]. This manual page describes a more generalized, though
+       minimal and modernized subset of these specifications that defines more
+       strictly the suggestions and restrictions systemd makes on the file
+       system hierarchy.
+
+       Many of the paths described here can be queried with the systemd-
+       path(1) tool.
+
+GENERAL STRUCTURE
+       /
+           The file system root. Usually writable, but this is not required.
+           Possibly a temporary file system ("tmpfs"). Not shared with other
+           hosts (unless read-only).
+
+       /boot/
+           The boot partition used for bringing up the system. On EFI systems,
+           this is possibly the EFI System Partition (ESP), also see systemd-
+           gpt-auto-generator(8). This directory is usually strictly local to
+           the host, and should be considered read-only, except when a new
+----
+.. You can navigate through and read the rest of the manual page using the up/down arrow keys on your keyboard to move one line at a time or the Page Up/Page Down keys to move a full screen at a time up and down. There are also ways to search through a manual page and do more complex navigation of the page which you can get information on by pressing the `h` key on your keyboard (press `q` to return to the manual page).
++
+--
+NOTE: You cannot use your mouse or the scroll bars on an SSH window to navigate through a manual page.
+--
+.. Take a few minutes to read through and familiarize yourself with the Linux File system hierarchy overview manual page.
+.. When you are finished looking at the manual page press the `q` key on your keyboard to return to the command line of your server.
+. Check your current working directory
+.. Anytime you are at a command prompt in Linux you are working from some location in the filesystem hierarchy, this is called your _current working directory_ (abbreviated sometimes as _cwd_). You can see what your current working directory is using the `pwd` command which stands for "print working directory". In this case "print" means to print to the screen (not to a printer).
+.. Run the `pwd` command like this:
++
+[source,console]
+----
+ben@2480-Z:~$ pwd
+/home/ben
+ben@2480-Z:~$
+----
+.. In the example above you can see that my present location in the filesystem hierarchy is `/home/ben` or, in other words, the "ben" directory inside of the "home" directory inside of the _root directory_. You should see something similar but with your own username in place of ben.
+. Get a list of the contents of the current working directory in both short and long formats showing and not-showing hidden files
+.. The `ls` command is used to list the files in a directory you can find out more about the `ls` command by reading it's manual page with `man ls`. Remember that the `q` key will exit out of a manual page and return you to the command line.
+.. Run the `ls` command to get a basic listing of the contents of the current directory:
++
+[source,console]
+----
+ben@2480-Z:~$ ls
+ben@2480-Z:~$
+----
+.. So, it looks like there is nothing in our home directory, but is that really true? Like most operating systems files and directories can be "hidden" in Linux. This is not a security measure, but just a way to keep some files out of the way and prevent them from cluttering up directory listings. In Linux any file or directory starting with a period is a hidden file or directory that does not show up in regular directory listings.
+.. Try running the `ls -a` command which will show you hidden files and directories too:
++
+[source,console]
+----
+ben@2480-Z:~$ ls -a
+.   .bash_history  .bashrc   .profile
+..  .bash_logout   .lesshst  .sudo_as_admin_successful
+ben@2480-Z:~$
+----
+.. Now you can see that there are in fact some files or directories inside of your home directory. Let's get a "long" listing instead of a regular listing to get some more details about them:
++
+[source,console]
+----
+ben@2480-Z:~$ ls -al
+total 28
+drwx------ 2 ben  ben  4096 Mar 13 20:27 .
+drwxr-xr-x 3 root root 4096 Mar  8 16:38 ..
+-rw------- 1 ben  ben    56 Mar 12 14:38 .bash_history
+-rw-r--r-- 1 ben  ben   220 Mar  8 16:38 .bash_logout
+-rw-r--r-- 1 ben  ben  3526 Mar  8 16:38 .bashrc
+-rw------- 1 ben  ben    20 Mar 13 20:27 .lesshst
+-rw-r--r-- 1 ben  ben   807 Mar  8 16:38 .profile
+-rw-r--r-- 1 ben  ben     0 Mar  8 16:44 .sudo_as_admin_successful
+ben@2480-Z:~$
+----
+.. That's more like it! This listing gives lots of useful information including the permissions that are set on the file, the owner of the file, the group that owns the file, the size of the file, and the last time it was modified. We'll explore permissions and ownership of files and directories later in the course.
+.. For now it is helpful to know that the first character on each line indicates if the item is a file or directory. A file starts with a `-` and a directory starts with a `d`. So, if you see the a first column that looks like `drwx------` or `drwxr-xr-x` you know it is a directory, but if you see a first column that looks like `-rw-r--r--` or `-rw-r--r--` you know it is a file. Don't worry about all the r, w, and x letters or dashes occuring after the first position, those are information about the permissions. It's just the first position that indicates whether it is a directory or file.
+
+
+== Basic File Operations in Linux
+. Create a new directory named _sample-files_ in your user's home directory with the `mkdir` command and verify it exists with the `ls -al` like this:
++
+[source,console]
+----
+ben@2480-Z:~$ mkdir sample-files
+ben@2480-Z:~$ ls -al
+total 32
+drwx------ 3 ben  ben  4096 Mar 13 20:45 .
+drwxr-xr-x 3 root root 4096 Mar  8 16:38 ..
+-rw------- 1 ben  ben    56 Mar 12 14:38 .bash_history
+-rw-r--r-- 1 ben  ben   220 Mar  8 16:38 .bash_logout
+-rw-r--r-- 1 ben  ben  3526 Mar  8 16:38 .bashrc
+-rw------- 1 ben  ben    20 Mar 13 20:27 .lesshst
+-rw-r--r-- 1 ben  ben   807 Mar  8 16:38 .profile
+drwxr-xr-x 2 ben  ben  4096 Mar 13 20:45 sample-files
+-rw-r--r-- 1 ben  ben     0 Mar  8 16:44 .sudo_as_admin_successful
+----
++
+--
+NOTE: It is possible to have files and directories with spaces in the names on Linux. However, it is _very_ inconvenient to work with spaces in names on the command line because a space in a command line usually indicates you are moving on to a different part of the command. Instead of spaces it is common to put dashes between words in a file or directory name like we did with sample-files.
+--
+. Download the https://info.ihitc.net/shakespeare.tar.gz[shakespeare.tar.gz] file from the Internet to your user's home directory.
+.. We can use the `wget` command to download a file from a website like:
++
+[source,console]
+----
+ben@2480-Z:~$ wget https://info.ihitc.net/shakespeare.tar.gz
+--2024-03-13 20:51:25--  https://info.ihitc.net/shakespeare.tar.gz
+Resolving info.ihitc.net (info.ihitc.net)... 185.199.108.153, 185.199.111.153, 185.199.109.153, ...
+Connecting to info.ihitc.net (info.ihitc.net)|185.199.108.153|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2061602 (2.0M) [application/gzip]
+Saving to: ‘shakespeare.tar.gz’
+
+shakespeare.tar.gz   100%[===================>]   1.97M  --.-KB/s    in 0.05s
+
+2024-03-13 20:51:26 (38.6 MB/s) - ‘shakespeare.tar.gz’ saved [2061602/2061602]
+----
+.. Check that the _shakespeare.tar.gz_ file exists:
++
+[source,console]
+----
+ben@2480-Z:~$ ls -al
+total 2048
+drwx------ 3 ben  ben     4096 Mar 13 20:51 .
+drwxr-xr-x 3 root root    4096 Mar  8 16:38 ..
+-rw------- 1 ben  ben       56 Mar 12 14:38 .bash_history
+-rw-r--r-- 1 ben  ben      220 Mar  8 16:38 .bash_logout
+-rw-r--r-- 1 ben  ben     3526 Mar  8 16:38 .bashrc
+-rw------- 1 ben  ben       20 Mar 13 20:27 .lesshst
+-rw-r--r-- 1 ben  ben      807 Mar  8 16:38 .profile
+drwxr-xr-x 2 ben  ben     4096 Mar 13 20:45 sample-files
+-rw-r--r-- 1 ben  ben  2061602 Mar 13 17:16 shakespeare.tar.gz
+-rw-r--r-- 1 ben  ben        0 Mar  8 16:44 .sudo_as_admin_successful
+----
+. Copy the _shakespeare.tar.gz_ file into the _sample-files_ directory using the `cp` command:
++
+[source,console]
+----
+ben@2480-Z:~$ cp shakespeare.tar.gz sample-files/
+ben@2480-Z:~$
+----
++
+--
+NOTE: The / on the end of the command which indicates we want to place the file _into_ a subdirectory and not make a new copy of the file in the same directory but with a different name.
+
+NOTE: Pay attention to case, Linux is a case sensitive operating system. You can actually have two different files in the same directory, one called _Shakespeare.tar.gz_ and one called _shakespeare.tar.gz_
+--
+. Change your working directory to the _sample-files_ directory with the `cd` (change directory) command.
+
+NOTE: This is complete up through step 6 (except for the example) in the old lab version.
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
