@@ -1,5 +1,18 @@
 = Welcome to the Inver Hills ITC Information Site
 
-Welcome to my new page!
+This site is designed to eventually replace the https://wiki.ihitc.net[ITC Wiki]. Information is slowly being migrated from the wiki site to this site so if what you are looking for is not here yet please check the ITC Wiki site.
+
+On the left you will find a navigation menu with four main sections, each of which has a variety of pages.
+
+* xref:program-information:ROOT:index.adoc[Program Information]
+** This section contains general information about the faculty, degree and certificate programs, professional certifications, and course credit equivalency for professional certifications.
+* xref:franske-courses:ROOT:index.adoc[Dr. Franske's Course Pages]
+** This section contains syllabi, schedules, assignment instructions, and other details relevant to courses taught by Dr. Ben Franske
+* xref:tech-info:ROOT:index.adoc[Technical Information]
+** This section contains general technical information and common issues related to departmental infrastructure and lab equipment.
+* xref:software-info:ROOT:index.adoc[Software Discounts and Resources]
+** This section includes information about software access and discount programs available to students enrolled in ITC department courses.
+
+The site is built using Antora with the Lunr search engine and uses the AsciiDoc format for documentation. The source is on GitHub and the site is built and deployed to Github Pages using Github actions. More details on how that all works and how to make edits is on the xref:tech-info:ROOT:about-site.adoc[about this site page].
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
