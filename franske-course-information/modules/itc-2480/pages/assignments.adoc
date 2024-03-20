@@ -5,13 +5,13 @@ This page is organized into sections based on the category of your final grade t
 You are responsible for completing ALL of these labs. You must submit a lab report (click for details about how to write these) for each topic (except topics 13/14 which have a combined report). Each lab report is worth up to 20 points.
 
 * xref:lab1.adoc[Lab 1: Linux Installation and First Steps]
-* xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation, and Package Management]
-* xref:lab3.adoc[Lab 3: User Accounts and Permissions]
+* xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation]
+* xref:lab3.adoc[Lab 3: User Accounts, Permissions, and Package Management]
 * xref:lab4.adoc[Lab 4: Text Manipulation]
 * xref:lab5.adoc[Lab 5: Webserver and PHP Installation and Use]
 * xref:lab6.adoc[Lab 6: SQL Databases and Web Applications]
 * xref:lab7.adoc[Lab 7: Firewall COnfiguration and System Security]
-* xref:lab8.adoc[Lab 8: Linux SYstem Administration Utilities]
+* xref:lab8.adoc[Lab 8: Linux System Administration Utilities]
 * xref:lab9.adoc[Lab 9: DNS Server Installation and Configuration]
 * xref:lab10.adoc[Lab 10: An Introduction to Containers]
 * xref:lab11.adoc[Lab 11: Practical Applications of Containers]

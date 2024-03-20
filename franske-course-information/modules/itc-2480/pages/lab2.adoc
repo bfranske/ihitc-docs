@@ -14,10 +14,8 @@ In this lab you will perform the following tasks:
 
 You will be introduced to the following commands:
 
-* apt
 * cd
 * cp
-* dpkg
 * ls
 * man
 * mkdir
@@ -228,8 +226,326 @@ NOTE: The / on the end of the command which indicates we want to place the file 
 NOTE: Pay attention to case, Linux is a case sensitive operating system. You can actually have two different files in the same directory, one called _Shakespeare.tar.gz_ and one called _shakespeare.tar.gz_
 --
 . Change your working directory to the _sample-files_ directory with the `cd` (change directory) command.
++
+[source,console]
+----
+ben@2480-Z:~$ cd sample-files/
+ben@2480-Z:~/sample-files$
+----
+. Copy the _shakespeare.tar.gz_ file from the current directory into the _sample-files_ directory using the `cp` (copy) command.
+. Verify your directory change using the print working directory command
+. Verify the file has been copied by using the `ls -al` command inside the sample-files directory.
++
+[source,console]
+----
+ben@2480-Z:~$ cd sample-files/
+ben@2480-Z:~/sample-files$ pwd
+/home/ben/sample-files
+ben@2480-Z:~/sample-files$ ls -al
+total 2024
+drwxr-xr-x 2 ben ben    4096 Mar 13 20:55 .
+drwx------ 3 ben ben    4096 Mar 13 20:51 ..
+-rw-r--r-- 1 ben ben 2061602 Mar 13 20:55 shakespeare.tar.gz
+----
++
+--
+NOTE: Above we clearly explained how to check your work by making sure you had entered the _sample-files_ directory and that the _shakespeare.tar.gz_ had been copied into that directory. You should always be double checking your work when you do things to make sure they were done correctly. However, in the future it will not always be the case that you will receive specific instructions as to how to check your work. It is assumed that you can figure out on your own based on previously taught commands and skills how to check that the thing you just did worked correctly. If you are unsure about how to check your work for correctness yourself please talk to your instructor about it.
+--
+. Delete (remove) the _shakespeare.tar.gz_ file from the current directory by using the `rm` (remove) command. Remember to check your work, think about how you can be sure the file is gone!
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ rm shakespeare.tar.gz
+ben@2480-Z:~/sample-files$
+----
+. Change your directory back to your user's home directory (you want to go one level above the _sample-files_ subdirectory you're currently in). 
+.. There are many ways to do this. You may have seen the `..` "direcotry" in the `ls -al` file listing. It's not really a directory but a common and useful command line "shortcut" to move one directory up in the filesystem hierarchy which can be used as part of most paths on the command line so `cd ..` will change your working directory up one level. In this case that would put you in your home directory because you are currently one level below your home directory.
+.. Other ways to do this would include giving the "full path" to your home directory (from the root, so starting with a /) like `cd /home/ben` or using the shortcut to the current user's home directory which is a `~` (tilde) like `cd ~`. Both of these would work regardelss of what directory you are currently in on the system.
+. This time we want to move the _shakespeare.tar.gz_ file into the _sample-files_ directory instead of copying it. Do this with the `mv` (move) command.
++
+[source,console]
+----
+ben@2480-Z:~$ mv shakespeare.tar.gz sample-files/
+ben@2480-Z:~$
+----
+.. Again, note the / on the end of sample-files/ indicating we want to put it in a directory named _sample-files_ instead of renaming _shakespeare.tar.gz_ to a _file_ called _sample-files_.
+. Just a reminder to verify the _shakespeare.tar.gz_ file is no longer in your home directory and then change your working directory to _sample-files_ and verify that the file has been moved there.
+. The _.tar.gz_ type files are sometimes called a "tarball" and they are a common way to distribute files on *NIX (UNIX/Linux/BSD/POSIX) based systems. These files really have two parts. The first is a TAR file which is a way to pack multiple files and directories into a single file for archival an distribution purposes but does not compress the file in any way, the size will be essentially the same as if you added together all of the files it contains. After the files are put into a TAR file they can be compressed with the *gzip* program so we add the _.gz_ extension to the filename to indicate this TAR file has been compressed. Other compression programs such as *bzip2* can also be used, in that case it would be a _.tar.bz2_ file. Because TAR files are so frequently gzipped to compress them the command to compress or uncompress a file as been added to the TAR program itself so we don't need to go through two steps. In this case we can uncompress and extract the files using the `tar -zxf shakespeare.tar.gz` command or to see the list of files as they are extracted we can add the -v argument to the command to make the output verbose (print more information) like `tar -zxvf shakespeare.tar.gz`
+. Run the command to extract and uncompress the _shakespeare.tar.gz_ file. Remember to verify that this was done correctly!
+. If you check the contents of your _sample files_ directory again you will see that there is a new subdirctory inside it. It's common and good practice to always include the files in a TAR in their own subdirectory before packing them into the TAR so that when they are extracted they don't clutter the current working directory or accidentally overwrite a file already in the current working directory with one being extracted from the TAR file.
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ tar -zxvf shakespeare.tar.gz
+Shakespeare/
+Shakespeare/2 King Henry VI.txt
+Shakespeare/Richard III.txt
+Shakespeare/Midsummer's Night's Dream.txt
+Shakespeare/Romeo and Juliet.txt
+Shakespeare/The Merchant of Venice.txt
+Shakespeare/Macbeth.txt
+Shakespeare/Richard II.txt
+Shakespeare/Pericles Prince of Tyre.txt
+Shakespeare/Venus and Adonis.txt
+Shakespeare/Antony and Cleopatra.txt
+Shakespeare/King Henry VIII.txt
+Shakespeare/Twelfth Night.txt
+Shakespeare/Sonnets.txt
+Shakespeare/The Taming of the Shrew.txt
+Shakespeare/Contents.txt
+Shakespeare/Cymbeline.txt
+Shakespeare/King Henry V.txt
+Shakespeare/Measure for Measure.txt
+Shakespeare/The Tempest.txt
+Shakespeare/Various Poems.txt
+Shakespeare/Titus Andronicus.txt
+Shakespeare/3 King Henry VI.txt
+Shakespeare/Timon of Athens.txt
+Shakespeare/King Lear.txt
+Shakespeare/1 King Henry VI.txt
+Shakespeare/Julius Ceasar.txt
+Shakespeare/The Winter's Tale.txt
+Shakespeare/The Two Gentlemen of Verona.txt
+Shakespeare/The Merry Wives of Windsor.txt
+Shakespeare/The Comedy of Errors.txt
+Shakespeare/Hamlet.txt
+Shakespeare/Coriolanus.txt
+Shakespeare/Troilus and Cressida.txt
+Shakespeare/A Lovers Complaint.txt
+Shakespeare/The Rape of Lucrece.txt
+Shakespeare/As You Like It.txt
+Shakespeare/All's Well That Ends Well.txt
+Shakespeare/King John.txt
+Shakespeare/1 King Henry iv.txt
+Shakespeare/2 King Henry IV.txt
+Shakespeare/Much Ado About Nothing.txt
+Shakespeare/Loves Labour's Lost.txt
+Shakespeare/Othello.txt
+ben@2480-Z:~/sample-files$ ls -al
+total 2028
+drwxr-xr-x 3 ben ben    4096 Mar 18 16:01 .
+drwx------ 3 ben ben    4096 Mar 18 15:54 ..
+drwxr-xr-x 2 ben ben    4096 Nov  4  2004 Shakespeare
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+ben@2480-Z:~/sample-files$
+----
+. Enter the new _Shakespeare_ subdirectory inside _sample-files_ and list the contents.
++
+--
+TIP: Recall that file names and paths in Linux are case sensitive!
+--
+. Try deleting (removing) one of the text files.
++
+--
+TIP: You might encounter an error if the filename includes a space. As we mentioned before, although spaces are allowed in filenames on Linux, it's not recommended because you will need to either quote or escape filenames in some way in order to work with the files. For example if you wanted to remove a file called _a file with spaces.txt_ you would either need to enter the command as `rm "a file with spaces.txt"` (with the quotes) or as `rm a\ file\ with\ spaces.txt` where the backslash character is used to "escape" the special characters in the filename (in this case spaces, but other characters, like exclamation points, are special as well). Make sure you can remove a file with spaces in the name.
+--
+. Let's now say that we want to delete the entire _Shakespeare_ directory.
+.. Start by moving up one directory (back to _sample-files_). 
+.. Try using the same `rm` command we used to delete a file.
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ rm Shakespeare/
+rm: cannot remove 'Shakespeare/': Is a directory
+ben@2480-Z:~/sample-files$
+----
+.. Note the error message that `rm` doesn't seem to be the right tool for this. `rm` is designed for removing files, not directories.
+.. Try using the `rmdir` (remove directory) command instead
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ rmdir Shakespeare/
+rmdir: failed to remove 'Shakespeare/': Directory not empty
+ben@2480-Z:~/sample-files$
+----
+.. Linux sure seems to be picky, `rmdir` won't delete the directory unless it is empty first! On second thought we wouldn't accidentally want to delete a directory full of files so maybe that's a good idea. We certainly could go back into the _Shakespeare_ directory and remove all the files first and then remove the directory. Doing that one at a time would be pretty tedius though so there is another shortcut which allows us to do something to all of the files in a directory. The `*` (asterisk) is called a wildcard and can be used to do something to every file in a directory. So, we could get rid of the Shakespeare directory like this (but wait don't do it yet, there is another way!):
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ ls -al
+total 2028
+drwxr-xr-x 3 ben ben    4096 Mar 18 16:01 .
+drwx------ 3 ben ben    4096 Mar 18 15:54 ..
+drwxr-xr-x 2 ben ben    4096 Nov  4  2004 Shakespeare
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+ben@2480-Z:~/sample-files$ cd Shakespeare/
+ben@2480-Z:~/sample-files/Shakespeare$ rm *
+ben@2480-Z:~/sample-files/Shakespeare$ ls -al
+total 8
+drwxr-xr-x 2 ben ben 4096 Mar 18 16:14 .
+drwxr-xr-x 3 ben ben 4096 Mar 18 16:01 ..
+ben@2480-Z:~/sample-files/Shakespeare$ cd ..
+ben@2480-Z:~/sample-files$ rmdir Shakespeare/
+ben@2480-Z:~/sample-files$ ls -al
+total 2024
+drwxr-xr-x 2 ben ben    4096 Mar 18 16:15 .
+drwx------ 3 ben ben    4096 Mar 18 15:54 ..
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+----
+.. The biggest problem with this method is what if there are many layers of subdirectories inside of the _Shakespeare_ directory. Using this method we would have to go through all the directories and remove all the files followed be each level of directory until we got up to removing the _Shakespeare_ directory. That has the potential to be a lot of work, so there must be another way!
+.. Linux has a powerful (but obviously dangerous) command, the "recursive remove" command, which removes a directory as well as all of the files and subdirectories it contains. You must be careful with this command because, used incorrectly, you could obviously delete everything on your hard drive with a single command. We want to remove the _Shakespeare_ directory and everything it contains so we can use the `rm -r Shakespeare/` command like this:
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ ls -al
+total 2028
+drwxr-xr-x 3 ben ben    4096 Mar 18 16:18 .
+drwx------ 3 ben ben    4096 Mar 18 15:54 ..
+drwxr-xr-x 2 ben ben    4096 Nov  4  2004 Shakespeare
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+ben@2480-Z:~/sample-files$ rm -r Shakespeare/
+ben@2480-Z:~/sample-files$ ls -al
+total 2024
+drwxr-xr-x 2 ben ben    4096 Mar 18 16:18 .
+drwx------ 3 ben ben    4096 Mar 18 15:54 ..
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+ben@2480-Z:~/sample-files$
+----
+.. If you didn't run that command yet do the recursive remove now and remove the _Shakespeare_ directory.
+. After you verify the _Shakespeare_ directory is gone run the command to extract the _shakespeare.tar.gz_ one more time.
+. Change the name of the _Shakespeare_ directory to begin with a lower case _s_ instead of an upper case _S_.
+.. There is no "rename" command in Linux. Instead we just use the move command and move the file or directory from the old name to a new name. In this case that would look like `mv Shakespeare/ shakespeare/`
+. Create a new file named _test-file_ in the _sample-files_ directory
+.. It is often the case that there are multiple uses for a command. One such command on Linux is the `touch` command. If you read the manual page for `touch` you will see that it is really designed to "change file timestamps", in other words to set the last modified time of a file to be the current time. In fact, this is why it is called `touch` in the first place, because it just "touches" the file which changes the last modified date.
+.. However, it would be a mistake to think this is the most common use for the `touch` command. You see, when you use the `touch` command to try and update the timestamp on a file which does not actually exist yet `touch` will create a new empty file with that name. So, the most common use of `touch` is actually to create new empty files.
+.. Try creating a new file named _test-file_ using the `touch` command and verify that it now exists like:
++
+[source,console]
+----
+ben@2480-Z:~/sample-files$ ls -al
+total 2024
+drwxr-xr-x 2 ben ben    4096 Mar 18 16:18 .
+drwx------ 3 ben ben    4096 Mar 18 16:37 ..
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+ben@2480-Z:~/sample-files$ touch test-file
+ben@2480-Z:~/sample-files$ ls -al
+total 2024
+drwxr-xr-x 2 ben ben    4096 Mar 18 16:38 .
+drwx------ 3 ben ben    4096 Mar 18 16:37 ..
+-rw-r--r-- 1 ben ben 2061602 Mar 13 17:16 shakespeare.tar.gz
+-rw-r--r-- 1 ben ben       0 Mar 18 16:38 test-file
+ben@2480-Z:~/sample-files$
+----
+.. Note that the new file has a timestamp which matches the current date and time and also that it has a size of 0 because it is an empty file.
+. Create three more new files named _test-file2_, _test-file3_, and _test-file4_ in the _sample-files_ directory
 
-NOTE: This is complete up through step 6 (except for the example) in the old lab version.
+== Creating Archived/Compressed Files
+. We have already used `tar` to extract a *.tar.gz* file, but it can also be used to create _.tar_ files or _.tar.gz_ compressed files. This is common if you want to backup a collection of files that you want to send to someone else, move to another machine, or simply store as a backup file.
+. `tar` is one of the more complex commands that we have worked with so far and has a lot of features. We'll just be exploring the basics but if you get stuck or have any problems understanding why `tar` is functioning in a certain way you can find a number of introductory tutorials https://web.archive.org/web/20240114161608/http://www.thegeekstuff.com/2010/04/unix-tar-command-examples/[like this one] about using `tar` on the Internet by https://www.google.com/#q=tar+tutorial[searching for them].
+. Create a new directory named _archive-experiments_ in your home directory.
+.. Remember you may not be in your home directory right now (remember how to check your working directory).
+.. If you are not working in your home directory and you just use `mkdir archive-experiments` the _archive-experiments_ directory will get created inside of the current working directory and not your home directory!
+.. Solutions to this could involve changing your working directory to your home directory first *or* you could provide a full path to the directory you want to create like `mkdir /home/ben/archive-experiments` or even use the `~` (tilde) shortcut to your logged in user's home directory like `mkdir ~/archive-experiments`
+. Create a GZipped TAR file of everything in your _sample-files_ directory called _samplebackup1.tar.tz_ and save it to the _archive-experiments_ directory in your home directory by first changing your working directory to the _sample-files_ directory and then using the command `tar -czvf ~/archive-experiments/samplebackup1.tar.tz *`
+.. As we mentioned before the `*` (asterisk) is called a wildcard and can be used to do something to every file in a directory. In this case we're asking TAR to include every file in the current working directory in the _~/archive-experiments/samplebackup1.tar.tz_ file.
++
+--
+[CAUTION]
+====
+You might think that if you didn't want to change into the sample-files directory you could specify that as a full path to the TAR program as well by using a command like `tar -czvf ~/archive-experiments/samplebackup1.tar.gz ~/sample-files/*` but that would actually have unintended consequences. When you run TAR with a full path like that it will store the location of every file and when you unpack the files they will go back to their original locaiton (unless you are careful about how you unpack them).
+
+This may be what you actually want if you are backing up something you intend to restore to the same location but this is probably not what you are doing most of the time. Instead you want to bumndle up files to send to someone else or to another system. In that case you usually want to unpack files into the current working directory and not to whatever the original file location was. There are a few ways to do this but the simplest is to change your working directory to the location containing the files you want to include before creating the tar file.
+====
+--
+. Change your working directory to the _archive-experiments_ directory in your home directory.
+. Try extracting the files in _samplebackup1.tar.gz_ into your _archive-experiments_ directory, show a list of files as they are extracted (verbose).
+. Check the contents of your _archive-experiments_ directory.
+.. What happened? What kind of mess could this make when you extract a TAR file that contined hundreds of files when it was created this way?
+. Delete all files and subdirectories from inside the _archive-experiments_ directory.
+. Try again to create a GZipped TAR file of everything in your _sample-files_ directory called _samplebackup2.tar.gz_ and save it to the _archive-experiments_ directory in your home directory. This time specify a full path for both the tar file to create in the _archive-experiments_ directory and the _sample-files_ directory like `tar -czvf ~/archive-experiments/samplebackup2.tar.gz ~/sample-files`
+..  You may be wondering why we did not put a slash after _~/sample-files_ as you might expect for a directory (e.g. _~/sample-files/_). In some older versions of TAR putting a slash on the end meant to put the files from that directory into the file but not the directory itself (just like when we created logbackup1.tar.gz with the asterisk wildcard). By leaving the slash off the end we are telling TAR to put the log directory,as well as it's contents, into the TAR file so that when we extract it we will get a log directory made with the files going into it. Even though new versions of TAR automatically prevent you from creating TAR files without a directory path it is still best practice to make sure that you are including a directory as part of the TAR file.
+. Try extracting the files from _samplebackup2.tar.gz_ into your _archive-experiments_ directory, show a list of files as they are extracted (verbose).
+. Check the contents of your _archive-experiments_ directory.
+.. What happened? If you extracted a tar file made this way you could potentially end up with several more levels of directories than you really want. In this case we got an extra var directory inside of experiments but if we were archiving something with a deeper path we would have even more extra subdirectories. You can actually see this during the tar file creation if you have verbose output enabled you saw that all the files being added to the tar had var/log/ in front of the filename. There are at least two ways to handle this which we will look at.
+. Delete all files and subdirectories from inside the _archive-experiments_ directory.
+. What we really want to do is to create a tar file of everthing inside of the _sample-files_ directory which, when we unpack it, will create a new _sample-files_ directory inside of the current working directory where we're unpacking. There are at least two ways to accomplish this.
+.. The first way, and probably the easiest to remember is to just change our working directory to one level above the directory we want to archive and create the archive like this:
++
+[source,console]
+----
+ben@2480-Z:~/archive-experiments$ cd ~
+ben@2480-Z:~$ tar -czvf archive-experiments/samplebackup3.tar.gz sample-files
+sample-files/
+sample-files/shakespeare.tar.gz
+sample-files/test-file4
+sample-files/shakespeare/
+sample-files/shakespeare/All's Well That Ends Well.txt
+sample-files/shakespeare/3 King Henry VI.txt
+[...OUTPUT OMITTED...]
+sample-files/shakespeare/The Winter's Tale.txt
+sample-files/shakespeare/The Comedy of Errors.txt
+sample-files/test-file2
+sample-files/test-file3
+sample-files/test-file
+----
+.. You can see in the verbose output from the tar command that all of the lines indicating the files being saved into the archive just begin with _sample-files/_ (a relative path) compare that with the output we got from the ways we were running tar before:
++
+[source,console]
+----
+ben@2480-Z:~$ tar -czvf ~/archive-experiments/samplebackup2.tar.gz ~/sample-files
+tar: Removing leading `/' from member names
+/home/ben/sample-files/
+/home/ben/sample-files/shakespeare.tar.gz
+/home/ben/sample-files/test-file4
+/home/ben/sample-files/shakespeare/
+/home/ben/sample-files/shakespeare/All's Well That Ends Well.txt
+/home/ben/sample-files/shakespeare/3 King Henry VI.txt
+[...OUTPUT OMITTED...]
+/home/ben/sample-files/shakespeare/The Winter's Tale.txt
+/home/ben/sample-files/shakespeare/The Comedy of Errors.txt
+/home/ben/sample-files/test-file2
+/home/ben/sample-files/test-file3
+/home/ben/sample-files/test-file
+----
+.. In that output from one of the ways we previously ran the tar command you can see each file is listed with the full path (_/home/ben/sample-files/_) in fact, on the first line there is a warning _tar: Removing leading `/' from member names_ so they are actually being stored as _home/ben/sample-files/_ which is exactly how they unpacked (a new _home/ben/sample-files directory_ was created inside of our _archive-experiments_ directory) ! So you can see when you create the tar file exactly how the files will be unpacked.
+.. The second way to create the tar file to work the way we want (in case we don't want to change our working directory ourselves) is to run a tar command with the `-C _<directory>_` option. This will have tar temporarily change the working directory itself. Doing things this way would look like:
++
+[source,console]
+----
+ben@2480-Z:~/archive-experiments$ tar -czvf samplebackup4.tar.gz -C /home/ben sample-files
+sample-files/
+sample-files/shakespeare.tar.gz
+sample-files/test-file4
+sample-files/shakespeare/
+sample-files/shakespeare/All's Well That Ends Well.txt
+sample-files/shakespeare/3 King Henry VI.txt
+[...OUTPUT OMITTED...]
+sample-files/shakespeare/The Winter's Tale.txt
+sample-files/shakespeare/The Comedy of Errors.txt
+sample-files/test-file2
+sample-files/test-file3
+sample-files/test-file
+ben@2480-Z:~/archive-experiments$
+----
+.. You can see in the output above that the files are being included in the archive file in the same way as they were when we changed our working directory to the parent directory (_/home/ben_) of the one we wanted to archive first but we could just have tar do it for us.
+. If you haven't created a tar file in the way we really wanted to (as shown with _samplebackup3.tar.gz_ or _samplebackup4.tar.gz_ above) do so now.
+. Switch back to your _archive-experiments_ directory and then try extracting the files from _samplebackup3.tar.gz_ or _samplebackup4.tar.gz_. This time do not show a list of files as they are extracted (not verbose).
+. Check the contents of your _archive-experiments_ directory. This time you should again see that there is just one new subdirectory named _sample-files_ and all of the files are neatly placed inside of it. This is normally what you're looking for with tar files.
++
+--
+[NOTE]
+====
+If you get a tar file from the Internet or just don't remember how you might have created it you can actually check how the files in it are stored without actually extracting them using the `-t` option (instead of the `-x` option) for tar like this:
+[source,console]
+----
+ben@2480-Z:~/archive-experiments$ tar -tzvf samplebackup4.tar.gz
+drwxr-xr-x ben/ben           0 2024-03-20 16:37 sample-files/
+-rw-r--r-- ben/ben     2061602 2024-03-13 17:16 sample-files/shakespeare.tar.gz
+-rw-r--r-- ben/ben           0 2024-03-20 16:37 sample-files/test-file4
+drwxr-xr-x ben/ben           0 2004-11-04 17:41 sample-files/shakespeare/
+-rw-r--r-- ben/ben      135369 1997-09-01 10:22 sample-files/shakespeare/All's Well That Ends Well.txt
+-rw-r--r-- ben/ben      148210 1997-09-01 11:17 sample-files/shakespeare/3 King Henry VI.txt
+[...OUTPUT OMITTED...]
+-rw-r--r-- ben/ben      145794 1997-09-01 11:13 sample-files/shakespeare/The Winter's Tale.txt
+-rw-r--r-- ben/ben       89525 1997-09-01 10:31 sample-files/shakespeare/The Comedy of Errors.txt
+-rw-r--r-- ben/ben           0 2024-03-20 16:37 sample-files/test-file2
+-rw-r--r-- ben/ben           0 2024-03-20 16:37 sample-files/test-file3
+-rw-r--r-- ben/ben           0 2024-03-18 16:38 sample-files/test-file
+ben@2480-Z:~/archive-experiments$
+----
+====
+--
+. There are a number of other things you can do with *tar* such as creating slower but more highly compressed .bz2 bzip files (using the `-j` option instead of `-z`), extracting single files (or directories or groups of files) from an archive, adding files to an existing archive, and preserving file ownership (only by extracting on the same system though) and permissions. You should read the manual page for *tar* and then try practicing some of these and be familiar with the many ways that *tar* can be used.
 
 == Wrapping Up
 
