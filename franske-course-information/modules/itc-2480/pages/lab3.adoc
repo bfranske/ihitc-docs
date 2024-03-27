@@ -499,8 +499,99 @@ ben@2480-Z:/home$
 . You may need to remove a package, say the boss is coming and you need to get rid of _tint_. You can do a simple remove of a package with the `apt remove _<package_name>_` command. This will remove the package _but it will leave any configuration files behind_. That can be useful in case you want to later re-install the package without having to re-configure it. In the case of something like _tint_ it means things like the high score list would stay around in case you later re-installed it. Just like the installation process removing a package will require administrative permissions.
 . Try removing and then re-installing _tint_ and notice that the high scores stay around (these are displayed after you lose the game and are returned to the command line).
 . However, sometimes you want to remove the package *and* it's configuration files. Maybe there is some corruption or bad configuration and you want to start completely fresh. In that case you need to go to the next level and use the `apt purge _<package_name>_` command. Try this by purging _tint_ and then re-installing it and noticing the high scores list is cleared.
+. Install the GNU Hello program with `dpkg` by manually downloading the _.deb_ package file.
+.. There are some times when software you want to install is not provided by the official Debian repositoies. There are several possible ways you may need to solve this problem:
+... In some cases, the software is not available as a pre-compiled package at all. In these cases you will need to download the _source code_ for the software along with any utilities needed to build or compile the software (commonly called the toolchain) and compile it yourself. This can be a daunting task, but many times there are instructions provided by the software developer as to how to do this (some are better than others).
+... In other cases the software package might be available in a non-standard Debian package repository. When this is the case you will need to add that repository (and a key to trust it) to your system. Normally software developers who are doing this are pretty organized and have clear instructions as to how to edit your _/etc/apt/sources.list_ file or a file in the _/etc/apt/sources.list.d/_ directory to add the repoisitory and use `gpg` to add the key which has signed the software packages to those you trust. We'll do this later in the course when we work with Docker as they provide their own repository for their most up to date packages.
+... Finally, in still other cases the developer may provide a _.deb_ package which you can download manually (not using `apt`) and install on your system using the `dpkg` utility. In some ways this is the simplest solution; however, you can run into issues when the software package relies on other _prerequisite_ packages that are certain versions and those versions are not available through the standard repositories. These _prerequisite_ packages are also called _dependencies_ because the software you are trying to install is dependent on them to work.
+.. Use the `wget https://info.ihitc.net/hello_2.10-3_amd64.deb` command to download the _hello_2.10-3_amd64.deb_ package file onto your system.
+.. Use the `dpkg -i hello_2.10-3_amd64.deb` to install the _hello_ program from this package onto your system. Remember that software installation must be done with administrative permissions.
+.. Test the newly installed package by running the `hello` command. This should all look something like this:
++
+[source,console]
+----
+ben@2480-Z:~$ wget https://info.ihitc.net/hello_2.10-3_amd64.deb
+--2024-03-27 16:15:34--  https://info.ihitc.net/hello_2.10-3_amd64.deb
+Resolving info.ihitc.net (info.ihitc.net)... 185.199.111.153, 185.199.108.153, 185.199.109.153, ...
+Connecting to info.ihitc.net (info.ihitc.net)|185.199.111.153|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 53080 (52K) [application/octet-stream]
+Saving to: ‘hello_2.10-3_amd64.deb’
 
-NOTE: Need still to do a dpkg-reconfigure tzdata and maybe a purge of no longer needed package dependencies.
+hello_2.10-3_amd64. 100%[===================>]  51.84K  --.-KB/s    in 0.002s
+
+2024-03-27 16:15:35 (24.3 MB/s) - ‘hello_2.10-3_amd64.deb’ saved [53080/53080]
+
+ben@2480-Z:~$ sudo dpkg -i hello_2.10-3_amd64.deb
+[sudo] password for ben:
+Selecting previously unselected package hello.
+(Reading database ... 29680 files and directories currently installed.)
+Preparing to unpack hello_2.10-3_amd64.deb ...
+Unpacking hello (2.10-3) ...
+Setting up hello (2.10-3) ...
+Processing triggers for man-db (2.11.2-2) ...
+ben@2480-Z:~$ hello
+Hello, world!
+ben@2480-Z:~$
+----
+. Sometimes during the installation of a software package you are asked some questions in a text-user-interface (TUI) which looks like the same interface you used when originally installing Debian (a blue background screen with text dialog boxes, options, fill-in fields, etc.). These package installations usually only ask the bare minimum questions to get the software somewhat working and automatically select defaults for other options. Sometimes this means you are not asked any configuration questions at all during installation (sometimes there aren't any questions in the installation package and other times they are just all marked as optional). Other times you want to change the answer to a previously asked package installation question.
+. As long as there are questions programmed into the installation package you can always view all the optional questions or change answers to questions using the `dpkg-recongifure` command. This applies to packages installed as part of your original Debian Linux installation, via `apt`, and via `dpkg`.
+. The _tzdata_ package is used to provide timezone data to your Debian system and to set the timezone of the system. Use the `dpkg-reconfigure tzdata` to view (and adjust if needed) the timezone of your system and to see how the `dpkg-reconfigure` command works. Remember that this command needs to be run with administrative permissions!
+. Another thing to be aware of is that many Linux packages have _dependencies_ which were already mentioned. These are other packages that need to be installed for your desired package to work. Luckily tools like `apt` will automatically install these for you when possible (this is one advantage of `apt` over `dpkg`). You may have actually seen this when installing some of the packages we have used in this class and you are asked to confirm if it's ok to install a list of packages even though you only asked for one package to be installed. However, this leads to a complex web of packages depending on other packages and when you uninstall a package it does not neccecarily uninstall other packages that were installed alongside it even if you no longer need these (as there could be unintended consequences to removing them).
+. Sometimes you do want to simplify the packages you have installed (for example to reduce security exposure from software bugs) or free up space on a system by removing all the packages no longer required or specifically asked for. The `apt autoremove` command serves this purpose.
+. You can actually see these packages which will no longer be needed when you remove a package. For example, if you still have the _tint_ package installed remove or purge it now. You'll see something like this:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo apt purge tint
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libncurses6
+Use 'sudo apt autoremove' to remove it.
+The following packages will be REMOVED:
+  tint*
+0 upgraded, 0 newly installed, 1 to remove and 1 not upgraded.
+After this operation, 71.7 kB disk space will be freed.
+Do you want to continue? [Y/n] y
+(Reading database ... 29730 files and directories currently installed.)
+Removing tint (0.07) ...
+Processing triggers for mailcap (3.70+nmu1) ...
+Processing triggers for man-db (2.11.2-2) ...
+(Reading database ... 29721 files and directories currently installed.)
+Purging configuration files for tint (0.07) ...
+ben@2480-Z:~$
+----
+. Notice the line _The following package was automatically installed and is no longer required:_ followed by a list of packages (in this case just one). You are even provided instructions on how to eliminte them: _Use 'sudo apt autoremove' to remove it_. Try running the `sudo apt autoremove` command now and see if there are any unused dependency packages on your system which can be cleaned up.
+. Before we leave our activities with packages we should talk about updating. Just like with all other operating systems keeping software installed on Linux systems up to date is important to fix any security bugs that have been found. Perhaps it's more important on servers where you are intentionally running network services. Fortunately, for software which was installed with `apt` there are easy steps to ensure it is at the latest version supported in the version of Debian you are running. If you installed the software with `dpkg`, compiled it yourself, or installed it some other way you are on your own to make sure it stays up to date!
+. The first thing you want to do is something we've already mentioned and that is to run the `apt update` command regulary (with administrative permissions). This does *not* actually upgrade software on your system but it does pull a list of the most current versions of all the packages available from the apt repositories online. It _also_ checks that against the package versions installed on your system to see if there are any newer versions. Run the `apt update` command now and you should see something like:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo apt update
+Hit:1 http://deb.debian.org/debian bookworm InRelease
+Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+Get:3 http://security.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+Fetched 103 kB in 1s (139 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+ben@2480-Z:~$
+----
+. Notice the last line _1 package can be upgraded. Run 'apt list --upgradable' to see it._ which tells us that my system has one package due for an upgrade. I can see what it is with the `apt list --upgradable` command which will give output like this:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo apt list --upgradable
+Listing... Done
+libuv1/stable-security 1.44.2-1+deb12u1 amd64 [upgradable from: 1.44.2-1]
+N: There is 1 additional version. Please use the '-a' switch to see it
+ben@2480-Z:~$
+----
+. If I don't know what the _libuv1_ package is or does (maybe it is a dependency that I never specifically installed) I can use the `apt show libuv1` command which we looked at previously to get more information.
+. If I want to upgrade one specific package I can just use `apt install _<package_name>_` to install it again over the top of the existing package. However, usually you want to upgrade all the packages on the system to do that we use the `apt upgrade` command which you should run now.
 
 == Wrapping Up
 
