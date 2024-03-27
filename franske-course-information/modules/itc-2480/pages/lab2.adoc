@@ -525,7 +525,7 @@ ben@2480-Z:~/archive-experiments$
 --
 [NOTE]
 ====
-If you get a tar file from the Internet or just don't remember how you might have created it you can actually check how the files in it are stored without actually extracting them using the `-t` option (instead of the `-x` option) for tar like this:
+If you get a tar file from the Internet or just don't remember how you might have created it you can actually check how the files in it are stored without  extracting them using the `-t` option (instead of the `-x` option) for tar like this:
 [source,console]
 ----
 ben@2480-Z:~/archive-experiments$ tar -tzvf samplebackup4.tar.gz
@@ -552,3 +552,5 @@ ben@2480-Z:~/archive-experiments$
 . Close the SSH session
 .. Type `exit` to close the connection while leaving your Linux server VM running.
 . If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running from this point on, you do not need to shut it down.

@@ -21,11 +21,14 @@ ui:
       static_files:
       - CNAME
       - shakespeare.tar.gz
+      - hello_2.10-3_amd64.deb
   - path: CNAME
     contents: |
       info.ihitc.net
   - path: shakespeare.tar.gz
-    contents: ./shakespeare.tar.gz
+    contents: ./static/shakespeare.tar.gz
+  - path: hello_2.10-3_amd64.deb
+    contents: ./static/hello_2.10-3_amd64.deb
 urls:
   html_extension_style: drop
   latest_version_segment: current

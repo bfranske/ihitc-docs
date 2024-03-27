@@ -1,0 +1,511 @@
+= Lab 2: User Accounts, Permissions, and Package Management
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Create a new user account and group
+* Change the ownership and permissions of files and directories
+* See what the effect of ownership and file permissions is
+* Search Debian APT repositories for a software package
+* Install a Debian software package
+* Run the reconfigure wizard for a Debian software package
+* Remove a Debian software package
+
+You will be introduced to the following commands:
+
+* addgroup
+* adduser
+* apt
+* cat
+* chgrp
+* chmod
+* chown
+* dpkg
+* dpkg-reconfigure
+* groups
+* less
+* more
+* usermod
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Creating Users and Groups
+
+. Create a new user account _jsmith_ using the *adduser* command.
+.. Remember that many administrtive commands like this need to be executed with administrative permissions.
+.. You can make up any password for the new user you want, but make sure to record it somewhere as you will need it to log in and test the new user account.
+.. You can optionally enter anything you want (or leave blank) the full name, room number, phone numbers, and other information.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo adduser jsmith
+[sudo] password for ben:
+Adding user `jsmith' ...
+Adding new group `jsmith' (1001) ...
+Adding new user `jsmith' (1001) with group `jsmith (1001)' ...
+Creating home directory `/home/jsmith' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for jsmith
+Enter the new value, or press ENTER for the default
+        Full Name []: Jessie Smith
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+Adding new user `jsmith' to supplemental / extra groups `users' ...
+Adding user `jsmith' to group `users' ...
+ben@2480-Z:~$
+----
+. Create a new group _redteam_ using the *addgroup* command
++
+[source,console]
+----
+ben@2480-Z:~$ sudo addgroup redteam
+Adding group `redteam' (GID 1002) ...
+Done.
+ben@2480-Z:~$
+----
+. Add the _jsmith_ account as well as your own user account to the _redteam_ group with the *adduser* command
++
+[source,console]
+----
+ben@2480-Z:~$ sudo addgroup redteam
+Adding group `redteam' (GID 1002) ...
+Done.
+ben@2480-Z:~$ sudo adduser jsmith redteam
+Adding user `jsmith' to group `redteam' ...
+Done.
+ben@2480-Z:~$ sudo adduser ben redteam
+Adding user `ben' to group `redteam' ...
+Done.
+ben@2480-Z:~$
+----
+. Close your SSH session and open two new SSH sessions. You need to log out of your user's session and log back in to get access to the new group your user now belongs to.
+. Log back in to one of the new SSH sessions with your regular use and log in as _jsmith_ on the other.
+. Use the `groups` command from both your regular user and the jsmith user SSH sessions to check what groups the user is a member of.
++
+[source,console]
+----
+[...from regular user session...]
+ben@2480-Z:~$ groups
+ben cdrom floppy sudo audio dip video plugdev users netdev redteam
+ben@2480-Z:~$
+[...from jsmith session...]
+jsmith@2480-Z:~$ groups
+jsmith users redteam
+jsmith@2480-Z:~$
+----
+. View a list of all the user accounts on your system by looking at the _/etc/passwd_ file.
+.. The _/etc/passwd_ file is just a text file that Linux uses to keep track of the users on a system. It used to contain user passwords in clear text but that has been replaced by the _shadow_ system which we'll look at shortly. In any case you can view the contents of a text file (like _/etc/passwd_) on Linux using the `cat` command.
++
+[source,console]
+----
+ben@2480-Z:~$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+messagebus:x:100:107::/nonexistent:/usr/sbin/nologin
+sshd:x:101:65534::/run/sshd:/usr/sbin/nologin
+ben:x:1000:1000:Ben Franske,,,:/home/ben:/bin/bash
+jsmith:x:1001:1001:Jessie Smith,,,:/home/jsmith:/bin/bash
+ben@2480-Z:~$
+----
+.. Notice that the output of the _/etc/passwd_ file may more than fill your screen. Because you are logged into an SSH session you can scroll up a little bit to see the beginning of the file (or make the window larger and run the `cat` command again) but this doesn't work for a very long text file.
+. To view a longer file you can use the traditional command `more` or a more flexible command `less`. With the `more` command like `more /etc/passwd` the system will pause after each full screen of text and you can press a key to go to the next page. When you are done viewing the file you can press the letter *q* to exit back to the command line. When using the `less` command like `less /etc/passwd` you can scroll up and down one line at a time using your arrow keys or one page at a time with the Page Up and Page Down keys, also pressing *q* to exit back to the command line.
+. Try viewing a text file on your system with the `more` and `less` commands. This could be the _/etc/passwd_ file or one of the Shakespeare files we worked with in a previous lab.
+. View a list of the password data on your system by viewing the _/etc/shadow_ file. Note that passwords in the _shadow_ file are stored as hashes so they can't be seen by someone who has access to the _/etc/shadow_ file. It's still important to protec this file though so only the _root_ user has access to it, because of this you'll need to use a tool that lets you run a command as the administrative user to view this file.
+. View a list of groups and group members on your system in the _/etc/group_ file. Again, this is a plain text file. Do you see a theme with Linux storing settings in plain text files yet?
+
+== Practice Filesystem Permissions and Ownership
+[NOTE]
+====
+Working with file and directory ownership and permissions is tricky and there are many, many possible combinations of users, groups, and permissions which can be assigned to both files and folders. The goal of this section of the lab is to familiarize you with how to use the commands for changing ownership and permissions, not to teach you how to read or understand Linux file permissions (see your readings for this, it is important!) *Once you understand how to use the commands you should experiment with setting different owners and permissions on a several different files and folders and subfolders until you have a good understanding of how permissions work.* The only way to understand these relationships well is to read about it and then try it out. You should be able to set all of these permissions just as regular users (assuming you have access to both of the user accounts) *you should not need sudo access to change the permissions or group ownership because one of the the two users owns all the files and directories we're working in. You will need sudo access to change the user ownership of the files because otherwise it would be possible to accidentally lock yourself out of a file.*
+
+This table may be a helpful resource:
+[%autowidth]
+|===
+|Octal|Binary|File Mode 
+
+|0
+|000
+|`---`
+
+|1
+|001
+|`--x`
+
+|2
+|010
+|`-w-`
+
+|3
+|011
+|`-wx`
+
+|4
+|100
+|`r--`
+
+|5
+|101
+|`r-x`
+
+|6
+|110
+|`rw-`
+
+|7
+|111
+|`rwx`
+
+|===
+Finally, this https://wintelguy.com/permissions-calc.pl[permissions calcualtor] may also be helpful in learning how permissions are calculated and set in Linux.
+====
+[IMPORTANT]
+====
+This section of the lab will definitely not make sense unless you have done your readings on permissions and ownership in Linux. If you have not done these yet please go do them before proceeding!
+====
+. Be sure you have an SSH session open as both your regular user as as _jsmith_
+. In both sessions change to the _/home_ directory.
+. Check the ownership and permissions on the subdirectories inside of _/home_
++
+[source,console]
+----
+ben@2480-Z:~$ cd /home
+ben@2480-Z:/home$ ls -al
+total 16
+drwxr-xr-x  4 root   root   4096 Mar 26 15:09 .
+drwxr-xr-x 18 root   root   4096 Mar  8 16:29 ..
+drwx------  4 ben    ben    4096 Mar 26 15:25 ben
+drwx------  2 jsmith jsmith 4096 Mar 26 15:09 jsmith
+ben@2480-Z:/home$
+----
+. Try to create two new files (foo and foo2) using the `touch` command called foo and foo2 in the */home/jsmith* directory as your regular user
+.. You wil get an error when you try do do this. Look at the permissions you just checked above for the _jsmith_ directory. Can you see what the problem is?
++
+[source,console]
+----
+ben@2480-Z:/home$ touch /home/jsmith/foo
+touch: cannot touch '/home/jsmith/foo': Permission denied
+ben@2480-Z:/home$ touch /home/jsmith/foo2
+touch: cannot touch '/home/jsmith/foo2': Permission denied
+ben@2480-Z:/home$
+----
+. Try again but as the _jsmith_ user this time.
++
+[source,console]
+----
+jsmith@2480-Z:/home$ touch /home/jsmith/foo
+jsmith@2480-Z:/home$ touch /home/jsmith/foo2
+jsmith@2480-Z:/home$
+----
+. Try using your regular user to list the files in the _/home/jsmith_ directory.
++
+[source,console]
+----
+ben@2480-Z:/home$ ls -al /home/jsmith/
+ls: cannot open directory '/home/jsmith/': Permission denied
+ben@2480-Z:/home$
+----
+. Fix the error by allowing all users of the system to list the contents of the _/home/jsmith_ directory. Remember that the read permission on a _directory_ allows you to list its contents and execute allows you to enter it, this is a bit different than what read and execute mean for a _file_.
++
+[source,console]
+----
+jsmith@2480-Z:/home$ chmod o+r /home/jsmith
+jsmith@2480-Z:/home$ ls -al
+total 16
+drwxr-xr-x  4 root   root   4096 Mar 26 15:09 .
+drwxr-xr-x 18 root   root   4096 Mar  8 16:29 ..
+drwx------  4 ben    ben    4096 Mar 26 15:25 ben
+drwx---r--  2 jsmith jsmith 4096 Mar 26 16:10 jsmith
+jsmith@2480-Z:/home$
+----
+. Now try again using your regular user to list the files in the _/home/jsmith_ directory.
++
+[source,console]
+----
+ben@2480-Z:/home$ ls -al /home/jsmith/
+ls: cannot access '/home/jsmith/..': Permission denied
+ls: cannot access '/home/jsmith/.profile': Permission denied
+ls: cannot access '/home/jsmith/foo2': Permission denied
+ls: cannot access '/home/jsmith/.': Permission denied
+ls: cannot access '/home/jsmith/.bash_logout': Permission denied
+ls: cannot access '/home/jsmith/.bashrc': Permission denied
+ls: cannot access '/home/jsmith/foo': Permission denied
+total 0
+d????????? ? ? ? ?            ? .
+d????????? ? ? ? ?            ? ..
+-????????? ? ? ? ?            ? .bash_logout
+-????????? ? ? ? ?            ? .bashrc
+-????????? ? ? ? ?            ? foo
+-????????? ? ? ? ?            ? foo2
+-????????? ? ? ? ?            ? .profile
+ben@2480-Z:/home$
+----
+. Well, that's better but it still generated a bunch of errors and you can't see all the information about the files in the directory. Fix the error by allowing all users of the system to enter the _/home/jsmith_ directory as well. 
++
+[source,console]
+----
+jsmith@2480-Z:/home$ chmod o+rx /home/jsmith
+jsmith@2480-Z:/home$ ls -al
+total 16
+drwxr-xr-x  4 root   root   4096 Mar 26 15:09 .
+drwxr-xr-x 18 root   root   4096 Mar  8 16:29 ..
+drwx------  4 ben    ben    4096 Mar 26 15:25 ben
+drwx---r-x  2 jsmith jsmith 4096 Mar 26 16:10 jsmith
+jsmith@2480-Z:/home$
+----
+. Now try once again using your regular user to list the files in the _/home/jsmith_ directory.
++
+[source,console]
+----
+ben@2480-Z:/home$ ls -al /home/jsmith/
+total 20
+drwx---r-x 2 jsmith jsmith 4096 Mar 26 16:10 .
+drwxr-xr-x 4 root   root   4096 Mar 26 15:09 ..
+-rw-r--r-- 1 jsmith jsmith  220 Mar 26 15:09 .bash_logout
+-rw-r--r-- 1 jsmith jsmith 3526 Mar 26 15:09 .bashrc
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:10 foo
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:10 foo2
+-rw-r--r-- 1 jsmith jsmith  807 Mar 26 15:09 .profile
+ben@2480-Z:/home$
+----
+. Try removing the _foo_ file using first your regular user account and the the _jsmith_ account
+. Add write permission to the _foo2_ file for all users of the system.
++
+[source,console]
+----
+jsmith@2480-Z:~$ chmod o+w foo2
+jsmith@2480-Z:~$ ls -al
+total 20
+drwx---r-x 2 jsmith jsmith 4096 Mar 26 16:10 .
+drwxr-xr-x 4 root   root   4096 Mar 26 15:09 ..
+-rw-r--r-- 1 jsmith jsmith  220 Mar 26 15:09 .bash_logout
+-rw-r--r-- 1 jsmith jsmith 3526 Mar 26 15:09 .bashrc
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:10 foo
+-rw-r--rw- 1 jsmith jsmith    0 Mar 26 16:10 foo2
+-rw-r--r-- 1 jsmith jsmith  807 Mar 26 15:09 .profile
+jsmith@2480-Z:~$
+----
+. Try removing the _foo2_ file using your regular user account.
+.. Notice you will still get an error. While the write permission on a file allows you to edit the file (including deleting all informaiton in the file). It does _not_ allow you to remvoe a file. For that you would need to have write permission for the _directory_ that contains the file. Obviously it would probably be a bad idea to give everyone write access to your home directory so you would probably create a sub-directory inside of it that other people had write access to if people needed to add and remove files. Even better to not give _all_ users access but instead to limit it to a certain _group_ of users.
+. Use the _jsmith_ user to create a new directory _/home/jsmith/redteam/_
+. Use the jsmith user to create four files: _/home/jsmith/redteam/theplan_ and _/home/jsmith/redteam/yours_ and _/home/jsmith/redteam/mine_ and _/home/jsmith/ours_
++
+[source,console]
+----
+jsmith@2480-Z:~$ mkdir redteam
+jsmith@2480-Z:~$ cd redteam/
+jsmith@2480-Z:~/redteam$ touch theplan
+jsmith@2480-Z:~/redteam$ touch yours
+jsmith@2480-Z:~/redteam$ touch mine
+jsmith@2480-Z:~/redteam$ touch ours
+jsmith@2480-Z:~/redteam$ ls -al
+total 8
+drwxr-xr-x 2 jsmith jsmith 4096 Mar 26 16:31 .
+drwx---r-x 3 jsmith jsmith 4096 Mar 26 16:31 ..
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:31 mine
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:31 ours
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:31 theplan
+-rw-r--r-- 1 jsmith jsmith    0 Mar 26 16:31 yours
+jsmith@2480-Z:~/redteam$
+----
+. Read through the built-in manual pages for the `chown` and `chgrp` commands which you'll use to change the owners and groups for files and directories using `man chown` and `man chgrp`. Remember you can scroll through the manual pages using the arrow keys and page up/down. To return to the command line press the q key.
+. Change the permissions on the */home/jsmith/redteam/* directory so that the group _redteam_ is the *group owner* of the directory
++
+[source,console]
+----
+jsmith@2480-Z:~$ chgrp redteam /home/jsmith/redteam/
+jsmith@2480-Z:~$ ls -al
+total 24
+drwx---r-x 3 jsmith jsmith  4096 Mar 26 16:31 .
+drwxr-xr-x 4 root   root    4096 Mar 26 15:09 ..
+-rw-r--r-- 1 jsmith jsmith   220 Mar 26 15:09 .bash_logout
+-rw-r--r-- 1 jsmith jsmith  3526 Mar 26 15:09 .bashrc
+-rw-r--r-- 1 jsmith jsmith     0 Mar 26 16:10 foo
+-rw-r--rw- 1 jsmith jsmith     0 Mar 26 16:10 foo2
+-rw-r--r-- 1 jsmith jsmith   807 Mar 26 15:09 .profile
+drwxr-xr-x 2 jsmith redteam 4096 Mar 26 16:31 redteam
+jsmith@2480-Z:~$
+----
+. Add write permission so that anyone in the _redteam_ group can add and remove files in the _/home/jsmith/redteam_ directory. As always, make sure to test and know that this is working!
+. Change the *user owner* and *group owner* of the _yours_ file so that it is owned by your regular user account instead of _jsmith_.
+. Change the *group owner* of the _ours_ file so that it is controlled by the _redteam_ group.
+. At this point your _/home/jsmith/redteam_ directory and permissons should look something like this:
++
+[source,console]
+----
+jsmith@2480-Z:~/redteam$ ls -al
+total 8
+drwxr-xr-x 2 jsmith redteam 4096 Mar 26 16:31 .
+drwx---r-x 3 jsmith jsmith  4096 Mar 26 16:31 ..
+-rw-r--r-- 1 jsmith jsmith     0 Mar 26 16:31 mine
+-rw-r--r-- 1 jsmith redteam    0 Mar 26 16:31 ours
+-rw-r--r-- 1 jsmith jsmith     0 Mar 26 16:31 theplan
+-rw-r--r-- 1 ben    ben        0 Mar 26 16:31 yours
+jsmith@2480-Z:~/redteam$
+----
+. This is a good starting point for experimenting with who can do what to a file. You have one file fully owned by your regular user, two fully by _jsmith_, and one by _jsmith_ but by the _redteam_ group. Remember both users are part of the _redteam_ group.
+. Experiment on your own with creating and removing files and subdirectories inside of the _/home/jsmith/redteam/_ directory as well as listing the contents of directories with various permissions applied to them until you have a good understanding of how permissions work in Linux.
+. Make sure that you can predict who can do what with a file or directory if you know how it's permissions are set!
+
+== Working With Debian Software Packages
+[NOTE]
+====
+Most of what we learn in this course is applicable to any distribution of Linux. However, software packages are one area where each distribution of Linux has developed their own way of doing things, different tools, and different ways to store, access, and manage the packages. In this class we'll be focusing on the way Debian handles software packages and use Debian tools like *apt* and *dpkg* to work with *deb* packages. This is arguably the most popular packaging ecosystem as so many other distributions are based on Debian (Ubuntu, Mint, and many others). The other major packaging system is *RPM* based, developed by Red Hat using *yum* on Red Hat distributions, *DNF* on Fedora, and *YaST*/*zypper* on OpenSUSE. There are still other less popular systems such as *Portage*/*emerge* on Gentoo.
+====
+. In case you haven't done it in a while a reminter that a good practice is to update your system package lists before installing any new packages, searching for packages, or trying to upgrade a package. Run the `apt update` command with administrative permissions and press enter to do this now.
+. Just in case you need to unwind after a long lab session let's see if we can get a clone of the Tetris game installed which works from the command line.
+. We can search through the available packages for any that mention Tetris in the name or description with the `apt search _<search_term>_` command like `apt search tetris`. This will give you output something like this:
++
+[source,console]
+----
+ben@2480-Z:/home$ apt search tetris
+Sorting... Done
+Full Text Search... Done
+bastet/stable 0.43-7+b1 amd64
+  ncurses Tetris clone with a bastard algorithm
+
+blockattack/stable 2.8.0-1 amd64
+  puzzle game inspired by Tetris
+
+blockout2/stable 2.5+dfsg1-1 amd64
+  Tetris like game (3D-tetris)
+
+blocks-of-the-undead/stable 1.0-7 amd64
+  Tetris Attack clone with spooky undertones
+
+blocks-of-the-undead-data/stable 1.0-7 all
+  Tetris Attack clone with spooky undertones - data files
+
+bsdgames/stable 2.17-29+b1 amd64
+  collection of classic textual unix games
+
+crack-attack/stable 1.1.14-9.2 amd64
+  multiplayer OpenGL puzzle game like "Tetris Attack"
+
+cuyo/stable 2.1.0-1 amd64
+  Tetris-like game with very impressive effects
+
+cuyo-data/stable 2.1.0-1 all
+  data files for the game cuyo
+
+games-tetris/stable 5 all
+  Debian's tetris-like games
+
+ghextris/stable 0.9.0-5 all
+  Tetris-like game on a hexagonal grid
+
+gtetrinet/stable 0.7.11+git20200916.46e7ade-2+b1 amd64
+  multiplayer tetris-like game
+
+gtkboard/stable 0.11pre0+cvs.2003.11.02-11 amd64
+  many board games in one program
+
+kblocks/stable 4:22.12.3-1 amd64
+  falling blocks game
+
+ltris/stable 1.0.19-3+b1 amd64
+  very polished Tetris clone with CPU opponents
+
+netris/stable 0.52-11 amd64
+  free, networked version of T*tris
+
+pentobi/stable 22.1-1 amd64
+  clone of the strategy board game Blokus
+
+petris/stable 1.0.1-11+b2 amd64
+  Peter's Tetris - a Tetris(TM) clone
+
+quadrapassel/stable 1:40.2-1 amd64
+  popular Russian game, similar to Tetris
+
+stax/stable 1.37-2+b1 amd64
+  collection of puzzle games similar to Tetris Attack
+
+tetrinet-client/stable 0.11+CVS20070911-2.1 amd64
+  textmode client for tetrinet, a multiplayer tetris-like game
+
+tetrinet-server/stable 0.11+CVS20070911-2.1 amd64
+  server for tetrinet, a multiplayer tetris-like game
+
+tetrinetx/stable 1.13.16-15 amd64
+  game server for Tetrinet
+
+tint/stable,now 0.07 amd64 [installed]
+  Tetris clone for text based terminal
+
+vim-scripts/stable 20210124.2 all
+  plugins for vim, adding bells and whistles
+
+vitetris/stable 0.59.1-2 amd64
+  Virtual terminal *tris clone
+
+xwelltris/stable 1.0.1-18 amd64
+  3D Tetris like popular game similar to Welltris
+
+ben@2480-Z:/home$
+----
+. You can see there are quite a few packages that seem to have something to do with Tetris. Let's say though that you just wanted to search for one with tetris in the _name_ of the package and not the description or elsewhere. For that try the `apt search --names-only _<search_term>_` command.
++
+[source,console]
+----
+ben@2480-Z:/home$ apt search --names-only tetris
+Sorting... Done
+Full Text Search... Done
+games-tetris/stable 5 all
+  Debian's tetris-like games
+
+vitetris/stable 0.59.1-2 amd64
+  Virtual terminal *tris clone
+
+ben@2480-Z:/home$
+----
+. That obiously gives a much shorter listing. There are further ways to use the `apt search` command including package names that _start_ with a particular thing (instead of just including it) like `apt search --names-only ^games-t`
+. Going back to that original listing though let's see if we can get more information on the _tint_ package. To do this use the `apt show tint` command which will print out all kinds of information about the package.
+. Tint sounds like a good one to try. Install it with the `apt install _<package_name>_` command like `apt install tint`. Remember that to install a package the command must be run with the administrative user permissions!
+. Often, but not always, the name of the package is the same name as the main executable program inside the package. In the case of _tint_ this is true. Try out running _tint_ using the command `tint`. When you lose you will be returned to the command line.
+. You may need to remove a package, say the boss is coming and you need to get rid of _tint_. You can do a simple remove of a package with the `apt remove _<package_name>_` command. This will remove the package _but it will leave any configuration files behind_. That can be useful in case you want to later re-install the package without having to re-configure it. In the case of something like _tint_ it means things like the high score list would stay around in case you later re-installed it. Just like the installation process removing a package will require administrative permissions.
+. Try removing and then re-installing _tint_ and notice that the high scores stay around (these are displayed after you lose the game and are returned to the command line).
+. However, sometimes you want to remove the package *and* it's configuration files. Maybe there is some corruption or bad configuration and you want to start completely fresh. In that case you need to go to the next level and use the `apt purge _<package_name>_` command. Try this by purging _tint_ and then re-installing it and noticing the high scores list is cleared.
+
+NOTE: Need still to do a dpkg-reconfigure tzdata and maybe a purge of no longer needed package dependencies.
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
