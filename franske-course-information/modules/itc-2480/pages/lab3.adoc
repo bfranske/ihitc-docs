@@ -1,4 +1,4 @@
-= Lab 2: User Accounts, Permissions, and Package Management
+= Lab 3: User Accounts, Permissions, and Package Management
 
 == Introduction
 
@@ -150,7 +150,11 @@ ben@2480-Z:~$
 == Practice Filesystem Permissions and Ownership
 [NOTE]
 ====
-Working with file and directory ownership and permissions is tricky and there are many, many possible combinations of users, groups, and permissions which can be assigned to both files and folders. The goal of this section of the lab is to familiarize you with how to use the commands for changing ownership and permissions, not to teach you how to read or understand Linux file permissions (see your readings for this, it is important!) *Once you understand how to use the commands you should experiment with setting different owners and permissions on a several different files and folders and subfolders until you have a good understanding of how permissions work.* The only way to understand these relationships well is to read about it and then try it out. You should be able to set all of these permissions just as regular users (assuming you have access to both of the user accounts) *you should not need sudo access to change the permissions or group ownership because one of the the two users owns all the files and directories we're working in. You will need sudo access to change the user ownership of the files because otherwise it would be possible to accidentally lock yourself out of a file.*
+Working with file and directory ownership and permissions is tricky and there are many, many possible combinations of users, groups, and permissions which can be assigned to both files and folders. The goal of this section of the lab is to familiarize you with how to use the commands for changing ownership and permissions, not to teach you how to read or understand Linux file permissions (see your readings for this, it is important!) In order to get the most out of this activity you should have done your readings on file and directory permissions before beginning this part of the lab!
+
+*Once you understand how to use the commands you should experiment with setting different owners and permissions on a several different files and folders and subfolders until you have a good understanding of how permissions work.* The only way to understand these relationships well is to read about it and then try it out.
+
+You should be able to set all of these permissions just as regular users (assuming you have access to both of the user accounts) *you should not need sudo access to change the permissions or group ownership because one of the the two users owns all the files and directories we're working in. You will need sudo access to change the user ownership of the files because otherwise it would be possible to accidentally lock yourself out of a file.*
 
 This table may be a helpful resource:
 [%autowidth]

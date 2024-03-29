@@ -1,0 +1,127 @@
+= Lab 4: Text Manipulation
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Edit text files using nano and vi
+* Learn how to work with standard output and standard error using pipes and redirection
+* Search for files
+* Manipulate command output using common CLI text manipulation utilities
+
+You will be introduced to the following commands:
+
+* vi
+* nano
+* find
+* locate
+* updatedb
+* grep
+* head
+* tail
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Text File Editing with vi and nano
+[IMPORTANT]
+====
+This section of the lab will explain some things you should try and make sure you can do with `vi` and `nano` but it will not go into a lot of detail about _how_ to do them. You need to complete your readings on how to use `vi` and `nano` before proceeding!
+====
+. Make sure you are in your regular user's home directory
+. Open a new file named _grocery-list.txt_ in the _nano_ text editor like `nano grocery-list.txt`
++
+--
+NOTE: Linux does not require file extensions (the part after the period in a file name) to know what type a file is in the way that Windows/DOS historically have. File extensions are commonly used but are not required. When file extensions are used they can also be more or less than the three letters that are typical on Windows (and required in DOS) so things like _.html_, _.conf_, _.config_, _.py_, and of course _.tar.gz_ are all examples of commonly found file extensions in Linux. There are also plenty of files you'll run across in Linux with no file extension at all. This flexibility with file extensions is becoming more common to see in Windows as well but because they were required for so long it's still less common than in Linux and the defauly in Windows is definitely to have a file extension and usually a three character one.
+--
++
+image::lab04/001.png[Blank grocery-list.txt file open in nano]
+. Enter the grocery list below into the file
++
+[source,console]
+----
+Groceries:
+-Apples
+-Bread
+-Butter
+-Eggs
+-Garlic
+-Honey
+-Milk
+-Onions
+-Pasta
+-Peaches
+-Rice
+-Salt
+-Tomatoes
+----
++
+[TIP]
+====
+Instead of re-typing this list if you are using an SSH client _on your own computer_ you can copy and paste this list into the window. You can actually also do this if you're using the Administrative PC on Netlab but you will need to open this webpage on the Administrative PC because you can't copy and paste from the computer you are working on into one in Netlab.
+
+We assume you know how to copy text out of your browser window. If you are using PuTTY you can paste into SSH just by right-clicking in the PuTTY window with your mouse and it will paste text just as if you entered it.
+
+If you want to copy text out of PuTTY all you need to do is highlight it with your mouse in the PuTTY window and it immediately is copied onto your clipboard.
+====
+. Save the file you have made in nano
+.. Basic instructions for using nano abound on the Internet. https://web.archive.org/web/20240107202616/https://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[You can get a basic introduction here] but it basically comes down to the menu lines at the bottom of the screen showing what your options are. The `^` character is commonly used to indicate the _CTRL_ key.
+.. Another way to think about saving the file is to write the file to disk so the option to save the file in nano is called "Write Out". Following the above information then, to save the file press CTRL-O.
++
+image::lab04/002.png[Saving changes to a file in nano]
+.. As shown above you will be asked to confirm the "File Name to Write" which will be filled in with the current filename. Because we want to save to the same file we have open we can just press "Enter"
++
+image::lab04/003.png[File save confirmed in nano]
+.. You can see on your screen and in the screenshot above that the save did happen because there is now a line like `[ Wrote 14 lines ]` at the bottom of your text editing window.
+. Experiment with some of the other nano menu options such as cutting and "un-cutting" (pasting) lines of text within nano (not by using your mouse) and searching for and replacing text. Make your file look like the example below:
++
+image::lab04/004.png[Grocery list in nano categorized by store department]
+. Once you are comfortable with the nano editor exit by pressing CTRL-X. Do this before you save your final changes to the file so you can see that nano will prompt you as shown below:
++
+image::lab04/005.png[Nano prompting to save modified buffer]
+. Say "Y" to the question "Save modified buffer?" which means do you want to save your changes before exiting. Again, we want to save with the same _grocery-list.txt_ filename we have been using. You should get returned to the command prompt.
+. Use the `less` command to view your _grocery-list.txt_ file and ensure all your changed were saved.
+. While the nano editor is pretty user friendly with the menu options on the bottom of every screen it is not always installed on Linux systems. Probably the most standard editor which is almost always available is called `vi`. Usually, but not always, it's actually a version called `vim` which stands for "vi improved" and has a few features that make it a bit easier to use. That's a nice thing because the original version of vi can be challenging to work with if you're not used to it. Because vi/vim are likely to be the only options you have from time to time it's important to know how to use this editor too.
+. Open the _grocery-list.txt_ file in vi like `vi _grocery-list.txt_`. You should be greeted with a sceen like the one shown below:
++
+image::lab04/006.png[Editing the grocery list file in vi]
+. One of the biggest differences with vi is that you cannot just start typing into the editor. In fact, in some versions of vi you cannot even move the cursor around with your arrow keys (old terminal keyboards didn't have arrow keys so vi has it's own way to move the cursor). The vi editor has several _modes_ and is in the *command* mode by default. To type into the window you need to get into *insert* mode.
+. Move your cursor to where you want to start tying then type the letter `i` on your keyboard to enter *insert* mode. Now you should be able to type something, try it out.
+. You may have noticed that in some versions of vi pressing things like your arrow keys while in *insert* mode will type random characters instead of doing what you want (moving your cursor). Press the *Esc* key on your keyboard to switch from *insert* mode back to *command* mode.
++
+--
+TIP: Some versions of vi improved will show you what mode you are in, or at least if you are in *insert* mode with some text in the lower right corner. Not all versions do this though so you can't count on it.
+--
+. https://web.archive.org/web/20201225020714/https://www.washington.edu/computing/unix/vi.html[Read through this vi tutorial] as well as https://web.archive.org/web/20240324062738/https://www.warp.dev/terminus/vim-copy-paste[this one on cutting, copying, and pasting] and try out some things on your _grocery-list.txt_ file. At the very least you should have tried and be able to:
+.. Insert text
+.. Delete characters, words, and lines (and deleteing multiple lines at once)
+.. Moving by searching the file
+.. Cutting, copying, and pasting one _or more_ lines at a time using the yank, delete, and paste shortcuts
+.. Saving the file without closing vi
+.. Exiting vi without saving (discarding) any changes
+.. Exiting vi and saving changes at the same time
+... The tutorial is actually wrong about this one. For modern versions of vi you type `:wq` from *command* mode, `zz` will not work.
+. If you get stuck you can  get back to *command* mode by pressing the *Esc* key. If you want to get from *command* mode back to the command prompt (and don't care about saving any changes) you can always use `:q!` and press *Enter*.
+. Once you are familiar with how the vi editor works save your file and exit.
+
+== Working With Standard Output and Standard Error Using Pipes and Redirection
+
+== Searching for Files
+
+== Manipulating Command Output Using Common CLI Text Manipulation Utilities
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
