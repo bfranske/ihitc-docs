@@ -5,7 +5,7 @@
 In this lab you will perform the following tasks:
 
 * Edit text files using nano and vi
-* Learn how to work with standard output and standard error using pipes and redirection
+* Learn how to work with data streams using pipes and redirection
 * Search for files
 * Manipulate command output using common CLI text manipulation utilities
 
@@ -19,6 +19,7 @@ You will be introduced to the following commands:
 * grep
 * head
 * tail
+* time
 
 == Preliminaries
 
@@ -112,11 +113,209 @@ TIP: Some versions of vi improved will show you what mode you are in, or at leas
 . If you get stuck you can  get back to *command* mode by pressing the *Esc* key. If you want to get from *command* mode back to the command prompt (and don't care about saving any changes) you can always use `:q!` and press *Enter*.
 . Once you are familiar with how the vi editor works save your file and exit.
 
-== Working With Standard Output and Standard Error Using Pipes and Redirection
+== Working With Data Streams Using Pipes and Redirection
+
+When you run a program in Linux it's likely that you are somehow working with data streams, either providing a stream to the program, getting a stream from the program, or both. Streams can be either text data or binary data (such as audio or video) but the ability to work and manipulate text streams is probably the most common and an important tool for Linux system administrators. As the name implies, a data stream is a continuous flow of data—especially text data—being passed from one file, device, or program to another using STDIO (Standard Input/Output). These streams play a crucial role in the Linux command-line interface. There are three primary streams stdin, stdout, and stderr.
+
+Standard Input (stdin): stdin represents the input stream through which data flows into a command or program. When you interact with a command—whether through the terminal or a script—you're essentially feeding it data via stdin. Imagine typing a command and pressing Enter; that input travels through stdin. But it's not limited to keyboard input alone; stdin can also accept data from files, pipes, or other commands. 
+
+Standard Output (stdout): stdout is where a command sends its results or regular output. When you run a command and see information displayed in the terminal, that's stdout at work. It's the channel through which commands communicate their findings. Like stdin, stdout can carry both text and binary data. For instance, when you list files using the ls command, the file names are sent to stdout or if you are downloading a file with curl it can be sent to the stdout instead of to a file on the filesystem so that it can be further processed by other commands. System administrators rely heavily on stdout for various purposes. They capture output in log files, chain commands together, and monitor processes. 
+
+Standard Error (stderr): stderr is the designated channel for error messages, warnings, and diagnostic information. When a command encounters an issue—such as a file not found, a permission error, or an unexpected behavior—it reports relevant details via stderr. System administrators rely on stderr for debugging and troubleshooting. Redirecting stderr to separate log files or to the console while processing stdout spearately allows them to identify and address problems quickly and efficiently by separating errors from normal output. 
+
+. Experiment with redirecting standard output to a file
+.. Change back to your regular user's home directory.
+.. List the files in your home directory with all details about size, ownership, and showing hidden files.
+.. Now, run the same command but redirect the output to a file by putting `> _filename_` after the command like `ls -al > listfiles.txt`.
+... Notice how there is no command output. This is normal as you redirected the standard output of the ls ls -al command to the file listfiles.txt
+.. Verify the contents of _listfiles.txt_ with a command like `cat`, or `less`
+... Notice how it contains the exact same output as running ls -al on the command line.
+. Experiment with redirecting standard output and standard error to different places
+.. Still in your home directory use a text editor and paste in this short script to a file named _error.sh_ and save the result
++
+[source,console]
+----
+#!/bin/bash
+echo "We are about to try and access a file that does not really exist"
+cat doesnotexist.txt
+----
+.. Set the permissions on the _error.sh_ file so that it can be executed by your regular user like `chmod +x error.sh`
+.. This script does two things when you run it. First, it prints a message stating that it is about to try and access a file that doesn't exist. This message is sent to the standard output. Second, it tries to use the `cat` command to access a file that does not exist which will generate a standard error message. Try runnung the script like `./error.sh` to see this in action.
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh
+We are about to try and access a file that does not really exist
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$
+----
+.. In this case both the stdout and stderr have been printed to the terminal window as you can see both lines in the example above and in your terminal. Try running `./error.sh > output.txt` now, similar to what you did with the `ls -al` command before.
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh > output.txt
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$
+----
+.. This time you only get one line of output! It's the second one, the one that produced a stderr message. You can see what happened to the stdout if you use the `cat stdout.txt` command to view the _output.txt_ file.
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh > output.txt
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$ cat output.txt
+We are about to try and access a file that does not really exist
+ben@2480-Z:~$
+----
+.. Here you can see the _stdout.txt_ file contains the first line we would have gotten, the line which was send to the standard output. So the `>` operator only redirects the standard output by defauly, not the standard error messages. However, we can redirect the standard output and standard error messages if we want to. Try running `./error.sh 2> output.txt` this time and check both what happens on your terminal as well as what ends up in the _output.txt_ file. 
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh 2> output.txt
+We are about to try and access a file that does not really exist
+ben@2480-Z:~$ cat output.txt
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$
+----
+.. As you can see the reverse happened this time, the standard error ended up in the _output.txt_ file and the standard output was printed to the screen. It's also possible to redirect the output from both the output and error at the same time. Try runing `./error.sh 1> output.txt 2> error.txt` and check the screen as well as the contents of both text files.
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh 1> output.txt 2> error.txt
+ben@2480-Z:~$ cat output.txt
+We are about to try and access a file that does not really exist
+ben@2480-Z:~$ cat error.txt
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$
+----
+.. Here you can see that nothing was printed to the screen when we ran the command because the standard output message was redirected into _output.txt_ and the standard error message was redirected into _error.txt_ but what if we wanted both in the same file? Try running `./error.sh > output.txt 2>&1` and check the screen as well as the contents of _output.txt_.
++
+[source,console]
+----
+ben@2480-Z:~$ ./error.sh > output.txt 2>&1
+ben@2480-Z:~$ cat output.txt
+We are about to try and access a file that does not really exist
+cat: doesnotexist.txt: No such file or directory
+ben@2480-Z:~$
+----
+.. Here you can see that both the standard output and standard error messages ended up in the _output.txt_ file. The `2>&1` operator at the end of the command tells the system to take the standard error stream (the `>2` part as usual) and redirect it back into the standard output stream (the `&1` part).
+.. It's also possible to completely discard one or both of the standard ouput or standard error streams. Try running `./error.sh > /dev/null` and you should see that the standard output just disappears and you are left with only the standard error. If you use _/dev/null_ instead of a filename (for either standard output or error) the system will just immediately discard the stream data.
+
+. Experiment with piping data streams from one application to another and manipulating command output using common CLI text manipulation utilities like `head`, `tail`, and `grep`.
+.. Some programs are able to not only create standard output and standard error streams but also accept input through a standard input stream. This is called _piping_ and uses a special character on your keyboard you have probably not used much before and which is typically called a pipe character in Linux it looks like `|` and is typically found on the same key as the backslash `\` and you press SHIFT + backslash to get the `|` character. The exact location of this key can vary from keyboard to keyboard but it is most commonly found above the Enter key on modern keyboards.
+.. Create a text file named _linenumbers.txt_ in your standard user's home directory with 50 lines in it which are all like "This is Line _x_" where x is the number of the line.
++
+--
+TIP: If you don't want to use a text editor and do all that typing you can do this easily in Linux using the `seq` utility which creates a sequence of numbers (see the manual page for more details) and redirection. The command `seq -f 'This is Line %g' 1 50 > linenumbers.txt` will do what we want.
+--
+.. Check that your _linenumbers.txt_ file is all there with the `cat` and `less` commands.
+.. Sometimes we just want to view the beginning or the ending of a file. Luckily, Linux has tools to do just that. The `head` and `tail` commands allow us to view the first or last 10 lines of a file by default. Try running `head linenumbers.txt` and `tail linenumbers.txt`.
+.. We can also change the number of lines from the default of 10 to something else by specifying an option to the command. Try `head -15 linenumbers.txt` and `tail -5 linenumbers.txt`.
+.. It gets better though. Instead of reading from a file we can use pipes to send standard input to the `head` and `tail` commands. Try `cat linenumbers.txt | head -7` to take the standard output from the `cat` command which is reading the _linenumbers.txt_ file and piping it into the standard input of the `head` command.
+.. It may not seem that useful yet beacuse we have just replicated functionality that the `head` command already has built-in. The power is that we can now use this with any other commands which produce standard output. Say we want to get a list of the first 4 files in the directory. Try using `ls | head -4` to do that.
+.. We can even combine this with redirection like `ls | head -4 > firstfour.txt` Try this and see what happens.
+.. This can also be useful when working with programs that generate a lot of output. For example, the `dmesg` program provides a lot information about our system hardware and kernel (we'll learn more about it later). Try running `sudo dmesg` (which requires administrative privileges to run) and watch the text fly by.
+.. Now, if we wanted to see that information more slowly we could either capture the output to a file and then look through it with `less` or a text editor _or_ we could just pipe the output directly to `less` like `sudo dmesg | less` which you should now try. Remember that you can scroll up and down with the arrow keys or Page Up/Down keys and press 'q' to exit back to the command line.
+.. You could also get just the first few lines like `sudo dmesg | head`
+.. When working with a lot of text output it's also common to be looking for some specific thing. Linux has a tool named `grep` which allows us to search through text.
+.. If we were looking for information about our Ethernet network cards we could probably find that in the `dmesg` output but it could take a long time to look through. If we run the command `sudo dmesg | grep net` though  the system can do a lot of work for us. Try running this command and see what you get.
+.. By default the `grep` command looks for the text you give it and outputs every full line which contains that text. That is enough to make it very useful but you can do a lot more such as look for patterns (for example any MAC address separated by colons) or strings at the beginning or end of lines using _regular expressions_. You can learn more about _regular expressions_ at https://regexone.com/[RegexOne] and https://www.regular-expressions.info/[Regular-Expressions.info] among many other places. These are frequently used in system administration and programming so it's worth your while to get at least a basic understanding of them and how they work.
+.. There are a lot of useful text manipulation commands besides `head`, `tail`, and `grep`. You probably even used one, `seq` to create your _linenumbers.txt_ file. Still others allow further manipulation of text such as searching and replacing text in a data stream with `sed`, `sort` to sort lines, `cut` to send on just a portion of lines, `uniq` to show lines which are repeated or ignore lines which are repeated, or `wc` to count words/lines/characters/etc and these are just a few of the many commands available. All of these commands are designed to work with standard input and output to build a chain of commands which does something useful to you.
+.. Many times this ability to accept standard input is used to process text which was created as an output stream from another program as we did above but it can also be used by programs with binary data. One common use of this is for audio and video encoding where one program might read and decode audio or video data (such as an Audio CD or a WAV file) and pipe that data as standard output over to another program such as an MP3 compression program which compresses the data. That program might write the compressed output to a file or it might send it on to yet another program which streams it out over the network.
 
 == Searching for Files
 
-== Manipulating Command Output Using Common CLI Text Manipulation Utilities
+There are several ways to search for files on a Linux system. The simplest and the most powerful is to use the `find` command which searches through the system directory by directory for files which match your search string. You can specify many options for the `find` command which do things such as restrict to searching in one particular directory and its sub-directories, etc. 
+. Try searching your entire drive for files with syslog somewhere in the name. `find / -name "*syslog*" 2> /dev/null` Your results should look something like those below:
++
+[source,console]
+----
+ben@2480-Z:~$ find / -name "*syslog*" 2> /dev/null
+/usr/lib/systemd/system/syslog.socket
+/usr/lib/modules/6.1.0-18-amd64/kernel/net/netfilter/nf_log_syslog.ko
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/sys/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog.ph
+/usr/share/doc/sudo/examples/syslog.conf
+/usr/share/doc/busybox/syslog.conf.txt
+/var/log/installer/syslog
+----
++
+--
+NOTE: You may have noticed that in the search command we used, `find / -name "*syslog*" 2> /dev/null`, we redirected the standard error to the `/dev/null` device to hide it. The reason we're redirecting the error messages is that there many files and directories which your regular user may not have permission to access. Each attempt to access these by the find program would create an error message (so lots of errors). We're basically telling the system to hide these error messages from us. You can see all the errors you would get and how hard it would be to see where these files actually exist by running `find / -name "*syslog*"`
+--
+. You should see some files identified which contain the name syslog. The problem is that the find command is very slow at moving through all the files on the system, in fact it may even appear to be frozen while searching slowly though the drive. This is especially true on systems with a larger number of files on them and/or those that are using spinning hard drives instead of SSDs. If you have waited a while and are still not getting back to a command prompt you can press CTRL-C to force the find program to quit and return to a command prompt.
+. This means the find program works just fine for searching through a few directories/files (such as everything inside your home directory or another smaller part of the system) but is not the best choice for searching the entire system quickly. There are some reasons you may still want to use the find command though such as if you want to search for things other than file name (such as size, permissions, when the file was last changed, etc.) or want to run some command automatically on every file that was found. If you want to learn more about advanced uses of the find command take a look at https://web.archive.org/web/20150411143240/http://content.hccfl.edu/pollock/Unix/FindCmd.htm[this tutorial].
+. There is a faster way to search for files on your system with the `locate` command, but it does have some disadvantages of its own. Locate searches a pre-built database of all files on the system which means it operates much faster than searching though the files themselves one at a time. It also can use regular expressions as part of the search process. There are two main disadvantages though. First, it may not be pre-installed on many Linux systems so you may have to install it. Second, you need to build or update the database before you can search for files (otherwise you would be searching an outdated list of files). New files are not automatically updated to the database so this only really works if you periodically remember to update the database. In future labs we'll explain how you could schedule the update command to run automatically (hint, see the `cron` program).
+. Install the `locate` program on your system, unlike `find` it is usually not installed by default.
+. Create an updated database of files on your system by running the `sudo updatedb` command.
++
+--
+NOTE: In order for the locate database to include _all_ of the files on the system the command to update the database needs permission to read all the files which is why we are running it with administrative permissons.
+--
++
+--
+NOTE: It will take a while for this program to find and index all the files on your system so give it a while to run. The advantage is after you do this you can search the database for many different files very quickly instead of waiting for each search as with the find command.
+--
++
+--
+TIP: Programs that may need to run for a long time and do not require user input (like `updatedb`) can be run in the background by placing an ampersand at the end of the command line like `sudo updatedb&`. This will immediately return you to a command prompt so you can continue to work on other things while the command finishes running. We'll learn more about background jobs in a future lab.
+--
+. Search for files with _syslog_ in the name again but now using the locate database like `locate syslog` Your results should look something like those below:
++
+[source,console]
+----
+ben@2480-Z:~$ locate syslog
+/usr/lib/modules/6.1.0-18-amd64/kernel/net/netfilter/nf_log_syslog.ko
+/usr/lib/systemd/system/syslog.socket
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/sys/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/syslog.ph
+/usr/share/doc/busybox/syslog.conf.txt
+/usr/share/doc/sudo/examples/syslog.conf
+/var/log/installer/syslog
+----
+. Because our virtual machines don't have too many files on them and are using fast disks you may not notice much speed difference between `find` and `locate` but they are there. You can read more about the differences in https://web.archive.org/web/20231203190433/https://unix.stackexchange.com/questions/60205/locate-vs-find-usage-pros-and-cons-of-each-other[this StackExchange Q&A] or https://web.archive.org/web/20231203164123/https://linuxconfig.org/locate-vs-find-what-is-the-difference[this LinuxConfig article] but it's also possible to see even the small differences yourself.
+. If you're curious how long it takes a command to run in Linux there is an easy way to find out. You can normally just put the command `time` in front of whatever command you want to measure and after the command runs you will get a report like this:
++
+[source,console]
+----
+ben@2480-Z:~$ time find / -name "*syslog*" 2> /dev/null
+/usr/lib/systemd/system/syslog.socket
+/usr/lib/modules/6.1.0-18-amd64/kernel/net/netfilter/nf_log_syslog.ko
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/sys/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog.ph
+/usr/share/doc/sudo/examples/syslog.conf
+/usr/share/doc/busybox/syslog.conf.txt
+/var/log/installer/syslog
+
+real    0m0.515s
+user    0m0.169s
+sys     0m0.336s
+ben@2480-Z:~$ time locate syslog
+/usr/lib/modules/6.1.0-18-amd64/kernel/net/netfilter/nf_log_syslog.ko
+/usr/lib/systemd/system/syslog.socket
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-ldbl.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog-path.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/bits/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/sys/syslog.ph
+/usr/lib/x86_64-linux-gnu/perl/5.36.0/syslog.ph
+/usr/share/doc/busybox/syslog.conf.txt
+/usr/share/doc/sudo/examples/syslog.conf
+/var/log/installer/syslog
+
+real    0m0.022s
+user    0m0.019s
+sys     0m0.001s
+----
+. In the results above you can see we are given three times for each program, a real, user, and system time. User and sys show how much CPU time the program took to run outside the kernel (in _userspace_) and inside the kernel. What we're often most interested in though is how much actual time it took to run a command (as if we had timed it with a stopwatch) which includes any time the system was handling things outside of our program too. That statistic is called the _real_ time. Here you can see that `find` took a little over half a second to run while `locate` took just over two-tenths of a second to run. In other words `locate` was just over 23 times faster! While both these results are pretty fast if I run the same two commands on a real-world Linux filesever with a moderate number of files (952,177 compared with 35,526 on our lab systems) find takes 1m53.672s to run while locate completes in 0m0.292s! Now that's a difference!
 
 == Wrapping Up
 

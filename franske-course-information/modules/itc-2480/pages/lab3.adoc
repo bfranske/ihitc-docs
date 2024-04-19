@@ -23,10 +23,13 @@ You will be introduced to the following commands:
 * chown
 * dpkg
 * dpkg-reconfigure
-* groups
+* groupdel
 * less
 * more
-* usermod
+* passwd
+* useradd
+* userdel
+* who
 
 == Preliminaries
 
@@ -42,6 +45,10 @@ NOTE: Remember that if you do not have a Windows computer to connect from you ca
 == Creating Users and Groups
 
 . Create a new user account _jsmith_ using the *adduser* command.
++
+--
+NOTE: Not all Linux distributions support *adduser*, some use the *useradd* command as the way to create new users. It's a bit less user friendly but does accomplish the task.
+--
 .. Remember that many administrtive commands like this need to be executed with administrative permissions.
 .. You can make up any password for the new user you want, but make sure to record it somewhere as you will need it to log in and test the new user account.
 .. You can optionally enter anything you want (or leave blank) the full name, room number, phone numbers, and other information.
@@ -96,6 +103,16 @@ ben@2480-Z:~$
 ----
 . Close your SSH session and open two new SSH sessions. You need to log out of your user's session and log back in to get access to the new group your user now belongs to.
 . Log back in to one of the new SSH sessions with your regular use and log in as _jsmith_ on the other.
+. Run the `who` command from either one of the SSH sessions to see a list of all users currently logged in to your system. This will include their IP address if they are a remote (SSH) user, what terminal they are logged into (pts is ssh, tty is a local console), and when they logged in.
++
+[source,console]
+----
+jsmith@2480-Z:~$ who
+ben      tty1         2024-03-12 13:52
+ben      pts/0        2024-04-02 16:26 (172.17.202.3)
+jsmith   pts/1        2024-04-02 17:00 (172.17.202.3)
+jsmith@2480-Z:~$
+----
 . Use the `groups` command from both your regular user and the jsmith user SSH sessions to check what groups the user is a member of.
 +
 [source,console]
@@ -146,6 +163,8 @@ ben@2480-Z:~$
 . Try viewing a text file on your system with the `more` and `less` commands. This could be the _/etc/passwd_ file or one of the Shakespeare files we worked with in a previous lab.
 . View a list of the password data on your system by viewing the _/etc/shadow_ file. Note that passwords in the _shadow_ file are stored as hashes so they can't be seen by someone who has access to the _/etc/shadow_ file. It's still important to protec this file though so only the _root_ user has access to it, because of this you'll need to use a tool that lets you run a command as the administrative user to view this file.
 . View a list of groups and group members on your system in the _/etc/group_ file. Again, this is a plain text file. Do you see a theme with Linux storing settings in plain text files yet?
+. The *userdel* and *groupdel* commands are used to remove users and groups. Create at least one more user and group and then try deleting that user and group. Remember that the `man` command cna provide useful information about how to use commands you are unfamiliar with.
+. Any user can change their own password with the *passwd* command. The root user (or any user with permissions to run commands as the root user) can reset other users passwords using the *passwd* command combined with the username they want to modify. Try changing your own password on your regular user account with `passwd` and changing the _jsmith_ account password from your regular user's account using the administrative permission command `passwd jsmith`. Be sure to write down (or change back) your new passwords so that you don't forget them!
 
 == Practice Filesystem Permissions and Ownership
 [NOTE]
