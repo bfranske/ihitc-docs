@@ -226,6 +226,7 @@ TIP: If you don't want to use a text editor and do all that typing you can do th
 == Searching for Files
 
 There are several ways to search for files on a Linux system. The simplest and the most powerful is to use the `find` command which searches through the system directory by directory for files which match your search string. You can specify many options for the `find` command which do things such as restrict to searching in one particular directory and its sub-directories, etc. 
+
 . Try searching your entire drive for files with syslog somewhere in the name. `find / -name "*syslog*" 2> /dev/null` Your results should look something like those below:
 +
 [source,console]

@@ -1,0 +1,237 @@
+= Lab 5: Webserver and PHP Installation and Use
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Set a static IP address on your Linux server
+* Install and configure the Nginx web server
+* Serve a static web page with Nginx
+* Install and configure PHP-FPM for use with Nginx
+* Serve a PHP web page with Nginx
+
+You will be introduced to the following commands:
+
+* ping
+* systemctl
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Setting a Static IP Address
+[IMPORTANT]
+====
+In this section of the lab you will be changing the IP address of your Linux Server. You will be doing this _while connected_ to your Linux Server's IP address over SSH. This is obviously a bit risky because once the IP address of the server changes you will loose your SSH connection and need to reconnect to the new address. If there is some error in your configuration you will not be able to reconnect over SSH to either the new or old address! Thus, it is important to have a backup plan. Luckily, our servers are running as VMs through Netlab so we have access to the server _console_ through Netlab which will continue to work. So, if you have an issue and are no longer able to access your server over SSH at the original or new IP address you will need to login to Netlab and access your server that way until you have fixed the IP address issue and the interface is back up and running.
+====
+. Because we are going to start actually using our Linux Server to provide some services we are going to want to make sure the IP address of the server doesn't change any more. To do this we will change from using a _dynamic_ or _DHCP_ IP address to a _static_ IP address which we will manually set on the server.
+. As all the servers in the class are located on the same network each server must be assigned a *unique* IP address. To prevent any conflicts you will use your server ID letter in the chart below to determine what IP address your server should be set to.
++
+[%autowidth,options="header"]
+|===
+|System ID|Static IP||System ID|Static IP||System ID|Static IP
+
+|A|172.17.50.11||K|172.17.50.21||U|172.17.50.31
+|B|172.17.50.12||L|172.17.50.22||V|172.17.50.32
+|C|172.17.50.13||M|172.17.50.23||W|172.17.50.33
+|D|172.17.50.14||N|172.17.50.24||X|172.17.50.34
+|E|172.17.50.15||O|172.17.50.25||Y|172.17.50.35
+|F|172.17.50.16||P|172.17.50.26||Z|172.17.50.36
+|G|172.17.50.17||Q|172.17.50.27||AA|172.17.50.37
+|H|172.17.50.18||R|172.17.50.28||AB|172.17.50.38
+|I|172.17.50.19||S|172.17.50.29||AC|172.17.50.39
+|J|172.17.50.20||T|172.17.50.30||AD|172.17.50.40
+|===
++
+. All of the servers will share some of the same network settings:
++
+[%autowidth,options="header"]
+|===
+|Setting Name|Value
+
+|Subnet Mask / Prefix|255.255.254.0 (/23)
+|Gateway Address|172.17.50.1
+|Nameserver 1|172.17.139.11
+|Nameserver 2|172.17.139.111
+|===
++
+--
+NOTE: If you are looking at older Linux documentation you may see references to Ethernet network interfaces named things like _eth0_, _eth1_, _eth2_, and so on. The interfaces were just numbered on startup as they were identified by system drivers. However, this caused a problem on modern hardware where the network cards might be identified in a different order each time the system started. So, what was your _eth0_ interface the last time you booted could become your _eth1_ interface the next time. Aside from issues with the incorrect addresses being assigned to interfaces if you are using static IP addresses this presents security issues as you might have firewall rules that are different on each interface because of the network you have connected to it and those rules often use the interface name to identify which interface the rules should apply to. So, starting in 2013 this changed to use a new predictable naming scheme which assigns the interface name based on how and where the interface is attached to the system (such as which PCI Express slot, or USB port the interface is in). You can find out more about this change in the https://web.archive.org/web/20240525092036/https://systemd.io/PREDICTABLE_INTERFACE_NAMES/[Predicable Network Names] document.
+--
++
+. For many years Debian has used the _/etc/network/interfaces_ file for storing the configuration of network interfaces but this is expected to be replaced (and already has when using a GUI) by other, more modern and flexible, methods in the future. In this lab we will use one of those newer methods, the *systemd.network* method, for configuring a static IP address.
+. Use your favorite text editor, such as *nano*, to create a new file _/etc/systemd/network/10-primary.network_ with the contents below. You will need to do this as the root user. Be sure to replace xxx.xxx.xxx.xxx with the correct static IP address for your system ID based on the table above!
++
+[source,console]
+----
+[Match]
+Name=ens192
+
+[Network]
+Address=xxx.xxx.xxx.xxx/23
+Gateway=172.17.50.1
+DNS=172.17.50.1
+IPv6PrivacyExtensions=false
+IPv6AcceptRA=true
+----
++
+--
+NOTE: All systemd.network files end in _.network_ and are processed in alphabetical order from the _/etc/systemd/network/_ directory. We are choosing to name our file _10-primary.network_ to ensure it is processed before other files in the directory (because we put a 10 in front) and primary just to identify it to ourselves as the configuration of the primary network interface on the system which connects to the Internet.
+--
++
+. The two IPv6 lines enable SLAAC IPv6 addressing for your server if the network is configured to provide IPv6 router advertisements.
+. Because we are changeing from the old-style network configuration we need to specifically enable the Networkd service using the `systemctl enable systemd-networkd` command and disable the old-style network configuration with the `systemctl disable networking` command. You will need to do this as the root user.
+. To apply the changes to our network configuration run the `systemctl restart systemd-networkd` command as the root user.
+. You will also want to stop the old-style network configuration with the `systemctl stop networking` command as the root user.
+. Rename the _/etc/network/interfaces_ file so you still have a backup but it is no longer going to start automatically. You can do this by running the `mv /etc/network/interfaces /etc/network/interfaces.bak` command as the root user.
+. You should notice that your SSH connection to your server becomes unresponsive shortly after running this command. That is because the IP address has changed and your SSH connection is still to the old IP address. Start a new SSH connection to your new static IP address (this is the address you will use for connecting to your server going forward). 
++
+--
+NOTE: If you have problems connecting it is likely that there is an issue with the static IP configuration you just did. You will need to connect via the console of your virtual machine (through Netlab) until you have fixed the network configuration. If you were working with a physical machine instead of a virtual machine you would need to work on the keyboard and screen phycially at the machine instead of remotely to fix the issue.
+
+[NOTE]
+====
+If you need to set the machine back to using DHCP after activating networkd you would do so with a configuration file like:
+[source,console]
+----
+[Match]
+Name=ens192
+
+[Network]
+DHCP=ipv4
+----
+You would then need to restart networkd like `systemctl restart systemd-networkd` command as the root user to apply the change and would have to log in through the console of the virtual maching to check the IP before being able to connect remotely.
+====
+--
+. Although we set nameservers in the _/etc/systemd/network/10-primary.network_ file they are not actually in use yet. DNS servers have traditionally be stored in the _/etc/resolv.conf_ file which is edited manually when they need to be chnaged. However, this presents a problem for mobile devices which may need to frequently change DNS servers as they are connected to different networks. While there have been multiple schemes for doing this in the past including having the DHCP client software edit the _/etc/resolv.conf_ file or using an intermediate software package such as *openrsolv* or *resolfconf* to manage this file with new-style networkd configuration there is also a new way to manage DNS settings using the *systemd-resolved* program.
+* Install the *systemd-resolved* package on your system using the appropriate *apt* command.
+* Enable the systemd-resolved service with the `systemctl enable systemd-resolved` command and start with with the `systemctl start systemd-resolved` command. Both of these will need to be run as the root user.
+. Make sure that you can SSH to your Linux server's new static IP address and that you can `ping google.com` from your Linux server (press CTRL+C to stop the ping).
+
+== Install and Serve a Basic Website with the Nginx Web Server
+. The most popular web server software on the Internet was long the *Apache* web server. It still remains quite popular but in recent years has decreased in popularity as more and more servers have started running *Nginx* (pronounced 'engine-x') which started in 2004. While Apache does still have some advantages in certain situations it is not usually considered as fast or desirable for serving modern web applications to large numbers of users.
+. On your administrative PC open a web browser and try accessing the new static IP address of your Linux server by putting it in the address bar. You should see some kind of unreachable error because there is no web server running on your Linux server yet.
+. Use the appropriate *apt* command to install the *nginx* package on your Linux server.
+.  Once the installation process for Nginx is complete you should be able to go back to your administrative PC and try visiting the IP address of your Linux system in a web browser again or reloading the page. You should now see a basic welcome page which indicates you have a webserver up and running on your Linux system. Obviously we haven't done anything exciting with the page yet or setup much security but it really is that simple to turn a Linux system into a basic webserver.
+. Use your administrative PC to navigate to the _/var/www/html_ directory on your Linux server and list the files in the directory.
+. Use a text editor or another utility for viewing text files (such as `less`) to view the _index.nginx-debian.html_ file. This file should contain the HTML code which makes up the web page you were just viewing in the browser of your administrative PC.
+. Make a copy of the _index.nginx-debian.html_ file in the same directory named _index.html_ and open the new file in a text editor.
+. Make some changes to the _index.html_ file to personalize it such as adding your name, or other information and save your changes. If you are unfamilar with HTML it may be a good idea to review https://web.archive.org/web/20240609163841/https://html.com/[a basic HTML tutorial] to know what you can change.
+. Refresh the web browser on your administrative PC to see if your changes are showing up.
+. This is all a basic web server does. It takes files from a directory on a server (such as _/var/www/html_ in our case) and provides them to web browser clients that ask. All of the rendering of the HTML code on the web site into a graphical display is actually handled by your web browser and not the server.
+. Try creating a directory inside of _/var/www/html_ named _test_ and put a new _index.html_ file in that directory which contains some different HTML code. Again, if you are unfamilar with HTML it may be a good idea to review https://web.archive.org/web/20240609163841/https://html.com/[a basic HTML tutorial] to learn how to construct a basic HTML file with at least a few lines of text.
+. Try changing the address in your web browser bar to http://172.17.xx.xx/test (replacing the IP address with the static IP address of your Linux server) and see what you find.
+. Hopefully you see the new _index.html_ file which you stored in the _/var/www/html/test_ directory. The webserver just hands out the files starting from a base directory for the site and the /test on the end of the URL just tells the webserver to look for files in the _test_ directory inside of that base location.
+. But why do the _index.html_ files show up in your web browser without needing to type a URL like http://172.17.xx.xx/index.html or http://172.17.xx.xx/test/index.html? The reason for this is to make the web a more user friendly place the we server software will automatically serve certain files (called index files) if it finds them and no specific filename is specified in the URL. The exact name of the files can be configured in the web server configuration files but _index.html_ and _index.htm_ are historically common.
+. Other files can be served by the webserver too though. For example, if you put a copy of the _shakespeare.tar.gz_ file from your home directory into _/var/www/html/_ you should be able to download it on your administrative PC from your web server at http://172.17.xx.xx/shakespeare.tar.gz
+. Of course the same user permissions apply to the web server files as all other areas of your Linux system. The web server software itself usually runs as a special _www-data_ user (in the _www-data_ group too) on Debian Linux systems so only files which can be read by that user or group can be accessed by users through their web browser. Try changing permissions on one of your files in _/var/www/html_ to see how this works. Be sure to change them back so the _www-data_ user can access them once you are done.
+
+== Install and Configure PHP-FPM to Serve PHP Webpages Through Nginx
+. There are many times when you want to serve a dynamic web page rather than a static one. A common use for this is to run some kind of web application instead of just delivering fixed web pages. This could be anything from content management or blog software, to a photo gallery, database application, discussion forums, or many other web applications. All of these types of web applications need to execute at least some code on the web _server_ itself instead of just in the web _browser_ on the client computer. While almost any programming language can be used to make a web application one of the most popular historically, and one that really grew up along with the web is PHP. In fact, the name PHP stands for PHP Hypertext Preprocessor. With hypertext being a part of HTML (hypertext markup language). So, it is really designed to modify hypertext before it is sent out from the webserver.
+. Because Nginx is desinged to be a very efficient web server it does not include a lot of extra code that all users may not want, such as support for PHP. This is one way that it is different than the Apache webserver. Instead, Nginx is designed to call on other programs that should process certain types of files that you designate and then can take the output from those programs and deliver it to client web browsers. So, in order to process dynamic PHP files we need some kind of program to sit between Nginx and PHP. There are a few different ways to set this up but the most popular way today is to use a piece of software called *php-fpm* which allows PHP to execute the PHP files and return the data (usually as HTML code) to Nginx where it can be sent on to the client web browser that requested the page.
+. Install the *php-fpm* package on your Linux server using the appropriate *apt* command. Pay attention to the version number of PHP that gets installed on your system, you'll need to know it later.
+. Now that we have the software installed we need to configure Nginx to send requests for PHP files to the php-fpm software instead of just sending the requested PHP file to the client web browser. When you only have one web site on a server (it is possible to have multiple web sites on the same server using a technique called VirtualHosts) the configuration for Nginx is stored in the _/etc/nginx/sites-available/default_ file. Like most Linux configuration files it is a text file so you'll want to open it in a text editor.
+. In Nginx configuration files (and many different Linux configuration files) lines that start with a `\#` are considered comments (that can help you remember what different things do) and are ignored by the software. If you look at just the lines in this file that do not have a `\#` at the front you should see something like this:
++
+[source,console]
+----
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+----
+. Inside of the _server_ block the first two lines tell Nginx what server IP addresses and pot numbers to listen for connections on (in this case all IPv4 and IPv6 addresses on port 80, the default HTTP port). You'll also notice that every lonfiguration line ends in a `;` which indicates the end of the line. The _root_ line tells Nginx what directory to use as the web root location (the directory containing the web site, in our case _/var/www/html_ is the default). The _index_ line indicates what files (and in what order of preference) are to be served automatically from a directory if the web browser doesn't specify a file name. The last part, the _location_ block is probably the most confusing but is also going to be important when telling Nginx to do something different with PHP files. The _try_files_ line it contains tells Nginx to try looking in the web root for the file name requested by the web browser (the _$uri_) and then to try looking for the same file but as a directory (with the extra slash on the end). If neither of those turns up a file that Nginx can deliver it should send a _404 error_ back to the web browser which is the HTTP code for a "file not found" error.
+. The first thing we need to do is to tell Nginx to do something different with PHP files. We can use a special `location ~ \.php$` block to tell Nginx that any file name ending in _.php_ should be handled differently. Inside this block we'll need to put a few things, but perhaps most importantly is the location of the _socket_ file that php-fpm will use to connect with Nginx.
+. To find this socket file location close the Nginx configuration and open the php-fpm configuration file in your text editor from somewhere like _/etc/php/8.2/fpm/pool.d/www.conf_ note that the exact location depends on the version of php-fpm that you installed with apt (mine is 8.2). If you didn't catch the version when it was installed you'll need to change to the _/etc/php/_ directory and list the contents to see what the latest version number listed there is and substitute that in the location above.
+. You'll see there are some similarities between Linux configuration files, there is almost always a way to leave comments in the files but instead of lines beginning with a `\#` like Nginx used for comments, php-fpm uses lines beginning with a `;` to indicate comments. Also, php-fpm uses square brackets like this `[name]` to indicate sections of the configuration file instead of the blocks with curly-braces `{}` like Nginx. You'll want to look for a line that starts with `listen =` something.
+. On my system that line looks like `listen = /run/php/php8.2-fpm.sock`. Again, this is going to vary depending on the specific version of php-fpm you have installed on your system. This is the location of the socket file that php-fpm will use to talk to Nginx. Save this location somewhere so you can paste it into your Nginx configuration.
+. Re-open your Nginx configuration file at _/etc/nginx/sites-available/default_ in a text editor. You'll want to add a few things to verious lines as well as a location block to handle .php files. A sample (again with comments removed to save space, but you can leave them in yours) is below along with an explanation:
++
+[source,console]
+----
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+            fastcgi_index index.php;
+            include fastcgi.conf;
+    }
+}
+----
+. First, notice that we have added `index.php` to the beginning of the index line? That will allow Nginx to use any index.php file in a directory as the default file if the web browser doesn't specify some other specific file.
+. Second, we have added that special new `location ~ \.php$` block which will handle all files ending in .php. All of the details that are in this block are outside the scope of this introductory server administration course, but note that the line `fastcgi_pass unix:/run/php/php8.2-fpm.sock;` includes the socket file location we found in the php-fpm configuration file. Note that you will need to modify this line based on the exact name of your own php-fpm socket file and that the line must end with a `;` or you will have an error in your configuration that will prevent Nginx from loading.
+. Restart the Nginx server software to apply the configuration changes using the `systemctl restart nginx` command. You can check to make sure there were no errors in the configuration that prevented Nginx from restarting by using the `systemctl status nginx` command and checking the output to ensure it says `Active: active (running)`. It would also be a good idea to make sure that the web browser on your administrative PC can still access your Linux server web site.
+. Once you are sure that Nginx has started properly and is serving pages create a new file named _phptest.php_ in _/var/www/html_ with a text editor. Put the following code into that file:
++
+[source,console]
+----
+<?php
+  phpinfo();
+?>
+----
+. This PHP code (the `phpinfo();` command inside the `<?php` and `?>` section) will be expanded out by PHP into a bunh of HTML code that your web browser can display about the status of PHP on your system. Try accessing the page you just created at http://172.17.xx.xx/phptest.php on the web browser on your administrative PC and make sure you can see the PHP diagnostic information page.
+
+== Create and Serve a Basic PHP Web Page
+. Let's try and setup a very simple example of a PHP web application which can take a user's name from a form and display it back to them on a web page. For this example we will need to create two files on our web server. One of the files will be an HTML form which collects the name of the user and the other is a PHP script which receives the name of the user from the form when the user submits it and displays a welcome message back to them.
+. First, create a _form.html_ file in _/var/www/html_ with a text editor. Put the following code into that file:
++
+[source,console]
+----
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+<p>Please Enter Your Name Below</p>
+<form action="/welcome.php" method="POST">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="username"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+</body>
+</html>
+----
+. This will give the user a place to enter their name onto the web page using an HTML form. When the user presses the "Submit" button the contents of the form will be sent from their browser to the welcome.php page on the server using an HTTP POST method. The welcome.php script will then need to process them (and in our case respond with a welcome message) so now create a _welcome.php_ file in _/var/www/html_ with a text editor. Put the following code into that file:
++
+[source,console]
+----
+<html>
+<body>
+
+<h1>Welcome to my website <?php echo $_POST["username"]; ?>!</h1>
+
+</body>
+</html>
+----
+. You can see that this page is mostly HTML but contains some PHP inside of the `<?php` and `?>` section which gets the name received in the HTTP POST message and outputs it in that spot.
+. Try accessing http://172.17.xx.xx/form.html and make sure your form and PHP welcome page work correctly with your name.
+. There is obviously a lot more to coding more complex PHP applications including being able to store and recall information from databases, important security considerations, performance considerations if a large number of users are accessing the site, and more. Luckily, there are many tutorials on the Internet where you can learn more about coding PHP now that you understand the basics and how to setup a Nginx server to serve PHP files.
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
