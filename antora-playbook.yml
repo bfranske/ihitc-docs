@@ -22,6 +22,7 @@ ui:
       - CNAME
       - shakespeare.tar.gz
       - hello_2.10-3_amd64.deb
+      - icecream_db.tar.gz
   - path: CNAME
     contents: |
       info.ihitc.net
@@ -29,6 +30,8 @@ ui:
     contents: ./static/shakespeare.tar.gz
   - path: hello_2.10-3_amd64.deb
     contents: ./static/hello_2.10-3_amd64.deb
+  - path: icecream_db.tar.gz
+    contents: ./static/icecream_db.tar.gz
 urls:
   html_extension_style: drop
   latest_version_segment: current

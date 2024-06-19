@@ -1,0 +1,314 @@
+= Lab 6: SQL Databases and Web Applications
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Install MariaDB
+* Perform Basic MariaDB/MySQL Database Tasks from the Command Line
+* Install a GUI Database Management Application
+* Perform Basic MariaDB/MySQL Database Tasks from a GUI Management Application
+* Install and Test the Wordpress Content Management System Web Application
+
+You will be introduced to the following commands:
+
+* mariadb
+* mysql
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Install MariaDB
+. MySQL is widely popular relational database management system (RDMS) originally developed in the mid-1990s. MySQL gained prominence due to its open-source nature, reliability, and performance. It became the go-to choice for web applications, powering websites, content management systems, and countless other services. Its simplicity, speed, and scalability contributed to its widespread adoption. In 2009, Oracle Corporation acquired Sun Microsystems, which owned MySQL. This caused concerns in the community about the future of MySQL under Oracle's stewardship and the development of MariaDB as a fork of MySQL by the community. Over time some new features have been added but there remains a committment to remain compatible as a drop-in replacement for MySQL and the terms MariaDB and MySQL are largely used interchangably.
+. Most Linux distributions today favor MariaDB over MySQL. When users request MySQL installations from a package manager, they actually often end up with MariaDB. The transition is seamless because MariaDB remains mostly compatible with MySQL and typically includes links so that even if you use MySQL command names the MariaDB equivalents will run. As a result in this lab activity we'll install and use MariaDB as the actual database backend but commands may still reference MySQL as that is typially what you see in application configuration instructions.
+. Use `apt` to install the _mariadb-server_ package on your Linux server.
+. Because we know that we eventually will want to access our MariaDB database from web applications that are written in PHP we also need to install the connector module that allows PHP to interact with MySQL/MariaDB databases. Again, use `apt` to install the _php-mysql_ package.
+. If you run the command `mysqladmin version` on your Linux server with root permissions you should see that MariaDB is installed as well as the version of the server software and some additional information:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mysqladmin version
+mysqladmin  Ver 9.1 Distrib 10.11.6-MariaDB, for debian-linux-gnu on x86_64
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Server version          10.11.6-MariaDB-0+deb12u1
+Protocol version        10
+Connection              Localhost via UNIX socket
+UNIX socket             /run/mysqld/mysqld.sock
+Uptime:                 4 hours 22 min 42 sec
+
+Threads: 1  Questions: 1864  Slow queries: 0  Opens: 136  Open tables: 112  Queries per second avg: 0.118
+----
+. If you check your PHP Info page at http://172.17.xx.xx/phptest.php you should now see that PHP has the MySQL PDO driver loaded.
+
+== Experiment with an SQL Database
+. SQL is a standard language for interacting with a specific type of database called a relational database, we'll see why it's called a relational database in a minute. Each database is a collection of data stored in tables. You can think of a table as something like a spreadsheet with rows and columns, except we call the columns fields and the rows records (sometimes we actually call them rows too). The different tables are often related to one another by using identifer which are found in multiple tables to match the records.
+. To jumpstart our exploration of databases we'll download a pre-built sample database with a few tables and records already in it and import it into our MariaDB database server. Use the `wget` program to download the sample database from https://info.ihitc.net/icecream_db.tar.gz
+. Unpack the compressed _icecream_db.tar.gz_ file in your home directory
+. Use a text file viewer to view the _icecream_schema.sql_ file. This text file describes the format (schema) for the database. That includes a list of all the database tabes as well as what fields each table includes.
+. Use a text file viewer to view the _icecream_data.sql_ file. This text file includes all of the data records for the database which get stored into the tables.
+. When restoring a database backup or loading an initial database for some application there are many times where the schema and some initial data are just included together in one SQL file you can import, that is what the _icecream_combined.sql_ file has in it.
+. We can interact with the MariaDB server in many different ways. The first way we'll take a look at is through the command line `mysql` program. MariaDB has it's own set of users which are separate from the Linux server's system users but they still call the super user account the _root_ user. Right now that MariaDB root user is the only account that exists. To log into it we need to run the `mysql` program as the system root user like `sudo mysql`.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 50
+Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]>
+----
+MySQL has it's own command line language the you can use through the `MariaDB [(none)]>` prompt you are now seeing. For example, if we want to see a list of databases on the system we can run `SHOW databases;`. Run the command and note the databases that already exist by default and are used internally by MariaDB for storing data (like it's own usernames and passwords).
++
+[source,console]
+----
+MariaDB [(none)]> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.001 sec)
+----
++
+IMPORTANT: Each MySQL/MariaDB statement ends with a semicolon (`;`). If you do not put the semicolon at the end of the line the command will not execute when you press enter and you will be able to continue to add more commands to the statement before finishing with a semicolon. If you accidentally press enter without ending with a semicolon you can just enter a semicolon on the next line and press enter.
+. Create a new database for our sample ice cream data using the `++CREATE DATABASE `icecream`;++` command. You should see a confirmation that this worked, but it's always worth double checking!
++
+[source,console]
+----
+MariaDB [(none)]> CREATE DATABASE `icecream`;
+Query OK, 1 row affected (0.001 sec)
+
+MariaDB [(none)]> SHOW databases;
++--------------------+
+| Database           |
++--------------------+
+| icecream           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+----
+. If we want to select a certain database for use we can use the `++USE `icecream`;++` command at the MariaDB prompt. You'll see if you do this that the name of the active database shows up in the default prompt. It will change from `[(none)]` to `[`icecream`]` like this:
++
+[source,console]
+----
+MariaDB [(none)]> USE `icecream`;
+Database changed
+MariaDB [icecream]>
+----
+. There are a few ways that an SQL file can be imported into a MariaDB database. We'll try two of them. First, if we're already at a MariaDB prompt and set up to use the database we want to import into we can use a statement like `source icecream_db/icecream_combined.sql;`. If you do this you'll see a bunch of lines with `Query OK` go by on your screen. You should have one of these for each SQL statement that is in the file you're importing.
++
+NOTE: Because when we started the `mysql` program we were in our home directory and the _icecream_combined.sql_ file we want to import was in the _icecream_db_ directory inside our home directory we needed to specify the path to the file as _icecream_db/icecream_combined.sql_ in the source statement.
+. To try creating a database and importing an SQL file from the standard Linux command shell we must first get rid of our existing database which we can do with the `++DROP DATABASE `icecream`;++` statement.
++
+IMPORTANT: Obviously, the `DROP` statement is one to be careful with as you can easily wipe out a huge database with one line! 
+. Next we'll exit back to our Linux command shell using the `exit;` command.
+. Try creating the _icecream_ database using the `mysql -e 'CREATE DATABASE icecream;'` command.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mysql -e 'CREATE DATABASE icecream;'
+----
+. You can then import the SQL file from the command line as well using redirection and the command `mysql icecream < icecream_db/icecream_combined.sql`.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mysql icecream < icecream_db/icecream_combined.sql
+----
++
+NOTE: When we were working inside the MariaDB shell we were able to put backticks (`++`++`) around the database name. This is the preferred way of doing things with MariaDB as it lets us use special characters in the database or table names if we want and keeps identifiers separate from commands which is a security benefit. However, it's not possible to use these with commands when issued from the Linux shell which might be a good argument for creating and working with databases from inside the MariaDB shell even though many instructions for loading databases on the Internet just have you do it from the Linux shell.
+. Next, let's try going back into the MariaDB shell and running a few SQL statements which can show us some of the power of our database.
+.. Access the MariaDB shell again and select the _icecream_ database for use.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mariadb
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 60
+Server version: 10.11.6-MariaDB-0+deb12u1 Debian 12
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> USE `icecream`;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [icecream]>
+----
+.. List the tables in the database with the `SHOW tables;` statment:
++
+[source,console]
+----
+MariaDB [icecream]> SHOW tables;
++--------------------+
+| Tables_in_icecream |
++--------------------+
+| flavor_ingredients |
+| flavors            |
+| ingredients        |
++--------------------+
+3 rows in set (0.001 sec)
+----
+.. Here you can see that we have three tables in the database. Check what fields (columns) are in the _flavors_ table with the `++SHOW FIELDS FROM `flavors`;++` command.
++
+[source,console]
+----
+MariaDB [icecream]> SHOW FIELDS FROM `flavors`;
++-------------+------------------+------+-----+---------+----------------+
+| Field       | Type             | Null | Key | Default | Extra          |
++-------------+------------------+------+-----+---------+----------------+
+| flavor_id   | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
+| flavor_name | varchar(255)     | YES  |     | NULL    |                |
+| description | text             | YES  |     | NULL    |                |
++-------------+------------------+------+-----+---------+----------------+
+3 rows in set (0.002 sec)
+----
+.. Try getting a list of all information in the _flavors_ table with the `++SELECT * FROM `flavors`;++` query.
+.. Whoa, that was too much information! The descriptions are pretty long so let's just get the _flavor_id_ and _flavor_name_ using `++SELECT `flavor_id`, `flavor_name` FROM `flavors`;++`
+.. That's more like it, but what if we're just testing things and we only want to have the first five flavors in the table? Try using `++SELECT `flavor_id`, `flavor_name` FROM `flavors` LIMIT 5;++`
+.. OK, now let's look at the power of a database over a spreadsheet by _querying_ the database to only give us the flavor name if it includes the word _chocolate_ with this query (you could again limit this to the first few reponses if you wanted too):
++
+[source,console]
+----
+SELECT `flavors`.`flavor_name`
+FROM `flavors`
+WHERE LOWER(`flavors`.`flavor_name`) LIKE '%chocolate%';
+----
++
+NOTE: You may have noticed there is a section in our query `LOWER()`. This turns all the text in that field _temporarily_ into lower case so we don't have to worry how it's capitalized when we're searching it.
+.. We can look for descriptions that have the word _chocolate_ in them if we wanted too:
++
+[source,console]
+----
+SELECT `flavors`.`flavor_name`, `flavors`.`description`
+FROM `flavors`
+WHERE LOWER(`flavors`.`description`) LIKE '%chocolate%';
+----
++
+NOTE: You can leave off the `++`flavors`.`description`++` part in the `SELECT` line if you want to search the descriptions but not show them. You can also limit the results to the first few responses by adding a `LIMIT` statement as in the previous examples as well.
+.. What really makes a _relational_ database special compared with a single table (think spreadsheet) is that even more advanced queires are possible. For example, we can search through the table of ingredients for an ingredients that include a certain word and get the ingredient ID, then look for all flavors that contain that ingreditent and get a list of them. An example of this type of query where we're looking for all flavors that have cocoa as an ingredient looks like:
++
+[source,console]
+----
+SELECT DISTINCT `flavors`.`flavor_name`, `flavors`.`description`
+FROM `flavors`
+JOIN `flavor_ingredients` ON `flavors`.`flavor_id`=`flavor_ingredients`.`flavor_id`
+JOIN `ingredients` ON `ingredients`.`ingredient_id`=`flavor_ingredients`.`ingredient_id`
+WHERE LOWER(`ingredients`.`ingredient_name`) LIKE '%cocoa%';
+----
+.. The same is also possible if we want to look for all flavors that do *not* have a specific ingredient. If somone had an allergy to eggs and we wanted to find all flavors without egg in them we could use:
++
+[source,console]
+----
+SELECT `flavors`.`flavor_name` 
+FROM `flavors`
+WHERE `flavors`.`flavor_id`
+NOT IN (
+	SELECT `flavor_ingredients`.`flavor_id`
+	FROM `flavor_ingredients`
+	WHERE `flavor_ingredients`.`ingredient_id` 
+	IN (
+		SELECT `ingredient_id` FROM `ingredients` WHERE LOWER(`ingredients`.`ingredient_name`) LIKE '%egg%'
+		)
+  );
+----
++
+NOTE: There are often many ways to create SQL queries that return the same results, especially with more complex queries. There are often advantages and disadvantages to each way you might create a query. For example, in some cases `JOIN` statements may be more efficient (faster) and so they are a better choice. In other cases it may be more desirable to use `IN` and `NOT IN` statements to tie multiple queries together because it's easier to understand what's happening when reading through the query. In still other cases, programmers may make multiple simple queires to the databse and then join the information from multiple queires together in a programming language instead. Whole careers can be made out of designing database queries so our goal here is not to make you and expert but to show you the types of things possible with a relational database such as MySQL or MariaDB.
+
+== Install a GUI Database Management Application and Connect to Your Database
+. In many cases it is desirable to have a graphical environment to create, update, or query a database running on a remote server. The MariaDB server software can support connections from remote clients (such as your administrative PC) and allow those clients to be used to administer the database. There are many different graphical clients available but just as an example we'll use *Beekeeper Studio* because it is available for Windows, Mac, and Linux and a free basic version is available.
+. Start by downloading the latest community version of https://www.beekeeperstudio.io/get-community[Beekeeper Studio Community Edition] to your administrative PC. Note that you do not need to provide an email address, just click the "Skip to the download" link on the download page.
+. Install the software as you normally would for your administrative PC platform. If you're using a Windows administrative PC such as the one in Netlab or your own this will involve running a setup.exe file and completing the installation wizard.
+. After completing the installation launch the *Beekeeper Studio* software on your administrative PC.
++
+image::lab06/001.png[Freshly installed copy of Beekeeper Studio Opening,250,align=left,link=self]
+. In the "New Connection" dialog on the right side of the screen click the "Connection Type" dropdown and choose "MariaDB".
++
+image::lab06/003.png[Selecting MariaDB connection type]
+. You should see an expanded dialog box to create a new connection to your database. For security reasons our database server is only set to allow connections from the _localhost_ (the server itself) and not from other computers over the network. This is a best practice unless you have other security measures in place. However, we can still make a _localhost_ connection to the server from itself if we SSH to the server first. This is a common workaround which retains better security while still allowing remote access for people with accounts on the system. To access the SSH settings move the slider to enable the "SSH Tunnel" section of the dialog box.
+. Now you'll see that there is a section for an SSH hostname, authentication method, and username as well as a database host, user, password, and default database. Because we are using SSH usernames and passwords and haven't yet learned about other SSH authentication methods you should also change the "SSH Authentication" option to "Username & Password" which should add an SSH Password box to fill in.
++
+image::lab06/004.png[Blank new connection dialog,250,align=left,link=self]
+. Before we can actually connect to the database we'll need to set up a user and password for the _icecream_ database. As we previously mentioned these are separate for system users and passwords and so far we have just been using the _root_ database user without a password which is only possible from the command line when using `sudo` to run the `mysql` command, which is not possible for a remote connection.
+.. Use your Linux shell SSH session to run the MariaDB shell as the administrative user again with the `sudo mysql` command.
+.. Use a MariaDB statement like `CREATE USER '_username_'@'localhost' IDENTIFIED BY '_password_';` to create a new database user. In the example below we'll use _icdbuser_ as the username and _icdbpassword_ as the password. The _localhost_ part of the command here means the user will only be able to log on from the local system and not remotely (except if they are already connected to the local system such as with SSH). Be sure to make a note of the username and password you choose.
+.. Just creating the user is not enough. With MariaDB you can also be very specific about what databases (and even what tables inside of databases) the user can work with (in case you have many databases on the same server) and what things the user can do in the database (such as only read the database or also make various types of changes). In our case we'll use a statement like `GRANT ALL PRIVILEGES ON _database_name_.* TO '_username_'@'localhost';` with the _icecream_ database listed. The `.*` after the database name means this applies to all of the tables inside of the database. This statement will allow the user listed to do anything they want inside of the _icecream_ database as long as they are logged in through the _localhost_.
+.. In order to have the new account and privileges take effect we will finish with a `FLUSH PRIVILEGES;` statement
++
+[source,console]
+----
+MariaDB [(none)]> CREATE USER 'icdbuser'@'localhost' IDENTIFIED BY 'icdbpassword';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON icecream.* TO 'icdbuser'@'localhost';
+Query OK, 0 rows affected (0.002 sec)
+
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.001 sec)
+
+MariaDB [(none)]> exit;
+Bye
+----
+. Now that we have a database user created we can fill out the Beekeeper Studio connection form. Be sure to enter the MariaDB username and password as well as the database name in the database connection section. In the SSH Tunnel section you will use the IP address of your Linux server as the SSH Hostname, and your regular Linux server username and password in the SSH User and SSH Password boxes. Lastly, to make it convenient to re-connect in the future we can give the connection a name like "IceCream" and click the "Save" button at the bottom of the dialog. After saving the connection it should show up under the "Saved" part of the window on the left hand side.
++
+image::lab06/005.png[Filled new connection dialog,250,align=left,link=self]
+. Click the "Connect" button to connect to the database.
+. You should now see the left side of your screen has changed to "Entities" and shows the three tables in your database. If you click the arrow to the left of each table name you can expand these to show the fields contained in each table.
++
+image::lab06/008.png[Expanded table list showing fields]
+. If you right-click on a table name and choose "View Data" the right side of your screen you should get a new tab at the top of your screen with the name of the table in it and be able to browse through the table. Note that not all records are shown on the screen if it's a big table, there is a page forward/back button at the bottom of the screen you cna use to go to additional pages of data if they exist.
++
+image::lab06/010.png[Viewing data from flavors table,250,align=left,link=self]
+. You can also double click in a table cell and make a change to the table data. When you press enter the cell in the table will turn yellow and the "Apply" button in the lower right will turn dark. This means there is something different on your screen than is really in the database. To save your change to the database you can click the "Apply" button or to cancel the change press the "Refresh Table" button just to it's right. To add a new record to the table press the "+" button even further to the right.
++
+image::lab06/011.png[Flavors table with pending change,250,align=left,link=self]
+. You can close the view of the table data by clicking the dot or "x" to the right of the table name in the tab at the top of the screen. A dot indicates there are unsaved changes in the table that you may want to apply before closing the table.
+. Of course you can run the same type of queries we did from the command line too. Just use the "Query #1" tab and type or copy in your query statement and then click the "Run" button on the right hand side. Try running all of the same queries we did before from the command line. Here's an example of one of them:
++
+image::lab06/012.png[Sample query in Beekeeper Studio,250,align=left,link=self]
+. Many times it can be helpful to have a graphical environment for building and testing database queries or making other changes to the database because you can do things like resize columns for easier viewing in an way that is not so flexible in a command line environment. You can also do things like easily copy and paste names of tables and fields into queries when building them.
+
+== Install and Test the Wordpress Content Management System
+. Now let's see how we can combine our web server running PHP and a database system to run one of the most popular web applications on servers. https://wordpress.org/[_Wordpress_] is a _content management system_ which was originally desinged as blogging software but now runs millions of websites of all kinds and allows people without HTML experience to write content, run web stores, and other activities which can have a template desinged by an HTML designer applied to them automatically creating an easy to use website.
+. Start by using `wget` to download the file https://wordpress.org/latest.tar.gz onto your Linux server
+. Next, review the very well written https://developer.wordpress.org/advanced-administration/before-install/howto-install/[Wordpress Installation Guide] which contains both basic and detailed instructions.
+. You goal is to install Wordpress in such a way that it is accessed by going to http://172.17.xx.xx/blog (obviously with your own server's IP address). In other words it should not be the main page of your web server but need the /blog on the end of the URL.
+. Once you have Wordpress installed be sure to log in to the admin interface through your web browser http://172.17.xx.xx/blog/admin and pick a theme and create a few short blog posts to make sure they show up and everything is working correctly.
+. Here are a few hints, tips, and guidance that may assist you in combination with the official installation instructions.
+.. You will need to download and untar the Wordpress software.
+.. You will need to move the Wordpress files that you unpacked to the correct location on your server's filesystem. The name of the directory you put them in will be important. Remember you want the software to work when users visit http://172.17.xx.xx/blog
+.. You will need to create a new MariaDB database, a MariaDB user/password, and give that user permissions to work in the database. Be sure to write down the database name, username, and password you create.
+.. You _may_ need to create a copy of the _wp-config-sample.php_ Wordpress configuration file and edit the file to put in your hostname (localhost), database name, database username, and password.
+.. You will need to make sure that the directory containing all your Wordpress files and all the files and subdirectories inside it are owned by the www-data user and group.
+.. The first time you access your Wordpress site from a browser it will run through an installation wizard where you will pick an administrative username and password for the Wordpress administration pages. Be sure to write these down so you can login!
+. There are many other PHP web applications including discussion forums, photo sharing, web stores, etc. that can be installed on a web server with PHP and a database just like Wordpress. They mostly all install in a similar way (creating a database, database user, copying files, editing a configuration file) though there are some small variations and the instructions are often not quite as good as Wordpress has. If you're interested you should be able to find plenty of free open-source PHP applications by searching for them online. Do note that PHP web applications frequently have security bugs that are found and so if you run one on the public internet it's very important to keep it up to date or your server could be compromised!
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.

@@ -10,7 +10,7 @@ You are responsible for completing ALL of these labs. You must submit a lab repo
 * xref:lab4.adoc[Lab 4: Text Manipulation]
 * xref:lab5.adoc[Lab 5: Webserver and PHP Installation and Use]
 * xref:lab6.adoc[Lab 6: SQL Databases and Web Applications]
-* xref:lab7.adoc[Lab 7: Firewall COnfiguration and System Security]
+* xref:lab7.adoc[Lab 7: Firewall Configuration and System Security]
 * xref:lab8.adoc[Lab 8: Linux System Administration Utilities]
 * xref:lab9.adoc[Lab 9: DNS Server Installation and Configuration]
 * xref:lab10.adoc[Lab 10: An Introduction to Containers]
