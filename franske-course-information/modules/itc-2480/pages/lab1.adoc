@@ -354,3 +354,5 @@ We will normally leave our Linux server VM running but it is important that you 
 . End your Netlab Reservation
 .. If you still have time left in your reservation in Netlab it's polite to end the reservation so other users can work on the system, only a limited number of reservations can be made at one time. You can do this by logging into Netlab, opening your lab, and clicking the "Reservation" menu at the top of the screen and choose to "End Reservation Now" followed by confirming that you want to end the reservation.
 . Congratulations! You have made it to the end of the first lab in the Linux System Administration course!
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

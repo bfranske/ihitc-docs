@@ -554,3 +554,5 @@ ben@2480-Z:~/archive-experiments$
 . If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
 
 NOTE: You can keep your Linux Server running from this point on, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
