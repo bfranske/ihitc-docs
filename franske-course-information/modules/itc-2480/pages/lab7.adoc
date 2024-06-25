@@ -1,0 +1,319 @@
+= Lab 7: Linux Network Security, Firewall, NAT Routing, and DHCP Server
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* View Open Ports on your Linux Server
+* Scan Other Systems for Open Ports
+* Configure a Host Based Firewall on your Linux Server
+* Enable Packet Forwarding and configure your Linux Server as a NAT Router
+* Configure your Linux Server as a DHCP Server
+* Install Linux Mint as a client behind your Linux Server NAT Router
+* Configure Port Forwarding on your Linux Server to Access a Client Behind the NAT Router
+* Secure SSH Using SSH Keys
+* Secure SSH Using 2FA
+* Enable Fail2Ban for SSH Log Monitoring
+
+You will be introduced to the following commands:
+
+* ss
+* nmap
+* iptables
+* nftables
+* firewall-cmd
+* fail2ban
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Monitoring Connections and Open Ports
+. One common activity you would want to do when evaluating the security of a system is to find out what ports the system is accepting connections on. For this reason most operating systems have some kind of utility to display active network connections and open ports, Linux is no exception. Traditionally the `netstat` utility, which stands for network statistics, has been used to show open ports, incoming and outgoing connections, routing tables, interface statistics, masquerade connections, and multicast memberships. However, the more modern `ss` utility, which is short for socket statistics, can provide much of the same information in a much faster way, especially when there are a large number of connections on a server. Both tools can be used to identify unauthorized connections or traffic that could indicate a security breach, performance issues, or undesired applications running on the server. They are crucial for system and network administrators to ensure the integrity and efficiency of server operations.
+. Review the https://man7.org/linux/man-pages/man8/ss.8.html[manual page for `ss`].  Specifically, figure out what the `-n` `-a` `-l` `-t` `-p` and `-u` options do.
+. Try the `ss -ntup` and `ss -tup` commands and figure out what is being shown on your screen and in the output below. Be sure to run the commands with administrative permissions in order to have full access to see all the sockets open on your system and their details.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo ss -ntup
+Netid              State              Recv-Q              Send-Q                           Local Address:Port                           Peer Address:Port               Process
+tcp                ESTAB              0                   64                                172.17.50.36:22                             172.17.202.3:50358               users:(("sshd",pid=51036,fd=4),("sshd",pid=51020,fd=4))
+ben@2480-Z:~$ sudo ss -tup
+Netid              State              Recv-Q              Send-Q                           Local Address:Port                           Peer Address:Port               Process
+tcp                ESTAB              0                   64                                172.17.50.36:ssh                            172.17.202.3:50358               users:(("sshd",pid=51036,fd=4),("sshd",pid=51020,fd=4))
+----
+ . Try the `ss -nltup` command and figure out what is being shown on your screen and in the output below:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo ss -nltup
+Netid        State         Recv-Q        Send-Q                Local Address:Port                 Peer Address:Port        Process
+udp          UNCONN        0             0                        127.0.0.54:53                        0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=20))
+udp          UNCONN        0             0                     127.0.0.53%lo:53                        0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=18))
+udp          UNCONN        0             0                           0.0.0.0:5355                      0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=11))
+udp          UNCONN        0             0                              [::]:5355                         [::]:*            users:(("systemd-resolve",pid=334,fd=13))
+tcp          LISTEN        0             80                        127.0.0.1:3306                      0.0.0.0:*            users:(("mariadbd",pid=29657,fd=18))
+tcp          LISTEN        0             4096                     127.0.0.54:53                        0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=21))
+tcp          LISTEN        0             128                         0.0.0.0:22                        0.0.0.0:*            users:(("sshd",pid=508,fd=3))
+tcp          LISTEN        0             511                         0.0.0.0:80                        0.0.0.0:*            users:(("nginx",pid=48789,fd=5),("nginx",pid=48788,fd=5))
+tcp          LISTEN        0             4096                        0.0.0.0:5355                      0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=12))
+tcp          LISTEN        0             4096                  127.0.0.53%lo:53                        0.0.0.0:*            users:(("systemd-resolve",pid=334,fd=19))
+tcp          LISTEN        0             128                            [::]:22                           [::]:*            users:(("sshd",pid=508,fd=4))
+tcp          LISTEN        0             511                            [::]:80                           [::]:*            users:(("nginx",pid=48789,fd=6),("nginx",pid=48788,fd=6))
+tcp          LISTEN        0             4096                           [::]:5355                         [::]:*            users:(("systemd-resolve",pid=334,fd=14))
+----
+ . Notice that there are a number of ports open on your system. Some of these we have opened to provide a specific service such as SSH, Webserver, etc. but sometimes ports are open simply by default when some software has been installed. On older distributions of Linux there are even several ports open by default on fresh installs!
+ . Note that in the local address column there are some addresses (such as the one for mariadb) listed as 127.0.0.x. These are services open *only* to the localhost (other software running on the server itself) and not to remote connections over the network. This is generally a more secure option if you don't need to access the service remotely.
+ . There are a number of different strategies you can use to secure your system including disabling a service, binding it to an internal-only IP address (such as a localhost address), or blocking access with a firewall rule. If your firewall is setup with an implicit (or explicit) reject any rule at the bottom of the input chain and you have not specifically opened a port it should not be accessible from other systems. We'll explore the option of using a firewall to explicitly control access to ports on our system later in this lab.
+ . Try the `ss -natup` command and figure out what is being shown on your screen and in the output below and how it differs from the previous command:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo ss -natup
+Netid        State         Recv-Q        Send-Q               Local Address:Port                 Peer Address:Port         Process
+udp          UNCONN        0             0                       127.0.0.54:53                        0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=20))
+udp          UNCONN        0             0                    127.0.0.53%lo:53                        0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=18))
+udp          UNCONN        0             0                          0.0.0.0:5355                      0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=11))
+udp          UNCONN        0             0                             [::]:5355                         [::]:*             users:(("systemd-resolve",pid=334,fd=13))
+tcp          LISTEN        0             80                       127.0.0.1:3306                      0.0.0.0:*             users:(("mariadbd",pid=29657,fd=18))
+tcp          LISTEN        0             4096                    127.0.0.54:53                        0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=21))
+tcp          LISTEN        0             128                        0.0.0.0:22                        0.0.0.0:*             users:(("sshd",pid=508,fd=3))
+tcp          LISTEN        0             511                        0.0.0.0:80                        0.0.0.0:*             users:(("nginx",pid=48789,fd=5),("nginx",pid=48788,fd=5))
+tcp          LISTEN        0             4096                       0.0.0.0:5355                      0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=12))
+tcp          LISTEN        0             4096                 127.0.0.53%lo:53                        0.0.0.0:*             users:(("systemd-resolve",pid=334,fd=19))
+tcp          ESTAB         0             64                    172.17.50.36:22                   172.17.202.3:50358         users:(("sshd",pid=51036,fd=4),("sshd",pid=51020,fd=4))
+tcp          LISTEN        0             128                           [::]:22                           [::]:*             users:(("sshd",pid=508,fd=4))
+tcp          LISTEN        0             511                           [::]:80                           [::]:*             users:(("nginx",pid=48789,fd=6),("nginx",pid=48788,fd=6))
+tcp          LISTEN        0             4096                          [::]:5355                         [::]:*             users:(("systemd-resolve",pid=334,fd=14))
+----
+. Using the web browser on your administrative PC connect to your website at http://172.17.xx.xx/blog and then within a short period of time run the `ss -natup` and `ss -ntup` commands again. You should see something like this:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo ss -ntup
+Netid        State        Recv-Q         Send-Q                 Local Address:Port                 Peer Address:Port         Process
+tcp          ESTAB        0              0                       172.17.50.36:80                   172.17.202.3:55738         users:(("nginx",pid=48789,fd=12))
+tcp          ESTAB        0              0                       172.17.50.36:80                   172.17.202.3:55737         users:(("nginx",pid=48789,fd=11))
+tcp          ESTAB        0              64                      172.17.50.36:22                   172.17.202.3:50358         users:(("sshd",pid=51036,fd=4),("sshd",pid=51020,fd=4))
+tcp          ESTAB        0              0                       172.17.50.36:80                   172.17.202.3:55733         users:(("nginx",pid=48789,fd=4))
+----
+. Notice how you can see now the open TCP connections between Nginx and the web browser on your administrative PC as well as the IP address of your administrative PC. This can be a useful tool for seeing what systems are connected to your server, on what port they are connected, and what software or process on the server they are connected to.
+
+== Scan Other Systems for Open Ports
+. Sometimes we want to verify what ports are open on a system by checking from another computer. The `nmap`, or Network Mapper, utility is a very powerful security scanning utility available on Linux. While `ss` or `netstat` use information from the Linux kernel about what ports and connections are in use by what processes `nmap` actively probes and tests ports on your system or another system to determine whether the port is open or not as well as additional information about the port in some cases. `nmap` is a complex and powerful utility. Entire http://nmap.org/book/toc.html[books] and http://nmap.org/book/man.html[extensive documentation] are available which you may want to reference but we'll only be exploring some of the more basic features in this introductory lab activity.
++
+IMPORTANT: Before we begin this section of the lab it is important to remember that scanning a system is often seen as an attack against the system and should not be done unless you are the administrator of both the system that you are scanning from and the system you are scanning or have the explicit permission of the system administrator of those systems! In some areas people have been legally charged and prosecuted for scanning of systems which they are not authorized to do. You have been warned!
+. `nmap` provides a system on the Internet which they allow you to scan for testing purposes so let's try a verbose scan which gives additional diagnostic detail by running the `nmap -v scanme.nmap.org` command which will take a minute to run:
++
+[source,console]
+----
+ben@2480-Z:~$ nmap -v scanme.nmap.org
+Starting Nmap 7.93 ( https://nmap.org ) at 2024-06-25 12:03 CDT
+Initiating Ping Scan at 12:03
+Scanning scanme.nmap.org (45.33.32.156) [2 ports]
+Completed Ping Scan at 12:03, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 12:03
+Completed Parallel DNS resolution of 1 host. at 12:04, 13.00s elapsed
+Initiating Connect Scan at 12:04
+Scanning scanme.nmap.org (45.33.32.156) [1000 ports]
+Discovered open port 80/tcp on 45.33.32.156
+Discovered open port 22/tcp on 45.33.32.156
+Discovered open port 31337/tcp on 45.33.32.156
+Discovered open port 9929/tcp on 45.33.32.156
+Completed Connect Scan at 12:04, 0.73s elapsed (1000 total ports)
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.048s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 996 closed tcp ports (conn-refused)
+PORT      STATE SERVICE
+22/tcp    open  ssh
+80/tcp    open  http
+9929/tcp  open  nping-echo
+31337/tcp open  Elite
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 17.82 seconds
+----
+. You can see in the output above that `nmap` discovered four open ports on the _scanme.nmap.org_ system at the time of this scan. Furthermore, `nmap` was able to determine the likely service running on each of those ports and show the name of the service.
+. The `-v` option makes the output more _verbose_ which means more detail is provided. Try again, but *without* the `-v` option this time to get just the standard output. Use the command `nmap scanme.nmap.org` and take note of what the difference is while the command is running.
+. When scanning your own system there are a few different ways to go about it. You could either scan the localhost address _127.0.0.1_ or the actual outside IP address of your system. You could also setup a separate system or VM and do the scanning from that system. In each case you might see somewhat different results, can you guess why?
+. The answer is related to how you have firewall rules setup and what addresses you have services bound to. For example by default on Debian systems the MySQL/MariaDB server daemon only listens for connections on the localhost address (127.0.0.1) and not on outside interfaces.
+. Try running the `nmap 127.0.0.1` command and then compare output with the `nmap _<your outside 172.17.xx.xx ip address here>_` command. Do you see some network services listening only on the localhost address? These services are not accessible from outside your computer even though the ports are open and you would see them as open with `ss`.
+. The most realistic use of `nmap` though is to scan like an attacker would using a system outside of the one you're testing. In fact it's even possible to scan a whole range of IP addresses at once. Use `nmap` to scan the entire Linux System Administration class subnet with the `nmap 172.17.50.0/23` command. Note that this could take some time depending on how many systems respond to `nmap`.
++
+IMPORTANT: Remember that in our case these systems are secure from the outside world because we have an upstream firewall which you have bypassed by connecting to our VPN or using an administrative PC through Netlab and these systems are using unroutable private IPv4 addresses.
+. Take a look at the `nmap` http://nmap.org/book/toc.html[book] or http://nmap.org/book/man.html[documentation] and try running a few different types of `nmap` scans on one of the systems you found in the Linux System Administration class subnet.
+. `nmap` also supports scanning IPv6 addresses but it needs to be done separately from IPv4. Note that a running service is not necessarily listening on both IPv4 and IPv6 addresses just because you have them both active on your operating system. Figure out how to scan IPv6 addresses with `nmap` and try scanning both an IPv4 and IPv6 address of your machine and compare the results. Use the same type of address (i.e. both IPv4 and IPv6 addresses should be the localhost addresses or should both be outside addresses) Are the same services open on both IPv4 and IPv6 on your system?
+
+
+== Configure a Host Based Firewall on your Linux Server
+[IMPORTANT]
+====
+In this section of the lab you will be configuring a firewall on your Linux Server. You will be doing this _while connected_ to your Linux Server's IP address over SSH. This is obviously a bit risky because if you make a mistake during the firewall configuration you could block SSH access to your Linux Server. Thus, it is important to have a backup plan. Luckily, our servers are running as VMs through Netlab so we have access to the server _console_ through Netlab which will continue to work. So, if you have an issue and are no longer able to access your server over SSH you will need to login to Netlab and access your server that way until you have fixed the firewall rule to allow SSH access.
+====
+. One of the important steps towards securing any system is to limit the attack surface. When we're talking about a networked system one way that this is typically done is to make certain that only those ports we want to have open to the world are actually open. One of the most common ways of doing this is to use a host-based firewall running on the system. Like all modern network operating systems Linux has a built-in host-based firewall. Tradtionally the Linux firewall was based around `iptables` but starting in 2014 distributions began replacing that with the newer and more flexible `nftables` solution.
+. While it was somewhat common to write your own firewall rules directly in the `iptables` era the additional flexibility provided by `nftables` has made writing rules more complex. Many ditributions, including Debian, still provide compatible versions of the `iptables` commands which actually create `nftables` rules under the hood but it's also become increasingly more common to use a utility to manage the firewall rules instead of writing them directly yourself. One reason for this is to reduce the complexity of managing a firewall by automatically handling things like implementing the rules automatically each time the system boots.
+. Two of the most common tools for managing firewall rules on Linux systems are https://firewalld.org/[`firewalld`] and https://help.ubuntu.com/community/UFW[`ufw`]. While `ufw` provides a basic host-based firewall it still relies on `iptables` or at least `iptables` compatible commands to implement it's rules. On the other hand `firewalld` supports `nftables` natively and also supports defining zones and multiple complex rulesets such as those needed when multiple interfaces are connected to different networks. In this lab activity we'll explore the use of `firewalld` to manage the `nftables` firewall on our server.
+. Begin by installing the _firewalld_ package on your system.
+. Use the `firewall-cmd --state` command to check and see if the firewall is now up and running
++
+[source,console]
+----
+ben@2480-Z:~$ sudo firewall-cmd --state
+running
+----
+. Check to see what rules are currently applied in your firewall using the `firewall-cmd --list-all` command:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo firewall-cmd --list-all
+public
+  target: default
+  icmp-block-inversion: no
+  interfaces:
+  sources:
+  services: dhcpv6-client ssh
+  ports:
+  protocols:
+  forward: yes
+  masquerade: no
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+----
+. By default all interfaces are in the public zone (this is set in the _/etc/firewalld/firewalld.conf_ file). We can create custom zones or use pre-defined security zones which will speed up configuring the firewall. Take a minute to read more about the https://firewalld.org/documentation/zone/predefined-zones.html[pre-defined zones in firewalld documentation].
+. Before we start working on rules for our firewall we should assign (move) our outside network interface (_ens192_) to the external zone which is designed for NAT routing which we'll be setting up shortly. Do this by running the `firewall-cmd --zone=external --add-interface=ens192` command.
+. Check to see what rules are enabled for the _external_ zone. This time you will need to specify the zone name as it's not the default _public_ zone anymore. Use the `firewall-cmd --zone=external --list-all` command to do this.
+. You can also check the rules on all zones with the `firewall-cmd --list-all-zones` command.
+. If you were watching carefully you may have noted that the dhcpv6-client service was allowed in the _public_ zone is not allowed by default on the _external_ zone. This will prevent our server from being able to receive a DHCPv6 IP address on our _ens192_ interface anymore. Since we want to allow that run the `firewall-cmd --zone=external --add-service="dhcpv6-client"` command to allow the _dhcpv6-client_ service on interfaces in the _external_ zone.
+. Try accessing your website again from your administrative PC by browsing to http://172.17.xx.xx/blog. You should notice that your site is no longer accessible because your firewall is blocking traffic on port 80 from getting to nginx!
+. Run the `firewall-cmd --get-services` command on your system to see what services `firewalld` can create rules for.
++
+[NOTE]
+====
+Just because `firewalld` doesn't know about every service does not mean you can't create a rule to allow the service. While the services are a convenient way to make services work (because they can open multiple ports with one rule if needed for the service) you can create manual rules that open a particular TCP or UDP port from a zone.
+
+An example of creating just such a rule would be the `firewall-cmd --zone=external --add-port=31337/tcp` command which would allow incoming TCP traffic on the non-standard port 31337 to the server from the _external_ zone.
+
+It's even possible to https://firewalld.org/documentation/howto/add-a-service.html[create your own custom services] which can implement a variety of rules all at once when activated.
+====
+. Try creating a new rule on the _external_ zone to allow access to the _http_ service from that zone. If you have done this successfully your _external_ zone rules should now look like the ones below and your site should be accessible again from the administrative PC browser.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo firewall-cmd --zone=external --list-all
+external (active)
+  target: default
+  icmp-block-inversion: no
+  interfaces: ens192
+  sources:
+  services: dhcpv6-client http ssh
+  ports:
+  protocols:
+  forward: yes
+  masquerade: yes
+  forward-ports:
+  source-ports:
+  icmp-blocks:
+  rich rules:
+----
+. There is one more very important thing to know about `firewalld`. By default, changes you make to the firewall are applied instantly. However, when the system is rebooted everything will go back to the same configuration that was in place the last time the system booted. This means if you make an error when configuring the firewall and lock yourself out of the system a reboot of the system will most likely get you back in. However, once you have tested and verified that your rules are working the way you want you need an extra command to save them permanently to be applied the next time the system boots. Run the `firewall-cmd --runtime-to-permanent` command now to save automatically apply your current firewall rules the next time the system boots.
+
+== Enable Packet Forwarding and configure your Linux Server as a NAT Router
+. One of the things you may want to do with a Linux server is to use it as a router. To do this we'll need to use a second network interface card attached to a second network. Our virtual lab environment is already setup with a second network interface card (_ens224_) in our Linux server which is attached to a small network with just one client computer.  While it's possible to install routing protocol software (such as OSPF or BGP) in Linux and use it as a regular enterprise router it's probably more likely that you'll want to use it as a SOHO NAT router. In fact, many of the commercial SOHO NAT routers use Linux themselves!
+. The first thing we need to do is to configure that second NIC (_ens224_) with an IP address. Create a new _/etc/systemd/network/20-internal.network_ file just like we did xref:lab5.adoc[back in lab 5] for our primary network.
+.. Be sure to set the match interface to _ens224_
+.. Use _192.168.1.1/24_ as the IP address and mask
+.. Do *not* configure a gateway, DNS, or IPv6 settings for the new interface
+. Apply the changes to our network configuration run the `systemctl restart systemd-networkd` command as the admninistrative user.
+. Check that the _ip_forward_ permission is enabled on your Linux server by running `sysctl net.ipv4.ip_forward` as thge administrative user and making sure that the output shows a 1 for enabled.
++
+[NOTE]
+====
+The _ip_forward_ permission is used to determine if Linux will forward packets from one network to another. It is usually off by default but activating newer versions of `firewalld` will automatically enable it to allow traffic to flow between multiple interfaces in the same zone. If you run the `firewall-cmd --zone=external --list-all` command you'll notice there is a `forward: yes` line by default in the _external_ zone.
+
+If you are not using `firewalld` and need to activate the _ip_forward_ permission in Debian Linux it is usually done by opening the _/etc/sysctl.conf_ file and un-commenting (removing the # at the beginning of the line) the `net.ipv4.ip_forward=1` line which will apply the next time the system is restarted. If you also want to apply the change immediately without rebooting you would use the `sudo sh -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'` command.
+====
+. Put the second NIC (_ens224_) into the _internal_ zone of `firewalld`
+. Modify the firewall to allow access to the _ssh_ and _http_ services on your Linux server from clients on the _internal_ zone.
+. Ensure that all devices on your _internal_ zone will share one IP on your _external_ zone. This is commonly called NAT but is really called _port address translation (PAT)_ by some vendors such as Cisco and _NAT masquerading_ by Linux. This is actually a setting on the _external_ zone and not the _internal_ zone. You should see a _masquerade: yes_ line in the rules for the zone. If you don't or need to enable it on a custom outside zone you can do so with a command like `firewall-cmd --add-masquerade --zone=external`.
+. Just as before once you are satisfied your firewall is running correctly you should use the `firewall-cmd --runtime-to-permanent` command to set these rules to automatically load each time the system is started.
+
+== Configure your Linux Server as a DHCP Server
+. We want our inside client network to receive IPv4 addresses automatically from a DHCP server so we'll configure our Linux Server to also act as a DHCPv4 server using the ISC Kea DHCP server software.
+. Begin by installing the _kea-dhcp4-server_ package on your server.
+. There are a lot of options that can be used for an advanced DHCP server. The configuration file for Kea is explained in the https://kea.readthedocs.io[Kea Administrator Reference Manual] but for our purposes of a very simple DHCP server we don't need too much configuration. Let's move the existing sample configuration file from _/etc/kea/kea-dhcp4.conf_ to _/etc/kea/kea-dhcp4.bak_ to keep it as a backup just in case we want to reference it.
+. After moving the sample Kea configurtion file to a backup copy start nano with a new blank _/etc/kea/kea-dhcp4.conf_ file and put the following contents into it and save the file:
++
+[source,console]
+----
+{
+    "Dhcp4": {
+        "interfaces-config": {
+            "interfaces": [
+                "ens224"
+            ]
+        },
+        "lease-database": {
+            "type": "memfile",
+            "persist": true,
+            "name": "/var/lib/kea/kea-leases4.csv",
+            "lfc-interval": 3600
+        },
+        "valid-lifetime": 3600,
+        "option-data": [
+            {
+                "name": "domain-name-servers",
+                "data": "172.17.50.1"
+            }
+        ],
+        "subnet4": [
+            {
+                "id": 1,
+				"subnet": "192.168.1.0/24",
+                "pools": [
+                    {
+                        "pool": "192.168.1.100 - 192.168.1.254"
+                    }
+                ],
+                "option-data": [
+                    {
+                        "name": "routers",
+                        "data": "192.168.1.1"
+                    }
+                ]
+            }
+        ]
+    }
+}
+----
+. Kea uses _JSON_ style configuration files. These (and the somewhat related _YAML_ format) are becoming a popular style of modern software configuration file. In this case we have specified:
+.. The DHCP server should listen for address requests on the _ens224_ interface only
+.. The server should store it's database of active leases in the _/var/lib/kea/kea-leases4.csv_ file and should clean up old information in the file every 3600 seconds (one hour)
+.. Leases should be valid for 3600 seconds (one hour)
+.. Clients should get a DNS server address of 172.17.50.1 from the DHCP server
+.. The DHCP server will hand out addresses for the 192.168.1.0/24 network but addresses will only come from the range (pool) of 192.168.1.100-192.168.1.254 to hold some static addresses at the beginning of the subnet.
+.. Clients in the subnet will use 192.168.1.1 as their default gateway (router).
+. Use the `systemctl restart kea-dhcp4-server` command to restart the server with the new configuration and `systemctl status kea-dhcp4-server` to make sure the DHCP server has restarted properly.
+. Make sure to add a firewall rule allowing clients on the _internal_ zone to access the _dhcp_ service and to set the new rule to load automatically each time the system is started. Otherwise the firewall will block systems in the _internal_ zone from contacting the DHCP server to get an address! We'll need to add a new firewall rule like this (plus probably one for the _external_ zone too) every time we add a new service to our server from this point on!
+
+== Install Linux Mint as a client behind your Linux Server NAT Router
+
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
