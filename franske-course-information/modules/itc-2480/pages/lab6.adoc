@@ -292,6 +292,7 @@ image::lab06/012.png[Sample query in Beekeeper Studio,250,align=left,link=self]
 
 == Install and Test the Wordpress Content Management System
 . Now let's see how we can combine our web server running PHP and a database system to run one of the most popular web applications on servers. https://wordpress.org/[_Wordpress_] is a _content management system_ which was originally desinged as blogging software but now runs millions of websites of all kinds and allows people without HTML experience to write content, run web stores, and other activities which can have a template desinged by an HTML designer applied to them automatically creating an easy to use website.
+. It is suggested you reath through this _entire section_ before starting your installation as there is a hints and tips section at the end which may be helpful to see before you get started.
 . Start by using `wget` to download the file https://wordpress.org/latest.tar.gz onto your Linux server
 . Next, review the very well written https://developer.wordpress.org/advanced-administration/before-install/howto-install/[Wordpress Installation Guide] which contains both basic and detailed instructions.
 . You goal is to install Wordpress in such a way that it is accessed by going to http://172.17.xx.xx/blog (obviously with your own server's IP address). In other words it should not be the main page of your web server but need the /blog on the end of the URL. An example of a working front page is:
