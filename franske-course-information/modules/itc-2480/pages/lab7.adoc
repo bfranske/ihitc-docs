@@ -245,7 +245,13 @@ If you are not using `firewalld` and need to activate the _ip_forward_ permissio
 . Put the second NIC (_ens224_) into the _internal_ zone of `firewalld`
 . Modify the firewall to allow access to the _ssh_ and _http_ services on your Linux server from clients on the _internal_ zone.
 . Ensure that all devices on your _internal_ zone will share one IP on your _external_ zone. This is commonly called NAT but is really called _port address translation (PAT)_ by some vendors such as Cisco and _NAT masquerading_ by Linux. This is actually a setting on the _external_ zone and not the _internal_ zone. You should see a _masquerade: yes_ line in the rules for the zone. If you don't or need to enable it on a custom outside zone you can do so with a command like `firewall-cmd --add-masquerade --zone=external`.
+. Add a policy to your firewall which allows traffic from the internal zone to the external zone
+.. Create a new policy named _internal-external_ with the `firewall-cmd --permanent --new-policy internal-external` command
+.. Set the policy to apply to traffic originating from the _internal_ zone with the `firewall-cmd --permanent --policy internal-external --add-ingress-zone internal` command.
+.. Set the policy to apply to traffic leaving the _external_ zone with the `firewall-cmd --permanent --policy internal-external --add-egress-zone external` command.
+.. Set the policy to allow traffic matching this policy by default with the `firewall-cmd --policy internal-external --set-target=ACCEPT --permanent` command.
 . Just as before once you are satisfied your firewall is running correctly you should use the `firewall-cmd --runtime-to-permanent` command to set these rules to automatically load each time the system is started.
+. Reload the firewall with the `firewall-cmd --reload` command.
 
 == Configure your Linux Server as a DHCP Server
 . We want our inside client network to receive IPv4 addresses automatically from a DHCP server so we'll configure our Linux Server to also act as a DHCPv4 server using the ISC Kea DHCP server software.
@@ -306,7 +312,391 @@ If you are not using `firewalld` and need to activate the _ip_forward_ permissio
 . Make sure to add a firewall rule allowing clients on the _internal_ zone to access the _dhcp_ service and to set the new rule to load automatically each time the system is started. Otherwise the firewall will block systems in the _internal_ zone from contacting the DHCP server to get an address! We'll need to add a new firewall rule like this (plus probably one for the _external_ zone too) every time we add a new service to our server from this point on!
 
 == Install Linux Mint as a client behind your Linux Server NAT Router
+. Because we are going to use a GUI installation of Linux to serve as an example client PC behind our Linux Server we'll need to begin by installing a copy of Linux on that client PC system. We'll use a differnt distribution of Linux, Linux Mint, for this system. Although it's possible to install a GUI on Debian, Linux Mint has been created specifically as an easy to use client version on Linux. It's still based on Debian so much of what we have learned so far will still apply as we'll see.
+. Because we want to use the local console of the virtual machine for the installation and use of Linux Mint we'll need to log in to the ITC NetLab system and access a reservation for your pod.
+.. If you are not already signed in you'll need to start by signing in to the ITC NetLab website. 
+.. If you have a currently active reservation you will see a green "Enter Lab" button on your list of reservations. Click the green "Enter Lab" button. If not, you will need to make a reservation (you can xref:lab1.adoc[review the instructions in Lab 1] if needed) and then click the "Enter Lab" button.
+. Access your virtual machine console
+.. Once you are in your pod you can either click on the image of the "Linux Desktop" on the topology diagram or use the tabs across the top of your screen to access the console of your Linux Desktop VM.
+.. The console shows the display of your VM and allows you to type and interact with your VM just as if you were physically sitting down in front of a server with a monitor, keyboard, and mouse attached. Think of a virtual machine console window as a window to a seaparte computer that you are able to see in your web browser. You can see the "virtual monitor" and interact with a keyboard and mouse but just like a separate physical machine you will not be able to copy and paste text or drag and drop files in and out of this console window. 
+. Install Linux Mint using the graphical wizard
+.. Linux Mint uses a "Live CD" where the system boots and can operate off the CD image which is currently in the CD-ROM drive of the VM. This is designed to allow you to easily test out Linux on a system without actually installing it or making any modifications to the hard drive. However, because the system must run entirely from the CD image (or USB stick) and RAM there are several disadvantages including much slower performance so we want to actually install Linux Mint onto the hard drive of the virtual machine.
+.. If you see an icon on the desktop of the "Linux Desktop" VM with the title "Install Linux Mint" such as shown in the image below you know that your copy of Mint is running in the Live CD mode and is not booted from the hard drive. Double click the "Install Linux Mint" icon on the desktop to start the installation.
++
+image::lab07/001.png[Linux Mint Live CD Mode Desktop,250,align=left,link=self]
+.. The graphical installer will start as shown in the screenshot below. You will be prompted for the following choices:
++
+image::lab07/002.png[Starting the installer,250,align=left,link=self]
+... Select _English_ as the language, and _English (US)_ as the keyboard layout.
+... Check the box to install multimedia codecs
+... Choose to "Erase the disk and install Linux Mint" and confirm writing the changes to disk
+... Choose "Chicago" as the location
+... Set your name
+... Set the computer name to 2480 followed by a dash and then your pod ID letter followed by a dash and the word "desktop", like _2480-Z-desktop_ for LSA Pod Z. Look up at the top of your screen above the line with the "Topology" and "Linux Desktop" tabs and you should see a line with "LSA Pod" followed by a letter, that letter is your pod ID letter.
+... Create a new user name. The system will automatically use your first name (all lowercase) as the username and then you should set the password to a password you will not forget. It is strongly suggested you write down your username and password somewhere you can refer back to for future labs. This will be the "standard user account" on your Linux Mint system.
++
+image::lab07/003.png[Setting the user name and computer name,250,align=left,link=self]
++
+--
+NOTE: If you forget your password it is possible to recover them because we have local console access to the system but that is not something covered in this course so you are on your own if that happens. The official method to get back into your system as far as this course is concerned is to format and reset your virtual machine and start over with a fresh installation. If you want to avoid this major annoyance it is very important that you do not forget or loose your passwords.
+--
+... You will see a progress bar as files are copied to your system
++
+image::lab07/004.png[Installer copying files,250,align=left,link=self]
+. Complete the installation
+.. When the installation is complete you can select "Restart Now" to "eject" the virtual CD and reboot into the new install. Be sure the "Install Linux Mint" link is gone from the desktop when the system reboots so you know you booted from the hard drive installed copy. You will need to press "ENTER" when prompted to verify the installation media is removed to complete the reboot.
++
+image::lab07/005.png[Installation complete,250,align=left,link=self]
+.. If the system does not reboot and you instead receive some errors on the screen try rebooting manually by powering off and back on the Linux Desktop VM (instructions for doing this are the same as those found for the Linux Server in Lab 1). If you contonue to have issues please contact your instructor for assistance.
+. When your Linux Mint system reboots log in with the username and password established during the installation process.
+. You should see a welcome screen the first time you log in. You can uncheck the "Show this dialog at startup" box in the lower right corner and then close the dialog with the "X" in the upper right corner.
++
+image::lab07/006.png[Linux Mint welcome screen,250,align=left,link=self]
+. Adjust your Linux Mint display resolution to be able to see more content on the screen.
+.. Right click on the desktop and select "Display Settings"
+.. Change the resolution to "1280 x 800 (16:10)" and scroll down in the dialog box either using the scroll bar on the right side of the dialog box or the wheel on your mouse so you can see and click the green "Apply" button. Be sure to also click to keep the settings change when prompted.
++
+image::lab07/007.png[Linux Mint Adjusting Screen Resolution,250,align=left,link=self]
+. Check the IP address and test network connectivity
+.. Open the terminal application by pressing the menu button in the lower left and typing the word "Terminal" and clicking on the Terminal application. This will give you the same type of command line terminal as you had with Debian Linux
+.. Check the IP address of the system with the `ip address show` command. Notice how the ens192 interface has a IP from the DHCP pool we created earlier on your server.
++
+image::lab07/008.png[Linux Mint Checking the IP address from the terminal,250,align=left,link=self]
+..  Try pinging 172.17.50.1. Are you able to ping? If so, NAT is working properly on your network because the 172.17.50.0/23 network is outside of the LAN segment this machine is attached to (192.168.1.0/24).
+.. Try pinging google.com. If you are able to ping, this shows that not only is NAT working, but DNS is resolving as well and traffic can get all the way out to the Internet.
+.. Open a web browser on the system (you can use a graphical browser this time since you have a GUI) and test browsing to a few websites. Firefox is the browser installed by default on Linux Mint.
+. Use the Linux Mint Software Manager to Install an SSH server on the Mint system
+.. Click the menu button in the lower left of the screen and atart typing "Software Manager" then click to open the Linux Mint Software manager. This is a graphical front-end to the APT package repositories used by Linux Mint.
+.. Use the search box in the upper left corner of the software manager to search for "openssh-server" and click on the "Openssh-server" package when you find it.
++
+image::lab07/009.png[The Openssh-server package in the Linux Mint software manager,250,align=left,link=self]
+.. Click the green "Install" button and then the "Continue" button to confirm you want to install this software.
+.. You will be prompted to enter your password just like you would with "sudo" from the command line as installing software requires administrative permission on the system.
++
+--
+NOTE: Because Mint is based on Debian you could of course use the same `apt` command line utilities with Linux Mint as we used in Debian to manage software packages too.
+--
+.. Close the software manager application with the "X" in the upper right corner once the installation is complete.
+.. You should be able to use the `ssh` program on the command line *from your Debian Server* to access your Mint system like `ssh mintusername@192.168.1.x` where you are using a valid username/password on the Mint system and the IP address of the Mint system. Type `exit` and press enter to return to your Debian server. Notice the command prompt changes to show which machine you are currently working on.
++
+[source,console]
+----
+ben@2480-Z:/home/ben$ ssh ben@192.168.1.100
+The authenticity of host '192.168.1.100 (192.168.1.100)' can't be established.
+ED25519 key fingerprint is SHA256:/kqoPivMOdZ6rOeMt9Cpt5ESypL3pzXAnJBRAgJffK0.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.1.100' (ED25519) to the list of known hosts.
+ben@192.168.1.100's password:
 
+ben@2480-Z-desktop:~$ exit
+logout
+Connection to 192.168.1.100 closed.
+ben@2480-Z:/home/ben$
+----
+. Spend a few more minutes exploring the functionality of the Linux GUI and desktop with Linux Mint.
+
+== Configure Port Forwarding on your Linux Server to Access a Client Behind the NAT
+. Now we are going to enable port forwarding through our Linux Server to the Linux Desktop VM. This will allow you to access the SSH server you setup on the Linux Mint system from the ITC network and VPN or Administrative PC without needing to SSH to the Linux Server first. Because we are already using port 22 on our Linux server's outside interface to provide SSH access to our Linux server itself we need to use a different port to access the Linux Mint desktop system. Instead of changing the port number in the SSH server software on Linux Mint we can have our firewall do it at the same time the NAT masquerading is occurring.
+. On your Linux server use the command `firewall-cmd --add-forward-port=port=2222:proto=tcp:toport=22:toaddr=192.168.1.100 --zone=external` where _192.168.1.100_ is the IP address of your Linux Mint system to create a new rule which forwards port 2222 on the IP address of your Linux server through to port 22 on the IP address of your Linux Mint system.
++
+--
+NOTE: Normally you would only want to port forward to a computer with a static IP but here we are forwarding to the DHCP address of your Linux Mint system. This means the rule will be a little unstable because our Linux Mint server could get a different IP address from the DHCP server at some point which would break the rule by sending traffic somewhere other than to the Linux Mint system. This could be both a security vulnerability and would obviously not do what we wanted operationally. Therefore, if we wanted this as more than just a simple demonstration of setting up port forwarding, we would want to set up a static IP on any machines we were forwarding ports to.
+--
+. From a computer on the ITC network, such as one connected to the VPN or the Administrative PC, try to SSH to port 2222 on the outside (172.17.50.xx) IP address of your Linux server system. Use a username and password from your Linux Mint desktop system. Upon connection you should see that you are actually connected to the Linux Mint system via port forwarding.
+. Once you are satisfied your firewall is running correctly use the correct `firewall-cmd` command to save the current runtime rules as permanent rules.
+. When you are done testing this section of the lab please power off your new Linux Mint VM using the shutdown command in the Mint Menu as the desktop systems require far more RAM and CPU power to run than the Linux Server VMs.
+
+== Secure SSH Using SSH Keys
+. If you have port 22 exposed to the Internet (remember, our lab servers are not directly exposed to public IP addresses and need to be accessed via VPN or Netlab) and watch your system logs you will see a steady stream of attackers trying to brute force their way into your Linux server by using automated tools to guess usernames and passwords. While using strong passwords can help there are some better tools at our disposal. One of these tools is the SSH Key system where the client uses a secret key file to authenticate to the SSH server instead of (or in addition to) a password. So long as the secret key file is not available to attackers they will not be able to log in to the system. For this reason some administrators enforce a rule that passwords cannot be used alone for remote SSH access and all remote SSH authentication must be by SSH key.
+. SSH Keys are created by the client software and not by the server so the exact method used to create them depends on the client software you are using to connect. If you are using PuTTY as your SSH client on either your own system or on the Administrative PC follow the instructions below to implement SSH keys. If you are using a command line SSH client (for example you are connecting from a Mac or a Linux computer of your own) skip this sub-section and go to #3 where you'll find instructions for that.
+.. Start the PuTTYgen program by finding it in your Windows Start Menu or by tapping the Windows key and typing "puttygen".
++
+image::lab07/010.png[PuTTY Key Generator,250,align=left,link=self]
+.. Click the radio button in the Parameters section to select "ECDSA" as the type of key to generate then click the "Generate" button.
+.. You will need to follow the instructions to move your mouse back and forth randomly in the blank area to generate some randomness.
++
+image::lab07/011.png[PuTTY Key Generator - Generating randomness,250,align=left,link=self]
+.. When the process is complete you will see a public key on the screen. This will need to be pasted into a configuration file on any servers you want to connect to. Highlight *everything* in the "Public key for pasting into OpenSSH authorized_keys file" box and copy it to your clipboard now. Be sure to leavr the PuTTY Key Generator software open and running on your system, we will need to come back to it in a minute and if you generate a new key it will be different.
++
+image::lab07/012.png[PuTTY Key Generator - Completed generating key,250,align=left,link=self]
+.. Connect to your Linux server system by SSH using your usual username and password and go to your user's home directory and then open the file `~/.ssh/authorized_keys` in a text editor. The `.ssh` directory and/or `authorized_keys` file may exist or you may need to create one or both (be sure to note the period at the beginning of the `.ssh` directory indicating it is a hidden directory)
+.. Paste the contents of your public key into the `authorized_keys` file you just opened or created. Note that although PuTTY Key Generator may have shown the key as several lines it is actually just one very long line. Each line in the `authorized_keys` file is for a different key so you can create multiple keys which can login as your user and put them all into the same `authorized_keys` file on separate lines.
+.. Save and close the `authorized_keys` file, then close the PuTTY session to your Linux server.
+.. Return to the PuTTY Key Generator software on your client computer. You can enter in a "key passphrase" and the same again in the "confirm passphrase" box if you want to be required to enter in a password each time the secret key file is used to connect. Note this can be entirely different than your password on the Linux server. It is best practice to use a key passphrase just in case someone is able to obtain your secret key file.
+.. Click the "Save private key button". If you did not set a key passphrase you'll get an extra warning encouraging you to set one. Save the PPK file somewhere on your administrative client system.
++
+--
+NOTE: If you want to see your public key again (possibly to install on other Linux servers you want to connect to using the same private key) you can do so. However, you can't just use the "Save public key" button because the format PuTTY Key Generator uses when it saves the public key is not the same as what you enter into the `authorized_keys` files on Linux servers. To get the text to put into the `authorized_keys` files you will need to run the PuTTY Key Generator again and click the "Load" button to "Load an existing private key file". You'll need to provide your _private_ key file to PuTTY Key Generator which will then display the _public_ key in the correct format to be put into an `authorized_keys` file on a Linux server.
+--
+.. Close the PuTTY Key Generator software and open the regular PuTTY client software.
+.. Put the IP address of your Linux server into the "Host Name" box as normal but do *not* click the "Open" button yet.
+.. Under the "Connection" category on the left side of the screen press the "+" next to "SSH" and then again next to "Auth" and then click on the "Credentials" page.
+.. Click the "Browse" button next to "Private key file for authentication" and find the PPK file you saved previously from PuTTY Key Generator. It should look something like this:
++
+image::lab07/013.png[PuTTY - Setting a private key file to connect,250,align=left,link=self]
+.. Now click the "Open" button and enter your username when prompted. If you did not set a key passphrase you should immediately be logged in as shown below, note they "Authenticating with public key" line towards the top of the screen:
++
+image::lab07/014.png[PuTTY - Connecting with an SSH Key and no passphrase,250,align=left,link=self]
+.. If you *did* set a key passphrase you will be prompted to enter it before the connection is made as shown below. Note that this is your *key passphrase* you created in PuTTY Key Generator and which may be entirely unrelated to your Linux server account password, we are not using passwords to authenticate with this method.
++
+image::lab07/015.png[PuTTY - Connecting with an SSH Key and a passphrase,250,align=left,link=self]
+. SSH Keys are created by the client software and not by the server so the exact method used to create them depends on the client software you are using to connect. If you are using a command line OpenSSH client (for example you are connecting from a Mac or a Linux computer of your own) follow the instructions below to implement SSH keys. If you are using PuTTY as your SSH client on either your own system or on the Administrative PC you should have followed the instructions in the above sub-section #2 and skip this sub-section, pick up again at #4.
+.. At a terminal on your client system run the `ssh-keygen` command.
+.. You will be prompted to a location to save the key file. You can probably just accept the default location by pressing enter. See the example output below.
+.. You can optionally enter in a key "passphrase" if you want to be required to enter in a password each time the secret key file is used to connect or press enter to skip having a passphrase on this key. You will need to enter the same again to confirm. Note this passphrase can be entirely different than your password on the Linux server. It is best practice to use a key passphrase just in case someone is able to obtain your secret key file.
++
+[source,console]
+----
+ben@2480-Z:~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ben/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/ben/.ssh/id_rsa
+Your public key has been saved in /home/ben/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:eo/4uzW0+aRzZvNemgK6Hmx4gxE5/C6zww0g5/bduSM ben@2480-Z
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|     . .         |
+|      =          |
+|  . o  +         |
+|   + .. S .      |
+|    o .B ..o     |
+|   . o*+Oo=o.   .|
+|      +OE*==*  + |
+|      o+B=+B.==  |
++----[SHA256]-----+
+ben@2480-Z:~$
+----
+.. Note the location for the private (`/home/ben/.ssh/id_rsa` in the above example) and public (`/home/ben/.ssh/id_rsa.pub` in the above example) key files which are given in the output when the keys are created.
+.. Use the `cat` command to view the public key file like:
++
+[source,console]
+----
+ben@2480-Z:~$ cat /home/ben/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCu2M+cyYOd/4jmxrDmETLjYIT/XiRfvJeRFgpUn42wrJZcH82eTztLyY+HmdbBUil20OuwtUrIdGgh4+O4ROS3jyU+WRztYm01icgspzJMuowGFh7iNazwvmdO2ICyCI+5Y0RXFrgQI/TD1aD0730f8gQZOsOH4rqgyMY7leIqYGGcQ/nyn4k3g4/85bQZZwL5+v/rjSrqp8oSNaU8gSgZSglU8lJDRWXaWlrZjGHlzUu4hikahFp4IQGUPoRqPQgBDdVpsoHjrZdVm5aFxg7PdvjcomKeUhtf4ZlM6lLjkmqzZV76kSrPwoDu/6s1xugpeUJv0TBqhSxB7DXgANVbnau2qSKgh7gXIDOGbmkvSEAMywgwfLncvK1r4EzoV+m7ph0U2e+nv6kph+PXcaqGL6qOBFvipe5U+CrrY5DA11nNQ4I/oCUYL6QPyJkXoXHMqSLpQkBTV1IoGrXIGTq9VpO/1+yix2Y4RjuErPjwdtxNfg1nax3U/6sB3D+rSD8= ben@2480-Z
+ben@2480-Z:~$
+----
+.. You want to copy the actual public key to your clipboard. In the above example the actual public key is just:
++
+[source,console]
+----
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCu2M+cyYOd/4jmxrDmETLjYIT/XiRfvJeRFgpUn42wrJZcH82eTztLyY+HmdbBUil20OuwtUrIdGgh4+O4ROS3jyU+WRztYm01icgspzJMuowGFh7iNazwvmdO2ICyCI+5Y0RXFrgQI/TD1aD0730f8gQZOsOH4rqgyMY7leIqYGGcQ/nyn4k3g4/85bQZZwL5+v/rjSrqp8oSNaU8gSgZSglU8lJDRWXaWlrZjGHlzUu4hikahFp4IQGUPoRqPQgBDdVpsoHjrZdVm5aFxg7PdvjcomKeUhtf4ZlM6lLjkmqzZV76kSrPwoDu/6s1xugpeUJv0TBqhSxB7DXgANVbnau2qSKgh7gXIDOGbmkvSEAMywgwfLncvK1r4EzoV+m7ph0U2e+nv6kph+PXcaqGL6qOBFvipe5U+CrrY5DA11nNQ4I/oCUYL6QPyJkXoXHMqSLpQkBTV1IoGrXIGTq9VpO/1+yix2Y4RjuErPjwdtxNfg1nax3U/6sB3D+rSD8= ben@2480-Z
+----
+.. Connect to your Linux server system by SSH using your usual username and password and go to your user's home directory and then open the file `~/.ssh/authorized_keys` in a text editor. The `.ssh` directory and/or `authorized_keys` file may exist or you may need to create one or both (be sure to note the period at the beginning of the `.ssh` directory indicating it is a hidden directory)
+.. Paste the contents of your public key into the `authorized_keys` file you just opened or created. Note that although `cat` may have shown the key as several lines it is actually just one very long line. Each line in the `authorized_keys` file is for a different key so you can create multiple keys which can login as your user and put them all into the same `authorized_keys` file on separate lines.
+.. Save and close the `authorized_keys` file, then close the SSH session to your Linux server.
+.. From your administrative client use the usual `ssh _username_@_remote_host_` command to connect to your Linux server again where _username_ and _remote_host_ are replaced by your Linux server username and IP address respectively.
+.. If you did not set a key passphrase you should immediately be logged in, if you *did* set a key passphrase you will be prompted to enter it before the connection is made. Note that this is your *key passphrase* you created on your client when you created the key and which may be entirely unrelated to your Linux server account password, we are not using passwords to authenticate with this method.
+. Note that your Linux server is currently configured to allow you to log in using _either_ a username and password _or_ SSH key based authentication. If you wanted to _require_ users use SSH key based authentication and not allow passwords (which prevents the types of brute force password attacks mentioned at the beginning of this section) you would need to edit the OpenSSH options on your Linux server in the `/etc/ssh/sshd_config` file to activate the `PasswordAuthentication no` line and then restart the ssh server. *Do not do this on your Linux server for this class* as we will be doing some more work with password based SSH authentication.
+
+== Secure SSH Using 2FA
+. An alternative way to secure SSH from brute force password attacks is to use multi-factor authentication. In this section we'll setup a time-based one time password (TOTP) second fadctor of authentication (2FA) which will require a changing numeric code be entered along with your password when logging in. You will need to install a TOTP app on your phone or other device to show you the correct code to enter. The lab is written using the "Google Authenticator" phone app but there are many other TOTP apps which are compatible as well including options you can install on your Windows PC or Mac if you don't have or want to install a phone app. However, you'll be on your own as to how to add the required key into those apps if you choose to use something other than Google Authenticator.
+. Use `apt` to install the `libpam-google-authenticator` package on your Linux server system.
+. Run the `google-authenticator` command to create a new secret key in your home directory.
+.. When you are asked "Do you want authentication tokens to be time-based?"" Answer "y".
+.. The command will create a secret key used to setup your TOTP application on your phone. This will include a QR code to scan with your phone app as well as a text key which could be entered manually. You may need to expand the size of your SSH window to see these. See the example below.
++
+image::lab07/016.png[Creating a TOTP key with libpam-google-authenticator,250,align=left,link=self]
+. Install the "Google Authenticator" app on your phone (or whatever other TOTP app you would prefer on your phone or PC/Mac) and open it.
+. Add a code or enter the secret key in your TOTP authentication app. If you're using Google Authenticator the easiest way to do this is tell it you want to scan a QR code and then point the camera on your phone at the QR code in the SSH window from your Linux server.
+. When things are setup in your TOTP app you should see a changing six digit code on your TOTP app. You will need to enter in the code on your Linux server in the SSH window where it says "Enter code from app". This will confirm that your phone app and server are both in sync.
+. Assuming the code entered was successful you should get a message "Code confirmed" as well as some emergency scratch codes you could save somewhere safe in case of an emergency which will each work one time to allow access.
+. You will be promted to answer four more questions. Read through each question and answer "y" to the first three and "n" to the last one (we'll deal with rate limiting separately in the next part of the lab).
++
+[source,console]
+----
+Do you want me to update your "/home/ben/.google_authenticator" file? (y/n) y
+
+Do you want to disallow multiple uses of the same authentication
+token? This restricts you to one login about every 30s, but it increases
+your chances to notice or even prevent man-in-the-middle attacks (y/n) y
+
+By default, a new token is generated every 30 seconds by the mobile app.
+In order to compensate for possible time-skew between the client and the server,
+we allow an extra token before and after the current time. This allows for a
+time skew of up to 30 seconds between authentication server and client. If you
+experience problems with poor time synchronization, you can increase the window
+from its default size of 3 permitted codes (one previous code, the current
+code, the next code) to 17 permitted codes (the 8 previous codes, the current
+code, and the 8 next codes). This will permit for a time skew of up to 4 minutes
+between client and server.
+Do you want to do so? (y/n) y
+
+If the computer that you are logging into isn't hardened against brute-force
+login attempts, you can enable rate-limiting for the authentication module.
+By default, this limits attackers to no more than 3 login attempts every 30s.
+Do you want to enable rate-limiting? (y/n) n
+----
+. Use administrative permissions to open the the `/etc/ssh/sshd_config` file on your system with a text editor.
+. Find the two settings below in the file and ensure both are set to *yes* then save the file and exist the editor.
++
+[source,console]
+----
+UsePAM yes
+ChallengeResponseAuthentication yes
+KbdInteractiveAuthentication yes
+----
+. Use administrative permissions to open the the `/etc/pam.d/sshd` file on your system with a text editor.
+. Just below the `@include common-auth` line towards the top of the file add these two lines
++
+[source,console]
+----
+# two-factor authentication via Google Authenticator
+auth   required   pam_google_authenticator.so
+----
+. Use the `systemctl restart ssh` command to restart the SSH server.
+. Try making a new SSH connection to the server. You should be prompted for a password and then a verification code when connecting. Get the current verification code from your TOTP app.
++
+image::lab07/017.png[Logging in via SSH with a TOTP verification code,250,align=left,link=self]
+. Make sure you cannot log in with an incorrect verification code or without a verification code.
++
+[NOTE]
+====
+The way we currently have things setup you do *not* need a verification code if you are connecting with SSH keys. If you are using an SSH client other than PuTTY to connect it may automatically provide the SSH key we made above when connecting and you would not be prompted for a password or verification code. It is possible to require a verification code when connecting with an SSH key but it takes away some advantages of using SSH keys and is arguably not much more secure since an SSH key is another "something you have" factor just like the authentication codes.
+
+If your client is automatically providing an SSH key and so you are unable to test verification codes the easiest thing to do is either to delete your `id_rsa` file private key from your client or remove the public key from the `authorized_keys` file on your Linux server which will force password based authentication with the verification codes.
+====
+. You can leave verification codes enabled on your Linux server for the rest of the course if you would like but you may want to turn them back off. To do this just open the `/etc/pam.d/sshd` file on your system and put a `#` at the beginning of the `auth   required   pam_google_authenticator.so` line like:
++
+[source,console]
+----
+# two-factor authentication via Google Authenticator
+#auth   required   pam_google_authenticator.so
+----
+. Save and close the `/etc/pam.d/sshd` file and the verification codes should be turned off.
+
+== Enable Fail2Ban for SSH Log Monitoring
+. Yet another way to resist brute force password attacks against your Linux server is to monitor failed login attempts and block IP addresses in the system firewall for some amount of time if they have attempted to gain access multiple times and failed. This type of monitoring and blocking can be automated with software, one of the most popular software packages to do this with on Linux is called _Fail2Ban_ because it bans the ip addresses (usually for some amount of time) if they fail the login process too many times. While the most common us is probably to monitor SSH remote login attempts the Fail2Ban software can be adjusted to monitor many other programs which log failed login attempts as well. It is not a bad idea to implement monitoring and blocking software like this even if your system is protected by other measures such as SSH keysm, 2FA, or required VPN access.
+. Use the `apt` utility to install the `fail2ban` package on your system.
+. Use a text editor to open the `/etc/fail2ban/jail.conf` file and read through the commented notes in the file. This file contains many of the configuration settings for the `fail2ban` application. Note that the file instructs you *not* to modify `/etc/fail2ban/jail.conf` but instead to create a new `/etc/fail2ban/jail.local` file with any modifications. Doing it this way will allow `apt` to update the defaults in `/etc/fail2ban/jail.conf` as new versions are released while still allowing you to customize settings as needed. After you have reviewed the commented notes in the `/etc/fail2ban/jail.conf` file close the file.
+. Use a text editor (with administrative permissions) to create and edit a new file `/etc/fail2ban/jail.local` where we'll store our customizations. Copy and paste the customizations below into the file and save it. Note the comment lines below which also explain what each configuration line in the file is doing, the comments do not need to be copied but it should be OK to copy them too if you want.
++
+[source,console]
+----
+# Change some default settings which affect all applications
+# being monitored by the fail2ban application
+[DEFAULT]
+
+# Our Debian system is using the newer nftables for it's
+# underlying firewall instead of the older iptables so we
+# want to have fail2ban use native nftables commands for
+# banning IP addresses which misbehave. There are two
+# different banactions which need to know what backend
+# to use banaction and banaction_allports so we'll set
+# them both to use nftables.
+banaction = nftables-multiport
+banaction_allports = nftables-allports
+
+# Change settings specifically around monitoring of
+# SSH authentication attempts.
+[sshd]
+
+# Our version of Debian has switched to using systemd for
+# SSH logging so we need to let fail2ban know to use the
+# systemd backend or it won't be able to find an SSH log to
+# monitor for failed authentication attempts.
+backend=systemd
+
+# Tell fail2ban it should monitor SSH attempts
+enabled = true
+
+# Tell fail2ban that if someone tries to break in to SSH
+# they should be blocked from connecting to the server on
+# ANY port, be default they would still be able to access
+# ports other than the SSH port (22) such as our website.
+# This will block them from getting to anything on the system.
+port = 0:65535
+
+# Tell fail2ban to block attackers for 1 minute. Normally
+# you would probably want this to be longer, like 10 or 15
+# minutes. But because we're pretty secure behind our VPN
+# and we want to be able to do some testing we'll set it to
+# cancel the ban after 1 minute.
+bantime = 1m
+
+# Tell fail2ban to block people who give a wrong login/password
+# for SSH 3 times within 2 minutes. 
+findtime = 2m
+maxretry = 3
+----
+. Now that we have changed the configuration we should restart fail2ban with the `systemctl restart fail2ban` command. Always check to make sure the service has restarted and is running with the `systemctl status fail2ban` command.
+. Before testing out fail2ban for real you may want to simulate a ban on an IP address that is not being used just to see the firewall rules are being properly entered.
+.. Use the `sudo fail2ban-client set sshd banip 192.168.1.7` command to simulate a user from the 192.168.1.7 IP address putting a wrong password in 3 times within 2 minutes and getting banned.
+.. Use the `sudo fail2ban-client status` to see a list of software which is being monitored by fail2ban. Each monitored software is called a "jail" by fail2ban.
+.. Check the list of IPs which have been blocked for a particular jail (ushc as sshd) with the command `sudo fail2ban-client status sshd`. 192.168.1.7 should be on that list (as long as it has been less than 1 minute since you banned it, remember our ban time is only 1 minute). If you check again after one minute the IP should be removed from the list.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo fail2ban-client set sshd banip 192.168.1.7
+0
+ben@2480-Z:~$ sudo fail2ban-client status
+Status
+|- Number of jail:      1
+`- Jail list:   sshd
+ben@2480-Z:~$ sudo fail2ban-client status sshd
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd
+`- Actions
+   |- Currently banned: 1
+   |- Total banned:     1
+   `- Banned IP list:   192.168.1.7
+ben@2480-Z:~$ sudo fail2ban-client status sshd
+Status for the jail: sshd
+|- Filter
+|  |- Currently failed: 0
+|  |- Total failed:     0
+|  `- Journal matches:  _SYSTEMD_UNIT=sshd.service + _COMM=sshd
+`- Actions
+   |- Currently banned: 0
+   |- Total banned:     1
+   `- Banned IP list:
+ben@2480-Z:~$
+----
+.. Ban the IP address 192.168.1.8 and then quickly run the `sudo nft list table inet f2b-table` command to view the _actual firewall rules_ what fail2ban has implemented. Run the same command again a minute later to see that fail2ban has removed the ban.
++
+[source,console]
+----
+ben@2480-Z:~$ sudo fail2ban-client set sshd banip 192.168.1.8
+1
+ben@2480-Z:~$ sudo nft list table inet f2b-table
+table inet f2b-table {
+        set addr-set-sshd {
+                type ipv4_addr
+                elements = { 192.168.1.8 }
+        }
+
+        chain f2b-chain {
+                type filter hook input priority filter - 1; policy accept;
+                tcp dport 0-65535 ip saddr @addr-set-sshd reject with icmp port-unreachable
+        }
+}
+ben@2480-Z:~$ sudo nft list table inet f2b-table
+table inet f2b-table {
+        set addr-set-sshd {
+                type ipv4_addr
+        }
+
+        chain f2b-chain {
+                type filter hook input priority filter - 1; policy accept;
+                tcp dport 0-65535 ip saddr @addr-set-sshd reject with icmp port-unreachable
+        }
+}
+ben@2480-Z:~$
+----
+.. Without going into too much details on nftables rules you can see in the above output that the _f2b-chain_ is set to block tcp ports 0-65535 for all IP addresses in the IP address set _addr-set-sshd_ by sending an _icmp port-unreachable_ message. Fail2Ban adds the blocked IP address to the IP address set _addr-set-sshd_ when the IP is banned and then removes it from the set when it is unbanned 1 minute later.
+. Now let's do an actual intrusion test to see fail2ban in action.
+.. Use Netlab to connect to your Linux Mint Desktop system again and open a terminal on Linux Mint.
+.. Use the `ssh someuser@192.168.1.1` command on your Linux Mint system to try and connect to your Linux server. Make up a fake password to try and connect. Do this three times in less than two minutes.
+.. Now try to connect with your real username (in my case `ssh ben@192.168.1.1`) and you should see you are not even prompted for a password because you have been banned!
+.. Go to your Linux Server SSH connection and verify that the IP address of your Linux Mint desktop is banned using the `fail2ban-client` and/or the `nft` commands we used before. Remember you will be unbanned in one minute so if it takes you longer than one minute to check you'll need to put in some more fake passwords from Mint to get banned again.
+. Think about what you could do to access your Linux Server in case you accidentally got banned yourself? How could you get back in before the ban expired? If you got back in is there a command for fail2ban you can find which will let you remove the ban on a certain IP address?
 
 == Wrapping Up
 
