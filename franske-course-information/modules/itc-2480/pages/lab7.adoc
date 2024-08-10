@@ -700,9 +700,12 @@ ben@2480-Z:~$
 
 == Wrapping Up
 
+. Properly shutdown your Linux Mint Desktop system either using the menu in the lower left of the GUI or using an SSH or terminal session to the desktop system and the `shutdown -h now` command with administrator permissions.
 . Close the SSH session
 .. Type `exit` to close the connection while leaving your Linux server VM running.
 . If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+. End your Netlab Reservation
+.. If you still have time left in your reservation in Netlab it's polite to end the reservation so other users can work on the system, only a limited number of reservations can be made at one time. You can do this by logging into Netlab, opening your lab, and clicking the "Reservation" menu at the top of the screen and choose to "End Reservation Now" followed by confirming that you want to end the reservation.
 
 NOTE: You can keep your Linux Server running, you do not need to shut it down.
 
