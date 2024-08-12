@@ -30,6 +30,7 @@ You will be introduced to the following commands:
 * history
 * journalctl
 * zcat
+* dmesg
 
 == Preliminaries
 
@@ -933,7 +934,7 @@ image::lab08/001.png[GRUB Boot Loader Menu,250,align=left,link=self]
 +
 [NOTE]
 ====
-Actually resetting the password for the _root_user is not something we'll do in a lab in this class but it's worth knowing the basic steps involved. The security for this comes from the fact you *must* have physical access to the system (or access to the local console -- such as through a virtualization software program or Netlab) in order to do it. You cannot do it remotely over SSH. Your goal is to get Linux booted into "single user mode" which prevents the login daemon from starting (or much of anything else) and just gives you a _root_ shell prompt where you can use the `passwd` to change the password for the root account and then reboot again back into the regular system.
+Actually resetting the password for the _root_ user is not something we'll do in a lab in this class but it's worth knowing the basic steps involved. The security for this comes from the fact you *must* have physical access to the system (or access to the local console -- such as through a virtualization software program or Netlab) in order to do it. You cannot do it remotely over SSH. Your goal is to get Linux booted into "single user mode" which prevents the login daemon from starting (or much of anything else) and just gives you a _root_ shell prompt where you can use the `passwd` to change the password for the root account and then reboot again back into the regular system.
 
 . Reboot the system so that the GRUB bootloader menu comes up
 . Use the Up/Down arrow keys to select the version of Linux you want to run. This is probably the one that was going to start automatically, "Debian GNU/Linux" if there are no others. *Do NOT press Enter yet!*
@@ -952,9 +953,187 @@ image::lab08/003.png[Resetting the root account password,250,align=left,link=sel
 ====
 . GRUB will load the Linux kernel along with a tiny root filesystem (called _initrd_ or _initramfs_) into memory. This tiny root filesystem has modules for the Linux kernel that are essential to continuing the boot process on your particular system such as drivers for the filesystem, network hardware (in the case of remote booting over the network), logical volume manager, RAID, or encrypted filesystem. Essentially it will include the things needed in order to access the files needed in the next part of the boot process. It will also include the `/init` command which was traditionally the script which started the rest of the system but has been replaced with a `systemd` binary in Linux versions that use `systemd` to boot like modern Debian. This is where that process at the root of the process tree comes from that we saw with `pstree`.
 . Shortly after the _init_ or _systemd_ process starts the root _initramfs_ is swapped out for the actual root filesystem of the computer and other partitions are mounted which allow all the files on the system to be accessible and the boot process to continue.
+. In the case of _systemd_ it will start loading all the _systemd units_ in parallel (multiple units at the same time) based on the _unit configuration files_ which are stored in three locations:
+.. _/etc/systemd/system/*_ has system units created by the administrator or units overriding other unit configuration files
+.. _/run/systemd/system/*_ has runtime units
+.. _/lib/systemd/system/*_ has System units installed by the distribution package manager
+. Unit configuration files can be used for lots of different things, including the timers we worked with in a previous lab, but for a beginning system administrator the most common use is to start some kind of background service on a server. For example the _nginx unit configuration file_ starts the _nginx_ web server when the system is booted. You can view this unit configuration file by opening the _/lib/systemd/system/nginx.service_ file on your system:
++
+[source,console]
+----
+[Unit]
+Description=A high performance web server and a reverse proxy server
+Documentation=man:nginx(8)
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t -q -g 'daemon on; master_process on;'
+ExecStart=/usr/sbin/nginx -g 'daemon on; master_process on;'
+ExecReload=/usr/sbin/nginx -g 'daemon on; master_process on;' -s reload
+ExecStop=-/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid
+TimeoutStopSec=5
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
+----
+.. You should see three sections to this unit configuration file: unit, service, and install. The _[UNIT]_ section has a description of the unit as well as a _Wants=_ directive that tells _systemd_ the name of other units which it should try to start with this unit and the _After=_ directive indicates units that should be running before this one starts.
+.. The _[SERVICE]_ section contains directives about the type of service, the commands that should be used to start, reload, and stop the service, and other related information.
+.. The _[INSTALL]_ section has a _WantedBy=_ directive which controls how the unit is enabled and disabled on the system. This really applies to units for services which you may want to have start at boot time (enabled) or not (disabled). In the case of _multi-user.target_ when the service is enabled a _symlink_ will be created in _/etc/systemd/system/multi-user.target.wants/_ which references the unit configuration file.
+. The system is assigned to a _default target_ which controls what services are started on the system when the system is in a certain mode. This is similar to the _runlevel_ system used in the older _SysVinit_ method of booting and allows services only needed by a GUI to not be started when you are in CLI mode and only essential services to be started when you are in rescue mode.
+.. You can check what the current _default target_ the system will boot to by running the `systemctl get-default` command. Note that the default in Debian is usually _graphical.target_ even if you do not have a GUI installed. This obviously doesn't mean a GUI will try to start, just that it would if you installed the GUI software packages. As you can tell the _multi-user.target_ is loaded even if you are running in the _graphical.target_ mode.
+.. You can view all actively loaded targets on your system with the `systemctl list-units --type target` command and all active and inactive targets with the `systemctl list-units --type target --all` command.
+.. It is possible to automatically start and stop a number of services with one command by changing between the target you want to be running at. For example, if you were actually in a GUI enviuronment you could exit it and drop back to the CLI environment by running the `systemctl isolate multi-user.target` command and return to the GUI using the `systemctl graphical.target` command.
+.. If you want to see what units will run at a certain target you can run the `systemctl list-dependencies multi-user.target` command (changing the target name if you want of course). This will show you a tree formatted output so you can see what unit is calling what other units. Try running `systemctl list-dependencies graphical.target` now since that is your default target so you can see what units are running when your system boots. See if you can find the _nginx_ service in the tree.
+. It is sometimes the case that you want to prevent a service from starting automatically when the system boots. In that case you can use the `systemctl disable _<unit/service>_` command as an administrator.
+.. Try disabling the _nginx_ service so that the webserver doesn't start at boot.
++
+IMPORTANT: _Disabling_ a service or unit is different than _stopping_ it! Even after you disable _nginx_ it will still be running, it just won't start automatically the next time you boot the system. If you want to start or stop a service you should use the `_systemctl start _<unit/service>_` or `_systemctl stop _<unit/service>_` commands which will take effect immdiately (until the system is rebooted).
+.. Check and see that the _nginx_ service is still running but also that it is no longer in the tree for the _multi-user.target_ so it won't start automatically next time the system boots.
+.. Now enable the _nginx_ service to start automatically when the system boots and verify it.
+. During the boot process the kernel displays a lot of information to the screen as drivers (_kernel modules_) are loaded, especially about the hardware it finds and initializes. It can often be useful to look through this information even after the system is booted. For example, you may need to figure out what the Linux identifier is for a certain network card, USB device, etc. A common way to find this information is to look at the kernel _ring buffer_ which not only contains these messages from startup but from other kernel events such as plugging or unplugging a USB device, etc. The `demsg` command can be used by administrators to view the ring buffer.
+.. Try running `dmesg` as an administrator. You'll see that the output is very long. If you want to browse the whole thing you could of course pipe the output to a tool like `less` but there are other ways too.
+.. One of the other things you might do if you're looking for information about a certain device is to pipe to a tool like `grep` to search the output lines for something. For example if you try `dmesg | grep eth` or `dmesg | grep NIC` we could probably find some information about our Ethernet network interface card:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo dmesg | grep eth
+[    2.132268] vmxnet3 0000:0b:00.0 eth0: NIC Link is Up 10000 Mbps
+[    2.137854] vmxnet3 0000:13:00.0 eth1: NIC Link is Up 10000 Mbps
+[    2.186768] vmxnet3 0000:0b:00.0 ens192: renamed from eth0
+[    2.198750] vmxnet3 0000:13:00.0 ens224: renamed from eth1
+ben@2480-Z:~$ sudo dmesg | grep NIC
+[    2.096406] VMware vmxnet3 virtual NIC driver - version 1.7.0.0-k-NAPI
+[    2.132268] vmxnet3 0000:0b:00.0 eth0: NIC Link is Up 10000 Mbps
+[    2.137854] vmxnet3 0000:13:00.0 eth1: NIC Link is Up 10000 Mbps
+[    7.078130] vmxnet3 0000:13:00.0 ens224: NIC Link is Up 10000 Mbps
+[    7.106011] vmxnet3 0000:0b:00.0 ens192: NIC Link is Up 10000 Mbps
+ben@2480-Z:~$
+----
+.. Noticing that all these lines include the text "vmxnet" is a good indication there might be even more information if we try `dmesg | grep vmxnet`:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo dmesg | grep vmxnet
+[    2.096406] VMware vmxnet3 virtual NIC driver - version 1.7.0.0-k-NAPI
+[    2.097762] vmxnet3 0000:0b:00.0: # of Tx queues : 1, # of Rx queues : 1
+[    2.132268] vmxnet3 0000:0b:00.0 eth0: NIC Link is Up 10000 Mbps
+[    2.136667] vmxnet3 0000:13:00.0: # of Tx queues : 1, # of Rx queues : 1
+[    2.137854] vmxnet3 0000:13:00.0 eth1: NIC Link is Up 10000 Mbps
+[    2.186768] vmxnet3 0000:0b:00.0 ens192: renamed from eth0
+[    2.198750] vmxnet3 0000:13:00.0 ens224: renamed from eth1
+[    7.077529] vmxnet3 0000:13:00.0 ens224: intr type 3, mode 0, 2 vectors allocated
+[    7.078130] vmxnet3 0000:13:00.0 ens224: NIC Link is Up 10000 Mbps
+[    7.105421] vmxnet3 0000:0b:00.0 ens192: intr type 3, mode 0, 2 vectors allocated
+[    7.106011] vmxnet3 0000:0b:00.0 ens192: NIC Link is Up 10000 Mbps
+ben@2480-Z:~$
+----
+.. Here we can see the initialization of the network card drivers on our system, that the links are up on both network cards, and that the interfaces assigned are _ens192_ and _ens224_ just as we'd expect.
+.. Another way to use `dmesg` is to look for a message about something that happened recently. For this we might use a command like `dmesg | tail -20` to see the last 20 lines of the kernel ring buffer. In our case there isn't probably much of interest there but if we had a physical system with USB ports in particular we could plug or unplug a USB device and probably see how the system identified it in the recent ring buffer entries.
 
 == Add and modify apt repositories
+. We have used _apt_ a lot in our labs already to install software packaged onto our Debian Linux server. These software packages come from _repositories_ which are hosted online. So far we have only been using the official Debian repositories but it is possible to modify the repositories being used by the system or add other repositories you want to get packages from.
+. The list of default Debian package repositories (sometimes called _repos_) is stored in the _/etc/apt/sources.list_ file. Open this file now in a text editor with administrative permissions so you can edit the file:
++
+[source,console]
+----
+#deb cdrom:[Debian GNU/Linux 12.5.0 _Bookworm_ - Official amd64 NETINST with firmware 20240210-11:27]/ bookworm contrib main non-free-firmware
 
+deb http://deb.debian.org/debian/ bookworm main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm main non-free-firmware
+
+deb http://security.debian.org/debian-security bookworm-security main non-free-firmware
+deb-src http://security.debian.org/debian-security bookworm-security main non-free-firmware
+
+# bookworm-updates, to get updates before a point release is made;
+# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports
+deb http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+
+# This system was installed using small removable media
+# (e.g. netinst, live or single CD). The matching "deb cdrom"
+# entries were disabled at the end of the installation process.
+# For information about how to configure apt package sources,
+# see the sources.list(5) manual.
+----
+.. You should see something like above with several lines of comments (beginning with a `#`) as well as the _deb_ and _deb-src_ lines which identify the repositories we're currently using for packages. In addition to the URL of the repo the lines also include the codename for the version of Debian to get packages for (_Bookworm_ in our case above) which is officially referred to as the repo _suite_ as well as the _components_ to get packages for from that repository (_contrb_, _main_, and _non-free-firmware_ in our case above).
+.. To install some software which does not comply with the "Debian Free Software Guidelines" (often because the software you want uses a non-standard open source license) you may need to activate a new component from these repos, the _non-free_ component. To do this you just need to add _non-free_ onto the list of components to use from each repo like this, do this now:
++
+[source,console]
+----
+deb http://deb.debian.org/debian/ bookworm main non-free-firmware non-free
+deb-src http://deb.debian.org/debian/ bookworm main non-free-firmware non-free
+
+deb http://security.debian.org/debian-security bookworm-security main non-free-firmware non-free
+deb-src http://security.debian.org/debian-security bookworm-security main non-free-firmware non-free
+
+deb http://deb.debian.org/debian/ bookworm-updates main non-free-firmware non-free
+deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware non-free
+----
+.. Of course, to apply this change you need to exit and save the changes to the file. You also need to run the `apt update` command to download the new lists of packages you can install.
+.. If you have correctly added the _non-free_ component you should be able to install the _doc-rfc-std_ package which contains text of IETF stardard RFCs (requests for comment).
+. Sometimes a vendor provides their own Debian repository entirely so they can manage updates to their software. This may be because the main Debian repositories do not contain their software at all _or_ it is software that is frequently updated and the volunteers that package Debian software are using a much older version in the official repos. In that case you may want to add an entirely new repository. While you could add it as a line to the _/etc/apt/sources.list_ file a better way in modern Debian is to create a new file for each vendor in the _/etc/apt/sources.list.d/_ directory with the repos from that vendor in it. This makes enabling and disabling repos much more straightforward.
+.. Frequently, though not always, the vendor will provide instructions on adding their repository. These are some example instructions from _Docker_ to add their repositories which we'll break down step by step:
++
+[source,console]
+----
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+----
+.. For security reasons many modern package repositories are signed with a cryptographic signature, this is desirable from a security standpoint so you know you are getting an unmodified package from the provider. In this case the first step is to install the signing key from the publisher so you can validate their packages.
+... First, they want you to update all your package lists, a best practice before you install anay packages, with the `apt-get update` command, the `apt update` command is equivalent but uses the slightly newer `apt` command so we'll use it instead. Run `apt update` now (this and future commands in this section are being run as an administrator).
+... Next, you are to install the `ca-certificates` and `curl` packages. The _ca-certificates_ package includes security certificates for _Certificate Authorities_ which have been approved by Debian and the _curl_ program is used to download files from the Internet (similar to the `wget` program we have used in the past but a bit more powerful). Run `apt install ca-certificates curl` now.
+... The `install -m 0755 -d /etc/apt/keyrings` is really just being used as a quick way to create a new directory _/etc/apt/keyrings_ with the and `chmod 755 /etc/apt/keyrings` in one step. Run `install -m 0755 -d /etc/apt/keyrings` now.
+... The `curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc` command is just downloading the https://download.docker.com/linux/debian/gpg file and saving it to the _/etc/apt/keyrings/docker.asc_ file. Run `curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc` now.
+... As you should know at this point, the `chmod a+r /etc/apt/keyrings/docker.asc` is just setting it so all users on the system can read the _/etc/apt/keyrings/docker.asc_ file. Run `chmod a+r /etc/apt/keyrings/docker.asc` now.
+.. Once we have the Docker key installed we can add the package repository. The command that does this looks pretty complex:
++
+[source,console]
+----
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+----
+... If we take a closer look at what is going on they are running serveral commands inside this one command line like `dpkg --print-architecture` and `. /etc/os-release && echo "$VERSION_CODENAME"` and putting them all together into a new line which they are merging into (or creating if it doesn't already exist) the _/etc/apt/sources.list.d/docker.list_ file with the `tee` command. If we want to see what's really going on we could get rid of everything after the pipe to the `tee` command and just run that and see what gets output. Run the `echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable"` command now:
++
+[source,console]
+----
+ben@2480-Z:~$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable"
+deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian   bookworm stable
+ben@2480-Z:~$
+----
+... Notice the _deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian   bookworm stable_ line come back which looks something like a regular _deb_ package repo line come back out ithger than that it has a specific _CPU architecture_ (_arch_) specified of _amd64_ and a signing key set. We could just paste this line into the _tee /etc/apt/sources.list.d/docker.list_ file but let's run the original command they specified where the `tee` command does that for us:
++
+[source,console]
+----
+ben@2480-Z:~$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ben@2480-Z:~$
+----
+... Now try opening the _/etc/apt/sources.list.d/docker.list_ file in a text editor and you should see the same _deb_ repo line we saw before. After you verify this you can exit the text editor.
+.. Run the `apt update` command to get the available package lists from the new repository. You should see in the output from `apt update` that it has downloaded package lists from the _https://download.docker.com/linux/debian bookworm/stable_ repository now.
+.. Make sure you have the _Docker_ repository setup and working, we'll be using it in a future lab.
 
 == Wrapping Up
 
