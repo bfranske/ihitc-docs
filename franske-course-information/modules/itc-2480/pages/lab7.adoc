@@ -257,7 +257,7 @@ If you are not using `firewalld` and need to activate the _ip_forward_ permissio
 . We want our inside client network to receive IPv4 addresses automatically from a DHCP server so we'll configure our Linux Server to also act as a DHCPv4 server using the ISC Kea DHCP server software.
 . Begin by installing the _kea-dhcp4-server_ package on your server.
 . There are a lot of options that can be used for an advanced DHCP server. The configuration file for Kea is explained in the https://kea.readthedocs.io[Kea Administrator Reference Manual] but for our purposes of a very simple DHCP server we don't need too much configuration. Let's move the existing sample configuration file from _/etc/kea/kea-dhcp4.conf_ to _/etc/kea/kea-dhcp4.bak_ to keep it as a backup just in case we want to reference it.
-. After moving the sample Kea configurtion file to a backup copy start nano with a new blank _/etc/kea/kea-dhcp4.conf_ file and put the following contents into it and save the file:
+. After moving the sample Kea configurtion file to a backup copy start nano as an adminsitrative user with a new blank _/etc/kea/kea-dhcp4.conf_ file and put the following contents into it and save the file:
 +
 [source,console]
 ----

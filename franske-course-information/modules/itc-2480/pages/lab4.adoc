@@ -6,14 +6,16 @@ In this lab you will perform the following tasks:
 
 * Edit text files using nano and vi
 * Learn how to work with data streams using pipes and redirection
-* Search for files
 * Manipulate command output using common CLI text manipulation utilities
+* Work with filesystem links
+* Search for files
 
 You will be introduced to the following commands:
 
 * vi
 * nano
 * find
+* ln
 * locate
 * updatedb
 * grep
@@ -222,6 +224,69 @@ TIP: If you don't want to use a text editor and do all that typing you can do th
 .. By default the `grep` command looks for the text you give it and outputs every full line which contains that text. That is enough to make it very useful but you can do a lot more such as look for patterns (for example any MAC address separated by colons) or strings at the beginning or end of lines using _regular expressions_. You can learn more about _regular expressions_ at https://regexone.com/[RegexOne] and https://www.regular-expressions.info/[Regular-Expressions.info] among many other places. These are frequently used in system administration and programming so it's worth your while to get at least a basic understanding of them and how they work.
 .. There are a lot of useful text manipulation commands besides `head`, `tail`, and `grep`. You probably even used one, `seq` to create your _linenumbers.txt_ file. Still others allow further manipulation of text such as searching and replacing text in a data stream with `sed`, `sort` to sort lines, `cut` to send on just a portion of lines, `uniq` to show lines which are repeated or ignore lines which are repeated, or `wc` to count words/lines/characters/etc and these are just a few of the many commands available. All of these commands are designed to work with standard input and output to build a chain of commands which does something useful to you.
 .. Many times this ability to accept standard input is used to process text which was created as an output stream from another program as we did above but it can also be used by programs with binary data. One common use of this is for audio and video encoding where one program might read and decode audio or video data (such as an Audio CD or a WAV file) and pipe that data as standard output over to another program such as an MP3 compression program which compresses the data. That program might write the compressed output to a file or it might send it on to yet another program which streams it out over the network.
+
+== Working with Filesystem Links
+. The Windows operating system allows you to create "shortcuts" from one file or folder to another and Mac OS allows you to create "aliases" for the same purpose. In much the same way Linux has the ability to create _links_ from one file or directory to another. These can actually be far more powerful than a shortcut or alias though because to almost all applications these links look just like the files or directories are actually located where the link is instead of where the information is actually stored. This means you can use the links in the command line just as you would use the original location.
+. Links in Linux can be either _hard links_ or _symbolic links_ (also called _soft links_ or _symlinks_). Hard links can only refer to files and need to be on the same drive partition but will follow the file even if it is later moved. Symbolic links are used much more commonly because they can work with directories or files and work across partitions with the only downsides being they will break if the original file/directory is moved or deleted. We'll focus on using symbolic links because of their additional flexibility and more common use.
+. Create a new directory in you user's home directory named _link-experiments_ to hold some sample links. There is no requirement that links be in a special directory like this, we're just doing it in an attempt to keep our home directory a bit organized.
+. Change your working directory to the new _link-experiments_ directory
+. Try creating a new symbolic link named lines.txt and point it to the _linenumbers.txt_ file in your home directory using the `ln -s ~/linenumbers.txt ~/link-experiments/lines.txt`
+. Try opening the new lines.txt "file" (in quotes because it's really not a file, it's a symbolic link to a file) with a text editor. You should see it's the same as the ~/linenumbers.txt.
+. Make a change to the file and save it.
+. Verify that the change happened in the _~/linenumbers.txt_ (in other words you were working on a link and not a copy of the file) by looking at it in a text editor
+. You can also see that in a full directory listing of _~/link-experiments/_ it is clear that _lines.txt_ is a link and not a file as well as where it points to:
++
+[source,console]
+----
+ben@2480-Z:~/link-experiments$ ls -al
+total 8
+drwxr-xr-x 2 ben ben 4096 Aug 16 16:43 .
+drwx------ 9 ben ben 4096 Aug 16 16:43 ..
+lrwxrwxrwx 1 ben ben   25 Aug 16 16:40 lines.txt -> /home/ben/linenumbers.txt
+ben@2480-Z:~/link-experiments$
+----
+. As mentioned before you can link to directories, not only files. Use the `ln -s ~/sample-files/shakespeare ~/link-experiments/shakespeare` command to create a link to your Shakespeare directory.
+. Verify the link was created:
++
+[source,console]
+----
+ben@2480-Z:~/link-experiments$ ls -al
+total 8
+drwxr-xr-x 2 ben ben 4096 Aug 16 16:46 .
+drwx------ 9 ben ben 4096 Aug 16 16:43 ..
+lrwxrwxrwx 1 ben ben   25 Aug 16 16:40 lines.txt -> /home/ben/linenumbers.txt
+lrwxrwxrwx 1 ben ben   34 Aug 16 16:46 shakespeare -> /home/ben/sample-files/shakespeare
+ben@2480-Z:~/link-experiments$
+----
+. Try changing your working directory to _~/link-experiments/shakespeare_ and then listing the files. You should see all the files from your original _shakespeare_ directory (inside _sample-files_).
+. Note that even if you run `pwd` it will look like you are in a sub-directory of _link-experiments_ and not _sample-files_
++
+[source,console]
+----
+ben@2480-Z:~/link-experiments/shakespeare$ pwd
+/home/ben/link-experiments/shakespeare
+ben@2480-Z:~/link-experiments/shakespeare$
+----
+. Change back to your _link-experiments_ directory.
+. You can create links to other locations on your system as well, not just ones in your home directory. Run the command `ln -s /etc ~/link-experiments/config` to create a link called _config_ which points to _/etc_.
+. Links do not allow you to access files you don't have permission for though just because your user owns the link! Try viewing the _~/link-experiments/config/shadow_ file with the `cat` command without using `sudo`:
++
+[source,console]
+----
+ben@2480-Z:~/link-experiments$ cat ~/link-experiments/config/shadow
+cat: /home/ben/link-experiments/config/shadow: Permission denied
+ben@2480-Z:~/link-experiments$
+----
+. Removing things can also be a little tricky when working with links. If you remove a file inside a linked directory the original file *will* get removed (assuming you have permissions). Try `rm ~/link-experiments/shakespeare/Sonnets.txt`
+. Check that the original file is gone with `ls -al ~/sample-files/shakespeare/`
+. If a link is to a specific file removing a link itself though does *not* remove the original file, just the link. The same is true of removing a link to a directory. Run the `rm ~/link-experiments/lines.txt` and check that the _~/linenumbers.txt_ file still exists. Also try `rm ~/link-experiments/config` but see that the _/etc_ directory still exists.
++
+[IMPORTANT]
+====
+As stated above most applications will essentially treat linked things just the same as if the file (or directory) was really in the location where the link is. This is not true in *all* cases though, applications can tell that it's a link and decide to handle it differently.
+
+For example, if you are using `tar` to back up data, depending on exactly what you want to do you may want to use the `-h` or `--dereference` options to follow symbolic links and backup the data the links point to. Normal behavior for `tar` would just be to back up the link itself, not the file(s) or directorie(s) pointed to by the link. See the manual page for `tar` for more information.
+====
 
 == Searching for Files
 

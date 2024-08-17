@@ -1,0 +1,594 @@
+= Lab 9: DNS Server Installation and Configuration
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Install BIND and configure as a caching server
+* Learn how to manually create a zone file and DNS records
+
+You will be introduced to the following commands:
+
+* dig
+* nslookup
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Install BIND and Configure as a Caching Nameserver
+. As the number of hosts you may want to connect to on networks has grown and especially as IP addressing schemes have become longer (such as with IPv6) and more complex (such as with subnetting) the domain name system (DNS) has become an essential part of networking and the Internet. As such, it is often the case that a system administrator will need to run a DNS server on their network.
+. There are two primary uses for DNS servers, either _authoritative servers_ or _caching servers_ (also sometimes called _recursive servers). _Authoritative servers_ are used to publish DNS records for a domain name which are often used to to tie a host and domain name to a certain IP address. These are called _authoritative servers_ as they are assigned to one or more specific domain names and can provide official, definitive responses for that domain. _Caching servers_ are used to reduce the load on authoritative servers by sitting between DNS clients and the authoritative server so that the client devices ask the _caching server_ for DNS records which it can forward on to another upstream server (until the authoritative server is reached), but if the same record has been recently requested the caching server will be able to reply immediately to the client using a copy of the previously retrieved record stored in its _cache_. While the DNS server software used is often the same, it is configured in different ways to support either the _authoritative server_, _caching server_, or both functions.
+. There are many different DNS server applications that exist today but the one we'll focus on in this lab activity is the Berkely Internet Name Domain (_BIND_) version 9 (_BIND9_) which is the de facto standard DNS server software used today, especially on Linux and other *NIX based systems. It is particularly feature rich and works well as both a caching and authoritative DNS server. We'll configure both of these functions starting with the caching server functionality.
+. Use `apt` to install the _bind9_ package as well as the _dnsutils_ package. The _bind9_ package includes the BIND9 server software itself while the _dnsutils_ package includes the `nslookup` and `dig` utilities which are critical for testing and troubslehooting DNS (even if you're not running a DNS server).
+. By default BIND9 is setup as a caching nameserver. Any clients that connect to it and ask for a DNS record will get it either from the local cache if a recent enough record copy is there or BIND will look up the authoritative server for the domain starting from the _DNS root servers_ and pass back the requested record to the client once BIND has it. However, sometimes you don't want to have BIND request records starting directly at the root servers. Instead you may want (or need) them to flow to another caching DNS server upstream. This is sometimes the case on campus where we are sometimes blocked from making direct DNS requests out to the Internet by the campus firewall. To fix this we need to adjust the BIND configuration to use a specific _DNS forwarder_ which is an upstream caching DNS server.
+.. Open the _/etc/bind/named.conf.options_ file in a text editor with administrative permissions. Find the section of the file that looks like:
++
+[source,console]
+----
+        // If your ISP provided one or more IP addresses for stable
+        // nameservers, you probably want to use them as forwarders.
+        // Uncomment the following block, and insert the addresses replacing
+        // the all-0's placeholder.
+
+        // forwarders {
+        //      0.0.0.0;
+        // };
+----
+.. In this configuration file the lines starting with `//` are comment lines and not being applied. Following the instructions we want to set the DNS forwarder to _172.17.50.1_ which is an upstream DNS caching server and we want to activate the forwarding by uncommenting the _forwarders_ configuration block. Change the file like this:
++
+[source,console]
+----
+        // If your ISP provided one or more IP addresses for stable
+        // nameservers, you probably want to use them as forwarders.
+        // Uncomment the following block, and insert the addresses replacing
+        // the all-0's placeholder.
+
+        forwarders {
+               172.17.50.1;
+        };
+----
+.. Save and close the file after making the change.
+.. Run the `systemctl restart bind9` command to apply the change.
+.. From now on when a client asks for a DNS record that BIND doesn't have in its cache it will ask the server at 172.17.50.1 for the record instead of starting with the root servers.
+. While our BIND caching DNS server is now up and running (and forwarding _DNS queries_ on to 172.17.50.1 if it doesn't have a cached record yet) there is no one asking it for DNS information yet. Of course it would make sense for our own server to use itself as its DNS server but that doesn't happen automatically, we need to change the network settings to make this happen.
+.. Run the `resolvectl status` command and note what the DNS server currently being used is.
+.. Open the _/etc/systemd/network/10-primary.network_ file in a text editor with administrative permissions.
+.. Change the `DNS=` line to use _127.0.0.1_ (the localhost address) as the DNS server which will tell the system to contact itself for DNS lookups.
+.. Save and close the file.
+.. To apply the changes to our network configuration run the `systemctl restart systemd-networkd` command as the administrative user.
+.. Run the `resolvectl status` command and note what the DNS server now being used is.
+.. Run the command `nslookup inverhills.edu` to do a simple DNS record request for the _inverhills.edu_ domain name.
++
+[source,console]
+----
+ben@2480-Z:~$ nslookup inverhills.edu
+Server:         127.0.0.53
+Address:        127.0.0.53#53
+
+Non-authoritative answer:
+Name:   inverhills.edu
+Address: 134.29.152.158
+
+ben@2480-Z:~$
+----
+.. Note in the response that the reply came back from the 127.0.0.1 server (ourself) and that the response was _Non-authoritative_ meaning it was acting as a caching DNS server rather than an authoritative server.
+.. A more detailed a flexible tool than `nslookup` for testing DNS is the `dig` command. Try running `dig inverhills.edu` and see if you can find where in the response the IP address for the domain is. The indication that the answe is non-authoritative is there too but it's very subtle. On the `flags:` line if there is an `aa` flag the answer is authoritative and if there is no `aa` flag it is non-authoritative.
+. Although our server can now use itself as a DNS server in our case we also want to allow other systems to use our DNS server (especially because we're about to set it up as an authoritative server for a domain). However, our firewall is currently going to block connections on port 53 (the usual DNS port) to our server.
+.. Use _firewalld_ to allow access to the DNS service to the allowed services on both the _internal_ and _external_ zones. If you've forgotten how to do this you may want to go back and review xref:lab7.adoc[Lab 7: Firewall Configuration and System Security].
+.. You should also go back and change your DHCP server configuration file _/etc/kea/kea-dhcp4.conf_ to advertise _192.168.50.1_ (the IP address of your server's internal interface) to DHCP clients like Linux Mint as the DNS server so that they will also use your server as their caching DNS server.
+.. Don't forget to restart the _kea-dhcp4-server_ service after making the change so that it is applied to new DHCP leases.
+
+== Create and serve an Authoritative DNS zone and A record
+. Let's assume for a moment that you have purchased the domain name _<podIDletter>.itc2480.campus.ihitc.net_ so if my pod ID letter were Z my domain name would be _z.itc2480.campus.ihitc.net_ which is what I'll be using in this example. *Make sure to substitute your own pod ID letter everywhere you see it in the following sections!* You want to use your Linux server as the _authoritative DNS server_ for this domain. Naturally you would need to set the IP address of your name server as the name server for the domain in the domain seller's control panel (usually a web interface) and ensure that the IP address was publically accessible. Once you've done those things here's what it would take to set up your BIND server as an authoritative name server for the domain.
+. All records for a domain are assigned to a _zone_ in BIND so the first thing to do is to define a zone. Open the _/etc/bind/named.conf.local_ file in a text editor with administrative permissions. Go to the bottom of the file and define a new zone like (*remember to use your own pod ID letter in the zone name and database file name*):
++
+[source,console]
+----
+zone "z.itc2480.campus.ihitc.net" {
+    type master;
+    file "/etc/bind/zones/db.z.itc2480.campus.ihitc.net";
+};
+----
+. If you check you'll see that the _/etc/bind/zones/_ directory and _db.z.itc2480.campus.ihitc.net_ file don't exist yet. Create the directory and file, make sure that they are owned by the _root_ user and the _bind_ group and that all users have read permission for them and execute permission for the directory. *Again, remember to use your own pod ID letter in the database file name, this is the last time you'll be reminded!*
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mkdir /etc/bind/zones
+ben@2480-Z:~$ sudo touch /etc/bind/zones/db.z.itc2480.campus.ihitc.net
+ben@2480-Z:~$ sudo chown root:bind /etc/bind/zones
+ben@2480-Z:~$ sudo chown root:bind /etc/bind/zones/db.z.itc2480.campus.ihitc.net
+ben@2480-Z:~$ sudo ls -al /etc/bind/zones
+total 8
+drwxr-sr-x 2 root bind 4096 Aug 12 15:57 .
+drwxr-sr-x 3 root bind 4096 Aug 12 15:57 ..
+-rw-r--r-- 1 root bind    0 Aug 12 15:57 db.z.itc2480.campus.ihitc.net
+ben@2480-Z:~$
+----
+. Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions. Copy in the following template.
++
+[source,console]
+----
+$TTL    86400
+$ORIGIN z.itc2480.campus.ihitc.net.
+@       IN      SOA     ns1.z.itc2480.campus.ihitc.net. admin.z.itc2480.campus.ihitc.net. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                             60 )       ; Negative Cache TTL
+;
+@                                60   IN      NS      ns1.z.itc2480.campus.ihitc.net.
+@                                60   IN      A       172.17.50.36
+ns1.z.itc2480.campus.ihitc.net.  60   IN      A       172.17.50.36
+www                              60   IN      A       172.17.50.36
+----
+.. *Again, remember to edit the file to use your own pod ID letter everywhere the domain name appears in the file, and your own IP address for all of the IPs. This is the very last time you'll be reminded!*
+.. You will also need to edit the template to include the IP address of your Linux server instead of 172.17.50.36 which is the sample Linux server address used here.
+.. This file can be broken down into three basic sections, the zone defaults, the start of authority record, and the resource records.
+... The zone defaults are the first two lines that begin with a `$`. The `$TTL` directive sets the default _time-to-live_ (_TTL_) for the zone to 86400 seconds (1 day). This is how long caching nameservers should hold onto records for this domain if a more specifc per-record TTL is not set. The `$ORIGIN` directive sets the base domain name which will be added on to all _unqualified_ domain names in the record. In the DNS world an _unqualified_ domain name is one that does not end in a period (`.`) which is why anytime you see the full domain name in the DNS record it will end with a period. 
+... The second section is the _start of authority_ resource record (RR). This starts with `@       IN      SOA` and includes a serial number (which you must increase each time you make an edit to the zone file and is used for synchronizing changes to the file), a refresh, retry, and expire value in seconds all of which are related to the use of backup DNS servers that automatically update their copies of this zone and are beyond the scope of this course, and lastly a negative cache TTL value in seconds which is how long caching DNS servers can remember that a record does not exist if there is no record (in our case we have set this quite low, normally it would be up to three hours).
+... The third section is all the remaining _resource records_ (_RRs_) for the domain. These are where you actually assign data (often IP addresses)  to certain names. The  format for a each resource record line has several fields separated by spaces. Examples from the above template:
++
+[%autowidth,options="header"]
+|===
+|Host Label|TTL|Record Class|Record Type|Record Data
+
+|`@`|`60`|`IN`|`NS`|`ns1.z.itc2480.campus.ihitc.net.`
+|`@`|`60`|`IN`|`A`|`172.17.50.36`
+|`ns1.z.itc2480.campus.ihitc.net.`|`60`|`IN`|`A`|`172.17.50.36`
+|`www`|`60`|`IN`|`A`|`172.17.50.36`
+
+|===
++
+[%autowidth,options="header"]
+|===
+|Field Name|Description
+
+|Host Label|These are used to help identify what the _fully qualified domain name_ (_FQDN_) is that the record applies to. If the host label ends in a period (like the third record in the above example `ns1.z.itc2480.campus.ihitc.net.` it is fully qualified itself. If the host label does *not* end in a period the host label will get the `$ORIGIN` added on to the end of it automatically by BIND so the host label `www` automatically becomes the FQDN `www.z.itc2480.campus.ihitc.net.` If the host label just contains an `@` it means to just use the `$ORIGIN` itself so `z.itc2480.campus.ihitc.net.` in our example.
+|TTL|This _time-to-live_ (_TTL_) value (in seconds) is how long the record will be held by caching DNS servers before they check back in with the authoritative name server. Making the value bigger means the autoritative name server will need less bandwidth because caching name servers won't check in as often for changes but it also means that if you make a change to the record it will take longer for the changes to show up for clients. If your DNS data is stable and unlikely to change soon people often use values like 86400 (1 day) but if you are doing a lot of work with your DNS server or records it is common to reduce the value to 10 minutes (600 seconds) or even 1 minute (60 seconds like we are using here). 
+|Class|Different systems that use DNS can have different record classes but `IN` stands for "Internet" and is the only class you are likely ever to work with as all other record classes are long obsolete.
+|Record Type|There are many different types of data that can be stored in DNS. We'll be talking more about some of these in a little bit but ones you see above are `NS` which stands for "name server" and is used to give the hostname of all authoritative nameservers for the domain, and `A` which stands for "IPv4 Address" and is used to assign an IP address to a host.
+|Record Data|The record data varies depending on the record type. It is often an IP address (like for A records), a hostname (like for NS records), or even a text string.
+|===
+.. Save your zone file after making the changes appropriate to your Linux server and exit the text editor.
+.. Run the `systemctl restart bind9` command to apply the configuration
+.. Use the `dig z.itc2480.campus.ihitc.net`, `dig www.z.itc2480.campus.ihitc.net`, and `dig ns1.z.itc2480.campus.ihitc.net` from your Linux server to do an initial check that DNS is working correctly.
+.. Use similar commands from the command line on your administrative workstation to make sure that other systems can also access your DNS server. If you are running Microsoft Windows on your administrative workstation it does not have the `dig` command but it does have the `nslookup` command which you can use instead.
+
+== Add a New A Record to the Domain
+. Let's assume you have added a new server and want to point _server2.z.itc2480.campus.ihitc.net_ (replacing the "z" with your own Pod ID letter!) to this new system a the IP address _198.51.100.6_ (this is a fake IP address you can use for this particualr activity). To do this we would want to add a new "A" record to the domain.
+. Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions. Try editing the file to add a new address record for _server2_ pointed to _198.51.100.6_ with a TTL value of 60 seconds
+. Save and close the zone file
+. Restart the _bind9_ service to apply the change
+. Verify the _server2.z.itc2480.campus.ihitc.net_ (replacing the "z" with your own Pod ID letter!) is now working and pointing to _198.51.100.6_
++
+[source,console]
+----
+ben@2480-Z:~$ dig server2.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> server2.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 256
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;server2.z.itc2480.campus.ihitc.net. IN A
+
+;; ANSWER SECTION:
+server2.z.itc2480.campus.ihitc.net. 60 IN A     192.51.100.6
+
+;; Query time: 4 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 16:14:39 CDT 2024
+;; MSG SIZE  rcvd: 79
+
+ben@2480-Z:~$
+----
+
+== Use CNAME Records in the Domain for Virtual Hosting
+. Sometimes we want to have multiple names for the same system. For example, we want our server at _z.itc2480.campus.ihitc.net_ to also respond to _www.z.itc2480.campus.ihitc.net_ so that users can put the _www_ hostname in their web browser address bar and still visit our site. There are a few ways to do this. Right now you can see in your zone file that we have two "A" records, one for the origin itself (`@`) and a second for the `www` hostname. What if our IP address changes though? We would have to remember to change *both* of these _A_ records. If you had a big complex zone file with lots of systems you could see how you might forget to change one. Luckily there is another record type, the _canonical name_ (_CNAME_) which allows us to point one hostname to another hostname. Using this we can have just one _A_ record per system and then many _CNAMEs_ that point to that one _A_ record where we store the actual IP address.
+. Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions.
+. Edit the line for the `www` hostname so that instead of this (of course with your own IP address):
++
+[source,console]
+----
+www                              60   IN      A       172.17.50.36
+----
+. It now looks like this (of course with your own Pod ID letter):
++
+[source,console]
+----
+www                              60   IN      CNAME   z.itc2480.campus.ihitc.net.
+----
++
+IMPORTANT: See that the domain name used as the data portion of the CNAME ends in a period! If you do not make this a fully qualified domain name (_FQDN_) with a period at the end the DNS system will treat it as a hostname and add the _$ORIGIN_ value onto the end like _z.itc2480.campus.ihitc.net.z.itc2480.campus.ihitc.net_ which will not work in this case.
+. Save and close the zone file
+. Restart the _bind9_ service to apply the change
+. Verify that _www.z.itc2480.campus.ihitc.net_ (replacing the "z" with your own Pod ID letter!) is returning a CNAME record using the `dig` command.
++
+[source,console]
+----
+ben@2480-Z:~$ dig www.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> www.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 18379
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;www.z.itc2480.campus.ihitc.net.        IN      A
+
+;; ANSWER SECTION:
+www.z.itc2480.campus.ihitc.net. 60 IN   CNAME   z.itc2480.campus.ihitc.net.
+z.itc2480.campus.ihitc.net. 60  IN      A       172.17.50.36
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 16:12:49 CDT 2024
+;; MSG SIZE  rcvd: 89
+
+ben@2480-Z:~$
+----
+. Verify that _www.z.itc2480.campus.ihitc.net_ (replacing the "z" with your own Pod ID letter!) is still working from a web browser on your administrative PC to access your website.
+. Another common use _CNAME_ records is to support running multiple different websites on the same IP address, this is called _virtual hosting_. Because the web server can see what specific domain name was requested by the client it can send different pages to clients depending on what domain name was asked for. We'll set this up so that blog.z.itc2480.campus.ihitc.net_ (replacing the "z" with your own Pod ID letter!) goes directly to your blog site (without the need to put the /blog at the end of the URL) but you could do the same thing to point to an entirely different site instead of just a subdirectory of the original site. Webhosts use this technique to run hundreds of different sites on the same server with just one IP address.
+. Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions.
+. Add a new _CNAME_ record for the _blog_ hostname and point it back to your server just like we did with the `www` hostname. Use a TTL value of 60 again, just in case you make a mistake to only cache the record for 60 seconds.
+. You should also add a new _CNAME_ record for the _www.blog_ hostname and point it back to your server just like we did with the `www` and `blog` hostnames. Use a TTL value of 60 again. This is a useful thing to add because some users like to type www in front of every domain name.
++
+[IMPORTANT]
+====
+If you are using _CNAME_s it is important to know that they must be the only record type for that hostname. For example, if we have a _CNAME_ setup for the _blog_ and _www.blog_ hostnames we cannot also have _A_ records (or any other DNS record types like the _MX_, _AAAA_, or _TXT_ records we'll talk about below) for those same hostnames. Instead the hostname that the _CNAME_ points to is the place to put any of those other records.
+====
+. Save and close the zone file
+. Restart the _bind9_ service to apply the change
+. Use the `dig` command to verify the _blog_ and _www.blog_ records are setup correctly.
++
+[source,console]
+----
+ben@2480-Z:~$ dig blog.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> blog.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61803
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;blog.z.itc2480.campus.ihitc.net. IN    A
+
+;; ANSWER SECTION:
+blog.z.itc2480.campus.ihitc.net. 60 IN  CNAME   z.itc2480.campus.ihitc.net.
+z.itc2480.campus.ihitc.net. 60  IN      A       172.17.50.36
+
+;; Query time: 4 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 16:15:48 CDT 2024
+;; MSG SIZE  rcvd: 90
+
+ben@2480-Z:~$ dig www.blog.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> www.blog.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52658
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;www.blog.z.itc2480.campus.ihitc.net. IN        A
+
+;; ANSWER SECTION:
+www.blog.z.itc2480.campus.ihitc.net. 60 IN CNAME z.itc2480.campus.ihitc.net.
+z.itc2480.campus.ihitc.net. 60  IN      A       172.17.50.36
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 16:15:53 CDT 2024
+;; MSG SIZE  rcvd: 94
+
+ben@2480-Z:~$
+----
+. That's all the DNS work we need to do for this but now we have to edit the _nginx_ configuration to do something different when a request for _blog.z.itc2480.campus.ihitc.net_ comes in (with your own Pod ID letter of course).
+.. Make a copy of the _/etc/nginx/sites-available/default_ file and save it as _/etc/nginx/sites-available/blog_
+.. Edit the _/etc/nginx/sites-available/blog_ file so that it looke like this (keeping any comment lines in place that you want and changing the Pod ID letter in the domain name to match yours):
++
+[source,console]
+----
+server {
+        listen 80;
+        listen [::]:80;
+        root /var/www/html/blog;
+        index index.php index.html index.htm index.nginx-debian.html;
+        server_name blog.z.itc2480.campus.ihitc.net www.blog.z.itc2480.campus.ihitc.net;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+        location ~ \.php$ {
+            fastcgi_split_path_info ^(.+\.php)(/.+)$;
+            fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+            fastcgi_index index.php;
+            include fastcgi.conf;
+    }
+}
+----
++
+NOTE: We changed the two _listen_ directives to indicate this is not the default server (it handles only specific DNS names). We changed the _root_ directive to point to the location we want to serve these domains from. We also changed the _server_name_ directive to list the domain names that should use this nginx configuration.
+.. Save and close the file
+.. Enable this _server block_ in nginx by creating a _symbolic link_ between _/etc/nginx/sites-available/blog_ and _/etc/nginx/sites-enabled/blog_ (xref:lab4.adoc[Refer back to Lab 4] if you need a refresher on creating links).
+.. Verify that the symbolic link is created and pointing to the correct location:
++
+[source,console]
+----
+ben@2480-Z:~$ ls -al /etc/nginx/sites-enabled/
+total 8
+drwxr-xr-x 2 root root 4096 Aug 16 16:17 .
+drwxr-xr-x 8 root root 4096 Jun 24 17:43 ..
+lrwxrwxrwx 1 root root   31 Aug 16 16:17 blog -> /etc/nginx/sites-available/blog
+lrwxrwxrwx 1 root root   34 Jun 10 17:25 default -> /etc/nginx/sites-available/default
+ben@2480-Z:~$
+----
+.. Restart the _nginx_ service to apply the change
+.. Verify that you can access your blog directly from your administrative PC's web browser using the _blog.z.itc2480.campus.ihitc.net_ and _www.blog.z.itc2480.campus.ihitc.net_ addresses (replacing the Pod ID letter with your own).
+
+== Use MX Records in the Domain for Email Handling
+. There is a special case when working with domain names related to email. Email has long been run on a separate server from other services so it's rather common to want email for a certain domain name or host to actually be sent to a different host running an email server or even to have several backup mail servers in case one goes down. To facilitate all of this there is a special _MX_ (_mail exchanger_) record type in DNS. An _MX_ record specifies that for a certain domain or host mail should actually be sent to a specific host.
+. Let's try setting up some _MX_ records in our domain. Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ (with your own Pod ID though) in a text editor with administrative permissions.
+. As things sit right now (with no _MX_ records) mail to _anyuser@z.itc2480.campus.ihitc.net_ will be sent to the _A_ record IP address for _z.itc2480.campus.ihitc.net_ but let's say we have a mail server running on _server2.z.itc2480.campus.ihitc.net_ which we should already have a different _A_ record for pointing to _192.51.100.6_ and we want mail for _anyuser@z.itc2480.campus.ihitc.net_ to actually be delivered to _192.51.100.6_.
+. Create a new _MX_ record in the zone file like:
++
+[source,console]
+----
+@    60   IN      MX      10 server2
+----
+. Because the _host label_ for this record is `@` it will apply to the `z.itc2480.campus.ihitc.net` domain itself. The record type is `MX` and the record data is `10 server2`. You may have already guessed that the `server2` part of that means the mail to this domain should be sent to the IP address associated with _server2_'s _A_ record, but what is the `10` for? As we mentioned because email is so critical it's common to have backup email servers which can hold messages for your domain in case your primary email server goes down. The `10` is an _MX priority_ or _MX preference_. The lowest number will be tried first but if it is unavailable the sending mail server will move on to higher priorities. Note that because `server2` does not end with a period in this record it is *not* a FQDN and the DNS system will add the _$ORIGIN_ onto it so the mail actually goes to _server2.z.itc2480.campus.ihitc.net._
+. Add a backup _MX_ record for the domain going to server3.z.itc2480.campus.ihitc.net with a priority of 20 and an IP address for that server of _192.51.100.7_. Note this will require two additional records be added.
+. Save and close the zone file.
+. Restart the _bind9_ service to apply the change
+. Use the `dig mx` command to verify the _MX_ records are setup correctly:
++
+[source,console]
+----
+ben@2480-Z:~$ dig mx z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> mx z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7785
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 3
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;z.itc2480.campus.ihitc.net.    IN      MX
+
+;; ANSWER SECTION:
+z.itc2480.campus.ihitc.net. 60  IN      MX      20 server3.z.itc2480.campus.ihitc.net.
+z.itc2480.campus.ihitc.net. 60  IN      MX      10 server2.z.itc2480.campus.ihitc.net.
+
+;; ADDITIONAL SECTION:
+server2.z.itc2480.campus.ihitc.net. 60 IN A     192.51.100.6
+server3.z.itc2480.campus.ihitc.net. 60 IN A     192.51.100.7
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 17:27:59 CDT 2024
+;; MSG SIZE  rcvd: 135
+
+ben@2480-Z:~$
+----
++
+NOTE: You can have different sets of _MX_ records for different subdomains within a domain or even for different hosts within a domain. So if you want mail to _anyuser@blog.z.itc2480.campus.ihitc.net_ to go to a different email server you can just create an _MX_ record for _blog.z.itc2480.campus.ihitc.net_ as the _host label_ instead of _@_ and point it somewhere else.
++
+[NOTE]
+====
+There is also no requirement that the _A_ records for the mail servers be in the same domain as the _MX_ record. In fact, this is commonly used to send the email for your domain to a third party email hosting provider (like Gmail or Microsoft Office 365) if you have email service for your domain setup with them.
+
+You can see this in action by running `dig mx ihitc.net` which has email hosted at Gmail currently:
+
+[source,console]
+----
+ben@2480-Z:~$ dig mx ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> mx ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41315
+;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;ihitc.net.                     IN      MX
+
+;; ANSWER SECTION:
+ihitc.net.              3600    IN      MX      10 aspmx2.googlemail.com.
+ihitc.net.              3600    IN      MX      5 alt2.aspmx.l.google.com.
+ihitc.net.              3600    IN      MX      5 alt1.aspmx.l.google.com.
+ihitc.net.              3600    IN      MX      10 aspmx3.googlemail.com.
+ihitc.net.              3600    IN      MX      1 aspmx.l.google.com.
+
+;; Query time: 156 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Fri Aug 16 17:34:21 CDT 2024
+;; MSG SIZE  rcvd: 171
+
+ben@2480-Z:~$
+----
+====
+
+== Use AAAA Records in the Domain for IPv6 Addresses
+. _A_ records are used to tie domain and host names to IPv4 addresses but what about IPv6 addresses? The _AAAA_ record was created to tie a domain or host name to an IPv6 address. You can (and usually do) even have *both* an _A_ and _AAAA_ record for the same host or domain as the server is usually running as _dual stack_ with both an IPv4 and IPv6 address.
+. Let's assume that IPv6 service has recently been added to _server2_ at _2001:db8::56:14_ and _server3_ at _2001:db8::56:15_ and we want to add DNS records for these IPv6 addresses to each server while still keeping their existing IPv4 address records as well.
+. Open your DNS zone file for editing
+. Add an _AAAA_ IPv6 record for _server2.z.itc2480.campus.ihitc.net_ like this:
++
+[source,console]
+----
+server2    60   IN      AAAA      2001:db8::56:14
+----
+. Add a similar record for _server3_ with it's new IPv6 address. Be sure to keep the IPv4 records in place.
+. Save and close the zone file
+. Restart the _bind9_ service to apply the change
+. Use the `dig aaaa` command to verify the new _AAAA_ records are setup correctly:
++
+[source,console]
+----
+ben@2480-Z:~$ dig aaaa server2.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> aaaa server2.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 59848
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;server2.z.itc2480.campus.ihitc.net. IN AAAA
+
+;; ANSWER SECTION:
+server2.z.itc2480.campus.ihitc.net. 60 IN AAAA  2001:db8::56:14
+
+;; Query time: 4 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Aug 17 13:45:47 CDT 2024
+;; MSG SIZE  rcvd: 91
+
+ben@2480-Z:~$ dig aaaa server3.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> aaaa server3.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44969
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;server3.z.itc2480.campus.ihitc.net. IN AAAA
+
+;; ANSWER SECTION:
+server3.z.itc2480.campus.ihitc.net. 60 IN AAAA  2001:db8::56:15
+
+;; Query time: 4 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Aug 17 13:46:17 CDT 2024
+;; MSG SIZE  rcvd: 91
+
+ben@2480-Z:~$
+----
++
+[NOTE]
+====
+Although we can use a tool like `dig` or `nslookup` to force a DNS lookup for an _AAAA_ IPv6 record or _A_ IPv4 record (or other record types) normally it is up to the client device's operating system to determine if it is going to ask for an _A_ or _AAAA_ record for a hostname. On most operating systems they will ask DNS for (and prefer to use) an _AAAA_ record *if the client is configured with a working IPv6 address itself* and will ask for and use an _A_ record if the client only has IPv4. 
+
+In other words, there is a preference for IPv6 connections to servers in most operating systems if they have IPv6 connectivity and their is an _AAAA_ record for the host they are trying to access.
+====
+
+== Use TXT Records in the Domain for Additional Information
+. DNS also has a record type which can be used to store unformatted text strings which clients and request. These are called _TXT_ records and can usually store up to 255 characters in a single string, though multiple strings can be combined for longer data.
+. The most common use of these today is for _SPF_, _DKIM_, and _DMARC_ which are three anti-spam technologies used for verifying servers allowed to send email and reporting anti-spam results from your domain and are effectively required if you are sending email from a domain in the modern era. _SPF_, _DKIM_, and _DMARC_ text strings all have specific ways they should be formatted but that is determined by the email applications that use them, as far as DNS is concenred they are just strings of text.
+. Another common use of _TXT_ records is prove you own control of a domain. For example, if you are registering a domain for use with Google Workspace, or Microsoft Office 365, or Amazon Web Services, or other cloud providers they will frequently require you to create a _TXT_ record for the domain with some random string they provide you just so they can verify you are authorized to use the domain and you have control over the DNS settings for the domain.
+. Open your DNS zone file for editing
+. Add a _TXT_ record for your $ORIGIN like this (replace Sample Student with your own name) and note that the text string must be enclosed by quotes:
++
+[source,console]
+----
+@    60   IN      TXT      "Domain setup by Sample Student"
+----
+. Save and close the zone file
+. Restart the _bind9_ service to apply the change
+. Use the `dig txt` command to verify the new _TXT_ record is setup correctly:
++
+[source,console]
+----
+ben@2480-Z:~$ dig txt z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> txt z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54499
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;z.itc2480.campus.ihitc.net.    IN      TXT
+
+;; ANSWER SECTION:
+z.itc2480.campus.ihitc.net. 60  IN      TXT     "Domain setup by Ben Franske"
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Aug 17 14:08:36 CDT 2024
+;; MSG SIZE  rcvd: 95
+
+ben@2480-Z:~$
+----
+. The text strings in _TXT_ records are usually limited to 255 characters but sometimes (for example with DKIM) you have more data that needs to go into the record. You can use multiple strings (each up to 255 characters) on multiple lines with parentheses around the whole record data like this:
++
+[source,console]
+----
+server2    60   IN   TXT   (
+                            "This is line 1 of a very long text record"
+                            "and this is line two of that same record."
+                            "We can even add a third or more lines all to"
+                            "the same record as long as they are within the"
+                            "parentheses of the record data field."
+                           )
+----
+. Create your own multi-line _TXT_ record for a host in your domain and add it to your DNS zone. Check that it is working correctly with the `dig txt` command:
++
+[source,console]
+----
+ben@2480-Z:~$ dig txt server2.z.itc2480.campus.ihitc.net
+
+; <<>> DiG 9.18.28-1~deb12u2-Debian <<>> txt server2.z.itc2480.campus.ihitc.net
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64348
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;server2.z.itc2480.campus.ihitc.net. IN TXT
+
+;; ANSWER SECTION:
+server2.z.itc2480.campus.ihitc.net. 60 IN TXT   "This is line 1 of a very long text record" "and this is line two of that same record." "We can even add a third or more lines all to" "the same record as long as they are within the" "parentheses of the record data field."
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Sat Aug 17 14:41:47 CDT 2024
+;; MSG SIZE  rcvd: 289
+
+ben@2480-Z:~$
+----
+
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
