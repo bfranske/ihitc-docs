@@ -160,7 +160,7 @@ server {
 . On my system that line looks like `listen = /run/php/php8.2-fpm.sock`. Again, this is going to vary depending on the specific version of php-fpm you have installed on your system. This is the location of the socket file that php-fpm will use to talk to Nginx. Save this location somewhere so you can paste it into your Nginx configuration.
 . Re-open your Nginx configuration file at _/etc/nginx/sites-available/default_ in a text editor. You'll want to add a few things to verious lines as well as a location block to handle .php files. A sample (again with comments removed to save space, but you can leave them in yours) is below along with an explanation:
 +
-[source,console]
+[source]
 ----
 server {
         listen 80 default_server;
@@ -192,7 +192,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 . Restart the Nginx server software to apply the configuration changes using the `systemctl restart nginx` command. You can check to make sure there were no errors in the configuration that prevented Nginx from restarting by using the `systemctl status nginx` command and checking the output to ensure it says `Active: active (running)`. It would also be a good idea to make sure that the web browser on your administrative PC can still access your Linux server web site.
 . Once you are sure that Nginx has started properly and is serving pages create a new file named _phptest.php_ in _/var/www/html_ with a text editor. Put the following code into that file:
 +
-[source,console]
+[source]
 ----
 <?php
   phpinfo();
@@ -204,7 +204,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 . Let's try and setup a very simple example of a PHP web application which can take a user's name from a form and display it back to them on a web page. For this example we will need to create two files on our web server. One of the files will be an HTML form which collects the name of the user and the other is a PHP script which receives the name of the user from the form when the user submits it and displays a welcome message back to them.
 . First, create a _form.html_ file in _/var/www/html_ with a text editor. Put the following code into that file:
 +
-[source,console]
+[source]
 ----
 <html>
 <body>
@@ -222,7 +222,7 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ----
 . This will give the user a place to enter their name onto the web page using an HTML form. When the user presses the "Submit" button the contents of the form will be sent from their browser to the welcome.php page on the server using an HTTP POST method. The welcome.php script will then need to process them (and in our case respond with a welcome message) so now create a _welcome.php_ file in _/var/www/html_ with a text editor. Put the following code into that file:
 +
-[source,console]
+[source]
 ----
 <html>
 <body>

@@ -1,0 +1,517 @@
+= Lab 10: An Introduction to Containers
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Install Docker
+* Container Basics with BusyBox
+* Practical Docker: A Simple Webserver
+* Practical Docker: A Webapp with Multiple Containers and Docker Compose
+
+You will be introduced to the following commands:
+
+* docker
+* docker-compose
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Install Docker
+NOTE: This lab is based off the excellent https://web.archive.org/web/20240815035141/https://docker-curriculum.com/[Docker Curriculum] by Prakhar Srivastav though it is designed to work specifically on the virtual machines we have built thus far in this class and to be a bit more narrowed in focus. When additional explanation would be helpful it's recommended you refer back to the https://web.archive.org/web/20240815035141/https://docker-curriculum.com/[Docker Curriculum site].
+
+. So far in these labs we have been working in a _virtual machine_ environment where your Linux server is completely isolated from other virtual systems running on the same physical hardware. Virtual machines remain a powerful tool used by IT departments; however, there is another technology called _containers_ which provide *most* of the isolation that virtualization does while sharing some underlying parts of the operating system which saves a lot of computing power.
+. These _containers_ allow us to run multiple applications (such as one or more web applications, database servers, email systems, etc.) on a single physical or virtual system. They also allow us to quickly push updated versions of the applications out which include all of the dependencies the application requires (and which may conflict with dependencies of other applications) bundled into the container. Probably the most popular architecture for building and running containers today is _Docker_ which we'll begin to explore in this lab activity.
+. We will begin by installing _Docker_ which requires that the Docker APT repository be setup on your virtual machine. You should have already set this up in xref:lab8.adoc[Lab 8] when you were working on adding APT repositories.
+. Use `apt` to install this list of packages: _docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin_ which you should see mostly downloading from the _\https://download.docker.com_ site if you have properly configured the Docker APT repository.
+. Test your installation by running the command `docker run hello-world` as an administrative user:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+c1ec31eb5944: Pull complete
+Digest: sha256:53cc4d415d839c98be39331c948609b659ed725170ad2ca8eb36951288f81b75
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+ben@2480-Z:~$
+----
+
+== Container Basics with BusyBox
+. As opposed to a general purpose installation of an operating system we usually want to keep containers as lightweight as possible meaning they should be small and resource efficient so they can be quickly started and do what they were designed to do. Containers themselves are what run on our system but they are made up of one or more Docker _images_ which contain the application and system executable files. One example of a very basic lightweight image is the _BusyBox_ image which contains many of the common *NIX command line utilities in one tiny executable.
+. One of the things that makes Docker popular is that lots of people have already created Docker images that are ready to use or can be used as a basis to build upon and create your own custom Docker image. These images are often pubished to _Docker Hub_ which is a registry of images which you can _pull_ (download) to your own system and use. Run the `docker pull busybox` command as administrator to download the _BusyBox_ image from the _Docker Hub_.
+. You can view a list of images which are loaded on your server using the `docker images` command:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker pull busybox
+Using default tag: latest
+latest: Pulling from library/busybox
+ec562eabd705: Pull complete
+Digest: sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+Status: Downloaded newer image for busybox:latest
+docker.io/library/busybox:latest
+ben@2480-Z:~$ sudo docker images
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+busybox       latest    65ad0d468eb1   15 months ago   4.26MB
+hello-world   latest    d2c94e258dcb   15 months ago   13.3kB
+ben@2480-Z:~$
+----
+. To run a Docker _container_ based on this image use the `docker run busybox` command as an administrator:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker run busybox
+ben@2480-Z:~$
+----
+. While it may seem like nothing happened that is far from the truth! In fact, Docker created a _container_ based on the _busybox_ image and then started up that container; however, because we didn't give any further command to be run inside the container it just immediately exited the the container was shutdown. Can you imagine a virtual machine even just starting up and shutting down that quickly? That is one of the advantages of containers being so lightweight, they can be started and stopped very quickly as different needs arise.
+. Let's run our container again but tell it to run the `ls -al /home` command by using `docker run busybox ls -al /home` and compare that with what the `ls -al /home` command looks like on our server system itself:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker run busybox ls -al /home
+total 8
+drwxr-xr-x    2 nobody   nobody        4096 May 18  2023 .
+drwxr-xr-x    1 root     root          4096 Aug 19 15:40 ..
+ben@2480-Z:~$ ls -al /home
+total 16
+drwxr-xr-x  4 root   root   4096 Mar 26 15:09 .
+drwxr-xr-x 18 root   root   4096 Aug  8 17:23 ..
+drwx------  9 ben    ben    4096 Aug 17 14:40 ben
+drwx---r-x  3 jsmith jsmith 4096 Apr  2 17:02 jsmith
+ben@2480-Z:~$
+----
+. You can see that inside the container the _/home_ location is empty but on our server system it has a directory for both of the regular users we have created. Again, compare how quickly the `docker run busybox ls -al /home` command ran with how long it would take to start up a virtual machine, log in, run that `ls` command, and then shut down!
+. While some Docker containers start and stop quickly like this others stay running in the background for a long time (or even all the time) so it's useful to have a command to check and see what containers are currently running. The command that let's you see any currently running containers is `docker ps`, try it now:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ben@2480-Z:~$
+----
+. Because all of our containers have actually stopped running you'll see that the list here is empty. It's also possible to see a list of previously run containers which still exist on the system with the `docker ps -a` command which you should also try:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS                      PORTS     NAMES
+3d7ff06de75d   busybox       "ls -al /home"     2 minutes ago    Exited (0) 2 minutes ago              thirsty_cannon
+2d55b8b8faa1   busybox       "sh"               2 minutes ago    Exited (0) 2 minutes ago              practical_curran
+a3232151f24e   hello-world   "/hello"           2 minutes ago    Exited (0) 2 minutes ago              hopeful_poincare
+ben@2480-Z:~$
+----
+. So far we have just been running a single command inside the Docker container and that's actually a pretty normal thing to do. The idea with containers is to just have them do a single thing (such as run a web server or database server) so they often only need the command to start that thing. However, it is possible to connect to a conatiner in an _interactive_ way so that you get a prompt inside of the container just like you would connecting to a virtual machine. To do this try running the command `docker run -it busybox sh` which includes the `-it` option which means to connect it to an interactive console and the `sh` command which is the executable name for a simple command-line shell inside of busybox (busybox is so small it doesn't include the full BASH shell).
+. You should see your prompt change (and indicate you are running as the _root_ user) and can now do things inside the container. Try a few commands like `ls` and `cd` to navigate around inside the container and `uptime` to see how long the container has been running for. Note that because this is a very basic container with only busybox the basic commands will be there but not more advanced commands like `apt` or `lsb_release`.
+. When you are done working in the interactive container you can run the `exit` command to return back to your Linux server, you should see the prompt change back.
+. Every time we tell Docker to run it creates a new _container_ from the original _image_. Even after these containers exit and are stopped the copy of the container sticks around on the system (as you can see in the `docker ps -a` command). Eventually these start to take up an apprciable amount of space on the system so it makes sense to delete old stopped containers. You can do this by running `docker ps -a` and getting the container IDs you want to delete and then running `docker rm _<containerIDs>_` where you can separate the list of container IDs with spaces. Try deleting a container or two this way:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND            CREATED          STATUS                      PORTS     NAMES
+8009761decd7   busybox       "sh"               7 minutes ago    Exited (2) 3 minutes ago              serene_buck
+3d7ff06de75d   busybox       "ls -al /home"     16 minutes ago   Exited (0) 16 minutes ago             thirsty_cannon
+2d55b8b8faa1   busybox       "sh"               16 minutes ago   Exited (0) 16 minutes ago             practical_curran
+a3232151f24e   hello-world   "/hello"           16 minutes ago   Exited (0) 16 minutes ago             hopeful_poincare
+b47283d7f7da   busybox       "ls -al /home"     21 minutes ago   Exited (0) 21 minutes ago             magical_chatelet
+82ad967899f0   busybox       "ls"               22 minutes ago   Exited (0) 22 minutes ago             stupefied_pike
+18220ee96832   busybox       "lsb_release"      22 minutes ago   Created                               goofy_morse
+ea7ff9b99903   busybox       "lsb_release -a"   22 minutes ago   Created                               pensive_pare
+553ced9cfb5a   busybox       "sh"               28 minutes ago   Exited (0) 28 minutes ago             serene_beaver
+1c245c444c8e   hello-world   "/hello"           44 hours ago     Exited (0) 44 hours ago               loving_dubinsky
+ben@2480-Z:~$ sudo docker rm 1c245c444c8e 553ced9cfb5a ea7ff9b99903
+1c245c444c8e
+553ced9cfb5a
+ea7ff9b99903
+ben@2480-Z:~$ sudo docker ps -a
+CONTAINER ID   IMAGE         COMMAND          CREATED          STATUS                      PORTS     NAMES
+8009761decd7   busybox       "sh"             7 minutes ago    Exited (2) 4 minutes ago              serene_buck
+3d7ff06de75d   busybox       "ls -al /home"   16 minutes ago   Exited (0) 16 minutes ago             thirsty_cannon
+2d55b8b8faa1   busybox       "sh"             17 minutes ago   Exited (0) 17 minutes ago             practical_curran
+a3232151f24e   hello-world   "/hello"         17 minutes ago   Exited (0) 17 minutes ago             hopeful_poincare
+b47283d7f7da   busybox       "ls -al /home"   22 minutes ago   Exited (0) 22 minutes ago             magical_chatelet
+82ad967899f0   busybox       "ls"             22 minutes ago   Exited (0) 22 minutes ago             stupefied_pike
+18220ee96832   busybox       "lsb_release"    22 minutes ago   Created                               goofy_morse
+ben@2480-Z:~$
+----
+. However, in newer versions of Docker they added a _container prune_ option which will automatically remove all stopped contianers. Try running it now like `docker container prune` and remove all your stopped containers:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+8009761decd7af289f723e1f50ea28ccdecb50f25d667a8d22e99f05c5759097
+3d7ff06de75daae7b0283ca7a63bee0324b65087a304075dd003c02e80761043
+2d55b8b8faa1e360cbdca2a6b1937cc60a682712832fa0673560d579928acb51
+a3232151f24e5c5211339fb3973c3e46b088f8f221ca2448c93c39c6d2b17f1e
+b47283d7f7da362663b66033a1533406e430305c7da6149497bf16a372c47020
+82ad967899f0b0add39329d3ead9bf830da31bc0c51649339e5f5a5d9ead9174
+18220ee968329325558b2effc6d09447818aaaeb69028de8ddbc91537e32422c
+
+Total reclaimed space: 14B
+ben@2480-Z:~$ sudo docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ben@2480-Z:~$
+----
+. You can also remove and prune Docker _images_ which do not have currently running containers in the same way with the `docker image rm _<imageID>_` command or `docker image prune -a` to remove all images which are currently unused. Get a list of the images on your system and then try removing one and pruning the rest:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker image ls
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+busybox       latest    65ad0d468eb1   15 months ago   4.26MB
+hello-world   latest    d2c94e258dcb   15 months ago   13.3kB
+ben@2480-Z:~$ sudo docker image rm d2c94e258dcb
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:53cc4d415d839c98be39331c948609b659ed725170ad2ca8eb36951288f81b75
+Deleted: sha256:d2c94e258dcb3c5ac2798d32e1249e42ef01cba4841c2234249495f87264ac5a
+Deleted: sha256:ac28800ec8bb38d5c35b49d45a6ac4777544941199075dff8c4eb63e093aa81e
+ben@2480-Z:~$ sudo docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+busybox      latest    65ad0d468eb1   15 months ago   4.26MB
+ben@2480-Z:~$ sudo docker image prune -a
+WARNING! This will remove all images without at least one container associated to them.
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+untagged: busybox:latest
+untagged: busybox@sha256:9ae97d36d26566ff84e8893c64a6dc4fe8ca6d1144bf5b87b2b85a32def253c7
+deleted: sha256:65ad0d468eb1c558bf7f4e64e790f586e9eda649ee9f130cd0e835b292bbc5ac
+deleted: sha256:d51af96cf93e225825efd484ea457f867cb2b967f7415b9a3b7e65a2f803838a
+
+Total reclaimed space: 4.262MB
+ben@2480-Z:~$ sudo docker image ls
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+ben@2480-Z:~$
+----
+
+== Practical Docker: A Simple Webserver
+. Now that we have a basic understanding of how Docker works let's try a simple practical example, running an Nginx webserver in Docker. One advantage of doing this in a Docker container is that you could more easily run a newer version of something like Nginx than what is packaged with your Linux distribution; however, this would make you responsible for doing upgrades/security updates outside of the package management system of your distribution as well. Because we already have a webserver on our Linux server running on port 80 we'll run this new webserver on port 8888.
+. Many popular open source server applications today provide official Docker images for just this purpose and Nginx is no different. If you https://hub.docker.com/_/nginx[search hub.docker.com for Nginx you'll find this official image].
++
+IMPORTANT: In addition to official Docker images there are often times unofficial images which have been created by users. You should think carefully about how much you trust they person who created these unofficial images before using them as the image creator could have included just about any code they wanted including deliberately insecure or malicious code!
+. We'll use the command `docker run --rm -d -p 8888:80 --name webcontainer nginx` to run the server but *don't do it just yet*, let's explain what's going on with this command first.
+.. Because we don't already have the _nginx_ image the first thing to note is that Docker will automatically try and download the image from the _Docker Hub_.
+.. There are also a few new options to `docker run` to talk about. First the `--rm` option tells Docker to automatically delete the _container_ after it exits so we don't have to worry about doing a `docker rm` or `docker container prune` later on.
+.. Next, the `-d` option tells Docker we want to run the container in _detatched_ mode so that it won't take over our console, will run in the background, and will keep running even if we close our SSH session.
+.. The `-p 8888:80` option is our introduction to networking with Docker. This option says that we want to forward port 8888 on our Linux server (the Docker host) to port 80 in the container which is what the Nginx configuration in the container is set to use as it's default port. Without this option we would not have access to the port the webserver is running on from outside the container.
++
+NOTE: There are much more advanced ways to do Docker networking too including dedicating an IP address for the container and just passing all ports on that IP to the container or creating private Docker networks where multiple containers can talk amongst themselves (such as a database container and a web server container) but have no access from the outside.
+.. Lastly the `--name webcontainer` option gives a name to the container we can use to issue commands to Docker without needing to use the container ID all the time, this just makes things a bit more user friendly.
+. Now that you have an idea what each part of the command will do try running the command `docker run --rm -d -p 8888:80 --name webcontainer nginx` and then run the `docker ps` command to make sure the container is running:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker run --rm -d -p 8888:80 --name webcontainer nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+e4fff0779e6d: Pull complete
+2a0cb278fd9f: Pull complete
+7045d6c32ae2: Pull complete
+03de31afb035: Pull complete
+0f17be8dcff2: Pull complete
+14b7e5e8f394: Pull complete
+23fa5a7b99a6: Pull complete
+Digest: sha256:447a8665cc1dab95b1ca778e162215839ccbb9189104c79d7ec3a81e14577add
+Status: Downloaded newer image for nginx:latest
+33d17f1de3048110f5e2b4947e2e96561fcdab37e050d734f6e49e8e58108547
+ben@2480-Z:~$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+33d17f1de304   nginx     "/docker-entrypoint.…"   13 seconds ago   Up 12 seconds   0.0.0.0:8888->80/tcp, :::8888->80/tcp   webcontainer
+ben@2480-Z:~$
+----
+. Since the container is running we should be able to just access the server now by browsing to http://z.itc2480.campus.ihitc.net:8888 (with your Pod ID letter replacing z) from our management computer.
++
+IMPORTANT: You may recall that we have a firewall setup on our system and are wondering why we don't need to add a rule allowing port 8888 through that firewall. As it turns out Docker, in an effort to make things simple to use, will automatically install rules directly in nftables allowing the traffic. This may seem convenient but now we have a hole in our security which won't show up on a `firewall-cmd --zone=external --list-all` list becuase it is happening outside of _firewalld_. This is not a very good idea in production. There are a number of ways to solve this including disabling Docker from modifying nftables and manually creating rules in _firewalld_ for our containers or using another runtime to manage the Docker containers like _Podman_ or other ways. Each of these has advantages and disadvantges which should be weighed carefully in a production environment but are outside the scope of this Docker introduction! 
+. You should now stop the container with the `docker stop webcontainer` command because we named our container _webcontainer_. You should also notice that the container is automatically removed because we launched it with the `--rm` option:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo docker stop webcontainer
+webcontainer
+ben@2480-Z:~$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ben@2480-Z:~$ sudo docker ps -a
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+ben@2480-Z:~$
+----
+. So far so good, but how can we change the contents of the web site which is currently in the `/usr/share/nginx/html` location *inside* the container? There are a few ways to do this but the first one we'll explore is to use _bind mounts_ which allow us to connect a location on our Docker host system onto a location inside a container.
+.. First, create a new directory on your system in your user's home directory like `~/docker-web` and another new directory inside that one named `content`.
+.. Create a file inside the `content` directory named `index.html` with this inside it:
++
+[source]
+----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Docker Nginx</title>
+</head>
+<body>
+  <h2>Hello from my ITC-2480 Nginx Docker container!</h2>
+</body>
+</html>
+----
+.. We're now going to run the command `docker run --rm -d -p 8888:80 --name webcontainer -v ~/docker-web/content:/usr/share/nginx/html nginx`. You'll notice this command has one extra option compared with what we ran previously. The `-v ~/docker-web/content:/usr/share/nginx/html` option tells Docker to map the host directory `~/docker-web/content` to the `/usr/share/nginx/html` directory inside the container.
+.. Check on your administrative PC that the contents of the website are now updated to reflect it is running in Docker. You may need to manually refresh the page in the browser of your administrative PC to see the latest content.
+.. It's also possible to map your own custom Nginx configuration file over the default file in much the same way if you want to customize the configuration.
+. There are many other ways to get data into and out of a Docker container including building your own custom image based on another image and useing Docker _volumes_.
+. You should now stop the container with the `docker stop webcontainer` command to clean things up for the next section.
+
+== Practical Docker: A Webapp with Multiple Containers and Docker Compose
+. While you can already see some of the advantages in working with Docker you also can start to see the complexities of working with it as command lines to start containers are growing in length. Because a containerized approach to running applications usually tries to limit each container to doing just one thing (webserver, database server, etc.) it is also often the case that to run a single "application" we need to run multiple containers which depend on each other and need to share information with each other. Obviously starting and stopping one application then could involve multiple long commands it makes sense to have a way to organize containers into application "groups" and start/stop and configure them together. This is where the _Docker Compose_ tool comes into play.
+. _Docker Compose_ is based around _Compose files_ (by default a `compose.yaml` in a separate directory for each application) which define what image(s) should be used to start or stop an application and what the configuration settings for the container(s) should be. Let's start by setting up a very basic _Compose file_ for the web server container we were working with in the last section.
+.. Open a new file `~/docker-web/compose.yaml` in a text editor and paste this in (modifying the volume path as needed for your own home directory name):
++
+[source]
+----
+name: webdemo
+
+services:
+    webserver:
+        image: nginx
+        ports:
+            - "8888:80"
+        volumes:
+            - /home/ben/docker-web/content:/usr/share/nginx/html
+----
+.. You can see how the command line options from our old `docker run` command got transposed into this _Compose file_. To run this Compose file all we need to do is be in the _~/docker-web_ directory with the _compose.yaml_ file and run `docker compose up -d` (again the `-d` option on the end indicates this should be run in detatched mode in the background). Try starting the container through _Docker Compose_ like this now.
+.. You should find that the web page is displaying and working just as it did when we ran the `docker run` command before.
+.. If you check what containers are running with `docker ps` you should see:
++
+[source,console]
+----
+ben@2480-Z:~/docker-web$ sudo docker compose up -d
+[+] Running 2/2
+ ✔ Network webdemo_default        Created                                                                                                                                               0.3s
+ ✔ Container webdemo-webserver-1  Started                                                                                                                                               0.4s
+ben@2480-Z:~/docker-web$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+1ff16fe58a83   nginx     "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds   0.0.0.0:8888->80/tcp, :::8888->80/tcp   webdemo-webserver-1
+ben@2480-Z:~/docker-web$
+----
+.. Notice that the name of the Docker container this time is set to _webdemo-webserver-1_ which is a combination of the _project name_ we set at the beginning of the _compose.yaml_ file (_webdemo_) and the _service name_ we set in the file (_webserver_) for the specific image we're running. Both of these are needed because we may have multiple containers that start from the _compose.yaml_ file.
+.. As long as you're in the same directory as the _compose.yaml_ file you can also use the `docker compose ps` command to just see the continers associated with the current project:
++
+[source,console]
+----
+ben@2480-Z:~/docker-web$ sudo docker compose ps
+NAME                  IMAGE     COMMAND                  SERVICE     CREATED         STATUS         PORTS
+webdemo-webserver-1   nginx     "/docker-entrypoint.…"   webserver   4 minutes ago   Up 4 minutes   0.0.0.0:8888->80/tcp, :::8888->80/tcp
+ben@2480-Z:~/docker-web$
+----
+.. To stop the container without removing it (so the same container could be started again without rebuilding it from an image) you can run the `docker compose stop` command. Or, if you want to remove the container as well you can run the `docker compose down` command, which you should do now.
+. Now that we have a basic idea of how _Docker Compose_ works let's try running an actual web application consisting of multiple containers. In this example we'll run another copy of Wordpress as our sample application, which conveniently has an official Docker image. In addition to the Wordpress image we'll also need a MariaDB database server and a Nginx web server. We'll be able to see how all three of these containers communicate with one another and how we store our data in this containerized environment.
+. As the heart of this setup is really the Docker _Compose file_ we'll start by setting up that.
+.. Create a new directory inside your home directory `~/wpdockerdemo`
+.. Create a new `compose.yaml` file inside that directory and open it for editing with a text editor. Paste this in:
++
+[source]
+----
+name: wpdockerdemo
+
+services:
+   db:
+      image: mariadb
+      environment:
+         MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+         MYSQL_DATABASE: ${MYSQL_DATABASE}
+         MYSQL_USER: ${MYSQL_USER}
+         MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      volumes:
+         - mysql-datavolume:/var/lib/mysql
+      restart: unless-stopped
+
+   wp:
+      image: wordpress:fpm-alpine
+      environment:
+         WORDPRESS_DB_HOST: db:3306
+         WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+         WORDPRESS_DB_USER: ${MYSQL_USER}
+         WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+         WORDPRESS_TABLE_PREFIX: ${WORDPRESS_TABLE_PREFIX}
+      depends_on:
+         - db
+      volumes:
+         - ${WP_CONTENT}:/var/www/html/wp-content
+         - wordpress:/var/www/html
+      restart: unless-stopped
+
+   webserver:
+      image: nginx
+      volumes:
+         - ./nginx:/etc/nginx/conf.d
+         - wordpress:/var/www/html
+         - ${WP_CONTENT}:/var/www/html/wp-content
+      ports:
+         - "8888:80"
+      depends_on:
+         - wp
+      restart: unless-stopped
+
+volumes:
+   mysql-datavolume:
+   wordpress:
+----
+.. Obviously we have the three containers configured in that Compose file but there are a few new things to explain.
+... First, the _environment_ section of the _db_ and _wp_ containers is another way to pass configuration information into a container that has been specifically setup to recieve configuration using _environment variables_. This is commonly used to pass basic one line configuration things into containers, especially secrets like passwords which we want to be careful where we store in case we share our Compose file. In this case we'll soon create a _.env_ file where these settings are stored. This also lets us set some things like the database name once which are used in multiple containers.
+... Second, we have created two _volumes_ named _mysql-datavolume_ and _wordpress_ which can store information from the containers which will persist even if the containers are removed and re-created (such as when they might be upgraded to new versions) but which are not _bind mounts_ tied to a directory on our host system. These will hold our actual database files and our Wordpress installation files respectively.
+... Lastly, we have added the `restart: unless-stopped` option to each container telling Docker that in the case the container somehow exits in any way other than us intentionally stopping it Docer should automatiacally restart it.
+.. Save and exit the _compose.yaml_ file.
+. Before we forget we should create that _.env_ file with the settings it should contain.
+.. Create a new file at `~/wpdockerdemo/.env` and open it in a text editor. Paste this in:
++
+[source]
+----
+# Root password for your database
+MYSQL_ROOT_PASSWORD=secret-db-pass
+
+# Database name, user and password for your wordpress
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wordpress
+MYSQL_PASSWORD=wp-secret-db-pass
+
+# Path to store your wordpress content files such as image uploads, etc.
+WP_CONTENT=./wp-content
+
+# Wordpress database table prefix
+WORDPRESS_TABLE_PREFIX=wp_
+----
+.. For our demonstartion site it's fine to keep all the passwords as they are, but in a production setup you would want to pick secure passwords.
+.. Save and close the _.env_ file
+.. All of the settings from this file will essentially be copied and pasted into the Docker Compose file on the fly when you bring up the application. You can actually see what this looks like (along with other default settings) with the `docker compose config` command.
+.. Create a new directory `~/wpdockerdemo/wp-content` since we have set that up as the mounted location for the wordpress container to store content files for our site.
+. You'll also notice that the _webserver_ container is set to mount the `~/wpdockerdemo/nginx` directory into the Nginx configuration location so we need to set up our Nginx configuration there.
+.. Create a `~/wpdockerdemo/nginx` directory 
+.. Create and open a `wp.conf` file inside that directory for editing. Paste this in:
++
+[source]
+----
+server {
+    listen 80 default_server;
+    server_name _;
+ 
+    root /var/www/html;
+    index index.php;
+ 
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+ 
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass wp:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+    }
+}
+----
+.. This should look like a pretty standard Nginx configuration. The one thing of note here is how Nginx is connecting to the Wordpress PHP-FPM application. Notice the `fastcgi_pass wp:9000;` line. This directs Nginx to make a FastCGI connection to a different system, in this case the Wordpress container which is running PHP-FPM. Normally we could put a local socket (with PHP-FPM running on the same machine as we did in a previous lab) here or an IP address or DNS name of a different system. When we use Docker Compose the containers are all accessible to one another using the name of the container in the _compose.yaml_ file so because our Wordpress FPM container is named `wp` we can use the line `fastcgi_pass wp:9000;` to connect to it on port 9000.
+.. Save and close the file
+. At this point you should be able to run the `docker compose up -d` command which will begin pulling the required images and creating containers.
+. Once all the containers have started (which you can confirm with `docker compose ps`) you should be able to connect from your administrative PC's browser to http://z.itc2480.campus.ihitc.net:8888 again (with your own Pod ID letter instead of z) and you should be launched into the Wordpress installation wizard.
+. Go ahead and complete the installation wizard and make sure your Wordpress site is running as expected.
+. Stop and remove your containers with the `docker compose down` command.
+. Of course all your data is still intact even though we removed the containers because we are storing the database and Wordpress files in some Docker volumes and any uploaded content in the mounted _wp-content_ directory.
+.. You can view the _wp-content_ directory like normal:
++
+[source,console]
+----
+ben@2480-Z:~/wpdockerdemo$ ls -al wp-content/
+total 24
+drwxr-xr-x 5  82  82 4096 Aug 19 16:37 .
+drwxr-xr-x 4 ben ben 4096 Aug 19 16:34 ..
+-rw-r--r-- 1  82  82   28 Jan  8  2012 index.php
+drwxr-xr-x 3  82  82 4096 Jul 23 10:15 plugins
+drwxr-xr-x 5  82  82 4096 Jul 23 10:15 themes
+drwxr-xr-x 3  82  82 4096 Aug 19 16:37 uploads
+ben@2480-Z:~/wpdockerdemo$
+----
+.. To see the Docker volumes we can use the `docker volume ls` command:
++
+[source,console]
+----
+ben@2480-Z:~/wpdockerdemo$ sudo docker volume ls
+DRIVER    VOLUME NAME
+local     wpdockerdemo_mysql-datavolume
+local     wpdockerdemo_wordpress
+ben@2480-Z:~/wpdockerdemo$
+----
+.. Notice that these are still in existance even though the containers have been removed. In many cases this is a good thing, if we were to run `docker compose up -d` new containers would be created from the images but everything would go back to just the way it was (Wordpress already installed, all the same users and blog posts, etc) because the underlying database and files are all still the same.
+.. If we want to actually see how much space all these Docker components are taking we can use the `docker system df -v` command:
++
+[source,console]
+----
+ben@2480-Z:~/wpdockerdemo$ sudo docker system df -v
+Images space usage:
+
+REPOSITORY   TAG          IMAGE ID       CREATED       SIZE      SHARED SIZE   UNIQUE SIZE   CONTAINERS
+mariadb      latest       92520f86618b   4 days ago    407MB     0B            406.9MB       0
+nginx        latest       5ef79149e0ec   5 days ago    188MB     0B            187.7MB       0
+wordpress    fpm-alpine   b72041955fbc   3 weeks ago   253MB     0B            252.9MB       0
+
+Containers space usage:
+
+CONTAINER ID   IMAGE     COMMAND   LOCAL VOLUMES   SIZE      CREATED   STATUS    NAMES
+
+Local Volumes space usage:
+
+VOLUME NAME                     LINKS     SIZE
+wpdockerdemo_mysql-datavolume   0         162.4MB
+wpdockerdemo_wordpress          0         58.06MB
+
+Build cache usage: 0B
+
+CACHE ID   CACHE TYPE   SIZE      CREATED   LAST USED   USAGE     SHARED
+ben@2480-Z:~/wpdockerdemo$
+----
+.. If we want to actually remove the local volumes we can do so either one volume at a time with the `docker volume rm _<volumeName>_` command or remove all volumes for a Compose project (as well as any containers) with the `docker compose down -v` command. Run this now to clear out your Docker volumes.
+. As you can see running containerized applications can add a lot of flexibility to quickly setting up identical or similar services on servers if you have all the required configuration saved somewhere. It can also make it faster to update software. However, it also comes with a cost of added complexity compared with running the services directly on a server. Whether this makes sense in your environment will depend on the specifics of your needs/environment, how the services were built, and your own experience but it is quite common to have containerized services in the enterprise today so it's certainly worth knowing something about.
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

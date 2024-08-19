@@ -31,7 +31,7 @@ NOTE: Remember that if you do not have a Windows computer to connect from you ca
 . By default BIND9 is setup as a caching nameserver. Any clients that connect to it and ask for a DNS record will get it either from the local cache if a recent enough record copy is there or BIND will look up the authoritative server for the domain starting from the _DNS root servers_ and pass back the requested record to the client once BIND has it. However, sometimes you don't want to have BIND request records starting directly at the root servers. Instead you may want (or need) them to flow to another caching DNS server upstream. This is sometimes the case on campus where we are sometimes blocked from making direct DNS requests out to the Internet by the campus firewall. To fix this we need to adjust the BIND configuration to use a specific _DNS forwarder_ which is an upstream caching DNS server.
 .. Open the _/etc/bind/named.conf.options_ file in a text editor with administrative permissions. Find the section of the file that looks like:
 +
-[source,console]
+[source]
 ----
         // If your ISP provided one or more IP addresses for stable
         // nameservers, you probably want to use them as forwarders.
@@ -44,7 +44,7 @@ NOTE: Remember that if you do not have a Windows computer to connect from you ca
 ----
 .. In this configuration file the lines starting with `//` are comment lines and not being applied. Following the instructions we want to set the DNS forwarder to _172.17.50.1_ which is an upstream DNS caching server and we want to activate the forwarding by uncommenting the _forwarders_ configuration block. Change the file like this:
 +
-[source,console]
+[source]
 ----
         // If your ISP provided one or more IP addresses for stable
         // nameservers, you probably want to use them as forwarders.
@@ -90,7 +90,7 @@ ben@2480-Z:~$
 . Let's assume for a moment that you have purchased the domain name _<podIDletter>.itc2480.campus.ihitc.net_ so if my pod ID letter were Z my domain name would be _z.itc2480.campus.ihitc.net_ which is what I'll be using in this example. *Make sure to substitute your own pod ID letter everywhere you see it in the following sections!* You want to use your Linux server as the _authoritative DNS server_ for this domain. Naturally you would need to set the IP address of your name server as the name server for the domain in the domain seller's control panel (usually a web interface) and ensure that the IP address was publically accessible. Once you've done those things here's what it would take to set up your BIND server as an authoritative name server for the domain.
 . All records for a domain are assigned to a _zone_ in BIND so the first thing to do is to define a zone. Open the _/etc/bind/named.conf.local_ file in a text editor with administrative permissions. Go to the bottom of the file and define a new zone like (*remember to use your own pod ID letter in the zone name and database file name*):
 +
-[source,console]
+[source]
 ----
 zone "z.itc2480.campus.ihitc.net" {
     type master;
@@ -114,7 +114,7 @@ ben@2480-Z:~$
 ----
 . Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions. Copy in the following template.
 +
-[source,console]
+[source]
 ----
 $TTL    86400
 $ORIGIN z.itc2480.campus.ihitc.net.
@@ -201,13 +201,13 @@ ben@2480-Z:~$
 . Open the _zone file_ at _/etc/bind/zones/db.z.itc2480.campus.ihitc.net_ in a text editor with administrative permissions.
 . Edit the line for the `www` hostname so that instead of this (of course with your own IP address):
 +
-[source,console]
+[source]
 ----
 www                              60   IN      A       172.17.50.36
 ----
 . It now looks like this (of course with your own Pod ID letter):
 +
-[source,console]
+[source]
 ----
 www                              60   IN      CNAME   z.itc2480.campus.ihitc.net.
 ----
@@ -309,7 +309,7 @@ ben@2480-Z:~$
 .. Make a copy of the _/etc/nginx/sites-available/default_ file and save it as _/etc/nginx/sites-available/blog_
 .. Edit the _/etc/nginx/sites-available/blog_ file so that it looke like this (keeping any comment lines in place that you want and changing the Pod ID letter in the domain name to match yours):
 +
-[source,console]
+[source]
 ----
 server {
         listen 80;
@@ -353,7 +353,7 @@ ben@2480-Z:~$
 . As things sit right now (with no _MX_ records) mail to _anyuser@z.itc2480.campus.ihitc.net_ will be sent to the _A_ record IP address for _z.itc2480.campus.ihitc.net_ but let's say we have a mail server running on _server2.z.itc2480.campus.ihitc.net_ which we should already have a different _A_ record for pointing to _192.51.100.6_ and we want mail for _anyuser@z.itc2480.campus.ihitc.net_ to actually be delivered to _192.51.100.6_.
 . Create a new _MX_ record in the zone file like:
 +
-[source,console]
+[source]
 ----
 @    60   IN      MX      10 server2
 ----
@@ -439,7 +439,7 @@ ben@2480-Z:~$
 . Open your DNS zone file for editing
 . Add an _AAAA_ IPv6 record for _server2.z.itc2480.campus.ihitc.net_ like this:
 +
-[source,console]
+[source]
 ----
 server2    60   IN      AAAA      2001:db8::56:14
 ----
@@ -509,7 +509,7 @@ In other words, there is a preference for IPv6 connections to servers in most op
 . Open your DNS zone file for editing
 . Add a _TXT_ record for your $ORIGIN like this (replace Sample Student with your own name) and note that the text string must be enclosed by quotes:
 +
-[source,console]
+[source]
 ----
 @    60   IN      TXT      "Domain setup by Sample Student"
 ----
@@ -544,7 +544,7 @@ ben@2480-Z:~$
 ----
 . The text strings in _TXT_ records are usually limited to 255 characters but sometimes (for example with DKIM) you have more data that needs to go into the record. You can use multiple strings (each up to 255 characters) on multiple lines with parentheses around the whole record data like this:
 +
-[source,console]
+[source]
 ----
 server2    60   IN   TXT   (
                             "This is line 1 of a very long text record"
