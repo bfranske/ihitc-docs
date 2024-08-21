@@ -1,0 +1,767 @@
+= Lab 12: Filesystem Management and Hardware Utilities
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Check kernel modules in use as well as USB and PCI(e) devices
+* Check system memory usage
+* Explore the /proc filesystem
+* Explore the /dev filesystem
+* View disk space availibility and file space usage
+* Create and format partitions on a second disk drive
+* Mount and use partitions on a second disk drive
+
+You will be introduced to the following commands:
+
+* free
+* df
+* du
+* lsblk
+* lsusb
+* lsmod
+* lspci
+* cfdisk
+* mkfs.ext4
+* mkfs.btrfs
+* mkfs.exfat
+* mount
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Check kernel modules in use as well as USB and PCI(e) devices
+. The Linux _kernel_ is the program or code at the core of the operating system which essentially sits between the applications running on the system and the hardware of the system. It is ultimately responsible for facilitating interactions between the applications and hardware including the CPU, memory, and other system devices as well as preventing conflicts applications on the system. One of the key features of an operating system and reason for having one is that it allows applications to function at a higher level, they don't need to think about how to communicate with all the different network cards on the market or all the different video cards. Instead the application can just tell the operating system to "send out this data on the network" or "display this data on the screen" and the operating system figures out how to do that with the hardware in the system. In order for the operating system to be able to communicate itself with all the different hardware you have in a system it normally uses _device drivers_ which need to be somehow connected to the kernel. In Linux this connection is usually done with _kernel modules_ which allow code (usually device drivers, filesystem drivers, network protocol drivers, and system calls) to be added to the kernel without rebuilding the kernel or even without restarting the system.
+. View a list of kernel modules which are loaded on your system using the `lsmod` command as an administrator which will show you the name of the module, how much memory it is using, and which other modules are relying on it:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo lsmod
+Module                  Size  Used by
+xt_nat                 16384  0
+xt_tcpudp              20480  0
+veth                   36864  0
+xt_conntrack           16384  1
+xt_MASQUERADE          20480  1
+nf_conntrack_netlink    57344  0
+xfrm_user              53248  1
+xfrm_algo              16384  1 xfrm_user
+xt_addrtype            16384  2
+nft_compat             20480  4
+br_netfilter           36864  0
+bridge                311296  1 br_netfilter
+stp                    16384  1 bridge
+llc                    16384  2 bridge,stp
+overlay               163840  0
+nft_objref             16384  1
+nf_conntrack_netbios_ns    16384  1
+nf_conntrack_broadcast    16384  1 nf_conntrack_netbios_ns
+nft_masq               16384  1
+nft_fib_inet           16384  1
+nft_fib_ipv4           16384  1 nft_fib_inet
+nft_fib_ipv6           16384  1 nft_fib_inet
+nft_fib                16384  3 nft_fib_ipv6,nft_fib_ipv4,nft_fib_inet
+nft_reject_inet        16384  10
+nf_reject_ipv4         16384  1 nft_reject_inet
+nf_reject_ipv6         20480  1 nft_reject_inet
+nft_reject             16384  1 nft_reject_inet
+nft_ct                 24576  8
+nft_chain_nat          16384  6
+nf_nat                 57344  4 xt_nat,nft_masq,nft_chain_nat,xt_MASQUERADE
+nf_conntrack          188416  9 xt_conntrack,nf_nat,nft_ct,nf_conntrack_netbios_ns,xt_nat,nf_conntrack_broadcast,nf_conntrack_netlink,nft_masq,xt_MASQUERADE
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         16384  1 nf_conntrack
+ip_set                 61440  0
+cfg80211             1142784  0
+rfkill                 36864  2 cfg80211
+nf_tables             303104  541 nft_ct,nft_compat,nft_reject_inet,nft_fib_ipv6,nft_objref,nft_fib_ipv4,nft_masq,nft_chain_nat,nft_reject,nft_fib,nft_fib_inet
+libcrc32c              16384  3 nf_conntrack,nf_nat,nf_tables
+nfnetlink              20480  6 nft_compat,nf_conntrack_netlink,nf_tables,ip_set
+intel_rapl_msr         20480  0
+intel_rapl_common      32768  1 intel_rapl_msr
+intel_uncore_frequency_common    16384  0
+ghash_clmulni_intel    16384  0
+sha512_ssse3           49152  0
+sha512_generic         16384  1 sha512_ssse3
+sha256_ssse3           32768  0
+sha1_ssse3             32768  0
+vsock_loopback         16384  0
+vmw_vsock_virtio_transport_common    53248  1 vsock_loopback
+vmw_vsock_vmci_transport    36864  1
+vsock                  53248  5 vmw_vsock_virtio_transport_common,vsock_loopback,vmw_vsock_vmci_transport
+vmwgfx                372736  1
+aesni_intel           393216  0
+crypto_simd            16384  1 aesni_intel
+cryptd                 28672  2 crypto_simd,ghash_clmulni_intel
+drm_ttm_helper         16384  1 vmwgfx
+rapl                   20480  0
+ttm                    94208  2 vmwgfx,drm_ttm_helper
+vmw_balloon            24576  0
+pcspkr                 16384  0
+drm_kms_helper        212992  3 vmwgfx
+vmw_vmci               98304  2 vmw_balloon,vmw_vsock_vmci_transport
+ac                     20480  0
+button                 24576  0
+evdev                  28672  2
+joydev                 28672  0
+serio_raw              20480  0
+sg                     40960  0
+binfmt_misc            24576  1
+drm                   614400  6 vmwgfx,drm_kms_helper,drm_ttm_helper,ttm
+fuse                  176128  1
+loop                   32768  0
+dm_mod                184320  0
+efi_pstore             16384  0
+configfs               57344  1
+ip_tables              36864  0
+x_tables               61440  7 xt_conntrack,nft_compat,xt_tcpudp,xt_addrtype,xt_nat,ip_tables,xt_MASQUERADE
+autofs4                53248  2
+ext4                  983040  1
+crc16                  16384  1 ext4
+mbcache                16384  1 ext4
+jbd2                  167936  1 ext4
+crc32c_generic         16384  0
+sr_mod                 28672  0
+cdrom                  81920  1 sr_mod
+ata_generic            16384  0
+ata_piix               45056  0
+sd_mod                 65536  3
+t10_pi                 16384  1 sd_mod
+libata                401408  2 ata_piix,ata_generic
+crc64_rocksoft         20480  1 t10_pi
+crc64                  20480  1 crc64_rocksoft
+crc_t10dif             20480  1 t10_pi
+crct10dif_generic      16384  0
+vmw_pvscsi             32768  2
+crct10dif_pclmul       16384  1
+crct10dif_common       16384  3 crct10dif_generic,crc_t10dif,crct10dif_pclmul
+psmouse               184320  0
+crc32_pclmul           16384  0
+crc32c_intel           24576  3
+vmxnet3                73728  0
+scsi_mod              286720  5 vmw_pvscsi,sd_mod,libata,sg,sr_mod
+i2c_piix4              28672  0
+scsi_common            16384  4 scsi_mod,libata,sg,sr_mod
+ben@2480-Z:~$
+----
+. You can manually start and stop kernel module code with the `insmod`, `rmmod`, `modprobe` commands though this is largely automated in modern Linux systems so it is outside the scope of this course. In fact, with the simple hardware setups provided by virtual machine infrasctructure there is often very little a system administrator needs to do with kernel modules at all (with the possible exception of filesystem kernel modules). However, when running Linux directly on hardware especially with non-standard USB devices or PCI(e) cards you may find it neccecary to build, load, or work with kernel modules in order to take advantage of the hardware.
+. It is also sometimes useful, for diagnostic purposes, to be able to check what USB or PCI(e) devices the kernel can see and what it knows about them. To check on PCI(e) cards you can run the `lspci` command as an administrator:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo lspci
+00:00.0 Host bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge (rev 01)
+00:01.0 PCI bridge: Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX AGP bridge (rev 01)
+00:07.0 ISA bridge: Intel Corporation 82371AB/EB/MB PIIX4 ISA (rev 08)
+00:07.1 IDE interface: Intel Corporation 82371AB/EB/MB PIIX4 IDE (rev 01)
+00:07.3 Bridge: Intel Corporation 82371AB/EB/MB PIIX4 ACPI (rev 08)
+00:07.7 System peripheral: VMware Virtual Machine Communication Interface (rev 10)
+00:0f.0 VGA compatible controller: VMware SVGA II Adapter
+00:11.0 PCI bridge: VMware PCI bridge (rev 02)
+00:15.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:15.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:16.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:17.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.0 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.1 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.2 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.3 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.4 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.5 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.6 PCI bridge: VMware PCI Express Root Port (rev 01)
+00:18.7 PCI bridge: VMware PCI Express Root Port (rev 01)
+03:00.0 Serial Attached SCSI controller: VMware PVSCSI SCSI Controller (rev 02)
+0b:00.0 Ethernet controller: VMware VMXNET3 Ethernet Controller (rev 01)
+13:00.0 Ethernet controller: VMware VMXNET3 Ethernet Controller (rev 01)
+ben@2480-Z:~$
+----
+. Again, on a virtual machine this probably won't look too exciting. However, it can give us some clues such as that our Ethernet (network) cards are of the _VMNXNET3_ type which we could then use to search for in the kernel ring buffer (with `dmesg` which we have used previously) to find more information about such as the device names for configuring them.
+. If you're working with USB devices you will probably want to install the `usbutils` package on the system so you can get similar information about USB devices, go ahead and install that now.
+. Once you have installed _usbutils_ you should be able to run the `lsusb` command as an administrator and see some information about attached USB devices:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo lsusb
+[sudo] password for ben:
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 003: ID 0e0f:0002 VMware, Inc. Virtual USB Hub
+Bus 002 Device 002: ID 0e0f:0003 VMware, Inc. Virtual Mouse
+Bus 002 Device 001: ID 1d6b:0001 Linux Foundation 1.1 root hub
+ben@2480-Z:~$
+----
+. Again, not very exciting on a typical virtual machine. In fact, many virtual machines don't even have virtual USB ports at all so you could get no output. However on a physical Linux system with some USB devices attached you can definitely see more:
++
+[source,console]
+----
+pi@demosystem:~ $ sudo lsusb
+Bus 001 Device 005: ID 1b3f:2008 Generalplus Technology Inc. USB Audio Device
+Bus 001 Device 004: ID 10c4:814a Silicon Labs West Mountain Radio RIGblaster P&P
+Bus 001 Device 006: ID 0424:7800 Microchip Technology, Inc. (formerly SMSC)
+Bus 001 Device 007: ID 0bda:2832 Realtek Semiconductor Corp. RTL2832U DVB-T
+Bus 001 Device 008: ID c0f4:05f5 Usb KeyBoard Usb KeyBoard
+Bus 001 Device 009: ID 10c4:8108 Silicon Labs USB OPTICAL MOUSE
+Bus 001 Device 003: ID 0424:2514 Microchip Technology, Inc. (formerly SMSC) USB 2.0 Hub
+Bus 001 Device 002: ID 0424:2514 Microchip Technology, Inc. (formerly SMSC) USB 2.0 Hub
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+pi@demosystem:~ $
+----
+
+== Check system memory usage
+. At some point you may also want to check on the amount of memory a system has and how much of it is in use. This can be done with the `free` command:
++
+[source,console]
+----
+ben@2480-Z:~$ free
+               total        used        free      shared  buff/cache   available
+Mem:         2014436      621904     1194176        3184      346356     1392532
+Swap:         998396           0      998396
+ben@2480-Z:~$
+----
+. This basic output shows the total amount of physcial memory in the system as well as _swap space_ which is a location on the hard drive where system memory information can be stored that hasn't been accessed in a while. Microsoft Windows sometimes calls this feature _virtual memory_ or a _page file_. In addition you can see the amounts of used and free memory and the shared, buffer/cache and available memory for starting new applications. However, this information is shown in _kibibytes_ by default which can be a bit less useful in an era of gigabytes of system memory. Try running `free -m` and `free -g` to show the same information in _mebibytes_ and _gibibytes_.
++
+[source,console]
+----
+ben@2480-Z:~$ free -m
+               total        used        free      shared  buff/cache   available
+Mem:            1967         604        1164           3         342        1362
+Swap:            974           0         974
+ben@2480-Z:~$ free -g
+               total        used        free      shared  buff/cache   available
+Mem:               1           0           1           0           0           1
+Swap:              0           0           0
+ben@2480-Z:~$
+----
+. As you can see, on our system _mebibytes_ may be the most useful measure to use as our systems have 2GB (also known as 1.967 GiB or 1967 MiB) of total physical memory ov which about 604 MiB is in use leaving 1164 MiB (or 1.164 MiB) of available physical memory in my demonstration system.
++
+NOTE: For those wondering _kibibytes_ (abbriviated _KiB_) are similar to _kilobytes_ (_KB)_, _mebibytes_ (_MiB_) are similar to _megabytes_ (_MB_), and _gibibytes_ (_GiB_) are similar to _gigabytes_ (_GB_). The difference comes from how the values are translated from binary to decimal. A gibibyte is equal to 2^30 or 1,073,741,824 bytes (which makes more sense if you are working in binary numbers). A gigabyte is equal to 10^9 or 1,000,000,000 bytes (which makes more sense if you're working in decimal numbers). This means one gibibyte equals 1.074 gigabytes. From the earliest days of disk drives manufacturers have often quoted disk space in the decimal format while operating systems showed it in binary format which were very close when drives were small but have grown in difference as drives got larger. Memory is usually described in binary format physcially but because we're working with virtual machines in this case it was decribed in the decimal format hence the discrepancy between 2GB and the 1.967GiB we see above.
+
+== Explore the /proc filesystem
+. Linux manages nearly all aspects of the system as if they were files. This means that information such as the amount of free memory, processes running, the kernel itself, and even the CPU capbilities are stored in virtual files somewhere in the filesystem. The location of these virtual files is the `/proc` "directory".
+. Change the working directory on your system to `/proc` and list the "files" in this "directory"
+. You should see that almost all of the files have a size of 0, have been updated quite recently, and are owned by the root user. What do these virtual files contain though?
+. Run the `head meminfo` command to view the first 10 lines of the `/proc/meminfo` "file":
++
+[source,console]
+----
+ben@2480-Z:/proc$ head meminfo
+MemTotal:        2014436 kB
+MemFree:         1192688 kB
+MemAvailable:    1395528 kB
+Buffers:           16568 kB
+Cached:           307408 kB
+SwapCached:            0 kB
+Active:            72284 kB
+Inactive:         611584 kB
+Active(anon):        544 kB
+Inactive(anon):   362532 kB
+ben@2480-Z:/proc$
+----
+. Does this look familiar? It should. This virtual file contains information about system memory usage similar to what we got from the `free` command before. There is actually much more information here (remember we're only seeing the first 10 lines!) than `free` shows us and `free` is just a convenient utility to access information from this file.
+. In fact, many of the command line utilities we have used to get basic information about the system are just pulling information from the `/proc` filesystem and reformatting it in a user firendly way. For example, take a look at the `/proc/modules` virtual file using the `cat` command. This should also look familiar as the same type of thing you got from `lsmod` about kernel modules.
+. The `/proc/version` "file" should also look familiar as the `uname` command uses it to get the running kernel version.
+. In general, you can get more detailed information directly from the kernel by looking at `/proc` virtual files but they can be a bit harder to decipher than when they are interpreted by other tools. Some new information you should try looking at includes:
+.. `/proc/cpuinfo` which shows details about the CPU running your system including all the features it supports.
+.. `/proc/cmdline` which shows the kernel boot line which was used by the bootloader (GRUB) to start the system.
+.. /proc/mounts` which shows all the different things _mounted_ to locations in the filesystem. We'll look more closely at _filesystem mounts_ later in this lab.
+. There are many more system details in the `/proc` filesystem including network details and information about all the processes running on the system (where `ps` and `top` get there information). In general it's usually easier to use dedicated command line utilities to get information about the system but it's good to know that `/proc` is there in case you need to dig deeper.
+. It is even possible to enable and disable kernel features on the file by modifying the virtual files in the `/proc/sys` "directory". However, these changes will only persist until the system is rebooted after which they will get reset. To make changes permanent the `sysctl` command and the `/etc/sysctl.conf` file can be used.
+
+== Explore the /dev filesystem
+. As mentioned above Linux tries to treat everything as a file. This even includes devices on the system which are housed in the `/dev` location on the filesystem. Unlike the `/proc` location most of the things here do not appear as text files so you can't read them with tools like `cat`. Instead, `/dev` is used more as a path to a device which can be used in other software or configuration files to indicate what device you want to work with.
+. Change your working directory to `/dev` and list the "files" in the directory.
+. Notice there are a *lot* of devices here but also that a lot of the names are similar like _tty_, _tty0_, _tty1_, _tty2, etc. These are all _virtual consoles_ on the system which are used to allow interaction from a keyboard/monitor or from a service like SSH and because we can have mulitple users working on the system at a time we need multiple virtual consoles.
+. Here is a table of just a few of the most common `/dev` devices you may encounter:
++
+[%autowidth,options="header"]
+|===
+|Location|Description
+
+|`/dev/sd*`|SCSI or SATA hard drives (_sda_, _sdb_, etc.) or partitions on drives (_sda1_, _sda2_, etc.)
+|`/dev/hd*`|IDE (PATA) hard drives (_hda_, _hdb_, etc.) or partitions on drives (_hda1_, _hda2_, etc.)
+|`/dev/vd*`|Virtual hard drives (_vda_, _vdb_, etc.) or partitions on drives (_vda1_, _vda2_, etc.)
+|`/dev/ttyS*`|Serial ports
+|`/dev/tty*`|Virtual consoles used to allow interaction from a keyboard/monitor or from a service like SSH
+|`/dev/null`|This is a black hole where you can send data to have it immediately discarded. For example, you can redirect the standard output of a command like `> /dev/null` to hide output from the command.
+|`/dev/zero`|Every time you access this device it will just return a 0. It is commonly used if you want to create a file of a certain size (such as an empty virtual hard drive file) but don't care what the file contains.
+|`/dev/random`|This is a non-deterministic random data generator that is part of the kernel and whihc can be accessed to generate random data based on entropy (randomness) from the system hardware which is collected over time. Once the pool of entropy is exhausted more entropy must be collected before it will output more random data.
+|`/dev/urandom`|This is similar to `/dev/random` except that when entropy from the system hardware has run out it will use a psuedo-random data generating forumla to continue to generate pseudo-random data. This is considered less secure for critical practices such as generating random cryptographic keys but could be sufficient and faster than waiting for more entropy in other cases.
+. Another way to access information about the disks and partitions on the system is to use the `lsblk` (list block devices) utility which will show information like this:
++
+[source,console]
+----
+ben@2480-Z:~$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0   16G  0 disk
+├─sda1   8:1    0   15G  0 part /
+├─sda2   8:2    0    1K  0 part
+└─sda5   8:5    0  975M  0 part [SWAP]
+sdb      8:16   0    8G  0 disk
+sr0     11:0    1  629M  0 rom
+ben@2480-Z:~$
+----
+
+|===
+
+== View disk space availibility and file space usage
+. Another common system administrator task is to check and see how much disk space is being used on the system. You can check the total amount, used amount and available amound of disk space for all partitions on the system using the `df` (disk-free) command:
++
+[source,console]
+----
+ben@2480-Z:/dev$ df
+Filesystem     1K-blocks    Used Available Use% Mounted on
+udev              984160       0    984160   0% /dev
+tmpfs             201444     776    200668   1% /run
+/dev/sda1       15421320 3863460  10752692  27% /
+tmpfs            1007216       0   1007216   0% /dev/shm
+tmpfs               5120       0      5120   0% /run/lock
+tmpfs             201440       0    201440   0% /run/user/1000
+ben@2480-Z:/dev$
+----
+. Here you can see that the main partition on the SATA drive we're using is `/dev/sda1` and it is 27% full. The total, used, and available numbers are given in 1KB blocks though which can be hard to read with today's much larger partition sizes. Try running `df -h` which stands for "human readable" format:
++
+[source,console]
+----
+ben@2480-Z:/dev$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            962M     0  962M   0% /dev
+tmpfs           197M  776K  196M   1% /run
+/dev/sda1        15G  3.7G   11G  27% /
+tmpfs           984M     0  984M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           197M     0  197M   0% /run/user/1000
+ben@2480-Z:/dev$
+----
+. That's better we can now see that the `/dev/sda1` partition is 15GB in size and has 3.7GB used with 11GB available. Note that there are additional options for `df` that allow you to change the block size to other sizes too.
+. What if you want to know what exactly is taking up all that space through? That's where the `du` (disk-usage) command comes into play. Don't run it just yet though as we want to tell it where to start checking file sizes. If you've already run it you can stop it by pressing CTRL-C.
+. Because it takes some time to check the size of all the files on a disk individually you probably want to be specific about where you are checking the sizes. Let's change our working directory back to your user's home directory first.
+. Now run the `du` command (which should be fairly quick as we don't have too many files in our home directory). You'll see a listing of every individual directory and file inside all the directories inside your home directory along with their size. You'll also see a total usage at the end of the listing.
+. However, again, the sizes are not that readable so try again with `du -h` to get human readable sizes.
+. There's still a lot of data there to look at so it's common when trying to identify large files by starting just looking for large directories and then going into those directories and looking for large files. Let's try an example of this that will show some useful commands to make this easier.
+.. From your user's home directory run the `du -sh */` command which will calculate the size only of subdirectories under the current directory and print the sizes in human readable format.
+.. We can even do one better by piping the output of that to the `sort` command and using that to put the largest directories at the bottom. Try running `du -sh */ | sort -h`:
++
+[source,console]
+----
+ben@2480-Z:~$ du -sh */ | sort -h
+4.0K    link-experiments/
+16K     docker-web/
+104K    icecream_db/
+7.1M    sample-files/
+7.9M    archive-experiments/
+14M     wpdockerdemo/
+ben@2480-Z:~$
+----
+.. In my example the largest directory appears fo be _wpdockerdemo_ at 14MB so I'll enter that directory and run the `du -sh */ | sort -h` command again:
++
+[source,console]
+----
+ben@2480-Z:~/wpdockerdemo$ du -sh */ | sort -h
+8.0K    nginx/
+14M     wp-content/
+ben@2480-Z:~/wpdockerdemo$
+----
+.. Almost all of the size seems to be in the _wp-content_ directory so I'll go in there and run it again, repeating this until I find out what is using most of the space. Once I get far enough I see:
++
+[source,console]
+----
+ben@2480-Z:~/wpdockerdemo/wp-content/themes/twentytwentytwo/assets$ du -sh */ | sort -h
+464K    videos/
+1.5M    images/
+4.3M    fonts/
+ben@2480-Z:~/wpdockerdemo/wp-content/themes/twentytwentytwo/assets$
+----
+.. By this point things are starting to break up into much smaller chunks but I could sufficiently say that the "twentytwentytwo" Wordpress theme as a whole (and specifically the fonts and images it contains) are taking up much of the space in my home directory. Of course, if I wanted to track down the single biggest files instead of directories I could do that as well using variations on this method.
+
+== Create and format partitions on a second disk drive
+. If you start to run out of space and have decided there is nothing you can delete from the system you may decide it's time to add another hard drive to your system.
+. Luckily our virtual machines already have a second unused hard drive installed we can practice with to see how this is done. If you run `ls -al /dev/sd*` you'll see that in addition to `/dev/sda` which has a few partitions on it there is a `/dev/sdb` which is unused so far.
+. Like almost all operating systems Linux uses _partitions_ to logically divide up a disk into locations which contain a filesystem used to organize data. So, to begin we need to create at least one on the drive which can be formatted with a filesystem.
+.. While there are many tools which can be used for partitioning in Linux including the ever-present _fdisk_ the one which we'll use is _cfdisk_ as it presents a somewhat easier to use _text user interface_ (_TUI_) which can be navigated with the keyboard. Launch _cfdisk_ to edit the _/dev/sdb_ drive's parition table using the `cfdisk /dev/sdb` command as an administrator:
++
+image::lab12/001.png[Launching cfdisk first time,250,align=left,link=self]
+.. As noted in the dark blue text at the bottom of the screen our "Device does not contain a recognized partition table." because it is a brand new, completely empty, disk. You are asked to choose a _label type_ which is another way of saying _partition table type_. For many years the _MBR_ style partition table was the most popular. This is called a _dos_ label type in Linux. However, the _MBR_ style partition table has some limitations in terms of the maximum partition size as well as the number of partitions that can be created. Modern Linux, Windows, and Mac operating systems all support _GPT_ style partition tables so unless you have a good reason to select something else that is a good option and the one we'll use here. Make sure that _gpt_ is highlighted and press the enter key:
++
+image::lab12/002.png[cfdisk showing all space as free,250,align=left,link=self]
+.. We can now see from the screen that we have an 8 GiB disk with no paritions on it as all the space is shown as "Free space". At the bottom of the screen we have a menu with the options _New_, _Quit_, _Help_, _Write_, and _Dump_ which we can switch between using our left and right arrow keys.
+.. Ensure the _New_ option is selected and press the enter key to create a new partition in the free space. You will be asked at the bottom of the screen what size to make the partition with the default being to use all the disk space (8G). Change that value using the backspace key to create a *5G* partition and press enter.
++
+image::lab12/003.png[cfdisk showing one 5g partition,250,align=left,link=self]
+.. You should now see that there is a new partition of 5G listed with a new device of _/dev/sdb1_ (the first partition on the drive) which is highlighted. Just as before the left and right arrow keys will move between menu options at the bottom of the screen (with some new options shown) but now the up and down arrow keys can also be used to change the selection from _/dev/sdb1_ to _Free space_ depending on if we want to change the _/dev/sdb1_ partition settings or do something with the _Free space_.
+.. Use the arrow keys to go down and select the free space again and create another new partition, this time *2G* in size. Repeat this again to create a third partition with all the remaining free space.
++
+image::lab12/004.png[cfdisk showing three partitions,250,align=left,link=self]
+.. You may have noticed that under the "Type" column all three partitions show "Linux filesystem". While this does not actually affect how the partition is formatted and what filesystem the partition contains, formatting is a separate step, it is used by some operating systems to determine if they should even try to open a partition. Since we are going to format the _/dev/sdb3_ partition with the _exFAT_ filesystem which is readable by almost all modern operating systems we want to change the partition type to indicate that. Use the arrow keys to select the _/dev/sdb3_ partition and then the _Type_ option in the menu at the bottom of the screen before pressing enter.
++
+image::lab12/005.png[cfdisk showing partition type list,250,align=left,link=self]
+.. Use your arrow keys to scroll through the partition type list until "Microsoft basic data" is highlighted which is the correct GPT partition type for _FAT_,_exFAT_, and _NTFS_ filesystems. Press enter once you have this highlighted.
++
+image::lab12/006.png[cfdisk showing three partitions one of which is microsoft basic data type,250,align=left,link=self]
+.. In order to save our partition changes to disk use the arrow keys to move over to the _Write_ menu option at the bottom of the screen and press enter. You will need to type "yes" and enter when prompted "Are you sure you want to write the partition table to disk?" at the bottom of the screen.
+.. You should have a confirmation in dark blue at the bottom of the screen that "The partition table has been altered."
++
+image::lab12/007.png[cfdisk showing table written confirmation,250,align=left,link=self]
+.. Use your arrow keys to select the _Quit_ option at the bottom of the screen and press enter to return to the command prompt now that partitioning of the disk is complete.
+. Before we can store anything on a partition we need to put a _filesystem_ on it by _formatting_ it. While there are many filesystems that can work with Linux all of which have advantages and disadvantages probably the two most common filesystems today are _ext4_ (which is based on the older popular _ext3_ and _ext2_ filesystems) and _btrfs_ so we will focus on those as well as _exFAT_ which is a common cross-operating system filesystem. Other Linux friendly filesystems that merit review in certain use cases are _XFS_ and _ZFS_ as well as things like _dm-crypt_ if you are interested in whole drive encryption.
+. Current versions of Debian default to using _ext4_ when installed so let's start with that on our 5GB partition _/dev/sdb1_
+.. The general command for formatting a partition in Linux is the `mkfs` or "make filesystem" command. However, there are specific varients of this command with different options for each filesystem, for example the `mkfs.ext4` command is used for formatting _ext4_ partitions though you can do this in other ways too such as by running `mke2fs -t ext4` which is what actually does the formatting under the hood when `mkfs.ext4` is run.
+.. There are lots of options available when setting up a filesystem. It's probably worth reviewing the manual page for creating a filesystem before doing so. For example, `man mkfs.ext4` shows that you can set a volume label or adjust the block size to align the drive's sector size with the block size of the filesystem. In the early days of so called "Advanced Format" drives it was important to do this to make the most efficient use of the drive but it's largely handled automatically now. THere are also many more tweaks you can make during filesystem creation that affect the performance and features of the filesystem which are beyond the scope of this course.
+.. Run the `mkfs.ext4 -L extraSpace /dev/sdb1` command as an administrator now to format _/dev/sdb1_ with the _ext4_ filesystem using all the defaults except setting the label on the filesystem to "extraSpace":
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mkfs.ext4 -L extraSpace /dev/sdb1
+mke2fs 1.47.0 (5-Feb-2023)
+Discarding device blocks: done
+Creating filesystem with 1310720 4k blocks and 327680 inodes
+Filesystem UUID: 7d85c71b-0312-4479-907f-0f83fba70fba
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+ben@2480-Z:~$
+----
+.. You can actually see if there are labels set on filesystems by adding some optional columns to the `lsblk` utility like `lsblk -o name,fstype,size,label,type,mountpoint`:
++
+[source,console]
+----
+ben@2480-Z:~$ lsblk -o name,fstype,size,label,type,mountpoint
+NAME   FSTYPE   SIZE LABEL                 TYPE MOUNTPOINT
+sda              16G                       disk
+├─sda1 ext4      15G                       part /
+├─sda2            1K                       part
+└─sda5 swap     975M                       part [SWAP]
+sdb               8G                       disk
+├─sdb1 ext4       5G extraSpace            part
+├─sdb2            2G                       part
+└─sdb3         1022M                       part
+sr0    iso9660  629M Debian 12.5.0 amd64 n rom
+ben@2480-Z:~$
+----
+.. One of the advantages of assigning a label to a partition is that in modern versions of Linux it will also show up in the `/dev/disk/by-label/` directory linked back to it's _/dev/sd*_ location. For example, run `ls -al /dev/disk/by-label/` and see:
++
+[source,console]
+----
+ben@2480-Z:~$ ls -al /dev/disk/by-label/
+total 0
+drwxr-xr-x 2 root root  80 Aug 21 15:22  .
+drwxr-xr-x 8 root root 160 Aug 21 11:29  ..
+lrwxrwxrwx 1 root root   9 Aug 21 11:29 'Debian\x2012.5.0\x20amd64\x20n' -> ../../sr0
+lrwxrwxrwx 1 root root  10 Aug 21 15:22  extraSpace -> ../../sdb1
+ben@2480-Z:~$
+----
+.. So we can use `/dev/disk/by-label/extraSpace` just the same as `/dev/sdb1` (even if we change the SATA port the drive is plugged into or the computer it's plugged into and it is no longer `/dev/sdb1`).
+. Another popular Linux filesystem is the _btrfs_ (meaning "b-tree filesystem" and pronounced "butter-fs"). Some Linux distributions have made this the default filesystem as it includes more features (such as actually being able to span a single filesystem across several physical disks or partitions) compared to _ext4_ but some people view it as a bit less stable or compatible as it is under heavy development and subject to more frequent changes. Let's try setting up our 2GB partition with a _btrfs_ filesystem.
+.. Debian does not install the tools to create or work with _btrfs_ by default so begin by installing the `btrfs-progs` package.
+.. There are even more options when creating _btrfs_ filesystems than with _ext4_ so  it may be worthwhile to review the manual page for `mkfs.btrfs` with the `man mkfs.btrfs` command.
+.. Just like with our _ext4_ partition we can create a label for a _btrfs_ partition so let's create a standard _btrfs_ partition with the label _btrfsSpace_ by using the command `mkfs.btrfs -L btrfsSpace /dev/sdb2` as the administrator:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mkfs.btrfs -L btrfsSpace /dev/sdb2
+btrfs-progs v6.2
+See http://btrfs.wiki.kernel.org for more information.
+
+Performing full device TRIM /dev/sdb2 (2.00GiB) ...
+NOTE: several default settings have changed in version 5.15, please make sure
+      this does not affect your deployments:
+      - DUP for metadata (-m dup)
+      - enabled no-holes (-O no-holes)
+      - enabled free-space-tree (-R free-space-tree)
+
+Label:              btrfsSpace
+UUID:               ced35a1c-90df-49c7-9a23-f2b020b471ee
+Node size:          16384
+Sector size:        4096
+Filesystem size:    2.00GiB
+Block group profiles:
+  Data:             single            8.00MiB
+  Metadata:         DUP             102.38MiB
+  System:           DUP               8.00MiB
+SSD detected:       yes
+Zoned device:       no
+Incompat features:  extref, skinny-metadata, no-holes
+Runtime features:   free-space-tree
+Checksum:           crc32c
+Number of devices:  1
+Devices:
+   ID        SIZE  PATH
+    1     2.00GiB  /dev/sdb2
+
+ben@2480-Z:~$
+----
+.. You can see this partition in `lsblk` including it's label with the `lsblk -o name,fstype,size,label,type,mountpoint` command:
++
+[source,console]
+----
+ben@2480-Z:~$ lsblk -o name,fstype,size,label,type,mountpoint
+NAME   FSTYPE   SIZE LABEL                 TYPE MOUNTPOINT
+sda              16G                       disk
+├─sda1 ext4      15G                       part /
+├─sda2            1K                       part
+└─sda5 swap     975M                       part [SWAP]
+sdb               8G                       disk
+├─sdb1 ext4       5G extraSpace            part
+├─sdb2 btrfs      2G btrfsSpace            part
+└─sdb3         1022M                       part
+sr0    iso9660  629M Debian 12.5.0 amd64 n rom
+ben@2480-Z:~$
+----
+.. One of the things about copy-on-write filesystems like _btrfs_ is that they are inherently subject to _fragmentation_. While this is usually not an issue if you're using a solid-state drive, if you are using a magnetic spinning drive this will eventually lead to poor performance. As such it's common to need to _defragment_ these types of filesystems which can be done while you are using the partition. However, with _btrfs_ there are also disadvantages to defragmenting, especially if you are using some features of _btrfs_ such as snapshots as doing a defragment will break snapshot links and increase disk space usage. The bottom line is that a filesystem with more features like _btrfs_ may require a bit more care and attention than a more vanilla option like _ext4_.
+. In some cases you need to read and write files to a device, perhaps a USB thumb drive, which needs to be accessed by other operating systems. Microsoft Windows in particular will not be able to easily read or write files stored on _ext4_ or _btrfs_ partitions. While Linux can be coerced to work with Windows' _NTFS_ filesystem it is probably also not the best choice. Luckily the _exFAT_ filesystem is almost universally supported by operating systems (though it has very few features) which makes it a reasonable choice for thumb drives and other storage partitions which may need to be read by multiple operating systems. Let's setup our 1GB partition _/dev/sdb3_ with an _exFAT_ filesystem.
+.. Similar to _btrfs_, the _exFAT_ utilities are not installed by default in Debian so you should begin by installing the `exfatprogs` package.
+.. Just as before it's probably worth looking at the options you have when formatting a partition with _exFAT_ using the `man mkfs.exfat` command.
+.. For our purposes we'll setup a _exFAT_ partition with the default options but the label set to _multiOS_ using the `mkfs.exfat -L multiOS /dev/sdb3` command as administrator:
++
+[source,console]
+----
+ben@2480-Z:~$ sudo mkfs.exfat -L multiOS /dev/sdb3
+exfatprogs version : 1.2.0
+Creating exFAT filesystem(/dev/sdb3, cluster size=32768)
+
+Writing volume boot record: done
+Writing backup volume boot record: done
+Fat table creation: done
+Allocation bitmap creation: done
+Upcase table creation: done
+Writing root directory entry: done
+Synchronizing...
+
+exFAT format complete!
+ben@2480-Z:~$
+----
+.. You can see this partition in `lsblk` including it's label with the `lsblk -o name,fstype,size,label,type,mountpoint` command:
++
+[source,console]
+----
+ben@2480-Z:~$ lsblk -o name,fstype,size,label,type,mountpoint
+NAME   FSTYPE   SIZE LABEL                 TYPE MOUNTPOINT
+sda              16G                       disk
+├─sda1 ext4      15G                       part /
+├─sda2            1K                       part
+└─sda5 swap     975M                       part [SWAP]
+sdb               8G                       disk
+├─sdb1 ext4       5G extraSpace            part
+├─sdb2 btrfs      2G btrfsSpace            part
+└─sdb3 exfat   1022M multiOS               part
+sr0    iso9660  629M Debian 12.5.0 amd64 n rom
+ben@2480-Z:~$
+----
+
+== Mount and use partitions on a second disk drive
+. In order to actually use a partition in Linux we need to _mount_ the partition which is to attach it to some location on the filesystem. This can either be done manually with the `mount` command or automatically (either during the boot process or based on some event happening such as inserting a CD/DVD or thumb drive).
+. In this example we'll be mounting partitions to _mount points_ inside of the `/mnt` location on the filesystem but this is not a requirement. In fact, you can mount a partition to almost any location in the filesystem. For example, you may want to store all the user home directories on a different partition than evertything else on the system. In that case you could mount a partition to the `/home` directory so that everything stored in `/home` is actually being saved to a different partition than all other locations on the system. This makes Linux incredibly flexible with storage, much more so than the one partition per "Drive Letter" system traditionally seen in Microsoft DOS and Windows (note there are advanced commands in Windows which can be used to make it do something more like Linux). You can fairly easily see that a drive or partition is filling up in Linux, add another drive/partition, move files from one directory of the filled up partition to the new partition and mount the new partition to the same location as the old directory. When this is done all the applications still see things in the same logical location on the system (and so configurations don't need to change) even though they are now physically being stored on a different drive/partition.
+. Let's try some simple manual filesystem mounting first to see how this works.
+.. Change your working directory into the `/mnt` directory
+.. Create a new subdirectories named `partition1`, `btrfspartition`, and `sharedOSpartition` inside of `/mnt` we'll use these as the _mountpoints_ to attach our three partitions to.
+.. Enter the `/mnt/partition1` directory and create a new empty file named `exampleFile` (remember the `touch` command?). We'll use this file to show what happens to files inside of a directory if you turn it into a mountpoint.
+.. Return to the `/mnt` directory
++
+[source,console]
+----
+ben@2480-Z:~$ cd /mnt
+ben@2480-Z:/mnt$ sudo mkdir partition1
+ben@2480-Z:/mnt$ sudo mkdir btrfspartition
+ben@2480-Z:/mnt$ sudo mkdir sharedOSpartition
+ben@2480-Z:/mnt$ cd partition1
+ben@2480-Z:/mnt/partition1$ sudo touch exampleFile
+ben@2480-Z:/mnt/partition1$ cd ..
+ben@2480-Z:/mnt$ ls -al /mnt/partition1
+total 8
+drwxr-xr-x 2 root root 4096 Aug 21 16:22 .
+drwxr-xr-x 5 root root 4096 Aug 21 16:22 ..
+-rw-r--r-- 1 root root    0 Aug 21 16:22 exampleFile
+ben@2480-Z:/mnt$
+----
+.. Now we will _mount_, or attach, _/dev/sdb1_ to the _/mnt/partition1_ location. Run the command `mount /dev/sdb1 /mnt/partition1` as the administrator to do this. You can then run the `mount` command to verify the partition is now mounted:
++
+[source,console]
+----
+ben@2480-Z:/mnt$ sudo mount /dev/sdb1 /mnt/partition1
+ben@2480-Z:/mnt$ mount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=984160k,nr_inodes=246040,mode=755,inode64)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,nodev,noexec,relatime,size=201444k,mode=755,inode64)
+/dev/sda1 on / type ext4 (rw,relatime,errors=remount-ro)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev,inode64)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k,inode64)
+cgroup2 on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime,nsdelegate,memory_recursiveprot)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+bpf on /sys/fs/bpf type bpf (rw,nosuid,nodev,noexec,relatime,mode=700)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=30,pgrp=1,timeout=0,minproto=5,maxproto=5,direct,pipe_ino=12891)
+mqueue on /dev/mqueue type mqueue (rw,nosuid,nodev,noexec,relatime)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime,pagesize=2M)
+tracefs on /sys/kernel/tracing type tracefs (rw,nosuid,nodev,noexec,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,nosuid,nodev,noexec,relatime)
+ramfs on /run/credentials/systemd-sysctl.service type ramfs (ro,nosuid,nodev,noexec,relatime,mode=700)
+ramfs on /run/credentials/systemd-sysusers.service type ramfs (ro,nosuid,nodev,noexec,relatime,mode=700)
+configfs on /sys/kernel/config type configfs (rw,nosuid,nodev,noexec,relatime)
+ramfs on /run/credentials/systemd-tmpfiles-setup-dev.service type ramfs (ro,nosuid,nodev,noexec,relatime,mode=700)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,nosuid,nodev,noexec,relatime)
+binfmt_misc on /proc/sys/fs/binfmt_misc type binfmt_misc (rw,nosuid,nodev,noexec,relatime)
+ramfs on /run/credentials/systemd-tmpfiles-setup.service type ramfs (ro,nosuid,nodev,noexec,relatime,mode=700)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=201440k,nr_inodes=50360,mode=700,uid=1000,gid=1000,inode64)
+/dev/sdb1 on /mnt/partition1 type ext4 (rw,relatime)
+ben@2480-Z:/mnt$
+----
+.. If we check the last line we can see that _/dev/sdb1_ is mounted on _/mnt/partition1_ and is an ext4 partition mounted for reading and writing. Note that because there are lots of other things mounted we may opt to use the `df -h` or `lsblk` commands instead which provide some of the basic information (but not all the details):
++
+[source,console]
+----
+ben@2480-Z:/mnt$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            962M     0  962M   0% /dev
+tmpfs           197M  796K  196M   1% /run
+/dev/sda1        15G  3.7G   11G  27% /
+tmpfs           984M     0  984M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           197M     0  197M   0% /run/user/1000
+/dev/sdb1       4.9G   24K  4.6G   1% /mnt/partition1
+ben@2480-Z:/mnt$ lsblk
+NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
+sda      8:0    0   16G  0 disk
+├─sda1   8:1    0   15G  0 part /
+├─sda2   8:2    0    1K  0 part
+└─sda5   8:5    0  975M  0 part [SWAP]
+sdb      8:16   0    8G  0 disk
+├─sdb1   8:17   0    5G  0 part /mnt/partition1
+├─sdb2   8:18   0    2G  0 part
+└─sdb3   8:19   0 1022M  0 part
+sr0     11:0    1  629M  0 rom
+ben@2480-Z:/mnt$
+----
+.. If you check the contents of `/mnt/partition1` again you'll see:
++
+[source,console]
+----
+ben@2480-Z:/mnt$ ls -al /mnt/partition1
+total 24
+drwxr-xr-x 3 root root  4096 Aug 21 15:22 .
+drwxr-xr-x 5 root root  4096 Aug 21 16:22 ..
+drwx------ 2 root root 16384 Aug 21 15:22 lost+found
+ben@2480-Z:/mnt$
+----
+.. The _exampleFile_ we created is gone! This is because when we turn a directory into a mount point evertything that was in that directory is hidden and we instead see the things phycially located on the new partition (in this case just a permanent directory named _lost+found_ which holds lost clusters the _ext4_ filesystem recovers).
+.. Don't worry though the _exampleFile_ is still on _/dev/sda1_ we just can't see it while _/dev/sdb1_ is mounted over the top. We can _unmount_ this partition with the `umount /dev/sdb1` or `umount /mnt/partition1` (either the device or mountpoint can be used). Try unmounting the partition now and then checking the contents of _/mnt/partition1_ again.
++
+[source,console]
+----
+ben@2480-Z:/mnt$ sudo umount /mnt/partition1
+ben@2480-Z:/mnt$ ls -al /mnt/partition1/
+total 8
+drwxr-xr-x 2 root root 4096 Aug 21 16:22 .
+drwxr-xr-x 5 root root 4096 Aug 21 16:22 ..
+-rw-r--r-- 1 root root    0 Aug 21 16:22 exampleFile
+ben@2480-Z:/mnt$
+----
+.. Try mounting and unmounting the other two partitions to _/mnt/btrfspartition_ and _/mnt/sharedOSpartition_ in a similar way. This time though, for at least one of them, use the label location like _/dev/disk/by-label/multiOS_ instead of the physcial location like _/dev/sdb3_.
++
+[source,console]
+----
+ben@2480-Z:/mnt$ sudo mount /dev/sdb1 /mnt/partition1
+ben@2480-Z:/mnt$ sudo mount /dev/sdb2 /mnt/btrfspartition/
+ben@2480-Z:/mnt$ sudo mount /dev/disk/by-label/multiOS /mnt/sharedOSpartition/
+ben@2480-Z:/mnt$ lsblk -o name,fstype,size,label,type,mountpoint
+NAME   FSTYPE   SIZE LABEL                 TYPE MOUNTPOINT
+sda              16G                       disk
+├─sda1 ext4      15G                       part /
+├─sda2            1K                       part
+└─sda5 swap     975M                       part [SWAP]
+sdb               8G                       disk
+├─sdb1 ext4       5G extraSpace            part /mnt/partition1
+├─sdb2 btrfs      2G btrfsSpace            part /mnt/btrfspartition
+└─sdb3 exfat   1022M multiOS               part /mnt/sharedOSpartition
+sr0    iso9660  629M Debian 12.5.0 amd64 n rom
+ben@2480-Z:/mnt$ sudo umount /mnt/partition1
+ben@2480-Z:/mnt$ sudo umount /mnt/btrfspartition
+ben@2480-Z:/mnt$ sudo umount /mnt/sharedOSpartition
+ben@2480-Z:/mnt$
+----
+.. All partitions are unmounted when the system is shut down but it's important to remember to manually _unmount_ all partitions on a disk before physically removing a disk from a system (like a USB drive) in order to make sure everything has been written to the disk and it's in a safe state to remove without loosing any data.
+. If a partition is going to be regularly used with the system you may want to set it up to _automount_ when the system is booted. This is controlled by the `/etc/fstab` configuration file.
+.. When setting partitions to automount you want to make sure it's the correct device mounting where you want. We've already discussed how devices could change from _/dev/sdb_ to _/dev/sdc_ because they are put into different SATA ports or into a different system. While we previously discussed using the partition labels to work around this and they are convenient there are three potential problems with this. First, not every partition has a label, second not every filesystem even supports labeling partitions, and lastly it would be possible that two partitions created by different administrators have the same label. Luckily there is another way to identify partitions using a _universally unique identifier_ (_UUID_) which is always the same for a partition, is always unique, and works with all filesystems. We can get the _UUIDs_ for each block device on the system with the `blkid` command. Run that command as administrator and copy it's output into a text editor on your administrative PC that you'll be able to refer back to. Here's what mine looks like, yours will be different (remember these are globally unique!):
++
+[source,console]
+----
+ben@2480-Z:/mnt$ sudo blkid
+/dev/sr0: BLOCK_SIZE="2048" UUID="2024-02-10-11-31-15-00" LABEL="Debian 12.5.0 amd64 n" TYPE="iso9660" PTUUID="34862533" PTTYPE="dos"
+/dev/sda5: UUID="1d189cce-424f-44cb-bd5b-1bd5bac33fe1" TYPE="swap" PARTUUID="640fdf1f-05"
+/dev/sda1: UUID="a3f5f4d0-c374-4fb7-8694-13b060585036" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="640fdf1f-01"
+/dev/sdb2: LABEL="btrfsSpace" UUID="ced35a1c-90df-49c7-9a23-f2b020b471ee" UUID_SUB="0178fc01-866e-41e7-9022-80424be7a528" BLOCK_SIZE="4096" TYPE="btrfs" PARTUUID="ba39e1bd-4818-8e4f-a717-7eedf1353b05"
+/dev/sdb3: LABEL="multiOS" UUID="F6E6-76D2" BLOCK_SIZE="512" TYPE="exfat" PTTYPE="dos" PARTUUID="adac5482-ca06-844c-ad15-85730b87fa2e"
+/dev/sdb1: LABEL="extraSpace" UUID="7d85c71b-0312-4479-907f-0f83fba70fba" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="86410ac7-2a00-494d-a3db-cbed74d778c2"
+ben@2480-Z:/mnt$
+----
+.. Open the `/etc/fstab` file as an administrator in a text editor.
+.. At the bottom of the file add three lines like this (using your own correct UUID numbers for each partition):
++
+[source,console]
+----
+UUID=7d85c71b-0312-4479-907f-0f83fba70fba /mnt/partition1 ext4 defaults 0 0
+UUID=ced35a1c-90df-49c7-9a23-f2b020b471ee /mnt/btrfspartition btrfs defaults 0 0
+UUID=F6E6-76D2 /mnt/sharedOSpartition exfat defaults 0 0
+----
+.. Save and exit the file
+.. Run the `systemctl daemon-reload` command as the administrator as the commented notes at the top of `/etc/fstab` told you to do after editing the file
+.. You should now be able to run the automount command `mount -a` as the administrator and verify that all three partitions are mounted correctly. This also means that they will automatically mount if you reboot the system.
++
+[source,console]
+----
+ben@2480-Z:/mnt$ sudo mount -a
+ben@2480-Z:/mnt$ lsblk -o name,fstype,size,label,type,mountpoint
+NAME   FSTYPE   SIZE LABEL                 TYPE MOUNTPOINT
+sda              16G                       disk
+├─sda1 ext4      15G                       part /
+├─sda2            1K                       part
+└─sda5 swap     975M                       part [SWAP]
+sdb               8G                       disk
+├─sdb1 ext4       5G extraSpace            part /mnt/partition1
+├─sdb2 btrfs      2G btrfsSpace            part /mnt/btrfspartition
+└─sdb3 exfat   1022M multiOS               part /mnt/sharedOSpartition
+sr0    iso9660  629M Debian 12.5.0 amd64 n rom
+ben@2480-Z:/mnt$
+----
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
