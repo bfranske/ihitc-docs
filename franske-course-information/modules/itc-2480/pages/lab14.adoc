@@ -1,0 +1,251 @@
+= Lab 14: Python Scripting for System Administration
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Create and modify basic python scripts for system administration (shell commands)
+
+You will be introduced to the following commands:
+
+* python3
+
+== Preliminaries
+
+. *Have completed the reading on BASH and Python scripting. If you haven't done this you will almost certainly have difficulty completing the lab!*
+. Have completed the BASH scripting lab, this lab will take you through several similar tasks at a much faster rate
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+==  Creating Simple Python Scripts
+. Just like with BASH scripts we want to specify the interpreter at the beginning of our script with a sha-bang. We will be learning how to write Python3 as it's the most recent major version.
+. Create a new text file named `hello.py` with the following text:
++
+[source]
+----
+#!/usr/bin/env python3
+print("Hello World from Python!")
+----
+. Set the `hello.py` file to be executable by all users on the system
+. Try running your `hello.py` script now. If your system outputs _Hello World from Python!_ you have successfully written your first Python script!
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.py
+Hello World from Python!
+ben@2480-Z:~$
+----
++
+NOTE: You are now printing text to the screen using the Python `print` command and not the BASH `echo` command. If you try running the command `print("Hello World!")` from your command line you will get an error. This is what will make scripting in Python a bit different than BASH scripting. When scripting in BASH every line in your script file could be entered directly on the command line, in Python the commands need to be run through the Python interpreter to be executed.
+. It is still possible to run system commands from inside of a Python script as well (that's what ultimately makes them useful for shell scripting purposes after all). To do this we will need to import a special library of functions that Python can use to interact with the underlying system.
+.. Try modifying your `hello.py` file like this:
++
+[source]
+----
+#!/usr/bin/env python3
+import os
+print("Hello World from Python!")
+os.system("echo Hello World from BASH inside of Python!")
+----
+.. In this example we have imported the _os_ library and then run a special function named _os.system_ to execute a command on the system (in this case the `echo Hello World from BASH inside of Python!` command).
++
+NOTE: There are other ways of running shell commands from inside Python3 including _subprocess.run_ and _subprocess.Popen_ which may be better choices in many circumstances though they are slightly more complex to use. We'll learn a little more about these later in this lab.
+.. Try running this updated script and see how it works.
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.py
+Hello World from Python!
+Hello World from BASH inside of Python!
+ben@2480-Z:~$
+----
+. Now try using what you have learned to create and test another script named `simple-backup.py` which executes the command `tar -czf /tmp/jsmith-backup.tar.gz /home/jsmith/` when the script is run (substitue your own username for _jsmith_).
+
+== Using Variables and Conditionals in Python Scripts
+. Argument parsing in Python is not quite as simple as it is in BASH but with practice it actually allows for much more complex scripts to be developed. Arguments can accessed as entries in an array through the _sys_ library. First, we need to import the _sys_ library and then arguments will be accessed through the variables _sys.argv[0]_ (for the script name) _sys.argv[1]_ (for the first argument) and so on. These variables with square brackets after them are together called an _array_ which is just a single variable that stores multiple values in different "slots" which are identified by numbers starting with zero in this case. 
+. Try adjusting your `hello.py` script to look like this:
++
+[source]
+----
+#!/usr/bin/env python3
+import sys
+print("The script you are running is: " + sys.argv[0])
+print("Hello " + sys.argv[1] + " from Python!")
+----
+.. What do you think will happen if you run the script like this `./hello.py _yourfirstname_`? Try it and find out if you were correct in your hypothesis!
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.py Ben
+The script you are running is: ./hello.py
+Hello Ben from Python!
+ben@2480-Z:~$
+----
++
+NOTE: As with many things in a complex language like Python there are multiple ways to do things. The _sys.argv_ method for accessing arguments is the most rudimentary method and as you advance in your knowledge of Python you can learn about libraries which make building complex scripts much easier and make them more resilient. For example, the _argparse_ library exists specifically to handle parsing command line arguments to scripts in a standard robust way and avoid re-creating the wheel in each script.
+. Wait, what if someone doesn't know they are supposed to include their name as an argument though? Try running `./hello.py` and see what happens.
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.py
+The script you are running is: ./hello.py
+Traceback (most recent call last):
+  File "/home/ben/./hello.py", line 4, in <module>
+    print("Hello " + sys.argv[1] + " from Python!")
+                     ~~~~~~~~^^^
+IndexError: list index out of range
+ben@2480-Z:~$
+----
+. Unlike BASH Python is a little more particular about things and if you try to access a variable that doesn't exist it will give you an error. This isn't very user friendly so let's add a conditional to check and see if an argument was supplied or not.
+.. Try updating your `hello.py` script again and adding a conditional like this:
++
+[source]
+----
+#!/usr/bin/env python3
+import sys
+
+if len(sys.argv) > 1:
+    name = sys.argv[1]
+else:
+    name = "World"
+    print("Try running " + sys.argv[0] + " yourfirstnamehere to get a personal greeting!")
+print("Hello " + name + " from Python!")
+----
+..  See if you can predict what these changes will do and then try it out to see if you are correct
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.py Ben
+Hello Ben from Python!
+ben@2480-Z:~$ ./hello.py
+Try running ./hello.py yourfirstnamehere to get a personal greeting!
+Hello World from Python!
+ben@2480-Z:~$
+----
+.. Because python stores all of the arguments into a special type of variable which can hold multiple pieces of data, called an array, we can use the _len()_ function to check the length of the _sys.argv_ array. If it's more than one (because _sys.argv[0]_ always holds the script name so there is always at least one) we know arguments have been added. If not we know they have not been added. You'll also notice that *indenting properly is important in Python scripts* this is how Python knows if a line is part of the if/else statement or something that comes after it.
+. It's also possible to capture the standard output of a command and put that into a variable for use just as we did with BASH. We can use the output of the `date +%Y%m%d` command in a variable to make our backup script a little bit nicer (though again, there are better ways to get a date in Python itself once you get more familiar with the language). You'll also see that in order to capture the output we need to use the _subprocess_ library instead of the _os_ library we were using before.
+.. Create a script `better-backup.py` with the appropriate execution permissions and these contents (substituting your own username for _jsmith_):
++
+[source]
+----
+#!/usr/bin/env python3
+import subprocess
+USER = "jsmith"
+TODAY = subprocess.check_output("date +%Y%m%d", shell=True)
+TODAY = TODAY.decode('ascii').rstrip()
+BACKUPFILE = "/tmp/"+USER+"-backup-"+TODAY+".tar.gz"
+print("Beginning backup for "+USER+" on "+TODAY)
+subprocess.call(["tar", "-czf", BACKUPFILE, "/home/"+USER])
+print("Backup completed for "+USER+" saved to "+BACKUPFILE)
+----
+.. Try running the above example and see if it works as you expect. This script used the output from the date command to get date information to be used as part of the filename but, as mentioned above, if you were actually writing the script in python you would probably use some of the Python built in date functions instead. The advantages of doing it with the built-in functionality are that you will no longer be depending on the `date` program being installed on the system and you won't have to convert the output of _subprocess_ with the _.decode('ascii')_ function and remove the _newline_ from the end of the `date` output with the _.rstrip()_ function, and you will just generally have cleaner code.
+.. After testing the above script and seeing how it works try modifying it like this to use built in _date_ library functionality:
++
+[source]
+----
+#!/usr/bin/env python3
+import subprocess
+import datetime
+USER = "jsmith"
+TODAY = datetime.date.today().strftime("%Y%m%d")
+BACKUPFILE = "/tmp/"+USER+"-backup-"+TODAY+".tar.gz"
+print("Beginning backup for "+USER+" on "+TODAY)
+subprocess.call(["tar", "-czf", BACKUPFILE, "/home/"+USER])
+print("Backup completed for "+USER+" saved to "+BACKUPFILE)
+----
+.. See if you can predict what this script will do and then try it out to see if you are correct. Once you have figured out how this script works see if you can modify it so you can specify a username as an argument instead of as a fixed variable.
+.. After successfully doing that try modifying the script so that it gives instructions about how to use the script if you forget to give a username as an argument.
+. It is important to note that while this script works, it's just a simple example and not well written because it is easily broken by giving a username which doesn't actually exist on the system, or trying to backup files you don't have permission to access, etc. A better script could be written to check for all of these things as well as other errors. If the script is to be used by more people than the original author (and in the best cases, even then) it is important for usability and security purposes to do these sorts of checks, particularly if the script accepts user input such as an argument.
+
+== Using Loops and Reading User Input
+. Create a `file-generator.py` script on your system like the one below and see if you can figure out how it works before testing it: 
++
+[source]
+----
+#!/usr/bin/env python3
+import subprocess
+BASENAME = "sample-file"
+print("Welcome to the sample file generation utility!")
+print("Files will be created using the filename format " + BASENAME + "X.extension")
+NUM = int(input("Enter the number of files you wish to create, then press Enter: "))
+EXTENSION = input("Enter the extension (without the leading period) to put on the files: ")
+for CURNUM in range(0, NUM):
+    subprocess.call(["touch", BASENAME + str(CURNUM) + "." + EXTENSION])
+print("Created " + str(NUM) + " file(s).")
+----
+. There are a couple of differences to note when comparing this with the similar BASH script we created.
+.. First, instead of using a separate program, like the BASH `read` program, we are obtaining user input with the _input()_ function. This program is then storing the user's input into a certain variable. By default the _input()_ function saves information as a _string_ which is a type of variable which can hold letters and numbers but can't be used for numeric operations like adding, subtracting, looping, etc. Because of this we use the _int()_ and _str()_ funtions to switch the data back and forth from the string type to the integer numeric type as needed in various parts of the script.
+.. Second, the _for_ statement is using the built-in _range()_ function instead of the `seq` command as we did in BASH to generate the number of loops needed.
+. Try running the script and see if you were correct about what it does and how it works.
++
+IMPORTANT: While this script mostly works, it's just a simple example and not well written because it is easily broken by the user entering something other than a number for the number of files to be created, etc. A better script could be written to check for all of these things as well as other errors. If the script is to be used by more people than the original author (and in the best cases, even then) it is important for usability and security purposes to do these sorts of checks, particularly if the script accepts user input! This is how security bugs are born.
+. See if you can modify the script so you can specify a starting and an ending number for the files rather than just a number of files to be created.
+. See if you can add a check to the script which will display an example of a filename that will be created and asking the user if that looks correct before actually creating all the files. If the user enters N then do not create the files. Hint, you will need to do a little further research on using python _if_ statements to check user input.
+
+== Functions and Experimenting
+. Just as in BASH we can create functions in python as well. Try entering this simple sample as `hello-func.py`:
++
+[source]
+----
+#!/usr/bin/env python3
+def helloname():
+    name = input("Enter your name, followed by enter: ")
+    print("Hello " + name + "!")
+
+
+print("This program will welcome you twice to be extra nice!")
+helloname()
+print("At this point we could be doing lots of other stuff in our script or be in a loop, etc.")
+helloname()
+print("Thanks for playing!")
+----
+. This should work pretty much the same way that the BASH equivalent script did. See if you can figure out what will happen when you run it, then try it out and see if you were correct. Note that functions need to be _declared_ (listed) before you use them in your script so it would be common to see them at the beginning of the file as in this example.
+. One difference with functions in Python is how you pass information in and out of functions. Instead of using arguments you include the information in the function call itself and you can return information from the function which can be used immediately or can be stored into a variable. Try modifying `hello-func.py` like this: 
++
+[source]
+----
+#!/usr/bin/env python3
+def askname():
+    yourname = input("Enter your name, followed by enter: ")
+    return yourname
+
+
+def helloname(thename):
+    print("Hello " + thename + "!")
+
+
+print("There are lots of ways to make use of the two functions in this script. We can pass a pre-specified string to a function:")
+helloname("world")
+print("We can ask for your name and use it immediately as input into the hello function:")
+helloname(askname())
+print("We can take a string already stored in a variable and pass the variable to a function:")
+somevariable = "Linux Lover"
+helloname(somevariable)
+print("Or we can ask you your name again and store your name in a variable once and then use it a few times:")
+userentry = askname()
+helloname(userentry)
+print("Thanks for playing " + userentry + "!")
+----
+. See if you can figure out what this script will do and how it works before running it, then try it out and see if you were correct. 
+. Now that you have a grasp on the fundamentals of Python scripting for system administration see if you can write a Python script which can be used to modify the name of all files in the current directory which share the same extension such as those created by `file-generator.sh`. The goals for your script should be: 
+.. The user has a choice to enter the original and the new extension for the files either using command line arguments or interactively by answering questions your script asks.
+.. The script should display each old file name and then the new file name next to it so you can see what is going on
+.. You will want to use conditionals to figure out if the user entered arguments to use as the old and new extensions or should be prompted for them interactively.
+.. You should use functions and loops in order to make the most efficient script possible. Hints: The actual renaming of the files and displaying old and new names would be a good thing to put in a function because you will be calling it over and over again.
+. Don't be afraid to try using search engines for help with this. The goal of this lab is not to make you into a professional programmer but to introduce you enough to Python shell scripting so that you can create useful scripts with resources such as search engines available to you.
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

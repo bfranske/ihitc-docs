@@ -54,7 +54,7 @@ echo Hello World!
 .. Set the `hello.sh` file to be executable by all users on the system (remember the `chmod` command?) so that we will be able to run it.
 +
 NOTE: As a safety precaution against mistakenly executing something you don't really want to the shell will not allow you to run a file by just typing the filename, even if you are in the correct directory. The location of the file must either be included in your system's PATH, you must specify the full path to the file (such as `/home/jsmith/hello.sh`), or if you are in the correct directory already you can put in a relative path like `./hello.sh`. Remember, a single period is a shortcut which means the current directory so `./` means a file in the current working directory.
-.. Try running your `hello.sh` script now. If your system outputs Hello World! just like when you ran the echo command from the command line directly you have successfully written your first BASH script!
+.. Try running your `hello.sh` script now. If your system outputs _Hello World!_ just like when you ran the echo command from the command line directly you have successfully written your first BASH script!
 +
 [source,console]
 ----
@@ -62,7 +62,7 @@ ben@2480-Z:~$ ./hello.sh
 Hello World!
 ben@2480-Z:~$
 ----
-. Now try using what you have learned to create and test another script named simple-backup.sh which executes the command `tar -czf /tmp/jsmith-backup.tar.gz /home/jsmith/` when the script is run (substitue your own username for _jsmith_).
+. Now try using what you have learned to create and test another script named `simple-backup.sh` which executes the command `tar -czf /tmp/jsmith-backup.tar.gz /home/jsmith/` when the script is run (substitue your own username for _jsmith_).
 
 == Using Variables and Conditionals in BASH Scripts
 . Variables are a key part of turning a simple list of instructions you could type into a command line into something much more powerful by allowing you to reuse code and do something very similar (remember programmers are lazy!) but with a little tweak each time without re-writing the whole thing. Variables can be defined in the script itself but there are also special variables which are part of the BASH environment we can use. Variables can be identified in bash scripts as starting with a `$`. One type of these variables allows us to access arguments which have been supplied as part of the command line calling the script. Sometimes we only want to run certain sections of the script or we want to modify the script depending on the outcome of some test, called a conditional. This is often used in combination with variables as we'll see in the example below.
