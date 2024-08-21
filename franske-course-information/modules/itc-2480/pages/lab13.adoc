@@ -1,0 +1,190 @@
+= Lab 13: BASH Scripting
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Create and modify basic BASH scripts
+
+You will be introduced to the following commands:
+
+* echo
+* if
+* fi
+* else
+* function
+* date
+* for
+* done
+* do
+* seq
+* read
+
+== Preliminaries
+
+. *Have completed the reading on BASH scripting. If you haven't done this you will almost certainly have difficulty completing the lab!*
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+==  Creating Simple BASH Scripts
+. At their core BASH scripts are really just lists of commands which could have been entered directly into the command line but have been pre-entered into a file to be run later instead. We can see how this works by creating a couple of very simple BASH scripts which each just run a single command. Your ability to write BASH scripts that do something useful is really only limited by how well you know Linux commands and utilities which could be included in the script. The echo command can be used on your system to print information out to the standard output.
+. Lets try running the `echo` command on your server like `echo Hello World!`:
++
+[source,console]
+----
+ben@2480-Z:~$ echo Hello World!
+Hello World!
+ben@2480-Z:~$
+----
+. You should see the text "Hello World!" printed out on the screen below your command.
+. In order to turn that command into a script we just need to put the command into a text file and add one more line, called a sha-bang because it is made up of a hash (pound) sign and a bang (exclamation) sign. This line tells the system what program to use to interpret the commands in the script. In this case we're going to be writing BASH scripts so we'll set it for the BASH program.
+.. Create a new text file named `hello.sh` with the following text:
++
+[source]
+----
+#!/bin/bash
+echo Hello World!
+----
+.. Set the `hello.sh` file to be executable by all users on the system (remember the `chmod` command?) so that we will be able to run it.
++
+NOTE: As a safety precaution against mistakenly executing something you don't really want to the shell will not allow you to run a file by just typing the filename, even if you are in the correct directory. The location of the file must either be included in your system's PATH, you must specify the full path to the file (such as `/home/jsmith/hello.sh`), or if you are in the correct directory already you can put in a relative path like `./hello.sh`. Remember, a single period is a shortcut which means the current directory so `./` means a file in the current working directory.
+.. Try running your `hello.sh` script now. If your system outputs Hello World! just like when you ran the echo command from the command line directly you have successfully written your first BASH script!
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.sh
+Hello World!
+ben@2480-Z:~$
+----
+. Now try using what you have learned to create and test another script named simple-backup.sh which executes the command `tar -czf /tmp/jsmith-backup.tar.gz /home/jsmith/` when the script is run (substitue your own username for _jsmith_).
+
+== Using Variables and Conditionals in BASH Scripts
+. Variables are a key part of turning a simple list of instructions you could type into a command line into something much more powerful by allowing you to reuse code and do something very similar (remember programmers are lazy!) but with a little tweak each time without re-writing the whole thing. Variables can be defined in the script itself but there are also special variables which are part of the BASH environment we can use. Variables can be identified in bash scripts as starting with a `$`. One type of these variables allows us to access arguments which have been supplied as part of the command line calling the script. Sometimes we only want to run certain sections of the script or we want to modify the script depending on the outcome of some test, called a conditional. This is often used in combination with variables as we'll see in the example below.
+. In BASH the script filename is assigned to the `$0` variable, the first argument to `$1` and so on. Let's see how we can modify our `hello.sh` script to make it a bit more personable by including a name.
+.. Try adjusting your `hello.sh` script to look like this:
++
+[source]
+----
+#!/bin/bash
+echo Hello $1!
+----
+.. What do you think will happen if you run the script like this `./hello _yourfirstname_`? Try it using your own first name and find out if you were correct in your hypothesis!
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.sh Ben
+Hello Ben
+ben@2480-Z:~$
+----
+. Wait, what if someone doesn't know they are supposed to include their name as an argument though? Try just running `./hello.sh` again and see what happens. It might be the case that we want to go back to the simple Hello World! and maybe add some instructions if they don't specify an argument.
+.. Try updating your `hello.sh` script again and adding a _conditional_ like this:
++
+[source]
+----
+#!/bin/bash
+if [ -n "$1" ]; then
+    echo Hello $1!
+else
+    echo Hello World!
+    echo Try running $0 yourfirstnamehere to get a personal greeting!
+fi
+----
+.. See if you can predict what these changes will do when the script is run and then try it out to see if you are correct.
++
+[source,console]
+----
+ben@2480-Z:~$ ./hello.sh
+Hello World!
+Try running ./hello.sh yourfirstnamehere to get a personal greeting!
+ben@2480-Z:~$ ./hello.sh Ben
+Hello Ben!
+ben@2480-Z:~$
+----
+. It's also possible to capture the standard output of a command executed by the script and put that into a variable for later use. For example, try running the `date +%Y%m%d` command now. We can use the output of this command in a variable to make our backup script a little bit nicer.
+.. Create a new text file named `better-backup.sh` with the following text (replace _jsmith_ with your username) and set the permissions to allow it to be executed:
++
+[source]
+----
+#!/bin/bash
+USER="jsmith"
+TODAY=$(date +%Y%m%d)
+BACKUPFILE="/tmp/"$USER"-backup-"$TODAY".tar.gz"
+echo Beginning backup for $USER on $TODAY
+tar -czf $BACKUPFILE /home/$USER/
+echo Backup completed for $USER saved to $BACKUPFILE
+----
+.. See if you can predict what this script will do and then try it out to see if you are correct. Once you have figured out how this script works see if you can modify it so you can specify a username as an argument instead of as a fixed variable. Can you do this with a change to only one line?
+.. After successfully doing that try modifying the script so that it gives instructions about how to use the script if you forget to give a username as an argument.
+.. It is important to note that while this script works, it's just a simple example and not well written because it is easily broken by giving a username which doesn't actually exist on the system, or trying to backup files you don't have permission to access, etc. A better script could be written to check for all of these things as well as other errors. If the script is to be used by more people than the original author (and in the best cases, even then) it is important for usability and security purposes to do these sorts of checks, particularly if the script accepts user input such as an argument.
+
+== Using Loops and Reading User Input
+. Sometimes you want a program to do something over and over again several times. This is typically done using a loop. Let's say you wanted to create a bunch of sample files to do some further practice with in the current directory named `sample-file__X__._extension_` where X was a number that would keep incrementing by 1 each time and you could specify any extension you wanted. We could certainly use arguments to capture that user input but it is also possible to accept input from the user directly while the script is running. This would create what we call an "interactive" script because the user is interacting with it while it runs. 
+. Create a `file-generator.sh` script on your system like the one below and see if you can figure out how it works:
++
+[source]
+----
+#!/bin/bash
+BASENAME=sample-file
+echo "Welcome to the sample file generation utility!"
+echo "Files will be created using the filename format "$BASENAME"X.extension"
+echo "Enter the number of files you wish to create, then press Enter:"
+read NUM
+echo "Enter the extension (without the leading period) to put on the files"
+read EXTENSION
+for CURNUM in `seq 1 $NUM`; do
+    touch $BASENAME$CURNUM.$EXTENSION
+done
+echo "Created "$NUM" file(s)."
+----
+. There are a few things to note about this script.
+.. First, we have used one type of loop, a _FOR_ loop, but there are others and other ways to make this work.
+.. Second you can see several more examples of calling another program inside your script. In this case we have used the `read`, `seq`, and `touch` programs to accomplish our goal. The `seq` program is especially useful while writing scripts. It can be used to generate a series of numbers from a starting number (1 in this case) to a stopping number (`$NUM` in this case).
+.. There are many other helpful programs you can use while writing scripts including some you know about already such as `grep` and `find`, and others you don't such as `sed` and `awk`. You can even use programs like `wget` or `curl` to get information from the Internet and process it for use in a script instead of using it for just downloading a file.
+.. For example, if you know of a web site that lists the sunrise and sunset times you can use a combination of `wget` and `grep`/`awk`/`sed` to pull that time out of the webpage and use it as part of a script. The possibilities are almost endless, time spent learning about the ins and outs of these little utilities is time well spent if you will be writing shell scripts!
+. Try running the script and see if you were correct about what it does and how it works.
++
+IMPORTANT: Also, it is important to note that while this script works, it's just a simple example and not well written because it is easily broken by the user entering something other than a number for the number of files to be created, etc. A better script could be written to check for all of these things as well as other errors. If the script is to be used by more people than the original author (and in the best cases, even then) it is important for usability and security purposes to do these sorts of checks, particularly if the script accepts user input! This is how security bugs are born.
+. See if you can modify the script so you can specify a starting and an ending number for the files rather than just a number of files to be created.
+. See if you can add a check to the script which will display an example of a filename that will be created and asking the user if that looks correct before actually creating all the files. If the user enters N then do not create the files.
+
+== Functions and Experimenting
+. One final programming structure we should discuss is the function. In shell scripting you can think of a function like something you _could_ have put into a separate script so that you could call it to do something multiple times from inside of your script but instead of making it a completely separate file you decided to include it in a single script for organizational purposes.
+.. Here is a sample script using a function:
++
+[source]
+----
+#!/bin/bash
+function helloname {
+    echo "Type your name, followed by enter:"
+    read NAME
+    echo "Hello "$NAME"!"
+}
+echo "This program will welcome you twice to be extra nice!"
+helloname
+echo "At this point we could be doing lots of other stuff in our script or be in a loop, etc."
+helloname
+echo "Thanks for playing!"
+----
+.. See if you can figure out what will happen when you run it, then try it out and see if you were correct. Note that functions need to be _declared_ (listed) before you use them in your script so it would be common to see them at the beginning of the file as in this example. Also, it's possible to pass information to a function using arguments just like you would with a separate script.
+. Now that you have a grasp on the fundamentals of BASH scripting see if you can write a script which can be used to modify the name of all files in the current directory which share the same extension such as those created by `file-generator.sh`. The goals for your script should be: 
+.. The user has a choice to enter the original and the new extension for the files either using command line arguments or interactively by answering questions your script asks.
+.. The script should display each old file name and then the new file name next to it so you can see what is going on
+.. You will want to use conditionals to figure out if the user entered arguments to use as the old and new extensions or should be prompted for them interactively.
+.. You should use functions and loops in order to make the most efficient script possible. Hints: The actual renaming of the files and displaying old and new names would be a good thing to put in a function because you will be calling it over and over again. Also, loops can be used to operate on a list of things such as a list of filenames.
+. Don't be afraid to try using search engines for help with this. The goal of this lab is not to make you into a professional programmer but to introduce you enough to shell scripting so that you can create useful scripts with resources such as search engines available to you. 
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
