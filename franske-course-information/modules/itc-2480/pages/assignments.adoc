@@ -2,7 +2,9 @@
 This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
 
 == Lab Assignments
-You are responsible for completing ALL of these labs. You must submit a lab report (click for details about how to write these) for each topic (except topics 13/14 which have a combined report). Each lab report is worth up to 20 points.
+For each topic having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities for the module (except topics 13/14 which should be combined in a single report). Submissions are made through the ITC CLASS site. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
+
+TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
 * xref:lab1.adoc[Lab 1: Linux Installation and First Steps]
 * xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation]

@@ -1,0 +1,63 @@
+= Dr. Franske's ITC-2000 Home Page
+
+This is the homepage for the ITC-2000 classes taught by Dr. Ben Franske. 
+
+== General Course Information
+
+* xref:syllabus.adoc[Course Syllabus]
+* xref:schedule.adoc[Official Course Schedule]
+* xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
+* xref:lab-reports:index.adoc[Instructions for Writing Lab Reports and Sample Lab Reports]
+* xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
+* Assessments and online curriculum available at http://www.netacad.com
+
+== Resources
+
+=== System Diagnostics
+* https://web.archive.org/web/20230813062644/https://www.fonerbooks.com/pcrepair.htm[Hardware Repair Flowcharts]
+
+=== Reference Shelf
+* Wikipedia
+** https://en.wikipedia.org/wiki/Binary_prefix[Binary Prefixes]
+** https://en.wikipedia.org/wiki/Personal_computer[Personal Computer]
+
+=== Computer News
+
+==== General Computing News
+* https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGRqTVhZU0FtVnVHZ0pWVXlnQVAB?hl=en-US&gl=US&ceid=US%3Aen[Google Technology News]
+* http://www.slashdot.org/[Slashdot]
+* https://www.cnet.com/news/[CNET News]
+* https://www.pcmag.com/[PC Mag]
+* https://www.computerworld.com/[Computer World]
+* https://twit.tv/shows/this-week-in-tech[This Week in Tech]
+
+==== Hardware News
+* https://www.tomshardware.com/[Tom's Hardware]
+* https://www.extremetech.com/[Extreme Tech]
+* https://pcper.com/[PC Perspective]
+* https://www.anandtech.com/[AnandTech]
+
+==== Gadget News
+* https://gizmodo.com/[Gizmodo]
+* https://www.engadget.com[Engadget]
+
+=== Videos
+
+==== Printers
+* https://www.youtube.com/watch?v=pHgpmwIkIgg[NEC Spinwriter Daisy-wheel style printer]
+* https://www.youtube.com/watch?v=qlEUrEVqDbo[Dot Matrix Printer]
+* https://www.youtube.com/watch?v=WHurJcLBPYA[How Inkjet Printers Work]
+* https://www.youtube.com/watch?v=KtXes1sgUb4[How Laser Printers Work]
+* https://www.youtube.com/watch?v=hEj0SsCstIM[How Color Laser Printers Work]
+
+==== Support Calls
+* http://www.youtube.com/watch?v=C2Ph8zwpNyI[IT Crowd: How NOT to act on support calls]
+* http://www.youtube.com/watch?v=PtXtIivRRKQ[IT Crowd: The IT answering machine]
+* http://www.youtube.com/watch?v=eaxNnrXWab8[The Six Key Steps to Handle a Tech Support Call]
+
+=== A+ Testing
+
+==== Test Preparation Materials
+* Updated Information Coming
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

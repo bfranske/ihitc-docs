@@ -3,7 +3,7 @@
 Course Name: Cisco Enterprise Network Core Technologies (CCNP 1) +
 Course Number: ITC-2611-91 +
 Instructor: Dr. Ben Franske +
-Term: Fall 2023 (8/22/2023-12/12/2023) +
+Term: Fall 2024 (8/26/2024-12/19/2024) +
 Meetings: Tu 6:00-7:30pm +
 Location: Online
 
@@ -47,7 +47,7 @@ WARNING: It is important that you keep an accurate email address on file with th
 
 == Lab Time
 
-* Packet Tracer can/may not be used to complete labs in this course
+* Packet Tracer can not and may not be used to complete labs in this course
 * All labs for this class may be completed remotely using the IHCC Netlab system
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
 * Open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.

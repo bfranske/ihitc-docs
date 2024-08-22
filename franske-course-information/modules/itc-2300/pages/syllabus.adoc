@@ -1,10 +1,11 @@
 = ITC-2300 Syllabus
+
 Course Name: Information Technology Services and Applications +
-Course Number: ITC-2300-91 +
+Course Number: ITC-2300-61 +
 Instructor: Dr. Ben Franske +
-Term: Fall 2023 (8/23/2023-12/13/2023) +
-Meetings: W 6:00-8:30pm +
-Location: B144
+Term: Fall 2024 (8/26/2024-12/19/2024) +
+Meetings: W 6:00-9:00pm +
+Location: S130
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]

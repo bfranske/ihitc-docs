@@ -1,41 +1,38 @@
-= ITC-2516 Syllabus
+= ITC-2000 Syllabus
 
-Course Name: Introduction to Networks and Switching, Routing, and Wireless Essentials (CCNA 1/2) +
-Course Number: ITC-2516-61 +
+Course Name: PC Hardware and Software (A+) +
+Course Number: ITC-2000-61 +
 Instructor: Dr. Ben Franske +
 Term: Fall 2024 (8/26/2024-12/19/2024) +
-Meetings: M W 2:00-3:00pm +
+Meetings: Tu Th 10:00-11:50am +
 Location: S130
-
-== Special Note for Fall 2024
-Due to low enrollment this course is being offered as a "Tutorial" for the Fall 2024 semester. This means that the class will officially meet for one-third of the usual hours (so 2 hours per week instead of 6 hours per week) and the instructor is only officially to spend one-third of the usual time working on the class. This is a sort of in-between a regular class and an independent study.
-
-However, because I know that it will take longer than two hours per week to complete the lab activities and you need on-campus time to complete many of those activities I have scheduled my on-campus office hours to align with the time immediately after this class (3-4:50pm Mondays and Wednesdays) so that I will be around to help you with lab activites during what would have been our regular class time. Of course, this time will also be available to students from other classes so you may occasionally need to wait longer to talk to me or I may also be working on other things during this time but you are encouraged to treat this class as a 2:00pm-4:50pm course for the purpose of your own scheduling and to take full advantage of my availbility when completing your labs.
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
 
 == General Course Information
 === Prerequisite(s)
-* ITC 1400 or departmental assessment (see course notes).
 * Placement into ENG 1108 or completion of both ENG 0099 and READ 0093/0094 with a grade of C or higher.
 
 === Course Description
-Introduces the architecture, structure, functions, components, and models of the Internet and other computer networks as well as the implementation of basic enterprise routing, switching, and wireless technologies. The fundamentals of IP addressing, Ethernet, router, switch, and wireless configuration are practiced through hands-on lab work. By the end of this course, students will be able to configure and troubleshoot routers and switches and resolve common issues with VLANs, Spanning-Tree, EtherChannel, Wireless LANs, DHCP, SLAAC, static IP routes, and first-hop redundancy protocols.
-
-Course Note: The prerequisite for this course can be waived upon proof of passing an IT fundamentals examination administered by the department. Contact the instructor or department for more information. 
+Presents an in-depth exposure to computer hardware and operating systems. Students learn the functionality of hardware and software components as well as suggested best practices in maintenance and safety issues. Students learn how to assemble and configure a computer, install operating systems and software, and troubleshoot hardware and software problems. This course helps students prepare for CompTIA's A+ certification exam, which covers the knowledge and skills essential for becoming a successful computer technician.
 
 === Required Resources
-* CCNA Routing and Switching Portable Command Guide (5th Edition) (Empson) ISBN: 978013593782-2
-* External USB Drive, 8GB free minimum, flash drive or hard drive
+* External USB Drive, 8GB minimum, flash drive or hard drive which can be completely erased for use in this class
+* Phillips Screwdriver, two sizes, #1 and #2
+* Needle Nose Pliers
+* Anti-Static Wrist Strap
+
 
 === Optional Resources
-* Introduction to Networks v7.0 (ITN) Labs & Study Guide ISBN: 9780136634454
-* Switching, Routing, and Wireless Essentials v7.0 (SRWE) Labs & Study Guide ISBN: 9780136634386 (used halfway through the semester)
-* Introduction to Networks v7.0 (ITN) Course Booklet ISBN: 9780136632955
-* Introduction to Networks v7.0 (ITN) Companion Guide ISBN: 9780136633662
-* Switching, Routing, and Wireless Essentials v7.0 (SRWE) Course Booklet ISBN: 9780136634720
-* Switching, Routing, and Wireless Essentials v7.0 (SRWE) Companion Guide ISBN: 9780136729358
+* IT Essentials: Companion Guide v8 ISBN: 978-0138166106
+* A+ Guide to IT Technical Support (Hardware and Software) 11th Edition ISBN: 978-0357674161
+* CompTIA A+ Core 1 (220-1101) and Core 2 (220-1102) Exam Cram ISBN: 978-0137637546
+* CompTIA A+ Practice Questions Exam Cram Core 1 (220-1101) and Core 2 (220-1102) ISBN: 978-0137658183
+
+=== Additional Information
+* Accidental Empires: How the Boys of Silicon Valley Make Their Millions, Battle Foreign Competition, and Still Can't Get a Date (Cringely) ISBN: 978-0887308550
+* Revolution in the Valley: The Insanely Great Story of How the Mac Was Made (Hertzfeld) ISBN: 978-0596007195
 
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
@@ -47,52 +44,40 @@ WARNING: It is important that you keep an accurate email address on file with th
 --
 
 == Lab Time
-* Equipment Labs in the CCNA 1 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
-* Equipment Labs in the CCNA 2 portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission) unless the instructor gives you special permission to use Netlab remote access equipment based on your progress in the course.
+* Equipment Labs in the PC Hardware and Software course must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
+* Some labs may be completed using the remote Netlab system. These labs must be completed using the Inver Hills Netlab system and should normally be completed in class but may be completed at home with specific instructor permission.
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
-* Packet Tracer Labs may be completed on campus or at home and submitted through the ScoreUP system.
 * Additional open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  
 
 == Course Objectives
 The student will be able to:
 
-* Explain the advances in modern network technologies.
-* Implement initial settings including passwords, IP addressing, and default gateway parameters on a network switch and end devices.
-* Explain how network protocols enable devices to access local and remote network resources.
-* Explain how physical layer protocols, services, and network media support communications across data networks.
-* Convert numbers between decimal and binary systems.
-* Explain how media access control in the data link layer supports communication across networks.
-* Explain how Ethernet operates in a switched network.
-* Explain how routers use network layer protocols and services to enable end-to-end connectivity.
-* Explain how ARP and ND enable communication on a local area network.
-* Implement initial settings on a router and end devices.
-* Calculate an IPv4 subnetting scheme to efficiently segment your network.
-* Implement an IPv6 addressing scheme.
-* Use various ICMP tools to test network connectivity.
-* Compare the operations of transport layer protocols in supporting end-to-end communication.
-* Explain the operation of application layer protocols in providing support to end-user applications.
-* Configure switches and routers with device hardening features to enhance security.
-* Implement a network design for a small network to include a router, a switch, and end devices.
-* Configure devices by using security best practices.
-* Explain how Layer 2 switches forward data.
-* Implement VLANs and trunking in a switched network.
-* Troubleshoot inter-VLAN routing on Layer 3 devices.
-* Explain how STP enables redundancy in a Layer 2 network.
-* Troubleshoot EtherChannel on switched links.
-* Implement DHCPv4 to operate across multiple LANs.
-* Explain the operation of dynamic address allocation in IPv6 networks.
-* Explain how FHRPs provide default gateway services in a redundant network.
-* Explain how vulnerabilities compromise LAN security.
-* Configure switch security to mitigate LAN attacks.
-* Explain how WLANs enable network connectivity.
-* Implement a WLAN using a wireless router and WLC.
-* Explain how routers use information in packets to make forwarding decisions.
-* Configure IPv4 and IPv6 floating static routes.
-* Explain how to troubleshoot static and default route configurations.
-* Students will practice business soft skills including written, active listening, and oral presentation.
-
-== Course Design
-This course will be taught as a hybrid course with regular instructor meetings. This means that you and your lab partner will be meeting regularly with the instructor during the on campus course time to assess your progress unless you have received special permission from the instructor. Additional details about this are available on the course website. 
+* Explain motherboard components, types and features
+* Explain the process and steps to install and configure the Windows OS
+* Given a scenario, demonstrate proper use of user interfaces
+* Given a scenario, demonstrate the appropriate use of communication skills and professionalism in the workplace
+* Given a scenario, determine the troubleshooting methods and tools for printers
+* Explain the basic principles of security concepts and technologies
+* Categorize network cables and connectors and their implementations
+* Classify power supplies types and characteristics
+* Compare and contrast memory types, characteristics and their purpose
+* Compare and contrast the different Windows Operating Systems and their features
+* Compare and contrast the different network types
+* Distinguish between the different display devices and their characteristics
+* Explain cooling methods and devices
+* Explain the purpose and characteristics of CPUs and their features
+* Given a scenario, explain and interpret common hardware and operating system symptoms and their causes
+* Given a scenario, explain and interpret common laptop issues and determine the appropriate basic troubleshooting method
+* Given a scenario, explain the troubleshooting theory
+* Given a scenario, install, configure and maintain
+* Given a scenario, integrate common preventative maintenance techniques
+* Install and configure peripherals and input devices
+* Install and configure printers
+* Install, configure and optimize laptop components and features
+* Outline the purpose of appropriate safety and environmental procedures and given a scenario apply them
+* Summarize the basics of networking fundamentals, including technologies, devices and protocols
+* Summarize the following security features
+* Summarize the function and types of adapter cards
 
 == Assignments and Grading
 Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
@@ -132,17 +117,15 @@ If you miss or do poorly on a regular unit/module/chapter exam (not a final exam
 |===
 
 === Grading Method and Availability
-This course is a combination of two Cisco Networking Academy courses, CCNA 1 and CCNA 2. Grades for each of these two courses will be calculated separately following the method below and then the two courses will be averaged for a final grade in the single 6 credit college course.
-
 Grades for each course is calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
  
 [%autowidth,options="header"]
 |===
 |Category |Percent of Final Grade
-|Unit Assessments 
-|20%
+|Module Assessments 
+|22%
 |Lab/Homework Assignments 
-|35%
+|33%
 |Regular Final Exam 
 |15%
 |Skills Based Final Exam

@@ -1,0 +1,71 @@
+= ITC-2000 Assignment Details and Directions
+
+== Labs
+For each topic listed below having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below the topic. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access or campus equipment. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
+
+TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
+
+=== PC Disassembly/Reassembly Labs
+
+=== Boot/BIOS Labs
+
+=== Hardware Troubleshooting Labs
+
+=== Networking Labs
+
+=== Printer Labs
+
+=== Linux Labs
+
+=== Windows Installation Labs
+
+=== Windows Administration Labs
+
+=== Mobile Device Labs
+
+=== Security Labs
+
+=== Support Labs
+
+== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
+== Participation Activities
+Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
+
+* Attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter (10 points)
+* Meet with an academic advisor (10 points for meeting)
+* Complete a program/degree plan (10 points for completing)
+* Complete the online course feedback form (5 points for completing)
+* Complete the Practice Final Exam (Chapters 1-9) (10 points for attempting)
+* Complete the Practice Final Exam (Chapters 10-14) (10 points for attempting)
+* Compete the A+ 220-1001 Certification Practice Exam (10 points for attempting)
+* Compete the A+ 220-1002 Certification Practice Exam (10 points for attempting)
+* Weekly Progress Self-Evaluation - Complete on the Netacad Website (10 points possible each week)
+* Computer History Summary Report (15 points)
+** Write a 400-500 word summary of the information you learned in the video and why you think it may be useful to know about that history in your IT career. Submit your report through the Netacad site.
+
+== Unit Assessments
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. 
+
+* Modules 1 - 3: Basic Network Connectivity and Communications Exam
+* Modules 4 - 7: Ethernet Concepts Exam
+* Modules 8 - 10: Communicating Between Networks Exam
+* Modules 11 - 13: IP Addressing Exam
+* Modules 14 - 15: Network Application Communications Exam
+* Modules 16 - 17: Building and Securing a Small Network Exam
+
+== Skills Final Exam
+The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+
+* Half of your grade in this category will be based on successfully disassembling and reassembling a computer.
+* Half of your grade in this category will be based on successfully installing and configuring the Windows operating system to the specifications provided.
+
+== Online Final Exam
+* You will need to complete an online final exam on the Netacad site.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
