@@ -1,0 +1,35 @@
+= Lab 11: Practical Applications of Containers
+
+== Introduction
+
+In this lab you will perform the following tasks:
+
+* Setup one more application using Docker and Docker features
+* Setup one more application using Docker and Docker features
+
+== Preliminaries
+
+. Open an SSH remote terminal session to your Linux server's IP address
+.. Connect to ITCnet from the computer you will be using as your administrative PC. In most cases this means connecting to the ITC Student VPN (unless you are using the Netlab Windows Administrative PC).
+.. Run the PuTTY software on your computer (or the Windows Administrative PC) and enter in the IP address of your Linux server VM in the "Host Name" box and click the "Open" button.
++
+--
+NOTE: Remember that if you do not have a Windows computer to connect from you can either figure out how to SSH from your own computer over the VPN to your Linux server or you can use the Windows Administrative PC that is provided for you in Netlab.
+--
+. Login with your standard user's username and password
+
+== Setup Another Example of a Docker Containerized Application
+. Pick another application containerized using Docker and install and configure it
+
+== Setup Another Example of a Docker Containerized Application
+. Pick another application containerized using Docker and install and configure it
+
+== Wrapping Up
+
+. Close the SSH session
+.. Type `exit` to close the connection while leaving your Linux server VM running.
+. If you are using the Administrative PC in Netlab instead of your own computer as the administrative computer you should also shut down that system in the usual way each time you are done with the Netlab system and then end your Netlab Reservation. You should do these steps each time you finish using the adminsitrative PC in future labs as well.
+
+NOTE: You can keep your Linux Server running, you do not need to shut it down.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
