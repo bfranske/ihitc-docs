@@ -149,6 +149,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 10 Online Discussion Response Posts
 * Module 11 Online Discussion First Post
 * *Start* Module 11 Packet Tracer Online Submission Activities -- These do not need to be submitted by next class though
+* *Start* Module 11 Homework Activities -- These do not need to be submitted by next class though
 * Unit Exam Modules 8 - 10: Communicating Between Networks
 
 === Assignments Due at the start of class today
@@ -161,6 +162,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 == Sep 18
 === Work to do in class today
 * Module 11 Packet Tracer Online Submission Activities
+* Module 11 Homework Activities
 
 === Readings to do before next class
 * None
@@ -168,6 +170,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 11 Online Discussion Response Posts
 * *Finish* Module 11 Packet Tracer Online Submission Activities
+* *Finish* Module 11 Homework Activities
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
@@ -182,10 +185,12 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 12 Online Discussion First Post
 * Module 12 Packet Tracer Online Submission Activities
+* Module 12 Homework Activities
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion Response Posts
 * Module 11 Packet Tracer Online Submission Activities
+* Module 11 Homework Activities
 
 == Sep 25
 === Work to do in class today
@@ -202,6 +207,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Assignments Due at the start of class today
 * Module 12 Online Discussion First Post
 * Module 12 Packet Tracer Online Submission Activities
+* Module 12 Homework Activities
 
 == Sep 30
 === Work to do in class today
