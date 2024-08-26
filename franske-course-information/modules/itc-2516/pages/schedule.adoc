@@ -1,27 +1,324 @@
-= ITC-2516 Official Course Schedule
+= ITC-25616 Official Course Schedule
 
-== Official Course Schedule
-[%autowidth,options="header"]
-|=================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-| Date    | Week                            | Readings to do before the next date  | Work to do in class today                            | Work to do before the next date                                                                                                                | Assignments Due (Today by 2:00pm unless otherwise noted)                                                                                                                                                                             
-| 22-Aug  | 1                               | Modules 1 & 2                        | Course Introduction, Verify NetAcad Access           | Module 2 Packet Tracer Activities, Module 1 & 2 Online Discussion First Posts, System Test Exam                                                                  | 
-| 29-Aug  | 2                               | Modules 3 & 4                        | Module 2 Lab Activities, Instructor Meeting          | Module 3 & 4 Packet Tracer Activities, Module 1 & 2 Online Discussion Response Posts, Module 3 & 4 Online Discussion First Posts               | Module 1 & 2 Online Discussion First Posts, System Test Exam 
-| 5-Sep   | 3 - NO CLASS MEETING LABOR DAY  | Modules 5, 6 & 7                     |                                                      | Module 3 & 4 Online Discussion Response Posts, Module 5, 6 & 7 Online Discussion First Posts                                                   | Module 2, 3 & 4 Packet Tracer Submissions, Module 2 Lab Reports, Module 1 & 2 All Discussion Posts, Module 3 & 4 First Discussion Posts, Module 1-3 Exam                                                                             
-| 12-Sep  | 4                               | Modules 8, 9 & 10                    | Module 3, 4, & 7 Lab Activities, Instructor Meeting  | Module 9 & 10 Packet Tracer Activities, Module 5-7 Discussion Response Posts, Module 8-10 Discussion First Posts                               | Module 3 & 4 All Discussion Posts, Module 5-7 First Discussion Posts, Module 4-7 Exam                                                                                                                                                
-| 19-Sep  | 5                               | Module 11                            | Module 9 & 10 Lab Activities, Instructor Meeting     | Module 11 Packet Tracer and Homework Activities, Module 8-10 Discussion Response Posts, Module 11 Discussion First Posts                       | Module 3, 4, & 7 Lab Reports, Module 9 & 10 Packet Tracer Submissions, Module 5-7 All Discussion Posts, Module 8-10 Discussion First Posts, Module 8-10 Exam                                                                         
-| 26-Sep  | 6                               | Module 12 & 13                       | Instructor Meeting                                   | Module 12 & 13 Packet Tracer and Homework Activities, Module 11 Discussion Response Posts, Module 12-13 Discussion First Posts                 | Module 9 & 10 Lab Repots, Module 11 Packet Tracer Submissions and Homework, Module 8-10 All Discussion Posts, Module 11 First Discussion Posts                                                                                       
-| 3-Oct   | 7                               | Module 14 & 15                       | Module 12 & 13 Lab Activities, Instructor Meeting    | Module 12 & 13 Discussion Response Posts, Module 14-15 Discussion First Posts                                                                  | Module 12 & 13 Packet Tracer Submissions and Homework, Module 11 All Discussion Posts, Module 12-13 Discussion First Posts, Module 11-13 Exam                                                                                        
-| 10-Oct  | 8                               | Module 16 & 17                       | Module 14 & 15 Lab Activities, Instructor Meeting    | Module 16 & 17 Packet Tracer Activities, Module 14 & 15 Discussion Response Posts, Module 16-17 Discussion First Posts                         | Module 12 & 13 Lab Reports, Module 12 & 13 All Discussion Posts, Module 14-15 Discussion First Posts, Module 14-15 Exam                                                                                                              
-| 17-Oct  | 9                               |                                      | Module 16 & 17 Lab Activities, Instructor Meeting    | Practice Final Exam, Practice Packet Tracer Skills Assessment, Cisco Course Feedback Form, Online Final Exam, Packet Tracer Skills Assessment  | Module 16 & 17 Packet Tracer Submissions, Module 14 & 15 Lab Reports ,Module 14-15 All Discussion Posts, Module 16 & 17 First Discussion Posts, Module 16-17 Exam                                                                    
-| 24-Oct  | 10                              | CCNA 2 Modules 1, 2 & 3              | CCNA 1 Equipment Skills Exam                         | Module 1 & 3 Packet Tracer Activities, Module 1-3 Discussion First Posts                                                                       | Module 16 & 17 Lab Reports, CCNA 1 Practice Final Exam, CCNA 1 Practice PT Skills Assessment, Cisco Course Feedback Form, CCNA 1 Online Final Exam, CCNA 1 PT Skills Assessment, CCNA 1 Modules 16-17 All Discussion Posts           
-| 31-Oct  | 11                              | Modules 4 & 5                        | Module 1 & 3 Lab Activities, Instructor Meeting      | Module 4 Packet Tracer Activities, Module 1-3 Discussion Response Posts, Module 4 & 5 Discussion First Posts                                   | Module 1 & 3 Packet Tracer Submissions, Module 1-3 Discussion First Posts                                                                                                                                                            
-| 7-Nov   | 12                              | Modules 6, 7 & 8                     | Module 4 & 5 Lab Activities, Instructor Meeting      | Module 6 & 7 Packet Tracer Activities, Module 4 & 5 Discussion Response Posts, Module 6-8 Discussion First Posts                               | Module 1 & 3 Lab Reports, Module 4 & 5 Packet Tracer Online Submissions, Module 1-3 All Discussion Posts, Module 4 & 5 Discussion First Posts, Module 1-4 Exam                                                                       
-| 14-Nov  | 13                              | Modules 9, 10 & 11                   | Module 6, 7, & 8 Lab Activities, Instructor Meeting  | Module 9 & 11 Packet Tracer Activities, Module 6-8 Discussion Response Posts, Module 9-11 Discussion First Posts                               | Module 4 & 5 Lab Reports, Module 6, 7 & 8 Packet Tracer Online Submissions, Module 4 & 5 All Discussion Posts, Module 6-8 Discussion First Posts, Module 5-6 Exam                                                                    
-| 21-Nov  | 14                              | Modules 12 & 13                      | Module 11 Lab Activities, Instructor Meeting         | Module 13 Packet Tracer Activities, Module 9-11 Discussion Response Posts, Module 12 & 13 Discussion First Posts                               | Module 6, 7, & 8 Lab Reports, Module 9 & 11 Packet Tracer Online Submissions, Module 6-8 All Discussion Posts, Module 9-11 Discussion First Posts                                                                                    
-| 28-Nov  | 15                              | Modules 14, 15 & 16                  | Module 13 Lab Activities, Instructor Meeting         | Module 14, 15 & 16 Packet Tracer Activities, Module 12 & 13 Discussion Response Posts, Module 14-16 Discussion First Posts                     | Module 11 Lab Reports, Module 13 Packet Tracer Online Submissions, Module 9-11 Discussion All Posts, Module 12 & 13 Discussion First Posts, Module 7-9 Exam                                                                          
-| 5-Dec   | 16                              |                                      | Module 15 & 16 Lab Activities, Instructor Meeting    | Practice Final Exam, Practice Packet Tracer Skills Assessment, Cisco Course Feedback Form, Online Final Exam, Packet Tracer Skills Assessment  | Module 13 Lab Reports, Module 14, 15 & 16 Packet Tracer Online Submissions, Module 12 & 13 Discussion All Posts, Module 14-16 Discussion First Posts, Module 10-13 Exam                                                              
-| 12-Dec  | FE Week                         |                                      | CCNA 2 Equipment Skills Exam                         |                                                                                                                                                | Module 15 & 16 Lab Reports, CCNA 2 Practice Final Exam, CCNA 2 Practice PT Skills Assessment, Cisco Course Feedback Form, CCNA 2 Online Final Exam, CCNA 2 PT Skills Assessment, Module 14-16 Exam, Module 14-16 All Discussion Posts
-|=================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+== Aug 26
+=== Readings to do before next class
+* Module 1
+* Module 2
 
+TIP: Be sure to watch the videos that go along with the chapters you read each week. A link to the video playlist can be found at the top of the Netacad course page.
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Module 2 Packet Tracer Online Submission Activities
+* System Test Exam
+
+TIP: Discussion posts are done through the Cisco Netacad site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+TIP: Labs in this class will be done one of three ways: on campus using physical lab equipment, remotely or on campus using the Netlab system, or in the Packet Tracer software. For some activities you will write a lab report and for others you will submit the Packet Tracer work using the ScoreUP plugin to Packet Tracer. See the assignments page of this info site for more details and what labs should be completed in what way.
+
+=== Assignments Due at the start of class today
+* None
+
+== Aug 28
+=== Work to do in class today
+* Module 2 Lab Report Activities
+
+=== Readings to do before next class
+* Module 3
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion First Post
+
+NOTE: Next Monday is Labor Day and there is no class, however, there is some additional assigned work to do before next Wednesday! If you don't want to do this work on Monday that's fine but make sure you have it done before Wednesday!
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Module 2 Packet Tracer Online Submission Activities
+* System Test Exam
+
+== Sep 2
+
+NOTE: Today is Labor Day and there is no class, however, there is some additional assigned work to do before next Wednesday! If you don't want to do this work today that's fine but make sure you have it done before Wednesday!
+
+=== Readings to do before next class
+* Module 4
+
+=== Other Work to do before next class
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Post
+* Module 4 Packet Tracer Online Submission Activities
+* Unit Exam Modules 1 - 3: Basic Network Connectivity and Communications Exam
+
+=== Assignments Due at the start of class today
+* No class today it is Labor Day but these things will be due on Wednesday:
+** Module 1 Online Discussion Response Posts
+** Module 2 Online Discussion Response Posts
+** Module 3 Online Discussion First Post
+** Module 2 Lab Report Activities
+
+== Sep 4
+=== Work to do in class today
+* Module 3 Lab Report Activities
+
+=== Readings to do before next class
+* Module 5
+* Module 6
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+
+=== Assignments Due at the start of class today
+* Assignments listed under Sep 2:
+** Module 1 Online Discussion Response Posts
+** Module 2 Online Discussion Response Posts
+** Module 3 Online Discussion First Post
+** Module 2 Lab Report Activities
+* Module 3 Online Discussion Response Post
+* Module 4 Online Discussion First Post
+* Module 4 Packet Tracer Online Submission Activities
+* Unit Exam Modules 1 - 3: Basic Network Connectivity and Communications Exam
+
+== Sep 6
+=== Readings to do before next class
+* Module 7
+
+=== Other Work to do before next class
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Post
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+* Module 3 Lab Report Activities
+
+== Sep 9
+=== Work to do in class today
+* Module 7 Lab Report Activities
+
+=== Readings to do before next class
+* Module 8
+* Module 9
+
+=== Other Work to do before next class
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Post
+* Module 9 Online Discussion First Post
+* Unit Exam Modules 4 - 7: Ethernet Concepts
+
+=== Assignments Due at the start of class today
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Post
+
+== Sep 11
+=== Work to do in class today
+* Module 9 Lab Report Activities
+
+=== Readings to do before next class
+* Module 10
+
+=== Other Work to do before next class
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Post
+* Module 10 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Post
+* Module 9 Online Discussion First Post
+* Module 7 Lab Report Activities
+* Unit Exam Modules 4 - 7: Ethernet Concepts
+
+== Sep 16
+=== Work to do in class today
+* Module 10 Lab Report Activities
+
+=== Readings to do before next class
+* Module 11
+
+=== Other Work to do before next class
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion First Post
+* *Start* Module 11 Packet Tracer Online Submission Activities -- These do not need to be submitted by next class though
+* Unit Exam Modules 8 - 10: Communicating Between Networks
+
+=== Assignments Due at the start of class today
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Post
+* Module 10 Packet Tracer Online Submission Activities
+* Module 9 Lab Report Activities
+
+== Sep 18
+=== Work to do in class today
+* Module 11 Packet Tracer Online Submission Activities
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 11 Online Discussion Response Posts
+* *Finish* Module 11 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion First Post
+* Module 10 Lab Report Activities
+* Unit Exam Modules 8 - 10: Communicating Between Networks
+
+== Sep 23
+=== Readings to do before next class
+* Module 12
+
+=== Other Work to do before next class
+* Module 12 Online Discussion First Post
+* Module 12 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 11 Online Discussion Response Posts
+* Module 11 Packet Tracer Online Submission Activities
+
+== Sep 25
+=== Work to do in class today
+* Module 12 Lab Report Activities
+
+=== Readings to do before next class
+* Module 13
+
+=== Other Work to do before next class
+* Module 13 Online Discussion First Post
+* Module 12 Online Discussion Response Posts
+* Module 13 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion First Post
+* Module 12 Packet Tracer Online Submission Activities
+
+== Sep 30
+=== Work to do in class today
+* Module 13 Lab Report Activities
+
+=== Readings to do before next class
+* Module 14
+
+=== Other Work to do before next class
+* Module 14 Online Discussion First Post
+* Module 13 Online Discussion Response Posts
+* Unit Exam Modules 11 - 13: IP Addressing
+
+=== Assignments Due at the start of class today
+* Module 13 Online Discussion First Post
+* Module 12 Online Discussion Response Posts
+* Module 13 Packet Tracer Online Submission Activities
+* Module 12 Lab Report Activities
+
+== Oct 2
+=== Work to do in class today
+* Module 14 Lab Report Activities
+
+=== Readings to do before next class
+* Module 15
+
+=== Other Work to do before next class
+* Module 15 Online Discussion First Post
+* Module 14 Online Discussion Response Posts
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion First Post
+* Module 13 Online Discussion Response Posts
+* Module 13 Lab Report Activities
+* Unit Exam Modules 11 - 13: IP Addressing
+
+== Oct 7
+=== Work to do in class today
+* Module 15 Lab Report Activities
+
+=== Readings to do before next class
+* Module 16
+
+=== Other Work to do before next class
+* Module 16 Online Discussion First Post
+* Module 15 Online Discussion Response Posts
+* Module 16 Packet Tracer Online Submission Activities
+* Unit Exam Modules 14 - 15: Network Application Communications
+
+=== Assignments Due at the start of class today
+* Module 15 Online Discussion First Post
+* Module 14 Online Discussion Response Posts
+* Module 14 Lab Report Activities
+
+== Oct 9
+=== Work to do in class today
+* Module 16 Lab Report Activities
+
+=== Readings to do before next class
+* Module 17
+
+=== Other Work to do before next class
+* Module 17 Online Discussion First Post
+* Module 16 Online Discussion Response Posts
+* Module 17 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 16 Online Discussion First Post
+* Module 15 Online Discussion Response Posts
+* Module 16 Packet Tracer Online Submission Activities
+* Module 15 Lab Report Activities
+* Unit Exam Modules 14 - 15: Network Application Communications
+
+== Oct 14
+=== Work to do in class today
+* Module 17 Lab Report Activities
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Prepare for Skills Exam
+* Practice Final Exam
+* Practice Packet Tracer Skills Assessment
+* Cisco Course Feedback Form
+* Online Final Exam
+* Packet Tracer Skills Assessment
+
+
+=== Assignments Due at the start of class today
+* Module 17 Online Discussion Response Posts
+* Module 16 Lab Report Activities
+* Unit Exam Modules 16 - 17: Building and Securing a Small Network
+
+== Oct 16
+=== Work to do in class today
+* CCNA 1 Equipment Skills Exam
+
+=== Readings to do before next class
+* CCNA 2 Module 1
+* CCNA 2 Module 2
+
+=== Other Work to do before next class
+* CCNA 2 Module 1 Online Discussion First Post
+* CCNA 2 Module 2 Online Discussion First Post
+* CCNA 2 Module 1 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 17 Lab Report Activities
+* Unit Exam Modules 16 - 17: Building and Securing a Small Network
+* CCNA 1 Practice Final Exam
+* CCNA 1 Practice Packet Tracer Skills Assessment
+* CCNA 1 Cisco Course Feedback Form
+* CCNA 1 Online Final Exam
+* CCNA 1 Packet Tracer Skills Assessment
+
+== FUTURE DATES
+* The schedule for dates after October 12 will be determined later in the semester but will follow a similar pattern.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
