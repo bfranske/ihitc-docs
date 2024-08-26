@@ -4,8 +4,8 @@
 
 In this lab you will perform the following tasks:
 
-* Setup one more application using Docker and Docker features
-* Setup one more application using Docker and Docker features
+* Setup Zabbix for Service Monitoring using Docker
+* Setup Archivebox using Docker
 
 == Preliminaries
 
@@ -18,11 +18,85 @@ NOTE: Remember that if you do not have a Windows computer to connect from you ca
 --
 . Login with your standard user's username and password
 
-== Setup Another Example of a Docker Containerized Application
-. Pick another application containerized using Docker and install and configure it
+== Setup Zabbix for Service Monitoring using Docker
+. It's often important to be able to monitor your servers and other IT infrastructure for key parameters and uptime. One tool that allows this is the Zabbix monitoring system. However, it can be complex to get all of the services needed for Zabbix server to function up and running. Docker can be used to handle this sort of setup with ease so we'll use it as another example of how to use Docker and Docker Compose.
+. We will mostly be following the https://www.zabbix.com/documentation/current/en/manual/installation/containers#docker-compose[Zabbix instructions for running using Docker Compose]. If you have any issues with this section of the lab please refer to those instructions.
+. From your home directory run the `git clone https://github.com/zabbix/zabbix-docker.git` command which will use the _Git_ program to download the latest pre-made Docker Compose files from the Zabbix Docker Git Repository.
++
+[source,console]
+----
+ben@2480-Z:~$ git clone https://github.com/zabbix/zabbix-docker.git
+Cloning into 'zabbix-docker'...
+remote: Enumerating objects: 103795, done.
+remote: Counting objects: 100% (12690/12690), done.
+remote: Compressing objects: 100% (2235/2235), done.
+remote: Total 103795 (delta 10703), reused 12296 (delta 10394), pack-reused 91105 (from 1)
+Receiving objects: 100% (103795/103795), 34.61 MiB | 11.10 MiB/s, done.
+Resolving deltas: 100% (80009/80009), done.
+ben@2480-Z:~$
+----
+. You should see a new `zabbix-docker` directory has been created in your home directory. Change your working directory to `zabbix-docker`.
+. Run the `git checkout 7.0` command to make sure you have selected the most recent Docker Compose files for Zabbix 7.0.
+. You will see in the directory that there are many different versions of Docker Compose files depending on the underlyiung Linux you want to use and the database server you want to use. These are detailed a bit more in the https://www.zabbix.com/documentation/current/en/manual/installation/containers#docker-compose[Zabbix documentation for running using Docker Compose]. For our purposes we'll be using the Alpine Linux version with a PostgreSQL database server.
+. You should see that there is an `env_vars` subdirectory and a _.env_ file in the `zabbix-docker` directory. If you take a look inside both of these you'll see a lot of environment variables that will be used to setup and configure aspects of Zabbix and associated services. There are also a large number of default passwords being set through these variables. For our lab demonstration purposes it's fine to stick with these defaults but in real-world usage we would want to be sure to better secure the Zabbix infrastructure by changing these defaults!
+. One thing we do want to change is the default port the Zabbix web server container runs on as we're already using port 80 for our existing Nginx web server. Open the _.env_ file in a text editor and change the lines `ZABBIX_WEB_NGINX_HTTP_PORT=80` to `ZABBIX_WEB_NGINX_HTTP_PORT=8080` and `ZABBIX_WEB_NGINX_HTTPS_PORT=443` to `ZABBIX_WEB_NGINX_HTTPS_PORT=4443` before saving and closing the file.
+. Unlike in our previous lab we want to carefully select from the many Docker Compose YAML files so we'll start `docker compose` with the `-f _<composeYAMLfile>_` option using `docker compose -f ./docker-compose_v3_alpine_pgsql_latest.yaml up` as administrator.
+. After a few moments the containers should all be created and the database setup.
+. Try opening a web browser on your administrative PC and browsing to _http://z.itc2480.campus.ihitc.net:8080/_ (where you have replaced Z with your own Pod ID letter). You should see a Zabbix login prompt, try logging in with the default username _Admin_ and password _zabbix_ (these are case sensititve.)
++
+image::lab11/001.png[Logging in to Zabbix web interface,250,align=left,link=self]
+. If you were able to log in successfully you should see a dashboard:
++
+image::lab11/002.png[Zabbix dashboard,250,align=left,link=self]
+. You'll notice that Docker is still running in the foreground on your SSH terminal. Press CTRL-C on your SSH terminal to stop the containers and return to a command prompt.
+. Run `docker compose -f ./docker-compose_v3_alpine_pgsql_latest.yaml up -d` this time (notice what's different from the last time we started the containers).
+. The containers should now be running in detatched mode so you'll be returned to the command line but still be able to use the Zabbix web service.
 
-== Setup Another Example of a Docker Containerized Application
-. Pick another application containerized using Docker and install and configure it
+== Configure Zabbix Basics
+. Log in to the Zabbix Web interface from your Administrative PC if you aren't already there.
+. Go to the Administration -> General -> GUI menu and fix the default time zone to be "(UTC-5:00) America/Chicago" Save the change.
+. Go back to the dashboard and hover over the "Geomap" square. Click the gear icon in the upper right corner. Change the "Initial view" to be "44.828258661346695, -93.05595185117264,15" which are the coordinates of the Technology and Business Center on the Inver Hills campus shown at zoom level 15. Click the "Apply" button to save your changes and the map should update.
+. Because Zabbix is running inside a Docker container it doesn't really have visability to your underlying Linux server. Let's get some initial visability by installing and configuring an agent on the server.
+.. Install the `zabbix-agent2` package on your Linux server
+.. Edit the `/etc/zabbix/zabbix_agent2.conf` file and change the `Server=127.0.0.1` line to `Server=127.0.0.1,0.0.0.0/0`
++
+IMPORTANT: This is not a good security setup for production use! To simplify lab setup we are allowing any Zabbix server to connect to our Linux server. You would normally want to restrict Zabbix Agents to listen only from the IP address of your Zabbix server.
+.. Run the `systemctl restart zabbix-agent2` command as an administrator to apply the changes.
+.. In the Zabbix Server web interface go to Monitoring -> Hosts
+.. Click on the name of the "Zabbix server" and choose Configuration -> Host from the pop-up menu:
++
+image::lab11/003.png[Zabbix host popup menu,250,align=left,link=self]
+.. Change the "Agent IP Address" to be the outside IP address of your Linux server (_172.17.50.xx_):
++
+image::lab11/004.png[Zabbix host IP change,250,align=left,link=self]
+.. Click the "Update" button
+.. After a few minutes the "ZBX" icon in the "Availability" column should turn green.
+.. Click on the "Zabbix server" host name again and choose "Latest Data" from the pop-up menu.
+.. Ensure data values have started filling in and there are some recent "Last check" times
+. Explore some of the data values, dashboards, and graphs available about your Linux server
+. There is much more configuration that can be done in Zabbix including monitoring services you're running like HTTP, SSH, DNS, etc. that is beyond the scope of this course.
+
+== Setup Archivebox using Docker
+. There are many useful small tool applications that can be run using Docker. One example of this is ArchiveBox which allows web pages to be captured and archvied for future use.
+. Begin by creating the `~/archivebox` and `~/archivebox/data` directories
+. Change your working directory to `~/archivebox`
+. Download the latest `docker-compose.yml` file for ArchiveBox by running the command `curl -fsSL 'https://docker-compose.archivebox.io' > docker-compose.yml`
+. ArchiveBox has an easy setup process which you can start using the `docker compose run archivebox init --setup` command as administrator
+.. Set a username when prompted (or press enter to use "archivebox" as a default)
+.. Enter an email address when prompted
+.. Enter and confirm a password when prompted (if the password contains less than 8 characters you will be prompted to bypass a secuirty warning)
+. Once the setup process is complete open the `docker-compose.yml` file for editing
+.. Find the `novnc:` container section of the file
+.. Edit the `- 127.0.0.1:8080:8080` line to be `- 127.0.0.1:8081:8080` so that the novnc server will use port 8081 instead of 8080 because we're already using 8080 for Zabbix.
+.. Save and close the file
+. Now run `docker compose up` as an administrator to start the server containers
+. Try accessing http://z.itc2480.campus.ihitc.net:8000 (replacing z with the Pod ID letter of your own pod) from the browser of your Administrative PC
+. Assuming that access is successful press CTRL-C in your SSH session to stop the containers.
+. Remove the old containers with the `docker compose down` command as an administrator
+. Run `docker compose up -d` as an administrator to start the server containers in detatched mode
+. After waiting a few moments the web interface should be up and running again
+. Log in using the link in the upper right corner and the username/password you setup
+. Find a few URLs of web pages online and try adding them to ArchiveBox to see how it can archive the page contents.
 
 == Wrapping Up
 
