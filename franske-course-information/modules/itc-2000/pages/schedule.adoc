@@ -1,27 +1,344 @@
-= ITC-2516 Official Course Schedule
+= ITC-2000 Official Course Schedule
 
-== Official Course Schedule
-[%autowidth,options="header"]
-|=================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
-| Date    | Week                            | Readings to do before the next date  | Work to do in class today                            | Work to do before the next date                                                                                                                | Assignments Due (Today by 2:00pm unless otherwise noted)                                                                                                                                                                             
-| 22-Aug  | 1                               | Modules 1 & 2                        | Course Introduction, Verify NetAcad Access           | Module 2 Packet Tracer Activities, Module 1 & 2 Online Discussion First Posts, System Test Exam                                                                  | 
-| 29-Aug  | 2                               | Modules 3 & 4                        | Module 2 Lab Activities, Instructor Meeting          | Module 3 & 4 Packet Tracer Activities, Module 1 & 2 Online Discussion Response Posts, Module 3 & 4 Online Discussion First Posts               | Module 1 & 2 Online Discussion First Posts, System Test Exam 
-| 5-Sep   | 3 - NO CLASS MEETING LABOR DAY  | Modules 5, 6 & 7                     |                                                      | Module 3 & 4 Online Discussion Response Posts, Module 5, 6 & 7 Online Discussion First Posts                                                   | Module 2, 3 & 4 Packet Tracer Submissions, Module 2 Lab Reports, Module 1 & 2 All Discussion Posts, Module 3 & 4 First Discussion Posts, Module 1-3 Exam                                                                             
-| 12-Sep  | 4                               | Modules 8, 9 & 10                    | Module 3, 4, & 7 Lab Activities, Instructor Meeting  | Module 9 & 10 Packet Tracer Activities, Module 5-7 Discussion Response Posts, Module 8-10 Discussion First Posts                               | Module 3 & 4 All Discussion Posts, Module 5-7 First Discussion Posts, Module 4-7 Exam                                                                                                                                                
-| 19-Sep  | 5                               | Module 11                            | Module 9 & 10 Lab Activities, Instructor Meeting     | Module 11 Packet Tracer and Homework Activities, Module 8-10 Discussion Response Posts, Module 11 Discussion First Posts                       | Module 3, 4, & 7 Lab Reports, Module 9 & 10 Packet Tracer Submissions, Module 5-7 All Discussion Posts, Module 8-10 Discussion First Posts, Module 8-10 Exam                                                                         
-| 26-Sep  | 6                               | Module 12 & 13                       | Instructor Meeting                                   | Module 12 & 13 Packet Tracer and Homework Activities, Module 11 Discussion Response Posts, Module 12-13 Discussion First Posts                 | Module 9 & 10 Lab Repots, Module 11 Packet Tracer Submissions and Homework, Module 8-10 All Discussion Posts, Module 11 First Discussion Posts                                                                                       
-| 3-Oct   | 7                               | Module 14 & 15                       | Module 12 & 13 Lab Activities, Instructor Meeting    | Module 12 & 13 Discussion Response Posts, Module 14-15 Discussion First Posts                                                                  | Module 12 & 13 Packet Tracer Submissions and Homework, Module 11 All Discussion Posts, Module 12-13 Discussion First Posts, Module 11-13 Exam                                                                                        
-| 10-Oct  | 8                               | Module 16 & 17                       | Module 14 & 15 Lab Activities, Instructor Meeting    | Module 16 & 17 Packet Tracer Activities, Module 14 & 15 Discussion Response Posts, Module 16-17 Discussion First Posts                         | Module 12 & 13 Lab Reports, Module 12 & 13 All Discussion Posts, Module 14-15 Discussion First Posts, Module 14-15 Exam                                                                                                              
-| 17-Oct  | 9                               |                                      | Module 16 & 17 Lab Activities, Instructor Meeting    | Practice Final Exam, Practice Packet Tracer Skills Assessment, Cisco Course Feedback Form, Online Final Exam, Packet Tracer Skills Assessment  | Module 16 & 17 Packet Tracer Submissions, Module 14 & 15 Lab Reports ,Module 14-15 All Discussion Posts, Module 16 & 17 First Discussion Posts, Module 16-17 Exam                                                                    
-| 24-Oct  | 10                              | CCNA 2 Modules 1, 2 & 3              | CCNA 1 Equipment Skills Exam                         | Module 1 & 3 Packet Tracer Activities, Module 1-3 Discussion First Posts                                                                       | Module 16 & 17 Lab Reports, CCNA 1 Practice Final Exam, CCNA 1 Practice PT Skills Assessment, Cisco Course Feedback Form, CCNA 1 Online Final Exam, CCNA 1 PT Skills Assessment, CCNA 1 Modules 16-17 All Discussion Posts           
-| 31-Oct  | 11                              | Modules 4 & 5                        | Module 1 & 3 Lab Activities, Instructor Meeting      | Module 4 Packet Tracer Activities, Module 1-3 Discussion Response Posts, Module 4 & 5 Discussion First Posts                                   | Module 1 & 3 Packet Tracer Submissions, Module 1-3 Discussion First Posts                                                                                                                                                            
-| 7-Nov   | 12                              | Modules 6, 7 & 8                     | Module 4 & 5 Lab Activities, Instructor Meeting      | Module 6 & 7 Packet Tracer Activities, Module 4 & 5 Discussion Response Posts, Module 6-8 Discussion First Posts                               | Module 1 & 3 Lab Reports, Module 4 & 5 Packet Tracer Online Submissions, Module 1-3 All Discussion Posts, Module 4 & 5 Discussion First Posts, Module 1-4 Exam                                                                       
-| 14-Nov  | 13                              | Modules 9, 10 & 11                   | Module 6, 7, & 8 Lab Activities, Instructor Meeting  | Module 9 & 11 Packet Tracer Activities, Module 6-8 Discussion Response Posts, Module 9-11 Discussion First Posts                               | Module 4 & 5 Lab Reports, Module 6, 7 & 8 Packet Tracer Online Submissions, Module 4 & 5 All Discussion Posts, Module 6-8 Discussion First Posts, Module 5-6 Exam                                                                    
-| 21-Nov  | 14                              | Modules 12 & 13                      | Module 11 Lab Activities, Instructor Meeting         | Module 13 Packet Tracer Activities, Module 9-11 Discussion Response Posts, Module 12 & 13 Discussion First Posts                               | Module 6, 7, & 8 Lab Reports, Module 9 & 11 Packet Tracer Online Submissions, Module 6-8 All Discussion Posts, Module 9-11 Discussion First Posts                                                                                    
-| 28-Nov  | 15                              | Modules 14, 15 & 16                  | Module 13 Lab Activities, Instructor Meeting         | Module 14, 15 & 16 Packet Tracer Activities, Module 12 & 13 Discussion Response Posts, Module 14-16 Discussion First Posts                     | Module 11 Lab Reports, Module 13 Packet Tracer Online Submissions, Module 9-11 Discussion All Posts, Module 12 & 13 Discussion First Posts, Module 7-9 Exam                                                                          
-| 5-Dec   | 16                              |                                      | Module 15 & 16 Lab Activities, Instructor Meeting    | Practice Final Exam, Practice Packet Tracer Skills Assessment, Cisco Course Feedback Form, Online Final Exam, Packet Tracer Skills Assessment  | Module 13 Lab Reports, Module 14, 15 & 16 Packet Tracer Online Submissions, Module 12 & 13 Discussion All Posts, Module 14-16 Discussion First Posts, Module 10-13 Exam                                                              
-| 12-Dec  | FE Week                         |                                      | CCNA 2 Equipment Skills Exam                         |                                                                                                                                                | Module 15 & 16 Lab Reports, CCNA 2 Practice Final Exam, CCNA 2 Practice PT Skills Assessment, Cisco Course Feedback Form, CCNA 2 Online Final Exam, CCNA 2 PT Skills Assessment, Module 14-16 Exam, Module 14-16 All Discussion Posts
-|=================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+== Aug 27
+=== Happening in class today
+* Review syllabus, schedule, and assignments
+* Using Cisco Netacad site
 
+=== Readings to do before next class
+* Module 1 - Introduction to Personal Computer Hardware
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+TIP: Discussion posts are done through the Cisco Netacad site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+=== Assignments Due at the start of class today
+* None
+
+== Aug 29
+=== Happening in class today
+* Discuss Module 1 - Introduction to Personal Computer Hardware
+
+=== Readings to do before next class
+* Module 2 - PC Assembly
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion First Post
+* Module 1 Exam - Introduction to Personal Computer Hardware
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Sep 3
+=== Happening in class today
+* Discuss Module 2 - PC Disassembly/Assembly
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 2 Online Discussion Response Posts
+* Module 2 Exam - PC Disassembly/Assembly
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion First Post
+* Module 1 Exam - Introduction to Personal Computer Hardware
+
+== Sep 5
+=== Happening in class today
+* Do PC Disassembly/Assembly Lab
+
+=== Readings to do before next class
+* Module 3 - Advanced Computer Hardware
+
+=== Other Work to do before next class
+* Module 3 Online Discussion First Post
+* Write PC Disassembly/Assembly Lab Report
+
+=== Assignments Due at the start of class today
+* Module 2 Online Discussion Response Posts
+* Module 2 Exam - PC Disassembly/Assembly
+* Weekly Progress Self-Evaluation
+
+== Sep 10
+=== Happening in class today
+* Discuss Module 3 - Advanced Computer Hardware
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 3 Online Discussion Response Posts
+* Module 3 Exam - Advanced Computer Hardware
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion First Post
+* PC Disassembly/Assembly Lab Report
+
+== Sep 12
+=== Happening in class today
+* Do Boot/BIOS Labs
+
+=== Readings to do before next class
+* Module 4 - Preventive Maintenance and Troubleshooting
+
+=== Other Work to do before next class
+* Module 4 Online Discussion First Post
+* Write Boot/BIOS Lab Report
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion Response Posts
+* Module 3 Exam - Advanced Computer Hardware
+* Weekly Progress Self-Evaluation
+
+== Sep 17
+=== Happening in class today
+* Discuss Module 4 - Preventive Maintenance and Troubleshooting
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 4 Exam - Preventive Maintenance and Troubleshooting
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion First Post
+* Boot/BIOS Lab Report
+
+== Sep 19
+=== Happening in class today
+* Do Hardware Troubleshooting Labs
+
+=== Readings to do before next class
+* Module 5 - Networking Concepts
+
+=== Other Work to do before next class
+* Module 5 Online Discussion First Post
+* Write Hardware Troubleshooting Lab Report
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion Response Posts
+* Module 4 Exam - Preventive Maintenance and Troubleshooting
+* Weekly Progress Self-Evaluation
+
+== Sep 24
+=== Happening in class today
+* *There is NO CLASS TODAY, it is Student Success Day. You MUST attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter to the next class*
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* You MUST attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter to the next class
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* None
+
+== Sep 26
+=== Happening in class today
+* Discuss Module 5 - Networking Concepts
+
+=== Readings to do before next class
+* Module 6 - Applied Networking
+
+=== Other Work to do before next class
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Post
+* Module 5 Exam - Networking Concepts
+
+=== Assignments Due at the start of class today
+* Module 5 Online Discussion First Post
+* Hardware Troubleshooting Lab Report
+* Student Success Day Proof of Attendance for 2 Presentations
+* Weekly Progress Self-Evaluation
+
+== Oct 1
+=== Happening in class today
+* Discuss Module 6 - Applied Networking
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 6 Online Discussion Response Posts
+* Module 6 Exam - Applied Networking
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 6 Online Discussion First Post
+* Module 5 Exam - Networking Concepts
+
+== Oct 3
+=== Happening in class today
+* Do Networking Labs
+
+=== Readings to do before next class
+* Module 7 - Laptops and Other Mobile Devices
+
+=== Other Work to do before next class
+* Module 7 Online Discussion First Post
+* Write Networking Lab Report
+
+=== Assignments Due at the start of class today
+* Module 6 Online Discussion Response Posts
+* Module 6 Exam - Applied Networking
+* Weekly Progress Self-Evaluation
+
+== Oct 8
+=== Happening in class today
+* Discuss Module 7 - Laptops and Other Mobile Devices
+
+=== Readings to do before next class
+* Module 8 - Printers
+
+=== Other Work to do before next class
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Post
+* Module 7 Exam - Laptops and Other Mobile Devices
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion First Post
+* Networking Lab Report
+
+== Oct 10
+=== Happening in class today
+* Discuss Module 8 - Printers
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 8 Online Discussion Response Posts
+* Module 8 Exam - Printers
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Post
+* Module 7 Exam - Laptops and Other Mobile Devices
+* Weekly Progress Self-Evaluation
+
+== Oct 15
+=== Happening in class today
+* Do Printer Labs
+
+=== Readings to do before next class
+* Module 9 - Virtualization and Cloud Computing
+
+=== Other Work to do before next class
+* Module 9 Online Discussion First Post
+* Write Printer Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 8 Online Discussion Response Posts
+* Module 8 Exam - Printers
+
+== Oct 17
+=== Happening in class today
+* *There is NO CLASS TODAY, it is MEA*
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* None
+
+=== Assignments Due at the start of class today
+* None
+
+== Oct 22
+=== Happening in class today
+* Discuss Module 9 - Virtualization and Cloud Computing
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 9 Exam - Virtualization and Cloud Computing
+* Modules 1-9 Practice Final Exam
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion First Post
+* Printer Lab Report
+* Weekly Progress Self-Evaluation
+
+== Oct 24
+=== Happening in class today
+* Do Virtualization/Linux Labs
+
+=== Readings to do before next class
+* Module 10 - Windows Installation
+
+=== Other Work to do before next class
+* Module 10 Online Discussion First Post
+* Write Virtualization/Linux Lab Report
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 9 Exam - Virtualization and Cloud Computing
+* Modules 1-9 Practice Final Exam
+* Weekly Progress Self-Evaluation
+
+== Oct 29
+=== Happening in class today
+* Discuss Module 10 - Windows Installation
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 10 Online Discussion Response Posts
+* Module 10 Exam - Windows Installation
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 10 Online Discussion First Post
+* Virtualization/Linux Lab Report
+
+== Oct 31
+=== Happening in class today
+* Start Windows Installation Labs
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* None
+
+=== Assignments Due at the start of class today
+* Module 10 Online Discussion Response Posts
+* Module 10 Exam - Windows Installation
+* Weekly Progress Self-Evaluation
+
+== Nov 4
+=== Happening in class today
+* Finish Windows Installation Labs
+
+=== Readings to do before next class
+* Module 11 - Windows Configuration
+
+=== Other Work to do before next class
+* Module 11 Online Discussion First Post
+* Write Windows Installation Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* None
+
+== Dates After Nov 4
+* Details will be provided by late September
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

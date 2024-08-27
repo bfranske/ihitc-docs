@@ -1,4 +1,4 @@
-= ITC-25616 Official Course Schedule
+= ITC-2516 Official Course Schedule
 
 == Aug 26
 === Readings to do before next class
