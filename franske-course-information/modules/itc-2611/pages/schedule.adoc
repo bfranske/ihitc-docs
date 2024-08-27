@@ -1,6 +1,6 @@
 = ITC-2611 Official Course Schedule
 
-== Aug 22
+== Aug 27
 === Readings to do this week
 * Chapter 1 
 * Chapter 2
@@ -20,7 +20,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Assignments Due by 6pm Today
 * None
 
-== Aug 29
+== Sep 3
 === Readings to do this week
 * Chapter 3
 * Chapter 4
@@ -39,7 +39,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 * Chapter 1 Lab Report
 * Chapter 2 Lab Report
 
-== Sep 5
+== Sep 10
 
 TIP: Don't forget to meet with your instructor over Zoom each week during the scheduled class time!
 
@@ -66,7 +66,7 @@ TIP: Exams are taken on the Netacad site in this course.
 * Chapter 3 Lab Report
 * Chapter 4 Lab Report
 
-== Sep 12
+== Sep 17
 === Readings to do this week
 * Chapter 7
 * Chapter 8
@@ -89,10 +89,10 @@ TIP: Exams are taken on the Netacad site in this course.
 * Chapter 6 Lab Report
 * Chapters 1-5 Exam
 
-== Sep 19
+== Sep 24
 === Special Notes
 
-NOTE: It is Student Success Day today, instructor meetings are not required tonight as there are other activities available on and off campus for you to participate in. However, as there will not be instructor meetings the next two weeks if you need any assistance with the course it is strongly suggessted you attend the Zoom meeting tonight.
+NOTE: It is Student Success Day today, instructor meetings are not required tonight as there are other activities available on and off campus for you to participate in.
 
 === Readings to do this week
 * Chapter 9
@@ -116,11 +116,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Chapters 6-7 Exam
 
 
-== Sep 26
-=== Special Notes
-
-NOTE: There will be no required instructor meetings tonight (or next week). Instead of a synchonous meeting you must complete a course progress evaluation on the Netacad site betweek 6:00 and 7:30pm tonight.
-
+== Oct 1
 === Readings to do this week
 * Chapter 11
 * Chapter 12
@@ -143,11 +139,7 @@ NOTE: There will be no required instructor meetings tonight (or next week). Inst
 * Chapter 10 Lab Report
 * Chapter 8-10 Exam
 
-== Oct 3
-=== Special Notes
-
-NOTE: There will be no required instructor meetings tonight (they restart next week). Instead of a synchonous meeting you must complete a course progress evaluation on the Netacad site betweek 6:00 and 7:30pm tonight.
-
+== Oct 8
 === Readings to do this week
 * Chapter 13
 * Chapter 14
@@ -168,7 +160,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Chapter 12 Lab Report
 * Chapter 11-12 Exam
 
-== Oct 10
+== Oct 15
 === Readings to do this week
 * Chapter 15
 * Chapter 16
@@ -189,7 +181,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 14 First Post
 * Chapter 13-14 Exam
 
-== Oct 17
+== Oct 22
 === Readings to do this week
 * Chapter 17
 * Chapter 18
@@ -209,7 +201,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Chapter 16 Lab Report
 * Chapter 15-16 Exam
 
-== Oct 24
+== Oct 29
 === Readings to do this week
 * Chapter 19
 * Chapter 20
@@ -227,7 +219,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 17 First Post
 * Online Discussion Forum Chapters 18 First Post
 
-== Oct 31
+== Nov 5
 === Readings to do this week
 * Chapter 21
 * Chapter 22
@@ -246,7 +238,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 20 First Post
 * Chapter 17-19 Exam
 
-== Nov 7
+== Nov 12
 === Readings to do this week
 * Chapter 23
 * Chapter 24
@@ -266,7 +258,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 22 First Post
 * Chapter 20-21 Exam
 
-== Nov 14
+== Nov 19
 === Readings to do this week
 * Chapter 25
 * Chapter 26
@@ -288,7 +280,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Chapter 24 Lab Report
 * Chapter 22-24 Exam
 
-== Nov 21
+== Nov 26
 === Readings to do this week
 * Chapter 27
 * Chapter 28
@@ -309,7 +301,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Chapter 26 Lab Report
 * Chapter 25-26 Exam
 
-== Nov 28
+== Dec 3
 === Readings to do this week
 * Chapter 29
 
@@ -327,13 +319,13 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 28 First Post
 * Chapter 28 Lab Report
 
-== Dec 5
+== Dec 10
 === Special Notes
 * No course meeting required today, contact your instructor if you would like to schedule one.
 
 === Other Work to do this week
 * Online Discussion Forum Chapters 23 Response Post
-* Take Skills Final Exam *Must be done between Dec 5-9! See instructions from your instructor*
+* Take Skills Final Exam *Must be done between Dec 10-15! See instructions from your instructor*
 * ENCOR Certification Practice Exam
 
 === Assignments Due by 6pm Today
@@ -342,7 +334,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * Online Discussion Forum Chapters 29 First Post
 * Chapter 27-29 Exam
 
-== Dec 12
+== Dec 17
 === Special Notes
 * No course meeting required today, contact your instructor if you would like to schedule one.
 
