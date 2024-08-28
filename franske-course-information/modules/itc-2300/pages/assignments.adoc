@@ -45,12 +45,8 @@ NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like 
 ==== Model Driven Network Programmability and IOS XR Lab
 
 * Complete the https://developer.cisco.com/learning/tracks/netprog-eng/intro-device-level-interfaces/[Introduction to Model Driven Programmability Module] from the Network Programmability for Network Engineers track
-* Complete the https://developer.cisco.com/learning/tracks/iosxr-programmability/iosxr-cli-automation/[IOS XR CLI Automation Module] from the IOS XR Programmability track
-* Complete the https://developer.cisco.com/learning/tracks/iosxr-programmability/iosxr-streaming-telemetry/[IOS XR Streaming Telemetry Module] from the IOS XR Programmability track
-+
---
-NOTE: Skip the "Creating your first c++ Telemetry Collector" lab
---
+* Complete the https://developer.cisco.com/learning/labs/intro-restconf/introduction/[Exploring IOS XE YANG Data Models with RESTCONF Module]
+
 
 ==== Getting Started with Ansible for Network Programmability Lab
 
@@ -88,23 +84,8 @@ This lab mentions that a sandbox reservation is optional but you will need to cr
 NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this lab. The first command to execute a playbook is given as `ansible-playbook playbook-simple-ping.yml` but Ansible is not aware of the password to your router. There is a note in the "Explanation" section below this command about the -k argument and the correct command (though with a wrong playbook filename) is shown in the "Expected Output" section below that which is `ansible-playbook playbook-simple-ping.yml -k` When this is entered you should be prompted for the router password (see the DevNet Sandbox page) when you run the playbook.
 --
 
-=== Voice over IP (VoIP) Labs
-
---
-NOTE: If you need additional time to complete these labs you may need to work in the B143 lab instead of our normal B144 lab. In that case be sure to read the xref:lab-asterisk-b143.adoc[B143 lab modification addendum] which explains changes you need to make to the lab setup to make things work in B143.
---
-
-==== Introduction to VoIP with Asterisk Lab
-Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
-
-==== VoIP Provisioning, Voicemail, and SIP Labs
-Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Voicemail, and SIP Lab here].
-
-==== VoIP T1 and PSTN Access Lab
-Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
-
-==== VoIP GUI Asterisk Configuration Lab
-Find instructions for the xref:lab-asterisk-guiconfig.adoc[VoIP GUI Asterisk Configuration Lab here].
+=== Cloud Computing Labs
+* Details TBD
 
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
@@ -168,6 +149,23 @@ Finally, a small portion of your grade for the project presentation (10% of the 
 == Archived Labs
 *This section contains information about labs that have been used in this class in the past. You are NOT responsible for completing these labs.*
 
+=== Voice over IP (VoIP) Labs
+
+--
+NOTE: If you need additional time to complete these labs you may need to work in the B143 lab instead of our normal B144 lab. In that case be sure to read the xref:lab-asterisk-b143.adoc[B143 lab modification addendum] which explains changes you need to make to the lab setup to make things work in B143.
+--
+
+==== Introduction to VoIP with Asterisk Lab
+Find instructions for the xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab here].
+
+==== VoIP Provisioning, Voicemail, and SIP Labs
+Find instructions for the xref:lab-asterisk-provvmsip.adoc[VoIP Provisioning, Voicemail, and SIP Lab here].
+
+==== VoIP T1 and PSTN Access Lab
+Find instructions for the xref:lab-asterisk-t1pstn.adoc[VoIP T1 and PSTN Access Lab here].
+
+==== VoIP GUI Asterisk Configuration Lab
+Find instructions for the xref:lab-asterisk-guiconfig.adoc[VoIP GUI Asterisk Configuration Lab here].
 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
