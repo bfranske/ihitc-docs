@@ -1,183 +1,124 @@
 = ITC-2480 Official Course Schedule and Readings
 
-== Official Course Schedule
-* DH refers to the https://debian-handbook.info/get/now/[Debian Administrator's Handbook (Debian 10 Edition) by Raphaël Hertzog and Roland Mas]
-* LCL refers to http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
-* Other online readings are linked to below the schedule table
+== Aug 28
+=== Readings to do before the next date
+* Review the course syllabus
+* Review the course schedule
+* Review the course assignment page
+* https://debian-handbook.info/browse/stable/the-debian-project.html#sect.what-is-debian[Section 1.1: What Is Debian?] from the Debian Administrator's Handbook
+* https://debian-handbook.info/browse/stable/sect.role-of-distributions.html[Section 1.5: The Role of Distributions] from the Debian Administrator's Handbook
+* https://debian-handbook.info/browse/stable/sect.installation-steps.html[Section 4.2: Installing, Step by Step] from the Debian Administrator's Handbook
 
-[%autowidth,options="header"]
-|===
-|Date |Week |Topic # |Topic |Readings to do before this date |Lab Activities to do before the next date |Assignments Due Today by 11:59pm
-|12-Jan
-|1
-|Topic 1
-|Intro/Syllabus/Install/VPN Access
-|
-|Lab 1
-|
-|19-Jan
-|2
-|Topic 2
-|CLI Basics, Package Installation, Basic User Intro
-|DH Sections 4.2, 6.1-6.10, 7.1-7.2, LCL Chapters 2-4, 18
-|Lab 2
-|Lab Report for Topic 1, First Forum Postings for Topics 1 & 2, Weekly Progress Self-Evaluation
-|26-Jan
-|3
-|Topic 3
-|Users, Boot Process, Webmin
-|LCL Chapter 9, DH Sections 8.4-8.5, 9.1, 8.8
-|Lab 3
-|Final Forum Postings for Topics 1 & 2, Lab Report for Topic 2, Weekly Progress Self-Evaluation
-|2-Feb
-|4
-|Topic 4
-|Advanced Command Line
-|LCL Chapters 5-7, 12, 17, DH Appendix B.1, Online text editor tutorials
-|Lab 4
-|Topic 1/2 Exam, Weekly Progress Self-Evaluation
-|9-Feb
-|5
-|Topic 5
-|Network Configuration, Apache, MySQL
-|DH Sections 8.2 intro, 8.2.1, 11.2, 9.5, Online MySQL Readings, Online Log File Readings
-|Lab 5
-|First Forum Postings for Topics 3-5, Weekly Progress Self-Evaluation
-|16-Feb
-|6
-|Topic 6
-|LAMP Software
-|Online LAMP Software Readings
-|Lab 6
-|Final Forum Postings & Lab Reports for Topics 3-5, Weekly Progress Self-Evaluation
-|23-Feb
-|7
-|Topic 7
-|Windows Filesharing with Samba
-|DH Section 11.5, The Samba Configuration File Comments, Online SAMBA Readings
-|Lab 7
-|Topics 3-5 Exams, Weekly Progress Self-Evaluation
-|2-Mar
-|8
-|Topic 8
-|DNS
-|DH Section 10.7, Online DNS Readings
-|Lab 8
-|First Forum Postings for Topics 6-8, Weekly Progress Self-Evaluation
-|9-Mar
-|SPRING BREAK
-|
-|
-|
-|
-|
-|16-Mar
-|9
-|Topic 9
-|Mail Servers (SMTP/POP3/IMAP)
-|DH Section 11.1, Online Mail Server Readings
-|Lab 9
-|Final Forum Postings & Lab Reports for Topics 6-8, Weekly Progress Self-Evaluation
-|23-Mar
-|10
-|Topic 10
-|DHCP, Firewalls/NAT
-|DH Section 10.8, 14.2, 10.1, Online Firewall Readings
-|Lab 10
-|Topics 7 & 8 Exams, Weekly Progress Self-Evaluation
-|30-Mar
-|11
-|Topic 11
-|Filesystem Layout, Disks, LVM
-|DH Appendix B.2, B.4.2, LCL Chapter 15, DH Section 12.1
-|Lab 11
-|First Forum Postings for Topics 9-11, Weekly Progress Self-Evaluation
-|6-Apr
-|12
-|Topic 12
-|Security & Monitoring
-|DH Section 10.9, 14.3, 14.6
-|Lab 12
-|Final Forum Postings & Lab Reports for Topics 9-11, Weekly Progress Self-Evaluation
-|13-Apr
-|13
-|Topic 13
-|Scripting with BASH
-|LCL Chapter 24, Online BASH Scripting Readings
-|Lab 13
-|Topics 9-11 Exams, Weekly Progress Self-Evaluation
-|20-Apr
-|14
-|Topic 14
-|Scripting II: Python
-|Online Python Scripting Readings
-|Lab 14
-|First Forum Postings for Topics 12-14, Weekly Progress Self-Evaluation
-|27-Apr
-|15
-|
-|Catch Up / Final Skills Practice
-|
-|
-|Final Forum Postings for Topics 12-14 & Lab Report for Topic 12, Weekly Progress Self-Evaluation NOTE: Access to your VM will end Apr 29 so that it can be prepared for the skills exam which is open Apr 30- May 4
-|
-|4-May
-|16
-|Topic 15
-|Final Skills Exam (Opens Apr 30)
-|
-|Final Skills Exam Due Tonight
-|Topic 13-14 Lab Report, Topic 12-14 Exams, Final Skills Exam
-|11-May
-|FE Week
-|Topic 15
-|Final Written Exam
-|
-|
-|Final Written Exam
-|===
+=== Other Work to do before the next date
+* Make sure you can access the ITC CLASS Server and are enrolled in the ITC-2480 course there
+* Make sure you can access the Netlab system and are enrolled in the ITC-2480 course there
+* Complete xref:lab1.adoc[Lab 1: Linux Installation and First Steps]
+* Write your discussion first post about the readings and lab activity this week
 
-== Online Readings
-=== Online Text Editor Tutorials
-* http://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[Introduction to Nano]
-* http://www.washington.edu/computing/unix/vi.html[Using Vi]
+TIP: Discussion posts are done through the ITC CLASS server in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
-=== Online MySQL Readings
-* http://www.guru99.com/introduction-to-database-sql.html[What is a database? & What is SQL?]
-* http://zetcode.com/databases/mysqltutorial/introduction/[Introduction to MySQL]
-* http://zetcode.com/databases/mysqltutorial/firststeps/[First Steps in MySQL]
-* http://zetcode.com/databases/mysqltutorial/quick/[MySQL Quick Tutorial]
+TIP: Labs in this class will be done remotely or on campus using the Netlab system. You will write a lab report for each lab activity (except the last two scripting activities which will have one combined report). See the assignments page of this info site for more details on how to write a lab report.
 
-=== Online Log File Readings
-* https://help.ubuntu.com/community/LinuxLogFiles[Ubuntu Documentation: Linux Log Files]
+=== Assignments Due at 11:59pm today
+* None
 
-=== Online LAMP Software Readings
-* http://www.serverwatch.com/tutorials/article.php/3567741/Understanding-LAMP.htm[Understanding LAMP (All 3 Pages)]
-* https://www.linode.com/docs/websites/apache-tips-and-tricks/apache-configuration-basics[Apache Configuration Basics]
-* https://code.tutsplus.com/articles/apache-2-basic-configuration-on-unix-like-systems--net-26607[Apache 2 Basic Configuration on Unix-Like Systems]
-* https://codex.wordpress.org/Installing_WordPress[Installing WordPress]
+== Sep 4
+=== Readings to do before the next date
+* Chapters 2, 3, 4, and 18 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
-=== Online SAMBA Readings
-* https://ubuntu.com/server/docs/samba-file-server[Introduction to SAMBA]
-* https://ubuntu.com/server/docs/samba-file-server[SAMBA Fileserver Configuration]
+=== Other Work to do before the next date
+* Complete xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
 
-=== Online DNS Readings
-* http://www.zytrax.com/books/dns/ch2/[DNS Concepts]
-* http://www.zytrax.com/books/dns/ch4/[DNS Configuration Types]
-* http://www.zytrax.com/books/dns/ch8/[DNS Zone Records]
+=== Assignments Due at 11:59pm today
+* Lab 1 Report
+* Discussion first post about the readings and lab from last week
 
-=== Online Mail Server Readings
-* https://help.ubuntu.com/community/PostfixBasicSetupHowto[Postfix Basic Setup]
+== Sep 11
+=== Readings to do before the next date
+* Chapters 9, 14 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
-=== Online Firewall Readings
-* https://computingforgeeks.com/how-to-install-and-configure-firewalld-on-debian/[How to Install and Configure Firewalld on Debian]
-* https://linuxconfig.org/introduction-to-firewalld-and-firewall-cmd-command-on-linux[Introduction to firewalld and firewall-cmd command on Linux]
+=== Other Work to do before the next date
+* Complete xref:lab3.adoc[Lab 3: User Accounts, Permissions, and Package Management]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
 
-=== Online BASH Scripting Readings
-* http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html[BASH Programming HOWTO]
+=== Assignments Due at 11:59pm today
+* Lab 2 Report
+* Discussion first post about the readings and lab from last week
 
-=== Online Python Scripting Readings
-* https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Python Instant Hacking]
-* https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[dreamsys Python Scripting Tutorial]
+== Sep 18
+=== Readings to do before the next date
+* Chapters 6, 8, 12 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
+* https://web.archive.org/web/20240606001921/https://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[Introduction to the nano Text Editor]
+
+=== Other Work to do before the next date
+* Complete xref:lab4.adoc[Lab 4: Text Manipulation]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+
+=== Assignments Due at 11:59pm today
+* Lab 3 Report
+* Discussion first post about the readings and lab from last week
+
+== Sep 25
+=== Readings to do before the next date
+* http://nginx.org/en/docs/beginners_guide.html[The Nginx Beginner's Guide]
+
+=== Other Work to do before the next date
+* Complete xref:lab5.adoc[Lab 5: Webserver and PHP Installation and Use]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+
+=== Assignments Due at 11:59pm today
+* Lab 4 Report
+* Discussion first post about the readings and lab from last week
+
+== Oct 2
+=== Readings to do before the next date
+* https://web.archive.org/web/20240812183254/https://www.guru99.com/introduction-to-database-sql.html[What is a Database? Definition, Meaning, Types]
+* https://web.archive.org/web/20200813163323/http://zetcode.com/mysql/introduction[Introduction to MySQL]
+* https://web.archive.org/web/20220628200840/https://zetcode.com/mysql/firststeps/[First Steps in MySQL]
+* https://web.archive.org/web/20200804222556/http://zetcode.com/mysql/quick[A MySQL Quick Tutorial]
+* https://developer.wordpress.org/advanced-administration/before-install/howto-install/[Installing WordPress] - EXCEPT skip the sections about installing it at popular hosting companies
+
+=== Other Work to do before the next date
+* Complete xref:lab6.adoc[Lab 6: SQL Databases and Web Applications]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+
+=== Assignments Due at 11:59pm today
+* Lab 5 Report
+* Discussion first post about the readings and lab from last week
+
+== Oct 9
+=== Readings to do before the next date
+* None
+
+=== Other Work to do before the next date
+* Complete xref:lab7.adoc[Lab 7: Firewall Configuration and System Security]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+
+=== Assignments Due at 11:59pm today
+* Lab 6 Report
+* Discussion first post about the readings and lab from last week
+
+== Oct 16
+=== Readings to do before the next date
+* Chapter 10 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
+
+=== Other Work to do before the next date
+* Complete xref:lab8.adoc[Lab 8: Linux System Administration Utilities]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+
+=== Assignments Due at 11:59pm today
+* Lab 7 Report
+* Discussion first post about the readings and lab from last week
+
+== Dates After Oct 9
+* Additional schedule details will be posted as we get closer to October.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
