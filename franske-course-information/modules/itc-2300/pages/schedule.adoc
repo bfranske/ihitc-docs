@@ -1,28 +1,29 @@
 = ITC-2300 Official Course Schedule
 
-== Aug 23
+== Aug 28
 === Readings to do before next week
 * Introduction to Virtualization (complete whitepaper)
 * Proxmox VE Fundamentals
 * Installing Proxmox VE
 
-TIP: These readings can be found on the ITC CLASS server which is accessed through a link in this course's D2L page.
+TIP: These readings can be found on the ITC CLASS server.
 
 === Work to do in/during class time tonight
-* Check Netlab Access and ensure you are enrolled in the class on Netlab
+* Check Netlab access and ensure you are enrolled in the class on Netlab
+* Check ITC CLASS Server access and ensure you are enrolled in the class on ITC CLASS server
 
 === Other Work to do this week
 * Review Syllabus/Schedule
 * Online Discussion Forum Proxmox Installation Readings First Post
 
-TIP: Some of the labs (even those done in person) in this class are done through the Netlab system and reports on them are submitted through the ITC CLASS server. Access to Netlab is by clicking the ITC Passport link in the D2L page for this class. Instructions on which labs to complete and how to write a lab report are on the assignments page of this info site.
+TIP: Some of the labs in this class are done through the Netlab system and reports on them are submitted through the ITC CLASS server. Access to Netlab is by clicking the ITC Passport link in the D2L page for this class. Instructions on which labs to complete and how to write a lab report are on the assignments page of this info site.
 
 TIP: Discussion posts are done through the ITC CLASS server in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
 === Assignments Due by 6pm Today
 * None
 
-== Aug 30
+== Sep 4
 === Special Notes
 
 NOTE: No instructor meeting is required this week
@@ -41,9 +42,9 @@ NOTE: No instructor meeting is required this week
 === Assignments Due by 6pm Today
 * Proxmox Installation Discussion First Posts
 
-== Sep 6
+== Sep 11
 
-TIP: Don't forget to meet with your instructor during the scheduled class time!
+TIP: Don't forget to meet with your instructor before you leave class tonight!
 
 === Readings to do before next week
 * vmWare vSphere Basics (complete whitepaper)
@@ -65,7 +66,7 @@ TIP: Exams are taken on the ITC CLASS server in this course.
 * Proxmox Installation Discussion All Posts
 * Proxmox VE Containers & Clusters Discussion First Posts
 
-== Sep 13
+== Sep 18
 === Readings to do before next week
 * vCenter 6.7 Server Installation and Setup (p. 10-22, 40-65)
 * vCenter 6.7 Server and Host Management (p. 25-76)
@@ -84,7 +85,7 @@ TIP: Exams are taken on the ITC CLASS server in this course.
 * VMware ESXi Installation Discussion First Posts
 * Proxmox Exam
 
-== Sep 20
+== Sep 25
 === Readings to do before next week
 * vSphere 6.7 Command Line Concepts and Examples (p. 10-30)
 * vmWare KB1038043
@@ -106,11 +107,7 @@ TIP: Exams are taken on the ITC CLASS server in this course.
 * VMware ESXi Exam
 
 
-== Sep 27
-=== Special Notes
-
-NOTE: There will be no required instructor meetings tonight (or next week) and the lab on campus will not be open during class time. Instead of a synchonous meeting you must complete a course progress evaluation on the ITC CLASS site betweek 6:00 and 8:30pm tonight.
-
+== Oct 2
 === Readings to do before next week
 
 === Other Work to do this week
@@ -123,11 +120,7 @@ NOTE: There will be no required instructor meetings tonight (or next week) and t
 * VMware vCenter Installation Discussion All Posts
 * VMware vSphere Administration Discussion First Posts
 
-== Oct 4
-=== Special Notes
-
-NOTE: There will be no required instructor meetings tonight (they restart next week). Instead of a synchonous meeting you must complete a course progress evaluation on the Netacad site betweek 6:00 and 7:30pm tonight.
-
+== Oct 9
 === Readings to do before next week
 * Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
@@ -140,12 +133,7 @@ NOTE: There will be no required instructor meetings tonight (they restart next w
 * VMware vCenter Administration Discussion All Posts
 * VMware vCenter and Administration Exam
 
-== Oct 11
-=== Special Notes
-
-NOTE: We return to the classroom lab tonight, be sure to come for your weekly instructor meeting.
-
-
+== Oct 16
 === Readings to do before next week
 * Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
@@ -159,7 +147,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 * Getting Started with DevNet Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
 * Getting Started with DevNet Discussion First Posts
 
-== Oct 18
+== Oct 23
 === Readings to do this week
 * Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
 
@@ -175,183 +163,7 @@ NOTE: We return to the classroom lab tonight, be sure to come for your weekly in
 * REST API Fundamentals & Network Programmability Discussion First Posts
 * Getting Started with DevNet Exam
 
-== Oct 25
-=== Readings to do before next week
-* https://youtu.be/6hqZfAy_0UM[VIDEO: Asterisk from Scratch - Part 1 - Intro to Asterisk & Asterisk Architecture]
-* https://youtu.be/qFO_XvyvbNg[VIDEO: Asterisk from Scratch - Part 2 - Installing Asterisk & Intro to Dial Plan]
-* https://youtu.be/JT64gVNT1TY[VIDEO: Asterisk from Scratch - Part 4 - Introduction to Dial Plan (First 12:30 ONLY)]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/DeviceConfig_id216341.html[Configuring Asterisk for User Devices]
-* https://www.engineerkhan.com/collab/cisco-phone-bootup-process/[Cisco IP Phone Boot Process]
-* https://github.com/chan-sccp/chan-sccp/wiki/What-is-chan-sccp-b[What is Chan-SCCP]
-* https://github.com/chan-sccp/chan-sccp/wiki/setup-sccp.conf[Chan-SCCP sccp.conf Configuration File Documentation]
-* https://github.com/chan-sccp/chan-sccp/wiki/Dialplan[SCCP Dialplan Configuration]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-DP-Basics-SECT-1.html[Dialplan Syntax]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-DP-Basics-SECT-2.html[A Simple Dialplan]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-DP-Basics-SECT-3.html[Building an Interactive Dialplan]
-
-=== Other Work to do this week
-* Getting Started with Ansible for Network Programmability Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
-* Model Driven Network Programmability and IOS XE Readings All Posts
-* Getting Started with Ansible for Network Programmability First Posts
-* Introduction to VoIP with Asterisk First Posts
-* Model Driven Network Programmability and IOS XE Exam
-* OPTIONAL but highly recommended is to do the remote pre-work in the "Introduction to VoIP Labs" (see Assignments page)
-
-=== Assignments Due by 6pm Today
-* Model Driven Network Programmability and IOS XR Lab Report
-* REST API Fundamentals & Network Programmability Discussion All Posts
-* Model Driven Network Programmability and IOS XR Discussion First Posts
-* REST APIs and Introducing Network Programmability Exam
-
-== Nov 1
-=== Readings to do before next week
-* https://youtu.be/JT64gVNT1TY[VIDEO: Asterisk from Scratch - Part 4 - Introduction to Dial Plan (Continuing from 12:30 through end)]
-* https://help.sangoma.com/community/s/article/Phones-A-Series-Provisioning[Sangoma/Digium A-Series Phone Provisioning]
-* https://support.digium.com/s/article/A-Phone-Config-Web?ui-force-components-controllers-recordGlobalValueProvider.RecordGvp.getRecord=1&r=6[Digium A-Series Phone Web Interface]
-* https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/PJSIP-Configuration-Sections-and-Relationships/[PJSIP Config Sections and Relationships]
-* https://help.sangoma.com/community/s/article/Phones-Provisioning-D-Series[Sangoma/Digium D-Series Phone Provisioning]
-* https://support.digium.com/s/article/Phones-Desk-Phone-Module-for-Asterisk-DPMA[Introduction to DPMA]
-* http://downloads.digium.com/pub/telephony/res_digium_phone/README[DPMA Installation Instructions] - Download this README file and open in a text editor to read
-* https://support.digium.com/s/article/Phones-DPMA-Configuration[DPMA Configuration]
-* https://support.digium.com/s/article/Phones-Sangoma-Phones-when-used-with-DPMA[SIP Configuration for Sangoma/Digium DPMA Phones]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/Voicemail_id263499.html[Asterisk Voicemail]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/Voicemail_id292544.html[Asterisk Dialplan Voicemail Integration]
-
-=== Work to do in/during class time tonight
-* Introduction to VoIP Labs (see Assignments page)
-
-=== Other Work to do this week
-* Getting Started with Ansible for Network Programmability All Posts
-* Getting Started with Ansible for Network Programmability Exam
-* Introduction to VoIP All Posts
-* VoIP: Provisioning, Voicemail, and SIP First Posts
-* Introduction to VoIP Exam
-
-=== Assignments Due by 6pm Today
-* Getting Started with Ansible for Network Programmability Lab Report
-* Getting Started with Ansible for Network Programmability First Posts
-* Model Driven Network Programmability and IOS XE Readings All Posts
-* Introduction to VoIP with Asterisk First Posts
-* Model Driven Network Programmability and IOS XE Exam
-
-== Nov 8
-=== Readings to do before next week
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/asterisk-OutsideConn-SECT-1.html[The Basics of Trunking]
-* https://www.voip-info.org/did/[DIDs and Trunking]
-* http://t1rex.blogspot.com/2011/11/cas-vs-pri-voice-channels.html[CAS vs PRI Trunking]
-* https://www.atlantech.net/blog/pri-vs.-sip-trunking-whats-the-difference-and-which-is-best[PRI vs SIP Trunking]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/OutsideConnectivity_id242479.html[Fundamental Dialplan for Outside Connectivity]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/OutsideConnectivity_id291235.html[Outside VoIP Connectivity]
-+
---
-NOTE: This is an older reference and the SIP configuration shown uses sip.conf which is slightly different than the pjsip.conf we are using, just be aware that the concepts are sound but the exact SIP configuration will be a bit different
---
-* https://docs.asterisk.org/Configuration/Channel-Drivers/SIP/Configuring-res_pjsip/res_pjsip-Configuration-Examples/#a-sip-trunk-to-your-service-provider-including-outbound-registration[PJSIP Configuration for Trunk to Service Provider Including Registration]
-* http://www.asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/OutsideConnectivity_id291313.html[Emergency Dialing]
-* https://docs.asterisk.org/Deployment/Important-Security-Considerations/Dialplan-Security/?h=dialplan+security[Asterisk Dialplan Security]
-* https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/dialpeer/configuration/15-mt/vd-15-mt-book/vd-dp-overview.html[Cisco IOS Dial Peer Configuration Guide: Dial Peer Overview]
-* https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/dialpeer/configuration/15-mt/vd-15-mt-book/vd-dp-feat-cfg.html[Cisco IOS Dial Peer Configuration Guide: Dial Peer Features and Configuration]
-* https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/voice/voiceport/configuration/15-mt/vp-15-mt-book/vp-overview.html[Cisco IOS Voice Port Configuration Guide: Voice Port Configuration Overview]
-* https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucme/srnd/design/guide/cmesrnd/gatewy.html[Cisco Unified CallManager Express Solution Reference Network Design Guide: Voice Gateways]
-
-=== Work to do in/during class time tonight
-* Provisioning, Voicemail, and SIP Labs (see Assignments page)
-
-=== Other Work to do this week
-* VoIP: Provisioning, Voicemail, and SIP Discussion All Posts
-* T1 and PSTN Access Discussion First Posts
-* VoIP: Provisioning, Voicemail, and SIP Lab Exam
-
-=== Assignments Due by 6pm Today
-* Introduction to VoIP Lab Report
-* Getting Started with Ansible for Network Programmability All Posts
-* Getting Started with Ansible for Network Programmability Exam
-* Introduction to VoIP All Posts
-* VoIP: Provisioning, Voicemail, and SIP First Posts
-* Introduction to VoIP Exam
-
-== Nov 15
-=== Readings to do before next week
-* https://help.sangoma.com/community/s/article/PBX-Platforms-Installing-SNG7-Official-Distro[FreePBX Installation Guide]
-* https://help.sangoma.com/community/s/article/PBX-GUI-FreePBX-Distro[FreePBX Registration]
-* https://help.sangoma.com/community/s/article/PBX-GUI-Configuring-Your-PBX[FreePBX: Configuring Your PBX] - Skip the section on "Setting Up SIPStation Trunks"
-* https://help.sangoma.com/community/s/article/PBX-GUI-Extensions-Module-PJSIP-Extension[FreePBX PJSIP Extensions]
-* https://help.sangoma.com/community/s/article/PBX-GUI-Trunks-Module-User-Guide[FreePBX Trunks]
-* https://help.sangoma.com/community/s/article/PBX-GUI-EPM-DPMA-for-Digium-Phones[EndPoint Manager for DPMA Phones]
-* https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Installation[Chan-SCCP FreePBX Installation]
-* https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Dialplan[Chan-SCCP FreePBX Dialplan]
-* https://github.com/PhantomVl/sccp_manager/blob/extension_mobility/README.md[Chan-SCCP FreePBX Manager Readme]
-* https://help.sangoma.com/community/s/article/PBX-Platforms-FreePBX-Distro-First-Steps-After-Installation[FreePBX First Steps]
-* https://github.com/chan-sccp/chan-sccp/wiki/FreePBX_Setup[Chan-SCCP FreePBX Setup]
-
-=== Work to do in/during class time tonight
-* T1 and PSTN Access Labs (see Assignments page)
-
-=== Other Work to do this week
-* T1 and PSTN Access Discussion All Posts
-* GUI Asterisk Configuration Discussion First Posts
-* T1 and PSTN Access Exam
-
-=== Assignments Due by 6pm Today
-* VoIP: Provisioning, Voicemail, and SIP Lab Report
-* VoIP: Provisioning, Voicemail, and SIP Discussion All Posts
-* T1 and PSTN Access Discussion First Posts
-* VoIP: Provisioning, Voicemail, and SIP Lab Exam
-
-== Nov 22
-=== Readings to do before next week
-* Readings as required for your case study projects
-
-=== Work to do in/during class time tonight
-* GUI Asterisk Configuration Labs (see Assignments page)
-
-=== Other Work to do this week
-* GUI Asterisk Configuration Discussion All Posts
-* GUI Asterisk Configuration Exam
-
-=== Assignments Due by 6pm Today
-* T1 and PSTN Access Lab Report
-* T1 and PSTN Access Discussion All Posts
-* GUI Asterisk Configuration Discussion First Posts
-* T1 and PSTN Access Exam
-
-== Nov 29
-=== Readings to do before next week
-* Readings as required for your case study projects
-
-=== Work to do in/during class time tonight
-* Work on your case study project
-
-=== Other Work to do this week
-* Work on your case study project
-* Take Final Exam
-
-=== Assignments Due by 6pm Today
-* GUI Asterisk Configuration Discussion Lab Report
-* GUI Asterisk Configuration Discussion All Posts
-* GUI Asterisk Configuration Exam
-
-== Dec 6
-=== Readings to do before next week
-* Readings as required for your case study projects
-
-=== Work to do in/during class time tonight
-* Work on your case study project
-
-=== Other Work to do this week
-* Work on your case study presentation
-* Work on your case study lab report
-
-=== Assignments Due by 6pm Today
-* Final Online Exam
-
-== Dec 13
-=== Special NOTE
-
-NOTE: You will be presenting your case studies in class tonight
-
-=== Assignments Due by 6pm Today
-* Case Study Presentations
-* Case Study Lab Reports
+== Oct 25 and Later
+* Information will be added about the scheule for October 25 and beyond as we get closer to those dates
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
