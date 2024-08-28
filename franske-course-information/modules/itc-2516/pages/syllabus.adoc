@@ -28,6 +28,9 @@ Course Note: The prerequisite for this course can be waived upon proof of passin
 === Required Resources
 * CCNA Routing and Switching Portable Command Guide (5th Edition) (Empson) ISBN: 978013593782-2
 * External USB Drive, 8GB free minimum, flash drive or hard drive
+* USB to Serial Converter (https://www.amazon.com/dp/B00IDSM6BW[such as this $10 one])
+* USB to *Mini* (not micro) USB cable (https://www.amazon.com/dp/B0B3J6RD34[such as this $4 one])
+* USB to Ethernet Adater (https://www.amazon.com/dp/B00M77HMU0[such as this $9 one])
 
 === Optional Resources
 * Introduction to Networks v7.0 (ITN) Labs & Study Guide ISBN: 9780136634454

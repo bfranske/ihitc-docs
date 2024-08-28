@@ -19,6 +19,7 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 
 === Required Resources
 * External USB Drive, 8GB minimum, flash drive or hard drive which can be completely erased for use in this class
+* USB to Ethernet Adater (https://www.amazon.com/dp/B00M77HMU0[such as this $9 one])
 * Phillips Screwdriver, two sizes, #1 and #2
 * Needle Nose Pliers
 * Anti-Static Wrist Strap
