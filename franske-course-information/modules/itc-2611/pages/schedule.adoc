@@ -54,7 +54,7 @@ TIP: Don't forget to meet with your instructor over Zoom each week during the sc
 * Online Discussion Forum Chapters 6 First Post
 * Chapter 5 Labs
 * Chapter 6 Labs
-* Take Chapters 1-5 Exam
+* Take Chapters 1 - 5: L2 Redundancy Exam
 
 TIP: Exams are taken on the Netacad site in this course.
 
@@ -78,7 +78,7 @@ TIP: Exams are taken on the Netacad site in this course.
 * Online Discussion Forum Chapters 8 First Post
 * Chapter 7 Labs
 * Chapter 8 Labs
-* Chapter 6-7 Exam
+* Chapters 6 - 7: Routing Essentials and EIGRP Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 3 Response Posts
@@ -87,7 +87,7 @@ TIP: Exams are taken on the Netacad site in this course.
 * Online Discussion Forum Chapters 6 First Post
 * Chapter 5 Lab Report
 * Chapter 6 Lab Report
-* Chapters 1-5 Exam
+* Chapters 1 - 5: L2 Redundancy Exam
 
 == Sep 24
 === Special Notes
@@ -105,7 +105,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 10 First Post
 * Chapter 9 Labs
 * Chapter 10 Labs
-* Chapter 8-10 Exam
+* Chapters 8 - 10: OSPF Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 5 Response Posts
@@ -113,7 +113,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 7 First Post
 * Online Discussion Forum Chapters 8 First Post
 * Chapter 8 Lab Report
-* Chapters 6-7 Exam
+* Chapters 6 - 7: Routing Essentials and EIGRP Exam
 
 
 == Oct 1
@@ -128,7 +128,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 12 First Post
 * Chapter 11 Labs
 * Chapter 12 Labs
-* Chapter 11-12 Exam
+* Chapters 11 - 12: BGP Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 7 Response Posts
@@ -137,7 +137,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 10 First Post
 * Chapter 9 Lab Report
 * Chapter 10 Lab Report
-* Chapter 8-10 Exam
+* Chapters 8 - 10: OSPF Exam
 
 == Oct 8
 === Readings to do this week
@@ -149,7 +149,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapter 12 Response Posts
 * Online Discussion Forum Chapters 13 First Post
 * Online Discussion Forum Chapters 14 First Post
-* Chapter 13-14 Exam
+* Chapters 13 - 14: Multicast and QoS Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 9 Response Posts
@@ -158,7 +158,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 12 First Post
 * Chapter 11 Lab Report
 * Chapter 12 Lab Report
-* Chapter 11-12 Exam
+* Chapters 11 - 12: BGP Exam
 
 == Oct 15
 === Readings to do this week
@@ -172,14 +172,14 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 16 First Post
 * Chapter 15 Labs
 * Chapter 16 Labs
-* Chapter 15-16 Exam
+* Chapters 15 - 16: IP Services and VPNs Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 11 Response Posts
 * Online Discussion Forum Chapter 12 Response Posts
 * Online Discussion Forum Chapters 13 First Post
 * Online Discussion Forum Chapters 14 First Post
-* Chapter 13-14 Exam
+* Chapters 13 - 14: Multicast and QoS Exam
 
 == Oct 22
 === Readings to do this week
@@ -199,7 +199,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 16 First Post
 * Chapter 15 Lab Report
 * Chapter 16 Lab Report
-* Chapter 15-16 Exam
+* Chapters 15 - 16: IP Services and VPNs Exam
 
 == Oct 29
 === Readings to do this week
@@ -211,7 +211,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapter 18 Response Posts
 * Online Discussion Forum Chapters 19 First Post
 * Online Discussion Forum Chapters 20 First Post
-* Chapter 17-19 Exam
+* Chapters 17 - 19: Wireless Essentials Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 15 Response Posts
@@ -229,14 +229,14 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapter 20 Response Posts
 * Online Discussion Forum Chapters 21 First Post
 * Online Discussion Forum Chapters 22 First Post
-* Chapter 20-21 Exam
+* Chapters 20 - 21: Wireless Security and Connectivity Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 17 Response Posts
 * Online Discussion Forum Chapter 18 Response Posts
 * Online Discussion Forum Chapters 19 First Post
 * Online Discussion Forum Chapters 20 First Post
-* Chapter 17-19 Exam
+* Chapters 17 - 19: Wireless Essentials Exam
 
 == Nov 12
 === Readings to do this week
@@ -249,14 +249,14 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 23 First Post
 * Online Discussion Forum Chapters 24 First Post
 * Chapter 24 Labs
-* Chapter 22-24 Exam
+* Chapters 22 - 24: Network Design and Monitoring Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 19 Response Posts
 * Online Discussion Forum Chapter 20 Response Posts
 * Online Discussion Forum Chapters 21 First Post
 * Online Discussion Forum Chapters 22 First Post
-* Chapter 20-21 Exam
+* Chapters 20 - 21: Wireless Security and Connectivity Exam
 
 == Nov 19
 === Readings to do this week
@@ -270,7 +270,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 26 First Post
 * Chapter 25 Labs
 * Chapter 26 Labs
-* Chapter 25-26 Exam
+* Chapters 25 - 26: Access Control and Infrastructure Security Exam
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapter 21 Response Posts
@@ -278,7 +278,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 23 First Post
 * Online Discussion Forum Chapters 24 First Post
 * Chapter 24 Lab Report
-* Chapter 22-24 Exam
+* Chapters 22 - 24: Network Design and Monitoring Exam
 
 == Nov 26
 === Readings to do this week
@@ -299,7 +299,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapters 26 First Post
 * Chapter 25 Lab Report
 * Chapter 26 Lab Report
-* Chapter 25-26 Exam
+* Chapters 25 - 26: Access Control and Infrastructure Security Exam
 
 == Dec 3
 === Readings to do this week
@@ -309,7 +309,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapter 27 Response Posts
 * Online Discussion Forum Chapter 28 Response Posts
 * Online Discussion Forum Chapters 29 First Post
-* Chapters 27-29 Exam
+* Chapters 27 - 29: Virtualization, Automation, and Programmability Exam
 * Review for final exams
 
 === Assignments Due by 6pm Today
@@ -332,7 +332,7 @@ NOTE: It is Student Success Day today, instructor meetings are not required toni
 * Online Discussion Forum Chapter 27 Response Posts
 * Online Discussion Forum Chapter 28 Response Posts
 * Online Discussion Forum Chapters 29 First Post
-* Chapter 27-29 Exam
+* Chapters 27 - 29: Virtualization, Automation, and Programmability Exam
 
 == Dec 17
 === Special Notes
