@@ -22,7 +22,10 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 * xref:lab14.adoc[Lab 14: Python Scripting for System Administration]
 
 == Homework, Activities & Participation 
-* Participate in an online forum discussion (typically 3 quality posts or more) of each topic on the ITC CLASS site. See forum posting page for details. (up to 10 points each chapter based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each topic (the readings and lab for each week) on the ITC CLASS site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
 * Weekly Progress Self-Evaluation - Complete on the ITC CLASS Server Website (10 points possible each week)
 
 == Skills Based Final Exam
