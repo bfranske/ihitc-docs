@@ -1,0 +1,47 @@
+= ITC Passport VPN Instructions
+
+== Prerequisites
+* ITC Passport VPN permissions must be assigned to a course you are currently enrolled in (contact your instructor for more information)
+* You must have a system which is supported by OpenVPN
+* You must have an account with administrative permissions on the system which you will be installing and running the OpenVPN client. OpenVPN modifies network drivers and system routing tables in a way which requires administrative permissions for installation of the client.
+* If you want to connect via the wireless network on campus you need to be using the "eduroam" network. The VPN will not work from the campus guest network.
+
+== Windows Systems
+=== Installation
+==== Files
+You will need to download an OpenVPN client for your system. It is suggested that you use the latest version (2.5.8) unless you encounter problems in which case you may want to try an older one. 
+
+* https://swupdate.openvpn.org/community/releases/OpenVPN-2.6.12-I001-amd64.msi[OpenVPN 2.6.12 for Windows (64-bit)]
+* https://tunnelblick.net/downloads.html[TunnelBlick for Mac OS X] (should work, but unsupported by ITC) Note, you may need the most recent beta version in order to connect.
+* https://play.google.com/store/apps/details?id=de.blinkt.openvpn&hl=en[OpenVPN for Android] (should work, but unsupported by ITC)
+
+You will also need the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file]. 
+
+==== Installation Steps
+. Download and install the OpenVPN client software.
++
+IMPORTANT: This installation will require administrative privileges as network drivers are being modified.
++
+NOTE: Installation of the TAP network driver will temporarily cause your network connection to drop during the installation process. You may be notified of this with a warning dialog box during the install.
+. Download the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file].
+. Start the OpenVPN GUI application if it is not already running on your system.
+. Right-click on the OpenVPN GUI icon in your system tray (next to the clock, the icon looks like a computer with a padlock on it) and choose "Import File..."
+. Locate the ITCPassportVPN.ovpn file which you previously downloaded.
+. Your installation is now complete and you should be able to launch OpenVPN and connect following the instructions in the connection section of this guide.
+
+=== Connection
+. If it is not already started on your system launch the "OpenVPN GUI" program which can be found in your Start Menu or Start Screen.
+. You should now have an OpenVPN icon in your system tray (by the clock). The unconnected icon looks like a computer with a padlock on it.
+. Right click on the OpenVPN icon in the system tray and choose "Connect" from the context menu.
++
+TIP: If you don't see a "Connect" option you probably have not correctly installed the ITC OpenVPN configuration file. Refer to the installation section of this guide for instructions on installing this file.
+. Enter your ITC domain credentials in the provided dialog box and click OK.
+. You should see the log scroll by as the connection is made.
+. Once the connection is complete the log dialog box should go away by itself and the OpenVPN tray icon should now show a computer with a green screen and a padlock.
+. When you are finished with your session you should disconnect from ITCnet by right clicking on the OpenVPN tray icon and selecting disconnect.
+. You can then exit the GUI client or leave it idle in the background, still visible in the system tray, until you need to connect again.
+
+== Other Operating Systems
+If OpenVPN has a client available for your OS you should be able to use it to connect. Clients are available for at least Mac, Linux, and Android. In addition to the client software for your OS you will need the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file]. The ITC lab assistant MAY be able to provide assistance getting clients operational on alternative platforms but be aware it will probably require some trial and error on your part. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
