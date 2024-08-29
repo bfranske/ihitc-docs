@@ -6,6 +6,11 @@
 * You must have an account with administrative permissions on the system which you will be installing and running the OpenVPN client. OpenVPN modifies network drivers and system routing tables in a way which requires administrative permissions for installation of the client.
 * If you want to connect via the wireless network on campus you need to be using the "eduroam" network. The VPN will not work from the campus guest network.
 
+== Setting Your ITC Passport VPN Password
+* Your password for VPN access is set through the ITC Passport website. You will need to follow the link from the D2L class which has VPN permissions assigned into the ITC Passport website.
+* Click the link under the "ITC LDAP Account Management - Used for Student ITCnet VPN Access" section that is named "Set or change your LDAP password" to set your ITCnet VPN password.
+* Your username for the VPN will be your StarID
+
 == Windows Systems
 === Installation
 ==== Files
@@ -35,7 +40,7 @@ NOTE: Installation of the TAP network driver will temporarily cause your network
 . Right click on the OpenVPN icon in the system tray and choose "Connect" from the context menu.
 +
 TIP: If you don't see a "Connect" option you probably have not correctly installed the ITC OpenVPN configuration file. Refer to the installation section of this guide for instructions on installing this file.
-. Enter your ITC domain credentials in the provided dialog box and click OK.
+. Enter your StarID and the password you set for VPN access on the ITC Passport site in the provided dialog box and click OK.
 . You should see the log scroll by as the connection is made.
 . Once the connection is complete the log dialog box should go away by itself and the OpenVPN tray icon should now show a computer with a green screen and a padlock.
 . When you are finished with your session you should disconnect from ITCnet by right clicking on the OpenVPN tray icon and selecting disconnect.
