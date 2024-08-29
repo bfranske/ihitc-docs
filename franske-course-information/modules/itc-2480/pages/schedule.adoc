@@ -14,6 +14,7 @@
 * Make sure you can access the Netlab system and are enrolled in the ITC-2480 course there
 * Complete xref:lab1.adoc[Lab 1: Linux Installation and First Steps]
 * Write your discussion first post about the readings and lab activity this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 TIP: Discussion posts are done through the ITC CLASS server in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
@@ -30,10 +31,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 1 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Sep 11
 === Readings to do before the next date
@@ -43,10 +46,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab3.adoc[Lab 3: User Accounts, Permissions, and Package Management]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 2 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Sep 18
 === Readings to do before the next date
@@ -57,10 +62,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab4.adoc[Lab 4: Text Manipulation]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 3 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Sep 25
 === Readings to do before the next date
@@ -70,10 +77,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab5.adoc[Lab 5: Webserver and PHP Installation and Use]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 4 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 2
 === Readings to do before the next date
@@ -87,10 +96,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab6.adoc[Lab 6: SQL Databases and Web Applications]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 5 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 9
 === Readings to do before the next date
@@ -100,10 +111,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab7.adoc[Lab 7: Firewall Configuration and System Security]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 6 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 16
 === Readings to do before the next date
@@ -113,10 +126,12 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab8.adoc[Lab 8: Linux System Administration Utilities]
 * Write your discussion response posts about the readings and lab from last week
 * Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 === Assignments Due at 11:59pm today
 * Lab 7 Report
 * Discussion first post about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Dates After Oct 9
 * Additional schedule details will be posted as we get closer to October.
