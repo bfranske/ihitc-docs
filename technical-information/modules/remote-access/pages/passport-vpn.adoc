@@ -9,7 +9,7 @@
 == Windows Systems
 === Installation
 ==== Files
-You will need to download an OpenVPN client for your system. It is suggested that you use the latest version (2.5.8) unless you encounter problems in which case you may want to try an older one. 
+You will need to download an OpenVPN client for your system. It is suggested that you use the latest version unless you encounter problems in which case you may want to try an older one. 
 
 * https://swupdate.openvpn.org/community/releases/OpenVPN-2.6.12-I001-amd64.msi[OpenVPN 2.6.12 for Windows (64-bit)]
 * https://tunnelblick.net/downloads.html[TunnelBlick for Mac OS X] (should work, but unsupported by ITC) Note, you may need the most recent beta version in order to connect.
