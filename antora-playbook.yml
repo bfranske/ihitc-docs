@@ -23,7 +23,7 @@ ui:
       - shakespeare.tar.gz
       - hello_2.10-3_amd64.deb
       - icecream_db.tar.gz
-      - ITCPassportVPN.ovpn
+      - itc-passport-vpn.ovpn
   - path: CNAME
     contents: |
       info.ihitc.net
@@ -33,8 +33,8 @@ ui:
     contents: ./static/hello_2.10-3_amd64.deb
   - path: icecream_db.tar.gz
     contents: ./static/icecream_db.tar.gz
-  - path: ITCPassportVPN.ovpn
-    contents: ./static/ITCPassportVPN.ovpn
+  - path: itc-passport-vpn.ovpn
+    contents: ./static/itc-passport-vpn.ovpn
 urls:
   html_extension_style: drop
   latest_version_segment: current
