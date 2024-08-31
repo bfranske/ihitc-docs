@@ -47,6 +47,6 @@ TIP: If you don't see a "Connect" option you probably have not correctly install
 . You can then exit the GUI client or leave it idle in the background, still visible in the system tray, until you need to connect again.
 
 == Other Operating Systems
-If OpenVPN has a client available for your OS you should be able to use it to connect. Clients are available for at least Mac, Linux, and Android. In addition to the client software for your OS you will need the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file]. The ITC lab assistant MAY be able to provide assistance getting clients operational on alternative platforms but be aware it will probably require some trial and error on your part. 
+If OpenVPN has a client available for your OS you should be able to use it to connect. Clients are available for at least Mac, Linux, and Android. In addition to the client software for your OS you will need the https://info.ihitc.net/ITC-Passport-VPN.ovpn[ITC OpenVPN configuration file]. The ITC lab assistant MAY be able to provide assistance getting clients operational on alternative platforms but be aware it will probably require some trial and error on your part. 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
