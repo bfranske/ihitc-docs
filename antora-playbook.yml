@@ -35,7 +35,7 @@ ui:
   - path: icecream_db.tar.gz
     contents: ./static/icecream_db.tar.gz
   - path: ITC-Passport-VPN.ovpn
-    contents: ./static/itc-passport-vpn.ovpn
+    contents: ./static/itc-passport-vpn.txt
   - path: .nojekyll
 urls:
   html_extension_style: drop

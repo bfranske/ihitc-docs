@@ -20,7 +20,7 @@ You will need to download an OpenVPN client for your system. It is suggested tha
 * https://tunnelblick.net/downloads.html[TunnelBlick for Mac OS X] (should work, but unsupported by ITC) Note, you may need the most recent beta version in order to connect.
 * https://play.google.com/store/apps/details?id=de.blinkt.openvpn&hl=en[OpenVPN for Android] (should work, but unsupported by ITC)
 
-You will also need the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file]. 
+You will also need the https://info.ihitc.net/ITC-Passport-VPN.ovpn[ITC OpenVPN configuration file]. 
 
 ==== Installation Steps
 . Download and install the OpenVPN client software.
@@ -28,7 +28,7 @@ You will also need the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN co
 IMPORTANT: This installation will require administrative privileges as network drivers are being modified.
 +
 NOTE: Installation of the TAP network driver will temporarily cause your network connection to drop during the installation process. You may be notified of this with a warning dialog box during the install.
-. Download the https://info.ihitc.net/ITCPassportVPN.ovpn[ITC OpenVPN configuration file].
+. Download the https://info.ihitc.net/ITC-Passport-VPN.ovpn[ITC OpenVPN configuration file].
 . Start the OpenVPN GUI application if it is not already running on your system.
 . Right-click on the OpenVPN GUI icon in your system tray (next to the clock, the icon looks like a computer with a padlock on it) and choose "Import File..."
 . Locate the ITCPassportVPN.ovpn file which you previously downloaded.
