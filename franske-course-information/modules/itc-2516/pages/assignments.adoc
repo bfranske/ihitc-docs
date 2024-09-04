@@ -48,6 +48,10 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 . Lab 2.9.2 - Basic Switch and End Device Configuration
 . PT 3.5.5 - Investigate the TCP/IP and OSI Models in Action
 . Lab 3.7.10 - Use Wireshark to View Network Traffic
++
+--
+NOTE: In this lab activity you are going to use a `ping` command and watch the results in Wireshark. If the Internet connection you are working on has IPv6 connectivity you will see things like `Pinging google.com [2607:f8b0:4009:80a::200e]` instead of `Pinging google.com [142.250.190.78]`. If this is the case you can force an IPv4 ping using a command like `ping -4 google.com`.
+--
 . Lab 4.6.6 - View Wired and Wireless NIC Information
 +
 --
