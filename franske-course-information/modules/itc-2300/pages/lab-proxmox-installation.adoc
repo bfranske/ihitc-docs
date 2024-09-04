@@ -40,11 +40,13 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 --
 . The Proxmox VE installer ISO file has been pre-loaded into the CD drive of each of your HV VMs
 . Start the Proxmox VE installation (on both VMs) making note of these options:
+* Either graphical or console installation method can be used, they do exactly the same thing just look different. You could try the graphical mode on HV-A and the console mode on HV-B.
 * Set the Country to United States and Timezone to America/Chicago
 * Record the administrative password for future use, it is strongly suggested you use "itc2300" as the administrative password so that you can reference it here and your instructor can assist with issues in your lab.
 * Set the IP address for each Proxmox system using table above
 * Make sure the hostname is different on each Proxmox VE server and is set as identified in the table above
-. Once installation is finished use a web browser on PC-C to access the Proxmox VE server's web interface at the IP address of the hypervisor and login as the root user (username root) and password set during the installation
+. Once the installation is finished log on to the console on each Proxmox Hypervisor as the root user and run the `apt update` and `apt install open-vm-tools` commands. Because we are running your Proxmox systems inside of our own virtual machines (called _nested virtualization_) this will improve performance and reliability.
+.Now you can use a web browser on PC-C to access the Proxmox VE server's web interface at the IP address of the hypervisor and login as the root user (username root) and password set during the installation
 +
 --
 NOTE: The password for the "Nelab User" account on PC-C is "netlab"
