@@ -6,6 +6,18 @@ For each topic listed below having lab activities you will need to submit one xr
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
 === PC Disassembly/Reassembly Labs
+In this lab activity you will completely disassmble and then re-assemble a small form factor computer. If time allows you may also assemble a computer from parts. 
+
+You should primarily refer to the demonstration disassembly and re-assembly that was done in class but if you need additional reminders of the steps you may refer to the following lab activites in the Cisco Networking Academy curriculum:
+
+* 1.3.2.3 Lab - Disassemble a Computer
+* 2.1.2.5 Lab - Install the Power Supply
+* 2.1.3.10 Lab - Install the Motherboard in a Computer
+* 2.1.4.7 Lab - Install the Drives
+* 2.1.5.6 Lab - Install Adapter Cards
+* 2.1.7.4 Lab - Install Internal Cables
+* 2.1.7.8 Lab - Install the Front Panel Cables
+* 2.1.7.11 Lab - Complete the Computer Assembly
 
 === Boot/BIOS Labs
 
