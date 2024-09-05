@@ -1,4 +1,4 @@
-= Future ITC-2480 Home Page
+= ITC-2480 Home Page
 
 == General Course Information
 
