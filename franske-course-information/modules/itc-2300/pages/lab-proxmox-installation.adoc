@@ -49,7 +49,7 @@ NOTE: If you make a mistake and need to have one or both of your HV VMs erased s
 .Now you can use a web browser on PC-C to access the Proxmox VE server's web interface at the IP address of the hypervisor and login as the root user (username root) and password set during the installation
 +
 --
-NOTE: The password for the "Nelab User" account on PC-C is "netlab"
+NOTE: The password for the "Netlab User" account on PC-C is "netlab"
 --
 . Add a second user account to Proxmox VE and set it up with administrative access. Set the second account up as a Proxmox VE Authentication Server realm account meaning it will only be available in Proxmox and not on the underlying Linux system.
 +

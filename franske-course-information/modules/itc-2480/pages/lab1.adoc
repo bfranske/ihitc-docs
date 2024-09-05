@@ -109,6 +109,9 @@ image::lab01/025.png[Selecting the software to install,250,align=left,link=self]
 . Complete the installation
 .. When the installation is complete you can select continue to "eject" the virtual CD and reboot into the new install
 
+
+TIP: If you make a mistake and need to erase the hard drive of your Linux Server so you can re-install Debian you will need to access the https://passport.ihitc.net[ITC Passport] interface and select the "View and manage Netlab pods assigned to your account" link. Click on the pod number for your "LSA Pod" pod and then click the link to erase the hard disk on the system you want to reinstall.
+
 == First Steps
 
 NOTE: This section assumes you are continuing from above and your system has just rebooted into your installation. If you have disconnected and are getting back to the lab you will need to Login to NetLab again, create a reservation, and access the console of your Linux Server VM.
