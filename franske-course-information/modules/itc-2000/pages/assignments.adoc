@@ -20,8 +20,37 @@ You should primarily refer to the demonstration disassembly and re-assembly that
 * 2.1.7.11 Lab - Complete the Computer Assembly
 
 === Boot/BIOS Labs
+* 3.1.1.6 Lab - Investigate BIOS or UEFI Settings
++
+NOTE: Before beginning this lab activity you will need to find the key to tap while the computer is powering on which gives access to the BIOS or UEFI. You will need to look this up on Google for the particular model of computer or motherboard you are working with as different manufacturers use different keys.
+* 3.1.2.5 Lab - Search for BIOS or UEFI Firmware Updates
++
+NOTE: Most modern BIOS or UEFI systems do not display POST messages like those shown in the lab anymore unless you specifically are able to disable the _splash screen_ in the BIOS or UEFI settings. Even in that case the POST sometimews goes by too quickly to see any results on the screen.
++
+NOTE: Because you will need to search the Internet for the most recent BIOS version by your motherboard or system manufacturer you will need a working Internet connection to your computer. You will need to complete the next two labs and get Windows installed before you're able to finish that part of this lab activity.
+* 3.1.2.6 Lab - Install Windows
++
+NOTE: You may need to go into the BIOS/UEFI settings of your system and eithe change the boot order of the system or make sure the system is set to UEFI boot mode instead of legacy boot mode in order to start the Windows installer from the USB drive.
++
+NOTE: Make sure your computer is *NOT* connected to the Internet while Windows is being installed on it so that you can create a local account instead of being forced to use a Microsoft account! You will need to confirm during the setup process that you have no Internet connection and that you want to continue with "Limited Setup" because Microsoft really wants to force you to use a Microsoft Account to sign in.
++
+NOTE: Be sure to choose a new installation, not to repair an existing one. If prompted choose to install "Windows 10 Education" or "Windows 10 Enterprise". Also, choose to do a "Custom" installation, not an upgrade, and delete any/all existing partitions on the drive (note that this will erase all data on the computer).
++
+NOTE: If you are prompted for a license or activation key choose that you do not have one or to skip the step.
++
+NOTE: During the account creation process use the name "ITC Admin" and the password "Password123!" be sure to write them down and have your partner write them down as well because you will need them again later in the course.
+* 3.1.2.7 Lab - Install Third-Party Software in Windows 
++
+NOTE: You will need to connect your computer to the Internet in order to complete this part of the lab activity. Get a network cable from your instructor and attach to one of the network jacks at your table, let your instructor know what the jack number is you are plugged into and they will verify that Internet access has been activated on that jack.
++
+NOTE: You will need to download the Packet Tracer software from the Cisco Networking Academy site and copy it to your computer to install it. Find the link to download Packet Tracer under the _Resources_ menu at the top of the Legacy NetAcad website. You will want the latest 64-bit Windows version.
++
+NOTE: You may also want to download and install a better web browser for your system such as Chrome or Firefox instead of using Microsoft Edge.
 
 === Hardware Troubleshooting Labs
+* 4.2.3.6 Lab – Troubleshoot Hardware Problems 
++
+NOTE:  In this lab you are asked to troubleshoot any problems with your hardware. After making sure your system is working properly obtain sheets from the instructor with a series of problems to create for your partner. Be sure to have your partner leave the room while you are creating each problem (one problem at a time!).
 
 === Networking Labs
 
