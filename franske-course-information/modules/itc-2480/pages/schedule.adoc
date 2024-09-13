@@ -51,6 +51,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 2 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Sep 18
@@ -67,6 +68,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 3 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Sep 25
@@ -82,6 +84,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 4 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 2
@@ -101,6 +104,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 5 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 9
@@ -116,6 +120,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 6 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Oct 16
@@ -131,6 +136,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * Lab 7 Report
 * Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
 == Dates After Oct 9
