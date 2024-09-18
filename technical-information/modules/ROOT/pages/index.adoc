@@ -1,5 +1,5 @@
 = Technical Information
 
-Welcome to my new page!
+This section contains technical information about equipment in the IHCC ITC Labs. See the menu at left for specific documentation.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

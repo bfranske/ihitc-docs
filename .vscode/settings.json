@@ -1,4 +1,4 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true,
-    "git.autorefresh": true
+    "git.autorefresh": true,
+    "asciidoc.antora.enableAntoraSupport": true
 }
