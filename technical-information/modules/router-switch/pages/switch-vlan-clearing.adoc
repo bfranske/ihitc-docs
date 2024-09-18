@@ -1,6 +1,6 @@
 = Clearing Cisco Switch VLANs
 
-== Backgrond
+== Background
 Because of VLAN Trunking Protocol (VTP) which will automatically create (or re-create) VLANs on a switch based on the configuration of other switches it can be tricky to clear the VLANs from a switch when other switches are running on the network. These instructions can be followed to clear VLANs from environments with multiple switches which may be running VTP.
 
 == Clearing ALL VLANs and VTP settings switches
