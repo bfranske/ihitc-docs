@@ -63,7 +63,7 @@ NOTE: Use your own computer for the wireless portion, the lab computers only hav
 . PT 9.1.3 - Identify MAC and IP Addresses
 . PT 9.2.9 - Examine the ARP Table
 . PT 9.3.4 - IPv6 Neighbor Discovery
-. Lab 10.4.4 - Build a Switch and Router Network
+. Lab 10.4.3 - Build a Switch and Router Network
 . Lab 12.9.2 - Configure IPv6 Addresses on Network Devices
 . PT 13.2.6 - Verify IPv4 and IPv6 Addressing
 . Lab 13.3.2 - Use Ping and Traceroute to Test Network Connectivity
