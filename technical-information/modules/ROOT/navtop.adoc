@@ -4,6 +4,7 @@
 +
 --
 include::remote-access:partial$nav.adoc[]
+include::router-switch:partial$nav.adoc[]
 include::voip:partial$nav.adoc[]
 --
 * xref:software-info:ROOT:index.adoc[Software Discounts and Resources]
