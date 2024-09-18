@@ -13,6 +13,8 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 * The login password for CAASP Pod PCs in Netlab is: Cisco123
 ====
 
+IMPORTANT: Please make sure there are no extra VLANs or VTP information on any of your switches after finishing each lab. Follow xref:tech-info:router-switch:switch-vlan-clearing.adoc.adoc[these instructions] to ensure your VLAN and VTP information are cleared on all switches before finishing your lab.
+
 . Lab 1.1.2 - Implement Inter-VLAN Routing
 . Lab 2.1.2 - Observe STP Topology Changes and Implement RSTP
 . Lab 3.1.2 - Implement Advanced STP Modifications and Mechanisms
@@ -20,7 +22,11 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 . Lab 5.1.2 - Implement VTP
 +
 --
+NOTE: Before beginning this lab you will want to be sure there are no extra VLANs or VTP information on any of your switches. Follow xref:tech-info:router-switch:switch-vlan-clearing.adoc.adoc[these instructions] to ensure your VLAN and VTP information are cleared on all switches before starting.
+--
 NOTE: In Part 2, step 2c of this lab you are asked to create vlan 2048 on switch D1. You will encounter an error when trying to do this. There is a note about the error in the lab but it is wrong. VTP version 1 or 2 cannot do extended range vlans (above 1005) regardless of the type of IOS on the switch. Only VTPv3 supoports these. Instead of vlan 2048 you can create vlan 948 and see the same thing (that it is not created on D2 or A1 automatically through VTP because they are now in a different domain).
+--
+NOTE: Before ending this lab please make sure there are no extra VLANs or VTP information on any of your switches. Follow xref:tech-info:router-switch:switch-vlan-clearing.adoc.adoc[these instructions] to ensure your VLAN and VTP information are cleared on all switches before finishing.
 --
 . Lab 5.1.3 - Implement EtherChannel
 . Lab 5.1.4 - Tuning EtherChannel
