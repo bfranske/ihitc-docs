@@ -1,0 +1,89 @@
+= Clearing Cisco Switch VLANs
+
+== Backgrond
+Because of VLAN Trunking Protocol (VTP) which will automatically create (or re-create) VLANs on a switch based on the configuration of other switches it can be tricky to clear the VLANs from a switch when other switches are running on the network. These instructions can be followed to clear VLANs from environments with multiple switches which may be running VTP.
+
+== Clearing ALL VLANs and VTP settings switches
+. Complete the following steps on *EACH* switch you wish to reset:
++
+--
+IMPORTANT: If you want to keep the existing configuration (other than VLANs) be sure to save your running-configuration on each switch before proceeding!
+--
+.. Enter _privileged EXEC mode_ with the `enable` command
+.. Enter _global configuration mode_ with the `configure terminal` command
+.. Set the VTP mode to transparent with the `vtp mode transparent` command
+.. Exit _global configuration mode_ with the `exit` command
+.. Delete the _vlan.dat_ file with the `delete flash:vlan.dat` command. Press the enter key to confirm the filename to delete is _vlan.dat_ (*do not press Y, just press enter*) and the enter key again to confirm you want to delete _flash:/vlan.dat_
++
+[source,console]
+----
+Switch#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vtp mode transparent
+Setting device to VTP Transparent mode for VLANS.
+Switch(config)#exit
+Switch#
+*Sep 18 13:32:51.205: %SYS-5-CONFIG_I: Configured from console by console
+Switch#delete flash:vlan.dat
+Delete filename [vlan.dat]? 
+Delete flash:/vlan.dat? [confirm]
+Switch#
+----
+. After the above steps have been done to all switches restart each switch using the `reload` command. Do *not* save changes the running configuration and confirm you want to reload the switch.
++
+[source,console]
+----
+Switch#reload
+
+System configuration has been modified. Save? [yes/no]: no
+Reload command is being issued on Active unit, this will reload the whole stack
+Proceed with reload? [confirm]
+
+----
+. After all switches reboot verify that only the default VLANs exist with the `show vlan brief` command. The exact output will depend on the switch, for example:
++
+[source,console]
+----
+Switch#show vlan brief
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gi0/1, Gi0/2
+1002 fddi-default                     act/unsup 
+1003 token-ring-default               act/unsup 
+1004 fddinet-default                  act/unsup 
+1005 trnet-default                    act/unsup 
+Switch#
+----
+. Verify that the VTP domain name is blank, the VTP mode is Server, and the configuration revision number is 0 using the `show vtp status` command. Exact output may vary from one switch model to another, for example:
++
+[source,console]
+----
+Switch#show vtp status
+VTP Version capable             : 1 to 3
+VTP version running             : 1
+VTP Domain Name                 : 
+VTP Pruning Mode                : Disabled
+VTP Traps Generation            : Disabled
+Device ID                       : 003a.7db0.d780
+Configuration last modified by 0.0.0.0 at 0-0-00 00:00:00
+Local updater ID is 0.0.0.0 (no valid interface found)
+
+Feature VLAN:
+--------------
+VTP Operating Mode                : Server
+Maximum VLANs supported locally   : 1005
+Number of existing VLANs          : 5
+Configuration Revision            : 0
+MD5 digest                        : 0x57 0xCD 0x40 0x65 0x63 0x59 0x47 0xBD 
+                                    0x56 0x9D 0x4A 0x3E 0xA5 0x69 0x35 0xBC 
+Switch#
+----
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
