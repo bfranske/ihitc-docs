@@ -1,0 +1,85 @@
+= Lab Activity: Install Linux in a Virtual Machine and Explore the GUI
+
+== Background / Scenario
+Computing power and resources have increased tremendously over the last 10 years. A benefit of multi-core processors and large amounts of RAM is the ability to install multiple operating systems through the use of virtualization on a computer.
+
+With virtualization, one or more virtual computers can operate inside one physical computer. Virtual computers that run within physical computers are called virtual machines. Virtual machines are often called guests, and physical computers are often called hosts. Anyone with a modern computer and operating system can run virtual machines.
+
+In this lab, you will install a Linux OS in a virtual machine using a desktop virtualization application, such as VirtualBox. After completing the installation, you will explore the GUI interface. You will also explore the command line interface using this virtual machine in a lab later in this course.
+
+== Required Resources
+* Computer with a minimum of 8 GB of RAM and 25 GB of free disk space
+* Network connection to the ITC network
+
+== Part 1: Prepare a Computer for Virtualization
+In Part 1, you will download and install desktop virtualization software and a Linux OS image. 
+
+. Download and install VirtualBox.
++
+--
+VMware Player and Oracle VirtualBox are two virtualization programs that you can download and install to support the OS image file. In this lab, you will use the VirtualBox application.
+--
+.. Navigate to https://www.virtualbox.org/. Click the download link on this page.
+.. Choose and download the appropriate installation file based on your operating system.
+.. After the VirtualBox installation file is downloaded, run the installer and accept the default installation settings. When prompted regarding missing dependencies python code / win32 api, click Yes to proceed.
+. Download a Linux Image.
+.. Navigate to the Ubuntu website at http://www.ubuntu.com. Click the Download menu.
+.. Click the Download link on this page to download and save an Ubuntu Desktop image.
+. Create a New Virtual Machine.
+.. If you did not choose to open VirtualBox after your installation, click Start and search for VirtualBox. Click Oracle VM VirtualBox to open the manager. When the manager opens, click New to start the Ubuntu installation.
+.. In the Virtual machine Name and Operating System screen, type Ubuntu in the Name field.
+... Review the location of the Folder field. This will be the location of the virtual hard drive for this virtual machine.
+... In the ISO Image field, click the dropdown and locate the downloaded Ubuntu Desktop image. Notice that the Type and Version fields are automatically filled in and grey out.
+... Click the checkbox Skip Unattended Installation to install the guest OS manually.
+... Click Next to continue.
+.. In the Hardware screen, increase the amount of RAM or number of CPUs as desired. Make sure the
+selection stays in the green area so it does not adversely affect the performance of the host. You should not need more than 4096 MB of RAM or more than 1 CPU for this lab. You can always adjust it later. Click Next to continue.
+.. In the Virtual Hard disk screen, click Next to accept the option to create a virtual hard disk now with the suggested size. Change as desired. The default storage settings for the hard drive is dynamically allocated. Click Next to continue.
+.. Review the setting in the summary page. Click Finish when done.
+.. When the hard drive creation is done, the new virtual machine is listed in the Oracle VM VirtualBox Manager window. Select Ubuntu and click Start in the top menu.
+
+== Part 2: Install Ubuntu on the Virtual Machine
+. In the GNU GRUB screen, press Enter on the highlighted Try or Install Ubuntu to start the loading process. This can take several minutes.
+. In the Welcome screen, you are prompted to try or install Ubuntu. The try option does not install the OS, it runs the OS straight from the image. In this lab, you will install the Ubuntu OS in this virtual machine. Click Install Ubuntu.
+. Follow the on-screen instructions and provide the necessary information when prompted.
++
+--
+NOTE: If you are not connected to the internet, you can continue to install and enable the network later.
+--
+.. Accept the defaults on the Updates and other software screen. You can also check Install third-party software… if you wish.
+.. Because this Ubuntu installation is in a virtual machine, it is safe to erase the disk and install Ubuntu without affecting the host computer. In the Installation type screen, select Erase disk and install Ubuntu. Otherwise installing Ubuntu on a physical computer would erase all data on the disk and replace the existing operating system with Ubuntu. Click Install Now to start the installation.
+.. In the Write the changes to disks? screen, click Continue to erase the disk and install Ubuntu.
+.. In the Who are you? screen, provide your name and choose a password. Use iteuser for Your
+Name and ITEpass! for the password. You can use the username generated or enter a different
+username. If desired, you can change the other settings. Click Continue.
+. The Ubuntu OS is now installing in the virtual machine. This will take several minutes. When the Installation is complete message displays in Ubuntu, click Restart Now to restart the virtual machine. When prompted to remove the installation medium, press Enter to continue the booting process.
+
+== Part 3: Explore the GUI
+--
+In this part, you will install the VirtualBox guest additions and explore the Ubuntu GUI.
+--
+. Install Guest Additions
+.. Log on to your Ubuntu virtual machine using the user credentials created in the previous part.
+.. Your Ubuntu Desktop window may be smaller than expected. This is especially true on high-resolution displays. Click Device > Insert Guest Additions CD image… to install the Guest Additions. This allows more functions, such as changing the screen resolution in the virtual machine.
+.. Click Run to install the additions. When prompted for a password, use the same password that you used to log on. Click Authenticate to continue.
++
+--
+NOTE: If you were not prompted to install the additions, you can access the Guest Additions CD image to install the guest additions.
+--
+.. In the list of Activities on the left, scroll down until you see the disk labeled VBox_GAs_x where x is the version number (e.g. 7.0.2). Click the CD icon to open it.
+.. Right click autorun.sh and choose Run as a Program.
+.. When prompted for a password, use the same password that you used to log on. Click authenticate to continue. Following the instructions on the screen to complete the installation
+. Run applications
+--
+In this step, you will open a couple of applications in the virtual machine.
+
+NOTE: If the host computer is not connected to the internet, re-connect to the internet and verify that the virtualmachine has access to the internet. If the network connection settings need to be changed, power off the virtual machine and click Settings in Oracle VM VirtualBox Manager > click Network to change the network settings.
+--
+.. Power on virtual machine as needed and log into Ubuntu again. After you are logged in again, you can resize the virtual machine window.
+.. Open a web browser. Depending on the Linux distribution, you may need to search for a web browser or there is a link to a web browser already on the Desktop. Navigate to a few websites if desired.
+.. Right click the Desktop and choose Open in Terminal. You will be using a terminal emulator in later labs.
+.. Explore the installed Linux distribution and locate a few applications that you may use.
+
+== Part 4: Shut Down the Virtual Machine
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
