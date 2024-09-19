@@ -12,19 +12,20 @@ In this lab, you will install a Linux OS in a virtual machine using a desktop vi
 * Network connection to the ITC network
 
 == Part 1: Prepare a Computer for Virtualization
-In Part 1, you will download and install desktop virtualization software and a Linux OS image. 
+--
+In Part 1, you will download and install desktop virtualization software and a Linux OS image.
 
+IMPORTANT: To improve download speeds IHCC has pre-downloaded software you will be using in this lab and is hosting them on local servers. The links and sites in this lab to download software from will only work when connected to the campus ITC Network but many of the items (VirtualBox and Linux Mint for example) can be freely downloaded from public web sites.
+--
 . Download and install VirtualBox.
 +
 --
-VMware Player and Oracle VirtualBox are two virtualization programs that you can download and install to support the OS image file. In this lab, you will use the VirtualBox application.
+Oracle VirtualBox is one virtualization program, called a _hypervisor_, that you can download and install to support running virtual machines. VirtualBox is free for personal and educational use. Other client virtualization programs include VMware Workstation, VMware Fusion, Parallels Desktop, Microsoft Hyper-V, and QEMU.
 --
-.. Navigate to https://www.virtualbox.org/. Click the download link on this page.
-.. Choose and download the appropriate installation file based on your operating system.
-.. After the VirtualBox installation file is downloaded, run the installer and accept the default installation settings. When prompted regarding missing dependencies python code / win32 api, click Yes to proceed.
-. Download a Linux Image.
-.. Navigate to the Ubuntu website at http://www.ubuntu.com. Click the Download menu.
-.. Click the Download link on this page to download and save an Ubuntu Desktop image.
+.. Use the web browser on your lab PC to navigate to http://172.17.50.xx which is where we'll download all files from in this lab activity. Click to download the VirtualBox-7.1.0-164728-Win.exe and Oracle_VirtualBox_Extension_Pack-7.1.0.vbox-extpack installation files.
+.. After the VirtualBox installation files are downloaded, run the installer (the file ending in .exe) and accept the default installation settings.
+. Download a Linux Mint Installation CD Image.
+.. Use the web browser on your lab PC to navigate to http://172.17.50.xx again if you closed the page. Click to download the linuxmint-22-cinnamon-64bit.iso CD image file. CD and DVD images typically end in .iso and are called "iso (ICE-O) files".
 . Create a New Virtual Machine.
 .. If you did not choose to open VirtualBox after your installation, click Start and search for VirtualBox. Click Oracle VM VirtualBox to open the manager. When the manager opens, click New to start the Ubuntu installation.
 .. In the Virtual machine Name and Operating System screen, type Ubuntu in the Name field.
