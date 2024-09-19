@@ -120,7 +120,7 @@ NOTE: *Before you leave today please reset your router to the factory default se
 === Printer Labs
 
 === Virtualization/Linux Labs
- xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activity instructions]
+xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activity instructions]
 
 === Windows Installation Labs
 
