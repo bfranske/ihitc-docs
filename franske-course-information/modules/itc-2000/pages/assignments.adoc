@@ -125,6 +125,47 @@ xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activi
 === Windows Installation Labs
 
 === Windows Administration Labs
+NOTE: All of these labs will be completed on one of the PCs you installed Windows 10 on in the previous lab.
+
+* 11.1.2.5 - Explore the Windows Desktop
+* 11.1.3.4 - Work with Task Manager
+* 11.1.4.11 - Working with File Explorer
+* 11.2.1.5 - Explore Control Panel Categories
+* 11.2.2.3 - User Accounts
+* 11.2.2.4 - Permissions
+* 11.2.3.5 - Configure Browser Settings
+* 11.2.5.8 - Manage Virtual Memory
+* 11.2.6.2 - Use Device Manager
+* 11.2.7.4 - Region and Language Options
+* 11.2.9.4 - Privacy and Gaming
+* 11.3.1.11 - Monitor and Manage System Resources
+* 11.3.2.7 - System Utilities
+* 11.3.2.8 - Manage System Files
+* 11.3.3.8 - Hard Drive Maintenance
+* 11.3.4.9 - Install Third-Party Software
+* 11.4.1.5 - Work in the Windows Command Shell
+* 11.4.2.7 - File System Commands
+* 11.4.3.2 - Disk CLI Commands
+* 11.4.4.2 - Task and System CLI Commands
+* 11.5.2.4 - Share Resources
++
+--
+NOTE: In this lab activity you will need to share and connect to network files. You will need to use your second Windows PC and configure them for file sharing.
+--
+* 11.4.5.3 - Other Useful Commands
++
+--
+NOTE: Complete this lab activity AFTER 11.5.2.4 so that you can use the file share you created in that lab in Part 2, Step 2d
+--
+* 11.5.6.2 - Windows Remote Desktop and Assistance
++
+--
+NOTE: In this lab activity you will need to use your second Windows PC to remotely access your first Windows PC
+--
+* 11.6.1.2 - Manage the Startup Folder
+* 11.6.1.5 - Schedule a Task Using the GUI and the Command Line
+* 11.6.2.4 - System Restore and Hard Drive Backup
+* 11.7.3.2 - Troubleshoot Operating System Problems
 
 === Mobile Device Labs
 
