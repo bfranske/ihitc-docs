@@ -327,4 +327,23 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 == FUTURE DATES
 * The schedule for dates after October 21 will be determined later in the semester but will follow a similar pattern.
 
+        In Class
+21-Oct	CCNA 1 SBA
+23-Oct	Mod 1,2
+28-Oct	Mod 3
+30-Oct	Mod 4
+4-Nov	Mod 5
+6-Nov	Mod 6
+11-Nov	Mod 7
+13-Nov	Mod 8
+18-Nov	Mod 9
+20-Nov	Mod 10, 11
+25-Nov	Mod 11
+27-Nov	Mod 12, 13
+2-Dec	Mod 14
+4-Dec	Mod 15
+9-Dec	Mod 16
+11-Dec	Skills Exam
+16-Dec	Final Exam
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
