@@ -302,7 +302,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 16 Lab Report Activities
 * Unit Exam Modules 16 - 17: Building and Securing a Small Network
 
-== Oct 18
+== Oct 21
 === Work to do in class today
 * CCNA 1 Equipment Skills Exam
 
@@ -325,6 +325,6 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 1 Packet Tracer Skills Assessment
 
 == FUTURE DATES
-* The schedule for dates after October 18 will be determined later in the semester but will follow a similar pattern.
+* The schedule for dates after October 21 will be determined later in the semester but will follow a similar pattern.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
