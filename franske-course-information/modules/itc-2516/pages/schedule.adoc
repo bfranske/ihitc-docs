@@ -333,6 +333,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 1 Online Discussion Response Posts
 * CCNA 2 Module 2 Online Discussion Response Posts
 * CCNA 2 Module 3 Packet Tracer Online Submission Activities
+* CCNA 2 Module 1 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 1 Online Discussion First Post
@@ -352,12 +353,14 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 4 Online Discussion First Post
 * CCNA 2 Module 3 Online Discussion Response Posts
 * CCNA 2 Module 4 Packet Tracer Online Submission Activities
+* CCNA 2 Module 3 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 3 Online Discussion First Post
 * CCNA 2 Module 1 Online Discussion Response Posts
 * CCNA 2 Module 2 Online Discussion Response Posts
 * CCNA 2 Module 3 Packet Tracer Online Submission Activities
+* CCNA 2 Module 1 Lab Report
 
 == Oct 30
 === Work to do in class today
@@ -370,11 +373,13 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 5 Online Discussion First Post
 * CCNA 2 Module 4 Online Discussion Response Posts
 * Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
+* CCNA 2 Module 4 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 4 Online Discussion First Post
 * CCNA 2 Module 3 Online Discussion Response Posts
 * CCNA 2 Module 4 Packet Tracer Online Submission Activities
+* CCNA 2 Module 3 Lab Report
 
 == Nov 4
 === Work to do in class today
@@ -387,11 +392,13 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 6 Online Discussion First Post
 * CCNA 2 Module 5 Online Discussion Response Posts
 * CCNA 2 Module 6 Packet Tracer Online Submission Activities
+* CCNA 2 Module 5 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 5 Online Discussion First Post
 * CCNA 2 Module 4 Online Discussion Response Posts
 * Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
+* CCNA 2 Module 4 Lab Report
 
 == Nov 6
 === Work to do in class today
@@ -399,37 +406,37 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 
 === Readings to do before next class
 * CCNA 2 Module 7
+* CCNA 2 Module 8
 
 === Other Work to do before next class
 * CCNA 2 Module 7 Online Discussion First Post
+* CCNA 2 Module 8 Online Discussion First Post
 * CCNA 2 Module 6 Online Discussion Response Posts
 * CCNA 2 Module 7 Packet Tracer Online Submission Activities
 * Unit Exam Modules 5 - 6: Redundant Networks Exam
+* CCNA 2 Module 6 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 6 Online Discussion First Post
 * CCNA 2 Module 5 Online Discussion Response Posts
 * CCNA 2 Module 6 Packet Tracer Online Submission Activities
+* CCNA 2 Module 5 Lab Report
 
 == Nov 11
 === Work to do in class today
-* CCNA 2 Module 7 Lab Activities
+* No class today, Veterans' Day
 
 === Readings to do before next class
-* CCNA 2 Module 8
+
 
 === Other Work to do before next class
-* CCNA 2 Module 8 Online Discussion First Post
-* CCNA 2 Module 7 Online Discussion Response Posts
+
 
 === Assignments Due at the start of class today
-* CCNA 2 Module 7 Online Discussion First Post
-* CCNA 2 Module 6 Online Discussion Response Posts
-* CCNA 2 Module 7 Packet Tracer Online Submission Activities
-* Unit Exam Modules 5 - 6: Redundant Networks Exam
 
 == Nov 13
 === Work to do in class today
+* CCNA 2 Module 7 Lab Activities
 * CCNA 2 Module 8 Lab Activities
 
 === Readings to do before next class
@@ -437,12 +444,19 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 
 === Other Work to do before next class
 * CCNA 2 Module 9 Online Discussion First Post
+* CCNA 2 Module 7 Online Discussion Response Posts
 * CCNA 2 Module 8 Online Discussion Response Posts
 * CCNA 2 Module 9 Packet Tracer Online Submission Activities
+* CCNA 2 Module 7 Lab Report
+* CCNA 2 Module 8 Lab Report
 
 === Assignments Due at the start of class today
+* CCNA 2 Module 7 Online Discussion First Post
 * CCNA 2 Module 8 Online Discussion First Post
-* CCNA 2 Module 7 Online Discussion Response Posts
+* CCNA 2 Module 6 Online Discussion Response Posts
+* CCNA 2 Module 7 Packet Tracer Online Submission Activities
+* Unit Exam Modules 5 - 6: Redundant Networks Exam
+* CCNA 2 Module 6 Lab Report
 
 == Nov 18
 === Work to do in class today
@@ -462,8 +476,11 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 9 Online Discussion First Post
+* CCNA 2 Module 7 Online Discussion Response Posts
 * CCNA 2 Module 8 Online Discussion Response Posts
 * CCNA 2 Module 9 Packet Tracer Online Submission Activities
+* CCNA 2 Module 7 Lab Report
+* CCNA 2 Module 8 Lab Report
 
 == Nov 20
 === Work to do in class today
@@ -476,6 +493,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 12 Online Discussion First Post
 * CCNA 2 Module 10 Online Discussion Response Posts
 * CCNA 2 Module 11 Online Discussion Response Posts
+* CCNA 2 Module 11 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 10 Online Discussion First Post
@@ -501,6 +519,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 12 Online Discussion First Post
 * CCNA 2 Module 10 Online Discussion Response Posts
 * CCNA 2 Module 11 Online Discussion Response Posts
+* CCNA 2 Module 11 Lab Report
 
 == Nov 27
 === Work to do in class today
@@ -514,6 +533,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 13 Online Discussion Response Posts
 * CCNA 2 Module 14 Packet Tracer Online Submission Activities
 * Unit Exam Modules 10 - 13: L2 Security and WLANs Exam
+* CCNA 2 Module 13 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 13 Online Discussion First Post
@@ -538,6 +558,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 13 Online Discussion Response Posts
 * CCNA 2 Module 14 Packet Tracer Online Submission Activities
 * Unit Exam Modules 10 - 13: L2 Security and WLANs Exam
+* CCNA 2 Module 13 Lab Report
 
 == Dec 4
 === Work to do in class today
@@ -550,6 +571,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 16 Online Discussion First Post
 * CCNA 2 Module 15 Online Discussion Response Posts
 * CCNA 2 Module 16 Packet Tracer Online Submission Activities
+* CCNA 2 Module 15 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 15 Online Discussion First Post
@@ -570,11 +592,13 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Practice Packet Tracer Skills Assessment
 * CCNA 2 Packet Tracer Skills Assessment
 * Unit Exam Modules 14 - 16: Routing Concepts and Configuration Exam
+* CCNA 2 Module 16 Lab Report
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 16 Online Discussion First Post
 * CCNA 2 Module 15 Online Discussion Response Posts
 * CCNA 2 Module 16 Packet Tracer Online Submission Activities
+* CCNA 2 Module 15 Lab Report
 
 == Dec 11
 === Work to do in class today
@@ -593,6 +617,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Practice Packet Tracer Skills Assessment
 * CCNA 2 Packet Tracer Skills Assessment
 * Unit Exam Modules 14 - 16: Routing Concepts and Configuration Exam
+* CCNA 2 Module 16 Lab Report
 
 == Dec 16
 === Work to do in class today
