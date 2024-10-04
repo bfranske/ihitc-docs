@@ -323,7 +323,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 * Module 10 Exam - Windows Installation
 * Weekly Progress Self-Evaluation
 
-== Nov 4
+== Nov 5
 === Happening in class today
 * Finish Windows Installation Labs
 
@@ -338,7 +338,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Assignments Due at the start of class today
 * None
 
-== Dates After Nov 4
-* Details will be provided by late September
+== Dates After Nov 5
+* Details will be provided in mid-October
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
