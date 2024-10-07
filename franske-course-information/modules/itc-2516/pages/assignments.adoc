@@ -99,7 +99,7 @@ Any participation activities completed in the course will go here. This falls in
 * Meet with the instructor periodically to discuss course progress and ask questions (up to 10 points each based on progress, announcement made in class when meetings will happen)
 
 === Unit Assessments
-You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. 
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
 
 * Modules 1 - 3: Basic Network Connectivity and Communications Exam
 * Modules 4 - 7: Ethernet Concepts Exam
@@ -247,7 +247,7 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 * Meet with the instructor periodically to discuss course progress and ask questions (up to 10 points each based on progress, announcement made in class when meetings will happen)
 
 === Unit Assessments
-You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade.
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
 
 * Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
 * Modules 5 - 6: Redundant Networks Exam
