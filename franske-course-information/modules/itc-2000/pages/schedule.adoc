@@ -310,13 +310,14 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 
 == Oct 31
 === Happening in class today
-* Start Windows Installation Labs
+* Windows Installation Labs
 
 === Readings to do before next class
-* None
+* Module 11 - Windows Configuration
 
 === Other Work to do before next class
-* None
+* Module 11 Online Discussion First Post
+* Write Windows Installation Lab Report
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
@@ -325,20 +326,128 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 
 == Nov 5
 === Happening in class today
-* Finish Windows Installation Labs
+* Discuss Module 11 - Windows Configuration
 
 === Readings to do before next class
-* Module 11 - Windows Configuration
+* None
 
 === Other Work to do before next class
+* Module 11 Online Discussion Response Posts
+* Module 11 Exam - Windows Configuration
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
 * Module 11 Online Discussion First Post
-* Write Windows Installation Lab Report
+* Windows Installation Lab Report
+
+== Nov 7
+=== Happening in class today
+* Windows Configuration Labs Part I
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* None
+
+=== Assignments Due at the start of class today
+* Module 11 Online Discussion Response Posts
+* Module 11 Exam - Windows Configuration
+* Weekly Progress Self-Evaluation
+
+== Nov 12
+=== Happening in class today
+* Windows Configuration Labs Part II
+
+=== Readings to do before next class
+* Module 12 - Mobile, Linux, and macOS Operating Systems
+
+=== Other Work to do before next class
+* Module 12 Online Discussion First Post
+* Windows Configuration Lab Report
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * None
 
-== Dates After Nov 5
+== Nov 14
+=== Happening in class today
+* Discuss Module 12 - Mobile, Linux, and macOS Operating Systems
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 12 Online Discussion Response Posts
+* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion First Post
+* Windows Configuration Lab Report
+* Weekly Progress Self-Evaluation
+
+== Nov 19
+=== Happening in class today
+* Mobile, Linux, and macOS Operating Systems Labs
+
+=== Readings to do before next class
+* Module 13 - Security
+
+=== Other Work to do before next class
+* Module 13 Online Discussion First Post
+* Write Mobile, Linux, and macOS Operating Systems Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion Response Posts
+* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
+
+== Nov 21
+=== Happening in class today
+* Discuss Module 13 - Security
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 13 Online Discussion Response Posts
+* Module 13 Exam - Security
+
+=== Assignments Due at the start of class today
+* Module 13 Online Discussion First Post
+* Write Mobile, Linux, and macOS Operating Systems Lab Report
+* Weekly Progress Self-Evaluation
+
+== Nov 26
+=== Happening in class today
+* Security Labs
+
+=== Readings to do before next class
+* Module 14 - The IT Professional
+
+=== Other Work to do before next class
+* Module 14 Online Discussion First Post
+* Write Security Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 13 Online Discussion Response Posts
+* Module 13 Exam - Security
+
+== Nov 28
+=== Happening in class today
+* Thanksgiving, No Class
+
+=== Readings to do before next class
+* None additional (see previous class)
+
+=== Other Work to do before next class
+* None additional (see previous class)
+
+=== Assignments Due at the start of class today
+* None
+
+== Dates After Nov 28
 * Details will be provided in mid-October
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
