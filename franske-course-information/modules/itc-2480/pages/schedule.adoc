@@ -125,6 +125,8 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 
 == Oct 16
 === Readings to do before the next date
+* https://www.linux.com/training-tutorials/scheduling-magic-intro-cron-linux/[Scheduling Magic: Intro to Cron on Linux]
+* https://documentation.suse.com/smart/systems-management/html/systemd-working-with-timers/index.html[Working with systemd Timers]
 * Chapter 10 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
 === Other Work to do before the next date
@@ -139,7 +141,136 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Discussion response posts about the readings and lab from two weeks ago
 * Weekly Progress Self-Evaluation (on ITC CLASS server)
 
-== Dates After Oct 9
-* Additional schedule details will be posted as we get closer to October.
+== Oct 23
+=== Readings to do before the next date
+* https://www.zytrax.com/books/dns/ch2/[DNS Concepts]
+* https://www.zytrax.com/books/dns/ch4/[DNS Configuration Types]
+* https://www.zytrax.com/books/dns/ch8/[DNS Resource Records (RRs)]
+
+=== Other Work to do before the next date
+* Complete xref:lab9.adoc[Lab 9: DNS Server Installation and Configuration]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 7 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Oct 30
+=== Readings to do before the next date
+* https://docs.docker.com/get-started/docker-overview/[What is Docker?]
+
+=== Other Work to do before the next date
+* Complete xref:lab10.adoc[Lab 10: An Introduction to Containers]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 8 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Nov 6
+=== Readings to do before the next date
+* None
+
+=== Other Work to do before the next date
+* Complete xref:lab11.adoc[Lab 11: Practical Applications of Containers]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 9 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Nov 13
+=== Readings to do before the next date
+* Chapter 15 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
+
+=== Other Work to do before the next date
+* Complete xref:lab12.adoc[Lab 12: Filesystem Management and Hardware Utilities]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 10 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Nov 20
+=== Readings to do before the next date
+* Chapter 24 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
+* Sections 1-8 of the https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html[BASH Programming - Introduction HOW-TO]
+
+=== Other Work to do before the next date
+* Complete xref:lab13.adoc[Lab 13: BASH Scripting]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 11 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Nov 27
+=== Readings to do before the next date
+* https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Instant Hacking]
+* All 9 sections of https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[Python for Shell Scripting]
+
+=== Other Work to do before the next date
+* Complete xref:lab14.adoc[Lab 14: Python Scripting for System Administration]
+* Write your discussion response posts about the readings and lab from last week
+* Write your discussion first post about the readings and lab from this week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 12 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Dec 4
+=== Readings to do before the next date
+* None
+
+=== Other Work to do before the next date
+* Practice for Skills Exam
+** You may wish to review the lab activities done in the course or even to reset your virtual machine and re-complete some or all of the lab activities.
+* Write your discussion response posts about the readings and lab from last week
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+=== Assignments Due at 11:59pm today
+* Lab 13 Report
+* Discussion first post about the readings and lab from last week
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Dec 11
+=== Readings to do before the next date
+* None
+
+=== Other Work to do before the next date
+* Complete the Final Skills Exam (DUE on December 15 at 11:59pm!)
+** Detailed instuctions will be emailed to you by/on December 9.
+
+=== Assignments Due at 11:59pm today
+* Lab 14 Report
+* Discussion response posts about the readings and lab from two weeks ago
+* Weekly Progress Self-Evaluation (on ITC CLASS server)
+
+== Dec 18
+Congratulations, you have finished the coursework!
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
