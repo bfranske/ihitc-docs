@@ -1,0 +1,53 @@
+= Lab Activity: Setup and Connect to Network Printers
+
+== Background / Scenario
+In this lab you will connect a network enabled printer to a network. You will explore two ways to print to that printer through the network, directly and via a print server.
+
+IMPORTANT: For this lab all computers and the printer should be set to receive DHCP addresses and connected to your SOHO router. You should not and do not need to connect the router to any campus network connection or Internet connection.
+
+== Required Resources
+* Two computers
+* A network printer
+* A home (SOHO) router
+
+== Part 1: Printing to a Network Printer Directly
+--
+In this part of the lab students will learn about network printing directly to the printer.
+--
+. Connect your desktop to your SOHO router using a wired network connection, ensure you are getting an IP address from the router
+. Connect your printer to your SOHO router using a wired network connection, ensure you are getting an IP address from the router
+. Disconnect the printer from any USB connections so we are certain that the printer is being accessed over the network.
+. Print a configuration page using the controls on the printer itself which identifies the IP address of the printer
+. Try pinging the IP address of the network printer from the desktop to make sure that you have connectivity.
+. Try visiting the IP address of the printer in a web browser and see what information you can obtain.
++
+--
+NOTE: Depending on the web browser you are using you may need to click advanced on a security warning you receive in order to bypass it and access the printer page. These warnings are because the printer is not using a secure HTTPS connection, in this case on our private network that is not a security issue we need to worry about.
+--
+. Add the printer to the desktop as a directly connected TCP/IP printer.
+.. You should chose "The printer that I want isn't listed" so that you can directly enter the specific IP address of the printer.
+.. Choose to "Add a printer using a TCP/IP address or hostname" which will allow you to directly connect to the printer over the network.
+.. Enter the IP address for the printer which you earlier obtained from the printer itself.
+.. Complete the printer installation
+. Print a test page. On this test page you can verify the IP address of the printer is listed in the "Port Name(s)" section of the test page.
+
+== Part 2: Printing to a Network Printer via a Print Server
+--
+This part of the lab requires that you have correctly set up and tested a direct network printing connection as described above. It also requires a laptop PC connected to your SOHO router.
+
+Even though you can connect directly to the network printer by setting it up as a "Local Printer" there are some advantages to doing that on a single PC which you will use as a print server and then sharing that printer to other computers using Windows File and Print sharing. One of these advantages is that the driver files will be held on the print server PC and other computers can automatically access and download the drivers needed for printer just by double clicking on the printer in the network browser. It also allows print jobs to be managed and controlled on a central computer which is useful in an enterprise environment.
+
+The same type of printer sharing can also be used to share non-networked printers, such as those connected by USB, with other computers on the network. 
+--
+. Follow the same steps on your desktop as you did in Lab 8.4.1.3 to share the new directly connected TCP/IP printer to other users on the network.
+. Right click on the printer and choose "Printer Properties" and the switch to the "Sharing" tab.
+. Check the box to share this printer and set a unique share name you and your partner will recognize.
+. Switch to your laptop and find and connect to your shared printer in the same way you found and connected to the shared USB printer in Lab 8.4.1.3.
+. Open the Devices & Printers control panel on your laptop and verify the network shared printer is now listed. Compare the icon used for the printer with the one on the laptop. Do you see the icon is different showing it is a network shared printer instead of a direct connection to the printer?
+. Print a test page over the network from your laptop system. Look at the print out and compare it to the print out of the direct network connection from your desktop. How can you determine whether a computer has a direct connection or a print server connection to a printer? 
+.. Verify that the computer name and printer name on your new test page show the IP address of the desktop (the dedicated print server)
+. It can be tricky to verify that your print job is actually going through the desktop (print server) on it's way to the laptop, show your instructor your test page printout and ask them to verify it is working correctly.
+. Delete all of the printers you installed from the laptop system
+. Return your laptop system, your lab desktop system, the printer, and the SOHO router.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
