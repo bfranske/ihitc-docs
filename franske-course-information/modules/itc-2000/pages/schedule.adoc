@@ -415,7 +415,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 
 === Assignments Due at the start of class today
 * Module 13 Online Discussion First Post
-* Write Mobile, Linux, and macOS Operating Systems Lab Report
+* Mobile, Linux, and macOS Operating Systems Lab Report
 * Weekly Progress Self-Evaluation
 
 == Nov 26
@@ -447,7 +447,73 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Assignments Due at the start of class today
 * None
 
-== Dates After Nov 28
-* Details will be provided in mid-October
+== Dec 3
+=== Happening in class today
+* Discuss Module 14 - The IT Professional
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 14 Online Discussion Response Posts
+* Module 14 Exam - The IT Professional
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion First Post
+* Security Lab Report
+* Weekly Progress Self-Evaluation
+
+== Dec 5
+=== Happening in class today
+* Scripting & Troubleshooting Labs
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 14 Online Discussion First Post
+* Write Scripting & Troubleshooting Lab Report
+* Practice Final Exam Ch 1-9
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion Response Posts
+* Module 14 Exam - The IT Professional
+* Weekly Progress Self-Evaluation
+
+== Dec 10
+=== Happening in class today
+* Skills Exam Part I
+
+=== Other Work to do before next class
+* Practice Final Exam Ch 10-14
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion First Post
+* Write Scripting & Troubleshooting Lab Report
+* Practice Final Exam Ch 1-9
+
+== Dec 12
+=== Happening in class today
+* Skills Exam Part II
+
+=== Other Work to do before next class
+* Both A+ Practice Certification Exams
+* Online Final Exam before 11:59pm Dec 17!
+* Complete Cisco Course Feedback before 11:59pm Dec 17!
+
+=== Assignments Due at the start of class today
+* Practice Final Exam Ch 10-14
+
+== Dec 17
+=== Happening in class today
+* Final Exam Week, No Class Meeting
+* Complete Online Final Exam before 11:59pm tonight!
+* Complete Cisco Course Feedback before 11:59pm tonight!
+
+=== Assignments Due at the start of class today
+* Both A+ Practice Certification Exams
+* Complete Online Final Exam before 11:59pm tonight!
+* Complete Cisco Course Feedback before 11:59pm tonight!
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
