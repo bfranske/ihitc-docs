@@ -39,7 +39,7 @@ NOTE: In this lab activity you will, amongst other things download and install t
 * Complete the https://developer.cisco.com/learning/tracks/netprog-eng/dnac-rest-apis/[Cisco DNA Center REST APIs Module] from the Network Programmability for Network Engineers track
 +
 --
-NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like you can go to https://sandboxdnac2.cisco.com and sign in with the username devnet and password Cisco123!
+NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like you can go to https://sandboxdnac2.cisco.com and sign in with the username devnetuser and password Cisco123!
 --
 
 ==== Model Driven Network Programmability and IOS XR Lab
