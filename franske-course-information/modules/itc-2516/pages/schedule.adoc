@@ -293,11 +293,13 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Practice Final Exam
 * Practice Packet Tracer Skills Assessment
 * Packet Tracer Skills Assessment
+* Module 17 Online Discussion Response Posts
 * Unit Exam Modules 16 - 17: Building and Securing a Small Network
 
 === Assignments Due at the start of class today
-* Module 17 Online Discussion Response Posts
-* Module 16 Lab Report Activities
+* Module 17 Online Discussion First Post
+* Module 16 Online Discussion Response Posts
+* Module 17 Packet Tracer Online Submission Activities
 
 == Oct 21
 === Work to do in class today
@@ -316,6 +318,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 
 === Assignments Due at the start of class today
 * Module 17 Lab Report Activities
+* Module 17 Online Discussion Response Posts
 * Unit Exam Modules 16 - 17: Building and Securing a Small Network
 * CCNA 1 Practice Final Exam
 * CCNA 1 Practice Packet Tracer Skills Assessment
