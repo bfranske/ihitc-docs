@@ -31,6 +31,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 1 Online Discussion Response Posts
 * Module 2 Online Discussion Response Posts
 * Module 3 Online Discussion First Post
+* Module 2 Lab Report
 
 NOTE: Next Monday is Labor Day and there is no class, however, there is some additional assigned work to do before next Wednesday! If you don't want to do this work on Monday that's fine but make sure you have it done before Wednesday!
 
@@ -58,7 +59,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 ** Module 1 Online Discussion Response Posts
 ** Module 2 Online Discussion Response Posts
 ** Module 3 Online Discussion First Post
-** Module 2 Lab Report Activities
+** Module 2 Lab Report
 
 == Sep 4
 === Work to do in class today
@@ -72,13 +73,14 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 4 Online Discussion Response Posts
 * Module 5 Online Discussion First Post
 * Module 6 Online Discussion First Post
+* Module 3 Lab Report
 
 === Assignments Due at the start of class today
 * Assignments listed under Sep 2:
 ** Module 1 Online Discussion Response Posts
 ** Module 2 Online Discussion Response Posts
 ** Module 3 Online Discussion First Post
-** Module 2 Lab Report Activities
+** Module 2 Lab Report
 * Module 3 Online Discussion Response Post
 * Module 4 Online Discussion First Post
 * Module 4 Packet Tracer Online Submission Activities
@@ -97,7 +99,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 4 Online Discussion Response Posts
 * Module 5 Online Discussion First Post
 * Module 6 Online Discussion First Post
-* Module 3 Lab Report Activities
+* Module 3 Lab Report
 
 == Sep 11
 === Work to do in class today
@@ -111,6 +113,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 7 Online Discussion Response Posts
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
+* Module 7 Lab Report
 * Unit Exam Modules 4 - 7: Ethernet Concepts
 
 === Assignments Due at the start of class today
@@ -129,13 +132,14 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 8 Online Discussion Response Posts
 * Module 9 Online Discussion Response Posts
 * Module 10 Online Discussion First Post
+* Module 9 Lab Report
 * Module 10 Packet Tracer Online Submission Activities
 
 === Assignments Due at the start of class today
 * Module 7 Online Discussion Response Posts
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
-* Module 7 Lab Report Activities
+* Module 7 Lab Report
 * Unit Exam Modules 4 - 7: Ethernet Concepts
 
 == Sep 18
@@ -150,6 +154,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 11 Online Discussion First Post
 * *Start* Module 11 Packet Tracer Online Submission Activities -- These do not need to be submitted by next class though
 * *Start* Module 11 Homework Activities -- These do not need to be submitted by next class though
+* Module 10 Lab Report
 * Unit Exam Modules 8 - 10: Communicating Between Networks
 
 === Assignments Due at the start of class today
@@ -157,7 +162,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Module 9 Online Discussion Response Posts
 * Module 10 Online Discussion First Post
 * Module 10 Packet Tracer Online Submission Activities
-* Module 9 Lab Report Activities
+* Module 9 Lab Report
 
 == Sep 23
 === Work to do in class today
@@ -175,7 +180,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
 * Module 11 Online Discussion First Post
-* Module 10 Lab Report Activities
+* Module 10 Lab Report
 * Unit Exam Modules 8 - 10: Communicating Between Networks
 
 == Sep 25
@@ -202,6 +207,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 13 Online Discussion First Post
 * Module 12 Online Discussion Response Posts
+* Module 12 Lab Report
 * Module 13 Packet Tracer Online Submission Activities
 
 === Assignments Due at the start of class today
@@ -219,13 +225,14 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 14 Online Discussion First Post
 * Module 13 Online Discussion Response Posts
+* Module 13 Lab Report
 * Unit Exam Modules 11 - 13: IP Addressing
 
 === Assignments Due at the start of class today
 * Module 13 Online Discussion First Post
 * Module 12 Online Discussion Response Posts
 * Module 13 Packet Tracer Online Submission Activities
-* Module 12 Lab Report Activities
+* Module 12 Lab Report
 
 == Oct 7
 === Work to do in class today
@@ -241,7 +248,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Assignments Due at the start of class today
 * Module 14 Online Discussion First Post
 * Module 13 Online Discussion Response Posts
-* Module 13 Lab Report Activities
+* Module 13 Lab Report
 * Unit Exam Modules 11 - 13: IP Addressing
 
 == Oct 9
@@ -254,6 +261,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 16 Online Discussion First Post
 * Module 15 Online Discussion Response Posts
+* Module 15 Lab Report
 * Module 16 Packet Tracer Online Submission Activities
 * Unit Exam Modules 14 - 15: Network Application Communications
 
@@ -272,13 +280,14 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 === Other Work to do before next class
 * Module 17 Online Discussion First Post
 * Module 16 Online Discussion Response Posts
+* Module 16 Lab Report
 * Module 17 Packet Tracer Online Submission Activities
 
 === Assignments Due at the start of class today
 * Module 16 Online Discussion First Post
 * Module 15 Online Discussion Response Posts
 * Module 16 Packet Tracer Online Submission Activities
-* Module 15 Lab Report Activities
+* Module 15 Lab Report
 * Unit Exam Modules 14 - 15: Network Application Communications
 
 == Oct 16
@@ -294,11 +303,13 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * Practice Packet Tracer Skills Assessment
 * Packet Tracer Skills Assessment
 * Module 17 Online Discussion Response Posts
+* CCNA 1 Module 17 Lab Report
 * Unit Exam Modules 16 - 17: Building and Securing a Small Network
 
 === Assignments Due at the start of class today
 * Module 17 Online Discussion First Post
 * Module 16 Online Discussion Response Posts
+* Module 16 Lab Report
 * Module 17 Packet Tracer Online Submission Activities
 
 == Oct 21
@@ -315,6 +326,7 @@ NOTE: Today is Labor Day and there is no class, however, there is some additiona
 * CCNA 2 Module 1 Packet Tracer Online Submission Activities
 * CCNA 1 Cisco Course Feedback Form
 * CCNA 1 Online Final Exam
+* CCNA 1 Module 17 Lab Report
 
 === Assignments Due at the start of class today
 * Module 17 Lab Report Activities
