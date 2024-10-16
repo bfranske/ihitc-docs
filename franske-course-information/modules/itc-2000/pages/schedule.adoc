@@ -474,7 +474,6 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Other Work to do before next class
 * Module 14 Online Discussion First Post
 * Write Scripting & Troubleshooting Lab Report
-* Practice Final Exam Ch 1-9
 
 === Assignments Due at the start of class today
 * Module 14 Online Discussion Response Posts
@@ -491,7 +490,6 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Assignments Due at the start of class today
 * Module 14 Online Discussion First Post
 * Write Scripting & Troubleshooting Lab Report
-* Practice Final Exam Ch 1-9
 
 == Dec 12
 === Happening in class today
