@@ -70,14 +70,25 @@ Otherwise follow the lab as normal and you should get output using the developer
 NOTE: Just do the "Managing IoT Hardware with Ansible: Getting Started" lab from this module
 --
 +
+[IMPORTANT]
+====
+If you are running the OpenConnect GUI on Windows please start by reviewing https://intercom.help/privatevpn/en/articles/6366468-openconnect-setup-guide-for-windows[these instructions for installing OpenConnect and creating a new OpenConncect profile].
+
+. The gateway will be the _Lab Network Address_ in the email Cisco sends you once your sandbox is ready, but you will have to put `https://` in front of it like `\https://devnetsandbox-usw1-reservation.cisco.com:20215`
+. Before you connect you will need to click the gear (options) dropdown and select _Edit selected profile_
+.. The _Interface Name_ box should be blank right now. Change it to be `devnetsandbox` and save the changes. The default is based on the gateway address and the gateway addresses used by DevNet are not valid interface names because they are too long.
+. You should now be able to connect to the VPN using the username and password in the email Cisco sends you once your sandbox is ready.
+====
++
 [NOTE]
 ====
-This lab mentions that a sandbox reservation is optional but you will need to create one unless you own your own IOS XE device. Use the Sandbox lab indicated below and not the "virtual VSR1000V IOS XE" one they mention in the lab whihc no longer exists.
+This lab mentions that a sandbox reservation is optional but you will need to create one unless you own your own IOS XE device. Use the Sandbox lab indicated below and not the "IOS XE on CSR Latest Code" one they mention in the lab whihc no longer exists.
 
 . Make a reservation for the "IOS XE on Cat 8kv Latest Code" sandbox on the https://devnetsandbox.cisco.com/RM/Topology[DevNet Sandbox Site] note that it will take a few minutes for your reservation to setup and you will need access to your email to obtain the VPN credentials which will be emailed to you. You WILL need to install the AnyConnect/OpenConnect client on your computer for this lab as you will be connecting from your computer directly to the sandbox.
-. On several pages in the lab there is a "On Devbox" set of instructions followed by a "On your Compuer or Laptop" section. These are supposed to be one OR the other not both. It will be much easier for you if you follow the "On Devbox" instuctions and skip over the "On your Computer or Laptop" sections as you will not need to install nearly as much stuff on your computer.
-. You will need to update the IP address of your router in the Ansible hosts file too. Make sure to use the actual IP address of your router as shown on the DevNet Sandbox page (it is probably `10.10.20.48`).
-. Note that you can connect to your sandbox router over SSH as long as you are connected via VPN using the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.
+. On several pages in the lab there is a "On Devbox" set of instructions followed by a "On your Compuer or Laptop" section. These are supposed to be one *OR* the other not both. It will be much easier for you if you follow the "On Devbox" instuctions and skip over the "On your Computer or Laptop" sections as you will not need to install nearly as much stuff on your computer.
+. The Developer Box Linux system you will be using has it's IP (probably `10.10.20.50`) and login credentials (probably user `developer` and password `C1sco12345`) documented on the DevNet Sandbox environment page.
+. You will need to update the IP address of your router (IOS XRv 9K) in the Ansible hosts file too. Make sure to use the actual IP address of your router as shown on the DevNet Sandbox environment page (it is probably `10.10.20.35`).
+. Note that you can connect to your sandbox router and Linux Developer box over SSH as long as you are connected via VPN using the credentials and IP address on the sandbox website. This can be useful to see if the changes you make actually apply on the router.
 ====
 +
 --
