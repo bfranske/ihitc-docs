@@ -1,0 +1,74 @@
+= Changing Cisco Switch Featureset
+
+== Background
+Some Cisco switch features are only available in certain software "featuresets" sometimes referred to as "technology packages" which are licensed and paid for separately from the switch hardware. As a Cisco Networking Academy we are covered by agreement to use any features required by the curriculum through "right-to-use" licenses. In some cases some of the switches in our labs may not be activated for the correct featureset to run commands needed in your labs. This usually appears as though a specific command you are trying to use simply does not exist on the switch. If this happens you may need to change the featurest active on the switch.
+
+== Viewing the currently active featureset on a Cisco 3650 switch
+
+There are a few ways to view the active featureset information depending on what you are looking for.
+
+. From the "privileged EXEC mode prompt" commonly referred to as the "enable prompt" run the `show version` command.
+. Look for a "Technology Package License Information" section like this:
++
+[source,console]
+----
+Technology Package License Information: 
+
+------------------------------------------------------------------------------
+Technology-package                                     Technology-package
+Current                        Type                       Next reboot  
+------------------------------------------------------------------------------
+ipservicesk9            Smart License                    ipservicesk9        
+None                    Subscription Smart License       None                          
+
+
+Smart Licensing Status: UNREGISTERED/EVAL EXPIRED
+----
+. In the above example the "ipservicesk9" is "Smart License" type which requires checking to see if it is active, see the next step. If yours instead shows a type of "Permanent" like below skip down to to the next numeric step.
++
+[source,console]
+----
+Technology Package License Information: 
+
+-----------------------------------------------------------------
+Technology-package                   Technology-package
+Current             Type             Next reboot  
+------------------------------------------------------------------
+ipservicesk9        Permanent        ipservicesk9
+----
+.. If you show a type of "Smart License" run the `show license summary` command.
+.. Look at the entitlement tag and status:
++
+[source,console]
+----
+Switch#sh license summary
+Smart Licensing is ENABLED
+
+Registration:
+  Status: UNREGISTERED
+  Export-Controlled Functionality: NOT ALLOWED
+
+License Authorization: 
+  Status: EVAL EXPIRED
+
+License Usage:
+  License                 Entitlement tag               Count Status
+  -----------------------------------------------------------------------------
+                          (C3650-24 IP Services)            1 EVAL EXPIRED      
+----
+.. In the above example the "IP Services" featureset is in the evaluation expired mode so commands which are part of this featureset will not work. If you need these commands it is likely that the IOS version will need to be changed to support right-to-use licenses. If that is the case contact your instructor or the lab assistant for help.
+. If you show a type of "Permanent" check wich right-to-use licenses are active with the `show license right-to-use` command:
++
+[source,console]
+----
+Switch#sh license right-to-use 
+Slot#       License Name          Type   Period left
+----------------------------------------------------
+    1         ipservices     Permanent      Lifetime
+----------------------------------------------------
+License Level on Reboot: ipservices
+----
+. This indicates the switch is currently running the "ipservices" featureset.
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
