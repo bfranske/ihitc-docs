@@ -70,5 +70,16 @@ License Level on Reboot: ipservices
 ----
 . This indicates the switch is currently running the "ipservices" featureset.
 
+== Activating the ipservices featureset on a Cisco 3650 switch
+. From the "privileged EXEC mode prompt" commonly referred to as the "enable prompt" run the `license right-to-use activate ipservices acceptEULA` command.
++
+[source,console]
+----
+Switch#license right-to-use activate ipservices acceptEULA
+% Reboot the switch to invoke the highest activated License level
+----
+.. If you receive an error message that this command does not exist there could be a problem with the IOS version on the switch 
+. Reboot the switch to apply the change, be sure to save your running-configuration first if needed.
+
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
