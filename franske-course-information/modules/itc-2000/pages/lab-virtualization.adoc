@@ -22,46 +22,55 @@ IMPORTANT: To improve download speeds IHCC has pre-downloaded software you will 
 --
 Oracle VirtualBox is one virtualization program, called a _hypervisor_, that you can download and install to support running virtual machines. VirtualBox is free for personal and educational use. Other client virtualization programs include VMware Workstation, VMware Fusion, Parallels Desktop, Microsoft Hyper-V, and QEMU.
 --
-.. Use the web browser on your lab PC to navigate to http://172.17.50.xx which is where we'll download all files from in this lab activity. Click to download the VirtualBox-7.1.0-164728-Win.exe and Oracle_VirtualBox_Extension_Pack-7.1.0.vbox-extpack installation files.
+.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ which is where we'll download all files from in this lab activity. Click to download the VirtualBox-7.1.4-165100-Win.exe and Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack installation files.
 .. After the VirtualBox installation files are downloaded, run the installer (the file ending in .exe) and accept the default installation settings.
+. Open the VirtualBox Application and install the Extension pack
+.. Select the File -> Tools -> Extension Pack Manager
+.. Click the "Install" button in the upper right toolbar
+.. Locate the Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack file you previously downloaded and select it.
+.. Complete the installation of the extension pack.
 . Download a Linux Mint Installation CD Image.
-.. Use the web browser on your lab PC to navigate to http://172.17.50.xx again if you closed the page. Click to download the linuxmint-22-cinnamon-64bit.iso CD image file. CD and DVD images typically end in .iso and are called "iso (ICE-O) files".
+.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ again if you closed the page. Click to download the linuxmint-22-cinnamon-64bit.iso CD image file. CD and DVD images typically end in .iso and are called "iso (ICE-O) files".
 . Create a New Virtual Machine.
 .. If you did not choose to open VirtualBox after your installation, click Start and search for VirtualBox. Click Oracle VM VirtualBox to open the manager. When the manager opens, click New to start the Ubuntu installation.
-.. In the Virtual machine Name and Operating System screen, type Ubuntu in the Name field.
+.. In the Virtual machine Name and Operating System screen, type Linux Mint in the Name field.
 ... Review the location of the Folder field. This will be the location of the virtual hard drive for this virtual machine.
-... In the ISO Image field, click the dropdown and locate the downloaded Ubuntu Desktop image. Notice that the Type and Version fields are automatically filled in and grey out.
+... In the ISO Image field, click the dropdown and locate the downloaded Linux Mint ISO image. Notice that the Type and Version fields are automatically filled in and grey out.
++
+--
+NOTE: Even though we are installing Linux Mint you'll see the type is set to "Ubuntu". This is because Linux Mint is based on Ubuntu (which is based on Debian. Not every possible Linux distribution can be included in the list of operating system types so it's best to choose the closest match, in this case Ubuntu is close enough that the same virtual machine hardware will work.
+--
 ... Click the checkbox Skip Unattended Installation to install the guest OS manually.
 ... Click Next to continue.
 .. In the Hardware screen, increase the amount of RAM or number of CPUs as desired. Make sure the
-selection stays in the green area so it does not adversely affect the performance of the host. You should not need more than 4096 MB of RAM or more than 1 CPU for this lab. You can always adjust it later. Click Next to continue.
+selection stays in the green area so it does not adversely affect the performance of the host. You should not need more than 4096 MB of RAM or more than 1 CPU for this lab. You can always adjust it later, but know that more RAM and CPUs will generally speed up the Virtual Machine installation process. Click Next to continue.
 .. In the Virtual Hard disk screen, click Next to accept the option to create a virtual hard disk now with the suggested size. Change as desired. The default storage settings for the hard drive is dynamically allocated. Click Next to continue.
 .. Review the setting in the summary page. Click Finish when done.
-.. When the hard drive creation is done, the new virtual machine is listed in the Oracle VM VirtualBox Manager window. Select Ubuntu and click Start in the top menu.
+.. When the hard drive creation is done, the new virtual machine is listed in the Oracle VM VirtualBox Manager window. Select Linux Mint and click Start in the top menu.
 
-== Part 2: Install Ubuntu on the Virtual Machine
-. In the GNU GRUB screen, press Enter on the highlighted Try or Install Ubuntu to start the loading process. This can take several minutes.
-. In the Welcome screen, you are prompted to try or install Ubuntu. The try option does not install the OS, it runs the OS straight from the image. In this lab, you will install the Ubuntu OS in this virtual machine. Click Install Ubuntu.
+== Part 2: Install Linux Mint on the Virtual Machine
+. In the "Welcome to Linux Mint" screen, press Enter on the highlighted "Start Linux Mint" to start the loading process. This can take several minutes though combinations of text scrolling down the screen and black screens. Watch the status indicators at the bottom of the Virtual Machine window to see what is happening (e.g. the CD image is being read from).
+. Eventually you will see a desktop environment because Linux Mint has started in a "Live CD" mode where you could try out the operating system without making any changes to your computer. However, this mode is much slower and more limited than if you install it to the computer's hard drive.
+. In this lab, you will install the Linux Mint in this virtual machine. Double click the "Install Linux Mint" icon on the desktop.
 . Follow the on-screen instructions and provide the necessary information when prompted.
 +
 --
 NOTE: If you are not connected to the internet, you can continue to install and enable the network later.
 --
-.. Accept the defaults on the Updates and other software screen. You can also check Install third-party software… if you wish.
-.. Because this Ubuntu installation is in a virtual machine, it is safe to erase the disk and install Ubuntu without affecting the host computer. In the Installation type screen, select Erase disk and install Ubuntu. Otherwise installing Ubuntu on a physical computer would erase all data on the disk and replace the existing operating system with Ubuntu. Click Install Now to start the installation.
-.. In the Write the changes to disks? screen, click Continue to erase the disk and install Ubuntu.
-.. In the Who are you? screen, provide your name and choose a password. Use iteuser for Your
-Name and ITEpass! for the password. You can use the username generated or enter a different
-username. If desired, you can change the other settings. Click Continue.
-. The Ubuntu OS is now installing in the virtual machine. This will take several minutes. When the Installation is complete message displays in Ubuntu, click Restart Now to restart the virtual machine. When prompted to remove the installation medium, press Enter to continue the booting process.
+.. Accept the defaults on the language and keyboard screens. You can also check "Install multimedia codecs" if you wish.
+.. Because this Linux Mint installation is in a virtual machine, it is safe to erase the disk and install Linux Mint without affecting the host computer. In the Installation type screen, select "Erase disk and install Linux Mint". Otherwise installing Linux Mint on a physical computer would erase all data on the disk and replace the existing operating system with Ubuntu. Click Install Now to start the installation.
+.. In the Write the changes to disks? screen, click Continue to erase the disk of the virtual machine and install Linux Mint.
+.. In the Where are you? screen, encure the closest major city in your timezone is selected. The closest major city to Minneapolis/St. Paul is Chicago.
+.. In the Who are you? screen, provide your name and choose a password. Use "iteuser" for Your Name and "ITEpass!" for the password. You can use the username generated or enter a different username. If desired, you can change the other settings. Click Continue.
+. The Lnux Mint OS is now installing in the virtual machine. This will take several minutes. When the Installation is complete message displays click "Restart Now" to restart the virtual machine. When prompted to remove the installation medium, press Enter to continue the booting process as the virtual CD will automatically be ejected.
 
 == Part 3: Explore the GUI
 --
-In this part, you will install the VirtualBox guest additions and explore the Ubuntu GUI.
+In this part, you will install the VirtualBox guest additions and explore the Linux Mint GUI.
 --
 . Install Guest Additions
-.. Log on to your Ubuntu virtual machine using the user credentials created in the previous part.
-.. Your Ubuntu Desktop window may be smaller than expected. This is especially true on high-resolution displays. Click Device > Insert Guest Additions CD image… to install the Guest Additions. This allows more functions, such as changing the screen resolution in the virtual machine.
+.. Log on to your Linux Mint virtual machine using the user credentials created in the previous part.
+.. Your Linux Mint Desktop window may be smaller than expected. This is especially true on high-resolution displays. Click Devices -> Insert Guest Additions CD image... to install the Guest Additions. This adds drivers which allow more functions, such as changing the screen resolution in the virtual machine.
 .. Click Run to install the additions. When prompted for a password, use the same password that you used to log on. Click Authenticate to continue.
 +
 --
@@ -71,16 +80,25 @@ NOTE: If you were not prompted to install the additions, you can access the Gues
 .. Right click autorun.sh and choose Run as a Program.
 .. When prompted for a password, use the same password that you used to log on. Click authenticate to continue. Following the instructions on the screen to complete the installation
 . Run applications
++
 --
 In this step, you will open a couple of applications in the virtual machine.
 
 NOTE: If the host computer is not connected to the internet, re-connect to the internet and verify that the virtualmachine has access to the internet. If the network connection settings need to be changed, power off the virtual machine and click Settings in Oracle VM VirtualBox Manager > click Network to change the network settings.
 --
-.. Power on virtual machine as needed and log into Ubuntu again. After you are logged in again, you can resize the virtual machine window.
-.. Open a web browser. Depending on the Linux distribution, you may need to search for a web browser or there is a link to a web browser already on the Desktop. Navigate to a few websites if desired.
-.. Right click the Desktop and choose Open in Terminal. You will be using a terminal emulator in later labs.
-.. Explore the installed Linux distribution and locate a few applications that you may use.
+.. Power on virtual machine as needed and log into Linux Mint again. After you are logged in again, you can resize the virtual machine window.
+.. Open a web browser, there is an orange link to the Firefox browser already in the task bar at the bottom of the screen. Navigate to a few websites if desired.
+.. Open the Linux Mint menu from the taskbar and run the Terminal application (there is a shortcut on the left side of the menu or you can search for it). You will be using a terminal emulator in later labs.
+.. Close the terminal emulator by typing `exit` and pressing return.
+.. Explore the installed Linux distribution, locate a few applications that you may use, and try running them.
+. Install two new applications
+.. Open the Linux Mint menu from the taskbar and run the Administration -> Software Manager application.
+.. Look through the software manager (which is like a free "app store" for your Linux distribution) and identify at least two applications you would like to install.
+.. Install and try running the applications.
 
 == Part 4: Shut Down the Virtual Machine
+. To properly shut down the virtual machine you should shut down the guest operating system as normal. Do NOT just close the VirtualBox window which is similar to yanking out the power plug of a physcial machine.
+. Open the Linux Mint menu from the taskbar and click the red "power button"
+
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
