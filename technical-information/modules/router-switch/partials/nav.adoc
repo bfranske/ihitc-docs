@@ -1,2 +1,3 @@
 * Routers and Switches
 ** xref:router-switch:switch-vlan-clearing.adoc[Clearing Cisco Switch VLANs]
+** xref:router-switch:switch-change-featureset.adoc[Checking and Changing Cisco Switch Featuresets]
