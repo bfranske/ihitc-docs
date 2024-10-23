@@ -150,12 +150,22 @@ TIP: Exams are taken on the ITC CLASS server in this course.
 == Oct 23
 === Readings to do this week
 * Readings for the network programmability unit are embedded within the lab activities. See the xref:assignments.adoc#_network_programmability_labs[Network Programmability Lab Activities] for this week.
+* Introducing the Cloud Materials:
++
+--
+NOTE: Skip all the "exercises" in these for now, they will be lab activities in class next week
+--
+** https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/[Microsoft Azure Fundamentals: Describe cloud concepts]
+** https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/[Microsoft Azure Fundamentals: Describe Azure architecture and services]
+** https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/[Manage services with the Azure portal]
+** https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/[https://learn.microsoft.com/en-us/training/modules/control-and-organize-with-azure-resource-manager/]
 
 === Other Work to do this week
 * Model Driven Network Programmability and IOS XR Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
 * REST API Fundamentals & Network Programmability Discussion All Posts
 * Model Driven Network Programmability and IOS XR Discussion First Posts
 * REST APIs and Introducing Network Programmability Exam
+* Introducing the Cloud Discussion First Posts
 
 === Assignments Due by 6pm Today
 * REST API Fundamentals & Network Programmability Lab Report
@@ -163,7 +173,143 @@ TIP: Exams are taken on the ITC CLASS server in this course.
 * REST API Fundamentals & Network Programmability Discussion First Posts
 * Getting Started with DevNet Exam
 
-== Oct 25 and Later
-* Information will be added about the scheule for October 25 and beyond as we get closer to those dates
+== Oct 30
+=== Work to do in/during class time tonight
+* Introducing the Cloud Labs
+
+=== Readings to do this week
+* Using Azure Virtual Machines Materials:
++
+--
+NOTE: Skip all the "exercises" in these for now, they will be lab activities in class next week
+--
+** https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/[Introduction to Azure virtual machines]
+** https://learn.microsoft.com/en-us/training/modules/choose-storage-approach-in-azure/[Choose a data storage approach in Azure]
+** https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/[Manage virtual machines with the Azure CLI]
+
+=== Other Work to do this week
+* Model Driven Network Programmability and IOS XR Discussion All Posts
+* Introducing the Cloud Discussion All Posts
+* Using Azure Virtual Machines Discussion First Posts
+* Introducing the Cloud Exam
+
+=== Assignments Due by 6pm Today
+* Model Driven Network Programmability and IOS XR Lab (see xref:assignments.adoc#_network_programmability_labs[Assignments page])
+* REST API Fundamentals & Network Programmability Discussion All Posts
+* Model Driven Network Programmability and IOS XR Discussion First Posts
+* REST APIs and Introducing Network Programmability Exam
+* Introducing the Cloud Discussion First Posts
+
+== Nov 6
+=== Work to do in/during class time tonight
+* Using Azure Virtual Machines Labs
+
+=== Readings to do this week
+* Scaling Azure Virtual Machine Materials:
++
+--
+NOTE: Skip all the "exercises" in these for now, they will be lab activities in class next week
+--
+** https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/[Keep your virtual machines updated]
+** https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/[Configure the network for your virtual machines]
+** https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/[Deploy Azure infrastructure by using JSON ARM templates]
+** https://learn.microsoft.com/en-us/training/modules/add-and-size-disks-in-azure-virtual-machines/[Add and size disks in Azure virtual machines]
+
+=== Other Work to do this week
+* Using Azure Virtual Machines Discussion Response Posts
+* Scaling Azure Virtual Machine Discussion First Posts
+* Using Azure Virtual Machines Exam
+* Come up with an idea for your case study project
+
+=== Assignments Due by 6pm Today
+* Model Driven Network Programmability and IOS XR Discussion All Posts
+* Introducing the Cloud Discussion Response Posts
+* Introducing the Cloud Lab Reports
+* Introducing the Cloud Exam
+* Introducing the Cloud Discussion First Posts
+
+== Nov 13
+=== Work to do in/during class time tonight
+* Scaling Azure Virtual Machines Labs
+* Get final approval of case study project
+
+=== Readings to do this week
+* Readings as required for your case study projects
+
+=== Other Work to do this week
+* Scaling Azure Virtual Machines Discussion Response Posts
+* Scaling Azure Virtual Machines Exam
+
+=== Assignments Due by 6pm Today
+* Using Azure Virtual Machines Discussion Response Posts
+* Scaling Azure Virtual Machine Discussion First Posts
+* Using Azure Virtual Machines Exam
+* Using Azure Virtual Machines Lab Report
+
+== Nov 20
+=== Readings to do this week
+* Readings as required for your case study projects
+
+=== Other Work to do this week
+* Scaling Azure Virtual Machines Discussion Response Posts
+* Work on case study lab work
+
+=== Assignments Due by 6pm Today
+* Scaling Azure Virtual Machines Discussion Response Posts
+* Scaling Azure Virtual Machines Exam
+* Scaling Azure Virtual Machines Lab Report
+
+== Nov 27
+=== Work to do in/during class time tonight
+* Work on case study lab work
+
+=== Readings to do this week
+* Readings as required for your case study projects
+
+=== Other Work to do this week
+* Work on case study lab work
+
+=== Assignments Due by 6pm Today
+* None
+
+== Dec 4
+=== Work to do in/during class time tonight
+* Work on case study lab work
+
+=== Readings to do this week
+* Readings as required for your case study projects
+
+=== Other Work to do this week
+* Work on case study lab work
+* Start work on case study presentations if you have not already
+* Start work on case study lab report if you have not already (see requirements on the Assignments page)
+
+=== Assignments Due by 6pm Today
+* None
+
+== Dec 11
+=== Work to do in/during class time tonight
+* Work on case study lab work
+
+=== Readings to do this week
+* Readings as required for your case study projects
+
+=== Other Work to do this week
+* Finish case study lab work
+* Prepare for Case Study Presentations
+* Finish Case Study Lab Reports (See requirements on the Assignments page)
+* Take Online Final Exam
+
+=== Assignments Due by 6pm Today
+* None
+
+== Dec 18
+=== Work to do in/during class time tonight
+* Give Case Study Presentations
+
+=== Assignments Due by 6pm Today
+* Case Study Presentations
+* Case Study Lab Reports
+* Online Final Exam
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

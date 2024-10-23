@@ -96,7 +96,39 @@ NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this la
 --
 
 === Cloud Computing Labs
-* Details TBD
+==== Introduction to the Cloud
+* https://azure.microsoft.com/en-us/free/students/[Sign up for an Azure Student Account]
+* https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/4-exercise-explore-learn-sandbox?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services[Explore the Learn Sandbox]
+* https://learn.microsoft.com/en-us/training/modules/describe-core-architectural-components-of-azure/7-exercise-create-azure-resource?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services[Create an Azure resource]
+* https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/3-exercise-create-azure-virtual-machine?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services[Create an Azure virtual machine]
+* https://learn.microsoft.com/en-us/training/modules/describe-azure-compute-networking-services/9-exercise-configure-network-access?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services[Configure network access]
+* https://learn.microsoft.com/en-us/training/modules/describe-azure-storage-services/5-exercise-create-storage-blob?ns-enrollment-type=learningpath&ns-enrollment-id=learn.wwl.azure-fundamentals-describe-azure-architecture-services[Create a storage blob]
+* https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/4-exercise-work-with-blades[Work with resources]
+* https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/5-exercise-navigate-the-portal[Use the Azure portal]
+* https://learn.microsoft.com/en-us/training/modules/tour-azure-portal/7-exercise-customize-the-dashboard[Customize the dashboard]
+
+==== Using Azure Virtual Machines
+* https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/3-create-a-vm[Create a VM using the Azure portal]
+* https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/3-exercise-create-a-vm[Create a Windows virtual machine]
+* https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/5-exercise-connect-to-a-windows-vm-using-rdp[Connect to a Windows virtual machine using RDP]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/2-create-a-vm[https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/2-create-a-vm]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/3-testing-the-vm[Test your new virtual machine]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/4-other-vm-images[Explore other VM images]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/5-sizing-vms[Sizing VMs properly]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/6-querying-vms[Query system and runtime information about the VM]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/7-managing-vms[Start and stop your VM with the Azure CLI]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/8-installing-software[Install software on your VM]
+
+
+==== Scaling Azure Virtual Machines
+* https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/3-exercise-use-update-management-on-a-virtual-machine[Use Update Management on a virtual machine]
+* https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/5-exercise-use-azure-log-analytics-and-schedule-updates[Use Azure log analytics and schedule updates]
+* https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/3-exercise-create-azure-virtual-network[Create an Azure virtual network]
+* https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/5-exercise-create-azure-vpn-gateway[Create an Azure VPN gateway]
+* https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template?pivots=powershell[Create and deploy an Azure Resource Manager template]
+* https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output?pivots=powershell[Add parameters and outputs to your Azure Resource Manager template]
+* https://learn.microsoft.com/en-us/training/modules/add-and-size-disks-in-azure-virtual-machines/3-exercise-add-data-disks-to-azure-virtual-machines[Add a data disk to a VM]
+* https://learn.microsoft.com/en-us/training/modules/add-and-size-disks-in-azure-virtual-machines/6-exercise-resize-disks[Resize a VM disk]
 
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
@@ -116,7 +148,7 @@ You are responsible for completing an online assessment for each topic. These fa
 == Final Exam
 You are responsible for completing a final exam, this will go into the regular final exam category of your course grade.
 
-== Course Project
+== Course Project (Case Study)
 The course project will take the place of the final skills exam in this course and will allow you and your lab partner to continue to experiment with one of the topic areas covered in the course. You will need to present your project in a presentation/demonstration to the class which is expected to last 10 minutes and you will need to write and submit project report.
 
 The project should be related to one of the three main units covered in the course. You may either expand on one of the tools that we used in the course or explore a different tool in the same topic area. Your project plan should be approved by the instructor. Remember that the project is 15% of your final grade so it is expected to be a substantial amount of work. 
@@ -129,7 +161,7 @@ The project should be related to one of the three main units covered in the cour
 * I suggest spending the other half of the time giving a demonstration about some part of your project. Don't try to show off everything you did, cramming 3 weeks of work into 5 minutes is not possible. Pick one specific part of your project that you can demonstrate in 5 minutes and show that. You're not trying to give a "how-to" presentation so you don't need to show every step. Just give people an idea of what you did in your project. Stage things ahead of time and skip steps as needed to keep on time.
 
 
-=== Lab Report Tips
+=== Case Study Lab Report Tips/Requirements
 
 * The format is the same as a regular lab report (what you did, problems you had, how you tested, and what you learned) but the report must be much longer (about 1600 words which is about 4 pages single spaced) because it includes 2-3 weeks of work. It should be clear how you spent the three weeks and that it really was the equivalent amount of work as three weeks of regular classwork.
 * You should thoroughly describe what you did (not exact steps, but an overview of the major things you accomplished), and what new things you learned by doing the project.
