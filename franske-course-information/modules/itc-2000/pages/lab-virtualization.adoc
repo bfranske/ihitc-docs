@@ -62,7 +62,8 @@ NOTE: If you are not connected to the internet, you can continue to install and 
 .. In the Write the changes to disks? screen, click Continue to erase the disk of the virtual machine and install Linux Mint.
 .. In the Where are you? screen, encure the closest major city in your timezone is selected. The closest major city to Minneapolis/St. Paul is Chicago.
 .. In the Who are you? screen, provide your name and choose a password. Use "iteuser" for Your Name and "ITEpass!" for the password. You can use the username generated or enter a different username. If desired, you can change the other settings. Click Continue.
-. The Lnux Mint OS is now installing in the virtual machine. This will take several minutes. When the Installation is complete message displays click "Restart Now" to restart the virtual machine. When prompted to remove the installation medium, press Enter to continue the booting process as the virtual CD will automatically be ejected.
+. The Lnux Mint OS is now installing in the virtual machine. This will take several minutes. When the Installation complete message displays click "Restart Now" to restart the virtual machine.
+. When prompted to remove the installation medium, press Enter to continue the booting process as the virtual CD will automatically be ejected. Notice that the CD indicator at the bottom of the Virtual Machine window changes from green to grey to indicate the CD has been removed.
 
 == Part 3: Explore the GUI
 --
@@ -71,14 +72,10 @@ In this part, you will install the VirtualBox guest additions and explore the Li
 . Install Guest Additions
 .. Log on to your Linux Mint virtual machine using the user credentials created in the previous part.
 .. Your Linux Mint Desktop window may be smaller than expected. This is especially true on high-resolution displays. Click Devices -> Insert Guest Additions CD image... to install the Guest Additions. This adds drivers which allow more functions, such as changing the screen resolution in the virtual machine.
-.. Click Run to install the additions. When prompted for a password, use the same password that you used to log on. Click Authenticate to continue.
-+
---
-NOTE: If you were not prompted to install the additions, you can access the Guest Additions CD image to install the guest additions.
---
-.. In the list of Activities on the left, scroll down until you see the disk labeled VBox_GAs_x where x is the version number (e.g. 7.0.2). Click the CD icon to open it.
-.. Right click autorun.sh and choose Run as a Program.
-.. When prompted for a password, use the same password that you used to log on. Click authenticate to continue. Following the instructions on the screen to complete the installation
+.. Click "Run" to install the additions. When prompted for a password, use the same password that you used to log on. Click Authenticate to continue.
+.. You may receive an error that there was an issue installing the guest additions. This is an issue with the most recent version of Linux Mint. If that happens press enter to continue and close the installer, the additions are most likely still installed correctly.
+.. Open the Linux Mint menu in the lower left corner of the taskbar and click the red "power button" then click the "Restart" button to reboot the system with the guest additions running.
+.. Log back into the system, notice how you can now resize the window and the virtual machine resolution will change to match the window size.
 . Run applications
 +
 --
@@ -99,6 +96,7 @@ NOTE: If the host computer is not connected to the internet, re-connect to the i
 == Part 4: Shut Down the Virtual Machine
 . To properly shut down the virtual machine you should shut down the guest operating system as normal. Do NOT just close the VirtualBox window which is similar to yanking out the power plug of a physcial machine.
 . Open the Linux Mint menu from the taskbar and click the red "power button"
+. Click the red "Shut Down" button.
 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
