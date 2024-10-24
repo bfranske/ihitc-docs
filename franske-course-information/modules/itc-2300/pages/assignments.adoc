@@ -41,6 +41,10 @@ NOTE: In this lab activity you will, amongst other things download and install t
 --
 NOTE: If you want to see what the GUI interface for Cisco DNA Center looks like you can go to https://sandboxdnac2.cisco.com and sign in with the username devnetuser and password Cisco123!
 --
+IMPORTANT: The Creating a network device list with a Python function lab lab has some errors and the get_device_interfaces.py script will not function correctly as of Fall 2024. Ben has submitted a patch to Cisco to fix this. If the fix has been made then the script will run, let Ben know so this notice can be removed. If it hasn't been made yet let Ben know and he can show you how to fix the issues.
+--
+IMPORTANT: The Cisco DNA Center Platform - Template Programmer lab has some errors and not all the scripts will run when you get to the point where you are encountering these errors go ahead and skip the rest of that activity.
+--
 
 ==== Model Driven Network Programmability and IOS XR Lab
 
