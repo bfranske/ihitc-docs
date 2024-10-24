@@ -49,6 +49,10 @@ IMPORTANT: The Cisco DNA Center Platform - Template Programmer lab has some erro
 ==== Model Driven Network Programmability and IOS XR Lab
 
 * Complete the https://developer.cisco.com/learning/tracks/netprog-eng/intro-device-level-interfaces/[Introduction to Model Driven Programmability Module] from the Network Programmability for Network Engineers track
++
+--
+NOTE: In the "Exploring IOS XE YANG Data Models with NETCONF" activity you run a command like `ssh -oHostKeyAlgorithms=+ssh-dss admin@sandbox-iosxe-recomm-1.cisco.com -p 830 -s netconf` which may present an error on some versions of SSH that no longer have the ssh-dss encryption algorithm compiled in. If this is the case for you continue reading but you will not be able to SSH into the IOS XE device yourself.
+--
 * Complete the https://developer.cisco.com/learning/labs/intro-restconf/introduction/[Exploring IOS XE YANG Data Models with RESTCONF Module]
 
 
@@ -115,7 +119,7 @@ NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this la
 * https://learn.microsoft.com/en-us/training/modules/intro-to-azure-virtual-machines/3-create-a-vm[Create a VM using the Azure portal]
 * https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/3-exercise-create-a-vm[Create a Windows virtual machine]
 * https://learn.microsoft.com/en-us/training/modules/create-windows-virtual-machine-in-azure/5-exercise-connect-to-a-windows-vm-using-rdp[Connect to a Windows virtual machine using RDP]
-* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/2-create-a-vm[https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/2-create-a-vm]
+* https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/2-create-a-vm[Create a virtual machine with the CLI]
 * https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/3-testing-the-vm[Test your new virtual machine]
 * https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/4-other-vm-images[Explore other VM images]
 * https://learn.microsoft.com/en-us/training/modules/manage-virtual-machines-with-azure-cli/5-sizing-vms[Sizing VMs properly]
