@@ -45,9 +45,9 @@ TIP: The red line on this screen indicates the current time. If you want to get 
 . Power on your Virtual machine
 .. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system. If you give it a few minutes you'll end back up at the blue "Boot Manager" screen.
 
-== Part 1: Clean Install Windows 10
+== Part 2: Clean Install Windows 10
 --
-In Part 1, you will do a clean installation of Windows 10 on two virtual machines.
+In Part 2, you will do a clean installation of Windows 10 on two virtual machines.
 
 IMPORTANT: You will see two PCs in your Netlab environment. You will need to do this part of the lab on *both* virtual machines! It is fastest if you get one PC started installing and then while it is copying files, get the second PC started. You can switch between the two virtual machines using the "PC 1" and "PC 2" tabs at the top of your screen.
 --
@@ -94,9 +94,9 @@ image::win10install-partitions.png[Verifying Windows 10 Installation Partition S
 .. Use the shutdown option in the Start menu on both PC 1 and PC 2 to shut down the systems
 .. After both systems are safely shut down use the "Reservation" menu in the upper right corner of the screen to select "End Reservation Now"
 
-== Part 2: Finalize Windows Installation
+== Part 3: Finalize Windows Installation
 --
-In Part 2, you will add user accounts and finalize an installation of Windows 10 on two virtual machines.
+In Part 3, you will add user accounts and finalize an installation of Windows 10 on two virtual machines.
 
 After the initial installation of the Windows operating system, the installation needs to be finalized by creating any required additional user accounts, verifying that all hardware is installed correctly, and installing service packs, patches, and updates.
 
@@ -150,9 +150,9 @@ After installation, verify that all hardware is installed correctly. The Device 
 .. Once the system is rebooted you should be able to click the down arrow next to the "PC 1" or "PC 2" tab and choose "Resize Display" which will give you larger and more high-quality desktop image.
 .. You should be able to look in Device Manager again now and see there is no "Base System Device" with an error and also that under the "Display adapters" there is a "VMware SVGA 3D" adapter where there previously was a generic display adapter.
 
-== Part 3: Create a Partition in Windows
+== Part 4: Create a Partition in Windows
 --
-In Part 3, you will create a FAT32 formatted partition on a disk. You will convert the partition to NTFS. You will then identify the differences between the FAT32 format and the NTFS format.
+In Part 4, you will create a FAT32 formatted partition on a disk. You will convert the partition to NTFS. You will then identify the differences between the FAT32 format and the NTFS format.
 
 After the initial installation of the Windows operating system, the installation needs to be finalized by creating any required additional user accounts, verifying that all hardware is installed correctly, and installing service packs, patches, and updates.
 
@@ -247,7 +247,7 @@ When the volume was FAT32, there were three tabs. What is the name of the new ta
 --
 .. Close all open windows.
 
-== Part 4: Shut Down the Virtual Machines and End Your Reservation
+== Part 5: Shut Down the Virtual Machines and End Your Reservation
 . To properly shut down the virtual machine you should shut down the guest operating system (both PC 1 and PC 2) as normal. Do NOT just close your browser window which will kill power to the VMs when the reservation ends or end your reservation now which is similar to yanking out the power plug of a physcial machine.
 . Use the shutdown option in the Start menu on both PC 1 and PC 2 to shut down the systems
 . After both systems are safely shut down use the "Reservation" menu in the upper right corner of the screen to select "End Reservation Now"
