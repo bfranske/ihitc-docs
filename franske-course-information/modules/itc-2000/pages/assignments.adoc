@@ -141,6 +141,7 @@ NOTE: In this lab you will not actually install any new parts, just find and rem
 xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activity instructions]
 
 === Windows Installation Labs
+xref:lab-wininstall.adoc[Windows Installation lab activity instructions]
 
 === Windows Administration Labs
 NOTE: All of these labs will be completed on one of the PCs you installed Windows 10 on in the previous lab.

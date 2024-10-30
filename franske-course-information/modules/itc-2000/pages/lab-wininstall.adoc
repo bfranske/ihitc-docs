@@ -1,0 +1,255 @@
+= Lab Activity: Windows Installation
+
+== Background / Scenario
+In this lab activity you will install Windows 10 on two virtual machines running on the ITC Netlab system. You will make specific choices during the installation process including installing Windows to a new partition which does not fill the entire virtual disk.
+
+== Required Resources
+* Access to the ITC Netlab system
+* A computer with Internet access and a web browser
+
+== Part 1: Access the ITC Netlab System and Make a Reservation
+. Setup your Netlab account
+.. Login to the https://inverhills.learn.minnstate.edu/[IHCC D2L Site] with your StarID and password.
+.. Access the D2L site for the PC Hardware and Software class you are enrolled in
+.. Click the "ITC Passport" link on the homepage of the D2L site
+.. Click the "Set or change your Netlab password" link on the ITC Passport System site
+.. Create a new password following the instructions which you will use to access the ITC Netlab system
+. Login to Netlab and create a lab reservation
+.. Login to the https://netlab.ihitc.net[ITC NetLab website] using your previously established username and password.
++
+--
+NOTE: Your username is typically the same as your StarID unless you have been instructed otherwise. You should have just set your NetLab password using the ITC Passport site, you can always go back there to reset it.
+--
+.. Click the blue "New Lab Reservation" button
+.. In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. For the installation of Windows 10 we do not want the network connected so we can use a local account instead of a Microsoft account so choose the lab named "2 Windows PCs with NO Network Access". Click on this lab title.
++
+--
+NOTE: If you are enrolled in more than one class that is using Netlab you will be presented with a list of classes you are enrolled in, click on your Linux System Administration course of you see this screen.
+--
+.. Use the calendar to choose a date, time, and specific pod to reserve for your lab activity (see the tip below to start right away).
++
+--
+TIP: The red line on this screen indicates the current time. If you want to get started right away you can click just below this line. Pay attention to the title of the column at the top, it will say something like "PC HWSW Pod Z". The letter at the end of this pod name is your "pod letter" which you may need to use in the future or to get help from your instructor.
+--
+.. You will be presented with a summary screen for your reservation where you can set the end time of your reservation (up to a maximum). It is suggested to make your reservation a couple hours long for this activity, though you can extend it if needed. Click submit once you are ready to make the reservation.
+.. You will see a confirmation screen that your reservation has been made. You are now ready to progress on to the Windows Installation (as long as your reservation is scheduled to begin now).
+. Access the lab environment
+.. If you have a currently active reservation you will see a green "Enter Lab" button on your list of reservations. Click the green "Enter Lab" button. If not, you will need to make a reservation (see above) and then click the "Enter Lab" button.
+.. Your virtual machines (VMs) will automatically power on when your reservation begins and, because there is no operating system currently installed to their virtual hard drives, they will boot from their virtual CD/DVD drives which have been pre-loaded with the installation ISO DVD image file for Windows 10.
+. Access your virtual machine console
+.. Once you are in your pod you can either click on the image of the "Windows 10 PC 1" or "Windows 10 PC 2" on the topology diagram or use the tabs across the top of your screen to access the console of your two PCs.
+.. The console shows the display of your VM and allows you to type and interact with your VM just as if you were physically sitting down in front of a server with a monitor, keyboard, and mouse attached. Think of a virtual machine console window as a window to a seaparte computer that you are able to see in your web browser. You can see the "virtual monitor" and interact with a keyboard and mouse but just like a separate physical machine you will not be able to copy and paste text or drag and drop files in and out of this console window.
+. Learn to "Power Cycle" your virtual machine
+.. By now your VM has likely already booted and is sitting at a "Boot Manager" screen. Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the VMware Tools software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
+.. Try powering off your virtual machine
+. Power on your Virtual machine
+.. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system. If you give it a few minutes you'll end back up at the blue "Boot Manager" screen.
+
+== Part 1: Clean Install Windows 10
+--
+In Part 1, you will do a clean installation of Windows 10 on two virtual machines.
+
+IMPORTANT: You will see two PCs in your Netlab environment. You will need to do this part of the lab on *both* virtual machines! It is fastest if you get one PC started installing and then while it is copying files, get the second PC started. You can switch between the two virtual machines using the "PC 1" and "PC 2" tabs at the top of your screen.
+--
+. Starting the Installation Media
+.. From the blue "Boot Manager" screen (which is part of the BIOS/UEFI system on these virtual machines) use the arrow keys on your keyboard to move down to highlight the "EFI VMware Virtual SATA CDROM Drive (0.0)" option. You may need to move your mouse into the console display section of the screen to move the highlighted line with your arrow keys, your mouse cursor will disappear in this part of the screen (because the BIOS/UEFI has no mouse support).
+.. Press the "Enter" key to boot from the virtual CDROM Drive, watch for the message Press any key to boot from CD or DVD. If the message appears, press any key on the keyboard to boot the computer from the virtual DVD. If you miss the opportunity to press a key and the message goes away you'll have to wait a few minutes for things to timeout and you should end up back at the "Boot Manager" screen and be able to try again or you can power off the virtual machine, power it back on, and try again.
+.. The VM starts loading files from the virtual DVD drive.
+. Configuring Initial settings
+.. The Windows Setup window opens. Click "Next" to continue unless you need to change the default settings.
+.. Click "Install now" to continue the installation.
+. Collecting Information
+.. On the "Select the operating system you want to install" screen select "Windows 10 Education" and click "Next"
+.. On the "Applicable notices and license terms" screen check the box next to "I accept the license terms" and click "Next"
+.. The "Which type of installation do you want?" window opens. Because we want a clean installation click "Custom: Install Windows only (advanced)".
+.. The "Where do you want to install Windows?" window opens. Select the hard drive or partition on which Windows will be installed. In this example, click to select "Disk 0 Unallocated Space". We want to create a smaller partition on the drive to install Windows to so *do NOT click Next yet*. 
+.. Click the "New" button on the screen to create a new partition on the drive.
+.. We want to create a partition which is about 32GB in size so enter "32000" in the "Size" box (it's in megabytes) and then click the "Apply" button.
+.. You will get a notice that "Windows might create additional partitions for system files". Click the OK button to acknowledge that message.
+.. Ensure that the partition which is about 32 GB in size (but is not Unallocated space) is highlighted, then click the "Next" button:
++
+image::win10install-partitions.png[Verifying Windows 10 Installation Partition Sizing,250,align=left,link=self]
+. Installing Windows
+.. The "Installing Windows" window opens. Windows will take some time to copy the files and install the OS on your computer. During the setup, the computer might restart several times. If you haven't started the installation on your second virtual machine yet it would be a good time to get that started.
+.. When the Windows needs to restart to continue window opens, your computer will automatically restart or you can click Restart now.
+.. If you get the message "Press any key to boot from CD or DVD..." during any reboots, do not press any key and Windows will boot from the internal drive to continue the installation.
+. Basics Setup
+.. Verify the region and select "yes". If not, choose your region and select "yes".
+.. Verify the keyboard layout and select "yes". If not, choose your keyboard layout and select "yes".
+.. Click "Skip" if you are not adding a second keyboard layout. Otherwise, click "Add layout" and answer the prompts to add a second layout.
+. Network Setup
+.. Because we don't have Internet access activated to our VM (so that we can create a local account) click the "I don't have internet" link in the lower left corner of the screen.
+.. Microsoft really wants us to sign in with a Microsoft account but we want a local account so on the "There's more to discover when you connect to the internet" screen you will need to again click the link "Continue with limited setup" in the lower left corner.
+. Account Setup
+.. Enter a username and click Next to continue. It is strongly suggested you use "ITC Admin" so that you can refer back here if you forget. 
+.. Create a password and confirm the password when prompted. It is strongly suggested you use "Password123!" so that you can refer back here if you forget. Click Next to continue.
+.. Answer all the security questions and click Next to continue. You can make up random answers if you would like, just don't forget your password!
+. Services Setup
+.. Read the privacy settings and click "Learn More" to find out more details if you would like. Then decide for yourself which features to use and click "Accept" to continue.
+.. On the "Let Cortana help you get things done" page click "Not now"
+. Finishing the Installation
+.. When you are finished with the installation, Windows continues to finalize your settings.
+.. After the installation is completed, the Desktop displays and you are logged into Windows for the first time.
+.. Make sure both of your PCs are completely installed to this point before continuing
+.. Use the shutdown option in the Start menu on both PC 1 and PC 2 to shut down the systems
+.. After both systems are safely shut down use the "Reservation" menu in the upper right corner of the screen to select "End Reservation Now"
+
+== Part 2: Finalize Windows Installation
+--
+In Part 2, you will add user accounts and finalize an installation of Windows 10 on two virtual machines.
+
+After the initial installation of the Windows operating system, the installation needs to be finalized by creating any required additional user accounts, verifying that all hardware is installed correctly, and installing service packs, patches, and updates.
+
+IMPORTANT: You will see two PCs in your Netlab environment. You will need to do this part of the lab on *both* virtual machines! 
+--
+. Create  Netlab Lab Reservation with Network Access
+.. Access the ITC Netlab system
+.. Click the blue "New Lab Reservation" button
+.. In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. From now on we do want network access so choose the lab named "2 Windows PCs with Network Access". Click on this lab title and make a reservation.
+.. Enter the lab as you have before and ensure the VMs are both booting.
+.. Login to both VMs once they have booted.
+. Enable Internet access to your virtual machines
+.. Even though our lab reservation includes Internet access it's still disabled by default until we turn on the WAN interface of the router in front of your two virtual machines.
+.. Open the Edge web browser on your remote lab PC and connect to http://192.168.1.1 and log in with the username "root" and password "pchardware"
+.. Click the Network -> Interfaces menu option. Click the "Edit" button on the WAN interface and change the Protocol from "Unmanaged" to "DHCP Client".
+.. Click the green "Save" button on that dialog and then the blue "Save & Apply" button in the lower right.
+.. After about a minute you should have working Internet access from your remote lab PC. 
+.. Test and make sure you have working Internet access before proceeding.
+. User Account Creation
+.. Click Start -> Settings and click Accounts.
+.. For Windows 10, in the Accounts utility, click Family & other users in the left side pane and then click Add someone else to this PC.
++
+--
+If prompted for "How will this person sign in", you can choose an email or phone number that they already use for other Microsoft products or choose "I don't have this person's sign-in information". In this lab, we will choose the second option of not having sign-in information.
+
+The next screen asks for a phone number or email address to create a Microsoft account for the user. Choose "Add a user without a Microsoft account".
+--
+.. In the Create a user for this PC window, you will add a username and password for the account. There are also three required security questions to fill in. When all information is complete, click Next. 
+.. You are returned to the Other Users window and should now see the new Local account. You can now click the new account to see an option to change the account type or remove the account. If you click Change account type, you will have the option to change the account to an Administrator account.
+. Check for Windows Updates
++
+--
+To update the OS after the initial installation, Microsoft Windows Update is used to scan for new software and install service packs and patches.
+--
+.. To get to the Windows Update utility, type Update in the Windows search at the bottom of the desktop. Select Check for Updates.
+.. In the Windows Update window, you can click Check for updates to scan for needed Windows updates. Instead of the Check for updates button, you may see a list of missing important updates that need to be installed or require a restart. You can select the updates to install and click Restart now or Schedule the restart to have the computer restart later.
+. Check for Device Problems
++
+--
+After installation, verify that all hardware is installed correctly. The Device Manager utility is used to locate device problems and install the correct or updated drivers
+--
+.. Open Device Manager by typing "Device Manager" in the Windows search. 
+.. In Device Manager, you will see a list of device categories. Click a category to expand it and see all devices within that category. A yellow triangle with an exclamation point indicates a problem with a device. To view a description of the problem, right-click the device and select Properties. A gray circle with a downward pointing arrow indicates that a device is disabled. To enable the device, right-click the device and select Enable.
+.. Pick a device inside a category and double-click the device. The device properties window will open with tabs allowing you to view information about the device. Click the Driver tab. From here notice that you have many options such as view driver details, update the driver, or uninstall the device.
+. Install VMWare Tools
+.. You may hvae noticed a problem with a "Base System Device" in device manager. This is part of the virtual machine hardware that your system is running on. TO correct this (and also drastically improve the VM experience) we need to install the VMWare drivers which they call "VMWare Tools".
+.. Open your Edge web browser to http://172.17.139.70:8080 and click the link to download the VMware Tools in ZIP format.
+.. Open the ZIP file you downloaded and run the "setup64" program, click "Run" when prompted.
+.. When asked "Do you want to allow this app to make changes to your device?" click "Yes"
+.. Complete a "Typical" installation of the VMware tools and allow it to restart the PC. Make sure you have done this on *both PC 1 and PC 2*!
+.. Once the system is rebooted you should be able to click the down arrow next to the "PC 1" or "PC 2" tab and choose "Resize Display" which will give you larger and more high-quality desktop image.
+.. You should be able to look in Device Manager again now and see there is no "Base System Device" with an error and also that under the "Display adapters" there is a "VMware SVGA 3D" adapter where there previously was a generic display adapter.
+
+== Part 3: Create a Partition in Windows
+--
+In Part 3, you will create a FAT32 formatted partition on a disk. You will convert the partition to NTFS. You will then identify the differences between the FAT32 format and the NTFS format.
+
+After the initial installation of the Windows operating system, the installation needs to be finalized by creating any required additional user accounts, verifying that all hardware is installed correctly, and installing service packs, patches, and updates.
+
+IMPORTANT: You will see two PCs in your Netlab environment. You will need to do this part of the lab on *both* virtual machines! 
+--
+. Open Disk Management
++
+--
+Disk Management is located inside the Computer Management utility. Disk Management is a utility to manage disk drives installed in the computer, such as internal and external hard drives and flash drives.
+--
+.. Right-click Start and select Disk Management.
+. Create free space as necessary.
++
+--
+If the hard drive does not already have at least 2 GB of unpartitioned space, then perform the following steps to create free space which can be partitioned. In this lab, the default C: drive is used as the example. *You should be able to skip this section because you should have left unpartitioned space when you completed your Windows installation.*
+--
+.. Right-click the C: drive NTFS volume and select Shrink Volume from the menu.
+.. In the Shrink C: window enter an amount of 2048 in the Enter the amount of space to shrink in MB: box and then click Shrink. You should now see 2 GB of Unallocated disk space.
+. Create a new disk volume in the free space
+.. Right-click the block of Free Space or Unallocated space. Click New Simple Volume.
+.. The New Simple Volume Wizard window opens. Click Next.
+.. Type 2048 or all the maximum disk space in the Simple volume size in MB field, and click Next.
+.. Click the Assign the following drive letter: radio button. Select I from the drop-down menu. Click Next to continue.
++
+--
+NOTE: You may need to substitute different drive letters for the letters shown in this lab.
+--
+.. Click the Format this volume with the following settings: radio button. Select FAT32 from the File system drop-down menu and click Next.
+.. Click Finish to complete the New Simple Volume Wizard.
+.. The Disk Management window will display the status of the NEW VOLUME. Close the Disk Management window.
+. Open the This PC window to review information about the new disk partition.
+.. Open File Explorer and click This PC to view the list of the devices and drives.
+.. Right-click on the NEW VOLUME (I:) drive and then select Properties from the drop-down menu.
++
+--
+Questions:
+What type of File System is used on the NEW VOLUME (I:)?
+
+How much Free Space is shown?
+
+List the tabs found in the NEW VOLUME (I): Properties window?
+--
+.. On the General Tab, rename the volume from NEW VOLUME to ITE, and then click OK.
+. Create a text document and save it to the ITE drive.
+.. Double-click on the ITE (I:) disk icon to view the contents of the drive. You should see a message in the middle of the screen stating that this folder is empty. Right-click anywhere in the white space below that message to bring up a drop-down menu. Click New>Text Document.
+.. Rename the New Text Document to ITE Test Document and press Enter.
+.. Right-click on the ITE Test Document and choose Properties. This opens the ITE Test Document Properties window.
++
+--
+Question:
+What tabs are listed in the ITE Test Document Properties window? 
+--
+.. Click OK to close the ITE Test Document Properties window. Close the ITE (I:) window.
+. Convert the ITE volume from FAT32 to NTFS without losing data.
++
+--
+In this step, you will convert the ITE volume from FAT32 to NTFS using the command line. The file system conversion can be done using the Disk Management tool. Unfortunately, the conversion requires the reformat of the drive and all the data will be lost. By using the command line, the file system can be changed from FAT32 to NTFS without losing data.
+
+NOTE: In a production environment, the data should always be backed up before attempted to change the file system to prevent data loss.
+--
+.. Click Start, then type cmd (the search field will pop up as soon as you start typing). Right-click the Command Prompt program that appears, and then click Run as administrator.
+.. The User Account Control window opens asking if you want to allow the following program to make changes to this computer. Click Yes.
+.. In the Administrator: Command Prompt window, type convert I: /fs:NTFS at the prompt.
++
+--
+Question:
+What happens if you do not run as administrator when you open the command prompt?
+--
+.. You will be prompted to enter the current volume label for drive I:. Type ITE and press Enter.
+.. Review the information displayed by the convert command. When finished, enter exit at the prompt to exit the command prompt window.
+. Open the This PC window to work with the ITE Volume.
+.. Open File Explorer and click This PC.
+.. Right-click the ITE (I:) volume, and select Properties from the drop-down menu.
++
+--
+Questions:
+What type of File System is used for the ITE (I:) drive?
+
+What are the tabs in the ITE (I:) Properties window?
+
+When the volume was FAT32, there were six tabs. What are the names of the new tabs that were added after the volume was converted to NTFS?
+--
+.. Click Cancel to close the ITE (I:) Properties window.
+. Display the properties of the ITE Test Document.
+.. Open the ITE (I:) drive. Right-click on the ITE Test Document, then select Properties from the drop-down menu.
++
+--
+Questions:
+What are the tabs in the ITE Test Document Properties window?
+
+When the volume was FAT32, there were three tabs. What is the name of the new tab that was added after the volume was converted to NTFS?
+--
+.. Close all open windows.
+
+== Part 4: Shut Down the Virtual Machines and End Your Reservation
+. To properly shut down the virtual machine you should shut down the guest operating system (both PC 1 and PC 2) as normal. Do NOT just close your browser window which will kill power to the VMs when the reservation ends or end your reservation now which is similar to yanking out the power plug of a physcial machine.
+. Use the shutdown option in the Start menu on both PC 1 and PC 2 to shut down the systems
+. After both systems are safely shut down use the "Reservation" menu in the upper right corner of the screen to select "End Reservation Now"
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
