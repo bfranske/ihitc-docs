@@ -186,7 +186,8 @@ NOTE: In this lab activity you will need to use your second Windows PC to remote
 * 11.6.2.4 - System Restore and Hard Drive Backup
 * 11.7.3.2 - Troubleshoot Operating System Problems
 
-=== Mobile Device Labs
+=== Linux and Mobile Device Labs
+* Complete pages 1-13 of the Linux Unhatched activity (accessed through the NetAcad site)
 
 === Security Labs
 
