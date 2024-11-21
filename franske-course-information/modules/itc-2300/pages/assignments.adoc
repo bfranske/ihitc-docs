@@ -133,6 +133,10 @@ NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this la
 ** https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/3-exercise-use-update-management-on-a-virtual-machine[Use Update Management on a virtual machine]
 ** https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/5-exercise-use-azure-log-analytics-and-schedule-updates[Use Azure log analytics and schedule updates]
 * https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/3-exercise-create-azure-virtual-network[Create an Azure virtual network]
++
+--
+NOTE: If you receive a message that an Azure zone like EastUS is out of capactity when trying to create the VM you will need to change your $LOCATION to be a different Azure zone (such as eastus2, centralus, westus2, or westus3) and then re-create the resource group, subnet, and attempt creating the VM in the new location.
+--
 * https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/5-exercise-create-azure-vpn-gateway[Create an Azure VPN gateway]
 * https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template?pivots=powershell[Create and deploy an Azure Resource Manager template]
 * https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/5-exercise-parameters-output?pivots=powershell[Add parameters and outputs to your Azure Resource Manager template]
