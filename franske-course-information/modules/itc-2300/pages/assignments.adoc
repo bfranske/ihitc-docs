@@ -129,8 +129,9 @@ NOTE: There is an error on the "Ansible hands-on: Show Commands" page of this la
 
 
 ==== Scaling Azure Virtual Machines
-* https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/3-exercise-use-update-management-on-a-virtual-machine[Use Update Management on a virtual machine]
-* https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/5-exercise-use-azure-log-analytics-and-schedule-updates[Use Azure log analytics and schedule updates]
+* The following two labs have technologies that have been replaced on Azure. You should follow the general outline of the scenario they give (creating the VM, etc.) but then switch to the new https://learn.microsoft.com/en-us/azure/update-manager/tutorial-assessment-deployment-using-policy[Tutorial: Enable periodic assessment and schedule updates on Azure VMs using policy] to actually monitor and schedule the updates you may also want to refer to the https://learn.microsoft.com/en-us/azure/update-manager/overview[About Azure Update Manager] page for additional information on this change.
+** https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/3-exercise-use-update-management-on-a-virtual-machine[Use Update Management on a virtual machine]
+** https://learn.microsoft.com/en-us/training/modules/keep-your-virtual-machines-updated/5-exercise-use-azure-log-analytics-and-schedule-updates[Use Azure log analytics and schedule updates]
 * https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/3-exercise-create-azure-virtual-network[Create an Azure virtual network]
 * https://learn.microsoft.com/en-us/training/modules/configure-network-for-azure-virtual-machines/5-exercise-create-azure-vpn-gateway[Create an Azure VPN gateway]
 * https://learn.microsoft.com/en-us/training/modules/create-azure-resource-manager-template-vs-code/3-exercise-create-and-deploy-template?pivots=powershell[Create and deploy an Azure Resource Manager template]
