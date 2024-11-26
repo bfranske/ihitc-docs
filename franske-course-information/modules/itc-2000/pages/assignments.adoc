@@ -190,6 +190,12 @@ NOTE: In this lab activity you will need to use your second Windows PC to remote
 * Complete pages 1-13 of the Linux Unhatched activity (accessed through the NetAcad site)
 
 === Security Labs
+NOTE: All of these labs will be completed on one of the Netlab PCs you installed Windows 10 on in the previous lab.
+
+* 13.1.2.6 Lab - Operating System Security
+* 13.3.2.5 Lab - Configure Windows Local Security Policy
+* 13.3.2.5 Lab - Configure Windows Local Security Policy
+* 13.3.4.6 Lab - Configure Windows Firewall
 
 === Support Labs
 
