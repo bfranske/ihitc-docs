@@ -194,7 +194,7 @@ NOTE: All of these labs will be completed on one of the Netlab PCs you installed
 
 * 13.1.2.6 Lab - Operating System Security
 * 13.3.2.5 Lab - Configure Windows Local Security Policy
-* 13.3.2.5 Lab - Configure Windows Local Security Policy
+* 13.3.3.6 Lab - Configure Users and Groups in Windows
 * 13.3.4.6 Lab - Configure Windows Firewall
 
 === Support Labs
