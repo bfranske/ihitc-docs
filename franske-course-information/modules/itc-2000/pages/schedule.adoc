@@ -474,6 +474,7 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 === Other Work to do before next class
 * Module 14 Online Discussion First Post
 * Write Scripting & Troubleshooting Lab Report
+* Extra Credit: Make an https://www.inverhills.edu/help-center/counseling-advising/academic-planning/[academic planning appointment] with one of the IHCC counselors or advisors to create or update a degree plan before December 17.
 
 === Assignments Due at the start of class today
 * Module 14 Online Discussion Response Posts
@@ -513,5 +514,6 @@ TIP: Discussion posts are done through the Cisco Netacad site in this class. Ins
 * Both A+ Practice Certification Exams
 * Complete Online Final Exam before 11:59pm tonight!
 * Complete Cisco Course Feedback before 11:59pm tonight!
+* Extra Credit: Turn in degree plan before 11:59pm tongight which you created in an https://www.inverhills.edu/help-center/counseling-advising/academic-planning/[academic planning appointment] with one of the IHCC counselors or advisors this semester.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

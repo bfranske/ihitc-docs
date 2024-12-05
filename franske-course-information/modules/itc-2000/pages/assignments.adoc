@@ -197,7 +197,14 @@ NOTE: All of these labs will be completed on one of the Netlab PCs you installed
 * 13.3.3.6 Lab - Configure Users and Groups in Windows
 * 13.3.4.6 Lab - Configure Windows Firewall
 
-=== Support Labs
+=== Support and Scripting Labs
+NOTE: The first part of this lab will be completed on one of the Netlab PCs you installed Windows 10 on in the previous lab. 
+
+* 14.4.2.7 Lab - Write Basic Scripts in Windows and Linux
++
+--
+NOTE: The first part of this lab (Batch and PowerShell scripting) will be completed on one of the Netlab PCs you installed Windows 10 on in the previous lab. The second part of this lab (BASH scripting) will be completed in a Linux Virtual Machine. You will either need to install a Linux VM in your Netlab system or use the physical system with your Linux VM from a previous lab.
+--
 
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
@@ -210,8 +217,8 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
 * Attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter (10 points)
-* Meet with an academic advisor (10 points for meeting)
-* Complete a program/degree plan (10 points for completing)
+* Extra Credit: Meet with an academic advisor (10 points for meeting)
+* Extra Credit: Complete a program/degree plan (10 points for completing)
 * Complete the online course feedback form (5 points for completing)
 * Complete the Practice Final Exam (Chapters 1-9) (10 points for attempting)
 * Complete the Practice Final Exam (Chapters 10-14) (10 points for attempting)
