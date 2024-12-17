@@ -30,6 +30,8 @@ ui:
       info.ihitc.net
   - path: shakespeare.tar.gz
     contents: ./static/shakespeare.tar.gz
+  - path: 2480checkup.py
+    contents: ./static/2480checkup.py
   - path: hello_2.10-3_amd64.deb
     contents: ./static/hello_2.10-3_amd64.deb
   - path: icecream_db.tar.gz
