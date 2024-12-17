@@ -128,6 +128,7 @@ Grades for this course are calculated based on a weighted points system. Each as
 Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
 
 Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+
 === Extra Credit
 Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Extra credit will be added to the Homework, Activities & Participation category. 
 
