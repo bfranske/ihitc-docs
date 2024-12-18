@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#This script should be executed like: sudo wget -qO- https://info.ihitc.net/2480check.sh | bash
+#This script should be executed like: sudo bash -c "$(wget -qO- https://info.ihitc.net/2480check.sh)"
 
 # Check if the script is running as root
 if [ "$EUID" -ne 0 ]; then
@@ -23,13 +23,13 @@ is_installed() {
 echo "Please wait, updating package lists..."
 
 # Update package list silently
-sudo apt update > /dev/null 2>&1
+apt update > /dev/null 2>&1
 
 # Loop through each package and install if not already installed
 for package in "${packages[@]}"; do
     if ! is_installed "$package"; then
         echo "Installing $package..."
-        sudo apt install -y "$package" &> /dev/null
+        apt install -y "$package" &> /dev/null
         if [ $? -eq 0 ]; then
             echo "$package installed successfully."
         else
@@ -40,10 +40,35 @@ for package in "${packages[@]}"; do
     fi
 done
 
-echo "Installing required Python modules"
+echo "Handing off to Python..."
 
-#Download and install required python packages first
-curl -s https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt | pip install -r /dev/stdin
+# Create a temporary directory
+TEMP_DIR=$(mktemp -d)
+cd $TEMP_DIR
 
-#Run python check script
-curl -s https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py | python3
+# Download sbacheck.py
+curl -O https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
+
+# Download requirements.txt
+curl -O https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
+
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+
+# Install the requirements
+pip install -r requirements.txt
+
+# Run the sbacheck.py script
+python sbacheck.py
+
+# Deactivate the virtual environment
+deactivate
+
+# Remove the temporary directory
+cd ..
+rm -rf $TEMP_DIR
+
+echo "Command complete."
