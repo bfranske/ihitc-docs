@@ -21,7 +21,7 @@ ui:
       static_files:
       - CNAME
       - shakespeare.tar.gz
-      - 2480checkup.py
+      - 2480check.sh
       - hello_2.10-3_amd64.deb
       - icecream_db.tar.gz
       - ITC-Passport-VPN.ovpn
