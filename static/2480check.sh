@@ -64,10 +64,10 @@ TEMP_DIR=$(mktemp -d)
 cd $TEMP_DIR
 
 # Download sbacheck.py
-curl -Oq https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
+curl -O -s https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
 
 # Download requirements.txt
-curl -Oq https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
+curl -O -s https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
 
 # Create a virtual environment
 python3 -m venv venv
