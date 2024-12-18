@@ -4,26 +4,39 @@
 
 # Check if the script is running as root
 if [ "$EUID" -ne 0 ]; then
+  echo "------------------------------------"
   echo "This command must be run as root or with sudo. Exiting, please run again with appropriate permissions."
+  echo "------------------------------------"
   exit 1
 fi
 
 #Start updating locate database in background
-updatedb& > /dev/null 2>&1
+updatedb &>/dev/null &
 
 # List of packages to check and install
-packages=("curl" "python3" "python3-pip")
+packages=("curl" "python3" "python3-pip" "python3-venv")
 
 # Function to check if a package is installed
 is_installed() {
-    dpkg -l "$1" &> /dev/null
+    dpkg -s "$1" &> /dev/null
     return $?
 }
 
+echo ""
+echo "------------------------------------"
 echo "Please wait, updating package lists..."
+echo "------------------------------------"
+echo ""
 
 # Update package list silently
 apt update > /dev/null 2>&1
+
+
+echo ""
+echo "------------------------------------"
+echo "Please wait, installing required packages..."
+echo "------------------------------------"
+echo ""
 
 # Loop through each package and install if not already installed
 for package in "${packages[@]}"; do
@@ -40,7 +53,11 @@ for package in "${packages[@]}"; do
     fi
 done
 
+echo ""
+echo "------------------------------------"
 echo "Handing off to Python..."
+echo "------------------------------------"
+echo ""
 
 # Create a temporary directory
 TEMP_DIR=$(mktemp -d)
@@ -71,4 +88,6 @@ deactivate
 cd ..
 rm -rf $TEMP_DIR
 
+echo "------------------------------------"
 echo "Command complete."
+echo "------------------------------------"
