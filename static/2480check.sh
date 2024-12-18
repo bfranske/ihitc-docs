@@ -55,7 +55,7 @@ done
 
 echo ""
 echo "------------------------------------"
-echo "Handing off to Python..."
+echo "Creating Python Environment..."
 echo "------------------------------------"
 echo ""
 
@@ -64,10 +64,10 @@ TEMP_DIR=$(mktemp -d)
 cd $TEMP_DIR
 
 # Download sbacheck.py
-curl -O https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
+curl -Oq https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
 
 # Download requirements.txt
-curl -O https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
+curl -Oq https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
 
 # Create a virtual environment
 python3 -m venv venv
@@ -75,8 +75,20 @@ python3 -m venv venv
 # Activate the virtual environment
 source venv/bin/activate
 
+echo ""
+echo "------------------------------------"
+echo "Please wait, installing Python requirements..."
+echo "------------------------------------"
+echo ""
+
 # Install the requirements
-pip install -r requirements.txt
+pip install -r requirements.txt &> /dev/null
+
+echo ""
+echo "------------------------------------"
+echo "Beginning to Run Python Test Script..."
+echo "------------------------------------"
+echo ""
 
 # Run the sbacheck.py script
 python sbacheck.py
@@ -89,5 +101,5 @@ cd ..
 rm -rf $TEMP_DIR
 
 echo "------------------------------------"
-echo "Command complete."
+echo "All check commands finished."
 echo "------------------------------------"
