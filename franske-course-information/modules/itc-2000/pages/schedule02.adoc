@@ -1,0 +1,348 @@
+= ITC-2000-02 Official Course Schedule
+
+== Jan 15: Session 1
+=== Happening in class today
+* Review syllabus, schedule, and assignments
+* Using Cisco Netacad site
+* Discuss Module 1 - Introduction to Personal Computer Hardware
+
+=== Readings to do before next class
+* Module 1 - Introduction to Personal Computer Hardware
+* Module 2 - PC Assembly
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+=== Assignments Due at the start of class today
+* None
+
+== Jan 22: Session 2
+=== Happening in class today
+* Discuss Module 2 - PC Disassembly/Assembly
+* Do PC Disassembly/Assembly Lab
+
+=== Readings to do before next class
+* Module 3 - Advanced Computer Hardware
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 1 Exam - Introduction to Personal Computer Hardware
+* Module 2 Online Discussion Response Posts
+* Module 2 Exam - PC Disassembly/Assembly
+* Weekly Progress Self-Evaluation
+* Module 3 Online Discussion First Post
+* Write PC Disassembly/Assembly Lab Report
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Jan 29: Session 3
+=== Happening in class today
+* Discuss Module 3 - Advanced Computer Hardware
+* Do Boot/BIOS Labs
+
+=== Readings to do before next class
+* Module 4 - Preventive Maintenance and Troubleshooting
+
+=== Other Work to do before next class
+* Module 3 Online Discussion Response Posts
+* Module 3 Exam - Advanced Computer Hardware
+* Module 4 Online Discussion First Post
+* Write Boot/BIOS Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 1 Exam - Introduction to Personal Computer Hardware
+* Module 2 Online Discussion Response Posts
+* Module 2 Exam - PC Disassembly/Assembly
+* Weekly Progress Self-Evaluation
+* Module 3 Online Discussion First Post
+* PC Disassembly/Assembly Lab Report
+
+== Feb 5: Session 4
+=== Happening in class today
+* Discuss Module 4 - Preventive Maintenance and Troubleshooting
+* Do Hardware Troubleshooting Labs
+
+=== Readings to do before next class
+* Module 5 - Networking Concepts
+* Module 6 - Applied Networking
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 4 Exam - Preventive Maintenance and Troubleshooting
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+* Write Hardware Troubleshooting Lab Report
+* You MUST attend at least two Student Success Day presentations on Feb 11 and bring proof of attendance signed by each presenter to the next class
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion Response Posts
+* Module 3 Exam - Advanced Computer Hardware
+* Module 4 Online Discussion First Post
+* Boot/BIOS Lab Report
+* Weekly Progress Self-Evaluation
+
+== Feb 12: Session 5
+=== Happening in class today
+* Discuss Module 5 - Networking Concepts
+* Discuss Module 6 - Applied Networking
+
+=== Readings to do before next class
+* Module 7 - Laptops and Other Mobile Devices
+
+=== Other Work to do before next class
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 5 Exam - Networking Concepts
+* Module 6 Exam - Applied Networking
+* Module 7 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion Response Posts
+* Module 4 Exam - Preventive Maintenance and Troubleshooting
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+* Hardware Troubleshooting Lab Report
+* Student Success Day proof of attendance signed by each presenter for 2 presentations
+* Weekly Progress Self-Evaluation
+
+== Feb 19: Session 6
+=== Happening in class today
+* Discuss Module 7 - Laptops and Other Mobile Devices
+* Do Networking Labs
+
+=== Readings to do before next class
+* Module 8 - Printers
+
+=== Other Work to do before next class
+* Module 7 Online Discussion Response Posts
+* Module 7 Exam - Laptops and Other Mobile Devices
+* Module 8 Online Discussion First Post
+* Write Networking Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 5 Exam - Networking Concepts
+* Module 6 Exam - Applied Networking
+* Module 7 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Feb 26: Session 7
+=== Happening in class today
+* Discuss Module 8 - Printers
+* Do Printer Labs
+
+=== Readings to do before next class
+* Module 9 - Virtualization and Cloud Computing
+
+=== Other Work to do before next class
+* Module 8 Online Discussion Response Posts
+* Module 8 Exam - Printers
+* Module 9 Online Discussion First Post
+* Write Printer Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion Response Posts
+* Module 7 Exam - Laptops and Other Mobile Devices
+* Module 8 Online Discussion First Post
+* Networking Lab Report
+* Weekly Progress Self-Evaluation
+
+== Mar 5: Session 8
+=== Happening in class today
+* Discuss Module 9 - Virtualization and Cloud Computing
+* Do Virtualization/Linux Labs
+
+=== Readings to do before next class
+* Module 10 - Windows Installation
+
+=== Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 9 Exam - Virtualization and Cloud Computing
+* Modules 1-9 Practice Final Exam
+* Module 10 Online Discussion First Post
+* Write Virtualization/Linux Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion First Post
+* Printer Lab Report
+* Weekly Progress Self-Evaluation
+
+== Mar 12: Spring Break
+=== Happening in class today
+* *There is NO CLASS TODAY, it is Spring Break*
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* None
+
+=== Assignments Due at the start of class today
+* None
+
+== Mar 19: Session 9
+=== Happening in class today
+* Discuss Module 10 - Windows Installation
+* Windows Installation Labs
+
+=== Readings to do before next class
+* Module 11 - Windows Configuration
+
+=== Other Work to do before next class
+* Module 10 Online Discussion Response Posts
+* Module 10 Exam - Windows Installation
+* Module 11 Online Discussion First Post
+* Write Windows Installation Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 9 Exam - Virtualization and Cloud Computing
+* Modules 1-9 Practice Final Exam
+* Module 10 Online Discussion First Post
+* Virtualization/Linux Lab Report
+* Weekly Progress Self-Evaluation
+
+== Mar 26: Session 10
+=== Happening in class today
+* Discuss Module 11 - Windows Configuration
+* Windows Configuration Labs Part I
+
+=== Readings to do before next class
+* Module 12 - Mobile, Linux, and macOS Operating Systems
+
+=== Other Work to do before next class
+* Module 11 Online Discussion Response Posts
+* Module 11 Exam - Windows Configuration
+* Module 12 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 10 Online Discussion Response Posts
+* Module 10 Exam - Windows Installation
+* Module 11 Online Discussion First Post
+* Windows Installation Lab Report
+* Weekly Progress Self-Evaluation
+
+== Apr 2: Session 11
+=== Happening in class today
+* Discuss Module 12 - Mobile, Linux, and macOS Operating Systems
+* Windows Configuration Labs Part II
+
+=== Readings to do before next class
+* Module 13 - Security
+
+=== Other Work to do before next class
+* Windows Configuration Lab Report
+* Module 12 Online Discussion Response Posts
+* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
+* Module 13 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 11 Online Discussion Response Posts
+* Module 11 Exam - Windows Configuration
+* Module 12 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Apr 9: Session 12
+=== Happening in class today
+* Discuss Module 13 - Security
+* Mobile, Linux, and macOS Operating Systems Labs
+
+=== Readings to do before next class
+* Module 14 - The IT Professional
+
+=== Other Work to do before next class
+* Module 13 Online Discussion Response Posts
+* Module 13 Exam - Security
+* Write Mobile, Linux, and macOS Operating Systems Lab Report
+* Module 14 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Windows Configuration Lab Report
+* Module 12 Online Discussion Response Posts
+* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
+* Module 13 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Apr 16: Session 13
+=== Happening in class today
+* Discuss Module 14 - The IT Professional
+* Security Labs
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 14 Online Discussion Response Posts
+* Module 14 Exam - The IT Professional
+* Write Security Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 13 Online Discussion Response Posts
+* Module 13 Exam - Security
+* Mobile, Linux, and macOS Operating Systems Lab Report
+* Module 14 Online Discussion First Post
+* Weekly Progress Self-Evaluation
+
+== Apr 23: Remote Class
+=== Happening in class today
+* NOTE: This week will likely be a remote work week
+* Scripting & Troubleshooting Labs
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Practice Final Exam Ch 10-14
+* Write Scripting & Troubleshooting Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion Response Posts
+* Module 14 Exam - The IT Professional
+* Security Lab Report
+* Weekly Progress Self-Evaluation
+
+== Apr 30: Session 14
+=== Happening in class today
+* Skills Exam
+
+=== Other Work to do before next class
+* Both A+ Practice Certification Exams
+
+=== Assignments Due at the start of class today
+* Practice Final Exam Ch 10-14
+* Scripting & Troubleshooting Lab Report
+* Weekly Progress Self-Evaluation
+
+== May 7: Session 15
+=== Happening in class today
+* No Class Meeting
+* Complete Online Final Exam before 11:59pm tonight!
+* Complete Cisco Course Feedback before 11:59pm tonight!
+
+=== Assignments Due at the start of class today
+* Practice Final Exam Ch 10-14
+* Write Scripting & Troubleshooting Lab Report
+* Weekly Progress Self-Evaluation
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

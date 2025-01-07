@@ -1,10 +1,11 @@
 = ITC-2000 Syllabus
 
 Course Name: PC Hardware and Software (A+) +
-Course Number: ITC-2000-61 +
+Course Number: ITC-2000 +
 Instructor: Dr. Ben Franske +
-Term: Fall 2024 (8/26/2024-12/19/2024) +
-Meetings: Tu Th 10:00-11:50am +
+Term: Spring 2025 (1/13/2025-5/14/2025) +
+Section 1 Meetings: Tu Th 10:00-11:50am +
+Section 2 Meetings: W 6:00-9:50pm +
 Location: S130
 
 == Instructor Contact Information
@@ -19,10 +20,10 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 
 === Required Resources
 * External USB Drive, 8GB minimum, flash drive or hard drive which can be completely erased for use in this class
-* USB to Ethernet Adater (https://www.amazon.com/dp/B00M77HMU0[such as this $9 one])
-* Phillips Screwdriver, two sizes, #1 and #2
+* USB to Ethernet Adapter (https://www.amazon.com/dp/B00M77HMU0[such as this $10 one])
+* Non-Magnetic Phillips Screwdriver, two sizes, #1 and #2 
 * Needle Nose Pliers
-* Anti-Static Wrist Strap
+* Anti-Static Wrist Strap (https://www.amazon.com/dp/B08CXQN86W[such as this $6 one])
 
 
 === Optional Resources
@@ -37,6 +38,7 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
+* IHCC D2L (https://inverhills.learn.minnstate.edu)
 * Cisco Networking Academy (http://www.netacad.com)
 
 +
@@ -48,7 +50,7 @@ WARNING: It is important that you keep an accurate email address on file with th
 * Equipment Labs in the PC Hardware and Software course must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
 * Some labs may be completed using the remote Netlab system. These labs must be completed using the Inver Hills Netlab system and should normally be completed in class but may be completed at home with specific instructor permission.
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
-* Additional open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  
+* Additional open lab time on campus may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
 
 == Course Objectives
 The student will be able to:
@@ -118,7 +120,7 @@ If you miss or do poorly on a regular unit/module/chapter exam (not a final exam
 |===
 
 === Grading Method and Availability
-Grades for each course is calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
+Grades for each course is calculated based on a weighted grade system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. You should be sure to understand how weighted grades work as they can make assignments that are not worth many points actually much more important than it may seem at first glance. Final grades are normally rounded to the nearest whole number but the instructor may round up based on student participation and individual improvement.
  
 [%autowidth,options="header"]
 |===
@@ -135,9 +137,33 @@ Grades for each course is calculated based on a weighted points system. Each ass
 |15% 
 |===
 
-Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.
+Detailed information about assignments and which grade category they are included in is on the "Assignments" page of the ITC Info course website.
 
-Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
+Your grade on most activities can be found in the D2L gradebook for the course; however, exam grades are located on the Cisco Networking Academy website until they are copied into D2L at the end of the semester.
+
+WARNING: The final grade shown in both the Cisco Networking Academy gradebook and the D2L gradebook will be incorrect until all grades are synchronized at the end of the semester and the grading is adjusted to show that missing assignments count as 0 instead of being ignored. You should not trust anything that says final grade to check how you are doing in the course until and unless your instructor explicitly states that final grades are up to date. To find out how you are doing in the course see the next section of the syllabus.
+
+=== Figuring Out How You Are Doing in this Class
+A common question of students is "How am I doing in this class?" but it is a very difficult thing for your instructor to answer because students often want different levels of detail and have different expectations about both what kind of information they should get when they ask this question and what it means to be "doing well". Do not wait until near the end of the semester to review your progress in the course. By then both most assignments have already been due for some time and there is little time to make any changes to how you have been doing things.
+
+There are really three approaches to checking your progress in the course:
+
+The first and simplest level is just a quick check-up to see if you've been doing all the work required and if there are any scores that seem wildly out of wack. Your instructor is usually willing to help you assess this as it can be done in just a few minutes. This involves opening any and all of the grade books that are used in the class and reviewing your scores (as well as noting any assingments you have not turned in). Be sure to pay close attention to what category each assignment will end up in when your final grade is calculated. This is a quick way to check on how things are going but won't give you a specific grade you're currently at or a grade you're likely to receive in the class.
+
+If you want a more solid idea of where you are at right now in the course you'll need to spend a bit more time working out your exact current grade in each category. You should not use your total category scores from online gradebooks as they vary quite a bit in how they handle missing assignments (until the end of the semester when they become 0s) amongst other things. Instead, you should put build a spreadsheet with a list of every assignment in a program such as OpenOffice Calc, Microsoft Excel, or Google Sheets.
+
+. Put the assignment name in one column, your score in another column, the total possible points on the assignment in a third column, and the grade category the assignment goes into in a fourth column.
+. Sort the list of assignments by the grade category column so that all assignments in each grade category are next to one another.
+. Calculate your average percentage on the assignments in each category (add up all the points you earned in the category, and divide by all the points possible in the category)
+. Look at your average percentage in each category as well as how important the category is to your final grade (in the above section of the syllabus) and decide if you are happy with your progress so far.
+
+It's still not really possible to give an exact grade to you because there are many things which don't come into play until the very end of the course such as final exams, final skills exams, presentations, etc. So, if you want to go a step further and estimate your final grade what you should do is to keep working with your spreadsheet you started above.
+. Add in all assignments which are not graded yet or are not due yet so that the spreadsheet includes all the assignments that will exist on the last day of the class.
+. Put in estimates for the earned points based on what you think you will get on each of those assignments
+. Calculate your average percentage on the assignments in each category (add up all the points you earned or estimated you will earn in the category, and divide by all the points possible in the category)
+. Take the average percentage in each category and multiply it by the weighted percentage for the category (in the above section of the syllabus) and add all of those values together to get your estimated final grade (assuiming the score you get on all remaining assignments is what you estimated).
+
+If you are satisfied with how you are doing both on individual assignments as well as in each category of assignments then you probably don't need to make a change. If you are not satisfied and you know what you need to do to get higher scores that's easy, if you don't know how to improve your scores it is a good idea to ask your instructor about what you could do. Asking the instructor how you can improve your grade at the very end of the semester is not really useful because the answer is there is not much you can usually do after an assignment is due to change the grade and it's annoying to your instructor. For this reason it's always a good idea to monitor your grade throughout the semester and ask your instructor about it as soon as you notice something concerning.
 
 CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
 
