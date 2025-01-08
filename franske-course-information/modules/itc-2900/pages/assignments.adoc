@@ -4,6 +4,7 @@
 After your team has selected a project to work on your next objective is to develop a Statement of Work (SoW). The SoW is your opportunity to take the very high level description of the project you were given and turn it into a more detailed description of your specific goals, operational procedures and timeline for the project. In order to successfully do this you will need to meet with the instructor and/or sponsor of the project and any other involved or related parties. One way to think of the SoW is as part of the contract you, as a consulting team, have with the project sponsor and ensure everyone is on the same page.
 
 Goals for the SoW:
+
 * Clearly define the purpose of the project / problem statement in your own words. Make sure that you understand what is important to the sponsor.
 * Give an overview/background of the technology involved. Make sure you have a basic understanding of the concepts you will be investigating and the problems you might encounter. Show that you have already started background research on the project.
 * Define the scope of work and deliverables. What will you need to do for the project sponsor to consider this a success?
