@@ -1,17 +1,18 @@
 = ITC-2621 Official Course Schedule
 
-== Jan 9
+== Jan 14: Session 1
 === Readings to do this week
 * Chapter 1
 
 === Other Work to do this week
+* Course Introduction Exam - Complete on D2L Website
 * Online Discussion Forum Chapter 1 First Post
 * Chapter 1 Labs
 
 === Assignments Due by 6pm Today
 * None
 
-== Jan 16
+== Jan 21: Session 2
 === Readings to do this week
 * Chapter 2
 * Chapter 3
@@ -24,10 +25,11 @@
 * Chapter 3 Labs
 
 === Assignments Due by 6pm Today
+* Course Introduction Exam
 * Online Discussion Forum Chapter 1 First Post
 * Chapter 1 Lab Report
 
-== Jan 23
+== Jan 28: Session 3
 === Readings to do this week
 * Chapter 4
 
@@ -44,7 +46,7 @@
 * Chapter 2 Lab Report
 * Chapter 3 Lab Report
 
-== Jan 30
+== Feb 4: Session 4
 === Readings to do this week
 * Chapter 5
 * Chapter 6
@@ -63,7 +65,7 @@
 * Online Discussion Forum Chapters 4 First Post
 * Chapter 4 Lab Report
 
-== Feb 6
+== Feb 11: Session 5
 === Readings to do this week
 * Chapter 7
 
@@ -81,7 +83,7 @@
 * Chapter 6 Lab Report
 * Chapters 1 - 5: Routing and EIGRP Exam
 
-== Feb 13
+== Feb 18: Session 6
 === Readings to do this week
 * Chapter 8
 
@@ -96,7 +98,7 @@
 * Online Discussion Forum Chapters 7 First Post
 * Chapter 7 Lab Report
 
-== Feb 20
+== Feb 25: Session 7
 === Readings to do this week
 * Chapter 9
 * Chapter 10
@@ -114,7 +116,7 @@
 * Online Discussion Forum Chapters 8 First Post
 * Chapter 8 Lab Report
 
-== Feb 27
+== Mar 4: Session 8
 === Readings to do this week
 * Chapter 11
 
@@ -132,10 +134,10 @@
 * Chapter 10 Lab Report
 * Chapters 6 - 10: OSPF Exam
 
-== Mar 5
+== Mar 11: Spring Break
 * Spring Break!
 
-== Mar 12
+== Mar 18: Session 9
 === Readings to do this week
 * Chapter 12
 * Chapter 13
@@ -153,7 +155,7 @@
 * Online Discussion Forum Chapters 11 First Post
 * Chapter 11 Lab Report
 
-== Mar 19
+== Mar 25: Session 10
 === Readings to do this week
 * Chapter 14
 
@@ -171,7 +173,7 @@
 * Chapter 12 Lab Report
 * Chapter 13 Lab Report
 
-== Mar 26
+== Apr 1: Session 11
 === Readings to do this week
 * Chapter 15
 * Chapter 16
@@ -190,7 +192,7 @@
 * Chapter 14 Lab Report
 * Chapters 11 - 14: BGP Exam
 
-== Apr 2
+== Apr 8: Session 12
 === Readings to do this week
 * Chapter 17
 * Chapter 18
@@ -211,7 +213,7 @@
 * Chapter 15 Lab Report
 * Chapter 16 Lab Report
 
-== Apr 9
+== Apr 15: Session 13
 === Readings to do this week
 * Chapter 19
 * Chapter 20
@@ -234,7 +236,10 @@
 * Chapter 18 Lab Report
 * Chapters 15 - 17: Conditional Forwarding and Route Redistribution Exam
 
-== Apr 16
+== Apr 22: Session 14
+
+IMPORTANT: Ben will likely be unavailable this week, everyone should submit an online course progress form instead of meeting this week.
+
 === Readings to do this week
 * Chapter 21
 * Chapter 22
@@ -256,7 +261,7 @@
 * Chapter 20 Lab Report
 * Chapters 18 - 20: VPNs Exam
 
-== Apr 23
+== Apr 29: Session 15
 === Readings to do this week
 * Chapter 23
 
@@ -275,12 +280,14 @@
 * Chapter 21 Lab Report
 * Chapter 22 Lab Report
 
-== Apr 30
+== May 6: Session 16
 
 === Other Work to do this week
 * Online Discussion Forum Chapters 23 Response Post
-* Take Skills Final Exam (two parts!) *Must be done between May 2-6!*
+* Take Skills Final Exam (two parts!) *Must be done between May 6-10!*
 * Take Certification Practice Exam
+* Cisco Course Feedback
+* Online Final Exam
 
 === Assignments Due by 6pm Today
 * Chapters 21 - 23: Infrastructure Security and Management Exam
@@ -289,16 +296,16 @@
 * Online Discussion Forum Chapters 23 First Post
 * Chapter 23 Lab Report
 
-== May 7
+== May 13: Final Exam Week
 === Notes
-* No course meeting or progress report required today, contact your instructor if you would like to schedule one.
+* No course meeting or progress report required today
 
 === Assignments Due by 6pm Today
 * Online Discussion Forum Chapters 23 Response Post
 * Certification Practice Exam
 
 === Assignments Due by 11:59pm Today
-* Course Feedback
+* Cisco Course Feedback
 * Online Final Exam
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
