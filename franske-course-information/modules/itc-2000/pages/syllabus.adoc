@@ -37,7 +37,7 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 * Revolution in the Valley: The Insanely Great Story of How the Mac Was Made (Hertzfeld) ISBN: 978-0596007195
 
 === Course Website(s)
-* ITC Info Site for ITC-2000 (xref:index.adoc)
+* ITC Info Site for ITC-2000 (https://info.ihitc.net/franske-courses/current/itc-2000/)
 * IHCC D2L (https://inverhills.learn.minnstate.edu)
 * Cisco Networking Academy (http://www.netacad.com)
 
@@ -83,11 +83,11 @@ The student will be able to:
 * Summarize the function and types of adapter cards
 
 == Assignments and Grading
-Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation activities, a skills exam, and a final exam. A list and description of all assignments is linked to from here: xref:index.adoc It is expected that assignments will be completed and turned in on time and as specified.
+Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation activities, a skills exam, and a final exam. A list and description of all assignments is linked to from here: https://info.ihitc.net/franske-courses/current/itc-2000/ It is expected that assignments will be completed and turned in on time and as specified.
 
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
 
-Deadlines and due dates for assignments are listed on the official course schedule linked to here: xref:index.adoc
+Deadlines and due dates for assignments are listed on the official course schedule linked to here: https://info.ihitc.net/franske-courses/current/itc-2000/
 
 WARNING: It is ultimately your responsibility to ensure that all required assignments as identified on the ITC Info Site course assignments page are completed and submitted by the deadline on the ITC Info Site course schedule page. Do not rely on looking at a gradebook or dates in any online platforms to determine what assignments are due or when, the information on the ITC Info Site always takes precedence over anything else.
 
