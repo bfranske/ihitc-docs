@@ -37,13 +37,13 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 * Revolution in the Valley: The Insanely Great Story of How the Mac Was Made (Hertzfeld) ISBN: 978-0596007195
 
 === Course Website(s)
-* ITC Info (https://info.ihitc.net)
+* ITC Info Site for ITC-2000 (xref:index.adoc)
 * IHCC D2L (https://inverhills.learn.minnstate.edu)
 * Cisco Networking Academy (http://www.netacad.com)
 
 +
 --
-WARNING: It is important that you keep an accurate email address on file with the Cisco Networking Academy site and/or regularly sign on to the site to check your Networking Academy Inbox. Important and time-sensitive course information may be distributed through the Networking Academy messaging system. If you have an accurate email address you can receive the information by email as well.
+WARNING: It is important that you keep an accurate email address on file with the Cisco Networking Academy site.
 --
 
 == Lab Time
@@ -83,14 +83,20 @@ The student will be able to:
 * Summarize the function and types of adapter cards
 
 == Assignments and Grading
-Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
+Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation activities, a skills exam, and a final exam. A list and description of all assignments is linked to from here: xref:index.adoc It is expected that assignments will be completed and turned in on time and as specified.
 
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+Deadlines and due dates for assignments are listed on the official course schedule linked to here: xref:index.adoc
+
+WARNING: It is ultimately your responsibility to ensure that all required assignments as identified on the ITC Info Site course assignments page are completed and submitted by the deadline on the ITC Info Site course schedule page. Do not rely on looking at a gradebook or dates in any online platforms to determine what assignments are due or when, the information on the ITC Info Site always takes precedence over anything else.
 
 === Late Assignments and Extensions
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
 
-If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary. 
+If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary.
+
+A last date and time that any late work may be turned in may be included on the course schedule, if so work turned in after that deadline will not be graded and will not be worth any points. If no date is specified late work may be submitted for credit until the end of the last regular class meeting.
 
 === Grading Scale
 [%autowidth,options="header"]
