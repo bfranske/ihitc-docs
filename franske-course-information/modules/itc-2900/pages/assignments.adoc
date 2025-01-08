@@ -1,0 +1,99 @@
+= ITC-2900 Assignment Details and Directions
+
+== Statement of Work
+After your team has selected a project to work on your next objective is to develop a Statement of Work (SoW). The SoW is your opportunity to take the very high level description of the project you were given and turn it into a more detailed description of your specific goals, operational procedures and timeline for the project. In order to successfully do this you will need to meet with the instructor and/or sponsor of the project and any other involved or related parties. One way to think of the SoW is as part of the contract you, as a consulting team, have with the project sponsor and ensure everyone is on the same page.
+
+Goals for the SoW:
+* Clearly define the purpose of the project / problem statement in your own words. Make sure that you understand what is important to the sponsor.
+* Give an overview/background of the technology involved. Make sure you have a basic understanding of the concepts you will be investigating and the problems you might encounter. Show that you have already started background research on the project.
+* Define the scope of work and deliverables. What will you need to do for the project sponsor to consider this a success?
+* Describe any resources or cooperation you believe you will need in order to be successful
+* Develop a plan/schedule for your project, this can be updated as needed but you need to know when you are going to try and have certain phases of the project complete.
+
+SoWs should be written in a narrative (paragraph) format (with the exception of a timeline) and should typically be about 850-1200 words (three or four pages). Your SoW will be graded based on how you meet the goals for the SoW listed above as well as professionalism (grammar, punctuation, etc.)
+
+Google "statement of work" for more information about these as well as some examples. 
+
+== Project Work Log
+* Each INDIVIDUAL in your group must keep a work log indicating what was worked on, when, and for how long. This should be written in narrative (paragraph) format. You should probably be writing at least 2 paragraphs each week about the work you have done and details from your research. Logs must be turned in at the end of the course but must be kept up to date throughout the course. Your instructor may ask to see a copy of your work log at any time.
+* You should *also* keep a separate log of the hours you INDIVIDUALLY worked on the project in a spreadsheet by date and category so that they can be graphed and included in your final presentation.
+* As a three credit course this course is estimated to require about 9 hours of work per week from each student, or about 144 hours over the entire semester. The purpose of your spreadsheet is to track how many hours you are spending on the project. The purpose of your work log is to provide a good place to save links to reference material, notes you want to remember about what you've done, and to justify (back-up) the claim of how many hours you spent. Of course, if your group does phenomenal presentations and whitepaper and everyone appears to have contributed equally we're not going to look too closely other than to see that you have kept a log meeting the requirements. However, if there are any issues with your presentations or paper (and there's almost always something that could be better) or someone people in your group seems to have contributed much more or less than others the work logs can give important data (along with other evidence) of what went on and so can influence other areas of your grade as well. Bottom line: be thorough and dedicated to keeping good logs!
+* Tip: Keep your individual narrative log in a single word processing document so that you can submit the entire log at once and not have to combine multiple files together into one to submit it.
+
+== Group Meetings and Minutes
+It is expected that your group meets synchronously at least once a week (more is always encouraged) to work on the project and to update each other about the status of your individual parts of the project, demonstrate and test systems, etc. This would be in addition to meeting time spent with your instructor.
+
+Someone in your group needs to take meeting minutes at these meetings and accurately capture the status of the project as well as the discussions and contributions of each team member. These written reports need to be available to the instructor upon request and submitted en masse at the end of the project. These minutes should at the minimum contain a list of the group members present, the location of the meeting, the time the meeting started, the time the meeting ended, a report from each member about what they have done since the last meeting, a summary of what was discussed, and what each member agrees to work on before the next meeting.
+
+Tip: When you submit them at the end of the project you'll want to have them all in one document so it's easiest to keep a running document with all your group meeting minutes throughout the course rather than having to put it together at the end. 
+
+== Instructor Progress Updates
+* At least one representative of your group must meet weekly updates with the instructor to discuss the progress of your group.
+** You should discuss your current project status amongst your group each week in your regular group meeting before meeting with the instructor
+** Meetings should be scheduled in advance, it is usually best to schedule the whole semester at the beginning
+** Meetings can be held by Zoom web conference or in person
+* At least once every two weeks (every other week) your entire group must have a meeting with the instructor where your progress is discussed
+** You should discuss your current project status amongst your group each week in your regular group meeting before meeting with the instructor
+** Meetings should be scheduled in advance, it is usually best to schedule the whole semester at the beginning
+** Meetings can be held by Zoom web conference or in person
+* Missing meetings unless it's been previously cleared with the instructor, will result in lower grades in this category for you individually and/or your entire group. Also, this is not just a participation score, the meetings need to provide valuable information about things going on in your group and show you are making adequate progress towards completion of the project in order to receive points.
+* For Spring 2025 there will be one week without meetings required (as well as spring break) the exact dates of this week are TBD.
+
+== Presentations
+Your team will be presenting twice in this course.
+
+=== YouTube Presentation
+Your group will create and upload a preliminary results presentation to YouTube about a week and a half before your final presentation where you will be presenting broad information about what you did to an interested audience. These presentations will be about 12-15 minutes long and should be engaging, interesting, and informative to people who might be searching YouTube for information about the topic of your project. These videos should NOT just be a narrated power point presentation, that is not very engaging and interesting. Would you stop to watch someone give a power point presentation on YouTube? You should probably watch some popular technical presentations on YouTube before you create yours and try to incorporate some of the things that you think makes them more interesting to watch. Demonstrations are usually one good way to keep things engaging. Clearly explaining what you are doing and why at each step is also critical to having a good presentation.
+
+The https://obsproject.com[Open Broadcaster Software] is free, open-source, cross platform software which allows you to capture input from webcams, microphones, and your screen to create videos. The https://www.shotcut.org/[Shotcut] or https://www.openshot.org/[OpenShot] free, open-source video editing software programs allows you to edit and title your presentation. You can feel free to use other tools, but these are free and cross platform.
+
+=== Final Presentation
+
+At the end of the class you will give a final presentation of 20-25 minutes to an audience including other ITC students, faculty members, college administration, advisory board members, and employers. You should be prepared to discuss the background of your problem, the methodology you used, your testing, results, and conclusions. At the end of your presentation you should be prepared for a few minutes of Q&A from the audience as well. A copy of your presentation in electronic format must also be provided to the instructor.
+
+==== Evaluation
+
+Your final presentation will be evaluated by your instructor, members of the ITC advisory committee, other students, and yourselves. You will need to justify with examples scores you give in each of these four areas:
+
+* *Topic Content:* Was the topic well defined? Were the key findings described? Was the content presented accurate and did it provide a good overview of the topic and work done? Was there evidence of research, problem solving, teamwork, and new insights? (out of 30 points)
+* *Presentation:* How well did the group do explaining the content? Was the presentation well organized, easy to follow, and consistent in its focus? Were they able to adequately answer appropriate questions from the class? Was the presentation professional and well prepared? (out of 30 points)
+* *Engagement & Delivery:* How well did the group keep the audience engaged in their presentation? This could include receiving or asking questions from the audience, using appropriate visual aids, giving a demonstration, etc. (out of 20 points)
+* *Overall Quality:* Assume these students were a team of employees or a consulting group you had asked to research this topic, experiment with the technology and prepare a briefing for you, would you be satisfied with their performance and why? (out of 20 points)
+
+== Final Written Report
+
+At the end of your project you must compile all your work into a technical whitepaper and submit it in paper and electronic format to the instructor. These whitepapers are typically 11,700 - 16,500 words ex (about 50-75 pages) in length excluding appendices and include:
+
+* Table of Contents - Help people find the parts they're interested in
+* Executive Summary - Provide a summary of about 500-700 words (this is about two pages) giving the highlights of everything else in the whitepaper, especially method, results, and conclusions. This should make someone interested in this topic want to read your entire whitepaper or help them find what they're interested in specifically. Hint: Write this after you finish the rest of it
+* Thank you's/dedications/etc.
+* Statement of Work - Possibly modified and updated as needed. Introduce and explain the problem/project and how you are going about it. This is about 850-1200 words (three or four pages) and if you have not made changes to the scope of your work it may just be inserting your final SoW from earlier in the course.
+* Background/Research - What technologies did you look at? What important concepts are there to understand about this topic? Think of this part as a traditional research paper you might write for a composition course. This section is typically 3500-4900 words (about 10-15 pages).
+* Methodology - Explain how you built your test environment, how you did your testing, what criteria were you evaluating and why (hint, your research should tell you what criteria is important and how to measure it), lots and lots of documentation so that someone else reading this could duplicate your results. This section frequently includes diagrams of your topology, instructions you have written, short code/configuration snippets, etc. Long complete configuration files or code should be placed in an appendix. How long this section should be in words varies considerably based on your specific project but is typically about 5000-7000 words (they are usually about 20-25 pages, notice the fewer words per page though compared with the background section because there are likely more lists, diagrams, code/configuration etc.)
+* Results - What did you find when you ran your tests. No opinions here, don't analyze the data, just provide it. This is typically about 400-700 words (about 2-3 pages) depending on your particular project and may also include graphs, charts, screenshots, etc.
+* Conclusions/Analysis - Provide your opinions here and back them up with the results you gathered. This is typically 1400-2000 words (about 6-8 pages) and may also include graphs, charts, screenshots, etc.
+* Appendices - Include any critical technical documentation of your configurations, special/detailed setup instructions for tricky things, etc. in appendices at the end of the whitepaper.
+
+These sections and exactly what each might include vary from project to project so be sure to consult with your instructor and take a look at the many sample papers from previous students to get an idea of what this might look like. These are not included in the word/page counts above.
+
+One word of caution about word/page counts. The amount and type of content you need to thoroughly describe your project varies greatly from one project to another so these are general guidelines. It's difficult to fully explore your semester long project in much less than 11,700 words or 50 pages but for many projects that is also not nearly enough detail. You are graded not so much on whether you have the right number of words or pages but on how completely your paper and project explore the topic you have chosen. Be thorough but don't add unnecessary filler material. When in doubt talk to your instructor, share outlines and drafts, and get feedback along the way. Some groups have found that it takes 90 or more pages (excluding appendices) to fully explain their topic and project. Things like code/configuration examples, installation/configuration instructions, and screenshots should be included as needed to explain your topic but should absolutely not be used as additional "filler". It's obvious when this has been done and is taken into account when grading. 
+
+== Participation and Peer Evaluation
+
+At the end of the course you will be asked to evaluate how well each person on your team (including yourself) contributed to the effort. Do not let these evaluations be a surprise! If you are having problems with team members you should talk to them about it first and if things do not involve make sure the instructor is aware of it well before the end of the course. The quality of your peer evaluations (how well you write up evaluations of other group members and yourself) will be graded out of 20 points in the "participation and peer evaluations" section of your grade.
+
+Because group work is a key component of this course your grade will be adjusted based on your performance as a member of the group. This is done by collecting peer evaluations at the end of the course and by observation of the instructor during progress checks. Your grade on the group portions of the course (Statement of Work, Presentations, Final Written Report) will be multiplied by a "peer adjustment factor" ranging from 0% to 100% where 100% means you were equal in your contributions to the group compared with other group members and 0% means you had no participation in group work.
+
+For each group member, including yourself, you need to turn in a peer evaluation. Below are six categories as well as some questions to get you thinking about how well people participated in your group. You should write an evaluation for each group member (including yourself), covering each of the categories, as well as any general comments. Each category should be clearly identified and addressed in paragraph form with at least a few sentence. For most people these evaluations end up being about 300-400 words _per group member_.
+
+Here are the categories to discuss about each person:
+
+* *Contributions:* Did they regularly provide useful ideas, insights and research to the group? Were they a leader? How hard did they try to help the group effort? What specifically did they add to the group?
+* *Time Management:* Was their time well used throughout the project? Did deadlines have to get adjusted because work was not done on time? How did their ability to get things done affect the group?
+* *Preparedness/Attendance:* Were needed materials (VMs, equipment, etc.) that were the responsibility of this group member available and ready when needed by other group members? Was the group member on-time and ready to work during group work sessions?
+* *Attitude:* Was the group member unduly critical of the project or the work of others in the group or did they support the group and engage in the project?
+* *Teamwork:* Did they listen to, share with, and support the efforts of other group members? Did they try to keep working with others on the team or did they “go it alone”?
+* *Quality of Work:* How was the work done by this member? Did other group members need to check and correct problems regularly?
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

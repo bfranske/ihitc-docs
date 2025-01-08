@@ -1,8 +1,13 @@
+=== Artificial Intelligence (AI) Use
+It should be assumed that all the work you turn in for this class is your own and that the use of "artificial intelligence", "large language models" and the like, hereafter referred to as "AI", are not acceptable aids in completing assignments for this class. In particular, you may not use AI to assist in writing discussion posts, lab reports, project reports, papers, or any other written assignments for the course. Other uses of AI for any assignments in the class are also prohibited including using it to assist in answering questions on exams, complete skills exams, or any other assignments.
+
+There may be some limited circumstances where it would be acceptable to use AI in this course; however, in all cases you must discuss the use of AI with the instructor before using it and must receive express and specific permission to do so from the instructor as well as adhere to the limitations on it's use the instructor provides. *Always ask first!*
+
 === Attendance
 After the first class meeting formal attendance will not be taken; however, students are expected to arrive to class on time and participate in class. Students are expected to attend all sessions of each class in which they are enrolled. If attendance is a problem participation assignments may be given and included in the course grade. If an illness or emergency results in an absence, students should contact their instructors as soon as possible to determine if missed work can be completed. A student may receive a course grade of FN or NC after two consecutive weeks of unexcused absence at any time during the semester. Class attendance is defined as being physically present in the classroom. Online attendance is defined as having submitted an assignment, taken a quiz, or posted/made a course content-related comment on the discussion/chat board for the course in which the student is registered.  
 
 === Use and Access to Technology
-You will need daily access to a high-speed internet connection (DSL, cable modem, 4G, fiber, or equivalent) and a modern computer to successfully complete this course. 
+You will need daily access to a high-speed internet connection and a modern computer to successfully complete this course. 
 
 === Academic Integrity (Plagiarism and Cheating)
 Academic integrity is one of the most important values in higher education. This principle requires that each student's work represents his or her own personal efforts and that the student acknowledges the intellectual contributions of others. The foundation for this principle is student academic honesty. IHCC students are expected to honor the requirements of the College Academic Integrity Policy. The following are some examples of unacceptable academic practices that will be viewed as policy violations.

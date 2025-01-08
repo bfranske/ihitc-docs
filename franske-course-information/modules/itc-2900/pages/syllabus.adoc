@@ -1,0 +1,141 @@
+= ITC-2611 Syllabus
+
+Course Name: Information Technology Careers Capstone +
+Course Number: ITC-2900 +
+Instructor: Dr. Ben Franske +
+Term: Spring 2025 (1/13/2025-5/14/2025) +
+Meetings: On Campus: 1/16/2025 & 5/2/2025+
+Location: Online
+
+== Instructor Contact Information
+
+include::ROOT:partial$instructor-contact.adoc[]
+
+== General Course Information
+=== Prerequisite(s)
+
+* ITC 2430
+* ITC 2480
+* Should be taken your LAST spring semester
+
+=== Course Description
+
+Provides students an opportunity to work with an inside or outside organization in a team environment on a course-long project. Focuses on concepts of problem identification, brainstorming, design, problem solving, teamwork, creativity and evaluation. Present findings in oral and written formats to faculty and industry representatives. This course integrates knowledge and skills attained throughout the Information Technology Careers programs and should be taken your final semester.  
+
+=== Required Resources
+
+* External USB Drive, 8GB free minimum, flash drive or hard drive
+
+=== Optional Resources
+
+
+=== Course Website(s)
+
+* ITC Info Course Page (https://info.ihitc.net/franske-courses/current/itc-2900/)
+* IHCC D2L (https://inverhills.learn.minnstate.edu)
+
+== Lab Time
+
+* Open on campus lab time is available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
+
+== Course Objectives
+
+The student will be able to:
+
+* Apply design, problem solving and research skills to an information technology problem.
+* Develop knowledge and research skills related to current and future trends in IT.
+* Research industry trends and best practices.
+* Develop a detailed project plan for an IT project.
+* Effectively use written and oral communication skills.
+* Demonstrate project management skills.
+* Apply teamwork skills to an IT problem.
+* Analyze project results.
+* Synthesis of project results into presentation and report format.
+
+== Course Design
+
+This course is a project oriented capstone course. You will be integrating skills from many of your other courses as well as researching and reporting out on new information. Your group will largely be responsible for setting your own schedule but will need to have regular meetings with your instructor on progress. Information about assignments that need to be completed is available on the course website. 
+
+== Assignments and Grading
+
+Grades will be determined by performance on a statement of work paper, project work log, final presentation, final written report, and peer evaluations. A list and description of all assignments is linked to from here: https://info.ihitc.net/franske-courses/current/itc-2480/ It is expected that assignments will be completed and turned in on time and as specified.
+
+Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+Deadlines and due dates for assignments are listed on the official course schedule linked to here: https://info.ihitc.net/franske-courses/current/itc-2480/
+
+WARNING: It is ultimately your responsibility to ensure that all required assignments as identified on the ITC Info Site course assignments page are completed and submitted by the deadline on the ITC Info Site course schedule page. Do not rely on looking at a gradebook or dates in any online platforms to determine what assignments are due or when, the information on the ITC Info Site always takes precedence over anything else.
+
+=== Late Assignments and Extensions
+
+If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
+
+=== Grading Scale
+
+[%autowidth,options="header"]
+|===
+|Letter Grade |Percentage Range |Description
+|A
+|100%-90%
+|achievement that is outstanding relative to the level necessary to meet course requirements
+|B
+|89%-80%
+|achievement that is significantly above the level necessary to meet course requirements
+|C
+|79%-70%
+|achievement that meets the course requirements in every respect
+|D
+|69%-65%
+|achievement that is worthy of credit even though it fails to meet fully the course requirements
+|F
+|64%-0%
+|Represents failure and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|N
+|
+|Represents no credit and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|I
+|
+|Represents incomplete and is assigned at the discretion of the instructor when, due to extraordinary circumstances, e.g., hospitalization, a student is prevented from completing the work of the course on time. Requires a written agreement between instructor and student. Students must request an incomplete from the instructor.
+|===
+
+=== Grading Method and Availability
+
+Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
+ 
+[%autowidth,options="header"]
+|===
+|Category |Percent of Final Grade
+|Statement of Work 
+|12%
+|Project Work Log & Progress Updates 
+|25%
+|Presentations 
+|25%
+|Final Written Report
+|25%
+|Participation & Peer Evaluation Writeups
+|13% 
+|===
+
+Detailed information about assignments and which grade category they are included in is on the "Assignments" page of the ITC Info course website.
+
+IMPORTANT: *Because group work is a key component of this course your grade will be adjusted based on your performance as a member of the group.* This is done by collecting peer evaluations at the end of the course and by observation of the instructor during progress checks. Your grade on the group portions of the course (Statement of Work, Presentations, Final Written Report) will be multiplied by a "peer adjustment factor" ranging from 0% to 100% where 100% means you were equal in your contributions to the group compared with other group members and 0% means you had no participation in group work. This peer adjustment factor will be determined by the instructor based on their observations, interactions with members of your groups, and formal and informal peer reviews. *If you have concerns about a member of your group or your own level of participation you should bring them up with the other members of your group as well as the instructor sooner rather than later.*
+
+WARNING: Due to the project and presentation nature of this class the majority of assignments are not due until the end of the course. As such it is not generally possible to determine your standing until the end of the semester. Any questions or concerns you have about your progress and grade should be brought up with the instructor during the regular progress updates. 
+
+=== Figuring Out How You Are Doing in this Class
+Due to the project and presentation nature of this class the majority of assignments are not due until the end of the course. As such it is not generally possible to determine your standing until the end of the semester. Any questions or concerns you have about your progress and grade should be brought up with the instructor during the regular progress updates. 
+
+=== Extra Credit
+
+Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Unless otherwise noted extra credit will be added to the Lab/Homework Assignments category. 
+
+== Course and Campus Policies
+
+include::ROOT:partial$campus-policies.adoc[]
+
+== Updates to this Syllabus
+
+The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
