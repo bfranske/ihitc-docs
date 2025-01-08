@@ -2,9 +2,9 @@
 Course Name: Administering Linux Operating Systems +
 Course Number: ITC-2830 +
 Instructor: Dr. Ben Franske +
-Term: Fall 2024 (8/26/2024-12/19/2024) +
+Term: Spring 2025 (1/13/2025-5/14/2025) +
 Meetings: No required meetings +
-Location: Online
+Location: Online Asynchronous
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
@@ -26,8 +26,8 @@ Covers the installation, configuration and maintenance of Linux systems with an 
 No optional resources have been suggested for this course.
 
 === Course Website(s)
-* ITC Info (https://info.ihitc.net)
-* ITC Class Server (https://class.ihitc.net - access through link in D2L to sign in)
+* ITC Info Site for ITC-2480 (https://info.ihitc.net/franske-courses/current/itc-2480/)
+* IHCC D2L (https://inverhills.learn.minnstate.edu)
 
 == Lab Time
 All lab activities can be completed remotely but campus ITC labs will be available for your use during during office hours on a first come, first served basis. Open lab time may also be available under the supervision of the lab assistant, see the xref:program-info:ROOT:facstaff.adoc[faculty and staff page] for lab assistant contact information to reserve times. Students who do not show up for lab hours they have scheduled may be restricted from reserving lab hours in the future. 
@@ -78,12 +78,18 @@ Students will be able to:
 This course will be taught as an online course. You will be responsible for completing required readings in the textbook or online, watching tutorial videos, listening to recorded podcasts, completing labs in the IHCC virtual lab environment, participating in online discussions, and completing online exams. 
 
 == Assignments and Grading
-Grades will be determined by performance on lab exercises, participation, and a skills exam. A description of assignments and directions for assignments are available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
+Grades will be determined by performance on lab exercises, participation, and a skills exam. A list and description of all assignments is linked to from here: https://info.ihitc.net/franske-courses/current/itc-2480/ It is expected that assignments will be completed and turned in on time and as specified.
 
-Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your course grade depending on the type of the assignment.
+Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+Deadlines and due dates for assignments are listed on the official course schedule linked to here: https://info.ihitc.net/franske-courses/current/itc-2480/
+
+WARNING: It is ultimately your responsibility to ensure that all required assignments as identified on the ITC Info Site course assignments page are completed and submitted by the deadline on the ITC Info Site course schedule page. Do not rely on looking at a gradebook or dates in any online platforms to determine what assignments are due or when, the information on the ITC Info Site always takes precedence over anything else.
 
 === Late Assignments and Extensions
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor. 
+
+A last date and time that any late work may be turned in may be included on the course schedule, if so work turned in after that deadline will not be graded and will not be worth any points. If no date is specified late work may be submitted for credit until the end of the last regular class meeting.
 
 === Grading Scale
 [%autowidth,options="header"]
@@ -125,9 +131,35 @@ Grades for this course are calculated based on a weighted points system. Each as
 |25% 
 |===
 
-Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
+Detailed information about assignments and which grade category they are included in is on the "Assignments" page of the ITC Info course website.
 
-Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+Your grade activities can be found in the D2L gradebook for the course.
+
+WARNING: The final grade shown in the D2L gradebook will be incorrect until all grades are entered at the end of the semester and the grading is adjusted to show that missing assignments count as 0 instead of being ignored. You should not trust anything that says final grade to check how you are doing in the course until and unless your instructor explicitly states that final grades are up to date. To find out how you are doing in the course see the next section of the syllabus.
+
+=== Figuring Out How You Are Doing in this Class
+A common question of students is "How am I doing in this class?" but it is a very difficult thing for your instructor to answer because students often want different levels of detail and have different expectations about both what kind of information they should get when they ask this question and what it means to be "doing well". Do not wait until near the end of the semester to review your progress in the course. By then both most assignments have already been due for some time and there is little time to make any changes to how you have been doing things.
+
+There are really three approaches to checking your progress in the course:
+
+The first and simplest level is just a quick check-up to see if you've been doing all the work required and if there are any scores that seem wildly out of wack. Your instructor is usually willing to help you assess this as it can be done in just a few minutes. This involves opening any and all of the grade books that are used in the class and reviewing your scores (as well as noting any assingments you have not turned in). Be sure to pay close attention to what category each assignment will end up in when your final grade is calculated. This is a quick way to check on how things are going but won't give you a specific grade you're currently at or a grade you're likely to receive in the class.
+
+If you want a more solid idea of where you are at right now in the course you'll need to spend a bit more time working out your exact current grade in each category. You should not use your total category scores from online gradebooks as they vary quite a bit in how they handle missing assignments (until the end of the semester when they become 0s) amongst other things. Instead, you should put build a spreadsheet with a list of every assignment in a program such as OpenOffice Calc, Microsoft Excel, or Google Sheets.
+
+. Put the assignment name in one column, your score in another column, the total possible points on the assignment in a third column, and the grade category the assignment goes into in a fourth column.
+. Sort the list of assignments by the grade category column so that all assignments in each grade category are next to one another.
+. Calculate your average percentage on the assignments in each category (add up all the points you earned in the category, and divide by all the points possible in the category)
+. Look at your average percentage in each category as well as how important the category is to your final grade (in the above section of the syllabus) and decide if you are happy with your progress so far.
+
+It's still not really possible to give an exact grade to you because there are many things which don't come into play until the very end of the course such as final exams, final skills exams, presentations, etc. So, if you want to go a step further and estimate your final grade what you should do is to keep working with your spreadsheet you started above.
+. Add in all assignments which are not graded yet or are not due yet so that the spreadsheet includes all the assignments that will exist on the last day of the class.
+. Put in estimates for the earned points based on what you think you will get on each of those assignments
+. Calculate your average percentage on the assignments in each category (add up all the points you earned or estimated you will earn in the category, and divide by all the points possible in the category)
+. Take the average percentage in each category and multiply it by the weighted percentage for the category (in the above section of the syllabus) and add all of those values together to get your estimated final grade (assuiming the score you get on all remaining assignments is what you estimated).
+
+If you are satisfied with how you are doing both on individual assignments as well as in each category of assignments then you probably don't need to make a change. If you are not satisfied and you know what you need to do to get higher scores that's easy, if you don't know how to improve your scores it is a good idea to ask your instructor about what you could do. Asking the instructor how you can improve your grade at the very end of the semester is not really useful because the answer is there is not much you can usually do after an assignment is due to change the grade and it's annoying to your instructor. For this reason it's always a good idea to monitor your grade throughout the semester and ask your instructor about it as soon as you notice something concerning.
+
+CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
 
 === Extra Credit
 Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Extra credit will be added to the Homework, Activities & Participation category. 

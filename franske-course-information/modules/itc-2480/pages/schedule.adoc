@@ -1,6 +1,6 @@
 = ITC-2480 Official Course Schedule and Readings
 
-== Aug 28
+== Jan 13: Week 1
 === Readings to do before the next date
 * Review the course syllabus
 * Review the course schedule
@@ -8,22 +8,24 @@
 * https://debian-handbook.info/browse/stable/the-debian-project.html#sect.what-is-debian[Section 1.1: What Is Debian?] from the Debian Administrator's Handbook
 * https://debian-handbook.info/browse/stable/sect.role-of-distributions.html[Section 1.5: The Role of Distributions] from the Debian Administrator's Handbook
 * https://debian-handbook.info/browse/stable/sect.installation-steps.html[Section 4.2: Installing, Step by Step] from the Debian Administrator's Handbook
+* Watch course introductory video playlist (on D2L site)
 
 === Other Work to do before the next date
-* Make sure you can access the ITC CLASS Server and are enrolled in the ITC-2480 course there
+* Course Introduction Exam - Complete on D2L Website
 * Make sure you can access the Netlab system and are enrolled in the ITC-2480 course there
 * Complete xref:lab1.adoc[Lab 1: Linux Installation and First Steps]
 * Write your first discussion first post about the Topic 1: Linux Installation and First Steps readings and lab activity
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-TIP: Discussion posts are done through the ITC CLASS server in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this ITC Info site.
 
-TIP: Labs in this class will be done remotely or on campus using the Netlab system. You will write a lab report for each lab activity (except the last two scripting activities which will have one combined report). See the assignments page of this info site for more details on how to write a lab report.
+TIP: Labs in this class will be done remotely or on campus using the Netlab system. You will write a lab report for each lab activity (except the last two scripting activities which will have one combined report). See the assignments page of this ITC Info site for more details on how to write a lab report.
 
 === Assignments Due at 11:59pm today
 * None
 
-== Sep 4
+== Jan 20: Week 2
+NOTE: Today is a holiday and campus is closed, due dates for things due today are extended one day to Jan 21
 === Readings to do before the next date
 * Chapters 2, 3, 4, and 18 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
@@ -31,14 +33,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab2.adoc[Lab 2: Command Line Basics, Filesystem Navigation]
 * Write your discussion response posts about the Topic 1: Linux Installation and First Steps readings and lab activity
 * Write your discussion first post about the Topic 2: Command Line Basics, Filesystem Navigation readings and lab activity
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
+* Course Introduction Exam - Complete on D2L Website
 * Lab 1 Report
 * First discussion first post about the Topic 1: Linux Installation and First Steps readings and lab activity
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Sep 11
+== Jan 27: Week 3
 === Readings to do before the next date
 * Chapters 9, 14 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
@@ -46,15 +49,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab3.adoc[Lab 3: User Accounts, Permissions, and Package Management]
 * Write your discussion response posts about Topic 2: Command Line Basics, Filesystem Navigation
 * Write your discussion first post about Topic 3: User Accounts, Permissions, and Package Management
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 2 Report
 * Discussion response posts about the Topic 1: Linux Installation and First Steps readings and lab activity
 * Discussion first post about the Topic 2: Command Line Basics, Filesystem Navigation readings and lab activity
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Sep 18
+== Feb 3: Week 4
 === Readings to do before the next date
 * Chapters 6, 8, 12 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 * https://web.archive.org/web/20240606001921/https://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[Introduction to the nano Text Editor]
@@ -63,15 +66,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab4.adoc[Lab 4: Text Manipulation]
 * Write your discussion response posts about Topic 3: User Accounts, Permissions, and Package Management
 * Write your discussion first post about Topic 4: Text Manipulation
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 3 Report
 * Discussion response posts about Topic 2: Command Line Basics, Filesystem Navigation
 * Discussion first post about Topic 3: User Accounts, Permissions, and Package Management
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Sep 25
+== Feb 10: Week 5
 === Readings to do before the next date
 * http://nginx.org/en/docs/beginners_guide.html[The Nginx Beginner's Guide]
 
@@ -79,15 +82,16 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab5.adoc[Lab 5: Webserver and PHP Installation and Use]
 * Write your discussion response posts about Topic 4: Text Manipulation
 * Write your discussion first post about Topic 5: Webserver and PHP Installation and Use
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 4 Report
 * Discussion response posts about Topic 3: User Accounts, Permissions, and Package Management
 * Discussion first post about Topic 4: Text Manipulation
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Oct 2
+== Feb 17: Week 6
+NOTE: Today is a holiday and campus is closed, due dates for things due today are extended one day to Feb 18
 === Readings to do before the next date
 * https://web.archive.org/web/20240812183254/https://www.guru99.com/introduction-to-database-sql.html[What is a Database? Definition, Meaning, Types]
 * https://web.archive.org/web/20200813163323/http://zetcode.com/mysql/introduction[Introduction to MySQL]
@@ -99,15 +103,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab6.adoc[Lab 6: SQL Databases and Web Applications]
 * Write your discussion response posts about Topic 5: Webserver and PHP Installation and Use
 * Write your discussion first post about Topic 6: SQL Databases and Web Applications
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 5 Report
 * Discussion response posts about Topic 4: Text Manipulation
 * Discussion first post about Topic 5: Webserver and PHP Installation and Use
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Oct 9
+== Feb 24: Week 7
 === Readings to do before the next date
 * None
 
@@ -115,15 +119,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab7.adoc[Lab 7: Firewall Configuration and System Security]
 * Write your discussion response posts about Topic 6: SQL Databases and Web Applications
 * Write your discussion first post about Topic 7: Firewall Configuration and System Security
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 6 Report
 * Discussion response posts about Topic 5: Webserver and PHP Installation and Use
 * Discussion first post about Topic 6: SQL Databases and Web Applications
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Oct 16
+== Mar 3: Week 8
 === Readings to do before the next date
 * https://www.linux.com/training-tutorials/scheduling-magic-intro-cron-linux/[Scheduling Magic: Intro to Cron on Linux]
 * https://documentation.suse.com/smart/systems-management/html/systemd-working-with-timers/index.html[Working with systemd Timers]
@@ -133,15 +137,18 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab8.adoc[Lab 8: Linux System Administration Utilities]
 * Write your discussion response posts about Topic 7: Firewall Configuration and System Security
 * Write your discussion first post about Topic 8: Linux System Administration Utilities
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 7 Report
 * Discussion response posts about Topic 6: SQL Databases and Web Applications
 * Discussion first post about Topic 7: Firewall Configuration and System Security
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Oct 23
+== Mar 10: Spring Break
+* *There are no new activities and nothing due today, it is Spring Break*
+
+== Mar 17: Week 9
 === Readings to do before the next date
 * https://www.zytrax.com/books/dns/ch2/[DNS Concepts]
 * https://www.zytrax.com/books/dns/ch4/[DNS Configuration Types]
@@ -151,15 +158,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab9.adoc[Lab 9: DNS Server Installation and Configuration]
 * Write your discussion response posts about Topic 8: Linux System Administration Utilities
 * Write your discussion first post about Topic 9: DNS Server Installation and Configuration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 7 Report
 * Discussion response posts about Topic 7: Firewall Configuration and System Security
 * Discussion first post about Topic 8: Linux System Administration Utilities
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Oct 30
+== Mar 24: Week 10
 === Readings to do before the next date
 * https://docs.docker.com/get-started/docker-overview/[What is Docker?]
 
@@ -167,15 +174,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab10.adoc[Lab 10: An Introduction to Containers]
 * Write your discussion response posts about Topic 9: DNS Server Installation and Configuration
 * Write your discussion first post about Topic 10: An Introduction to Containers
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 8 Report
 * Discussion response posts about Topic 8: Linux System Administration Utilities
 * Discussion first post about Topic 9: DNS Server Installation and Configuration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Nov 6
+== Mar 31: Week 11
 === Readings to do before the next date
 * None
 
@@ -183,15 +190,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab11.adoc[Lab 11: Practical Applications of Containers]
 * Write your discussion response posts about Topic 10: An Introduction to Containers
 * Write your discussion first post about Topic 11: Practical Applications of Containers
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 9 Report
 * Discussion response posts about Topic 9: DNS Server Installation and Configuration
 * Discussion first post about Topic 10: An Introduction to Containers
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Nov 13
+== Apr 7: Week 12
 === Readings to do before the next date
 * Chapter 15 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
@@ -199,15 +206,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab12.adoc[Lab 12: Filesystem Management and Hardware Utilities]
 * Write your discussion response posts about Topic 11: Practical Applications of Containers
 * Write your discussion first post about Topic 12: Filesystem Management and Hardware Utilities
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 10 Report
 * Discussion response posts about Topic 10: An Introduction to Containers
 * Discussion first post about Topic 11: Practical Applications of Containers
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Nov 20
+== Apr 14: Week 13
 === Readings to do before the next date
 * Chapter 24 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 * Sections 1-8 of the https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html[BASH Programming - Introduction HOW-TO]
@@ -216,15 +223,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab13.adoc[Lab 13: BASH Scripting]
 * Write your discussion response posts about Topic 12: Filesystem Management and Hardware Utilities
 * Write your discussion first post about Topic 13: BASH Scripting
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 11 Report
 * Discussion response posts about Topic 11: Practical Applications of Containers
 * Discussion first post about Topic 12: Filesystem Management and Hardware Utilities
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Nov 27
+== Apr 21: Week 14
 === Readings to do before the next date
 * https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Instant Hacking]
 * All 9 sections of https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[Python for Shell Scripting]
@@ -233,15 +240,15 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Complete xref:lab14.adoc[Lab 14: Python Scripting for System Administration]
 * Write your discussion response posts about Topic 13: BASH Scripting
 * Write your discussion first post about Topic 14: Python Scripting for System Administration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 12 Report
 * Discussion response posts about Topic 12: Filesystem Management and Hardware Utilities
 * Discussion first post about Topic 13: BASH Scripting
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Dec 4
+== Apr 28: Week 15
 === Readings to do before the next date
 * None
 
@@ -249,28 +256,28 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Practice for Skills Exam
 ** You may wish to review the lab activities done in the course or even to reset your virtual machine and re-complete some or all of the lab activities.
 * Write your discussion response posts about Topic 14: Python Scripting for System Administration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
 * Lab 13 Report
 * Discussion response posts about Topic 13: BASH Scripting
 * Discussion first post about Topic 14: Python Scripting for System Administration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Dec 11
+== May 5: Week 16
 === Readings to do before the next date
 * None
 
 === Other Work to do before the next date
-* Complete the Final Skills Exam (DUE on December 15 at 11:59pm!)
-** Detailed instuctions will be emailed to you by/on December 9.
+* Complete the Final Skills Exam (DUE on May 9 at 11:59pm!)
+** Detailed instuctions will be emailed to you by/on May 2.
 
 === Assignments Due at 11:59pm today
 * Lab 14 Report
 * Discussion response posts about Topic 14: Python Scripting for System Administration
-* Weekly Progress Self-Evaluation (on ITC CLASS server)
+* Weekly Progress Self-Evaluation (on D2L site)
 
-== Dec 18
+== May 12
 Congratulations, you have finished the coursework!
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

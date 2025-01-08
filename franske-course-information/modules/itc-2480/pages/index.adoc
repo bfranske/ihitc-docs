@@ -7,7 +7,6 @@
 * xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
 * xref:lab-reports:index.adoc[Instructions for Writing Lab Reports and Sample Lab Reports]
 * xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
-* Assessments, gradebook, discussion forums are on the https://class.ihitc.net[ITC CLASS Server]
 * xref:tech-info:remote-access:passport-vpn.adoc[VPN Access Instructions]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
