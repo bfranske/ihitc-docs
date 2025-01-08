@@ -11,9 +11,10 @@
 * Module 2 - PC Assembly
 
 === Other Work to do before next class
+* Course Introduction Exam - Complete on D2L Website
 * Module 1 Online Discussion First Post
 * Module 2 Online Discussion First Post
-* Weekly Progress Self-Evaluation
+* Weekly Progress Self-Evaluation - Complete on D2L Website
 
 TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
@@ -30,14 +31,15 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 === Other Work to do before next class
 * Module 1 Online Discussion Response Posts
-* Module 1 Exam - Introduction to Personal Computer Hardware
+* Module 1 Exam - Introduction to Personal Computer Hardware (complete on Netacad website)
 * Module 2 Online Discussion Response Posts
-* Module 2 Exam - PC Disassembly/Assembly
+* Module 2 Exam - PC Disassembly/Assembly (complete on Netacad website)
 * Weekly Progress Self-Evaluation
 * Module 3 Online Discussion First Post
 * Write PC Disassembly/Assembly Lab Report
 
 === Assignments Due at the start of class today
+* Course Introduction Exam
 * Module 1 Online Discussion First Post
 * Module 2 Online Discussion First Post
 * Weekly Progress Self-Evaluation
