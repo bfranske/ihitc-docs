@@ -25,7 +25,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * None
 
 == Jan 20: Week 2
+
 NOTE: Today is a holiday and campus is closed, due dates for things due today are extended one day to Jan 21
+
 === Readings to do before the next date
 * Chapters 2, 3, 4, and 18 from http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line by William Shotts]
 
