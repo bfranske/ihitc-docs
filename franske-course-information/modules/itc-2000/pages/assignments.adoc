@@ -209,7 +209,7 @@ NOTE: The first part of this lab (Batch and PowerShell scripting) will be comple
 == Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
-* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. These cannot be turned in late! (up to 10 points each module based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
@@ -225,7 +225,7 @@ Any participation activities completed in the course will go here. This falls in
 * Complete the Practice Final Exam (Chapters 10-14) (10 points for attempting)
 * Complete the A+ 220-1101 Certification Practice Exam (10 points for attempting)
 * Complete the A+ 220-1102 Certification Practice Exam (10 points for attempting)
-* Weekly Progress Self-Evaluation - Complete on the D2L Website (10 points possible each week)
+* Weekly Progress Self-Evaluation - Complete on the D2L Website, these cannot be turned in late (10 points possible each week)
 
 == Unit Assessments
 You are responsible for completing all of the online module assessments listed below. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.

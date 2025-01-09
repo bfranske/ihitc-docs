@@ -47,6 +47,8 @@ This course will be taught as a hybrid course with regular instructor meetings. 
 == Assignments and Grading
 Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
 
+Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
+
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
 
 === Late Assignments and Extensions

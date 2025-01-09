@@ -70,6 +70,8 @@ WARNING: It is ultimately your responsibility to ensure that all required assign
 
 If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
 
+Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
+
 === Grading Scale
 
 [%autowidth,options="header"]
