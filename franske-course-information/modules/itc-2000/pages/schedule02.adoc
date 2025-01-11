@@ -10,6 +10,8 @@
 * Module 1 - Introduction to Personal Computer Hardware
 * Module 2 - PC Assembly
 
+TIP: Readings for this class are found on the Cisco Netacad website
+
 === Other Work to do before next class
 * Course Introduction Exam - Complete on D2L Website
 * Module 1 Online Discussion First Post

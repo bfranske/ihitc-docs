@@ -8,6 +8,8 @@
 === Readings to do before next class
 * Module 1 - Introduction to Personal Computer Hardware
 
+TIP: Readings for this class are found on the Cisco Netacad website
+
 === Other Work to do before next class
 * Course Introduction Exam - Complete on D2L Website
 * Module 1 Online Discussion First Post
@@ -300,12 +302,12 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 10 Online Discussion First Post
 * Write Virtualization/Linux Lab Report
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 9 Online Discussion Response Posts
 * Module 9 Exam - Virtualization and Cloud Computing
 * Modules 1-9 Practice Final Exam
-* Weekly Progress Self-Evaluation
 
 == Mar 20: Session 17
 === Happening in class today
@@ -317,11 +319,11 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion First Post
 * Virtualization/Linux Lab Report
+* Weekly Progress Self-Evaluation
 
 == Mar 25: Session 18
 === Happening in class today
@@ -333,11 +335,11 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 11 Online Discussion First Post
 * Write Windows Installation Lab Report
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
-* Weekly Progress Self-Evaluation
 
 == Mar 27: Session 19
 === Happening in class today
@@ -349,11 +351,11 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 11 Online Discussion Response Posts
 * Module 11 Exam - Windows Configuration
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion First Post
 * Windows Installation Lab Report
+* Weekly Progress Self-Evaluation
 
 == Apr 1: Session 20
 === Happening in class today
@@ -363,12 +365,11 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * None
 
 === Other Work to do before next class
-* None
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion Response Posts
 * Module 11 Exam - Windows Configuration
-* Weekly Progress Self-Evaluation
 
 == Apr 3: Session 21
 === Happening in class today
@@ -383,7 +384,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
-* None
+* Weekly Progress Self-Evaluation
 
 == Apr 8: Session 22
 === Happening in class today
@@ -476,7 +477,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * None
 
 === Assignments Due at the start of class today
-* None
+* Weekly Progress Self-Evaluation
 
 == Apr 29: Session 25
 === Happening in class today
@@ -493,7 +494,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Assignments Due at the start of class today
 * Module 14 Online Discussion First Post
 * Security Lab Report
-* Weekly Progress Self-Evaluation
 
 == May 1: Session 26
 === Happening in class today

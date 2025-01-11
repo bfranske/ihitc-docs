@@ -40,6 +40,7 @@ Presents an in-depth exposure to computer hardware and operating systems. Studen
 * ITC Info Site for ITC-2000 (https://info.ihitc.net/franske-courses/current/itc-2000/)
 * IHCC D2L (https://inverhills.learn.minnstate.edu)
 * Cisco Networking Academy (http://www.netacad.com)
+** A registration link for the Cisco Networking Academy (Netacad website) can be found on the D2L site for this class.
 
 +
 --
