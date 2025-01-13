@@ -66,7 +66,7 @@ NOTE: For some reason Cisco forgot to create VLAN 10 on switch D1 in the trouble
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
-=== Participation Activities
+== Participation Activities
 
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade.
 
@@ -75,13 +75,14 @@ Any participation activities completed in the course will go here. This falls in
 * Complete the online certification practice exam (10 points for attempting)
 
 You must do one of the following choices at least once a week (up to 10 points each based on progress):
+
 *You are encouraged to do one of the first two options and to take advantage of the instructor's ability and time to assist you in understanding the material.*
 
 * Meet with the instructor online Tuesdays 6:00-7:30pm to discuss course progress and ask questions.
 * Meet with the instructor at another time during the week scheduled in advance. This meeting must take place _before_ Tuesday at 7:30pm and _after_ the previous Tuesday at 7:30pm to receive credit for meeting in a given week. *Availability is not guaranteed so you should schedule this early.*
-* Submit an online course progress evaluation by filling out the form provided by your instructor on the D2L website for the correct date.
+* Submit an online course progress evaluation by filling out the form provided by your instructor on the D2L website for the correct date. This option may not be allowed depending on your porgress in the course, you will be notified by the instructor if you are not elligiable for this option.
 
-=== Unit Assessments
+== Unit Assessments
 
 You are responsible for completing all of the online unit assessments listed below. Multiple chapters are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
 

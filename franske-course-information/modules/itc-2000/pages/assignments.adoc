@@ -220,7 +220,6 @@ Any participation activities completed in the course will go here. This falls in
 * Attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter (10 points)
 * Meet with an academic advisor (10 points for meeting)
 * Complete a program/degree plan (10 points for completing)
-* Complete the Cisco online course feedback form (5 points for completing)
 * Complete the Practice Final Exam (Chapters 1-9) (10 points for attempting)
 * Complete the Practice Final Exam (Chapters 10-14) (10 points for attempting)
 * Complete the A+ 220-1101 Certification Practice Exam (10 points for attempting)
