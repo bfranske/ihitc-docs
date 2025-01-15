@@ -182,6 +182,8 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
+* Module 8 Online Discussion Response Posts
+* Module 8 Exam - Printers
 * Module 9 Online Discussion First Post
 * Printer Lab Report
 * Weekly Progress Self-Evaluation
@@ -345,8 +347,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Complete Cisco Course Feedback before 11:59pm tonight!
 
 === Assignments Due at the start of class today
-* Practice Final Exam Ch 10-14
-* Write Scripting & Troubleshooting Lab Report
-* Weekly Progress Self-Evaluation
+* Both A+ Practice Certification Exams
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

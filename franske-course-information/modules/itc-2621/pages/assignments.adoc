@@ -4,7 +4,7 @@
 
 === Lab Reports
 
-For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access or campus equipment. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
+For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access or campus equipment. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
 
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
@@ -62,7 +62,7 @@ NOTE: For some reason Cisco forgot to create VLAN 10 on switch D1 in the trouble
 
 ==== Homework
 
-* Participate in an online forum discussion (typically 3 quality posts or more) of each chapter on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each chapter based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each chapter on the IHCC D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each chapter based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
