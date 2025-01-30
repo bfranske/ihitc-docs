@@ -50,7 +50,7 @@ NOTE: During the account creation process use the name "ITC Admin" and the passw
 --
 NOTE: You will need to connect your computer to the Internet in order to complete this part of the lab activity. Get a network cable from your instructor and attach to one of the network jacks at your table, let your instructor know what the jack number is you are plugged into and they will verify that Internet access has been activated on that jack.
 
-NOTE: You will need to download the Packet Tracer software from the Cisco Networking Academy site and copy it to your computer to install it. Find the link to download Packet Tracer under the _Resources_ menu at the top of the Legacy NetAcad website. You will want the latest 64-bit Windows version.
+NOTE: You will need to download the Packet Tracer software from the https://archive.org/download/packet-tracer-822-64bit-setup-signed/Packet_Tracer822_64bit_setup_signed.exe[Internet Archive site] and copy it to your computer to install it.
 
 NOTE: You may also want to download and install a better web browser for your system such as Chrome or Firefox instead of using Microsoft Edge.
 --
