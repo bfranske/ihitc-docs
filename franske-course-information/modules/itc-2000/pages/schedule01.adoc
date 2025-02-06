@@ -136,20 +136,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Feb 11
 === Happening in class today
-* *There is NO CLASS TODAY, it is Student Success Day. You MUST attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter to the next class*
-
-=== Readings to do before next class
-* None
-
-=== Other Work to do before next class
-* You MUST attend at least two Student Success Day presentations and bring proof of attendance signed by each presenter to the next class
-* Weekly Progress Self-Evaluation
-
-=== Assignments Due at the start of class today
-* None
-
-== Feb 13: Session 9
-=== Happening in class today
 * Discuss Module 5 - Networking Concepts
 
 === Readings to do before next class
@@ -159,14 +145,14 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 5 Online Discussion Response Posts
 * Module 6 Online Discussion First Post
 * Module 5 Exam - Networking Concepts
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 5 Online Discussion First Post
 * Hardware Troubleshooting Lab Report
 * Student Success Day Proof of Attendance for 2 Presentations
-* Weekly Progress Self-Evaluation
 
-== Feb 18: Session 10
+== Feb 13: Session 9
 === Happening in class today
 * Discuss Module 6 - Applied Networking
 
@@ -176,13 +162,14 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 6 Online Discussion Response Posts
 * Module 6 Exam - Applied Networking
-* Weekly Progress Self-Evaluation
+
 
 === Assignments Due at the start of class today
 * Module 6 Online Discussion First Post
 * Module 5 Exam - Networking Concepts
+* Weekly Progress Self-Evaluation
 
-== Feb 20: Session 11
+== Feb 18: Session 10
 === Happening in class today
 * Do Networking Labs
 
@@ -192,13 +179,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 7 Online Discussion First Post
 * Write Networking Lab Report
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 6 Online Discussion Response Posts
 * Module 6 Exam - Applied Networking
-* Weekly Progress Self-Evaluation
 
-== Feb 25: Session 12
+== Feb 20: Session 11
 === Happening in class today
 * Discuss Module 7 - Laptops and Other Mobile Devices
 
@@ -209,13 +196,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 7 Online Discussion Response Posts
 * Module 8 Online Discussion First Post
 * Module 7 Exam - Laptops and Other Mobile Devices
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 7 Online Discussion First Post
 * Networking Lab Report
+* Weekly Progress Self-Evaluation
 
-== Feb 27: Session 13
+== Feb 25: Session 12
 === Happening in class today
 * Discuss Module 8 - Printers
 
@@ -225,14 +212,14 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 8 Online Discussion Response Posts
 * Module 8 Exam - Printers
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 7 Online Discussion Response Posts
 * Module 8 Online Discussion First Post
 * Module 7 Exam - Laptops and Other Mobile Devices
-* Weekly Progress Self-Evaluation
 
-== Mar 4: Session 14
+== Feb 27: Session 13
 === Happening in class today
 * Do Printer Labs
 
@@ -242,13 +229,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 9 Online Discussion First Post
 * Write Printer Lab Report
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 8 Online Discussion Response Posts
 * Module 8 Exam - Printers
+* Weekly Progress Self-Evaluation
 
-== Mar 6: Session 15
+== Mar 4: Session 14
 === Happening in class today
 * Discuss Module 9 - Virtualization and Cloud Computing
 
@@ -264,6 +251,22 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Assignments Due at the start of class today
 * Module 9 Online Discussion First Post
 * Printer Lab Report
+
+== Mar 6: Session 15
+=== Happening in class today
+* Do Virtualization/Linux Labs
+
+=== Readings to do before next class
+* Module 10 - Windows Installation
+
+=== Other Work to do before next class
+* Module 10 Online Discussion First Post
+* Write Virtualization/Linux Lab Report
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 9 Exam - Virtualization and Cloud Computing
+* Modules 1-9 Practice Final Exam
 * Weekly Progress Self-Evaluation
 
 == Mar 11: Spring Break
@@ -294,23 +297,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Mar 18: Session 16
 === Happening in class today
-* Do Virtualization/Linux Labs
-
-=== Readings to do before next class
-* Module 10 - Windows Installation
-
-=== Other Work to do before next class
-* Module 10 Online Discussion First Post
-* Write Virtualization/Linux Lab Report
-* Weekly Progress Self-Evaluation
-
-=== Assignments Due at the start of class today
-* Module 9 Online Discussion Response Posts
-* Module 9 Exam - Virtualization and Cloud Computing
-* Modules 1-9 Practice Final Exam
-
-== Mar 20: Session 17
-=== Happening in class today
 * Discuss Module 10 - Windows Installation
 
 === Readings to do before next class
@@ -319,13 +305,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion First Post
 * Virtualization/Linux Lab Report
-* Weekly Progress Self-Evaluation
 
-== Mar 25: Session 18
+== Mar 20: Session 17
 === Happening in class today
 * Windows Installation Labs
 
@@ -335,13 +321,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 11 Online Discussion First Post
 * Write Windows Installation Lab Report
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
+* Weekly Progress Self-Evaluation
 
-== Mar 27: Session 19
+== Mar 25: Session 18
 === Happening in class today
 * Discuss Module 11 - Windows Configuration
 
@@ -351,13 +337,13 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 11 Online Discussion Response Posts
 * Module 11 Exam - Windows Configuration
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion First Post
 * Windows Installation Lab Report
-* Weekly Progress Self-Evaluation
 
-== Apr 1: Session 20
+== Mar 27: Session 19
 === Happening in class today
 * Windows Configuration Labs Part I
 
@@ -365,28 +351,29 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * None
 
 === Other Work to do before next class
-* Weekly Progress Self-Evaluation
+* None
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion Response Posts
 * Module 11 Exam - Windows Configuration
+* Weekly Progress Self-Evaluation
 
-== Apr 3: Session 21
+== Apr 1: Session 20
 === Happening in class today
 * Windows Configuration Labs Part II
 
 === Readings to do before next class
 * Module 12 - Mobile, Linux, and macOS Operating Systems
+* Weekly Progress Self-Evaluation
 
 === Other Work to do before next class
 * Module 12 Online Discussion First Post
 * Windows Configuration Lab Report
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
-* Weekly Progress Self-Evaluation
+* None
 
-== Apr 8: Session 22
+== Apr 3: Session 21
 === Happening in class today
 * Discuss Module 12 - Mobile, Linux, and macOS Operating Systems
 
@@ -396,10 +383,28 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 12 Online Discussion Response Posts
 * Module 12 Exam - Mobile, Linux, and macOS Operating Systems
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 12 Online Discussion First Post
 * Windows Configuration Lab Report
+* Weekly Progress Self-Evaluation
+
+== Apr 8: Session 22
+=== Happening in class today
+* Mobile, Linux, and macOS Operating Systems Labs
+
+=== Readings to do before next class
+* Module 13 - Security
+
+=== Other Work to do before next class
+* Module 13 Online Discussion First Post
+* Write Mobile, Linux, and macOS Operating Systems Lab Report
+* Weekly Progress Self-Evaluation
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion Response Posts
+* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
 * Weekly Progress Self-Evaluation
 
 == Apr 10: No Class
@@ -417,22 +422,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Apr 15: Session 23
 === Happening in class today
-* Mobile, Linux, and macOS Operating Systems Labs
-
-=== Readings to do before next class
-* Module 13 - Security
-
-=== Other Work to do before next class
-* Module 13 Online Discussion First Post
-* Write Mobile, Linux, and macOS Operating Systems Lab Report
-* Weekly Progress Self-Evaluation
-
-=== Assignments Due at the start of class today
-* Module 12 Online Discussion Response Posts
-* Module 12 Exam - Mobile, Linux, and macOS Operating Systems
-
-== Apr 17: Session 24
-=== Happening in class today
 * Discuss Module 13 - Security
 
 === Readings to do before next class
@@ -441,15 +430,14 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 13 Online Discussion Response Posts
 * Module 13 Exam - Security
+* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 13 Online Discussion First Post
 * Mobile, Linux, and macOS Operating Systems Lab Report
-* Weekly Progress Self-Evaluation
 
-== Apr 22: Session 25
+== Apr 17: Session 24
 === Happening in class today
-* NOTE: This week will likely be a remote work week
 * Security Labs
 
 === Readings to do before next class
@@ -458,11 +446,27 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 14 Online Discussion First Post
 * Write Security Lab Report
-* Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
 * Module 13 Online Discussion Response Posts
 * Module 13 Exam - Security
+* Weekly Progress Self-Evaluation
+
+== Apr 22: Session 25
+=== Happening in class today
+* NOTE: This week will likely be a remote work week
+* Watch PC History Video
+* Catch up on any lab work requiring additional time
+* Practice for the skills exam
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Write PC History Summary
+
+=== Assignments Due at the start of class today
+* Weekly Progress Self-Evaluation
 
 == Apr 24: Catch Up Day
 === Happening in class today
@@ -477,6 +481,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * None
 
 === Assignments Due at the start of class today
+* PC History Summary - Turn in to D2L Assignment
 * Weekly Progress Self-Evaluation
 
 == Apr 29: Session 25
