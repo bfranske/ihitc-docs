@@ -93,7 +93,9 @@ NOTE: Today is a holiday and campus is closed, due dates for things due today ar
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Feb 17: Week 6
+
 NOTE: Today is a holiday and campus is closed, due dates for things due today are extended one day to Feb 18
+
 === Readings to do before the next date
 * https://web.archive.org/web/20240812183254/https://www.guru99.com/introduction-to-database-sql.html[What is a Database? Definition, Meaning, Types]
 * https://web.archive.org/web/20200813163323/http://zetcode.com/mysql/introduction[Introduction to MySQL]
