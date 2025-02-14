@@ -134,7 +134,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 4 Exam - Preventive Maintenance and Troubleshooting
 * Weekly Progress Self-Evaluation
 
-== Feb 11
+== Feb 11: Session 9
 === Happening in class today
 * Discuss Module 5 - Networking Concepts
 
@@ -152,7 +152,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Hardware Troubleshooting Lab Report
 * Student Success Day Proof of Attendance for 2 Presentations
 
-== Feb 13: Session 9
+== Feb 13: Session 10
 === Happening in class today
 * Discuss Module 6 - Applied Networking
 
@@ -169,7 +169,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 5 Exam - Networking Concepts
 * Weekly Progress Self-Evaluation
 
-== Feb 18: Session 10
+== Feb 18: Session 11
 === Happening in class today
 * Do Networking Labs
 
@@ -185,7 +185,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 6 Online Discussion Response Posts
 * Module 6 Exam - Applied Networking
 
-== Feb 20: Session 11
+== Feb 20: Session 12
 === Happening in class today
 * Discuss Module 7 - Laptops and Other Mobile Devices
 
@@ -202,7 +202,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Networking Lab Report
 * Weekly Progress Self-Evaluation
 
-== Feb 25: Session 12
+== Feb 25: Session 13
 === Happening in class today
 * Discuss Module 8 - Printers
 
@@ -219,7 +219,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 8 Online Discussion First Post
 * Module 7 Exam - Laptops and Other Mobile Devices
 
-== Feb 27: Session 13
+== Feb 27: Session 14
 === Happening in class today
 * Do Printer Labs
 
@@ -235,7 +235,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 8 Exam - Printers
 * Weekly Progress Self-Evaluation
 
-== Mar 4: Session 14
+== Mar 4: Session 15
 === Happening in class today
 * Discuss Module 9 - Virtualization and Cloud Computing
 
@@ -252,7 +252,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 9 Online Discussion First Post
 * Printer Lab Report
 
-== Mar 6: Session 15
+== Mar 6: Session 16
 === Happening in class today
 * Do Virtualization/Linux Labs
 
@@ -295,7 +295,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Assignments Due at the start of class today
 * None
 
-== Mar 18: Session 16
+== Mar 18: Session 17
 === Happening in class today
 * Discuss Module 10 - Windows Installation
 
@@ -311,7 +311,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 10 Online Discussion First Post
 * Virtualization/Linux Lab Report
 
-== Mar 20: Session 17
+== Mar 20: Session 18
 === Happening in class today
 * Windows Installation Labs
 
@@ -327,7 +327,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 10 Exam - Windows Installation
 * Weekly Progress Self-Evaluation
 
-== Mar 25: Session 18
+== Mar 25: Session 19
 === Happening in class today
 * Discuss Module 11 - Windows Configuration
 
@@ -343,7 +343,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 11 Online Discussion First Post
 * Windows Installation Lab Report
 
-== Mar 27: Session 19
+== Mar 27: Session 20
 === Happening in class today
 * Windows Configuration Labs Part I
 
@@ -358,7 +358,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 11 Exam - Windows Configuration
 * Weekly Progress Self-Evaluation
 
-== Apr 1: Session 20
+== Apr 1: Session 21
 === Happening in class today
 * Windows Configuration Labs Part II
 
@@ -373,7 +373,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Assignments Due at the start of class today
 * None
 
-== Apr 3: Session 21
+== Apr 3: Session 22
 === Happening in class today
 * Discuss Module 12 - Mobile, Linux, and macOS Operating Systems
 
