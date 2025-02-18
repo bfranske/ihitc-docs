@@ -51,7 +51,7 @@ WARNING: It is important that you keep an accurate email address on file with th
 * Equipment Labs in the PC Hardware and Software course must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission).
 * Some labs may be completed using the remote Netlab system. These labs must be completed using the Inver Hills Netlab system and should normally be completed in class but may be completed at home with specific instructor permission.
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
-* Additional open lab time on campus may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
+* Additional open lab time on campus may also be available under the supervision of the xref:program-info:ROOT:facstaff.adoc[lab assistant or ITC department instructors], contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.
 
 == Course Objectives
 The student will be able to:
