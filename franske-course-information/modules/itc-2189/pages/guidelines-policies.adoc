@@ -14,7 +14,7 @@ The internship also provides you with an opportunity to learn new skills, both t
 
 * There must be at least 192 hours of workplace experience for a three credit internship course.
 * You may sign up for the internship course on a standard graded course or a pass/fail basis.
-* Internship grades will, at a minimum, be based on an expectations paper, a work journal, a post-internship report, the meeting(s) with you and your on-site supervisor, and your on-site supervisor's written evaluation.
+* Internship grades will, at a minimum, be based on an expectations paper, a work reflection log, a post-internship report, the meeting(s) with you and your on-site supervisor, and your on-site supervisor's written evaluation.
 * Except in very specific circumstances the US Department of Labor requires that interns be paid at least minimum wage by employers. Inver Hills Community College will not allow internships which do not meet US Department of Labor criteria. For more information see the US Department of Labor Wage and Hour Division Fact Sheet #71.
 * The internship must be in the IT career field. You do not need to work for an IT company, but do need to be working in an Information Technology position. It's understood that not all of your work may fall into IT but the majority of your tasks during the 192 hours of the internship should fall into the IT area.
 ** Example jobs which typically could be approved for internship credit: helpdesk/service desk, system administrator, network administrator, computer/network security administrator, CIO, managed services technician, computer/network consultant
@@ -35,7 +35,7 @@ NOTE: Helpdesk work alone is not usually acceptable as an internship, though thi
 
 NOTE: Call-center type work or remote support positions where the position is focused on support which is only conducted through phone or electronic means does not usually meet the requirements for an internship.
 --
-. Contact your faculty supervisor and provide them with your name, your star ID, the name of your employer, your job title and job description, and the name and contact information for your on-site supervisor. Once this information is received and the faculty supervisor has approved your internship they will create a permission for you in eServices so you can register for the ITC 2189 course.
+. Contact your faculty supervisor and provide them with your name, your Star ID, the name of your employer, your job title and job description, and the name and contact information for your on-site supervisor. Once this information is received and the faculty supervisor has approved your internship they will create a permission for you in eServices so you can register for the ITC 2189 course.
 +
 --
 NOTE: Your internship does not necessarily need to start and end at the same time as the regular college semester schedule. We can accommodate internships which start before one semester begins and/or end after a semester normally ends. Typically, you will be assigned the internship course during the semester in which the majority of the work will occur. Contact your faculty supervisor for additional details.
@@ -81,9 +81,9 @@ Prior to the beginning of your internship period (the 192 hours for a three cred
 * A list and description of the broad goals you have for your internship. What do you hope to get out of the internship experience?
 * A list and description of any specific skills you would like to attain or improve upon as a result of your internship experience.
 
-=== Engineering Journal/Work Reflection Log
+=== Work Reflection Log
 
-You must maintain an engineering journal or work reflection log with entries at least once per week. The log must be submitted in its entirety to your supervising faculty member at least once per month, one week before any meetings the faculty supervisor has with you and your on-site supervisor, and a final copy at the conclusion of the internship. You must have at least one substantial entry per week in your journal but may have more. You must continue with your engineering journal or work reflections until you have completed all other internship requirements (such as faculty supervisor meetings) even if that means you have more than 192 hours. A substantial entry is typically 2-3 paragraphs in length. Entries should include topics such as:
+You must maintain a work reflection log with  at least weekly entries. All entries should be saved in a single log file which can be submitted to your supervising faculty member. The log must be submitted in its entirety to your supervising faculty member at least once per month, two days before any meetings the faculty supervisor has with you and your on-site supervisor, and a final copy at the conclusion of the internship. You must have at least one substantial entry per week in your work reflection log but may have more. You must continue with your work reflections until you have completed all other internship requirements (such as faculty supervisor meetings) even if that means you have more than 192 hours. A substantial entry is typically 2-3 paragraphs in length. Entries should include topics such as:
 
 * Assignments and responsibilities
 * Insights about professionalism
@@ -91,7 +91,7 @@ You must maintain an engineering journal or work reflection log with entries at 
 * Problems encountered and how they were dealt with
 * How internship expectations and goals are being met or the challenges of meeting them
 
-*Each journal entry should emphasize your reactions to and reflections of your work situation in addition to a summarized description of your activities.*
+*Each work reflection log entry should emphasize your reactions to and reflections of your work situation in addition to a summarized description of your activities.*
 
 . Record the date the entry is being made as well as the hours worked each day and a total for the week. Remember that your internship must include working a total of at least 192 hours.
 . Describe a positive situation/comment, which happened at work this week, and why you think it happened.
@@ -101,7 +101,7 @@ You must maintain an engineering journal or work reflection log with entries at 
 . Did last week's problems get resolved? How or why not?
 . Describe any interesting interaction or conversations with your on-site supervisor or co-workers.
 
-*In addition to the description of your activities every other week you should reflect on a professional aspect of your work experience. This means the entries every other week should be a bit longer (typically 4-5 paragraphs). The following topics may assist you in completing this part of your journal entries:*
+*In addition to these regular entries that occur at least weekly, every two weeks your work reflection log should include an additional entry reflecting on a professional aspect of your work experience. This means every other there should be two entries, one which is a regular entry described above and another entry reflecting on a professional aspect of your work experience (typically another 2-3 paragraphs). The following topics may assist you in completing this part of your reflection log:*
 
 . Interview Process - Reflect on the interview process for your internship. What aspects of the process were easiest and which were the most difficult for you? What did you find helpful or unexpected in the interview process and what would you do differently in the future?
 . IT Careers - Research and identify major objectives of the IT department at the company and how the various positions within the IT department support those objectives. Focus on the differing types of careers available within the IT department and the knowledge, skills, abilities, education, and experience needed to achieve them.
@@ -113,11 +113,11 @@ You must maintain an engineering journal or work reflection log with entries at 
 
 === Faculty Supervisor Meetings
 
-You are responsible for coordinating with your supervising faculty member and your on-site supervisor to arrange at least one meeting during the course of your internship. This meeting must take place with you at your workplace and should occur about halfway through your required internship hours. At the discretion of your faculty supervisor you may need to arrange at least one more meeting. 
+You are responsible for coordinating with your supervising faculty member and your on-site supervisor to arrange at least one meeting during the course of your internship. This meeting must take place with you at your workplace and should occur about halfway through your required internship hours. At the discretion of your faculty supervisor you may need to arrange more meetings.
 
-Meetings may be held on-site in-person or by Internet video conference at the discretion of your faculty supervisor The meeting(s) must include you, your on-site supervisor, and your supervising faculty member unless your faculty supervisor has specially indicated otherwise. Both your faculty supervisor and your workplace supervisor typically have busy schedules so you should start planning and scheduling this meeting early!
+Meetings may be held on-site in-person or by Internet video conference at the discretion of your faculty supervisor. The meeting(s) must include you, your on-site supervisor, and your supervising faculty member unless your faculty supervisor has specially indicated otherwise. Both your faculty supervisor and your workplace supervisor typically have busy schedules so you should start planning and scheduling this meeting early!
 
-The general purpose of these meetings is to review some of the content in your engineering journal, discuss how your internship is going, the technical and non-technical skills you are learning, and assess your growth in the internship process. You must continue making engineering journal or work reflection log entries until all required faculty supervisor meetings are complete and you have permission to move on to your reflection paper. Don't forget to make sure a copy of your current engineering journal is submitted to your supervising faculty member about one week before any meeting.
+The general purpose of these meetings is to review some of the content in your work reflection log, discuss how your internship is going, the technical and non-technical skills you are learning, and assess your growth in the internship process. You must continue making work reflection log entries until all required faculty supervisor meeting(s) are complete and you have submitted your end of internship reflection paper. Don't forget to make sure a copy of your work reflection log is submitted to your supervising faculty member about two to three days before any meeting.
 
 These meetings typically last between 20-30 minutes. About 10-15 minutes will be primarily a discussion between you and the faculty supervisor and about 10-15 minutes will include your on-site supervisor. If the meeting is occurring in person any remaining time is an opportunity to show the faculty supervisor your workplace. If the intern or on site supervisor wishes to have some time alone with the faculty supervisor that can also be accommodated. If concerns are raised by the on-site or faculty supervisors additional meetings may be required.
 
@@ -143,7 +143,7 @@ After completing your internship period (the 192 hours for a three credit intern
 
 After completing your internship period (the 192 hours for a three credit internship as well as all required meetings with your faculty supervisor), but not necessarily before your last day of work, you must obtain and submit to your supervising faculty member a performance review by your employer.
 
-The college does not proscribe a particular performance review form. We generally encourage employers to use the same process and forms used for their regular periodic employee evaluations. In the event a regular employee evaluation form is unavailable the employer may complete a generic employee evaluation form or provide a letter explaining areas of growth seen over the course of the internship as well as any notable areas for continued growth.
+The college does not proscribe a particular performance review form. We generally encourage employers to use the same process and forms used for their regular periodic (6 month or annual) employee evaluations. In the event a regular employee evaluation form is unavailable the employer may complete a generic employee evaluation form or provide a letter explaining areas of growth seen over the course of the internship as well as any notable areas for continued growth.
 
 These evaluations may be sent directly from the employer to the supervising faculty member or may be given to the student to submit to the supervising faculty member. Note that for privacy purposes many employers prefer to give the evaluation to the student who can then release it to the faculty member.
 
