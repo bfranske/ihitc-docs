@@ -40,6 +40,8 @@ ui:
   - path: ITC-Passport-VPN.ovpn
     contents: ./static/itc-passport-vpn.txt
   - path: .nojekyll
+  - path: partials/header-content.hbs
+    contents: ./supplemental-ui/partials/header-content.hbs
 urls:
   html_extension_style: drop
   latest_version_segment: current
