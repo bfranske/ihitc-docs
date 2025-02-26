@@ -30,6 +30,10 @@ NOTE: For some reason Cisco forgot to create VLAN 10 on switch D1 in the trouble
 . Lab 7.1.2 - Implement Multi-Area OSPFv2
 . Lab 7.1.3 - OSPFv2 Route Summarization and Filtering
 . Lab 8.1.2 - Troubleshoot OSPFv2
++
+--
+NOTE: There are several IP addressing typos in the scenario for Ticket 3. These are not critical to solving the issue in the ticket though.
+--
 . Lab 9.1.2 - Implement Multiarea OSPFv3
 . Lab 10.1.2 - Troubleshoot OSPFv3
 . Lab 11.1.2 - Implement eBGP for IPv4
