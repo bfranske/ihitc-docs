@@ -164,19 +164,23 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Weekly Progress Self-Evaluation
 
 == Mar 5: Session 8
+
+IMPORTANT: The schedule for this day has been changed due to a weather event!
+
 === Happening in class today
-* Discuss Module 9 - Virtualization and Cloud Computing
-* Do Virtualization/Linux Labs
+* There is no class today due to the snowfall
+
 
 === Readings to do before next class
 * Module 10 - Windows Installation
 
 === Other Work to do before next class
+* Watch pre-recorded lecture on Module 9 - Virtualization and Cloud Computing
+* Watch pre-recorded lecture on Module 10 - Windows Installation
 * Module 9 Online Discussion Response Posts
 * Module 9 Exam - Virtualization and Cloud Computing
 * Modules 1-9 Practice Final Exam
 * Module 10 Online Discussion First Post
-* Write Virtualization/Linux Lab Report
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
@@ -200,9 +204,12 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * None
 
 == Mar 19: Session 9
+
+IMPORTANT: The schedule for this day has been changed due to a weather event on March 5!
+
 === Happening in class today
-* Discuss Module 10 - Windows Installation
-* Windows Installation Labs
+* Do Virtualization/Linux Labs
+* Do Windows Installation Labs
 
 === Readings to do before next class
 * Module 11 - Windows Configuration
@@ -211,6 +218,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
 * Module 11 Online Discussion First Post
+* Write Virtualization/Linux Lab Report
 * Write Windows Installation Lab Report
 * Weekly Progress Self-Evaluation
 
@@ -219,7 +227,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 9 Exam - Virtualization and Cloud Computing
 * Modules 1-9 Practice Final Exam
 * Module 10 Online Discussion First Post
-* Virtualization/Linux Lab Report
 * Weekly Progress Self-Evaluation
 
 == Mar 26: Session 10
@@ -240,6 +247,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 10 Online Discussion Response Posts
 * Module 10 Exam - Windows Installation
 * Module 11 Online Discussion First Post
+* Virtualization/Linux Lab Report
 * Windows Installation Lab Report
 * Weekly Progress Self-Evaluation
 
