@@ -22,7 +22,7 @@ IMPORTANT: To improve download speeds IHCC has pre-downloaded software you will 
 --
 Oracle VirtualBox is one virtualization program, called a _hypervisor_, that you can download and install to support running virtual machines. VirtualBox is free for personal and educational use. Other client virtualization programs include VMware Workstation, VMware Fusion, Parallels Desktop, Microsoft Hyper-V, and QEMU.
 --
-.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ which is where we'll download all files from in this lab activity. Click to download the VirtualBox-7.1.4-165100-Win.exe and Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack installation files.
+.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ which is where we'll download all files from in this lab activity. Click to download the latest Virtual Box setup program (ending with .exe) and Exptension Pack (ending with .vbox-extpack).
 .. After the VirtualBox installation files are downloaded, run the installer (the file ending in .exe) and accept the default installation settings.
 . Open the VirtualBox Application and install the Extension pack
 .. Select the File -> Tools -> Extension Pack Manager
@@ -30,7 +30,7 @@ Oracle VirtualBox is one virtualization program, called a _hypervisor_, that you
 .. Locate the Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack file you previously downloaded and select it.
 .. Complete the installation of the extension pack.
 . Download a Linux Mint Installation CD Image.
-.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ again if you closed the page. Click to download the linuxmint-22-cinnamon-64bit.iso CD image file. CD and DVD images typically end in .iso and are called "iso (ICE-O) files".
+.. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ again if you closed the page. Click to download the latest Linux Mint CD image file. CD and DVD images typically end in .iso and are called "iso (ICE-O) files".
 . Create a New Virtual Machine.
 .. If you did not choose to open VirtualBox after your installation, click Start and search for VirtualBox. Click Oracle VM VirtualBox to open the manager. When the manager opens, click New to start the Ubuntu installation.
 .. In the Virtual machine Name and Operating System screen, type Linux Mint in the Name field.
