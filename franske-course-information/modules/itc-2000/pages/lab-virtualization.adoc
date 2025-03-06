@@ -23,7 +23,11 @@ IMPORTANT: To improve download speeds IHCC has pre-downloaded software you will 
 Oracle VirtualBox is one virtualization program, called a _hypervisor_, that you can download and install to support running virtual machines. VirtualBox is free for personal and educational use. Other client virtualization programs include VMware Workstation, VMware Fusion, Parallels Desktop, Microsoft Hyper-V, and QEMU.
 --
 .. Use the web browser on your lab PC to navigate to http://172.17.139.70:8080/ which is where we'll download all files from in this lab activity. Click to download the latest Virtual Box setup program (ending with .exe) and Exptension Pack (ending with .vbox-extpack).
-.. After the VirtualBox installation files are downloaded, run the installer (the file ending in .exe) and accept the default installation settings.
+.. After the VirtualBox installation files are downloaded, run the installer (the file ending in .exe) and accept the default installation settings. You do *not* want to install the Python bindings as those will require additional software to be installed on your system and we don't need them for our usage of VirtualBox in this lab activity.
++
+--
+NOTE: If you are warned that you need the Visual C++ Redistributable files you can also download that from http://172.17.139.70:8080/ Because your host system is a 64-bit OS you'll want the x64 version. You could also download and install the file from Microsoft's web site if you prefer, an Internet search will assist you in finding it there.
+--
 . Open the VirtualBox Application and install the Extension pack
 .. Select the File -> Tools -> Extension Pack Manager
 .. Click the "Install" button in the upper right toolbar
