@@ -143,13 +143,13 @@ NOTE: In this lab you will not actually install any new parts, just find and rem
 NOTE: For Spring 2024 you can skip the second part of this lab activity. Microsoft has made some security changes to Windows which prevent this from working in many cases without changing many advanced options which are beyond the scope of the A+ certification.
 --
 
-=== Virtualization/Linux Labs
+=== Virtualization/Linux Labs (Module 9)
 xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activity instructions]
 
-=== Windows Installation Labs
+=== Windows Installation Labs (Module 10)
 xref:lab-wininstall.adoc[Windows Installation lab activity instructions]
 
-=== Windows Administration Labs
+=== Windows Configuration & Administration Labs (Module 11)
 NOTE: All of these labs will be completed on one of the PCs you installed Windows 10 on in the previous lab.
 
 * 11.1.2.5 - Explore the Windows Desktop
@@ -192,10 +192,13 @@ NOTE: In this lab activity you will need to use your second Windows PC to remote
 * 11.6.2.4 - System Restore and Hard Drive Backup
 * 11.7.3.2 - Troubleshoot Operating System Problems
 
-=== Linux and Mobile Device Labs
+=== Mobile, Linux, and macOS Operating Systems Labs (Module 12)
 * Complete pages 1-13 of the Linux Unhatched activity (accessed through the NetAcad site)
+** To access the Linux Unhatched activity you need to enroll in the Linux UNhatched course using the link found on the front page for our class on D2L
+** After enrolling and accessing the Linux Unhatched course on NetAcad you click on the "Course Content" link and then the "Enroll in NDG Online" link and complete the NDG registration including email verification
+** Once you obtain access the required pages to complete are 1-13 and are found on the left side of the screen (pages 14-22.1 are not required for this class)
 
-=== Security Labs
+=== Security Labs (Module 13)
 NOTE: All of these labs will be completed on one of the Netlab PCs you installed Windows 10 on in the previous lab.
 
 * 13.1.2.6 Lab - Operating System Security
@@ -203,7 +206,7 @@ NOTE: All of these labs will be completed on one of the Netlab PCs you installed
 * 13.3.3.6 Lab - Configure Users and Groups in Windows
 * 13.3.4.6 Lab - Configure Windows Firewall
 
-=== Support and Scripting Labs
+=== Support and Scripting Labs (Module 14)
 NOTE: The first part of this lab will be completed on one of the Netlab PCs you installed Windows 10 on in the previous lab. 
 
 * 14.4.2.7 Lab - Write Basic Scripts in Windows and Linux

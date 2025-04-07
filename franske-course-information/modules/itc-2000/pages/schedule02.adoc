@@ -232,7 +232,7 @@ IMPORTANT: The schedule for this day has been changed due to a weather event on 
 == Mar 26: Session 10
 === Happening in class today
 * Discuss Module 11 - Windows Configuration
-* Windows Configuration Labs Part I
+* Windows Configuration & Administration Labs Part I
 
 === Readings to do before next class
 * Module 12 - Mobile, Linux, and macOS Operating Systems
@@ -254,13 +254,13 @@ IMPORTANT: The schedule for this day has been changed due to a weather event on 
 == Apr 2: Session 11
 === Happening in class today
 * Discuss Module 12 - Mobile, Linux, and macOS Operating Systems
-* Windows Configuration Labs Part II
+* Windows Configuration & Administration Labs Part II
 
 === Readings to do before next class
 * Module 13 - Security
 
 === Other Work to do before next class
-* Windows Configuration Lab Report
+* Windows Configuration & Administration Lab Report
 * Module 12 Online Discussion Response Posts
 * Module 12 Exam - Mobile, Linux, and macOS Operating Systems
 * Module 13 Online Discussion First Post
@@ -288,7 +288,7 @@ IMPORTANT: The schedule for this day has been changed due to a weather event on 
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
-* Windows Configuration Lab Report
+* Windows Configuration & Administration Lab Report
 * Module 12 Online Discussion Response Posts
 * Module 12 Exam - Mobile, Linux, and macOS Operating Systems
 * Module 13 Online Discussion First Post

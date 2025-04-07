@@ -346,7 +346,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Mar 27: Session 20
 === Happening in class today
-* Windows Configuration Labs Part I
+* Windows Configuration & Administration Labs Part I
 
 === Readings to do before next class
 * None
@@ -361,7 +361,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Apr 1: Session 21
 === Happening in class today
-* Windows Configuration Labs Part II
+* Windows Configuration & Administration Labs Part II
 
 === Readings to do before next class
 * Module 12 - Mobile, Linux, and macOS Operating Systems
@@ -369,7 +369,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 === Other Work to do before next class
 * Module 12 Online Discussion First Post
-* Windows Configuration Lab Report
+* Windows Configuration & Administration Lab Report
 
 === Assignments Due at the start of class today
 * None
@@ -388,7 +388,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 === Assignments Due at the start of class today
 * Module 12 Online Discussion First Post
-* Windows Configuration Lab Report
+* Windows Configuration & Administration Lab Report
 * Weekly Progress Self-Evaluation
 
 == Apr 8: Session 22
