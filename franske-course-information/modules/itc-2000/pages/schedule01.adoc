@@ -455,10 +455,10 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 
 == Apr 22: Session 25
 === Happening in class today
-* NOTE: This week will likely be a remote work week
+* NOTE: *NO IN PERSON CLASS* This week will be a remote work week
 * Watch PC History Video
 * Catch up on any lab work requiring additional time
-* Practice for the skills exam
+* Practice for the skills exam as needed
 
 === Readings to do before next class
 * None
@@ -467,19 +467,21 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Write PC History Summary
 
 === Assignments Due at the start of class today
+* Module 14 Online Discussion First Post
 * Weekly Progress Self-Evaluation
 
-== Apr 24: Catch Up Day
+== Apr 24: Session 26
 === Happening in class today
-* NOTE: This week will likely be a remote work week
+* NOTE: *NO IN PERSON CLASS* This week will be a remote work week
+* Scripting & Troubleshooting (Module 14) Labs - Complete remotely using Netlab
 * Catch up on any lab work requiring additional time
-* Practice for the skills exam
+* Practice for the skills exam as needed
 
 === Readings to do before next class
 * None
 
 === Other Work to do before next class
-* None
+* Extra Credit: Make an https://www.inverhills.edu/help-center/counseling-advising/academic-planning/[academic planning appointment] with one of the IHCC counselors or advisors to create or update a degree plan before May 6.
 
 === Assignments Due at the start of class today
 * PC History Summary - Turn in to D2L Assignment
@@ -495,55 +497,57 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Other Work to do before next class
 * Module 14 Online Discussion Response Posts
 * Module 14 Exam - The IT Professional
+* Write Scripting & Troubleshooting Lab Report
 * Weekly Progress Self-Evaluation
 
 === Assignments Due at the start of class today
-* Module 14 Online Discussion First Post
 * Security Lab Report
 
 == May 1: Session 26
 === Happening in class today
-* Scripting & Troubleshooting Labs
+* Skills Exam Part I
 
 === Readings to do before next class
 * None
 
 === Other Work to do before next class
-* Module 14 Online Discussion First Post
-* Write Scripting & Troubleshooting Lab Report
-* Extra Credit: Make an https://www.inverhills.edu/help-center/counseling-advising/academic-planning/[academic planning appointment] with one of the IHCC counselors or advisors to create or update a degree plan before December 17.
+* Practice Final Exam Ch 10-14
 
 === Assignments Due at the start of class today
 * Module 14 Online Discussion Response Posts
 * Module 14 Exam - The IT Professional
+* Scripting & Troubleshooting Lab Report
 * Weekly Progress Self-Evaluation
 
 == May 6: Session 27
-=== Happening in class today
-* Skills Exam Part I
-
-=== Other Work to do before next class
-* Practice Final Exam Ch 10-14
-
-=== Assignments Due at the start of class today
-* Module 14 Online Discussion First Post
-* Write Scripting & Troubleshooting Lab Report
-
-== May 8: Session 28
 === Happening in class today
 * Skills Exam Part II
 
 === Other Work to do before next class
 * Both A+ Practice Certification Exams
-* Online Final Exam before 11:59pm Dec 17!
-* Complete Cisco Course Feedback before 11:59pm Dec 17!
+* Online Final Exam before 11:59pm May 13!
+* Complete Cisco Course Feedback before 11:59pm May 13!
 
 === Assignments Due at the start of class today
 * Practice Final Exam Ch 10-14
+* Extra credit degree plan assignment and advisor meeting is due
+
+== May 8: NO CLASS
+=== Happening in class today
+* *There is NO CLASS TODAY, it is a College Work day*
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* See previous class
+
+=== Assignments Due at the start of class today
+* None
 
 == May 13: Final Exam Week
 === Happening in class today
-* Final Exam Week, No Class Meeting
+* Final Exam Week, *No Class Meeting*
 * Complete Online Final Exam before 11:59pm tonight!
 * Complete Cisco Course Feedback before 11:59pm tonight!
 

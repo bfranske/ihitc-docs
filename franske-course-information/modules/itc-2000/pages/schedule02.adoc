@@ -317,7 +317,7 @@ IMPORTANT: The schedule for this day has been changed due to a weather event on 
 
 == Apr 23: Remote Class
 === Happening in class today
-* NOTE: This week will likely be a remote work week
+* NOTE: *NO IN PERSON CLASS* This week will be a remote work week
 * Scripting & Troubleshooting Labs
 
 === Readings to do before next class
