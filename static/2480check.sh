@@ -90,6 +90,12 @@ echo "Beginning to Run Python Test Script..."
 echo "------------------------------------"
 echo ""
 
+echo ""
+echo "------------------------------------"
+echo "Please wait while your system is checked, this could take several minutes..."
+echo "------------------------------------"
+echo ""
+
 # Run the sbacheck.py script
 python sbacheck.py
 
