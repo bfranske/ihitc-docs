@@ -63,11 +63,16 @@ echo ""
 TEMP_DIR=$(mktemp -d)
 cd $TEMP_DIR
 
+# Bust github caching by getting the latest commit hash
+LATEST_COMMIT=$(curl -s https://api.github.com/repos/bfranske/2480checkup/commits | grep '"sha":' | head -n 1 | sed 's/.*"sha": "\(.*\)",/\1/')
+
 # Download sbacheck.py
-curl -O -s https://raw.githubusercontent.com/bfranske/2480checkup/main/sbacheck.py
+RAW_URL="https://raw.githubusercontent.com/bfranske/2480checkup/$LATEST_COMMIT/sbacheck.py"
+curl -O -s "$RAW_URL"
 
 # Download requirements.txt
-curl -O -s https://raw.githubusercontent.com/bfranske/2480checkup/main/requirements.txt
+RAW_URL="https://raw.githubusercontent.com/bfranske/2480checkup/$LATEST_COMMIT/requirements.txt"
+curl -O -s "$RAW_URL"
 
 # Create a virtual environment
 python3 -m venv venv
