@@ -190,10 +190,10 @@ public
   rich rules:
 ----
 . By default all interfaces are in the public zone (this is set in the _/etc/firewalld/firewalld.conf_ file). We can create custom zones or use pre-defined security zones which will speed up configuring the firewall. Take a minute to read more about the https://firewalld.org/documentation/zone/predefined-zones.html[pre-defined zones in firewalld documentation].
-. Before we start working on rules for our firewall we should assign (move) our outside network interface (_ens192_) to the external zone which is designed for NAT routing which we'll be setting up shortly. Do this by running the `firewall-cmd --zone=external --add-interface=ens192` command.
+. Before we start working on rules for our firewall we should assign (move) our outside network interface (_ens18_) to the external zone which is designed for NAT routing which we'll be setting up shortly. Do this by running the `firewall-cmd --zone=external --add-interface=ens18` command.
 . Check to see what rules are enabled for the _external_ zone. This time you will need to specify the zone name as it's not the default _public_ zone anymore. Use the `firewall-cmd --zone=external --list-all` command to do this.
 . You can also check the rules on all zones with the `firewall-cmd --list-all-zones` command.
-. If you were watching carefully you may have noted that the dhcpv6-client service was allowed in the _public_ zone is not allowed by default on the _external_ zone. This will prevent our server from being able to receive a DHCPv6 IP address on our _ens192_ interface anymore. Since we want to allow that run the `firewall-cmd --zone=external --add-service="dhcpv6-client"` command to allow the _dhcpv6-client_ service on interfaces in the _external_ zone.
+. If you were watching carefully you may have noted that the dhcpv6-client service was allowed in the _public_ zone is not allowed by default on the _external_ zone. This will prevent our server from being able to receive a DHCPv6 IP address on our _ens18_ interface anymore. Since we want to allow that run the `firewall-cmd --zone=external --add-service="dhcpv6-client"` command to allow the _dhcpv6-client_ service on interfaces in the _external_ zone.
 . Try accessing your website again from your administrative PC by browsing to http://172.17.xx.xx/blog. You should notice that your site is no longer accessible because your firewall is blocking traffic on port 80 from getting to nginx!
 . Run the `firewall-cmd --get-services` command on your system to see what services `firewalld` can create rules for.
 +
@@ -213,7 +213,7 @@ ben@2480-Z:~$ sudo firewall-cmd --zone=external --list-all
 external (active)
   target: default
   icmp-block-inversion: no
-  interfaces: ens192
+  interfaces: ens18
   sources:
   services: dhcpv6-client http ssh
   ports:
@@ -228,9 +228,9 @@ external (active)
 . There is one more very important thing to know about `firewalld`. By default, changes you make to the firewall are applied instantly. However, when the system is rebooted everything will go back to the same configuration that was in place the last time the system booted. This means if you make an error when configuring the firewall and lock yourself out of the system a reboot of the system will most likely get you back in. However, once you have tested and verified that your rules are working the way you want you need an extra command to save them permanently to be applied the next time the system boots. Run the `firewall-cmd --runtime-to-permanent` command now to save automatically apply your current firewall rules the next time the system boots.
 
 == Enable Packet Forwarding and configure your Linux Server as a NAT Router
-. One of the things you may want to do with a Linux server is to use it as a router. To do this we'll need to use a second network interface card attached to a second network. Our virtual lab environment is already setup with a second network interface card (_ens224_) in our Linux server which is attached to a small network with just one client computer.  While it's possible to install routing protocol software (such as OSPF or BGP) in Linux and use it as a regular enterprise router it's probably more likely that you'll want to use it as a SOHO NAT router. In fact, many of the commercial SOHO NAT routers use Linux themselves!
-. The first thing we need to do is to configure that second NIC (_ens224_) with an IP address. Create a new _/etc/systemd/network/20-internal.network_ file just like we did xref:lab5.adoc[back in lab 5] for our primary network.
-.. Be sure to set the match interface to _ens224_
+. One of the things you may want to do with a Linux server is to use it as a router. To do this we'll need to use a second network interface card attached to a second network. Our virtual lab environment is already setup with a second network interface card (_ens19_) in our Linux server which is attached to a small network with just one client computer.  While it's possible to install routing protocol software (such as OSPF or BGP) in Linux and use it as a regular enterprise router it's probably more likely that you'll want to use it as a SOHO NAT router. In fact, many of the commercial SOHO NAT routers use Linux themselves!
+. The first thing we need to do is to configure that second NIC (_ens19_) with an IP address. Create a new _/etc/systemd/network/20-internal.network_ file just like we did xref:lab5.adoc[back in lab 5] for our primary network.
+.. Be sure to set the match interface to _ens19_
 .. Use _192.168.1.1/24_ as the IP address and mask
 .. Do *not* configure a gateway, DNS, or IPv6 settings for the new interface
 . Apply the changes to our network configuration run the `systemctl restart systemd-networkd` command as the admninistrative user.
@@ -242,7 +242,7 @@ The _ip_forward_ permission is used to determine if Linux will forward packets f
 
 If you are not using `firewalld` and need to activate the _ip_forward_ permission in Debian Linux it is usually done by opening the _/etc/sysctl.conf_ file and un-commenting (removing the # at the beginning of the line) the `net.ipv4.ip_forward=1` line which will apply the next time the system is restarted. If you also want to apply the change immediately without rebooting you would use the `sudo sh -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'` command.
 ====
-. Put the second NIC (_ens224_) into the _internal_ zone of `firewalld`
+. Put the second NIC (_ens19_) into the _internal_ zone of `firewalld`
 . Modify the firewall to allow access to the _ssh_ and _http_ services on your Linux server from clients on the _internal_ zone.
 . Ensure that all devices on your _internal_ zone will share one IP on your _external_ zone. This is commonly called NAT but is really called _port address translation (PAT)_ by some vendors such as Cisco and _NAT masquerading_ by Linux. This is actually a setting on the _external_ zone and not the _internal_ zone. You should see a _masquerade: yes_ line in the rules for the zone. If you don't or need to enable it on a custom outside zone you can do so with a command like `firewall-cmd --add-masquerade --zone=external`.
 . Add a policy to your firewall which allows traffic from the internal zone to the external zone
@@ -265,7 +265,7 @@ If you are not using `firewalld` and need to activate the _ip_forward_ permissio
     "Dhcp4": {
         "interfaces-config": {
             "interfaces": [
-                "ens224"
+                "ens19"
             ]
         },
         "lease-database": {
@@ -302,7 +302,7 @@ If you are not using `firewalld` and need to activate the _ip_forward_ permissio
 }
 ----
 . Kea uses _JSON_ style configuration files. These (and the somewhat related _YAML_ format) are becoming a popular style of modern software configuration file. In this case we have specified:
-.. The DHCP server should listen for address requests on the _ens224_ interface only
+.. The DHCP server should listen for address requests on the _ens19_ interface only
 .. The server should store it's database of active leases in the _/var/lib/kea/kea-leases4.csv_ file and should clean up old information in the file every 3600 seconds (one hour)
 .. Leases should be valid for 3600 seconds (one hour)
 .. Clients should get a DNS server address of 172.17.50.1 from the DHCP server
@@ -359,7 +359,7 @@ image::lab07/006.png[Linux Mint welcome screen,250,align=left,link=self]
 image::lab07/007.png[Linux Mint Adjusting Screen Resolution,250,align=left,link=self]
 . Check the IP address and test network connectivity
 .. Open the terminal application by pressing the menu button in the lower left and typing the word "Terminal" and clicking on the Terminal application. This will give you the same type of command line terminal as you had with Debian Linux
-.. Check the IP address of the system with the `ip address show` command. Notice how the ens192 interface has a IP from the DHCP pool we created earlier on your server.
+.. Check the IP address of the system with the `ip address show` command. Notice how the ens18 interface has a IP from the DHCP pool we created earlier on your server.
 +
 image::lab07/008.png[Linux Mint Checking the IP address from the terminal,250,align=left,link=self]
 ..  Try pinging 172.17.50.1. Are you able to ping? If so, NAT is working properly on your network because the 172.17.50.0/23 network is outside of the LAN segment this machine is attached to (192.168.1.0/24).

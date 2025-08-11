@@ -5,7 +5,7 @@
 In this lab you will perform the following tasks:
 
 * Access your virtual machines through the NetLab environment
-* Install Debian Linux 12 (Bookworm)
+* Install Debian Linux 13 (Trixie)
 * Login locally to the system and check the IP address
 * Login remotely over SSH and transfer files over SFTP
 * Install a variety of basic system tools
@@ -150,25 +150,28 @@ Reading state information... Done
 +
 [source,console]
 ----
-ben@2480-Z:~$ ip address show
+ben@2480-Z:~$ ip addr show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
        valid_lft forever preferred_lft forever
     inet6 ::1/128 scope host noprefixroute
        valid_lft forever preferred_lft forever
-2: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
-    link/ether 00:50:56:a1:7f:4b brd ff:ff:ff:ff:ff:ff
-    altname enp11s0
-    inet 172.17.51.14/23 brd 172.17.51.255 scope global dynamic ens192
-       valid_lft 465sec preferred_lft 465sec
-    inet6 fe80::250:56ff:fea1:7f4b/64 scope link
+2: ens18: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether bc:24:11:4a:15:ec brd ff:ff:ff:ff:ff:ff
+    altname enp0s18
+    altname enxbc24114a15ec
+    inet 172.17.51.14/23 brd 172.17.51.255 scope global dynamic noprefixroute ens18
+       valid_lft 3555sec preferred_lft 3055sec
+    inet6 fe80::d425:2910:f7f5:e21a/64 scope link
        valid_lft forever preferred_lft forever
-3: ens224: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 00:50:56:a1:ff:25 brd ff:ff:ff:ff:ff:ff
-    altname enp19s0
+3: ens19: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether bc:24:11:6f:4d:fb brd ff:ff:ff:ff:ff:ff
+    altname enp0s19
+    altname enxbc24116f4dfb
+ben@2480-Z:~$
 ----
-In this example the IPv4 address of the system on the _ens192_ interface is 172.17.51.14
+In this example the IPv4 address of the system on the _ens18_ interface is 172.17.51.14
 .. Make a note of what your own current IP address is as we'll use it in the next section of the lab.
 . Check that sudo administrative permissions are working your standard user account
 .. Run the `whoami` command to see that you are currently logged in with your standard user account.
@@ -259,12 +262,12 @@ As we complete labs for this class we'll be installing a variety of additional s
 
 . Open a SSH session to your Linux server using your standard user account
 .. Connect to your system from your administrative PC using the remote SSH console method explained above.
-. Install the *open-vm-tools* package since we are running on a VMware server
+. Install the *qemu-guest-agent* package since we are running on a Proxmox server which uses Qemu virtualization.
 .. A reminder that a good practice is to update your system package lists before installing any new packages. Because we are logged in a standard user and we need to execute package management commands with administrative permissions we need to put _sudo_ in front of the command like `sudo apt update` and pressing enter to do this. If it's been a while since we have run a command as the administrative user we will be prompted to enter our password again.
-.. After updating the software package lists we can install the _open-vm-tools_ package by entering `sudo apt install open-vm-tools` to install the package.
+.. After updating the software package lists we can install the _qemu-guest-agent_ package by entering `sudo apt install qemu-guest-agent` to install the package.
 +
 --
-NOTE: The Debian installer may have figured out we're running on a VMware server and pre-installed the _open-vm-tools_ package for you. If that's the case there is no harm in running the command to install it. You'll just receive a message that "open-vm-tools is already the newest version"
+NOTE: The Debian installer may have figured out we're running on a Proxmox server and pre-installed the _qemu-guest-agent_ package for you. If that's the case there is no harm in running the command to install it. You'll just receive a message that "qemu-guest-agent is already the newest version"
 --
 . Install the *python3* package which is used for some automated scripts in this course. We'll also explore this scripting language more at the end of this course.
 .. Use the same command you used to install open-vm-tools above but modify it for the python3 package instead of open-vm-tools.
@@ -298,9 +301,9 @@ In addition to some of the commands we have already looked at which show the cur
 ben@2480-Z:~$ lsb_release -a
 No LSB modules are available.
 Distributor ID: Debian
-Description:    Debian GNU/Linux 12 (bookworm)
-Release:        12
-Codename:       bookworm
+Description:    Debian GNU/Linux 13 (trixie)
+Release:        13
+Codename:       trixie
 ben@2480-Z:~$
 ----
 . Get the kernel release and version numbers
@@ -313,7 +316,7 @@ ben@2480-Z:~$
 [source,console]
 ----
 ben@2480-Z:~$ uname -a
-Linux 2480-Z 6.1.0-18-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.76-1 (2024-02-01) x86_64 GNU/Linux
+Linux 2480-Z 6.12.38+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.38-1 (2025-07-16) x86_64 GNU/Linux
 ben@2480-Z:~$
 ----
 . Check how long your system has been running
