@@ -39,8 +39,8 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 [NOTE] 
 .When Using Netlab Remote Lab System
 ==== 
-* The login password for CAASP Pod PCs in Netlab is: Cisco123
-* The login password for Internet Pod PCs in Netlab is: netlab
+* The login password for CAASP Pod PCs in Netlab is: password
+* The login password for Internet Pod PCs in Netlab is: password
 ====
 
 . PT 2.3.7 - Navigate the IOS
@@ -262,6 +262,6 @@ The Skills Final Exam is designed to test your ability to apply the concepts lea
 * Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
 === Online Final Exam
-You will need to complete an online final exam on the NetSpace site.
+You will need to complete an online final exam on the NetAcad site.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

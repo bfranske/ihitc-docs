@@ -3,14 +3,11 @@
 Course Name: Introduction to Networks and Switching, Routing, and Wireless Essentials (CCNA 1/2) +
 Course Number: ITC-2516-61 +
 Instructor: Dr. Ben Franske +
-Term: Fall 2024 (8/26/2024-12/19/2024) +
-Meetings: M W 2:00-3:00pm +
-Location: S130
+Term: Fall 2025 (8/25/2025-12/18/2025) +
+Meetings: Tu 6:00-9:30pm +
+Location: B205
 
-== Special Note for Fall 2024
-Due to low enrollment this course is being offered as a "Tutorial" for the Fall 2024 semester. This means that the class will officially meet for one-third of the usual hours (so 2 hours per week instead of 6 hours per week) and the instructor is only officially to spend one-third of the usual time working on the class. This is a sort of in-between a regular class and an independent study.
-
-However, because I know that it will take longer than two hours per week to complete the lab activities and you need on-campus time to complete many of those activities I have scheduled my on-campus office hours to align with the time immediately after this class (3-4:50pm Mondays and Wednesdays) so that I will be around to help you with lab activites during what would have been our regular class time. Of course, this time will also be available to students from other classes so you may occasionally need to wait longer to talk to me or I may also be working on other things during this time but you are encouraged to treat this class as a 2:00pm-4:50pm course for the purpose of your own scheduling and to take full advantage of my availbility when completing your labs.
+WARNING: This is a 6 credit course! That means it will take a lot of time and effort to be successful in this course. Following national standard expectations a 6 credit course should take about 18-24 hours of work per week to complete. Since we spend about 3.5 hours in class that means that homework for this class should take the average student 14.5-20.5 hours per week! That is a lot of time! Please consider carefully what other courses you may be taking at the same time and other responsibilities you have such as work and family and make sure that you have enough time to complete the work in this course.
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
