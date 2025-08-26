@@ -108,14 +108,14 @@ You are responsible for completing all of the online unit assessments listed bel
 * Modules 14 - 15: Network Application Communications Exam
 * Modules 16 - 17: Building and Securing a Small Network Exam
 
-=== Skills Final Exam
-The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+=== Skills Final Exams
+The Skills Final Exams are designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade from CCNA 1.
 
-* Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment (PTSA) at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
-* Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
+* Completing all parts of the online Packet Tracer Skills Assessment (PTSA) at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
-=== Online Final Exam
-You will need to complete an online final exam on the NetSpace site.
+=== Regular Final Exams
+You will need to complete an online final exam on the NetSpace site for CCNA 1.
 
 == CCNA 2 Assignment Details and Directions
 === Lab & Homework Assignments
@@ -255,13 +255,13 @@ You are responsible for completing all of the online unit assessments listed bel
 * Modules 10 - 13: L2 Security and WLANs Exam 
 * Modules 14 - 16: Routing Concepts and Configuration Exam 
 
-=== Skills Final Exam
-The Skills Final Exam is designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade.
+=== Skills Final Exams
+The Skills Final Exams are designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade in CCNA 2.
 
-* Half of your grade in this category will be based on successfully completing all parts of the online Packet Tracer Skills Assessment at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
-* Half of your grade in this category will be based on completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
+* Completing all parts of the online Packet Tracer Skills Assessment at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
-=== Online Final Exam
-You will need to complete an online final exam on the NetAcad site.
+=== Regular Final Exams
+You will need to complete an online final exam on the NetAcad site for CCNA 2.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
