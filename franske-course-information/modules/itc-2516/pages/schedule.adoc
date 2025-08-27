@@ -13,7 +13,6 @@ TIP: Be sure to watch the videos that go along with the chapters you read each w
 * Module 2 Online Discussion First Post
 * Module 3 Online Discussion First Post
 * Module 2 Packet Tracer Online Submission Activities
-* System Test Exam
 
 TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
@@ -50,7 +49,6 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 2 Online Discussion First Post
 * Module 3 Online Discussion First Post
 * Module 2 Packet Tracer Online Submission Activities
-* System Test Exam
 
 == Sep 9
 === Work to do in class today
