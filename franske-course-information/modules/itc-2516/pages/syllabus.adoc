@@ -40,6 +40,7 @@ Course Note: The prerequisite for this course can be waived upon proof of passin
 === Course Website(s)
 * ITC Info (https://info.ihitc.net)
 * Cisco Networking Academy (http://www.netacad.com)
+* IHCC D2L Site (https://inverhills.learn.minnstate.edu/d2l/home)
 
 +
 --

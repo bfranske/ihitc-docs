@@ -32,7 +32,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 17.8.3 - Troubleshooting Challenge (15 points)
 
 ==== Lab Reports
-For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the NetAcad site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
@@ -76,16 +76,16 @@ NOTE: Use your own computer for the wireless portion, the lab computers only hav
 . Lab 17.8.1 - Design and Build a Small Business Network
 +
 --
-NOTE: Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the NetAcad site for this assignment.
+NOTE: Design your network in the Packet Tracer Software, in addition to your lab report upload your Packet Tracer File to the IHCC D2L site for this assignment.
 --
 
 ==== Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
-* Lab 11.6.6 - Calculate IPv4 Subnets (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
-* Lab 11.10.2 - Design and Implement a VLSM Addressing Scheme (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
-* Lab 12.7.4 - Identify IPv6 Addresses (10 Points) - This activity will be submitted as a "quiz" on the Netacad site where you will enter some of your answers from the activity into the quiz.
-* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+* Lab 11.6.6 - Calculate IPv4 Subnets (10 Points) - This activity will be submitted as a "quiz" on the IHCC D2L site where you will enter some of your answers from the activity into the quiz.
+* Lab 11.10.2 - Design and Implement a VLSM Addressing Scheme (10 Points) - This activity will be submitted as a "quiz" on the IHCC D2L site where you will enter some of your answers from the activity into the quiz.
+* Lab 12.7.4 - Identify IPv6 Addresses (10 Points) - This activity will be submitted as a "quiz" on the IHCC D2L site where you will enter some of your answers from the activity into the quiz.
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the IHCC D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
@@ -98,7 +98,7 @@ Any participation activities completed in the course will go here. This falls in
 * Meet with the instructor periodically to discuss course progress and ask questions (up to 10 points each based on progress, announcement made in class when meetings will happen)
 
 === Unit Assessments
-You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are on the Cisco NetAcad site.
 
 * Modules 1 - 3: Basic Network Connectivity and Communications Exam
 * Modules 4 - 7: Ethernet Concepts Exam
@@ -114,7 +114,7 @@ The Skills Final Exams are designed to test your ability to apply the concepts l
 * Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
 === Regular Final Exams
-You will need to complete an online final exam on the NetSpace site for CCNA 1.
+You will need to complete an online final exam on the Cisco NetAcad site for CCNA 1.
 
 == CCNA 2 Assignment Details and Directions
 === Lab & Homework Assignments
@@ -235,7 +235,7 @@ NOTE: In this lab you need to start by loading a starting configuration onto you
 ==== Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
-* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the Cisco Netacad site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the IHCC D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
 TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
 
@@ -246,7 +246,7 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 * Meet with the instructor periodically to discuss course progress and ask questions (up to 10 points each based on progress, announcement made in class when meetings will happen)
 
 === Unit Assessments
-You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are found on the Cisco Netacad site.
 
 * Modules 1 - 4: Switching Concepts, VLANs, and InterVLAN Routing Exam
 * Modules 5 - 6: Redundant Networks Exam
