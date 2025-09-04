@@ -54,6 +54,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 === Work to do in class today
 * Today we will be reviewing any content from Modules 1-6 that you are unsure about
 * There will also be lab time available if you need help with any lab or Packet Tracer activities you have not yet completed
+* Complete online check-in form for 9/9 or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 7
@@ -67,6 +68,8 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 7 Online Discussion First Post
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+* Complete online check-in for 9/16
 
 === Assignments Due at the start of class today
 * Module 1 Online Discussion Response Posts
@@ -101,6 +104,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * *Start* Module 11 Homework Activities -- These do not need to be submitted by next class though
 * Unit Exam Modules 4 - 7: Ethernet Concepts
 * Module 10 Packet Tracer Online Submission Activities
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 4 Online Discussion Response Posts
@@ -109,6 +113,9 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 7 Online Discussion First Post
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+* Check-in for 9/9
+* Online check-in for 9/16
 
 == Sep 23
 === Work to do in class today
@@ -129,6 +136,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 12 Packet Tracer Online Submission Activities
 * Module 12 Homework Activities
 * Unit Exam Modules 8 - 10: Communicating Between Networks
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 7 Online Discussion Response Posts
@@ -140,7 +148,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 9 Lab Report
 * Unit Exam Modules 4 - 7: Ethernet Concepts
 * Module 10 Packet Tracer Online Submission Activities
-
+* Online check-in
 
 == Sep 30
 === Work to do in class today
@@ -156,6 +164,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 12 Online Discussion Response Posts
 * Module 12 Lab Report
 * Module 13 Packet Tracer Online Submission Activities
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
@@ -167,6 +176,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 12 Packet Tracer Online Submission Activities
 * Module 12 Homework Activities
 * Unit Exam Modules 8 - 10: Communicating Between Networks
+* Online check-in
 
 == Oct 7
 === Work to do in class today
@@ -186,6 +196,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 14 Lab Report
 * Module 16 Packet Tracer Online Submission Activities
 * Unit Exam Modules 11 - 13: IP Addressing
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 13 Online Discussion First Post
@@ -193,6 +204,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 12 Online Discussion Response Posts
 * Module 12 Lab Report
 * Module 13 Packet Tracer Online Submission Activities
+* Online check-in
 
 == Oct 14
 === Work to do in class today
@@ -215,6 +227,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 17 Packet Tracer Online Submission Activities
 * CCNA 2 Module 1 Packet Tracer Online Submission Activities
 * Unit Exam Modules 14 - 15: Network Application Communications
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 15 Online Discussion First Post
@@ -225,6 +238,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 14 Lab Report
 * Module 16 Packet Tracer Online Submission Activities
 * Unit Exam Modules 11 - 13: IP Addressing
+* Online check-in
 
 == Oct 21
 === Work to do in class today
@@ -241,6 +255,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Prepare for CCNA 1 Equipment Skills Exam
 * Practice CCNA 1 Packet Tracer Skills Assessment
 * CCNA 1 Packet Tracer Skills Assessment
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 17 Online Discussion First Post
@@ -253,6 +268,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 17 Packet Tracer Online Submission Activities
 * CCNA 2 Module 1 Packet Tracer Online Submission Activities
 * Unit Exam Modules 14 - 15: Network Application Communications
+* Online check-in
 
 == Oct 28
 === Work to do in class today
@@ -273,6 +289,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Practice CCNA 1 Final Exam
 * CCNA 1 Cisco Course Feedback Form
 * CCNA 1 Online Final Exam
+* Online check-in
 
 === Assignments Due at the start of class today
 * Module 17 Online Discussion Response Posts
@@ -284,6 +301,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Prepare for CCNA 1 Equipment Skills Exam
 * Practice CCNA 1 Packet Tracer Skills Assessment
 * CCNA 1 Packet Tracer Skills Assessment
+* Online check-in
 
 == Nov 4
 === Work to do in class today
@@ -312,6 +330,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 4 Lab Report
 * CCNA 2 Module 5 Lab Report
 * CCNA 1 Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and Inter-VLAN Routing Exam
+* Online check-in
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 3 Online Discussion First Post
@@ -323,6 +342,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Practice CCNA 1 Final Exam
 * CCNA 1 Cisco Course Feedback Form
 * CCNA 1 Online Final Exam
+* Online check-in
 
 == Nov 11
 === Work to do in class today
@@ -363,6 +383,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 13 Packet Tracer Online Submission Activities
 * Unit Exam Modules 5 - 6: Redundant Networks Exam
 * Unit Exam Modules 7 - 9: Available and Reliable Networks Exam
+* Online check-in
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 3 Online Discussion Response Posts
@@ -378,6 +399,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 4 Lab Report
 * CCNA 2 Module 5 Lab Report
 * CCNA 1 Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and Inter-VLAN Routing Exam
+* Online check-in
 
 == Nov 25
 === Work to do in class today
@@ -402,6 +424,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 15 Packet Tracer Online Submission Activities
 * CCNA 2 Module 16 Packet Tracer Online Submission Activities
 * Unit Exam Modules 10 - 13: L2 Security and WLANs Exam
+* Online check-in
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 6 Lab Report
@@ -419,6 +442,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 13 Packet Tracer Online Submission Activities
 * Unit Exam Modules 5 - 6: Redundant Networks Exam
 * Unit Exam Modules 7 - 9: Available and Reliable Networks Exam
+* Online check-in
 
 == Dec 2
 === Work to do in class today
@@ -435,6 +459,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Practice Packet Tracer Skills Assessment
 * CCNA 2 Packet Tracer Skills Assessment
 * Unit Exam Modules 14 - 16: Routing Concepts and Configuration Exam
+* Online check-in
 
 === Assignments Due at the start of class today
 * CCNA 2 Module 11 Lab Report
@@ -449,6 +474,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 15 Packet Tracer Online Submission Activities
 * CCNA 2 Module 16 Packet Tracer Online Submission Activities
 * Unit Exam Modules 10 - 13: L2 Security and WLANs Exam
+* Online check-in
 
 == Dec 9
 === Work to do in class today
@@ -472,6 +498,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Practice Packet Tracer Skills Assessment
 * CCNA 2 Packet Tracer Skills Assessment
 * Unit Exam Modules 14 - 16: Routing Concepts and Configuration Exam
+* Online check-in
 
 == Dec 16
 === Work to do in class today
