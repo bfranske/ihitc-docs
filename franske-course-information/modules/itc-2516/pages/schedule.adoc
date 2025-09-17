@@ -52,6 +52,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 
 == Sep 9
 === Work to do in class today
+* Module 4 Lab Report Activities
 * Today we will be reviewing any content from Modules 1-6 that you are unsure about
 * There will also be lab time available if you need help with any lab or Packet Tracer activities you have not yet completed
 * Complete online check-in form for 9/9 or meet with instructor to check-in
@@ -68,6 +69,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 7 Online Discussion First Post
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
+* Module 4 Lab Report
 * Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
 * Complete online check-in for 9/16
 
@@ -113,6 +115,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 7 Online Discussion First Post
 * Module 8 Online Discussion First Post
 * Module 9 Online Discussion First Post
+* Module 4 Lab Report
 * Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
 * Check-in for 9/9
 * Online check-in for 9/16
