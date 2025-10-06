@@ -72,7 +72,7 @@ NOTE: If you are looking at older Linux documentation you may see references to 
 [source,console]
 ----
 [Match]
-Name=ens192
+Name=ens18
 
 [Network]
 Address=xxx.xxx.xxx.xxx/23
@@ -102,7 +102,7 @@ If you need to set the machine back to using DHCP after activating networkd you 
 [source,console]
 ----
 [Match]
-Name=ens192
+Name=ens18
 
 [Network]
 DHCP=ipv4
