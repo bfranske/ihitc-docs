@@ -288,7 +288,6 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 5 Online Discussion First Post
 * CCNA 2 Module 3 Packet Tracer Online Submission Activities
 * CCNA 2 Module 4 Packet Tracer Online Submission Activities
-* CCNA 2 Module 3 Lab Report
 * Practice CCNA 1 Final Exam
 * CCNA 1 Cisco Course Feedback Form
 * CCNA 1 Online Final Exam
@@ -330,6 +329,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 10 Online Discussion First Post
 * CCNA 2 Module 6 Packet Tracer Online Submission Activities
 * CCNA 2 Module 7 Packet Tracer Online Submission Activities
+* CCNA 2 Module 3 Lab Report
 * CCNA 2 Module 4 Lab Report
 * CCNA 2 Module 5 Lab Report
 * CCNA 2 Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and Inter-VLAN Routing Exam
@@ -341,7 +341,6 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 5 Online Discussion First Post
 * CCNA 2 Module 3 Packet Tracer Online Submission Activities
 * CCNA 2 Module 4 Packet Tracer Online Submission Activities
-* CCNA 2 Module 3 Lab Report
 * Practice CCNA 1 Final Exam
 * CCNA 1 Cisco Course Feedback Form
 * CCNA 1 Online Final Exam
@@ -350,6 +349,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 == Nov 11
 === Work to do in class today
 * No class today, Veterans' Day
+* You can optionally work on labs from modules 6, 7, 8 at home using Netlab remote access if you would like
 
 === Readings to do before next class
 
@@ -399,6 +399,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Module 10 Online Discussion First Post
 * CCNA 2 Module 6 Packet Tracer Online Submission Activities
 * CCNA 2 Module 7 Packet Tracer Online Submission Activities
+* CCNA 2 Module 3 Lab Report
 * CCNA 2 Module 4 Lab Report
 * CCNA 2 Module 5 Lab Report
 * CCNA 2 Unit Exam Modules 1 - 4: Switching Concepts, VLANs, and Inter-VLAN Routing Exam
