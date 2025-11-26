@@ -211,10 +211,10 @@ R2(config)# ipv6 route ::/0 2001:db8:acad:2::1
 ====
 Change the router settings as indicated in the lab, use these for the NEW settings:
 
-* Router IP Address: 172.17.99.1
+* Router IP Address: 172.18.99.1
 * Router Subnet Mask: 255.255.255.0
 * Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
-* DHCP Starting IP Address: 172.17.99.21
+* DHCP Starting IP Address: 172.18.99.21
 * DHCP Maximum Number of Users: 20
 * Router Username: admin
 * Password: Password123!
