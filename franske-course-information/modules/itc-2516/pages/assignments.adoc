@@ -213,7 +213,7 @@ Change the router settings as indicated in the lab, use these for the NEW settin
 
 * Router IP Address: 172.18.99.1
 * Router Subnet Mask: 255.255.255.0
-* Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the classroom PC under your desk)
+* Router Name: CCNA-Rxx (replace xx with the number of one of your PCs, found on a sticker on top of the network jacks at your desk)
 * DHCP Starting IP Address: 172.18.99.21
 * DHCP Maximum Number of Users: 20
 * Router Username: admin
