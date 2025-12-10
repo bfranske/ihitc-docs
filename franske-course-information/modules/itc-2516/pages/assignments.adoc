@@ -93,7 +93,6 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
 
 * Complete a Course Introduction exam (20 points based on your score)
-* Complete the online course feedback form (5 points for completing)
 * Complete the online practice final exam (10 points for attempting)
 * Complete the online Packet Tracer Practice Skills Assessment (10 points for attempting)
 * Complete a weekly online check-in form or meet with the instructor during class to discuss course progress and ask questions (up to 10 points each based on progress)
@@ -243,7 +242,6 @@ TIP: Discussion forum posts are usually worth a larger portion of your final gra
 === Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
 
-* Complete the online course feedback form (5 points for completing)
 * Complete the online practice final exam (10 points for attempting)
 * Complete the online Packet Tracer Practice Skills Assessment - all parts (10 points for attempting)
 * Complete a weekly online check-in form or meet with the instructor during class to discuss course progress and ask questions (up to 10 points each based on progress)
