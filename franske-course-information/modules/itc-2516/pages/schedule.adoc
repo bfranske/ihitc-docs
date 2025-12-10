@@ -485,7 +485,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * CCNA 2 Equipment Skills Exam
 +
 --
-IMPORTANT: You may opt to take the skills exam on December 16 (with less time) due to the weather on December 9 then you must attend campus December 16 for the skills exam which you may also have less time to complete! See details in the email about the weather sent December 9.
+IMPORTANT: You may opt to take the skills exam on December 16 (with less time) due to the weather on December 9. In this case you must attend campus December 16 for the skills exam which you may also have less time to complete! See details in the email about the weather sent December 9.
 --
 
 === Readings to do before next class
@@ -510,7 +510,6 @@ IMPORTANT: You may opt to take the skills exam on December 16 (with less time) d
 
 == Dec 16
 === Work to do in class today
-+
 --
 IMPORTANT: If you are taking the skills exam on December 16 due to the weather on December 9 then you must attend campus December 16 for the skills exam which you may also have less time to complete! See details in the email about the weather sent December 9.
 --
@@ -523,7 +522,6 @@ IMPORTANT: If you are taking the skills exam on December 16 due to the weather o
 * None
 
 === Assignments Due at the start of class today
-+
 --
 IMPORTANT: If you are taking the skills exam on December 16 due to the weather on December 9 these assignments are due for you on Thursday December 11 and no late work can be turned in as of December 9! 
 --
