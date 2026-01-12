@@ -3,10 +3,9 @@
 Course Name: PC Hardware and Software (A+) +
 Course Number: ITC-2000 +
 Instructor: Dr. Ben Franske +
-Term: Spring 2025 (1/13/2025-5/14/2025) +
-Section 1 Meetings: Tu Th 10:00-11:50am +
-Section 2 Meetings: W 6:00-9:50pm +
-Location: S130
+Term: Spring 2025 (1/12/2026-5/13/2026) +
+Class Meetings: Tu Th 10:00-11:50am +
+Location: B225
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
