@@ -1,0 +1,118 @@
+= ITC-2100 Syllabus
+
+Course Name: IT Career Success Skills and Strategies +
+Course Number: ITC-2100-99 +
+Instructor: Dr. Ben Franske +
+Term: Spring 2026 (1/12/2026-5/13/2026) +
+Meetings: Asynchronous +
+Location: Online
+
+== Instructor Contact Information
+include::ROOT:partial$instructor-contact.adoc[]
+
+== General Course Information
+
+NOTE: It is recommended that you take this course your final Spring semester.
+
+=== Prerequisite(s)
+
+=== Course Description
+Prepares information technology (IT) students to enter the IT job market or successfully transition into a new career in the IT field. Students will learn effective IT job search skills as well as skills and strategies that will serve to enhance their IT careers once they have obtained employment.  In addition, students will explore how to manage their professional development throughout their IT career to enable advancement to more senior roles.
+
+=== Required Resources
+* None
+
+=== Optional Resources
+* None
+
+=== Course Website(s)
+* ITC Info (https://info.ihitc.net)
+* IHCC D2L Site (https://inverhills.learn.minnstate.edu/d2l/home)
+
+== Course Objectives
+The student will be able to:
+
+* Explore IT Career Options and the technical and non-technical skills required for each career path
+* Complete a personal skills inventory
+* Create an IT portfolio of projects completed both in and outside the classroom
+* Create a print resume, an online resume, and a cover letter that can be used for a job search
+* Demonstrate skills needed to complete a successful IT job interview
+* Explain the time management skills required to navigate the day-to-day challenges of an IT career
+* Describe how to create a professional development plan to advance your career that includes IT certifications
+* Demonstrate soft skills that can prepare you for the expectations of an IT Engineer/Analyst
+* Explain the IT project management and Agile methodologies and how to manage work with both
+* Describe the IT Service Management (ITSM) and IT Infrastructure Library (ITIL) concepts and tools and how they can be used to improve the delivery of IT services
+* Explain how customer service principles apply to IT service delivery
+* Demonstrate how to effectively communicate in an IT environment and how business communications can differ from academic writing
+
+== Course Design
+This course will be taught as a fully online asynchronous course. You will be responsible for completing required readings in the textbook or online, watching tutorial videos, listening to recorded podcasts, participating in online discussions, and completing online exams or assignments. As an asynchronous course there are no scheduled course meetings and you will be responsible yourself to make sure that you are regularly checking the course schedule and assignment list so that all work is completed on time. The instructor is available by email, during office hours, or by appointment to provide assistance with the course.
+
+== Assignments and Grading
+Grades will be determined by performance on four major assignments completed over the course of the semester. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
+
+Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+=== Late Assignments and Extensions
+If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
+
+=== Grading Scale
+[%autowidth,options="header"]
+|===
+|Letter Grade |Percentage Range |Description
+|A
+|100%-90%
+|achievement that is outstanding relative to the level necessary to meet course requirements
+|B
+|89%-80%
+|achievement that is significantly above the level necessary to meet course requirements
+|C
+|79%-70%
+|achievement that meets the course requirements in every respect
+|D
+|69%-65%
+|achievement that is worthy of credit even though it fails to meet fully the course requirements
+|F
+|64%-0%
+|Represents failure and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|N
+|
+|Represents no credit and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|I
+|
+|Represents incomplete and is assigned at the discretion of the instructor when, due to extraordinary circumstances, e.g., hospitalization, a student is prevented from completing the work of the course on time. Requires a written agreement between instructor and student. Students must request an incomplete from the instructor.
+|===
+
+=== Grading Method and Availability
+
+Grades for this course are based on a weighted points system. Each assignment, or portion of an assignment, is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up grades based on student participation and individual improvement. 
+ 
+[%autowidth,options="header"]
+|===
+|Category |Percent of Final Grade
+|Career Exploration & Skills Inventory 
+|20%
+|Professional Branding Package
+|35%
+|IT Workplace Essentials
+|20%
+|IT Methodologies & Professional Development
+|25%
+|===
+
+Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.
+
+Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
+
+CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+
+=== Extra Credit
+Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. The nature of the particular extra credit opportunity will determine how it will be applied to your grade either within an existing category or on top of your final grade. 
+
+== Course and Campus Policies
+include::ROOT:partial$campus-policies.adoc[]
+
+== Updates to this Syllabus
+The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
