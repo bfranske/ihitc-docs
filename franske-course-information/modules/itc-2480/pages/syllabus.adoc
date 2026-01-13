@@ -2,9 +2,9 @@
 Course Name: Administering Linux Operating Systems +
 Course Number: ITC-2830 +
 Instructor: Dr. Ben Franske +
-Term: Spring 2025 (1/13/2025-5/14/2025) +
-Meetings: No required meetings +
-Location: Online Asynchronous
+Term: Spring 2026 (1/12/2025-5/13/2026) +
+Meetings: Hybrid Course, Periodic Meetings See Course Schedule +
+Location: On Campus Meetings in B205
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
@@ -18,8 +18,8 @@ include::ROOT:partial$instructor-contact.adoc[]
 Covers the installation, configuration and maintenance of Linux systems with an emphasis on server administration. A major focus of this course is learning the Linux command line interface for system administration tasks. Other topics involve providing network services such as routing, firewalls, DNS, DHCP, file, web, and email servers to network clients. 
 
 === Required Resources
-* https://debian-handbook.info/get/now/[The Debian Administrator's Handbook (Debian 10 Edition) by Raphaël Hertzog and Roland Mas] (ISBN: 979-1091414197) Available Free Online!
-* http://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download[The Linux Command Line (2nd Edition or 5th Internet Edition) by William Shotts] (ISBN: 978-1593279523) Available Free Online!
+* https://debian-handbook.info/get/[The Debian Administrator's Handbook (Debian 11 Edition) by Raphaël Hertzog and Roland Mas] (ISBN: 979-1091414210) Available Free Online!
+* https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts] (ISBN: 978-1718504523) Available Free Online!
 * Various Online Readings (see course assignments page)
 
 === Optional Resources
