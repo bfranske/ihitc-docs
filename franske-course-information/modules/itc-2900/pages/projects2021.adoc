@@ -1,10 +1,5 @@
 = Project Ideas for Spring 2021
 
-
-= ITC-2900 Project Ideas (Spring 2021)
-:page-title: ITC-2900 Project Ideas (Spring 2021)
-:page-nav_order: 39
-
 NOTE: These are some ideas; there are many other possible projects. Discuss your own ideas with the instructor to see if they might be feasible.
 
 == Support for vTPM and Encryption with VMWare
