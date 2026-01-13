@@ -7,7 +7,7 @@ This is the homepage for the ITC-2900 classes taught by Dr. Ben Franske.
 * xref:syllabus.adoc[Course Syllabus]
 * xref:schedule.adoc[Official Course Schedule]
 * xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
-* xref:projects2025.adoc[Spring 2025 Project Ideas]
+* xref:projects2026.adoc[Spring 2026 Project Ideas]
 * xref:remotegroupwork.adoc[Tools and Information on Remote Groupwork]
 
 == Archives
@@ -19,5 +19,6 @@ This is the homepage for the ITC-2900 classes taught by Dr. Ben Franske.
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP20_Possible_Projects[Spring 2020 Project Ideas]
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP21_Possible_Projects[Spring 2021 Project Ideas]
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP22_Possible_Projects[Spring 2022 Project Ideas]
+* xref:projects2025.adoc[Spring 2025 Project Ideas]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

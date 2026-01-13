@@ -1,7 +1,7 @@
 = ITC-2000 Syllabus
 
 Course Name: PC Hardware and Software (A+) +
-Course Number: ITC-2000 +
+Course Number: ITC-2000-01 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2025 (1/12/2026-5/13/2026) +
 Class Meetings: Tu Th 10:00-11:50am +

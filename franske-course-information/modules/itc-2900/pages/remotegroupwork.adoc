@@ -1,0 +1,63 @@
+
+= Remote Groupwork Tools
+
+It can be especially challenging to work in a group when you are not physically getting together on a regular basis. The following tools are available to you and it's strongly suggested you take advantage of them.
+
+== Chat and Messaging
+
+=== Microsoft Teams
+This tool is good for text messaging or video/audio calling other group members directly as well as for an ongoing group text chat where you can all check in with each other. It's available as a Website, Desktop application, Android, and iOS application. To make the best use of it you are encouraged to have it installed on your computer as well as a smartphone.
+
+.Access Instructions
+* https://www.inverhills.edu/help-center/technology-services/getting-software/office-365-proplus/[Get instructions for installing the latest Microsoft Office 365 ProPlus apps on your computer] which includes Teams.
+* Or sign on to the Teams web app at https://office.com[office.com] with `<YourStarID>@go.minnstate.edu`.
+* Or sign in to the Microsoft Teams mobile app with `<YourStarID>@go.minnstate.edu`.
+
+=== D2L Discussion Forums
+Most people today prefer to work with a text chat app like Microsoft Teams but if your team would like a more traditional discussion forum we can set one up for you on D2L.
+
+.Access Instructions
+* Contact your instructor and ask for a D2L discussion forum to be setup.
+
+== Video and Audio Group Meetings
+
+=== Zoom
+This tool is good for holding group video and audio meetings which you should have on a weekly basis. You will also be using it to check in with your professor regularly. It is much better than Microsoft Teams for meetings with more than one other person and supports screen and control sharing for actively working with other people. It's available as a Desktop application, Android, and iOS application but the experience is usually best on a computer, especially for screen sharing.
+
+.Access Instructions
+* https://minnstate.zoom.us/[Log in with `<YourStarID>@go.minnstate.edu` and password] to create your own private Zoom meetings.
+* See the https://www.inverhills.edu/help-center/technology-services/zoom-connecting-with-a-computer/[connecting with a computer] and https://www.inverhills.edu/help-center/technology-services/zoom-connecting-with-a-mobile-device/[connecting with a mobile device] pages for additional information.
+
+== Collaborative Editing
+
+=== Microsoft Word for Office 365
+This tool is a good option for collaborating on your SoW, Group Meeting Minutes, and Final Written Report. It's also a good option for keeping your Individual Work Log and Peer Evaluations. It is more fully featured than other collaborative document editing tools.
+
+.Access Instructions
+* https://www.inverhills.edu/help-center/technology-services/getting-software/office-365-proplus/[Get instructions for installing the latest Microsoft Office 365 ProPlus apps on your computer] and/or sign on to the web-apps at https://office.com[office.com] with `<YourStarID>@go.minnstate.edu`.
+* https://support.microsoft.com/en-us/office/collaborate-on-word-documents-with-real-time-co-authoring-7dd3040c-3f30-4fdd-bab0-8586492a1f1d[Instructions for collaborative editing of Word documents.]
+
+=== Microsoft Excel for Office 365
+This tool is a good option for tracking the hours worked and summary of work done by each member of the team. It is more fully featured than other collaborative spreadsheet tools.
+
+.Access Instructions
+* https://www.inverhills.edu/help-center/technology-services/getting-software/office-365-proplus/[Get instructions for installing the latest Microsoft Office 365 ProPlus apps on your computer] and/or sign on to the web-apps at https://office.com[office.com] with `<YourStarID>@go.minnstate.edu`.
+* https://support.microsoft.com/en-us/office/collaborate-on-excel-workbooks-at-the-same-time-with-co-authoring-7152aa8b-b791-414c-a3bb-3024e46fb104[Instructions for collaborative editing of Excel documents.]
+
+=== Microsoft PowerPoint for Office 365
+This tool is a good option for building slides for your presentation. It is more fully featured than other collaborative presentation tools.
+
+.Access Instructions
+* https://www.inverhills.edu/help-center/technology-services/getting-software/office-365-proplus/[Get instructions for installing the latest Microsoft Office 365 ProPlus apps on your computer] and/or sign on to the web-apps at https://office.com[office.com] with `<YourStarID>@go.minnstate.edu`.
+* https://support.microsoft.com/en-us/office/work-together-on-powerpoint-presentations-0c30ee3f-8674-4f0e-97be-89cf2892a34d[Instructions for collaborative editing of PowerPoint presentations.]
+
+== Storage
+
+=== Microsoft OneDrive
+This tool is a good option for sharing a folder or files with group members. 1 TB of storage is included in your IHCC account. You can use a web interface to save and download files or you can use the OneDrive client installed on your computer.
+
+.Access Instructions
+* Sign on to the OneDrive web app at https://office.com[office.com] with `<YourStarID>@go.minnstate.edu`.
+* Or sign on to the OneDrive desktop client with `<YourStarID>@go.minnstate.edu`.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
