@@ -1,4 +1,4 @@
-* ITC-2100
+* xref:itc-2100:index.adoc[ITC-2100]
 ** xref:itc-2100:index.adoc[Course Home]
 ** xref:itc-2100:syllabus.adoc[Syllabus]
 ** xref:itc-2100:schedule.adoc[Schedule]

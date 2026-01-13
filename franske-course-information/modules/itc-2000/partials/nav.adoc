@@ -1,4 +1,4 @@
-* ITC-2000
+* xref:itc-2000:index.adoc[ITC-2000]
 ** xref:itc-2000:index.adoc[Course Home]
 ** xref:itc-2000:syllabus.adoc[Syllabus]
 ** xref:itc-2000:schedule.adoc[Schedule]
