@@ -323,3 +323,5 @@ In this project your goal would be to test and update Voice over IP lab activiti
 * Working VoIP phone demonstration topology
 * Updated lab activities with a topology and clear instructions for configuring and testing the VoIP topology.
 * Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

@@ -1,0 +1,201 @@
+= Project Ideas for Spring 2021
+
+
+= ITC-2900 Project Ideas (Spring 2021)
+:page-title: ITC-2900 Project Ideas (Spring 2021)
+:page-nav_order: 39
+
+NOTE: These are some ideas; there are many other possible projects. Discuss your own ideas with the instructor to see if they might be feasible.
+
+== Support for vTPM and Encryption with VMWare
+
+=== Introduction
+VMWare has support for a virtual TPM chip in its VMs as well as the ability to encrypt Virtual Machine files. In theory, enabling the vTPM feature should allow you to use BitLocker on the boot drive of a Windows VM running in VMware as well as to provide additional security enhancement of VMware VM files. Normally enabling this support in VMware requires the use of a commercial KMIP key management server (KMS). In this project you would explore how KMIP KMS systems operate and implement an open source KMIP server for VMware culminating in a demonstration of the enhanced security features including vTPM possible with KMIP on VMWare. 
+
+=== Resources
+* PyKMIP
+* VMWare ESXi
+* VMware vSphere 
+
+=== Deliverables
+* Working vTPM VMware setup
+* BitLocker running on boot drive in VMWare 
+
+== DNS and Web Deep Dive
+
+=== Introduction
+Explore the operation of DNS servers, Web servers, and related services by modeling how the Internet DNS system works. Includes deploying at least a root nameserver, a few TLD nameservers, some nameservers for particular domains, delegated nameservers, as well as a root Certificate Authority, experimenting with DNSSEC and DANE, and setting up demo webservers for sample domains (utilizing the DNS infrastructure, DNSSEC, DANE, SSL/TLS certificates, etc.). 
+
+=== Resources
+* Lots of Linux server VMs
+* BIND DNS Server (and/or Unbound DNS server)
+* nginx web server 
+
+=== Deliverables
+* Public Key Infrastructure setup (certificate creation, signing, etc.)
+* DNS Server hierarchy with working DNSSEC/DANE
+* Access to webservers/sample domains
+* Prepare a whitepaper and presentation detailing your research, testing process, and results 
+
+== PKI Certificate Deep Dive
+
+=== Introduction
+Explore the operation of public key infrastructure (security certificates). Includes setting up an enterprise certificate authority on Windows Server and/or Linux and then demonstrating the useful application of security certificates for things like: HTTPS websites, code signing, VPN authentication, Wireless Network 802.1x Authentication, email signing, etc. You will also determine the feasibility of using free public "Let's Encrypt" certificates for any or all of these in an enterprise intranet setting. 
+
+=== Resources
+* Windows and Linux server VMs
+* Certificate creation and signing software 
+
+=== Deliverables
+* Public Key Infrastructure setup (certificate creation, signing, etc.)
+* Demonstration of certificate use
+* Prepare a whitepaper and presentation detailing your research, testing process, and results 
+
+== UPS Power Monitoring
+
+=== Resources
+* Lots of Raspberry Pis
+* UPSs 
+
+=== Deliverables
+* Working NUT servers on every UPS
+* Documentation on setup and configuration
+* Prepare a whitepaper and presentation detailing your research, testing process, and results 
+
+== Network Access Control
+
+=== Introduction
+The Inver Hills ITC department has an academic, demonstration, and research network ("ITCnet") which uses network devices from Cisco and HP and supports a number of virtual machines, hosts, and devices including Windows, Linux, Android, iPhone, and more. Network ports are not physically securable but it may be possible to improve security on this network by implementing some type of Network Access Control (NAC) which restricts access to network resources until a user authenticates to the network. Users on our network are stored in an Active Directory system which is also accessible through LDAP and RADIUS methods. It has been determined in previous groups that PacketFence is a reasonable option for NAC but test implementations with switches and wireless APs have not been completed. Your task would be to setup and test PacketFence with the Cisco and HP/3Com switches we use as well as with the Ubiquiti UniFi APs (running OpenWrt) and Aruba Wireless APs, and to document your results. 
+
+=== Resources
+* Cisco Switches
+* HP/3Com Switches
+* Wireless APs and Controllers
+* Windows Server / Active Directory
+* PacketFence Open Source NAC 
+
+=== Deliverables
+* Design and implement a test network environment
+* Determine, test, and document configurations which will meet the 802.1x and captive portal requirements
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== Linux Software Mirror
+
+=== Introduction
+Your goal with this project is to create a self-updating/sustaining Linux operating system local mirror which would allow ITC students to more quickly install and update their Linux systems. The primary OS which must be supported is Debian Linux but you may choose to include other Linux distributions in the mirror as well. The mirror should include a package repository as well as an ISO repository. Your mirror needs to automatically stay up to date with the latest Linux distribution files and should support delivering files over IPv4 and IPv6. It should meet the requirements for being a public mirror. 
+
+=== Resources
+* Linux VM
+* SAN backed storage 
+
+=== Deliverables
+* A working and self-updating Linux distribution mirror (at least for Debian, possibly other distributions as well)
+* Configuration documentation of the mirror
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== Internet Archiving
+
+=== Introduction
+In this project your goal would be to work on Internet Archival projects with the ArchiveTeam. Specifically, installing and running their Warrior VM for archival purposes as well as the ArchiveBot and possibly other archival systems. 
+
+=== Resources
+* Linux VMs 
+
+=== Deliverables
+* Running archival VMs
+* Configuration documentation of the system
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== Internet Video Conferencing Systems
+
+=== Introduction
+In this project your goal would be to compare and install a variety of open source video conferencing server systems and compare them with each other and with commercial offerings such as Zoom and WebEx. Examples could include Jitsi, Wire, Jami, Element.io, BigBlueButton. 
+
+=== Resources
+* Linux VMs
+* Various client devices 
+
+=== Deliverables
+* Running conferencing servers
+* Configuration documentation of the system, comparisons of various video conferencing server options
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== VPN Systems Comparison
+
+=== Introduction
+In this project your goal would be to compare and install a variety of different types of VPN software, focusing primarily on open source offerings and covering a variety of different types of VPN use cases. Use cases include: remote access to a work network, protecting Internet traffic over an insecure network (such as free Wi‑Fi), connecting individual client devices to a single virtual network, connecting two separate networks together. You should explore differences in how the different software allows for authentication, how they provide rules limiting which clients traffic can flow between, speed differences, usability, flexibility, etc. 
+
+=== Resources
+* VMs
+* VPN Server and Client software
+* Various client devices 
+
+=== Deliverables
+* Running VPN systems
+* Configuration documentation of the software, comparisons of various software options
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== Python Programming Projects
+
+=== Introduction
+There are MANY possible Python programming projects possible and could include local programs as well as cloud based serverless type programs (e.g., Azure Functions). Specific projects would depend on your existing Python knowledge and area of interest. Discuss these with your instructor. 
+
+=== Resources
+* Python!
+* Possibly other things depending on specific project 
+
+=== Deliverables
+* Code as open source under MIT license
+* Other deliverables depend on specific project
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations 
+
+== Lecture Capture System
+
+=== Introduction
+In this project you would be installing, testing, and documenting the Opencast lecture capture system. 
+
+=== Resources
+* Lecture Capture PC
+* Lecture Capture Hardware (cameras, pen display, audio interface, etc.)
+* Opencast software
+
+=== Deliverables
+* Working lecture capture system
+* Configuration documentation of the system
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Taken
+
+=== Internet Text Chat Systems
+
+==== Introduction
+In this project your goal would be to compare and install a variety of text Internet chat server systems. Examples could include IRC, XMPP (Jabber), RocketChat, Mattermost, Zulip, or Matrix. These can also be compared with commercial offerings such as Microsoft Teams, WebEx Teams, Slack, HipChat, Discord, etc. 
+
+==== Resources
+* Linux VMs
+* Various client devices
+
+==== Deliverables
+* Running chat servers
+* Configuration documentation of the system, comparisons of various text chat server options
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+=== Linux Course Lab Updates
+
+==== Introduction
+In this project you would work with the instructor to review and update various lab activities in the Linux System Administration course (ITC-2480) based on current Linux best practices and software. This could also involve replacing activities, creating new automatic systems for students to self-check successful activity completion, creating new explanatory videos, etc. 
+
+==== Resources
+* Linux VMs 
+
+==== Deliverables
+* Updated written activity instructions (depending on activities)
+* Updated activity video demonstrations (depending on activities)
+* VMs which can auto-check successful activity completion (depending on activities)
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+=== Windows Deployment and Management with MDT and WDS
+
+This project proposed by a student group
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

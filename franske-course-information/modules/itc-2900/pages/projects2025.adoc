@@ -256,3 +256,5 @@ There are MANY possible Python programming projects possible and could include l
 * Code as open source under MIT license
 * Other deliverables depend on specific project
 * Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

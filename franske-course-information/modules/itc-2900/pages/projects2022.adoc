@@ -1,0 +1,221 @@
+= Project Ideas for Spring 2022
+
+NOTE: These are some ideas; there are many other possible projects. Discuss your own ideas with the instructor to see if they might be feasible.
+
+== Intrusion Prevention System Experimentation
+
+=== Introduction
+In this project you would explore a couple of different intrusion prevention systems and create a lab which could be used in a network security course to demonstrate the use of IPS software. This may require the creation of pre-built virtual machines so that the principal features of IPS can be explored within a reasonable lab time. You may want to explore and create labs for both network (NIPS) and host (HIPS) based IPS.
+
+=== Resources
+* SNORT
+* Zeek
+* OSSEC
+* Suricata
+* Security Onion
+* pfSense
+
+=== Deliverables
+* Comparison of IPS software
+* IPS Lab Activities (instructions, VMs, etc.)
+
+== Overlay Network Experimentation
+
+=== Introduction
+Overlay networks allow you to build a network of systems (and sometimes subnets) which communicate with each other and appear to be on a local network even when they are connected through other networks. They share some similarities with VPNs but usually allow direct node to node communication without flowing through a central gateway. They can be supported/connected with both software and hardware depending on specific needs.
+
+=== Resources
+* Slack Nebula
+* Tinc
+* VXLAN
+* flexiWAN
+* Yggdrasil Network
+* HasiCorp Consul
+* ZeroTier
+* cjdns
+* Headscale
+
+=== Deliverables
+* Working overlay network(s)
+* Comparison of types/specific overlay networks
+
+== Digital Signage
+
+=== Introduction
+Digital signage player software is used to show photos and information on TV screens used as signs in public places. This project would be to explore and test at least a few different digital signage players and make a recommendation on ones to use for a few particular organizations with different needs.
+
+=== Resources
+* Concerto
+* Screenly
+* Xibo
+* Rise Vision
+* Display Monkey
+* Pi Signage
+* Info Beamer
+* Libre Signage
+* Foyer
+
+=== Deliverables
+* Working digital signage system(s)
+* Recommendations/comparison of digital signage systems
+
+== DNS and Web Deep Dive
+
+=== Introduction
+Explore the operation of DNS servers, Web servers, and related services by modeling how the Internet DNS system works. Includes deploying at least a root nameserver, a few TLD nameservers, some nameservers for particular domains, delegated nameservers, as well as a root Certificate Authority, experimenting with DNSSEC and DANE, and setting up demo webservers for sample domains (utilizing the DNS infrastructure, DNSSEC, DANE, SSL/TLS certificates, etc.).
+
+=== Resources
+* Lots of Linux server VMs
+* BIND DNS Server (and/or Unbound DNS server)
+* nginx web server
+
+=== Deliverables
+* Public Key Infrastructure setup (certificate creation, signing, etc.)
+* DNS Server hierarchy with working DNSSEC/DANE
+* Access to webservers/sample domains
+* Prepare a whitepaper and presentation detailing your research, testing process, and results
+
+== PKI Certificate Deep Dive
+
+=== Introduction
+Explore the operation of public key infrastructure (security certificates). Includes setting up an enterprise certificate authority on Windows Server and/or Linux and then demonstrating the useful application of security certificates for things like: HTTPS websites, code signing, VPN authentication, Wireless Network 802.1x Authentication, email signing, etc. You will also determine the feasibility of using free public "Let's Encrypt" certificates for any or all of these in an enterprise intranet setting.
+
+=== Resources
+* Windows and Linux server VMs
+* Certificate creation and signing software
+
+=== Deliverables
+* Public Key Infrastructure setup (certificate creation, signing, etc.)
+* Demonstration of certificate use
+* Prepare a whitepaper and presentation detailing your research, testing process, and results
+
+== UPS Power Monitoring
+
+=== Resources
+* Lots of Raspberry Pis
+* UPSs
+
+=== Deliverables
+* Working NUT servers on every UPS
+* Documentation on setup and configuration
+* Prepare a whitepaper and presentation detailing your research, testing process, and results
+
+== Network Access Control
+
+=== Introduction
+The Inver Hills ITC department has an academic, demonstration, and research network ("ITCnet") which uses network devices from Cisco and HP and supports a number of virtual machines, hosts, and devices including Windows, Linux, Android, iPhone, and more. Network ports are not physically securable but it may be possible to improve security on this network by implementing some type of Network Access Control (NAC) which restricts access to network resources until a user authenticates to the network. Users on our network are stored in an Active Directory system which is also accessible through LDAP and RADIUS methods. It has been determined in previous groups that PacketFence is a reasonable option for NAC but test implementations with switches and wireless APs have not been completed. Your task would be to setup and test PacketFence with the Cisco and HP/3Com switches we use as well as with the Ubiquiti UniFi APs (running OpenWrt) and Aruba Wireless APs, and to document your results.
+
+=== Resources
+* Cisco Switches
+* HP/3Com Switches
+* Wireless APs and Controllers
+* Windows Server / Active Directory
+* PacketFence Open Source NAC
+
+=== Deliverables
+* Design and implement a test network environment
+* Determine, test, and document configurations which will meet the 802.1x and captive portal requirements
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Linux Software Mirror
+
+=== Introduction
+Your goal with this project is to create a self-updating/sustaining Linux operating system local mirror which would allow ITC students to more quickly install and update their Linux systems. The primary OS which must be supported is Debian Linux but you may choose to include other Linux distributions in the mirror as well. The mirror should include a package repository as well as an ISO repository. Your mirror needs to automatically stay up to date with the latest Linux distribution files and should support delivering files over IPv4 and IPv6. It should meet the requirements for being a public mirror.
+
+=== Resources
+* Linux VM
+* SAN backed storage
+
+=== Deliverables
+* A working and self-updating Linux distribution mirror (at least for Debian, possibly other distributions as well)
+* Configuration documentation of the mirror
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Internet Archiving
+
+=== Introduction
+In this project your goal would be to work on Internet Archival projects with the ArchiveTeam. Specifically, installing and running their Warrior VM for archival purposes as well as the ArchiveBot and possibly other archival systems.
+
+=== Resources
+* Linux VMs
+
+=== Deliverables
+* Running archival VMs
+* Configuration documentation of the system
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Python Programming Projects
+
+=== Introduction
+There are MANY possible Python programming projects possible and could include local programs as well as cloud based serverless type programs (e.g., Azure Functions). Specific projects would depend on your existing Python knowledge and area of interest. Discuss these with your instructor.
+
+=== Resources
+* Python!
+* Possibly other things depending on specific project
+
+=== Deliverables
+* Code as open source under MIT license
+* Other deliverables depend on specific project
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Lecture Capture System
+
+=== Introduction
+In this project you would be installing, testing, and documenting the Opencast lecture capture system.
+
+=== Resources
+* Lecture Capture PC
+* Lecture Capture Hardware (cameras, pen display, audio interface, etc.)
+* Opencast software
+
+=== Deliverables
+* Working lecture capture system
+* Configuration documentation of the system
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+== Taken
+
+=== Support for vTPM and Encryption with VMWare
+
+==== Introduction
+VMWare has support for a virtual TPM chip in its VMs as well as the ability to encrypt Virtual Machine files. In theory, enabling the vTPM feature should allow you to use BitLocker on the boot drive of a Windows VM running in VMware as well as to provide additional security enhancement of VMware VM files. Normally enabling this support in VMware requires the use of a commercial KMIP key management server (KMS). In this project you would explore how KMIP KMS systems operate and implement an open source KMIP server for VMware culminating in a demonstration of the enhanced security features including vTPM possible with KMIP on VMWare.
+
+==== Resources
+* PyKMIP
+* VMWare ESXi
+* VMware vSphere
+
+==== Deliverables
+* Working vTPM VMware setup
+* BitLocker running on boot drive in VMWare
+
+=== Internet Video Conferencing Systems
+
+==== Introduction
+In this project your goal would be to compare and install a variety of open source video conferencing server systems and compare them with each other and with commercial offerings such as Zoom and WebEx. Examples could include Jitsi, Wire, Jami, Element.io, BigBlueButton.
+
+==== Resources
+* Linux VMs
+* Various client devices
+
+==== Deliverables
+* Running conferencing servers
+* Configuration documentation of the system, comparisons of various video conferencing server options
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+=== VPN Systems Comparison
+
+==== Introduction
+In this project your goal would be to compare and install a variety of different types of VPN software, focusing primarily on open source offerings and covering a variety of different types of VPN use cases. Use cases include: remote access to a work network, protecting Internet traffic over an insecure network (such as free Wi‑Fi), connecting individual client devices to a single virtual network, connecting two separate networks together. You should explore differences in how the different software allows for authentication, how they provide rules limiting which clients traffic can flow between, speed differences, usability, flexibility, etc.
+
+==== Resources
+* VMs
+* VPN Server and Client software
+* Various client devices
+
+==== Deliverables
+* Running VPN systems
+* Configuration documentation of the software, comparisons of various software options
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
