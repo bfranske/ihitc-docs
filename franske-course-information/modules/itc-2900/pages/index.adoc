@@ -17,8 +17,8 @@ This is the homepage for the ITC-2900 classes taught by Dr. Ben Franske.
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP18_Possible_Projects[Spring 2018 Project Ideas]
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP19_Possible_Projects[Spring 2019 Project Ideas]
 * https://wiki.ihitc.net/w/Franske_ITC_2900_SP20_Possible_Projects[Spring 2020 Project Ideas]
-* https://wiki.ihitc.net/w/Franske_ITC_2900_SP21_Possible_Projects[Spring 2021 Project Ideas]
-* https://wiki.ihitc.net/w/Franske_ITC_2900_SP22_Possible_Projects[Spring 2022 Project Ideas]
+* xref:projects2021.adoc[Spring 2021 Project Ideas]
+* xref:projects2022.adoc[Spring 2022 Project Ideas]
 * xref:projects2025.adoc[Spring 2025 Project Ideas]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
