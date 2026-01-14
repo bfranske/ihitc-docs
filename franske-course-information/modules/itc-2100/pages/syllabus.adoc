@@ -20,7 +20,7 @@ NOTE: It is recommended that you take this course your final Spring semester.
 Prepares information technology (IT) students to enter the IT job market or successfully transition into a new career in the IT field. Students will learn effective IT job search skills as well as skills and strategies that will serve to enhance their IT careers once they have obtained employment.  In addition, students will explore how to manage their professional development throughout their IT career to enable advancement to more senior roles.
 
 === Required Resources
-* None
+* Limoncelli, Thomas A. Time Management for System Administrators. O’Reilly (2009)
 
 === Optional Resources
 * None
@@ -90,14 +90,18 @@ Grades for this course are based on a weighted points system. Each assignment, o
 [%autowidth,options="header"]
 |===
 |Category |Percent of Final Grade
-|Career Exploration & Skills Inventory 
+|Quizzes on Course Content
 |20%
-|Professional Branding Package
-|35%
-|IT Workplace Essentials
+|Discussions & Participation
 |20%
-|IT Methodologies & Professional Development
-|25%
+|IT Workplace Essentials Assignments
+|16%
+|IT Methodologies and Professional Development Planning Assignments
+|10%
+|Career Path and SKills Inventory Assignments
+|14%
+|Professional Branding Package Assignments
+|20%
 |===
 
 Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.

@@ -1,5 +1,166 @@
 = ITC-2100 Assignment Details and Directions
 
+== Quizzes on Course Content
+There will be a short weekly quiz on D2L to check that you have reviewed the course content for the week (readings, videos, etc.).
+
+== Discussions & Participation
+There will be a weekly discussion prompt on D2L worht 10 points each week:
+* To receive 5 points you must respond directly to the discussion prompt with at least 3-5 sentences.
+* To receive another 5 points you must reply to at least two other students with at least 2 substantive sentences each. Replies must further the conversation as opposed to just stating that you agree or disagree.
+
+== IT Workplace Essentials
+
+IMPORTANT: This assignment is currently being revised, please check back for instructions closer to the due date!
+
+There will be primary parts to this assignment the first around time management and the second around effective communications.
+
+=== Overview
+In this assignment you will apply practical IT workplace skills to real‑world scenarios.  
+These scenarios focus on time management, communication, teamwork, conflict resolution, and customer service, all core skills for IT professionals at any level.
+
+You will complete **three short written scenarios**, each about 150-250 words (1–2 paragraphs) in length.
+
+=== Scenario 1: Time Management and Task Prioritization
+
+Imagine the following situation:
+
+*A user reports that their password is not working. At the same time, you have a ticket due in 30 minutes and a system update requiring your attention before the end of the day.*
+
+Write a 150-250 word (1–2 paragraph) explanation describing:
+* How you prioritize the tasks
+* Which actions you take first and why
+* How you communicate with the affected user(s)
+* Whether any task should be escalated and under what conditions
+* How you ensure deadlines are still met
+
+Your response should demonstrate practical IT reasoning, clear communication, and awareness of typical IT workflow expectations (SLAs, ticket queues, urgency vs. impact, etc.).
+
+=== Scenario 2: Soft Skills & Conflict Resolution
+
+Consider this situation:
+
+*During a project meeting, a team member becomes frustrated and says your documentation is "unclear and slowing down the project."*
+
+Write a 150-250 word (1–2 paragraph) explanation describing:
+* How you would respond professionally in the moment
+* How you would clarify or improve your documentation
+* How you would maintain positive working relationships
+* How you would keep the project on track despite conflict
+
+Your response should reflect strong communication, emotional intelligence, and professionalism.
+
+=== Scenario 3: IT Customer Service Scenario
+
+A non‑technical user submits the following ticket:
+
+*"My computer won’t turn on and I need to access my files ASAP!"*
+
+Write a 150-250 word (1–2 paragraph) as if you were replying to the user.  
+Your reply should demonstrate:
+* Empathy and reassurance
+* Clear, non‑technical communication
+* Step‑by‑step troubleshooting instructions
+* Appropriate expectations for next steps or escalation
+
+Use tone and clarity appropriate for real IT service desk interactions.
+
+=== Submission Requirements
+* Submit a single PDF or Word document containing all three scenarios.
+* Label each scenario clearly with a heading.
+* Total length: approximately 450-750 words (each scenario 150-250 words).
+
+=== Grading Criteria
+Your work will be evaluated based on:
+* Clarity, professionalism, and tone in each scenario
+* Practicality and realism of your responses
+* Evidence of soft skills, time management, and customer empathy
+* Quality of writing, organization, and formatting
+
+== IT Methodologies & Professional Development
+
+=== Overview
+In this assignment you will demonstrate your understanding of key IT frameworks and methodologies used across the industry, including Agile, project management practices, IT Service Management (ITSM), and the IT Infrastructure Library (ITIL). 
+
+You will also create a personal "Professional Development & Certification Roadmap" that outlines how you plan to advance your IT career in the next year.
+
+=== Part 1: Agile & Project Management Summary
+
+Write a 250-400 word explanation in your own words that demonstrates your understanding of Agile and project management concepts as they relate to IT work environments.
+
+Your summary should include:
+* A clear explanation of what Agile is and why IT teams use it
+* The key Agile roles (e.g. Product Owner, Scrum Master, team members)
+* Core Agile ceremonies (e.g. standups, sprint planning, retrospectives)
+* A brief example of how an IT team, not just software developers, might use Agile methods
+** Such as for infrastructure updates, helpdesk process improvements, cloud migrations
+
+Requirements:
+* Write in narrative (paragraph) form (no bullet lists)
+* Use your own words to explain concepts
+* Demonstrate understanding rather than simply listing definitions
+* Use simple, clear language appropriate for workplace communication
+
+TIP: Use the Agile instructional videos and readings from the class for reference.
+
+=== Part 2: ITSM & ITIL Summary
+
+Write a 250-400 word explanation describing the purpose of IT Service Management (ITSM) and the ITIL framework.
+
+Your summary should include:
+* What ITSM is and why organizations use it
+* What ITIL is and how it supports ITSM practices
+* Key ideas such as incidents, service requests, problems, and change processes
+* One real‑world example of how ITIL concepts could improve IT support in a business or school IT department
+
+Requirements:
+* Write in narrative (paragraph) form (no bullet lists)
+* Use your own words to explain concepts
+* Demonstrate understanding rather than simply listing definitions
+* Use simple, clear language appropriate for workplace communication
+
+TIP: The ITIL video playlist and ITSM tutorials provided in the class will help you form your explanation.
+
+=== Part 3: Professional Development & Certification Roadmap
+
+Create a 250-400 word career development plan that explains your next steps in preparing for or advancing your IT career.
+
+Your roadmap should include:
+* The IT role (or roles) you are targeting in the next 1–2 years
+* Skills you need to develop or improve based on earlier assignments
+* Certifications you plan to pursue
+** Examples: CompTIA ITF+, A+, CCNA, Cisco Cybersecurity Associate, Azure, AWS Cloud Practitioner, ITIL Foundation, etc.
+* A simple 1‑year timeline showing when you plan to learn, study, or complete each milestone
+* Any free or low‑cost resources you plan to use (optional but recommended)
+
+This section is both reflective and forward‑thinking: it should connect what you have learned in this course to your real career goals.
+
+Requirements:
+* Paragraphs are preferred, but you may include a small table or timeline graphic for the milestone schedule if helpful.
+* Use your own words to explain concepts
+* Demonstrate understanding rather than simply listing definitions
+* Use simple, clear language appropriate for workplace communication
+* Your plan should feel realistic and achievable.
+
+=== Submission Requirements
+
+Submit one combined PDF or Word document containing all three parts:
+* Part 1: Agile & Project Management Summary  
+* Part 2: ITSM & ITIL Summary  
+* Part 3: Professional Development & Certification Roadmap
+
+Each part must be clearly labeled with a heading.
+
+Total length: approximately 750-1200 words
+
+=== Grading Criteria
+
+Your submission will be evaluated based on:
+* Accuracy and clarity in explaining Agile and project management concepts
+* Accuracy and clarity in explaining ITSM and ITIL concepts
+* Practicality and detail of your professional development plan
+* Organization, readability, and professional writing quality
+* Evidence of understanding and thoughtful reflection
+
 == IT Career Exploration & Skills Inventory
 
 === Overview
@@ -8,7 +169,7 @@ This assignment serves as the foundation for later work in your résumé, portfo
 === Part 1: IT Career Path Research
 Choose two IT career paths (for example: IT Support Specialist/Helpdesk, System Administrator, Network Administrator, Cybersecurity Analyst, Cloud Engineer, DevOps Engineer, Data Analyst).
 
-For each role describe these aspects of the role as you understand it in your own words, about 300-600 words (about 1-2 pages) for each of the two roles:
+For each role describe these aspects of the role as you understand it in your own words, about 200-400 words for each of the two roles:
 . A typical job description for this role
 ** Use your own words when describing each role. Do not copy/paste employer job descriptions, summarize them based on your research which involves looking at multiple job descriptions for the role.
 . Key technical skills required in this role
@@ -48,11 +209,11 @@ Explain:
 * Which certifications or learning opportunities you may pursue in the future
 * Your short-term improvement goals
 
-This section should be about 300-600 words long.
+This section should be about 200-400 words long.
 
 === Submission requirements
 * Submit a single combined (all 3 parts together) PDF or MS Word Document by uploading to D2L. Each part of the assignment should be clearly labeled with a heading though so that it is easy to identify where the career path research ends and personal skills inventory begins or where that ends and the gap analysis begins.
-* The total assignment should be about 1,200 - 2200 words (about 4-7 pages depending on writing style).
+* The total assignment should be about 1,000 - 1500 words long.
 
 == Professional Branding Package
 
@@ -161,154 +322,5 @@ Your assignment will be evaluated on:
 * Clarity and completeness of the portfolio project page
 * Communication skills and professionalism in the interview video
 * Organization, formatting, and overall presentation
-
-== IT Workplace Essentials
-
-=== Overview
-In this assignment you will apply practical IT workplace skills to real‑world scenarios.  
-These scenarios focus on time management, communication, teamwork, conflict resolution, and customer service, all core skills for IT professionals at any level.
-
-You will complete **three short written scenarios**, each about 150-250 words (1–2 paragraphs) in length.
-
-=== Scenario 1: Time Management and Task Prioritization
-
-Imagine the following situation:
-
-*A user reports that their password is not working. At the same time, you have a ticket due in 30 minutes and a system update requiring your attention before the end of the day.*
-
-Write a 150-250 word (1–2 paragraph) explanation describing:
-* How you prioritize the tasks
-* Which actions you take first and why
-* How you communicate with the affected user(s)
-* Whether any task should be escalated and under what conditions
-* How you ensure deadlines are still met
-
-Your response should demonstrate practical IT reasoning, clear communication, and awareness of typical IT workflow expectations (SLAs, ticket queues, urgency vs. impact, etc.).
-
-=== Scenario 2: Soft Skills & Conflict Resolution
-
-Consider this situation:
-
-*During a project meeting, a team member becomes frustrated and says your documentation is "unclear and slowing down the project."*
-
-Write a 150-250 word (1–2 paragraph) explanation describing:
-* How you would respond professionally in the moment
-* How you would clarify or improve your documentation
-* How you would maintain positive working relationships
-* How you would keep the project on track despite conflict
-
-Your response should reflect strong communication, emotional intelligence, and professionalism.
-
-=== Scenario 3: IT Customer Service Scenario
-
-A non‑technical user submits the following ticket:
-
-*"My computer won’t turn on and I need to access my files ASAP!"*
-
-Write a 150-250 word (1–2 paragraph) as if you were replying to the user.  
-Your reply should demonstrate:
-* Empathy and reassurance
-* Clear, non‑technical communication
-* Step‑by‑step troubleshooting instructions
-* Appropriate expectations for next steps or escalation
-
-Use tone and clarity appropriate for real IT service desk interactions.
-
-=== Submission Requirements
-* Submit a single PDF or Word document containing all three scenarios.
-* Label each scenario clearly with a heading.
-* Total length: approximately 450-750 words (each scenario 150-250 words).
-
-=== Grading Criteria
-Your work will be evaluated based on:
-* Clarity, professionalism, and tone in each scenario
-* Practicality and realism of your responses
-* Evidence of soft skills, time management, and customer empathy
-* Quality of writing, organization, and formatting
-
-== IT Methodologies & Professional Development
-
-=== Overview
-In this assignment you will demonstrate your understanding of key IT frameworks and methodologies used across the industry, including Agile, project management practices, IT Service Management (ITSM), and the IT Infrastructure Library (ITIL). 
-
-You will also create a personal "Professional Development & Certification Roadmap" that outlines how you plan to advance your IT career in the next year.
-
-=== Part 1: Agile & Project Management Summary
-
-Write a 300-600 word explanation in your own words that demonstrates your understanding of Agile and project management concepts as they relate to IT work environments.
-
-Your summary should include:
-* A clear explanation of what Agile is and why IT teams use it
-* The key Agile roles (e.g. Product Owner, Scrum Master, team members)
-* Core Agile ceremonies (e.g. standups, sprint planning, retrospectives)
-* A brief example of how an IT team, not just software developers, might use Agile methods
-** Such as for infrastructure updates, helpdesk process improvements, cloud migrations
-
-Requirements:
-* Write in narrative (paragraph) form (no bullet lists)
-* Use your own words to explain concepts
-* Demonstrate understanding rather than simply listing definitions
-* Use simple, clear language appropriate for workplace communication
-
-TIP: Use the Agile instructional videos and readings from the class for reference.
-
-=== Part 2: ITSM & ITIL Summary
-
-Write a 300-600 word explanation describing the purpose of IT Service Management (ITSM) and the ITIL framework.
-
-Your summary should include:
-* What ITSM is and why organizations use it
-* What ITIL is and how it supports ITSM practices
-* Key ideas such as incidents, service requests, problems, and change processes
-* One real‑world example of how ITIL concepts could improve IT support in a business or school IT department
-
-Requirements:
-* Write in narrative (paragraph) form (no bullet lists)
-* Use your own words to explain concepts
-* Demonstrate understanding rather than simply listing definitions
-* Use simple, clear language appropriate for workplace communication
-
-TIP: The ITIL video playlist and ITSM tutorials provided in the class will help you form your explanation.
-
-=== Part 3: Professional Development & Certification Roadmap
-
-Create a 300-600 word career development plan that explains your next steps in preparing for or advancing your IT career.
-
-Your roadmap should include:
-* The IT role (or roles) you are targeting in the next 1–2 years
-* Skills you need to develop or improve based on earlier assignments
-* Certifications you plan to pursue
-** Examples: CompTIA ITF+, A+, CCNA, Cisco Cybersecurity Associate, Azure, AWS Cloud Practitioner, ITIL Foundation, etc.
-* A simple 1‑year timeline showing when you plan to learn, study, or complete each milestone
-* Any free or low‑cost resources you plan to use (optional but recommended)
-
-This section is both reflective and forward‑thinking: it should connect what you have learned in this course to your real career goals.
-
-Requirements:
-* Paragraphs are preferred, but you may include a small table or timeline graphic for the milestone schedule if helpful.
-* Use your own words to explain concepts
-* Demonstrate understanding rather than simply listing definitions
-* Use simple, clear language appropriate for workplace communication
-* Your plan should feel realistic and achievable.
-
-=== Submission Requirements
-
-Submit one combined PDF or Word document containing all three parts:
-* Part 1: Agile & Project Management Summary  
-* Part 2: ITSM & ITIL Summary  
-* Part 3: Professional Development & Certification Roadmap
-
-Each part must be clearly labeled with a heading.
-
-Total length: approximately 900-1800 words
-
-=== Grading Criteria
-
-Your submission will be evaluated based on:
-* Accuracy and clarity in explaining Agile and project management concepts
-* Accuracy and clarity in explaining ITSM and ITIL concepts
-* Practicality and detail of your professional development plan
-* Organization, readability, and professional writing quality
-* Evidence of understanding and thoughtful reflection
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
