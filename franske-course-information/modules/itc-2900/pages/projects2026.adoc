@@ -1,5 +1,22 @@
 = Project Ideas for Spring 2026
 
+== Aruba Wireless Network Build Out
+
+=== Introduction
+
+In this project you will design and build out an Aruba wireless network in the ITC lab spaces using a provided Aruba Wireless LAN Controller and Access Points. You will need to research the Aruba wireless system and configure the WLC and APs to provide secure wireless networking to students and staff on separate SSIDs. You will need to coordinate with the ITC lab assistant and your professor for connections to the ITC network after getting a proof of concept network running.
+
+=== Resources
+
+* Aruba Wireless LAN Controller
+* Aruba Wireless Access Points
+* WiFi Client Devices for testing
+
+=== Deliverables
+
+* Working staff and student wireless networks in ITC lab spaces
+* Prepare a written whitepaper and oral presentation detailing the process, criteria, results, and configurations
+
 == Experiments in Authentication and Access Management
 
 === Introduction
