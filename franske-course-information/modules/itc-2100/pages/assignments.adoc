@@ -4,76 +4,44 @@
 There will be a short weekly quiz on D2L to check that you have reviewed the course content for the week (readings, videos, etc.).
 
 == Discussions & Participation
-There will be a weekly discussion prompt on D2L worht 10 points each week:
+There will be a weekly discussion prompt on D2L worth 10 points each week:
+
 * To receive 5 points you must respond directly to the discussion prompt with at least 3-5 sentences.
 * To receive another 5 points you must reply to at least two other students with at least 2 substantive sentences each. Replies must further the conversation as opposed to just stating that you agree or disagree.
 
 == IT Workplace Essentials
 
-IMPORTANT: This assignment is currently being revised, please check back for instructions closer to the due date!
-
-There will be primary parts to this assignment the first around time management and the second around effective communications.
-
 === Overview
-In this assignment you will apply practical IT workplace skills to real‑world scenarios.  
-These scenarios focus on time management, communication, teamwork, conflict resolution, and customer service, all core skills for IT professionals at any level.
+In this assignment you will focus on time management, communication, teamwork, conflict resolution, and customer service, all core skills for IT professionals at any level.
 
-You will complete **three short written scenarios**, each about 150-250 words (1–2 paragraphs) in length.
+=== Part 1: Time Management and Task Prioritization
 
-=== Scenario 1: Time Management and Task Prioritization
+Use the Internet to research three different time management topics, processes, or techniques that resonate with you and your current habits.  Think about how you could apply what you learn from these three items to your life.  
 
-Imagine the following situation:
+Write a short paper (500-750 words) that answers the following question:  **What are your top daily time management issues and how could three these new topics/processes/techniques help you be more effective in how you manage time?**
 
-*A user reports that their password is not working. At the same time, you have a ticket due in 30 minutes and a system update requiring your attention before the end of the day.*
+Please make sure you address the question above.  Make sure that you are writing in a structured manner to communicate effectively.  Please cite your references that you use as part of your research.
 
-Write a 150-250 word (1–2 paragraph) explanation describing:
-* How you prioritize the tasks
-* Which actions you take first and why
-* How you communicate with the affected user(s)
-* Whether any task should be escalated and under what conditions
-* How you ensure deadlines are still met
+=== Part 2: Effective Communication
 
-Your response should demonstrate practical IT reasoning, clear communication, and awareness of typical IT workflow expectations (SLAs, ticket queues, urgency vs. impact, etc.).
+Prepare a written status update (about 200-350 words) for me as if we were going to have a 1:1 meeting on where you are at with this class and I am your supervisor.  This would be the first time we have had a 1:1 since you have started this class.
 
-=== Scenario 2: Soft Skills & Conflict Resolution
+Use the content items that were covered in the lecture material in class.  Think about updating me on your accomplishments, what you are doing to improve yourself, and what might not be going well for you and you might want to ask me for help.
 
-Consider this situation:
+This is also your chance to provide feedback to me on how things are working for you in the class and if there is anything you think I could do to make the class better.
 
-*During a project meeting, a team member becomes frustrated and says your documentation is "unclear and slowing down the project."*
-
-Write a 150-250 word (1–2 paragraph) explanation describing:
-* How you would respond professionally in the moment
-* How you would clarify or improve your documentation
-* How you would maintain positive working relationships
-* How you would keep the project on track despite conflict
-
-Your response should reflect strong communication, emotional intelligence, and professionalism.
-
-=== Scenario 3: IT Customer Service Scenario
-
-A non‑technical user submits the following ticket:
-
-*"My computer won’t turn on and I need to access my files ASAP!"*
-
-Write a 150-250 word (1–2 paragraph) as if you were replying to the user.  
-Your reply should demonstrate:
-* Empathy and reassurance
-* Clear, non‑technical communication
-* Step‑by‑step troubleshooting instructions
-* Appropriate expectations for next steps or escalation
-
-Use tone and clarity appropriate for real IT service desk interactions.
+Treat this as a formal business communication and use correct formatting, grammar, spelling, etc.
 
 === Submission Requirements
-* Submit a single PDF or Word document containing all three scenarios.
-* Label each scenario clearly with a heading.
-* Total length: approximately 450-750 words (each scenario 150-250 words).
+* Submit a single PDF or Word document containing both parts.
+* Label each part clearly with a heading.
+* Total length: approximately 700-1000 words.
 
 === Grading Criteria
 Your work will be evaluated based on:
-* Clarity, professionalism, and tone in each scenario
-* Practicality and realism of your responses
-* Evidence of soft skills, time management, and customer empathy
+
+* The content of your responses and their relation to the prompt
+* Clarity, professionalism, and tone
 * Quality of writing, organization, and formatting
 
 == IT Methodologies & Professional Development
@@ -88,6 +56,7 @@ You will also create a personal "Professional Development & Certification Roadma
 Write a 250-400 word explanation in your own words that demonstrates your understanding of Agile and project management concepts as they relate to IT work environments.
 
 Your summary should include:
+
 * A clear explanation of what Agile is and why IT teams use it
 * The key Agile roles (e.g. Product Owner, Scrum Master, team members)
 * Core Agile ceremonies (e.g. standups, sprint planning, retrospectives)
@@ -95,6 +64,7 @@ Your summary should include:
 ** Such as for infrastructure updates, helpdesk process improvements, cloud migrations
 
 Requirements:
+
 * Write in narrative (paragraph) form (no bullet lists)
 * Use your own words to explain concepts
 * Demonstrate understanding rather than simply listing definitions
@@ -107,12 +77,14 @@ TIP: Use the Agile instructional videos and readings from the class for referenc
 Write a 250-400 word explanation describing the purpose of IT Service Management (ITSM) and the ITIL framework.
 
 Your summary should include:
+
 * What ITSM is and why organizations use it
 * What ITIL is and how it supports ITSM practices
 * Key ideas such as incidents, service requests, problems, and change processes
 * One real‑world example of how ITIL concepts could improve IT support in a business or school IT department
 
 Requirements:
+
 * Write in narrative (paragraph) form (no bullet lists)
 * Use your own words to explain concepts
 * Demonstrate understanding rather than simply listing definitions
@@ -125,6 +97,7 @@ TIP: The ITIL video playlist and ITSM tutorials provided in the class will help 
 Create a 250-400 word career development plan that explains your next steps in preparing for or advancing your IT career.
 
 Your roadmap should include:
+
 * The IT role (or roles) you are targeting in the next 1–2 years
 * Skills you need to develop or improve based on earlier assignments
 * Certifications you plan to pursue
@@ -135,6 +108,7 @@ Your roadmap should include:
 This section is both reflective and forward‑thinking: it should connect what you have learned in this course to your real career goals.
 
 Requirements:
+
 * Paragraphs are preferred, but you may include a small table or timeline graphic for the milestone schedule if helpful.
 * Use your own words to explain concepts
 * Demonstrate understanding rather than simply listing definitions
@@ -144,6 +118,7 @@ Requirements:
 === Submission Requirements
 
 Submit one combined PDF or Word document containing all three parts:
+
 * Part 1: Agile & Project Management Summary  
 * Part 2: ITSM & ITIL Summary  
 * Part 3: Professional Development & Certification Roadmap
@@ -155,6 +130,7 @@ Total length: approximately 750-1200 words
 === Grading Criteria
 
 Your submission will be evaluated based on:
+
 * Accuracy and clarity in explaining Agile and project management concepts
 * Accuracy and clarity in explaining ITSM and ITIL concepts
 * Practicality and detail of your professional development plan
@@ -170,6 +146,7 @@ This assignment serves as the foundation for later work in your résumé, portfo
 Choose two IT career paths (for example: IT Support Specialist/Helpdesk, System Administrator, Network Administrator, Cybersecurity Analyst, Cloud Engineer, DevOps Engineer, Data Analyst).
 
 For each role describe these aspects of the role as you understand it in your own words, about 200-400 words for each of the two roles:
+
 . A typical job description for this role
 ** Use your own words when describing each role. Do not copy/paste employer job descriptions, summarize them based on your research which involves looking at multiple job descriptions for the role.
 . Key technical skills required in this role
@@ -182,6 +159,7 @@ Your response should read as a cohesive narrative and demonstrate understanding,
 
 === Part 2: Personal Skills Inventory
 A personal skills inventory for IT jobs is a categorized list of your current technical (hard) and interpersonal (soft) abilities, proficiency levels, experiences, and education/certifications, used for self-assessment, career planning, and showcasing value to employers. In this section of the assignment you will create a skills inventory as a categorized bullet-point list which includes these categories:
+
 * Technical skills you currently possess
 ** Be sure to include specific tools and technologies you are familiar with.
 ** You may want to separate these into sub-categories such as cloud computing, cybersecurity, networking, system administration, IT support, etc.
@@ -190,6 +168,7 @@ A personal skills inventory for IT jobs is a categorized list of your current te
 * Education and certifications earned or in progress
 
 For each skill rate your proficiency 1-5 for the skill:
+
 * 1 = Beginner (heard of it, limited practice)
 * 2 = Novice (completed labs or class exercises)
 * 3 = Intermediate (can use it with some independence)
@@ -204,6 +183,7 @@ This part of the assignment should be about 1 page in length.
 Write a narrative (paragraph format) gap analysis where you compare your current skills to the requirements of both of the two roles you researched in part 1.
 
 Explain:
+
 * Which skills you already meet
 * Which skills you need to improve
 * Which certifications or learning opportunities you may pursue in the future
@@ -226,6 +206,7 @@ Create a polished, one‑page professional résumé targeted toward an IT career
 Your résumé should demonstrate the skills, coursework, projects, and experience that support your readiness for entry‑level IT roles.
 
 Your résumé must include:
+
 * Contact information (name, email, phone, and optional LinkedIn URL)
 * A brief summary or objective (2–3 lines)
 * Technical skills section (tools, technologies, platforms, scripting languages)
@@ -242,6 +223,7 @@ You must create a public‑facing professional profile using one of two options:
 
 ==== Option A: LinkedIn Profile (Recommended)
 Your LinkedIn profile should include:
+
 * A professional profile photo
 * A strong "About" section written in the first person
 * Skills and education entries
@@ -250,11 +232,13 @@ Your LinkedIn profile should include:
 
 ==== Option B: Online Résumé Page
 Instead of LinkedIn, you may create an online résumé using:
+
 * Google Sites
 * GitHub Pages
 * Another approved web platform
 
 Your online résumé should include:
+
 * A strong "About Me" section written in the first person
 * Skills and education entries
 * Work experience and/or projects with brief descriptions
@@ -266,6 +250,7 @@ Your online résumé should include:
 Write a one‑page professional cover letter addressed to a *real entry‑level IT job posting* of your choice.
 
 Your cover letter should include:
+
 * Professional greeting
 * Introduction explaining your interest in the position
 * Paragraph describing your technical & soft skills that align with the posting
@@ -279,6 +264,7 @@ The cover letter must be customized to the job posting you select so be sure to 
 Create a single portfolio project page/entry that showcases one IT project you have completed. This may be a class assignment, lab, personal project, or small configuration or troubleshooting task.
 
 Your project entry should include:
+
 * Project title
 * Short description of the project
 * The problem you were trying to solve
@@ -299,13 +285,14 @@ Record a 5–7 minute mock interview video in which you answer:
 . One technical question related to your chosen IT pathway
 
 Technical requirements:
+
 * Clear audio and reasonable lighting
 * May be recorded on phone, webcam, or laptop
 * Submit as an unlisted YouTube link or a OneDrive/Google Drive link in your final assignment document.
 
 === Submission Requirements
-
 Submit *one combined document* (PDF or Word) containing:
+
 * Your PDF (print) résumé
 * A link to your LinkedIn profile **OR** online résumé
 * Your PDF cover letter (be sure to include a copy of the job posting you are targeting as well)
@@ -316,6 +303,7 @@ All links must be clearly labeled.
 
 === Grading Criteria
 Your assignment will be evaluated on:
+
 * Quality and professionalism of résumé
 * Completeness and clarity of the online profile
 * Relevance and strength of the cover letter
