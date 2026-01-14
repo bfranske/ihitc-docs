@@ -1,13 +1,15 @@
 = ITC-2100 Assignment Details and Directions
 
 == Quizzes on Course Content
-There will be a short weekly quiz on D2L to check that you have reviewed the course content for the week (readings, videos, etc.).
+There will be a short weekly quiz on D2L to check that you have reviewed the course content for the week (primarily videos, you will be notified if a quiz includes anything outside of the weekly video).
 
 == Discussions & Participation
 There will be a weekly discussion prompt on D2L worth 10 points each week:
 
 * To receive 5 points you must respond directly to the discussion prompt with at least 3-5 sentences.
 * To receive another 5 points you must reply to at least two other students with at least 2 substantive sentences each. Replies must further the conversation as opposed to just stating that you agree or disagree.
+
+**Discussion posts can not be counted for credit after the deadline (no late work)**
 
 == IT Workplace Essentials
 
