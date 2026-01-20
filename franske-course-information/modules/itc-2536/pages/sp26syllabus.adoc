@@ -4,7 +4,7 @@ Course Name: Enterprise Networking, Security, Automation, and Cybersecurity Foun
 Course Number: ITC-2536-61 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2026 (1/12/2026-5/13/2026) +
-Meetings: Tu 6:00-9:30pm +
+Meetings: By Appointment (see notes below in course design section)+
 Location: B205
 
 WARNING: This is a 6 credit course! That means it will take a lot of time and effort to be successful in this course. Following national standard expectations a 6 credit course should take about 18-24 hours of work per week to complete. Since we spend about 3.5 hours in class that means that homework for this class should take the average student 14.5-20.5 hours per week! That is a lot of time! Please consider carefully what other courses you may be taking at the same time and other responsibilities you have such as work and family and make sure that you have enough time to complete the work in this course.
@@ -84,7 +84,13 @@ The student will be able to:
 . Describe the elements of cybersecurity incident response
 
 == Course Design
-This course will be taught as a hybrid course with regular instructor meetings. This means that you and your lab partner will be meeting regularly with the instructor during the on campus course time to assess your progress unless you have received special permission from the instructor. Additional details about this are available on the course website.
+This course will be taught as a hybrid course with regular instructor meetings. For Spring 2026 due to course enrollment there will not be a regular course meeting time for all students after the first week. Instead you will setup a time during the week by mutual agreement with the instructor when you will meet to review course progress and receive individual assistance, these meetings may be on campus or conducted by web conference. Lectures for the class will be delivered online.
+
+Fpor Spring 2026 this course will also have a flexible schedule allowing students to complete work on an individually paced basis and meet with the instructor for assistance on an as-needed basis. There will be great flexibility in most due dates but this will require extra attention and planning as a student in the class as you will be mostly responsible for ensuring the required work is completed on your own. There are periodic required milestone dates which are indicated on the xref:sp26schedule.adoc[Spring 2026 Official Course Schedule].
+
+It is strongly recommended that you review the xref:schedule.adoc["regular semester" schedule for the class] and try to stick fairly close to it in terms of when readings/lectures and lab work is completed to ensure you will complete everything before the few milestone dates. You will also be more on your own to assess your understanding and progress in the class than in a typical course. If you have any questions about content, labs, and other work in the course it will be your responsibility to bring those questions and concerns up to the instructor during your weekly meetings.
+
+Even though unit exams, discussion postings, and points for weekly check-ins will not be required during the course this semester you are strongly encouraged to do these things (or substantially equivalent activtities) anyway as they are designed to help with your understanding of the content and to prepare you for final exams and skills exams.
 
 == Assignments and Grading
 Grades will be determined by performance on lab exercises, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
