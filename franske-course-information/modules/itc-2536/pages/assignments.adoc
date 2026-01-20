@@ -31,7 +31,8 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 10.7.6 - Use a TFTP Server to Upgrade a Cisco IOS Image (7 points)
 . PT 10.8.1 - Configure CDP, LLDP, and NTP (7 points)
 . PT 12.5.13 - Troubleshoot Enterprise Networks (7 points)
-. PT 12.6.2 - Troubleshooting Challenge - Use Documentation to Solve Issues (7 points)PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
+. PT 12.6.2 - Troubleshooting Challenge - Use Documentation to Solve Issues (7 points)
+. PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
 
 ==== Lab Reports
 For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.

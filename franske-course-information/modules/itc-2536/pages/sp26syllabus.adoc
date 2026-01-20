@@ -4,7 +4,7 @@ Course Name: Enterprise Networking, Security, Automation, and Cybersecurity Foun
 Course Number: ITC-2536-61 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2026 (1/12/2026-5/13/2026) +
-Meetings: By Appointment (see notes below in course design section)+
+Meetings: By Appointment (see notes below in course design section) +
 Location: B205
 
 WARNING: This is a 6 credit course! That means it will take a lot of time and effort to be successful in this course. Following national standard expectations a 6 credit course should take about 18-24 hours of work per week to complete. Since we spend about 3.5 hours in class that means that homework for this class should take the average student 14.5-20.5 hours per week! That is a lot of time! Please consider carefully what other courses you may be taking at the same time and other responsibilities you have such as work and family and make sure that you have enough time to complete the work in this course.
