@@ -29,6 +29,8 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 
 == Jan 21: Week 2
 
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * Chapters 2, 3, 4, and 18 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 
@@ -45,6 +47,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Jan 28: Week 3
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * Chapters 9, 14 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 
@@ -61,6 +66,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Feb 4: Week 4
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * Chapters 6, 8, 12 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 * https://web.archive.org/web/20240606001921/https://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[Introduction to the nano Text Editor]
@@ -78,6 +86,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Feb 11: Week 5
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * http://nginx.org/en/docs/beginners_guide.html[The Nginx Beginner's Guide]
 
@@ -94,6 +105,8 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Feb 18: Week 6
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
 
 === Readings to do before the next date
 * https://web.archive.org/web/20240812183254/https://www.guru99.com/introduction-to-database-sql.html[What is a Database? Definition, Meaning, Types]
@@ -115,6 +128,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Feb 25: Week 7
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * None
 
@@ -131,6 +147,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Mar 4: Week 8
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * https://www.linux.com/training-tutorials/scheduling-magic-intro-cron-linux/[Scheduling Magic: Intro to Cron on Linux]
 * https://documentation.suse.com/smart/systems-management/html/systemd-working-with-timers/index.html[Working with systemd Timers]
@@ -170,6 +189,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Mar 25: Week 10
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * https://docs.docker.com/get-started/docker-overview/[What is Docker?]
 
@@ -186,6 +208,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Apr 1: Week 11
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * None
 
@@ -202,6 +227,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Apr 8: Week 12
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * Chapter 15 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 
@@ -218,6 +246,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Apr 15: Week 13
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * Chapter 24 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 * Sections 1-8 of the https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html[BASH Programming - Introduction HOW-TO]
@@ -235,6 +266,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Apr 22: Week 14
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Instant Hacking]
 * All 9 sections of https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[Python for Shell Scripting]
@@ -252,6 +286,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == Apr 29: Week 15
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * None
 
@@ -268,6 +305,9 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 == May 6: Week 16
+
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+
 === Readings to do before the next date
 * None
 
