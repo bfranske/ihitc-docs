@@ -84,10 +84,10 @@ The student will be able to:
 . Describe the elements of cybersecurity incident response
 
 == Course Design
-This course will be taught as a hybrid course with regular instructor meetings. This means that you and your lab partner will be meeting regularly with the instructor during the on campus course time to assess your progress unless you have received special permission from the instructor. Additional details about this are available on the course website. 
+This course will be taught as a hybrid course with regular instructor meetings. This means that you and your lab partner will be meeting regularly with the instructor during the on campus course time to assess your progress unless you have received special permission from the instructor. Additional details about this are available on the course website.
 
 == Assignments and Grading
-Grades will be determined by performance on unit multiple-choice tests, lab exercises, participation, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
+Grades will be determined by performance on lab exercises, a skills exam, and a final exam. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
 
 Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
 
@@ -96,7 +96,7 @@ If assignments are turned in late 10% will be deducted for each day or partial d
 
 Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
 
-If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary. 
+All late work must be turned in no later than May 1, 2026 no late work will be accepted after that date.
 
 === Grading Scale
 [%autowidth,options="header"]
@@ -132,16 +132,12 @@ Grades for each course is calculated based on a weighted points system. Each ass
 [%autowidth,options="header"]
 |===
 |Category |Percent of Final Grade
-|Unit Assessments 
-|20%
 |Lab/Homework Assignments 
-|35%
+|55%
 |Regular Final Exams (one for CCNA 3 and one for Cybersecurity Essentials)
+|30%
+|Skills Based Final Exams (two for CCNA 1 and two for CCNA 2)
 |15%
-|Skills Based Final Exams (one for CCNA 3)
-|15%
-|Participation Activities
-|15% 
 |===
 
 Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.

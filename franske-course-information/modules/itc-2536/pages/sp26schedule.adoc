@@ -1,0 +1,35 @@
+= ITC-2536 Official Course Schedule for Spring 2026
+
+== Introduction
+This semester due to enrollment this course will have a flexible schedule allowing students to complete work on an individually paced basis and meet with the instructor for assistance on an as-needed basis. There will be great flexibility in most due dates but this will require extra attention and planning as a student in the class as you will be mostly responsible for ensuring the required work is completed on your own.
+
+It is strongly recommended that you review the xref:schedule.adoc["regular semester" schedule for the class] and try to stick fairly close to it in terms of when readings and lab work is completed to ensure you will complete everything before the few checkpoint dates listed below.
+
+== Jan 13
+=== In class tonight
+* Discuss class strategy, schedule, and assignments with students as related to Spring 2026 delivery
+
+== Week of Feb 23-28
+=== Planning Notes
+* You should be done with everything for the CCNA 3 portion of the class this week.
+
+=== Due This Week
+* You must complete the CCNA 3 skills exams by the end of this week. Arrange a time to complete the skills exam with your instructor in advance.
+* You must complete the CCNA 3 final exam by the end of this week.
+* Lab reports and packet tracer activities for the CCNA 3 portion of the class must be submitted by the end of this week.
+
+== Week of Apr 27-May 1
+=== Planning Notes
+* You should be done with content and labs for the Cybersecurity Essentials portion of the class this week.
+
+=== Due This Week
+* Lab reports and packet tracer activities for the Cybersecurity Essentials portion of the class must be submitted by the end of this week.
+
+== Week of May 4-8
+=== Planning Notes
+* You should be done with all remaining work for the Cybersecurity Essentials portion of the class this week.
+
+=== Due This Week
+* The final Exam for the Cybersecurity Essentials portion of the class must be submitted by the end of this week.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

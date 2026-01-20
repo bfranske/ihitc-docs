@@ -1,0 +1,198 @@
+= ITC-2536 Assignment Details and Directions for Spring 2026
+
+== CCNA 3 Assignment Details and Directions
+This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
+
+=== Lab & Homework Assignments
+
+==== Packet Tracer Online Submissions
+Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
+
+. PT 2.2.13 - Point-to-Point Single-Area OSPFv2 Configuration (7 points)
+. PT 2.3.11 - Determine the DR and BDR (7 points)
+. PT 2.2.13 - Point-to-Point Single-Area OSPFv2 Configuration (7 points)
+. PT 2.3.11 - Determine the DR and BDR (7 points)
+. PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
+. PT 2.5.3 - Propagate a Default Route in OSPFv2 (7 points)
+. PT 2.6.6 - Verify Single-Area OSPFv2 (7 points)
+. PT 2.7.1 - Single-Area OSPFv2 Configuration (7 points)
+. PT 5.1.8 - Configure Numbered Standard IPv4 ACLs (7 points)
+. PT 5.1.9 - Configure Named Standard IPv4 ACLs (7 points)
+. PT 5.2.7 - Configure and Modify Standard IPv4 ACLs (7 points)
+. PT 5.4.12 - Configure Extended IPv4 ACLs - Scenario 1 (7 points)
+. PT 5.4.13 - Configure Extended IPv4 ACLs - Scenario 2 (7 points)
+. PT 5.5.1 - IPv4 ACL Implementation Challenge (7 points)
+. PT 6.4.5 - Configure Static NAT (7 points)
+. PT 6.5.6 - Configure Dynamic NAT (7 points)
+. PT 6.6.7 - Configure PAT (7 points)
+. PT 6.8.1 - Configure NAT for IPv4 (7 points)
+. PT 10.3.4 - Configure and Verify NTP (7 points)
+. PT 10.6.10 - Back Up Configuration Files (7 points)
+. PT 10.7.6 - Use a TFTP Server to Upgrade a Cisco IOS Image (7 points)
+. PT 10.8.1 - Configure CDP, LLDP, and NTP (7 points)
+. PT 12.5.13 - Troubleshoot Enterprise Networks (7 points)
+. PT 12.6.2 - Troubleshooting Challenge - Use Documentation to Solve Issues (7 points)PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
+
+==== Lab Reports
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+
+TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
+
+[NOTE] 
+.When Using Netlab Remote Lab System
+==== 
+* The login password for CAASP Pod PCs in Netlab is: password
+* The login password for Internet Pod PCs in Netlab is: password
+====
+
+. Lab 2.7.2 - Single-Area OSPFv2 Configuration
+. Lab 3.8.8 - Explore DNS Traffic
++
+--
+NOTE: This lab activity requires using Wireshark on an Internet connected PC. We don't have it setup in Netlab yet so you can do it on your home computer or a lab computer on campus.
+--
+. PT 4.1.4 - ACL Demonstration
+. Lab 5.5.2 - Configure and Verify Extended IPv4 ACLs
++
+--
+NOTE: When enabling HTTPS on newer Cisco devices you must map the HTTPS server to a trustpoint (certificate) on the router. See this StackExchange question for details on how to do this.
+--
+. PT 6.2.7 - Investigate NAT Operations
+. Lab 6.8.2 - Configure NAT for IPv4
+. PT 7.6.1 - WAN Concepts
+. PT 10.1.5 - Use CDP to Map a Network
+. PT 10.2.6 - Use LLDP to Map a Network
+. Lab 10.6.11 - Use Tera Term to Manage Router Configuration Files
+. Lab 10.6.12 - Use TFTP, Flash, and USB to Manage Configuration Files
++
+--
+NOTE: If you are working on a device with multiple IP interfaces it is sometimes required to set a default source interface which will be used by TFTP for communicating with the TFTP server. Some Cisco devices do not seem to automatically pick a correct source interface. When this happens you can end up with a situation where you can ping from the device to the TFTP server's IP address but you are unable to send or receive files over TFTP. For example, in this lab on the router we're only setting an IP on G0/0/1 so that would be the one we should set as the source interface like "ip tftp source-interface gi0/0/1"
+--
+. Lab 10.6.13 - Research Password Recovery Procedures
+.* After researching the recovery procedures set a hostname and enable password on a router and save the configuration. Try to reset the password on the router while keeping the hostname set the same following the procedures you have researched.
++
+--
+NOTE: If you are working on remote lab equipment you can do password recovery too, the process is a little different but our system does allow you to power on and off network devices as well as to send the BREAK command to devices which are the basics for router password recovery. Recovering passwords on switches can require physical access to hold down a button on the switch while powering up unless some additional configuration is done so you should not try setting an unknown password on a remotely accessed lab switch. See this video showing the password recovery process on Netlab.
+--
+. Lab 10.8.2 - Configure CDP, LLDP, and NTP
++
+--
+NOTE: Some Cisco devices do not have "hardware clocks" (also known as "calendars) anymore so if you are unable to get the "ntp update-calendar" command to work in Part 4, Step 4b it may not exist on your device.
+--
+. PT 11.5.1 - Compare Layer 2 and Layer 3 Devices
+. PT 12.6.1 - Troubleshooting Challenge - Document the Network
+. Lab 13.6.1 - Install Linux in a Virtual Machine and Explore the GUI
++
+--
+NOTE: It is suggested you complete this lab on your home computer if it has enough RAM to run the VM. However, if you need a Netlab system to install on please contact your instructor.
+--
+
+==== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* There are no homework assignments for Spring 2026
+
+=== Participation Activities
+Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
+
+* There are no participation activities for Spring 2026
+
+=== Unit Assessments
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are on the Cisco NetAcad site.
+
+* No unit exams are required for Spring 2026
+
+=== Skills Final Exams
+The Skills Final Exams are designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade from CCNA 3.
+
+* Completing all parts of the online Packet Tracer Skills Assessment (PTSA) at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
+* Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
+
+=== Regular Final Exams
+You will need to complete an online final exam on the Cisco NetAcad site for CCNA 1.
+
+== Cybersecurity Essentials Assignment Details and Directions
+=== Lab & Homework Assignments
+
+==== Packet Tracer Online Submissions
+Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting.
+
+. PT 5.3.10 - Configure Basic Wireless Security
+. PT 5.3.11 - Troubleshoot a Wireless Connection
+. PT 6.2.4 - ACL Demonstration
+. PT 10.1.13 - File and Data Integrity Checks
+. PT 10.1.15 - Explore File and Data Encryption
+. PT 12.5.4 - Configure Wireless Router Hardening and Security
+. PT 12.7.13 - Implement Physical Security with IoT Devices
+. PT 13.1.14 - Configure Access Control
+. PT 13.4.5 - Configure Server-based Authentication with TACACS+ and RADIUS
+. PT 14.5.5 - Configure Named Standard IPv4 ACLs
+. PT 14.5.6 - Configure Numbered Standard IPv4 ACLs
+. PT 14.5.12 - Configure Extended ACLs - Scenario 1
+. PT 14.5.13 - Configure Extended ACLs - Scenario 2
+. PT 14.6.5 - Configure IP ACLs to Mitigate Attacks
+. PT 14.7.4 - Configure IPv6 ACLs
+. PT 16.3.11 - Configure a ZPF
+. PT 20.3.10 - Explore a NetFlow Implementation
+. PT 20.3.11 - Logging from Multiple Sources
+. PT 23.1.7 - Use Diagnostic Commands
+. PT 27.5.13 - Investigate Disaster Recovery
+
+==== Lab Reports
+For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+
+. Lab 4.1.7 - Exploring DNS Traffic
+. Lab 4.2.7 - Install a Virtual Machine on a Personal Computer
+. Lab 4.2.8 - Attacking a mySQL Database
+. Lab 4.2.9 - Reading Server Logs
+. Lab 7.2.11 - Exploring Processes, Threads, Handles, and Windows Registry
+. Lab 7.3.10 - Create User Accounts
+. Lab 7.3.11 - Using Windows PowerShell
+. Lab 7.3.12 - Windows Task Manager
+. Lab 7.3.13 - Monitor and Manage System Resources in Windows
+. Lab 8.2.6 - Working with Text Files in the CLI
+. Lab 8.2.7 - Getting Familiar with the Linux Shell
+. Lab 8.3.5 - Use a Port Scanner to Detect Open Ports
+. Lab 8.3.6 - Linux Servers
+. Lab 8.4.4 - Locating Log Files
+. Lab 8.5.4 - Navigating the Linux Filesystem and Permission Settings
+. Lab 8.7.8 - Configure Security Features in Windows and Linux
+. Lab 9.1.14 - Harden a Linux System
+. Lab 9.1.16 - Recover Passwords
+. Lab 9.4.5 - Online Malware Investigation Tools
+. Lab 13.1.17 - Configure Authentication and Authorization in Linux
+. Lab 18.1.11 - Use Classic and Modern Encryption Algorithms
+. Lab 18.1.12 - Encrypting and Decrypting Data Using OpenSSL
+. Lab 18.1.13 - Encrypting and Decrypting Data Using a Hacker Tool
+. Lab 18.1.14 - Examining Telnet and SSH in Wireshark
+. Lab 18.1.15 - Determine the Encryption Algorithm to Use
+. Lab 18.2.5 - Use Steganography to Hide Data
+. Lab 18.4.10 - Hashing Things Out
+. Lab 18.5.5 - Generate and Use a Digital Signature
+. Lab 18.6.8 - Certificate Authority Stores
+. Lab 21.1.7 - Snort and Firewall Rules
+. Lab 23.4.8 - Use Wireshark to Compare Telnet and SSH Traffic
+. Lab 27.1.12 - Gather System Information After an Incident
+
+==== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* There are no homework activities for Spring 2026
+
+=== Participation Activities
+Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
+
+* There are no participation activities for Spring 2026
+
+=== Unit Assessments
+You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are found on the Cisco Netacad site.
+
+* No unit exams are required for Spring 2026
+
+=== Skills Final Exams
+There is no skills exam for the Cybersecurity Essentials portion of the course.
+
+=== Regular Final Exams
+You will need to complete an online final exam on the NetAcad site for Cybersecurity Essentials.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

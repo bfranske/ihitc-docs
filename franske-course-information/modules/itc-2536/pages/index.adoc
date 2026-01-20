@@ -2,6 +2,13 @@
 
 This is the homepage for the ITC-2536 classes taught by Dr. Ben Franske. 
 
+== Special Modifications for Spring 2026
+Due to enrollment some special modifications for the course were made which apply only to the offering in Spring 2026
+
+* xref:sp26syllabus.adoc[Spring 2026 Course Syllabus]
+* xref:sp26schedule.adoc[Spring 2026 Official Course Schedule]
+* xref:sp26assignments.adoc[Spring 2026 Course Assignment List and Instructions (Includes Labs & Homework)]
+
 == General Course Information
 
 * xref:syllabus.adoc[Course Syllabus]
