@@ -202,7 +202,7 @@ You are responsible for completing all of the online unit assessments listed bel
 * Modules 1 - 6: Network Security
 * Modules 7 - 10: OS and Endpoint Security
 * Modules 11 - 13: Principles, Practices, and Processes of Network Defense
-* Modules 14 - 18: Firewalls, Cryptography, and Cloud Security 
+* Modules 14 - 18: Firewalls, Cryptography, and Cloud Security
 * Modules 19 - 21: Evaluating Security Alerts
 * Modules 22 - 26: Vulnerability Assessment and Risk management
 * Modules 27: Incident Response

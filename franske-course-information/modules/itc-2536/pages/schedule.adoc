@@ -69,6 +69,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 4 Lab Report
 * Module 5 Lab Report
 * Module 6 Packet Tracer Online Submission Activities
+* Module 3-5 Network Security Exam
 
 === Assignments Due at the start of class today
 * Module 1 Online Discussion Response Posts
@@ -101,6 +102,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 6 Lab Report
 * Module 7 Lab Report
 * Module 10 Packet Tracer Online Submission Activities
+* Module 6-8 WAN Concepts Exam
 
 === Assignments Due at the start of class today
 * Module 4 Online Discussion Response Posts
@@ -111,6 +113,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 4 Lab Report
 * Module 5 Lab Report
 * Module 6 Packet Tracer Online Submission Activities
+* Module 3-5 Network Security Exam
 
 == Feb 10
 === Work to do in class today
@@ -143,6 +146,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 6 Lab Report
 * Module 7 Lab Report
 * Module 10 Packet Tracer Online Submission Activities
+* Module 6-8 WAN Concepts Exam
 
 == Feb 17
 === Work to do in class today
@@ -158,6 +162,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 14 Online Discussion Response Posts
 * Module 12 Lab Report
 * Module 13 Lab Report
+* Module 9-12 Optimize, Monitor, and Troubleshoot Networks Exam
 
 === Assignments Due at the start of class today
 * Module 9 Online Discussion Response Posts
@@ -185,6 +190,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Cybersecurity Essentials Module 2 Online Discussion First Post
 * Cybersecurity Essentials Module 3 Online Discussion First Post
 * Cybersecurity Essentials Module 4 Online Discussion First Post
+* CCNA 3 ENSA Module 13-14 Emerging Network Technologies Exam
 
 === Assignments Due at the start of class today
 * Module 12 Online Discussion Response Posts
@@ -192,6 +198,7 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 14 Online Discussion Response Posts
 * Module 12 Lab Report
 * Module 13 Lab Report
+* Module 9-12 Optimize, Monitor, and Troubleshoot Networks Exam
 
 == Mar 3
 === Work to do in class today
@@ -204,10 +211,23 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 8
 
 === Other Work to do before next class
-
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+* Module 7 Online Discussion First Post
+* Module 8 Online Discussion First Post
+* Module 5 Packet Tracer Activities
+* Module 6 Packet Tracer Activities
 
 === Assignments Due at the start of class today
-
+* Cybersecurity Essentials Module 1 Online Discussion First Post
+* Cybersecurity Essentials Module 2 Online Discussion First Post
+* Cybersecurity Essentials Module 3 Online Discussion First Post
+* Cybersecurity Essentials Module 4 Online Discussion First Post
+* CCNA 3 ENSA Module 13-14 Emerging Network Technologies Exam
 
 == Mar 17
 === Work to do in class today
@@ -220,8 +240,28 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 12
 
 === Other Work to do before next class
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 10 Online Discussion First Post
+* Module 11 Online Discussion First Post
+* Module 12 Online Discussion First Post
+* Module 10 Packet Tracer Activities
+* Exam Modules 1 - 6: Network Security
 
 === Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Post
+* Module 6 Online Discussion First Post
+* Module 7 Online Discussion First Post
+* Module 8 Online Discussion First Post
+* Module 5 Packet Tracer Activities
+* Module 6 Packet Tracer Activities
 
 == Mar 24
 === Work to do in class today
@@ -233,8 +273,29 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 15
 
 === Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion First Post
+* Module 14 Online Discussion First Post
+* Module 15 Online Discussion First Post
+* Module 12 Packet Tracer Activities
+* Module 13 Packet Tracer Activities
+* Module 14 Packet Tracer Activities
+* Exam Modules 7 - 10: OS and Endpoint Security
 
 === Assignments Due at the start of class today
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 10 Online Discussion First Post
+* Module 11 Online Discussion First Post
+* Module 12 Online Discussion First Post
+* Module 10 Packet Tracer Activities
+* Exam Modules 1 - 6: Network Security
 
 == Mar 31
 === Work to do in class today
@@ -247,9 +308,27 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 18
 
 === Other Work to do before next class
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion Response Posts
+* Module 15 Online Discussion Response Posts
+* Module 16 Online Discussion First Post
+* Module 17 Online Discussion First Post
+* Module 18 Online Discussion First Post
+* Module 16 Packet Tracer Activities
+* Exam Modules 11 - 13: Principles, Practices, and Processes of Network Defense
 
 === Assignments Due at the start of class today
-
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion First Post
+* Module 14 Online Discussion First Post
+* Module 15 Online Discussion First Post
+* Module 12 Packet Tracer Activities
+* Module 13 Packet Tracer Activities
+* Module 14 Packet Tracer Activities
+* Exam Modules 7 - 10: OS and Endpoint Security
 
 == Apr 7
 === Work to do in class today
@@ -261,9 +340,24 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 21
 
 === Other Work to do before next class
-
+* Module 16 Online Discussion Response Posts
+* Module 17 Online Discussion Response Posts
+* Module 18 Online Discussion Response Posts
+* Module 19 Online Discussion First Post
+* Module 20 Online Discussion First Post
+* Module 21 Online Discussion First Post
+* Module 20 Packet Tracer Activities
+* Exam Modules 14 - 18: Firewalls, Cryptography, and Cloud Security
 
 === Assignments Due at the start of class today
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion Response Posts
+* Module 15 Online Discussion Response Posts
+* Module 16 Online Discussion First Post
+* Module 17 Online Discussion First Post
+* Module 18 Online Discussion First Post
+* Module 16 Packet Tracer Activities
+* Exam Modules 11 - 13: Principles, Practices, and Processes of Network Defense
 
 == Apr 14
 === Work to do in class today
@@ -275,8 +369,24 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 24
 
 === Other Work to do before next class
+* Module 19 Online Discussion Response Posts
+* Module 20 Online Discussion Response Posts
+* Module 21 Online Discussion Response Posts
+* Module 22 Online Discussion First Post
+* Module 23 Online Discussion First Post
+* Module 24 Online Discussion First Post
+* Module 23 Packet Tracer Activities
+* Exam Modules 19 - 21: Evaluating Security Alerts
 
 === Assignments Due at the start of class today
+* Module 16 Online Discussion Response Posts
+* Module 17 Online Discussion Response Posts
+* Module 18 Online Discussion Response Posts
+* Module 19 Online Discussion First Post
+* Module 20 Online Discussion First Post
+* Module 21 Online Discussion First Post
+* Module 20 Packet Tracer Activities
+* Exam Modules 14 - 18: Firewalls, Cryptography, and Cloud Security
 
 == Apr 21
 === Work to do in class today
@@ -288,37 +398,71 @@ TIP: Labs in this class will be done one of three ways: on campus using physical
 * Module 27
 
 === Other Work to do before next class
-
+* Module 22 Online Discussion Response Posts
+* Module 23 Online Discussion Response Posts
+* Module 24 Online Discussion Response Posts
+* Module 25 Online Discussion First Post
+* Module 26 Online Discussion First Post
+* Module 27 Online Discussion First Post
+* Module 27 Packet Tracer Activities
 
 === Assignments Due at the start of class today
+* Module 19 Online Discussion Response Posts
+* Module 20 Online Discussion Response Posts
+* Module 21 Online Discussion Response Posts
+* Module 22 Online Discussion First Post
+* Module 23 Online Discussion First Post
+* Module 24 Online Discussion First Post
+* Module 23 Packet Tracer Activities
+* Exam Modules 19 - 21: Evaluating Security Alerts
 
 == Apr 28
 === Work to do in class today
 * Module 27 Lab Report Activities
 
 === Readings to do before next class
-
+* None
 
 === Other Work to do before next class
+* Module 25 Online Discussion Response Posts
+* Module 26 Online Discussion Response Posts
+* Module 27 Online Discussion Response Posts
+* Exam Modules 22 - 26: Vulnerability Assessment and Risk management
+* Exam Modules 27: Incident Response
 
 === Assignments Due at the start of class today
+* Module 22 Online Discussion Response Posts
+* Module 23 Online Discussion Response Posts
+* Module 24 Online Discussion Response Posts
+* Module 25 Online Discussion First Post
+* Module 26 Online Discussion First Post
+* Module 27 Online Discussion First Post
+* Module 27 Packet Tracer Activities
 
 == May 5
 === Work to do in class today
+* Class Wrap-Up
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Cisco Course Feedback form
+* Cybersecurity Essentials Course Final Exam
 
 === Assignments Due at the start of class today
+* Module 25 Online Discussion Response Posts
+* Module 26 Online Discussion Response Posts
+* Module 27 Online Discussion Response Posts
+* Exam Modules 22 - 26: Vulnerability Assessment and Risk management
+* Exam Modules 27: Incident Response
 
 == May 12: FE Week
 === Work to do in class today
-
-=== Readings to do before next class
-
-=== Other Work to do before next class
+* None, Final Exam Week
 
 === Assignments Due at the start of class today
+* Cisco Course Feedback form
+* Cybersecurity Essentials Course Final Exam
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
