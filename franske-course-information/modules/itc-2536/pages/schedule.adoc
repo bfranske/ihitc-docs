@@ -1,0 +1,324 @@
+= ITC-2536 Official Course Schedule
+
+== Jan 13
+=== Readings to do before next class
+* Module 1
+* Module 2
+* Module 3
+
+TIP: Be sure to watch the videos that go along with the chapters you read each week. A link to the video playlist can be found on the course home/announcements page on D2L.
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Module 3 Online Discussion First Post
+* Module 2 Packet Tracer Online Submission Activities
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+
+TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+TIP: Labs in this class will be done one of three ways: on campus using physical lab equipment, remotely or on campus using the Netlab system (with prior instructor approval), or in the Packet Tracer software. For some activities you will write a lab report and for others you will submit the Packet Tracer work using the ScoreUP plugin to Packet Tracer. See the assignments page of this info site for more details and what labs should be completed in what way.
+
+=== Assignments Due at the start of class today
+* None
+
+== Jan 20
+
+=== Work to do in class today
+* Module 2 Lab Report Activities
+* Module 3 Lab Report Activities
+
+=== Readings to do before next class
+* Module 4
+* Module 5
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Post
+* Module 5 Online Discussion First Post
+* Module 2 Lab Report
+* Module 3 Lab Report
+* Module 5 Packet Tracer Online Submission Activities
+* Module 1-2 OSPF Concepts and Configuration Exam
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Module 3 Online Discussion First Post
+* Module 2 Packet Tracer Online Submission Activities
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+
+== Jan 27
+=== Work to do in class today
+* Module 4 Lab Report Activities
+* Module 5 Lab Report Activities
+
+=== Readings to do before next class
+* Module 6
+* Module 7
+* Module 8
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Post
+* Module 7 Online Discussion First Post
+* Module 8 Online Discussion First Post
+* Module 4 Lab Report
+* Module 5 Lab Report
+* Module 6 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Post
+* Module 5 Online Discussion First Post
+* Module 2 Lab Report
+* Module 3 Lab Report
+* Module 5 Packet Tracer Online Submission Activities
+* Module 1-2 OSPF Concepts and Configuration Exam
+
+== Feb 3
+=== Work to do in class today
+* Module 6 Lab Report Activities
+* Module 7 Lab Report Activities
+
+=== Readings to do before next class
+* Module 9
+* Module 10
+* Module 11
+
+=== Other Work to do before next class
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 10 Online Discussion First Post
+* Module 11 Online Discussion First Post
+* Module 6 Lab Report
+* Module 7 Lab Report
+* Module 10 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Post
+* Module 7 Online Discussion First Post
+* Module 8 Online Discussion First Post
+* Module 4 Lab Report
+* Module 5 Lab Report
+* Module 6 Packet Tracer Online Submission Activities
+
+== Feb 10
+=== Work to do in class today
+* Module 10 Lab Report Activities
+* Module 11 Lab Report Activities
+
+=== Readings to do before next class
+* Module 12
+* Module 13
+* Module 14
+
+=== Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion First Post
+* Module 13 Online Discussion First Post
+* Module 14 Online Discussion First Post
+* Module 10 Lab Report
+* Module 11 Lab Report
+* Module 12 Packet Tracer Online Submission Activities
+
+=== Assignments Due at the start of class today
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 10 Online Discussion First Post
+* Module 11 Online Discussion First Post
+* Module 6 Lab Report
+* Module 7 Lab Report
+* Module 10 Packet Tracer Online Submission Activities
+
+== Feb 17
+=== Work to do in class today
+* Module 12 Lab Report Activities
+* Module 13 Lab Report Activities
+
+=== Readings to do before next class
+* No new readings
+
+=== Other Work to do before next class
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion Response Posts
+* Module 12 Lab Report
+* Module 13 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion First Post
+* Module 13 Online Discussion First Post
+* Module 14 Online Discussion First Post
+* Module 10 Lab Report
+* Module 11 Lab Report
+* Module 12 Packet Tracer Online Submission Activities
+
+== Feb 24
+=== Work to do in class today
+* CCNA 3 Skills Exam
+
+=== Readings to do before next class
+* Cybersecurity Essentials Module 1
+* Cybersecurity Essentials Module 2
+* Cybersecurity Essentials Module 3
+* Cybersecurity Essentials Module 4
+
+=== Other Work to do before next class
+* Cybersecurity Essentials Module 1 Online Discussion First Post
+* Cybersecurity Essentials Module 2 Online Discussion First Post
+* Cybersecurity Essentials Module 3 Online Discussion First Post
+* Cybersecurity Essentials Module 4 Online Discussion First Post
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion Response Posts
+* Module 12 Lab Report
+* Module 13 Lab Report
+
+== Mar 3
+=== Work to do in class today
+* Module 4 Lab Report Activities
+
+=== Readings to do before next class
+* Module 5
+* Module 6
+* Module 7
+* Module 8
+
+=== Other Work to do before next class
+
+
+=== Assignments Due at the start of class today
+
+
+== Mar 17
+=== Work to do in class today
+* Module 7 Lab Report Activities
+
+=== Readings to do before next class
+* Module 9
+* Module 10
+* Module 11
+* Module 12
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Mar 24
+=== Work to do in class today
+* Module 8 Lab Report Activities
+
+=== Readings to do before next class
+* Module 13
+* Module 14
+* Module 15
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Mar 31
+=== Work to do in class today
+* Module 9 Lab Report Activities
+* Module 13 Lab Report Activities
+
+=== Readings to do before next class
+* Module 16
+* Module 17
+* Module 18
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+
+== Apr 7
+=== Work to do in class today
+* Module 18 Lab Report Activities
+
+=== Readings to do before next class
+* Module 19
+* Module 20
+* Module 21
+
+=== Other Work to do before next class
+
+
+=== Assignments Due at the start of class today
+
+== Apr 14
+=== Work to do in class today
+* Module 21 Lab Report Activities
+
+=== Readings to do before next class
+* Module 22
+* Module 23 
+* Module 24
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Apr 21
+=== Work to do in class today
+* Module 23 Lab Report Activities
+
+=== Readings to do before next class
+* Module 25
+* Module 26 
+* Module 27
+
+=== Other Work to do before next class
+
+
+=== Assignments Due at the start of class today
+
+== Apr 28
+=== Work to do in class today
+* Module 27 Lab Report Activities
+
+=== Readings to do before next class
+
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== May 5
+=== Work to do in class today
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== May 12: FE Week
+=== Work to do in class today
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
