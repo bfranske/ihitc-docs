@@ -139,11 +139,11 @@ Grades for each course is calculated based on a weighted points system. Each ass
 |===
 |Category |Percent of Final Grade
 |Lab/Homework Assignments 
-|55%
+|60%
 |Regular Final Exams (one for CCNA 3 and one for Cybersecurity Essentials)
-|30%
+|20%
 |Skills Based Final Exams (two for CCNA 1 and two for CCNA 2)
-|15%
+|20%
 |===
 
 Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.
