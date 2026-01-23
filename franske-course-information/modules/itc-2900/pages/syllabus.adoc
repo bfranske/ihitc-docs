@@ -1,7 +1,7 @@
 = ITC-2900 Syllabus
 
 Course Name: Information Technology Careers Capstone +
-Course Number: ITC-2900 +
+Course Number: ITC-2900-99 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2026 (1/12/2026-5/13/2026) +
 Meetings: On Campus: 1/13/2026 & 4/24/2026 +

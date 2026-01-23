@@ -1,7 +1,7 @@
 = ITC-2536 Syllabus
 
 Course Name: Enterprise Networking, Security, Automation, and Cybersecurity Foundations (CCNA 3/Cyber Foundations) +
-Course Number: ITC-2536-61 +
+Course Number: ITC-2536-62 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2026 (1/12/2026-5/13/2026) +
 Meetings: By Appointment (see notes below in course design section) +
