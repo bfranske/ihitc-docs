@@ -1,4 +1,5 @@
 = ITC-2480 Syllabus
+
 Course Name: Administering Linux Operating Systems +
 Course Number: ITC-2480-61 +
 Instructor: Dr. Ben Franske +
