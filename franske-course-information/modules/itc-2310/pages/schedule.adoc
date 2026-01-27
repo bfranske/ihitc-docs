@@ -1,0 +1,3 @@
+= ITC-2310 Official Course Schedule
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

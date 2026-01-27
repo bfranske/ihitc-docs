@@ -1,0 +1,124 @@
+= ITC-2310 Syllabus
+
+Course Name: Network Programmability and IT Infrastructure Automation +
+Course Number: ITC-2310 +
+Instructor: Dr. Ben Franske +
+Term: Spring 2026 (1/12/2026-5/13/2026) +
+Meetings: Independent Study +
+Location: Independent Study
+
+== Instructor Contact Information
+include::ROOT:partial$instructor-contact.adoc[]
+
+== General Course Information
+=== Prerequisite(s)
+* ITC-2536 or ITC-2530 or CCNA Certification
+
+=== Course Description
+Prepare for more complex next-generation networks and information technology infrastructure which is increasingly being configured, monitored, and managed using automation tools. This course helps students transition from traditional network and system administration to management over both API and legacy interfaces using Python scripting and automation tools and frameworks.
+
+=== Required Resources
+* None
+
+=== Optional Resources
+
+=== Course Website(s)
+* ITC Info (https://info.ihitc.net)
+* IHCC D2L Server
+* Cisco Networking Academy (https://www.netacad.com)
+
+== Lab Time
+* This class may require on campus lab resources
+* Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
+* Additional open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  
+
+== Course Objectives
+The student will be able to:
+
+* Develop an awareness of programming languages
+* Write and document code using PEP guidelines, coding conventions, and best practices
+* Demonstrate proficiency in basic programming and Python
+* Create and document a computer program that uses a variety of internal and control structures for manipulating various data types
+* Explain the concept of infrastructure as code
+* Compare and contrast the use of REST APIs, SSH, and NETCONF for network automation
+* Utilize Python libraries such as requests, netmiko, and ncclient to write Python scripts which automate network and IT infrastructure using REST APIs, SSH, and NETCONF
+* Utilize automation tools such as Ansible, Puppet, Chef, Gluware, and Nautobot to automate network and IT infrastructure
+
+
+== Course Design
+This course will be taught as an independent study course. This means that you are primarily responsible for your own learning in the course. The instructor will be available to assist you if you are stuck on labs/activities and to answer specific questions you have and provide general guidance for the course. It is anticipated that most labs and activities in this particular course will be able to be completed on your own personal computer or by remote access to lab equipment and servers at the college; however, some labs or activities may require (or be easier to complete) by physically coming to the college campus and interacting directly with lab equipment during lab time scheduled with your instructor or the ITC lab assistant.
+
+== Assignments and Grading
+Grades for this independent study will be determined by performance on unit multiple-choice tests, lab exercises, and one or more demonstration projects. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
+
+Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
+
+Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+=== Late Assignments and Extensions
+If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
+
+If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary. 
+
+=== Grading Scale
+[%autowidth,options="header"]
+|===
+|Letter Grade |Percentage Range |Description
+|A
+|100%-90%
+|achievement that is outstanding relative to the level necessary to meet course requirements
+|B
+|89%-80%
+|achievement that is significantly above the level necessary to meet course requirements
+|C
+|79%-70%
+|achievement that meets the course requirements in every respect
+|D
+|69%-65%
+|achievement that is worthy of credit even though it fails to meet fully the course requirements
+|F
+|64%-0%
+|Represents failure and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|N
+|
+|Represents no credit and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|I
+|
+|Represents incomplete and is assigned at the discretion of the instructor when, due to extraordinary circumstances, e.g., hospitalization, a student is prevented from completing the work of the course on time. Requires a written agreement between instructor and student. Students must request an incomplete from the instructor.
+|===
+
+=== Grading Method and Availability
+Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
+ 
+[%autowidth,options="header"]
+|===
+|Category |Percent of Final Grade
+|Exams
+|20%
+|Lab/Homework Assignments 
+|40%
+|Demonstration Projects
+|40%
+|===
+
+Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.
+
+Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
+
+CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+
+=== Extra Credit
+Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Unless otherwise noted extra credit will be added to the Lab/Homework Assignments category. 
+
+=== Special Note on Lab Cheating
+In the case of lab activities which are designed to use physical lab equipment you must work on physical lab equipment, no simulators are allowed. Unless specific permission is given by the instructor this means you must use the IHCC lab equipment on campus or the IHCC Netlab remote lab system. Any evidence that you have turned in a lab report for a lab which is designed to be completed on physical equipment without using physical equipment will be treated as cheating.
+
+See the course and campus policies section below for additional information on cheating policies. 
+
+== Course and Campus Policies
+include::ROOT:partial$campus-policies.adoc[]
+
+== Updates to this Syllabus
+The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

@@ -1,0 +1,138 @@
+= ITC-2310 Assignment Details and Directions
+
+== Labs
+=== For the Python Essentials 1 part of the course
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report], which covers all of the lab activities listed below, per module. Submissions are made through the NetAcad site. Lab activities may include remote equipment access or campus equipment. *Good lab reports in this class are typically 400-700 words long.* Each lab report is worth up to 20 points.
+
+TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
+
+TIP: Although the lab activities for modules 2-4 have a browser-based version of Python you are supposed to be able to use within your web browser it does not always function properly and does not allow you to save and return to your work. As a result we do not recommend using it and suggest using the Python on WSL through VSCode environment which you will setup in your module 1 lab activity outlined below.
+
+* Module 1
++
+--
+NOTE: There are not lab activities embedded in the Cisco curriculum for module 1. Instead we will focus on setting up a Python environment on your PC which can be used to complete future lab activities. We do not have fully developed instructions for the module 1 labs yet. Please refer to Internet sites and YouTube for instructions and details on completing each of the steps below. If you are stuck please reach out to your instructor for assistance.
+--
+** Configure your PC to enable Windows Subsystem for Linux with the Debian distribution
+** Verify Python is installed in WSL
+** Install Microsoft's VSCode on your PC and connect it to WSL so that you can write/run/test Python programs running in WSL through VSCode
+** Run a "Hello World" or other simple Python script which you have input into VSCode within the WSL environment and verify it is working
+* Module 2
+** 2.1.5   LAB   Working with the print() function
+** 2.1.12   LAB   The print() function and its arguments
+** 2.1.13   LAB   Formatting the output
+** 2.2.6   LAB   Python literals - strings
+** 2.4.7   LAB   Variables
+** 2.4.9   LAB   Variables ‒ a simple converter
+** 2.4.10   LAB   Operators and expressions
+** 2.5.3   LAB   Comments
+** 2.6.9   LAB   Simple input and output
+** 2.6.10   LAB   Operators and expressions
+** 2.6.11   LAB   Operators and expressions – 2
+* Module 3
+** 3.2.4   LAB   Guess the secret number
+** 3.2.7   LAB   Essentials of the for loop – counting mississippily
+** 3.2.9   LAB   The break statement – Stuck in a loop
+** 3.2.10   LAB   The continue statement – the Ugly Vowel Eater
+** 3.2.11   LAB   The continue statement – the Pretty Vowel Eater
+** 3.2.14   LAB   Essentials of the while loop
+** 3.2.15   LAB   Collatz's hypothesis
+** 3.4.6   LAB   The basics of lists
+** 3.4.11   LAB   The basics of lists ‒ the Beatles
+** 3.6.6   LAB   Operating with lists ‒ basics
+* Module 4
+** 4.3.4   LAB   A leap year: writing your own functions
+** 4.3.5   LAB   How many days: writing and using your own functions
+** 4.3.6   LAB   Day of the year: writing and using your own functions
+** 4.3.7   LAB   Prime numbers ‒ how to find them
+** 4.3.8   LAB   Converting fuel consumption
+
+=== For the Network Automation with Python part of the course
+
+* Lab activities TBD
+
+=== For the Infrastructure Automation Tools part of the course
+
+* Lab activities TBD
+
+== Exams
+Complete the following exams in the Cisco Networking Academy Python Essentials 1 Course:
+
+* PE1: Module 1 Module Exam
+* PE1: Module 2 Module Exam
+* PE1: Module 3 Module Exam
+* PE1: Module 4 Module Exam
+* Python Essentials 1 (PE1) Course Final Exam
+
+== Demonstration Projects (Skills Exam)
+
+For each section of the course you must create one demonstration project which shows what you have learned and meets the requirements below.
+
+=== For the Python Essentials 1 part of the course
+
+Create a real, usable Python program that solves a clearly defined problem of your choice. Your project must demonstrate the core skills and concepts from this course: Python syntax and semantics, input/output, variables and data types, control flow and loops, lists/tuples/dictionaries, functions (with parameters and returns), exceptions, debugging/testing, and documentation following PEP 8 style guidelines.
+
+Your final program must include:
+
+* I/O and User Experience
+** Accept user input (keyboard and/or file) and produce useful output (console and/or file).
+** Validate inputs; reprompt or handle errors without crashing.
+* Data & Operations
+** Use variables (meaningful names) and perform arithmetic/logical operations.
+** Store and manipulate information with lists, tuples, and dictionaries (all three used meaningfully).
+* Control Flow
+** Use conditionals and at least one loop (preferably both for and while, where appropriate).
+* Functions & Structure
+** Write at least one user‑defined functions that:
+*** accept arguments,
+*** return values, and
+*** illustrates scope (local vs. global) responsibly.
+* Exceptions & Robustness
+** Use try/except to handle runtime errors (e.g., ValueError for parsing, FileNotFoundError for files).
+* Style, Documentation, and Organization
+** Follow PEP 8: naming, layout, line length, spacing; write module and function docstrings; use inline comments where helpful; keep code self‑documenting.
+** Organize code into logical sections/modules if size warrants (single file acceptable for smaller projects).
+* Professional Practices
+** Include a brief README with overview, setup, how to run, usage examples, and limitations.
+** Acknowledge any sources or collaborators; follow academic integrity and ethical use of code/content.
+* Optional but encouraged: use of standard modules (e.g., random, math, csv, datetime) where appropriate.
+
+==== Sample Projects
+. Mini Quiz Program
+.* Store 3–5 questions in a list of dictionaries.
+.* Ask the user each question.
+.* Use conditionals to check correctness.
+.* Count correct answers.
+.* Use a function like ask_question(question_dict).
+.* Use try/except to ensure valid input.
+. Basic To‑Do List Manager
+.* Start with an empty list of tasks.
+.* Allow user to add, view, and remove tasks using a loop menu.
+.* Write a function such as add_task(tasks_list).
+.* Handle invalid menu choices with try/except.
+. Number Tools Helper
+.* Ask the user for a number.
+.* Provide a menu with simple operations:
+.** square the number
+.** test if it’s even/odd
+.** create a list of numbers from 1 to the number
+.* Use a loop for the menu and at least one function.
+.* Use exception handling for invalid numeric input.
+. Mini Shopping Cart
+.* Store available items in a dictionary with prices.
+.* User adds items to their cart list.
+.* Loop until user is done.
+.* Calculate total.
+.* Use one function (e.g., show_cart(cart) or add_item(cart)).
+.* Handle invalid item names with try/except.
+
+=== For the Network Automation with Python part of the course
+
+* Project Requirements TBD
+
+=== For the Infrastructure Automation Tools part of the course
+
+* Project Requirements TBD
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
