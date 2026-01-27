@@ -99,32 +99,32 @@ Your final program must include:
 
 ==== Sample Projects
 . Mini Quiz Program
-.* Store 3–5 questions in a list of dictionaries.
-.* Ask the user each question.
-.* Use conditionals to check correctness.
-.* Count correct answers.
-.* Use a function like ask_question(question_dict).
-.* Use try/except to ensure valid input.
+* Store 3–5 questions in a list of dictionaries.
+* Ask the user each question.
+* Use conditionals to check correctness.
+* Count correct answers.
+* Use a function like ask_question(question_dict).
+* Use try/except to ensure valid input.
 . Basic To‑Do List Manager
-.* Start with an empty list of tasks.
-.* Allow user to add, view, and remove tasks using a loop menu.
-.* Write a function such as add_task(tasks_list).
-.* Handle invalid menu choices with try/except.
+* Start with an empty list of tasks.
+* Allow user to add, view, and remove tasks using a loop menu.
+* Write a function such as add_task(tasks_list).
+* Handle invalid menu choices with try/except.
 . Number Tools Helper
-.* Ask the user for a number.
-.* Provide a menu with simple operations:
-.** square the number
-.** test if it’s even/odd
-.** create a list of numbers from 1 to the number
-.* Use a loop for the menu and at least one function.
-.* Use exception handling for invalid numeric input.
+* Ask the user for a number.
+* Provide a menu with simple operations:
+** square the number
+** test if it’s even/odd
+** create a list of numbers from 1 to the number
+* Use a loop for the menu and at least one function.
+* Use exception handling for invalid numeric input.
 . Mini Shopping Cart
-.* Store available items in a dictionary with prices.
-.* User adds items to their cart list.
-.* Loop until user is done.
-.* Calculate total.
-.* Use one function (e.g., show_cart(cart) or add_item(cart)).
-.* Handle invalid item names with try/except.
+* Store available items in a dictionary with prices.
+* User adds items to their cart list.
+* Loop until user is done.
+* Calculate total.
+* Use one function (e.g., show_cart(cart) or add_item(cart)).
+* Handle invalid item names with try/except.
 
 === For the Network Automation with Python part of the course
 
