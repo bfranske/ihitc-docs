@@ -48,6 +48,11 @@ The student will be able to:
 == Course Design
 This course will be taught as an independent study course. This means that you are primarily responsible for your own learning in the course. The instructor will be available to assist you if you are stuck on labs/activities and to answer specific questions you have and provide general guidance for the course. It is anticipated that most labs and activities in this particular course will be able to be completed on your own personal computer or by remote access to lab equipment and servers at the college; however, some labs or activities may require (or be easier to complete) by physically coming to the college campus and interacting directly with lab equipment during lab time scheduled with your instructor or the ITC lab assistant.
 
+There are three major sections to this course with assignments and projects organized around these three sections:
+* The first 40% of the course focuses on an introduction to Python through the Python Essentials 1 materials
+* The next 30% of the course focuses on working with Python to directly automate network/server tasks using the requests, netmiko, and ncclient libraries
+* The final 30% of the course focuses on using automation tools like Ansible, Puppet, Chef, Terraform/OpenTofu, Gluware, and Nautobot to automate IT infrastructure
+
 == Assignments and Grading
 Grades for this independent study will be determined by performance on unit multiple-choice tests, lab exercises, and one or more demonstration projects. A description of assignments is available from the course website. It is expected that assignments will be completed and turned in on time and as specified.
 
