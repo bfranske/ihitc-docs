@@ -10,8 +10,6 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 
 . PT 2.2.13 - Point-to-Point Single-Area OSPFv2 Configuration (7 points)
 . PT 2.3.11 - Determine the DR and BDR (7 points)
-. PT 2.2.13 - Point-to-Point Single-Area OSPFv2 Configuration (7 points)
-. PT 2.3.11 - Determine the DR and BDR (7 points)
 . PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
 . PT 2.5.3 - Propagate a Default Route in OSPFv2 (7 points)
 . PT 2.6.6 - Verify Single-Area OSPFv2 (7 points)
