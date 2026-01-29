@@ -1,4 +1,4 @@
-* xref:itc-2310:index.adoc[ITC-2300]
+* xref:itc-2310:index.adoc[ITC-2310]
 ** xref:itc-2310:index.adoc[Course Home]
 ** xref:itc-2310:syllabus.adoc[Syllabus]
 ** xref:itc-2310:schedule.adoc[Schedule]
