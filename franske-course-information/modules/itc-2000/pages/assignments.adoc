@@ -29,8 +29,6 @@ NOTE: Before beginning this lab activity you will need to find the key to tap wh
 +
 --
 NOTE: Most modern BIOS or UEFI systems do not display POST messages like those shown in the lab anymore unless you specifically are able to disable the _splash screen_ in the BIOS or UEFI settings. Even in that case the POST sometimews goes by too quickly to see any results on the screen.
-
-NOTE: Because you will need to search the Internet for the most recent BIOS version by your motherboard or system manufacturer you will need a working Internet connection to your computer. You will need to complete the next two labs and get Windows installed before you're able to finish that part of this lab activity.
 --
 * 3.1.2.6 Lab - Install Windows
 +
@@ -39,7 +37,7 @@ NOTE: You may need to go into the BIOS/UEFI settings of your system and eithe ch
 
 NOTE: Make sure your computer is *NOT* connected to the Internet while Windows is being installed on it so that you can create a local account instead of being forced to use a Microsoft account! You will need to confirm during the setup process that you have no Internet connection and that you want to continue with "Limited Setup" because Microsoft really wants to force you to use a Microsoft Account to sign in.
 
-NOTE: Be sure to choose a new installation, not to repair an existing one. If prompted choose to install "Windows 10 Education" or "Windows 10 Enterprise". Also, choose to do a "Custom" installation, not an upgrade, and delete any/all existing partitions on the drive (note that this will erase all data on the computer).
+NOTE: Be sure to choose a new installation, not to repair an existing one. If prompted choose to install Windows "Education" or "Enterprise". Also, choose to do a "Custom" installation, not an upgrade, and delete any/all existing partitions on the drive (note that this will erase all data on the computer).
 
 NOTE: If you are prompted for a license or activation key choose that you do not have one or to skip the step.
 
