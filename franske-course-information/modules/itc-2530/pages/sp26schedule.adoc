@@ -1,0 +1,37 @@
+= ITC-2530 Official Course Schedule for Spring 2026
+
+== Introduction
+This semester due to enrollment this course will have a flexible schedule allowing students to complete work on an individually paced basis and meet with the instructor for assistance on an as-needed basis. There will be great flexibility in most due dates but this will require extra attention and planning as a student in the class as you will be mostly responsible for ensuring the required work is completed on your own.
+
+It is strongly recommended that you review the xref:schedule.adoc["regular semester" schedule for the class] and try to stick fairly close to it in terms of when readings and lab work is completed to ensure you will complete everything before the few checkpoint dates listed below.
+
+== Week of Feb 23-28
+=== Planning Notes
+* You should be done with all labs and assignments through Module 7 this week.
+
+=== Due This Week
+* Lab reports and packet tracer activities for Modules 1-6 portion of the class must be submitted by the end of this week.
+
+== Week of Apr 13-17
+=== Planning Notes
+* You should be done with all labs and assignments through Module 14 this week.
+
+=== Due This Week
+* Lab reports and packet tracer activities for Modules 7-14 must be submitted by the end of this week.
+
+== Week of April 20-24
+=== Planning Notes
+* You should complete the real-equipment skills exam by the end of this week.
+
+=== Due This Week
+* You must have scheduled a time and completed the real-equipment skills exam by the end of this week.
+
+== Week of April 27-May 1
+=== Planning Notes
+* You should complete all work for the course by the end of this week.
+
+=== Due This Week
+* You must have completed the online final exam and Packet Tracer final exam by the end of this week.
+* All work for the course must be turned in by the end of this week.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

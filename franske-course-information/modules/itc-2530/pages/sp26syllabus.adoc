@@ -1,13 +1,11 @@
-= ITC-2536 Syllabus
+= ITC-2530 Syllabus
 
-Course Name: Enterprise Networking, Security, Automation, and Cybersecurity Foundations (CCNA 3/Cyber Foundations) +
-Course Number: ITC-2536 +
+Course Name: Enterprise Networking, Security, and Automation (CCNA 3) +
+Course Number: ITC-2530 +
 Instructor: Dr. Ben Franske +
 Term: Spring 2026 (1/12/2026-5/13/2026) +
 Meetings: Independent Study +
 Location: Independent Study
-
-WARNING: This is a 6 credit course! That means it will take a lot of time and effort to be successful in this course. Following national standard expectations a 6 credit course should take about 18-24 hours of work per week to complete. Since we spend about 3.5 hours in class that means that homework for this class should take the average student 14.5-20.5 hours per week! That is a lot of time! Please consider carefully what other courses you may be taking at the same time and other responsibilities you have such as work and family and make sure that you have enough time to complete the work in this course.
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
@@ -17,7 +15,7 @@ include::ROOT:partial$instructor-contact.adoc[]
 * ITC 2516 or (ITC 2510 AND ITC 2520)
 
 === Course Description
-Explores the architecture, components, operations, and security required for large, complex networks, including wide area network (WAN) technologies, and foundational cybersecurity concepts. This includes the ability to configure the OSPF routing protocol, access control lists, NAT, and firewalls. The course emphasizes network security concepts and introduces network virtualization and automation. Students learn how to configure, troubleshoot, and secure enterprise network devices, understand how application programming interfaces (API) and configuration management tools enable network automation, and how to provide for the confidentiality, integrity, and availability of data and network systems including endpoints. This course completes the coursework preparation for the CCNA professional certification exam as well as the CCST Cybersecurity professional certification exam.
+Explores the design, management, configuration, and troubleshooting of enterprise computer networks. This includes the ability to configure a dynamic routing protocol, access control lists, and NAT, as well as an understanding of wide area networking, VPNs, quality of service, network security, virtualization, and automation technologies. Enterprise Networking, Security, and Automation is the final in a sequence of three courses focusing on preparation for the Cisco Certified Network Associate (CCNA) certification.
 
 === Required Resources
 * CCNA Routing and Switching Portable Command Guide (5th Edition) (Empson) ISBN: 978013593782-2
@@ -42,8 +40,7 @@ WARNING: It is important that you keep an accurate email address on file with th
 --
 
 == Lab Time
-* Equipment Labs in the CCNA 3 portion of the class may be completed with the IHCC Netlab remote access equipment, with physical equipment on campus, or at home with your own equipment (requires advance instructor permission).
-* Equipment Labs in the Cybersecurity Essentials portion of the class must be completed with physical equipment on campus or at home with your own equipment (requires advance instructor permission), or using the IHCC Netlab remote access equipment (requires advance instructor permission).
+* Equipment Labs in this class may be completed with the IHCC Netlab remote access equipment, with physical equipment on campus, or at home with your own equipment (requires advance instructor permission).
 * Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
 * Packet Tracer Labs may be completed on campus or at home and submitted through the ScoreUP system.
 * On campus lab time may be available under the supervision of the lab assistant or other ITC department instructors, contact your instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  
@@ -51,40 +48,24 @@ WARNING: It is important that you keep an accurate email address on file with th
 == Course Objectives
 The student will be able to:
 
-. Configure single-area OSPFv2 in both point-to-point and multi-access networks.
-. Explain how to mitigate threats and enhance network security using access control lists and security best practices.
-. Implement standard IPv4 ACLs to filter traffic and secure administrative access.
-. Configure NAT services on the edge router to provide IPv4 address scalability.
-. Explain techniques to provide address scalability and secure remote access for WANs.
-. Explain how to optimize, monitor, and troubleshoot scalable network architectures.
+. Explain how single-area OSPF operates in both point-to-point and broadcast multiaccess networks.
+. Implement single-area OSPFv2 in both point-to-point and broadcast multiaccess networks.
+. Explain how vulnerabilities, threats, and exploits can be mitigated to enhance network security.
+. Explain how ACLs are used as part of a network security policy.
+. Implement IPv4 ACLs to filter traffic and secure administrative access.
+. Implement NAT services on the edge router to provide IPv4 address scalability.
+. Explain how WAN access technologies can be used to satisfy business requirements.
+. Explain how VPNs and IPsec are used to secure site-to-site and remote access connectivity.
 . Explain how networking devices implement QoS.
-. Implement protocols to manage the network.
-. Explain how technologies such as virtualization, software defined networking, and automation affect evolving networks.
-. Explain essential cybersecurity principles and define appropriate cybersecurity terms
-. Explain common cybersecurity threats and vulnerabilities
-. Explain access management principles including AAA, RADIUS, MFA, and password policies
-. Explain and demonstrate encryption methods and applications including symmetric algorithms, asymmetric algorithms, hashing, PKI, and digital signatures
-. Describe TCP/IP protocol vulnerabilities such as those in TCP, UDP, HTTP, ARP, ICMP, DHCP, and DNS
-. Explain how network addresses and network design impact network security such as segmentation, layer 2 and layer 3 addressing, NAT, public and private addressing
-. Describe network infrastructure and technologies such as network security architecture, DMZ, virtualization, cloud, honeypot, proxy server, IDS, and IPS
-. Describe secure access technologies such as ACLs, firewalls, VPNs, and network access control
-. Describe operating system security concepts and features such as host-based firewalls, command line interfaces, permissions, least privilege, and privilege escalation
-. Demonstrate familiarity with appropriate endpoint tools that gather security assessment information such as netstat, nslookup, dig, tcpdump, and Wireshark
-. Verify that endpoint systems meet security policies and standards
-. Implement software and hardware updates and patch management
-. Interpret system logs
-. Demonstrate familiarity with malware removal
-. Explain vulnerability management
-. Use threat intelligence techniques to identify potential network vulnerabilities
-. Explain risk management as related to cybersecurity
-. Explain the importance of disaster recovery and business continuity planning
-. Monitor security events and know when escalation is required
-. Explain digital forensics and attack attribution processes
-. Explain the impact of compliance frameworks on security incident handling
-. Describe the elements of cybersecurity incident response
+. Implement network management protocols to monitor the network.
+. Explain the characteristics of scalable network architectures.
+. Troubleshoot enterprise networks using the layered model, a systematic process, and appropriate tools.
+. Explain the purpose and characteristics of network virtualization.
+. Explain how network automation is enabled through RESTful APIs and configuration management
+tools.
 
 == Course Design
-This course will be taught as an independent study course. This means that you are primarily responsible for your own learning in the course. Reading and multimedia materials for both portions of this course will be made available through the Cisco Networking Academy website. The instructor will be available to assist you if you are stuck on labs/activities and to answer specific questions you have and provide general guidance for the course. Recorded lectures are available for the CCNA 3 portion of the class but are not be available for the Cybersecurity Foundations portion of the class. There will be great flexibility in most due dates but this will require extra attention and planning as a student in the class as you will be mostly responsible for ensuring the required work is completed on your own. There are periodic required milestone dates which are indicated on the xref:sp26schedule.adoc[Spring 2026 Official Course Schedule].
+This course will be taught as an independent study course. This means that you are primarily responsible for your own learning in the course. Reading and multimedia materials for this course will be made available through the Cisco Networking Academy website. The instructor will be available to assist you if you are stuck on labs/activities and to answer specific questions you have and provide general guidance for the course. Recorded lectures are available as well. There will be great flexibility in most due dates but this will require extra attention and planning as a student in the class as you will be mostly responsible for ensuring the required work is completed on your own. There are periodic required milestone dates which are indicated on the xref:sp26schedule.adoc[Spring 2026 Official Course Schedule].
 
 It is strongly recommended that you review the xref:schedule.adoc["regular semester" schedule for the class] and try to stick fairly close to it in terms of when readings/lectures and lab work is completed to ensure you will complete everything before the few milestone dates. You will also be more on your own to assess your understanding and progress in the class than in a typical course. If you have any questions about content, labs, and other work in the course it will be your responsibility to bring those questions and concerns up to the instructor.
 

@@ -17,7 +17,7 @@ TIP: Be sure to watch the videos that go along with the chapters you read each w
 
 TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
 
-TIP: Labs in this class will be done one of three ways: on campus using physical lab equipment, remotely or on campus using the Netlab system (with prior instructor approval), or in the Packet Tracer software. For some activities you will write a lab report and for others you will submit the Packet Tracer work using the ScoreUP plugin to Packet Tracer. See the assignments page of this info site for more details and what labs should be completed in what way.
+TIP: Labs in this class will be done one of three ways: on campus using physical lab equipment, remotely or on campus using the Netlab system, or in the Packet Tracer software. For some activities you will write a lab report and for others you will submit the Packet Tracer work using the ScoreUP plugin to Packet Tracer. See the assignments page of this info site for more details and what labs should be completed in what way.
 
 === Assignments Due at the start of class today
 * None

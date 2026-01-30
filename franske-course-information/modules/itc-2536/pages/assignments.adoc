@@ -30,7 +30,6 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 10.8.1 - Configure CDP, LLDP, and NTP (7 points)
 . PT 12.5.13 - Troubleshoot Enterprise Networks (7 points)
 . PT 12.6.2 - Troubleshooting Challenge - Use Documentation to Solve Issues (7 points)
-. PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
 
 ==== Lab Reports
 For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
@@ -118,7 +117,7 @@ The Skills Final Exams are designed to test your ability to apply the concepts l
 * Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
 === Regular Final Exams
-You will need to complete an online final exam on the Cisco NetAcad site for CCNA 1.
+You will need to complete an online final exam on the Cisco NetAcad site for CCNA 3.
 
 == Cybersecurity Essentials Assignment Details and Directions
 === Lab & Homework Assignments

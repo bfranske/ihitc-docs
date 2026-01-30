@@ -1,11 +1,10 @@
-= ITC-2536 Assignment Details and Directions for Spring 2026
+= ITC-2530 Assignment Details and Directions
 
-== CCNA 3 Assignment Details and Directions
 This page is organized into sections based on the category of your final grade that the assignment will fall into. Be sure to check the syllabus for information about how the categories are weighted in your final grade.
 
-=== Lab & Homework Assignments
+== Lab & Homework Assignments
 
-==== Packet Tracer Online Submissions
+=== Packet Tracer Online Submissions
 Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
 
 . PT 2.2.13 - Point-to-Point Single-Area OSPFv2 Configuration (7 points)
@@ -30,8 +29,9 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . PT 10.8.1 - Configure CDP, LLDP, and NTP (7 points)
 . PT 12.5.13 - Troubleshoot Enterprise Networks (7 points)
 . PT 12.6.2 - Troubleshooting Challenge - Use Documentation to Solve Issues (7 points)
+. PT 2.4.11 - Modify Single-Area OSPFv2 (7 points)
 
-==== Lab Reports
+=== Lab Reports
 For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
 
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
@@ -85,112 +85,38 @@ NOTE: Some Cisco devices do not have "hardware clocks" (also known as "calendars
 NOTE: It is suggested you complete this lab on your home computer if it has enough RAM to run the VM. However, if you need a Netlab system to install on please contact your instructor.
 --
 
-==== Homework
+=== Homework
 Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
 
-* There are no homework assignments for Spring 2026
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the IHCC D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
 
-=== Participation Activities
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
+== Participation Activities
 Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
 
-* There are no participation activities for Spring 2026
+* Complete a Course Introduction exam (20 points based on your score)
+* Complete the online practice final exam (10 points for attempting)
+* Complete the online Packet Tracer Practice Skills Assessment (10 points for attempting)
+* Complete the CCNA Certification Practice Exam (10 points for attempting)
+* Complete a weekly online check-in form or meet with the instructor during class to discuss course progress and ask questions (up to 10 points each based on progress)
 
-=== Unit Assessments
+== Unit Assessments
 You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are on the Cisco NetAcad site.
 
-* No unit exams are required for Spring 2026
+* Module 1-2 OSPF Concepts and Configuration Exam
+* Module 3-5 Network Security Exam
+* Module 6-8 WAN Concepts Exam
+* Module 9-12 Optimize, Monitor, and Troubleshoot Networks Exam
+* Module 13-14 Emerging Network Technologies Exam
 
-=== Skills Final Exams
+== Skills Final Exams
 The Skills Final Exams are designed to test your ability to apply the concepts learned in this class and practiced in labs to common, real-world scenarios. There are two parts to this portion of your grade from CCNA 3.
 
 * Completing all parts of the online Packet Tracer Skills Assessment (PTSA) at home. You grade will be based on correctly completing all parts of the activity. You will be able to use outside resources for this part of the exam.
 * Completing a lab equipment skills exam. You will not be able to use any resources other than those specified by your instructor on this part of the exam.
 
-=== Regular Final Exams
-You will need to complete an online final exam on the Cisco NetAcad site for CCNA 3.
-
-== Cybersecurity Essentials Assignment Details and Directions
-=== Lab & Homework Assignments
-
-==== Packet Tracer Online Submissions
-Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting.
-
-. PT 5.3.10 - Configure Basic Wireless Security
-. PT 5.3.11 - Troubleshoot a Wireless Connection
-. PT 6.2.4 - ACL Demonstration
-. PT 10.1.13 - File and Data Integrity Checks
-. PT 10.1.15 - Explore File and Data Encryption
-. PT 12.5.4 - Configure Wireless Router Hardening and Security
-. PT 12.7.13 - Implement Physical Security with IoT Devices
-. PT 13.1.14 - Configure Access Control
-. PT 13.4.5 - Configure Server-based Authentication with TACACS+ and RADIUS
-. PT 14.5.5 - Configure Named Standard IPv4 ACLs
-. PT 14.5.6 - Configure Numbered Standard IPv4 ACLs
-. PT 14.5.12 - Configure Extended ACLs - Scenario 1
-. PT 14.5.13 - Configure Extended ACLs - Scenario 2
-. PT 14.6.5 - Configure IP ACLs to Mitigate Attacks
-. PT 14.7.4 - Configure IPv6 ACLs
-. PT 16.3.11 - Configure a ZPF
-. PT 20.3.10 - Explore a NetFlow Implementation
-. PT 20.3.11 - Logging from Multiple Sources
-. PT 23.1.7 - Use Diagnostic Commands
-. PT 27.5.13 - Investigate Disaster Recovery
-
-==== Lab Reports
-For each chapter having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the chapter. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
-
-. Lab 4.1.7 - Exploring DNS Traffic
-. Lab 4.2.7 - Install a Virtual Machine on a Personal Computer
-. Lab 4.2.8 - Attacking a mySQL Database
-. Lab 4.2.9 - Reading Server Logs
-. Lab 7.2.11 - Exploring Processes, Threads, Handles, and Windows Registry
-. Lab 7.3.10 - Create User Accounts
-. Lab 7.3.11 - Using Windows PowerShell
-. Lab 7.3.12 - Windows Task Manager
-. Lab 7.3.13 - Monitor and Manage System Resources in Windows
-. Lab 8.2.6 - Working with Text Files in the CLI
-. Lab 8.2.7 - Getting Familiar with the Linux Shell
-. Lab 8.3.5 - Use a Port Scanner to Detect Open Ports
-. Lab 8.3.6 - Linux Servers
-. Lab 8.4.4 - Locating Log Files
-. Lab 8.5.4 - Navigating the Linux Filesystem and Permission Settings
-. Lab 8.7.8 - Configure Security Features in Windows and Linux
-. Lab 9.1.14 - Harden a Linux System
-. Lab 9.1.16 - Recover Passwords
-. Lab 9.4.5 - Online Malware Investigation Tools
-. Lab 13.1.17 - Configure Authentication and Authorization in Linux
-. Lab 18.1.11 - Use Classic and Modern Encryption Algorithms
-. Lab 18.1.12 - Encrypting and Decrypting Data Using OpenSSL
-. Lab 18.1.13 - Encrypting and Decrypting Data Using a Hacker Tool
-. Lab 18.1.14 - Examining Telnet and SSH in Wireshark
-. Lab 18.1.15 - Determine the Encryption Algorithm to Use
-. Lab 18.2.5 - Use Steganography to Hide Data
-. Lab 18.4.10 - Hashing Things Out
-. Lab 18.5.5 - Generate and Use a Digital Signature
-. Lab 18.6.8 - Certificate Authority Stores
-. Lab 21.1.7 - Snort and Firewall Rules
-. Lab 23.4.8 - Use Wireshark to Compare Telnet and SSH Traffic
-. Lab 27.1.12 - Gather System Information After an Incident
-
-==== Homework
-Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
-
-* There are no homework activities for Spring 2026
-
-=== Participation Activities
-Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
-
-* There are no participation activities for Spring 2026
-
-=== Unit Assessments
-You are responsible for completing all of the online unit assessments listed below. Multiple modules are included in single exams. These exams fall into the online assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance. These exams are found on the Cisco Netacad site.
-
-* No unit exams are required for Spring 2026
-
-=== Skills Final Exams
-There is no skills exam for the Cybersecurity Essentials portion of the course.
-
-=== Regular Final Exams
-You will need to complete an online final exam on the NetAcad site for Cybersecurity Essentials.
+== Regular Final Exams
+You will need to complete an online final exam on the Cisco NetAcad site.
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

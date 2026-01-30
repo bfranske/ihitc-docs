@@ -1,0 +1,5 @@
+* xref:itc-2530:index.adoc[ITC-2530]
+** xref:itc-2530:index.adoc[Course Home]
+** xref:itc-2530:syllabus.adoc[Syllabus]
+** xref:itc-2530:schedule.adoc[Schedule]
+** xref:itc-2530:assignments.adoc[Assignments]
