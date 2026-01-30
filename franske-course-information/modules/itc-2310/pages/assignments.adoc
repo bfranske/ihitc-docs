@@ -47,7 +47,7 @@ NOTE: There are not lab activities embedded in the Cisco curriculum for module 1
 ** 4.3.7   LAB   Prime numbers ‒ how to find them
 ** 4.3.8   LAB   Converting fuel consumption
 
-=== For the Network Automation with Python part of the course
+=== For the Python Automation part of the course
 
 * Lab activities TBD
 
@@ -126,7 +126,7 @@ Your final program must include:
 * Use one function (e.g., show_cart(cart) or add_item(cart)).
 * Handle invalid item names with try/except.
 
-=== For the Network Automation with Python part of the course
+=== For the Python Automation part of the course
 
 * Project Requirements TBD
 
