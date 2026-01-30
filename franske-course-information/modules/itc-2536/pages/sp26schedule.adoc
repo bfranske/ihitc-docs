@@ -9,7 +9,7 @@ It is strongly recommended that you review the xref:schedule.adoc["regular semes
 === In class tonight
 * Discuss class strategy, schedule, and assignments with students as related to Spring 2026 delivery
 
-== Week of Feb 23-28
+== Week of Feb 23-27
 === Planning Notes
 * You should be done with everything for the CCNA 3 portion of the class this week.
 

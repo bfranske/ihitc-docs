@@ -1,3 +1,29 @@
 = ITC-2310 Official Course Schedule
 
+== Week of Feb 23-27
+=== Planning Notes
+* You should be done with everything for the Python Essentials 1 portion of the class this week.
+
+=== Due This Week
+* 4 Lab reports (one per module) for the Python Essentials 1 portion of the class must be submitted by the end of this week. See course assignments page for a list of individual lab activities to include.
+* 4 module exams for the Python Essentials 1 portion of the class must be submitted by the end of this week.
+* Python Essentials 1 final exam must be submitted by the end of this week.
+* Demonstration project for Python Essentials 1 must be submitted by the end of this week. See course assignments page for instructions/requirements for this project.
+
+== Week of Mar 30 - Apr 3
+=== Planning Notes
+* You should be done with everything for the Python Automation portion of the class this week.
+
+=== Due This Week
+* Lab reports for the Python Automation portion of the class must be submitted by the end of this week. Lab activities are TBD but plan on 4 lab activities.
+* Demonstration project for Python Automation must be submitted by the end of this week. Instructions/requirements for this project are TBD.
+
+== Week of Apr 27 - May 1
+=== Planning Notes
+* You should be done with everything for the Infrastructure Automation Tools portion of the class this week.
+
+=== Due This Week
+* Lab reports for the Infrastructure Automation Tools portion of the class must be submitted by the end of this week. Lab activities are TBD but plan on 4 lab activities.
+* Demonstration project for Infrastructure Automation Tools must be submitted by the end of this week. Instructions/requirements for this project are TBD.
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
