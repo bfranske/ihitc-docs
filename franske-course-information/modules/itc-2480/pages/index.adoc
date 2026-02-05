@@ -17,5 +17,7 @@ Here is a collection of YouTube videos which may help you better understand some
 
 * https://youtu.be/Lbh8Bh_SEzU[Linux Sysadmin Basics 02 -- Basic Commands by tutoriaLinux]
 * https://youtu.be/tSRlNwaUgPQ[Archiving and Compression on Linux - Basic tar Commands by tutoriaLinux]
+* https://youtu.be/8SkN7UofOww[Linux Sysadmin Basics -- Linux File Permissions by tutoriaLinux]
+* https://youtu.be/4N4Q576i3zA[Linux Crash Course - Understanding File Permissions by ByteByteGo]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
