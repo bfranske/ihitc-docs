@@ -9,4 +9,13 @@
 * xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
 * xref:tech-info:remote-access:passport-vpn.adoc[VPN Access Instructions]
 
+== Resources
+
+=== Videos Related to Course Topics
+
+Here is a collection of YouTube videos which may help you better understand some of the commands and concepts we are working with in this class.
+
+* https://youtu.be/Lbh8Bh_SEzU[Linux Sysadmin Basics 02 -- Basic Commands by tutoriaLinux]
+* https://youtu.be/tSRlNwaUgPQ[Archiving and Compression on Linux - Basic tar Commands by tutoriaLinux]
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
