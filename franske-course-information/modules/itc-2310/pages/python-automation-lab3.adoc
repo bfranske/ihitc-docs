@@ -1,0 +1,1689 @@
+= LAB 3 — RESTCONF + YANG Models (GET + PUT/PATCH/DELETE)
+
+== Learning Objectives
+
+By the end of this lab, you will:
+* Configure RESTCONF and HTTPS on Cisco IOS-XE devices via CLI
+* Create user accounts for RESTCONF API access
+* Understand what YANG models are and why they matter for network automation
+* Build RESTCONF URLs by reading YANG model structure
+* Use Python and RESTCONF to retrieve device configuration from Cisco routers and switches
+* Understand how HTTP methods (GET, PUT, PATCH, DELETE) correspond to CRUD operations
+* Create new interfaces and IP addresses on live network devices
+* Modify existing interface configurations
+* Delete interfaces from network devices
+* Interpret HTTP status codes from RESTCONF responses
+* Handle authentication and HTTPS verification in REST calls to network devices
+* **Correlate RESTCONF JSON data structures with traditional Cisco CLI commands and output**
+
+== Purpose
+
+Students learn foundational model-driven automation using RESTCONF. This is the heart of the ITC 2310 curriculum. You will:
+
+* Explore YANG models and understand their structure
+* Learn how to build RESTCONF URLs from YANG documentation
+* Retrieve interface and IP configuration data from Cisco devices
+* Modify interface configurations on running devices
+* Create new loopback and physical interfaces
+* Delete interfaces
+
+== Prerequisites
+
+You should be comfortable with:
+* Everything from Lab 1 (HTTP methods, JSON parsing, `requests` library, functions)
+* CCNA-level Cisco IOS CLI configuration (interfaces, IP addressing, user accounts)
+* Basic networking concepts (IP addresses, interfaces, subnets, default gateways)
+* Understanding of configuration vs. operational data
+
+You will need:
+* Python 3.7 or later with `requests` library
+* Console access to a Cisco 4331 router and/or 3650 switch (via lab environment)
+* The devices will start with no configuration—you will configure them from scratch
+* An understanding that `/restconf/data/` endpoints modify running configuration
+
+== Lab Environment & Device Access
+
+For this lab, you will work with **live Cisco network devices**:
+
+* **Cisco 4331 Router** — You will configure GigabitEthernet0/0/1 with IP `10.10.20.30/24`
+* **Cisco 3650 Switch** — You will configure GigabitEthernet1/0/1 with IP `10.10.20.40/24`
+
+Both devices run **Cisco IOS-XE** and start with **no configuration**. You will:
+
+1. Console into each device
+2. Configure management interfaces and IP addresses
+3. Enable RESTCONF and HTTPS
+4. Create user accounts for API access
+5. Test connectivity via Python
+
+*Important:* This is a lab environment. HTTPS certificates will be self-signed and untrusted. In production, you would verify certificates properly, but for this lab, we disable verification with `verify=False`.
+
+**Network Details:**
+* Management VLAN: `10.10.20.0/24`
+* Default Gateway: `10.10.20.1` (provided by instructor)
+* Your workstation IP: Assigned by instructor (e.g., `10.10.20.5/24`)
+
+== Part A — Initial Device Configuration via CLI
+
+Before you can use RESTCONF, you must configure the devices to enable the API and create user accounts. This section walks you through the CLI configuration process.
+
+=== Step 1: Console Access and Basic Configuration
+
+Connect to each device via console cable. You'll configure the router first, then repeat similar steps for the switch.
+
+==== Cisco 4331 Router Initial Configuration
+
+[source, cisco-ios]
+----
+! Press Enter to get to the Router> prompt
+! Enter privileged EXEC mode
+Router> enable
+
+! Enter global configuration mode
+Router# configure terminal
+
+! Set hostname for identification
+Router(config)# hostname R1
+
+! Disable DNS lookup (prevents command typos from hanging)
+Router(config)# no ip domain-lookup
+
+! Set domain name (required for generating RSA keys)
+Router(config)# ip domain-name lab.local
+
+! Create a privileged user account for RESTCONF access
+! Username: admin, Privilege level 15 (full admin), Password: Cisco123!
+Router(config)# username admin privilege 15 secret Cisco123!
+
+! Configure the console line with better settings
+Router(config)# line console 0
+Router(config-line)# logging synchronous
+Router(config-line)# exec-timeout 0 0
+Router(config-line)# exit
+
+! Configure the management interface (GigabitEthernet0/0/1)
+Router(config)# interface GigabitEthernet0/0/1
+Router(config-if)# description Management Interface
+Router(config-if)# ip address 10.10.20.30 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+
+! Set default gateway (for management traffic and RESTCONF)
+Router(config)# ip route 0.0.0.0 0.0.0.0 10.10.20.1
+
+! Wait a few seconds for the interface to come up
+! Verify interface is up: you should see "GigabitEthernet0/0/1 is up, line protocol is up"
+Router(config)# do show ip interface brief
+----
+
+==== Cisco 3650 Switch Initial Configuration
+
+[source, cisco-ios]
+----
+! Press Enter to get to the Switch> prompt
+Switch> enable
+Switch# configure terminal
+
+! Set hostname
+Switch(config)# hostname SW1
+
+! Disable DNS lookup
+Switch(config)# no ip domain-lookup
+
+! Set domain name
+Switch(config)# ip domain-name lab.local
+
+! Create privileged user account
+Switch(config)# username admin privilege 15 secret Cisco123!
+
+! Configure console line
+Switch(config)# line console 0
+Switch(config-line)# logging synchronous
+Switch(config-line)# exec-timeout 0 0
+Switch(config-line)# exit
+
+! Configure management VLAN interface (VLAN 1 by default, or create a management VLAN)
+Switch(config)# interface vlan 1
+Switch(config-if)# description Management Interface
+Switch(config-if)# ip address 10.10.20.40 255.255.255.0
+Switch(config-if)# no shutdown
+Switch(config-if)# exit
+
+! Ensure GigabitEthernet1/0/1 is in VLAN 1 and up
+Switch(config)# interface GigabitEthernet1/0/1
+Switch(config-if)# description Uplink to Network
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 1
+Switch(config-if)# no shutdown
+Switch(config-if)# exit
+
+! Set default gateway
+Switch(config)# ip default-gateway 10.10.20.1
+
+! Verify interface is up
+Switch(config)# do show ip interface brief
+----
+
+=== Step 2: Enable HTTPS and Generate RSA Keys
+
+RESTCONF uses HTTPS (port 443). You must generate RSA cryptographic keys to enable the HTTPS server.
+
+==== On the Router (R1):
+
+[source, cisco-ios]
+----
+! Generate RSA keys (2048-bit recommended for production, 1024 acceptable for lab)
+R1(config)# crypto key generate rsa general-keys modulus 2048
+! When prompted "Do you really want to replace them? [yes/no]:", type yes if keys already exist
+! This takes 10-30 seconds
+
+! Enable the HTTPS server
+R1(config)# ip http secure-server
+
+! Enable HTTP authentication using local user database
+R1(config)# ip http authentication local
+
+! Verify HTTPS server is running
+R1(config)# do show ip http server status
+! You should see "HTTP secure server status: Enabled"
+----
+
+==== On the Switch (SW1):
+
+[source, cisco-ios]
+----
+! Generate RSA keys
+SW1(config)# crypto key generate rsa general-keys modulus 2048
+! Type yes if prompted to replace existing keys
+
+! Enable HTTPS server
+SW1(config)# ip http secure-server
+
+! Enable HTTP authentication using local user database
+SW1(config)# ip http authentication local
+
+! Verify HTTPS server is running
+SW1(config)# do show ip http server status
+----
+
+=== Step 3: Enable RESTCONF
+
+Cisco IOS-XE includes RESTCONF capability, but it must be explicitly enabled.
+
+==== On the Router (R1):
+
+[source, cisco-ios]
+----
+! Enable RESTCONF
+R1(config)# restconf
+
+! Verify RESTCONF is enabled
+R1(config)# do show platform software yang-management process
+! You should see "restconf  : Running" in the output
+----
+
+==== On the Switch (SW1):
+
+[source, cisco-ios]
+----
+! Enable RESTCONF
+SW1(config)# restconf
+
+! Verify RESTCONF is enabled
+SW1(config)# do show platform software yang-management process
+----
+
+=== Step 4: Save Configuration
+
+**Critical:** Save your configuration to NVRAM so it persists after reboot.
+
+==== On Both Devices:
+
+[source, cisco-ios]
+----
+! Exit configuration mode
+R1(config)# end
+
+! Save running-config to startup-config
+R1# write memory
+! OR use: copy running-config startup-config
+
+! Verify configuration was saved
+R1# show startup-config | include hostname
+----
+
+=== Step 5: Test Connectivity from Your Workstation
+
+Before proceeding to Python scripts, verify you can reach the devices over the network.
+
+==== From your Linux/Windows workstation terminal:
+
+[source, bash]
+----
+# Test ping to router
+ping 10.10.20.30
+
+# Test ping to switch
+ping 10.10.20.40
+
+# Test HTTPS connectivity (should see certificate warning, that's expected)
+curl -k https://10.10.20.30/restconf/data/ -u admin:Cisco123! -H "Accept: application/yang-data+json"
+----
+
+If ping works but curl fails with connection refused, verify HTTPS server is running on the device.
+
+=== Step 6: Test RESTCONF Access via Python
+
+Create a quick test script to verify RESTCONF is accessible:
+
+[source, python]
+----
+# Save as test_restconf_access.py
+import requests
+from requests.auth import HTTPBasicAuth
+import urllib3
+
+# Suppress SSL warnings (expected in lab with self-signed certs)
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# Test Router
+print("Testing Router RESTCONF access...")
+url = "https://10.10.20.30/restconf/data/"
+resp = requests.get(
+    url,
+    headers={"Accept": "application/yang-data+json"},
+    auth=HTTPBasicAuth("admin", "Cisco123!"),
+    verify=False,
+    timeout=10
+)
+print(f"Router Response: {resp.status_code}")
+if resp.status_code in [200, 404]:
+    print("✓ Router RESTCONF is accessible!")
+else:
+    print(f"✗ Router RESTCONF error: {resp.text}")
+
+# Test Switch
+print("\nTesting Switch RESTCONF access...")
+url = "https://10.10.20.40/restconf/data/"
+resp = requests.get(
+    url,
+    headers={"Accept": "application/yang-data+json"},
+    auth=HTTPBasicAuth("admin", "Cisco123!"),
+    verify=False,
+    timeout=10
+)
+print(f"Switch Response: {resp.status_code}")
+if resp.status_code in [200, 404]:
+    print("✓ Switch RESTCONF is accessible!")
+else:
+    print(f"✗ Switch RESTCONF error: {resp.text}")
+----
+
+Expected output:
+[source]
+----
+Testing Router RESTCONF access...
+Router Response: 200
+✓ Router RESTCONF is accessible!
+
+Testing Switch RESTCONF access...
+Switch Response: 200
+✓ Switch RESTCONF is accessible!
+----
+
+=== Configuration Troubleshooting
+
+If RESTCONF access fails, check these common issues:
+
+[cols="2,3", options="header"]
+|===
+|Problem|Solution
+|`Connection refused` or timeout|Verify `ip http secure-server` is enabled. Check `show ip http server status`
+|`401 Unauthorized`|Username or password incorrect. Verify with `show run \| include username`
+|`Connection timed out`|Network connectivity issue. Verify interface is up with `show ip interface brief` and test ping
+|No RSA keys|Generate keys: `crypto key generate rsa modulus 2048`
+|RESTCONF not running|Enable it: `restconf`. Verify with `show platform software yang-management process`
+|Wrong IP address|Verify IPs with `show ip interface brief`. Correct in Python script.
+|===
+
+=== Quick Reference: Complete Configuration
+
+For quick copy-paste, here's the minimal configuration for both devices:
+
+**Router (10.10.20.30):**
+[source, cisco-ios]
+----
+hostname R1
+no ip domain-lookup
+ip domain-name lab.local
+username admin privilege 15 secret Cisco123!
+interface GigabitEthernet0/0/1
+ ip address 10.10.20.30 255.255.255.0
+ no shutdown
+ip route 0.0.0.0 0.0.0.0 10.10.20.1
+crypto key generate rsa modulus 2048
+ip http secure-server
+ip http authentication local
+restconf
+end
+write memory
+----
+
+**Switch (10.10.20.40):**
+[source, cisco-ios]
+----
+hostname SW1
+no ip domain-lookup
+ip domain-name lab.local
+username admin privilege 15 secret Cisco123!
+interface vlan 1
+ ip address 10.10.20.40 255.255.255.0
+ no shutdown
+interface GigabitEthernet1/0/1
+ switchport mode access
+ switchport access vlan 1
+ no shutdown
+ip default-gateway 10.10.20.1
+crypto key generate rsa modulus 2048
+ip http secure-server
+ip http authentication local
+restconf
+end
+write memory
+----
+
+**Once both devices are configured and you've verified RESTCONF access with the Python test script, proceed to Section 1.**
+
+== Section 1 — Understanding YANG and RESTCONF (Critical Theory Section)
+
+**RESTCONF is a REST API that exposes network device configuration and operational data as defined by YANG models.**
+
+Think of it like this:
+* **YANG** = a blueprint describing what configuration exists on a device (structure, types, constraints)
+* **RESTCONF** = a REST API that uses HTTP to read and write that configuration
+* **RESTCONF URLs** = built directly from YANG model structure
+
+In Lab 1, you called public APIs like jsonplaceholder.typicode.com. In Lab 2, you're calling the Cisco devices' built-in RESTCONF API.
+
+=== 1.1 RESTCONF URL Pattern
+
+RESTCONF URLs follow a predictable pattern derived from YANG model structure:
+
+[source]
+----
+/restconf/data/<module>:<container>/<list>/<key>
+----
+
+Breaking down each part:
+
+* `<module>` — name of the YANG module (e.g., `ietf-interfaces`)
+* `<container>` — first-level structural area (e.g., `interfaces`)
+* `<list>` — repeated objects (e.g., `interface`)
+* `<key>` — unique identifier for list entries (e.g., interface name `GigabitEthernet1`)
+
+=== 1.2 Example: YANG Model for Interfaces (ietf-interfaces)
+
+Cisco devices implement standard IETF models. Here's a simplified version of the `ietf-interfaces` YANG model:
+
+[source, yang]
+----
+module ietf-interfaces {
+  container interfaces {                    // Container: groups all interface config
+    list interface {                        // List: repeats for each interface
+      key "name";                           // Key: interface name uniquely identifies each entry
+      leaf "name";                          // e.g., "GigabitEthernet1"
+      leaf "type";                          // e.g., "iana-if-type:ethernetCsmacd"
+      leaf "enabled";                       // Boolean: true = up, false = down
+      leaf "description";                   // Optional interface description
+      container "ietf-ip:ipv4" {            // IPv4 config (nested under interface)
+        list "address" {                    // Multiple IP addresses per interface
+          key "ip";
+          leaf "ip";                        // e.g., "192.168.1.1"
+          leaf "netmask";                   // e.g., "255.255.255.0"
+        }
+      }
+    }
+  }
+}
+----
+
+=== 1.3 Mapping YANG Elements to RESTCONF URLs
+
+Using the model above, here's how YANG structure becomes RESTCONF URLs:
+
+[cols="2,3,3", options="header"]
+|===
+|YANG Element|Description|RESTCONF URL Component
+|`module ietf-interfaces`|Module namespace|`ietf-interfaces:`
+|`container interfaces`|Top-level grouping|`/interfaces`
+|`list interface`|Repeating elements|`/interface`
+|`key "name"`|GigabitEthernet1|`=GigabitEthernet1`
+|===
+
+=== 1.4 Building Complete RESTCONF URLs
+
+Using the YANG model, you can construct URLs:
+
+**GET all interfaces:**
+[source]
+----
+/restconf/data/ietf-interfaces:interfaces/interface
+----
+
+**GET a single interface (GigabitEthernet1):**
+[source]
+----
+/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1
+----
+
+**GET IPv4 addresses on a single interface:**
+[source]
+----
+/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1/ietf-ip:ipv4/address
+----
+
+The pattern is always: `/restconf/data/` + module namespace + container path + list + key=value
+
+=== 1.5 HTTP Methods on RESTCONF + What They Mean
+
+RESTCONF uses standard REST/HTTP methods mapped to CRUD operations:
+
+[cols="1,1,2,2", options="header"]
+|===
+|HTTP Method|CRUD Operation|Example|What It Does
+|`GET`|Read|`GET /restconf/data/ietf-interfaces:interfaces`|Retrieve configuration/state (does NOT modify)
+|`PUT`|Create/Replace|`PUT /restconf/data/.../interface=Loopback99`|Create a new resource or completely replace existing one
+|`PATCH`|Update|`PATCH /restconf/data/.../interface=GigabitEthernet1`|Partially update (only fields you specify)
+|`DELETE`|Delete|`DELETE /restconf/data/.../interface=Loopback99`|Remove a resource
+|===
+
+**Important distinction:**
+* `PUT` = "replace the entire resource with what I'm sending"
+* `PATCH` = "only change the fields I'm sending, leave others alone"
+
+In Lab 1, you only used GET and POST. Here, you'll use all four.
+
+=== 1.6 Cisco IOS-XE and YANG Models
+
+Cisco IOS-XE devices support:
+* **IETF standard models** (e.g., `ietf-interfaces`, `ietf-ip`, `ietf-routing`)
+* **Cisco proprietary models** (e.g., `Cisco-IOS-XE-native`, `Cisco-IOS-XE-vlan`)
+
+For example:
+
+**Standard IETF interface model:**
+[source]
+----
+/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet1
+----
+
+**Cisco proprietary VLAN model:**
+[source]
+----
+/restconf/data/Cisco-IOS-XE-vlan:vlan/vlan-list=100
+----
+
+Both are accessible on a Cisco device. The Cisco models provide access to device-specific features.
+
+=== 1.7 Discovering Available Models on a Device
+
+You can query which models a device supports:
+
+[source, python]
+----
+# Returns list of available YANG modules on the device
+url = f"https://10.10.20.30/restconf/data/ietf-yang-library:modules-state"
+----
+
+Or request the `/restconf/` endpoint to see available resources. We'll do this in Section 2.
+
+=== 1.8 Understanding HTTP Status Codes in RESTCONF
+
+When you make a RESTCONF request, the HTTP status code indicates success or failure:
+
+[cols="1,3", options="header"]
+|===
+|Status Code|Meaning
+|`200 OK`|Request successful, response body contains data
+|`201 Created`|Resource created successfully (usually for PUT)
+|`204 No Content`|Request successful, but no response body (common for PUT/PATCH/DELETE)
+|`400 Bad Request`|Your request was malformed (syntax error in JSON, wrong URL path)
+|`401 Unauthorized`|Authentication failed (wrong username/password)
+|`403 Forbidden`|Authenticated, but you don't have permission
+|`404 Not Found`|URL path doesn't exist on the device (wrong model name or path)
+|`409 Conflict`|Resource already exists (trying to PUT when resource exists)
+|`500 Server Error`|Device encountered an error (bad config, device issue)
+|===
+
+== Section 2 — RESTCONF GET: Reading Interfaces via Python
+
+Now you'll use Python to query the actual Cisco router via RESTCONF.
+
+=== 2.1 Basic Interface Retrieval
+
+Create `restconf_get_interfaces.py`:
+
+[source, python]
+----
+# Import the requests library for making HTTP requests
+import requests
+# Import HTTPBasicAuth to send username/password with the request
+from requests.auth import HTTPBasicAuth
+# Import json for pretty-printing and parsing JSON responses
+import json
+
+# Define a dictionary with device connection information
+router = {
+    "host": "10.10.20.30",                    # IP address of the Cisco router
+    "username": "admin",                      # RESTCONF login username
+    "password": "Cisco123!"                   # RESTCONF login password (from Part A configuration)
+}
+
+# Build the RESTCONF URL based on the YANG model structure we learned in Section 1
+# This URL retrieves ALL interfaces on the device
+url = f"https://{router['host']}/restconf/data/ietf-interfaces:interfaces/interface"
+
+# Set headers telling the device we want JSON response data (not XML)
+headers = {"Accept": "application/yang-data+json"}
+
+# Make the RESTCONF GET request
+# - url: the RESTCONF endpoint we constructed
+# - headers: Accept header specifying JSON format
+# - auth: HTTPBasicAuth sends username and password to the device
+# - verify=False: disable HTTPS certificate verification (lab environment only!)
+response = requests.get(
+    url,
+    headers=headers,
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    verify=False
+)
+
+# Display the HTTP response status code (200 = success, check Section 1.8 for others)
+print("HTTP Status:", response.status_code)
+
+# Parse the JSON response into a Python dictionary (same as Lab 1)
+payload = response.json()
+
+# Print the entire response in nicely formatted JSON
+print("\n=== RAW RESTCONF RESPONSE ===")
+print(json.dumps(payload, indent=2))
+
+# Extract the list of interfaces from the response
+# The top-level key is "ietf-interfaces:interface" (matches our YANG module namespace)
+interfaces = payload.get("ietf-interfaces:interface", [])
+
+# Loop through each interface and print a summary
+print("\n=== INTERFACE SUMMARY ===")
+for iface in interfaces:
+    # Get interface name from the interface dict
+    name = iface.get("name", "unknown")
+    # Check if interface is enabled (true=up, false=down)
+    enabled = iface.get("enabled", True)
+    # Extract IPv4 addresses if they exist (nested structure from YANG model)
+    ipv4_config = iface.get("ietf-ip:ipv4", {})
+    ipv4_addrs = ipv4_config.get("address", [])
+    # Build a list of IP addresses for this interface (e.g., ['192.168.1.1', '10.0.0.1'])
+    ip_list = [addr.get("ip", "0.0.0.0") for addr in ipv4_addrs]
+    
+    # Print the interface information in a readable format
+    print(f"{name:25} enabled={str(enabled):5} ipv4={ip_list}")
+----
+
+=== 2.2 What This Code Does
+
+When you run `restconf_get_interfaces.py`:
+1. Connects to the Cisco router at `10.10.20.30` using HTTPS
+2. Authenticates with the username and password you provide
+3. Queries the `/restconf/data/ietf-interfaces:interfaces/interface` endpoint
+4. Receives a JSON response containing all interface configuration
+5. Parses the JSON and displays interfaces in a readable table
+6. Shows interface name, enabled status, and IP addresses
+
+The output might look like:
+[source]
+----
+HTTP Status: 200
+
+=== RAW RESTCONF RESPONSE ===
+{
+  "ietf-interfaces:interface": [
+    {
+      "name": "GigabitEthernet0/0/1",
+      "enabled": true,
+      "ietf-ip:ipv4": {
+        "address": [
+          {
+            "ip": "10.10.20.30",
+            "netmask": "255.255.255.0"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Loopback0",
+      "enabled": true,
+      "ietf-ip:ipv4": {
+        "address": []
+      }
+    }
+  ]
+}
+
+=== INTERFACE SUMMARY ===
+GigabitEthernet0/0/1      enabled=true  ipv4=['10.10.20.30']
+Loopback0                 enabled=true  ipv4=[]
+----
+
+=== 2.3 Verify RESTCONF Data via CLI
+
+**Important:** After retrieving data via RESTCONF, always verify it matches what the CLI shows. This helps you understand the relationship between the API and traditional configuration.
+
+Console into your router and run these commands:
+
+[source, cisco-ios]
+----
+R1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0/1   10.10.20.30     YES manual up                    up      
+Loopback0              unassigned      YES unset  up                    up      
+
+! Compare this to your Python output - notice:
+! - Interface names match exactly
+! - IP addresses match (10.10.20.30)
+! - Status "up" corresponds to "enabled": true
+! - "unassigned" means no IP, matching empty address list []
+----
+
+To see more detail on a specific interface, use:
+
+[source, cisco-ios]
+----
+R1# show running-config interface GigabitEthernet0/0/1
+Building configuration...
+
+Current configuration : 106 bytes
+!
+interface GigabitEthernet0/0/1
+ description Management Interface
+ ip address 10.10.20.30 255.255.255.0
+ no shutdown
+end
+
+! This shows the same data RESTCONF returned:
+! - "description" field in JSON
+! - "ip address" in the ietf-ip:ipv4 container
+! - "no shutdown" means enabled=true
+----
+
+**Key Takeaway:** The JSON structure returned by RESTCONF directly maps to the CLI configuration. Understanding this mapping is critical for automation.
+
+=== 2.4 Practice Exercises
+
+Try these variations:
+
+1. **Get a single interface:** Replace the URL with:
+   `https://10.10.20.30/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet0/0/1`
+   
+   Then verify with: `show running-config interface GigabitEthernet0/0/1`
+
+2. **Get IPv4 addresses only on one interface:**
+   `https://10.10.20.30/restconf/data/ietf-interfaces:interfaces/interface=Loopback0/ietf-ip:ipv4/address`
+   
+   Then verify with: `show ip interface Loopback0`
+
+3. **Pretty print ONLY one interface:** Modify the loop to find and print just one by name, then compare to CLI output.
+
+== Section 3 — RESTCONF PUT: Creating New Interfaces
+
+**PUT** creates a new resource or completely replaces an existing one. We'll create a new loopback interface with an IP address.
+
+=== 3.1 Understanding the Payload Structure
+
+Before writing code, understand what JSON structure to send. It must match the YANG model:
+
+[source, json]
+----
+{
+  "ietf-interfaces:interface": {               // Top-level key (module:container)
+    "name": "Loopback99",                      // Interface name (YANG key)
+    "type": "iana-if-type:softwareLoopback",   // Interface type (YANG leaf)
+    "enabled": true,                           // Interface admin state
+    "description": "Created via RESTCONF",     // Optional description
+    "ietf-ip:ipv4": {                          // Nested IPv4 container
+      "address": [                             // List of IPv4 addresses
+        {
+          "ip": "192.0.2.99",                  // IP address
+          "netmask": "255.255.255.255"         // Subnet mask
+        }
+      ]
+    }
+  }
+}
+----
+
+This JSON structure mirrors the YANG model from Section 1.2.
+
+=== 3.2 Create Loopback99 Interface
+
+Create `restconf_create_interface.py`:
+
+[source, python]
+----
+# Import required libraries
+import requests
+import json
+from requests.auth import HTTPBasicAuth
+
+# Device connection information (same as Section 2)
+router = {
+    "host": "10.10.20.30",
+    "username": "admin",
+    "password": "Cisco123!"
+}
+
+# Build RESTCONF URL for creating Loopback99
+# Notice: we include "=Loopback99" at the end to specify which interface to create
+url = f"https://{router['host']}/restconf/data/ietf-interfaces:interfaces/interface=Loopback99"
+
+# Headers: we now need BOTH Accept AND Content-Type
+# Content-Type tells the device what format we're SENDING (JSON)
+headers = {
+    "Accept": "application/yang-data+json",       # Format we want to receive
+    "Content-Type": "application/yang-data+json"  # Format we're sending
+}
+
+# Build the payload dictionary matching the YANG model structure
+payload = {
+    "ietf-interfaces:interface": {
+        "name": "Loopback99",                           # Interface name (must match URL)
+        "type": "iana-if-type:softwareLoopback",        # Loopback interface type
+        "enabled": True,                                # Bring interface up
+        "description": "Configured via RESTCONF Lab 2", # Human-readable description
+        "ietf-ip:ipv4": {                               # IPv4 configuration container
+            "address": [                                # List of IP addresses
+                {
+                    "ip": "192.0.2.99",                 # IP address (TEST-NET-1 range)
+                    "netmask": "255.255.255.255"        # /32 subnet mask
+                }
+            ]
+        }
+    }
+}
+
+# Make the PUT request to create the interface
+# - url: RESTCONF endpoint specifying Loopback99
+# - headers: tells device we're sending/receiving JSON
+# - auth: username/password authentication
+# - data: converts Python dict to JSON string and sends it
+# - verify=False: disable HTTPS cert verification (lab only)
+resp = requests.put(
+    url,
+    headers=headers,
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    data=json.dumps(payload),
+    verify=False
+)
+
+# Display HTTP status code
+# 201 = Created (resource created successfully)
+# 204 = No Content (success, but no response body)
+# 409 = Conflict (resource already exists)
+print(f"PUT status: {resp.status_code}")
+
+# If successful, print confirmation
+if resp.status_code in [200, 201, 204]:
+    print("✓ Loopback99 created successfully!")
+    print("You can verify this with: show ip interface brief")
+else:
+    print(f"✗ Failed to create interface. Status: {resp.status_code}")
+    print(f"Response: {resp.text}")
+----
+
+=== 3.3 Verify the Interface Was Created
+
+**Critical:** Always verify via CLI that your RESTCONF changes actually applied to the device.
+
+After running the script, console into the router and verify:
+
+**Step 1: Check interface summary**
+
+[source, cisco-ios]
+----
+R1# show ip interface brief
+Interface              IP-Address      Status    Protocol
+GigabitEthernet0/0/1   10.10.20.30     up        up
+Loopback0              unassigned      up        up
+Loopback99             192.0.2.99      up        up      <-- Created by RESTCONF!
+
+! Notice:
+! - Loopback99 now appears in the interface list
+! - IP address matches what we sent in the JSON payload (192.0.2.99)
+! - Status is "up" because we set "enabled": true
+----
+
+**Step 2: Check detailed interface configuration**
+
+[source, cisco-ios]
+----
+R1# show running-config interface Loopback99
+Building configuration...
+
+Current configuration : 107 bytes
+!
+interface Loopback99
+ description Configured via RESTCONF Lab 2
+ ip address 192.0.2.99 255.255.255.255
+end
+
+! Compare to your JSON payload:
+! "description": "Configured via RESTCONF Lab 2"  → description command
+! "ip": "192.0.2.99"                              → ip address
+! "netmask": "255.255.255.255"                    → /32 mask
+! "enabled": true                                 → interface is not shutdown
+----
+
+**Step 3: Check interface operational status**
+
+[source, cisco-ios]
+----
+R1# show ip interface Loopback99
+Loopback99 is up, line protocol is up
+  Internet address is 192.0.2.99/32
+  Broadcast address is 255.255.255.255
+  MTU is 1514 bytes
+  <...output truncated...>
+  
+! This confirms:
+! - Interface is administratively up (enabled: true)
+! - IP address is configured correctly
+! - This is the operational state data
+----
+
+**Optional: Verify via RESTCONF GET**
+
+You can also retrieve the interface back via RESTCONF to confirm:
+
+[source, python]
+----
+# Retrieve just Loopback99
+verify_url = f"https://{router['host']}/restconf/data/ietf-interfaces:interfaces/interface=Loopback99"
+verify_resp = requests.get(
+    verify_url,
+    headers={"Accept": "application/yang-data+json"},
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    verify=False
+)
+print(json.dumps(verify_resp.json(), indent=2))
+
+# The JSON returned should match what you originally PUT
+----
+
+**Key Learning Point:**  
+When you use RESTCONF PUT, you're generating the same configuration you would enter via CLI. The difference is that RESTCONF uses structured JSON based on YANG models, making it programmable and repeatable.
+
+=== 3.4 Understanding PUT Behavior
+
+**Important:** PUT replaces the entire resource. If Loopback99 already exists and you PUT new data:
+- The old configuration is **completely replaced**
+- Fields you don't specify might be reset to defaults
+- This is why status `409 Conflict` can occur
+
+== Section 4 — RESTCONF PATCH: Modifying Existing Configuration
+
+**PATCH** modifies only specific fields, leaving others unchanged. This is safer than PUT for updates.
+
+=== 4.1 Understanding PUT vs PATCH
+
+Imagine an interface with these attributes:
+- name: Loopback99
+- enabled: true
+- description: "Old description"
+- IP: 192.0.2.99/32
+
+**With PUT:**
+- You must send ALL fields
+- If you omit `enabled`, it might reset to default
+- Replaces the entire resource
+
+**With PATCH:**
+- Send ONLY fields you want to change
+- Other fields remain untouched
+- Much more practical for updates
+
+=== 4.2 Update Only the Description Field
+
+Create `restconf_modify_interface.py`:
+
+[source, python]
+----
+# Import required libraries
+import requests
+import json
+from requests.auth import HTTPBasicAuth
+
+# Device connection information
+router = {
+    "host": "10.10.20.30",
+    "username": "admin",
+    "password": "Cisco123!"
+}
+
+# URL for Loopback99 (same as PUT, but we'll use PATCH method)
+url = f"https://{router['host']}/restconf/data/ietf-interfaces:interfaces/interface=Loopback99"
+
+# Set headers for JSON format
+headers = {
+    "Accept": "application/yang-data+json",
+    "Content-Type": "application/yang-data+json"
+}
+
+# Build payload with ONLY the field we want to change
+# Notice: we're NOT sending enabled, type, or ipv4 fields
+# Those will remain unchanged on the device
+patch_payload = {
+    "ietf-interfaces:interface": {
+        "name": "Loopback99",                        # Interface name (required for identification)
+        "description": "Updated via PATCH - Lab 2"   # Only changing description
+    }
+}
+
+# Make the PATCH request to modify the interface
+# Everything is the same as PUT except the HTTP method
+resp = requests.patch(
+    url,
+    headers=headers,
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    data=json.dumps(patch_payload),
+    verify=False
+)
+
+# Display result
+# 204 = No Content (success, common for PATCH)
+# 200 = OK (success with response body)
+print(f"PATCH status: {resp.status_code}")
+
+if resp.status_code in [200, 204]:
+    print("✓ Interface description updated successfully!")
+else:
+    print(f"✗ Failed to update. Status: {resp.status_code}")
+    print(f"Response: {resp.text}")
+----
+
+=== 4.3 Verify the Change via CLI
+
+**Critical:** Verify that PATCH only changed the field you specified and left others untouched.
+
+**Step 1: Check the description changed**
+
+Console into the router:
+
+[source, cisco-ios]
+----
+R1# show running-config interface Loopback99
+Building configuration...
+
+Current configuration : 114 bytes
+!
+interface Loopback99
+ description Updated via PATCH - Lab 2
+ ip address 192.0.2.99 255.255.255.255
+end
+
+! Notice what changed and what didn't:
+! ✓ Description changed from "Configured via RESTCONF Lab 2"
+!                         to "Updated via PATCH - Lab 2"
+! ✓ IP address UNCHANGED (192.0.2.99 255.255.255.255)
+! ✓ Interface still up (no shutdown not shown = interface enabled)
+----
+
+**Step 2: Verify interface status unchanged**
+
+[source, cisco-ios]
+----
+R1# show ip interface brief | include Loopback99
+Loopback99             192.0.2.99      YES manual up                    up
+
+! Confirms:
+! - IP address still 192.0.2.99 (UNCHANGED)
+! - Status still "up" (UNCHANGED)
+! - Only description field was modified
+----
+
+**Step 3: Compare to what would have happened with PUT**
+
+Important understanding: If you had used PUT with only the description field, you might have lost the IP address configuration. PATCH is safer for updates because it only modifies specified fields.
+
+Try this to see what full config looks like:
+
+[source, cisco-ios]
+----
+R1# show interfaces Loopback99
+Loopback99 is up, line protocol is up 
+  Hardware is Loopback
+  Description: Updated via PATCH - Lab 2
+  Internet address is 192.0.2.99/32
+  <...output truncated...>
+
+! The "Description:" line reflects our PATCH change
+! Everything else remains intact
+----
+
+**Key Takeaway:**  
+PATCH is the HTTP equivalent of running only `description Updated via PATCH - Lab 2` in interface configuration mode. It doesn't touch other config lines. PUT would be like deleting the entire interface config and rewriting it.
+
+=== 4.4 When to Use PUT vs PATCH
+
+[cols="1,2,2", options="header"]
+|===
+|Method|Use Case|Example
+|**PUT**|Creating new resources, complete replacement|Creating Loopback99 for the first time
+|**PATCH**|Updating specific fields on existing resources|Changing description, enabling/disabling interface
+|===
+
+In practice, network engineers prefer PATCH for modifications because it's less risky.
+
+== Section 5 — RESTCONF DELETE: Removing Interfaces
+
+**DELETE** removes a resource completely. This is a destructive operation—use carefully!
+
+=== 5.1 Delete Loopback99
+
+Create `restconf_delete_interface.py`:
+
+[source, python]
+----
+# Import required libraries
+import requests
+from requests.auth import HTTPBasicAuth
+
+# Device connection information
+router = {
+    "host": "10.10.20.30",
+    "username": "admin",
+    "password": "Cisco123!"
+}
+
+# URL for the interface to delete (same pattern as GET/PUT/PATCH)
+url = f"https://{router['host']}/restconf/data/ietf-interfaces:interfaces/interface=Loopback99"
+
+# DELETE only needs Accept header (no Content-Type, no payload)
+headers = {"Accept": "application/yang-data+json"}
+
+# Make the DELETE request
+# Notice: no data= parameter (DELETE doesn't send a body)
+resp = requests.delete(
+    url,
+    headers=headers,
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    verify=False
+)
+
+# Display result
+# 204 = No Content (success, resource deleted)
+# 404 = Not Found (resource didn't exist)
+print(f"DELETE status: {resp.status_code}")
+
+if resp.status_code == 204:
+    print("✓ Loopback99 deleted successfully!")
+elif resp.status_code == 404:
+    print("⚠ Loopback99 did not exist (already deleted?)")
+else:
+    print(f"✗ Failed to delete. Status: {resp.status_code}")
+    print(f"Response: {resp.text}")
+----
+
+=== 5.2 Verify Deletion via CLI
+
+**Critical:** Confirm the interface is actually removed from the device configuration.
+
+**Step 1: Check interface no longer appears**
+
+Console into the router:
+
+[source, cisco-ios]
+----
+R1# show ip interface brief | include Loopback99
+<no output>  <-- Interface is gone from the interface list
+
+! Compare to before deletion when it showed:
+! Loopback99             192.0.2.99      YES manual up                    up
+----
+
+**Step 2: Verify it's removed from running configuration**
+
+[source, cisco-ios]
+----
+R1# show running-config interface Loopback99
+                                           ^
+% Invalid input detected at '^' marker.
+
+! This error confirms Loopback99 no longer exists in running-config
+! Before deletion, this command would have shown the interface config
+----
+
+**Step 3: Check no remnants in configuration**
+
+[source, cisco-ios]
+----
+R1# show running-config | include Loopback99
+<no output>
+
+! There should be no references to Loopback99 anywhere in config
+! The DELETE removed it completely
+----
+
+**Step 4: Try to configure it manually (optional test)**
+
+[source, cisco-ios]
+----
+R1# show ip interface Loopback99
+                                ^
+% Invalid input detected at '^' marker.
+
+! Confirms the interface doesn't exist even at operational level
+----
+
+**Optional: Verify via RESTCONF GET (should return 404)**
+
+[source, python]
+----
+# Try to GET Loopback99 after deletion - should fail with 404
+verify_resp = requests.get(
+    url,
+    headers={"Accept": "application/yang-data+json"},
+    auth=HTTPBasicAuth(router["username"], router["password"]),
+    verify=False
+)
+print(f"GET after DELETE status: {verify_resp.status_code}")  # Should be 404
+
+# HTTP 404 = Not Found confirms the resource no longer exists
+----
+
+**Key Takeaway:**  
+RESTCONF DELETE is equivalent to using `no interface Loopback99` in global configuration mode. It completely removes the interface from the device's running configuration. 
+
+**Important:** If you want the interface back, you'll need to use PUT to recreate it from scratch.
+
+=== 5.3 DELETE Safety Considerations
+
+**Warning:** DELETE is permanent. Best practices:
+- Always verify the URL before deleting
+- Check that you're deleting the correct resource
+- Consider backing up configuration before mass deletions
+- Some interfaces (like management interfaces) may refuse to delete
+
+== Section 6 — Working with Cisco 3650 Switch (VLANs Example)
+
+So far we've worked with interfaces (IETF standard model). Now let's use a **Cisco proprietary model** for VLANs on a Cisco 3650 switch.
+
+=== 6.1 VLAN YANG Model (Cisco-IOS-XE-vlan)
+
+Cisco switches use the `Cisco-IOS-XE-vlan` module:
+
+[source, yang]
+----
+module Cisco-IOS-XE-vlan {
+  container vlan {
+    list vlan-list {
+      key "id";
+      leaf id;           // VLAN ID (1-4094)
+      leaf name;         // VLAN name
+    }
+  }
+}
+----
+
+RESTCONF URL structure:
+[source]
+----
+/restconf/data/Cisco-IOS-XE-vlan:vlan/vlan-list=<vlan-id>
+----
+
+=== 6.2 Create VLAN 100 on Switch
+
+Create `restconf_create_vlan.py`:
+
+[source, python]
+----
+# Import required libraries
+import requests
+import json
+from requests.auth import HTTPBasicAuth
+
+# Switch connection information (different device than router)
+switch = {
+    "host": "10.10.20.40",        # Cisco 3650 switch IP
+    "username": "admin",
+    "password": "Cisco123!"
+}
+
+# Build RESTCONF URL for VLAN 100 using Cisco proprietary model
+url = f"https://{switch['host']}/restconf/data/Cisco-IOS-XE-vlan:vlan/vlan-list=100"
+
+# Set headers for JSON
+headers = {
+    "Accept": "application/yang-data+json",
+    "Content-Type": "application/yang-data+json"
+}
+
+# Build payload matching Cisco VLAN YANG model
+payload = {
+    "Cisco-IOS-XE-vlan:vlan-list": {    # Notice: different namespace than ietf-interfaces
+        "id": 100,                      # VLAN ID
+        "name": "Engineering"           # VLAN name
+    }
+}
+
+# Make PUT request to create VLAN
+resp = requests.put(
+    url,
+    headers=headers,
+    auth=HTTPBasicAuth(switch["username"], switch["password"]),
+    data=json.dumps(payload),
+    verify=False
+)
+
+# Display result
+print(f"PUT VLAN status: {resp.status_code}")
+
+if resp.status_code in [200, 201, 204]:
+    print("✓ VLAN 100 created successfully!")
+else:
+    print(f"✗ Failed. Status: {resp.status_code}")
+    print(f"Response: {resp.text}")
+----
+
+=== 6.3 Verify VLAN Creation via CLI
+
+**Always verify switch configurations via CLI after RESTCONF changes.**
+
+Console into the switch and verify:
+
+**Step 1: Check VLAN brief output**
+
+[source, cisco-ios]
+----
+SW1# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/0/1, Gi1/0/2, ...
+100  Engineering                      active    
+
+! Notice:
+! - VLAN 100 now appears (created by RESTCONF)
+! - Name is "Engineering" (from our JSON payload)
+! - Status is "active" (VLANs are active by default when created)
+! - No ports assigned yet (we only created the VLAN, not assigned ports)
+----
+
+**Step 2: Check VLAN detailed info**
+
+[source, cisco-ios]
+----
+SW1# show vlan id 100
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+100  Engineering                      active    
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+100  enet  100100     1500  -      -      -        -    -        0      0
+
+! This shows full details of VLAN 100
+! All created via RESTCONF JSON payload
+----
+
+**Step 3: Check running configuration**
+
+[source, cisco-ios]
+----
+SW1# show running-config | section vlan
+vlan 100
+ name Engineering
+!
+
+! The VLAN configuration appears in running-config
+! "id": 100     → vlan 100
+! "name": "Engineering" → name Engineering
+----
+
+**Step 4: Verify via show vlan name**
+
+[source, cisco-ios]
+----
+SW1# show vlan name Engineering
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+100  Engineering                      active    
+
+! You can query by name to confirm it matches your RESTCONF payload
+----
+
+**Key Takeaway:**  
+The Cisco proprietary YANG model `Cisco-IOS-XE-vlan` generates the same configuration you'd create with:
+[source, cisco-ios]
+----
+SW1(config)# vlan 100
+SW1(config-vlan)# name Engineering
+SW1(config-vlan)# end
+----
+
+RESTCONF makes this programmable using JSON instead of typing commands.
+
+=== 6.4 GET All VLANs from Switch
+
+[source, python]
+----
+# Retrieve all VLANs from the switch
+url = f"https://10.10.20.40/restconf/data/Cisco-IOS-XE-vlan:vlan/vlan-list"
+
+resp = requests.get(
+    url,
+    headers={"Accept": "application/yang-data+json"},
+    auth=HTTPBasicAuth("admin", "Cisco123!"),
+    verify=False
+)
+
+# Parse and display VLANs
+vlans = resp.json().get("Cisco-IOS-XE-vlan:vlan-list", [])
+print("\n=== Switch VLANs ===")
+for vlan in vlans:
+    print(f"VLAN {vlan['id']:4} - {vlan.get('name', 'unnamed')}")
+----
+
+Expected output:
+[source]
+----
+=== Switch VLANs ===
+VLAN    1 - default
+VLAN  100 - Engineering
+----
+
+**Verify the RESTCONF data matches CLI output:**
+
+[source, cisco-ios]
+----
+SW1# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Gi1/0/1, Gi1/0/2, ...
+100  Engineering                      active    
+
+! Compare JSON output to CLI:
+! Python: "VLAN    1 - default"       ↔ CLI: "1    default"
+! Python: "VLAN  100 - Engineering"   ↔ CLI: "100  Engineering"
+!
+! The data is identical - RESTCONF is reading the actual switch VLAN database
+----
+
+**Understanding the data flow:**
+
+1. Your Python script sends GET request to RESTCONF
+2. RESTCONF queries the switch's VLAN database
+3. Returns data in JSON format (structured via YANG model)
+4. Your script parses and displays it
+5. The CLI `show vlan` command queries the same VLAN database
+6. Returns data in text table format
+
+**Same data, different presentation!**
+
+=== 6.5 Key Takeaway: Different Models for Different Features
+
+* **Standard models** (ietf-interfaces, ietf-ip) work across vendors
+* **Cisco proprietary models** (Cisco-IOS-XE-*) provide access to Cisco-specific features
+* The pattern is the same: YANG defines structure → RESTCONF provides access
+
+== Common Errors & Troubleshooting
+
+[cols="2,3", options="header"]
+|===
+|Error|Solution
+|`401 Unauthorized`|Check username and password in your router dictionary. Verify you used the same credentials you configured in Part A (`admin`/`Cisco123!`).
+|`404 Not Found`|Your URL path is wrong. Compare your URL to the YANG model structure. Common mistake: using `/interface/GigabitEthernet1` instead of `/interface=GigabitEthernet1` (note the `=`)
+|`400 Bad Request`|Your JSON payload doesn't match the YANG model. Check for typos in keys, missing required fields, or incorrect nesting.
+|`409 Conflict`|You're trying to PUT a resource that already exists. Either DELETE it first or use PATCH to update it.
+|`500 Server Error`|The device encountered an error processing your request. Check device logs, verify payload structure, or try a simpler configuration.
+|`SSLError` or certificate warnings|This is expected in lab environment. Ensure `verify=False` is set. In production, use proper certificates.
+|`ConnectionError` / timeout|Device is unreachable. Check IP address, verify network connectivity, ensure device has RESTCONF enabled on port 443.
+|`KeyError` when parsing response|The JSON response doesn't contain the key you're accessing. Print the entire response first to see its structure.
+|Interface name errors (e.g., `GigabitEthernet0/0/1` vs `GigabitEthernet1`)|Interface names are device-specific. Use GET to retrieve existing interface names first, then use exact names in PUT/PATCH/DELETE.
+|===
+
+=== Debugging Tips
+
+1. **Always verify via CLI first:**
+   - Before and after RESTCONF operations, check the device CLI
+   - Use `show running-config` to see actual configuration
+   - Compare RESTCONF output to `show` command output
+   - This helps you understand the API-to-CLI mapping
+
+2. **Always print the full response first:**
++
+[source, python]
+----
+print(json.dumps(response.json(), indent=2))
+----
+
+3. **Check status codes before parsing:**
++
+[source, python]
+----
+if response.status_code != 200:
+    print(f"Error: {response.status_code}")
+    print(response.text)
+    exit()
+----
+
+4. **Start with GET before trying PUT/PATCH:**
+   - Use GET to see existing configuration structure
+   - Use CLI `show running-config` to see what's already there
+   - Copy that structure and modify it for your PUT/PATCH
+   - Verify changes with CLI after applying them
+
+5. **Use the device CLI to verify and troubleshoot:**
+   - After RESTCONF changes: `show running-config interface <name>`
+   - Check operational status: `show ip interface brief`
+   - For VLANs: `show vlan brief`
+   - If something fails, check device logs: `show logging`
+   - Compare what you sent via RESTCONF to what appears in `show run`
+
+== Lab 2 Deliverables
+
+Submit the following files and documentation:
+
+=== Required Python Scripts
+
+1. `test_restconf_access.py` — Test script from Part A Step 6
+2. `restconf_get_interfaces.py` — Retrieve all interfaces from router
+3. `restconf_create_interface.py` — Create Loopback99 with IP address
+4. `restconf_modify_interface.py` — Update interface description using PATCH
+5. `restconf_delete_interface.py` — Delete Loopback99
+6. `restconf_create_vlan.py` — Create VLAN 100 on switch (if you have switch access)
+
+=== Documentation Requirements
+
+Create a document named `lab2_report.txt` or `lab2_report.pdf` containing:
+
+1. **Configuration Evidence (Part A):**
+   - Copy of your saved router configuration showing RESTCONF enabled (from `show running-config`)
+   - Copy of your saved switch configuration showing RESTCONF enabled
+   - Output from `show platform software yang-management process` on both devices showing RESTCONF running
+   - Screenshot of successful Python RESTCONF connectivity test from Part A Step 6
+
+2. **Python Script Outputs (Sections 2-6):**
+   - Output from running each Python script (items 2-6 above)
+   - **CLI verification screenshots for EACH operation showing:**
+     * Before RESTCONF GET: Output of `show ip interface brief`
+     * After PUT create: `show running-config interface Loopback99` and `show ip interface brief`
+     * After PATCH modify: `show running-config interface Loopback99` showing description change
+     * After DELETE: `show ip interface brief | include Loopback99` showing no output
+     * Switch VLAN: `show vlan brief` showing VLAN 100
+
+3. **YANG to RESTCONF URL mapping explanation:**
+   - Pick one YANG model element from Section 1
+   - Show the YANG structure
+   - Explain step-by-step how you build the RESTCONF URL from it
+   - Example: "The YANG module `ietf-interfaces` contains a container `interfaces` which contains a list `interface` with key `name`. Therefore, to access interface GigabitEthernet1, the URL is..."
+
+4. **Answers to Reflection Questions** (see next section)
+
+== Reflection Questions
+
+Answer these questions in your `lab2_report` document:
+
+. **YANG Structure Understanding:** Explain in your own words what a YANG module, container, list, and leaf are. Why does network automation need these structures?
+
+. **URL Construction:** Given this simplified YANG model:
++
+[source, yang]
+----
+module ietf-routing {
+  container routing {
+    container ribs {
+      list rib {
+        key "name";
+        leaf name;
+        list route {
+          key "destination-prefix";
+        }
+      }
+    }
+  }
+}
+----
++
+What would the RESTCONF URL be to:
+  a. Get all RIBs?
+  b. Get all routes in the RIB named "default"?
+
+. **PUT vs PATCH vs DELETE:** When would you use each HTTP method? Give a real-world scenario for each where one method is clearly better than the others.
+
+. **Status Codes:** You send a RESTCONF PUT request to create Loopback100 and receive status code 409. What does this mean and how do you fix it?
+
+. **JSON Payload Structure:** Why must your JSON payload match the YANG model structure exactly? What happens if you add a field that doesn't exist in the YANG model?
+
+. **Security Consideration:** Why do we use `verify=False` in this lab? Why would this be dangerous in a production environment? What should you do instead?
+
+. **Error Handling:** In Section 2.1, we don't check if `response.status_code == 200` before parsing. Write improved code that checks the status and prints an error message if the request failed.
+
+. **Nested Structures:** Looking at the IPv4 address configuration in Section 1.2, explain why `ietf-ip:ipv4` is nested under `interface`. What does this tell you about the relationship between interfaces and IP addresses in the YANG model?
+
+. **CLI Verification and Correlation:** When you created Loopback99 via RESTCONF PUT, what CLI commands would generate the exact same configuration? Explain how the JSON payload structure maps to CLI configuration commands.
+
+. **Real-World Application:** Describe a scenario where using RESTCONF automation would save time compared to manually configuring 50 routers via CLI.
+
+. **Challenge:** Research question - What's the difference between RESTCONF and NETCONF? When would you use one over the other?
+
+== Optional Challenge Exercises
+
+Try these extensions if you finish early or want deeper practice:
+
+=== Challenge 1: Batch Interface Creation
+
+Write a script that creates multiple loopback interfaces at once (Loopback100, Loopback101, Loopback102) with sequential IP addresses (192.0.2.100, 192.0.2.101, 192.0.2.102).
+
+Hints:
+- Use a loop
+- Generate interface names and IPs programmatically
+- Check status codes for each creation
+- **Verify all interfaces via CLI with `show ip interface brief`**
+
+=== Challenge 2: Interface Audit Script
+
+Write a script that:
+1. Retrieves all interfaces
+2. Identifies which interfaces have no IP addresses
+3. Writes a report to `interface_audit.txt` listing:
+   - Total interface count
+   - Interfaces without IPs
+   - Interfaces that are admin down
+4. **Compare your script's output to `show ip interface brief` on the CLI to verify accuracy**
+
+=== Challenge 3: Configuration Backup via RESTCONF
+
+Write a script that:
+1. Gets all interfaces from the router
+2. Saves the entire JSON response to a file named `config_backup_<timestamp>.json`
+3. Can read that backup and restore interfaces if needed
+4. **Verify your backup by spot-checking interface configurations in the JSON against `show running-config interface <name>` output on the CLI**
+
+=== Challenge 4: Add Error Recovery
+
+Enhance your scripts to:
+1. Catch exceptions (connection errors, JSON parse errors)
+2. Retry failed requests up to 3 times with a delay
+3. Log all operations and their results to a log file
+4. **After successful operations, verify the changes via CLI and log whether the CLI state matches expectations**
+
+Example:
+[source, python]
+----
+import time
+
+def restconf_request_with_retry(url, method, **kwargs):
+    max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            resp = requests.request(method, url, **kwargs)
+            if resp.status_code < 500:  # Not a server error
+                return resp
+        except Exception as e:
+            print(f"Attempt {attempt + 1} failed: {e}")
+        
+        if attempt < max_retries - 1:
+            time.sleep(2)  # Wait before retry
+    
+    return None
+----
+
+=== Challenge 5: Interactive Interface Manager
+
+Create an interactive CLI program that:
+1. Displays a menu: `[G]et, [C]reate, [M]odify, [D]elete, [Q]uit`
+2. Prompts user for interface name and details
+3. Executes the appropriate RESTCONF operation
+4. Shows results and loops back to menu
+5. **After each operation, remind the user to verify the change on the device CLI (display the appropriate `show` command to use)**
+
+=== Challenge 6: Switch Port Configuration
+
+On the Cisco 3650 switch, use RESTCONF to:
+1. Create VLAN 200 named "Development"
+2. Assign GigabitEthernet1/0/5 to VLAN 200
+3. Verify the configuration via GET
+4. **Verify via CLI using `show vlan brief` and `show running-config interface GigabitEthernet1/0/5`**
+
+You'll need to research the `Cisco-IOS-XE-native` YANG model for switch port configuration.
+
+=== Challenge 7: Compare RESTCONF vs Paramiko
+
+Write two scripts that both create Loopback99 with IP 99.99.99.99/32:
+1. One using RESTCONF (what you learned in this lab)
+2. One using Paramiko SSH library to send CLI commands
+3. **Both scripts should verify the interface creation using `show ip interface brief`**
+
+Compare:
+- Lines of code
+- Error handling complexity
+- Which is more maintainable?
+- Does the verification process differ between the two approaches?
+
+== Additional Resources
+
+* **Cisco RESTCONF Programming Guide:** https://developer.cisco.com/docs/ios-xe/
+* **YANG Models on GitHub:** https://github.com/YangModels/yang
+* **RFC 8040 (RESTCONF):** https://datatracker.ietf.org/doc/html/rfc8040
+* **Cisco DevNet Sandbox:** Free lab devices to practice (https://developer.cisco.com/site/sandbox/)
+* **YANG Explorer Tool:** GUI tool for exploring YANG models
+
+== What's Next?
+
+In Lab 3, you'll learn:
+* NETCONF (XML-based alternative to RESTCONF)
+* Jinja2 templating for generating configurations
+* Using Ansible for network automation at scale
+* Managing multiple devices in parallel
+
+The foundation you built in this lab—understanding YANG models and RESTCONF URLs—will carry forward to all future automation work.

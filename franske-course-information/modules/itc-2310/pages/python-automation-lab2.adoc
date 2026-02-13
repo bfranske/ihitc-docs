@@ -1,0 +1,305 @@
+= LAB 2 — Intro to HTTP & APIs with Python
+
+== Learning Objectives
+
+By the end of this lab, you will:
+* Understand HTTP requests, status codes, and responses
+* Use Python's `requests` library to call REST APIs
+* Parse JSON responses into Python dictionaries
+* Write functions that interact with APIs
+* Use HTTP POST requests to send data to APIs
+* Handle basic errors from API responses
+* Save API data to files for later analysis
+
+== Purpose
+This lab bridges Python Essentials 1 knowledge (functions, dictionaries, I/O, modules) to real-world API use. Students use Python's `requests` library to make HTTP GET and POST requests, parse JSON into dictionaries, handle errors, and write results to files.
+
+== Why This Lab Matters
+Everything in later labs—RESTCONF, NETCONF, API-driven automation—assumes you understand:
+
+* What an HTTP request is
+* How to talk to a server over the network
+* What JSON is and how to parse it
+* How to handle responses in Python
+
+This lab builds that foundation in a simple, safe environment using public test APIs before we touch actual network equipment.
+
+== Prerequisites
+
+You should be comfortable with:
+* Basic Python syntax (variables, data types, loops, conditionals)
+* Functions and return values
+* Dictionaries and how to access their values
+* Basic file I/O
+
+You will need:
+* Python 3.7 or later
+* The `requests` library (install with: `pip install requests`)
+
+== Background: REST APIs, HTTP, and JSON
+
+Before beginning the lab, understand these concepts:
+
+*HTTP (Hypertext Transfer Protocol)*:: The protocol used to send requests and receive responses over the internet. Common HTTP methods are:
+  - `GET`: Retrieve data from a server
+  - `POST`: Send data to a server to create a resource
+  - `PUT`/`PATCH`: Modify existing resources
+  - `DELETE`: Remove a resource
+
+*Status Codes*:: Numbers in the HTTP response indicating success or failure:
+  - `200-299`: Success (200 = OK, 201 = Created)
+  - `400-499`: Client error (404 = Not Found, 401 = Unauthorized)
+  - `500-599`: Server error
+
+*REST API*:: A web service that uses HTTP methods to allow programs to request and send data. APIs communicate using **endpoints** (URLs) and return structured data.
+
+*JSON (JavaScript Object Notation)*:: A text format for structured data. Similar to Python dictionaries:
++
+[source, json]
+----
+{
+  "name": "John",
+  "age": 30,
+  "courses": ["ITC 2310", "ITC 2300"]
+}
+----
+
+In Python, `requests.json()` converts JSON strings into dictionaries you can work with.
+
+== Section 1 — First API GET Request
+
+Create `api_get_basic.py`:
+
+[source, python]
+----
+# Import the requests library - this allows us to make HTTP requests to web servers
+import requests
+# Import the json library - this helps us format JSON data nicely for display
+import json
+
+# Store the URL of the API endpoint we want to request. This is a public test API.
+url = "https://jsonplaceholder.typicode.com/posts/1"
+
+# Make an HTTP GET request to the URL and store the response object returned by the server
+response = requests.get(url)
+
+# Display the HTTP status code (200 means the request was successful)
+print("Status Code:", response.status_code)
+# Display the raw JSON response as a text string (before we parse it into Python objects)
+print("Raw Response:", response.text)
+
+# Parse the JSON text from the response into a Python dictionary we can work with
+data = response.json()
+
+# Access specific fields from the dictionary and print them. data["title"] gets the title field.
+print("Parsed Title:", data["title"])
+# Access the body field from the dictionary
+print("Parsed Body:", data["body"])
+
+# Convert the entire dictionary back to JSON and print it with nice formatting (2-space indentation)
+print(json.dumps(data, indent=2))
+----
+
+=== What Happens Here
+
+When you run this script:
+1. Python imports the `requests` module (your HTTP client)
+2. You specify a URL pointing to a public test API (jsonplaceholder.typicode.com)
+3. `requests.get(url)` sends an HTTP GET request
+4. The server responds with HTTP status 200 (success) and JSON data
+5. `response.json()` converts the JSON string into a Python dictionary
+6. You access dictionary keys like `data["title"]` just like you learned in Python Essentials
+
+This mirrors how RESTCONF will return JSON from Cisco devices in later labs.
+
+=== Explanation
+
+Students learn how to:
+
+* Import modules and use their functions
+* Issue an HTTP GET request
+* Inspect HTTP status codes to check for success/failure
+* Parse JSON strings into Python dictionaries
+* Use dictionary key access (`data["title"]`)
+* Read remote data and display it locally
+
+== Section 2 — Wrap API Requests in Functions
+
+Create `api_jokes.py`:
+
+[source, python]
+----
+# Import the requests library so we can make HTTP requests
+import requests
+
+# Define a function that fetches a random Chuck Norris joke from an API
+def get_joke():
+    # Store the URL of the API endpoint that returns random jokes
+    url = "https://api.chucknorris.io/jokes/random"
+    # Make a GET request to the API with a timeout of 10 seconds (prevents hanging forever)
+    r = requests.get(url, timeout=10)
+
+    # Check if the request was successful (status code 200 means OK)
+    if r.status_code == 200:
+        # Parse the JSON response into a Python dictionary
+        joke = r.json()
+        # Return just the joke text from the "value" key in the dictionary
+        return joke["value"]
+    else:
+        # If the request failed, return an error message instead of trying to parse JSON
+        return f"Error: status={r.status_code}"
+
+# Loop 3 times (i takes values 0, 1, 2)
+for i in range(3):
+    # Call get_joke() three times and print each joke returned
+    print(get_joke())
+----
+
+=== Why Use Functions?
+
+Wrapping API calls in functions makes your code:
+* **Reusable**: Call `get_joke()` as many times as you want
+* **Maintainable**: If the API changes, fix it in one place
+* **Testable**: You can test your function separately
+* **Readable**: Your main code says what it does (`get_joke()`) not how
+
+=== Error Handling for Beginners
+
+Notice the `if r.status_code == 200:` check:
+* If the server returns status code 200 (success), process the JSON
+* Otherwise, return an error message instead of crashing
+* This prevents your program from breaking if the API is down or unavailable
+* The `timeout=10` parameter tells requests to wait max 10 seconds—prevents hanging forever if the server doesn't respond
+
+=== What Students Learn
+
+* Functions returning dynamic API data
+* Basic error handling (checking status codes)
+* Loops and iteration over function calls
+* Accessing dictionary values returned from JSON
+
+== Section 3 — Writing API Data to a File
+
+Modify `api_jokes.py` to log jokes to a file:
+
+[source, python]
+----
+# Open a file named jokes_output.txt in write mode ("w" creates it or overwrites if it exists)
+# encoding="utf-8" ensures special characters are saved correctly
+# The 'with' statement automatically closes the file when done, even if an error occurs
+with open("jokes_output.txt", "w", encoding="utf-8") as f:
+    # Loop 5 times to fetch and save 5 jokes
+    for i in range(5):
+        # Call get_joke() to fetch a joke, concatenate a newline character (\n), and write to file
+        f.write(get_joke() + "\n")
+----
+
+This pattern appears repeatedly in automation:
+* Retrieve data from an API (or network device)
+* Process or format the data
+* Write results to a log file for auditing and troubleshooting
+
+You now have a permanent record of the jokes retrieved. In network automation, you'll log configuration changes, interface statistics, and device inventories the same way.
+
+== Section 4 — POST Request (Sending Data to an API)
+
+Create `api_post_example.py`:
+
+[source, python]
+----
+# Import the requests library for making HTTP requests
+import requests
+
+# Store the URL endpoint where we want to create a new post
+url = "https://jsonplaceholder.typicode.com/posts"
+# Create a dictionary containing the data for the new post
+payload = {
+    "title": "ITC 2310 Sample",        # The title of the new post
+    "body": "Hello world!",            # The body/content of the new post
+    "userId": 1                        # The ID of the user creating the post
+}
+
+# Create a headers dictionary that tells the server we're sending JSON data
+headers = {"Content-Type": "application/json"}
+
+# Make an HTTP POST request to create a new resource on the server
+# json=payload automatically converts the dictionary to JSON and sends it
+# headers=headers sends our Content-Type header
+resp = requests.post(url, json=payload, headers=headers)
+
+# Print the HTTP status code (201 means Created, indicating success)
+print("Status:", resp.status_code)
+# Parse the JSON response and print it (the server typically echoes back the data it created)
+print("Response JSON:", resp.json())
+----
+
+=== GET vs. POST: The Difference
+
+* **GET**: Request (retrieve) data from a server. Like asking "Show me the weather."
+* **POST**: Send data to a server to create something new. Like saying "Create a new forum post with this text."
+
+In this example:
+* `payload` is a Python dictionary containing the data you want to send
+* `json=payload` tells requests to convert the dictionary to JSON and send it
+* `headers={"Content-Type": "application/json"}` tells the server "I'm sending JSON data"
+* The server responds with status 201 (created) and returns the new resource's data
+
+jsonplaceholder.typicode.com is a fake API—it doesn't actually store your data, but it behaves like a real one for learning.
+
+=== What Students Learn
+
+* How POST differs from GET
+* How JSON payloads are sent with requests
+* How to inspect returned data
+* Understanding `Content-Type` headers
+
+== Common Errors & Troubleshooting
+
+[cols="1,2", options="header"]
+|===
+|Error|Solution
+|`ModuleNotFoundError: No module named 'requests'`|Install it: `pip install requests`
+|`ConnectionError` or timeout|API server is down or you have no internet. Check your connection and try a different public API if the first is unreachable.
+|`KeyError: 'title'` when accessing JSON|The API didn't return that key. Print the whole `response.json()` to see what keys actually exist.
+|`ValueError: No JSON object could be decoded`|The response isn't valid JSON. Check `response.status_code` first—if it's not 200-299, the server returned an error, not data.
+|`TypeError: object is not subscriptable`|You're trying to access `data[key]` but `data` isn't a dictionary. Verify you called `.json()` on the response.
+|===
+
+== Lab 1 Deliverables
+
+Submit the following files:
+
+* `api_get_basic.py` — Your first GET request script
+* `api_jokes.py` — Function-based API calls and file output
+* `api_post_example.py` — POST request example
+* `jokes_output.txt` — Output file from running `api_jokes.py` (containing 5 jokes)
+
+== Reflection Questions
+
+Answer the following questions:
+
+. **Describe the HTTP request/response cycle:** When you call `requests.get(url)`, what travels from your computer to the server and back?
+
+. **Status codes matter:** Why is it important to check `response.status_code` before trying to parse the JSON? What could go wrong if you skip this check?
+
+. **JSON vs. Python:** After you call `response.json()`, what Python data type are you working with? Why is this useful? (Hint: It lets you use `data["key"]` access.)
+
+. **Error handling:** In `api_jokes.py`, why do we use `timeout=10` in the `requests.get()` call? What problem does it solve?
+
+. **Real-world application:** When you automate network devices with RESTCONF in later labs, what role will understanding HTTP methods (GET, POST) and JSON parsing play?
+
+. **Challenge question:** What would change in your code if an API required sending authentication (username/password)? (Hint: Headers!)
+
+== Optional Challenge Exercises
+
+Try these if you finish early or want more practice:
+
+. **Parse nested JSON:** The jsonplaceholder API includes `comments` endpoints. Fetch comments and parse out nested fields (e.g., `comment["body"]["nested_field"]`).
+
+. **Add logging:** Modify your scripts to write detailed logs including timestamps, status codes, and raw responses to a log file using Python's `logging` module.
+
+. **Error recovery:** Update `api_jokes.py` to retry a failed request up to 3 times before giving up.
+
+. **Multiple endpoints:** Write a script that fetches data from multiple different public APIs in a loop and combines the results into a summary file.
+
+. **Input validation:** Modify `api_post_example.py` to prompt the user for input, validate it (e.g., title isn't empty), and then POST it.

@@ -1,0 +1,1971 @@
+= LAB 1 — Network Device Automation with SSH and Netmiko
+
+== Learning Objectives
+
+By the end of this lab, you will:
+* Understand how SSH can be used for programmatic device configuration
+* Install and use the Netmiko Python library for network automation
+* Connect to Cisco IOS devices via SSH using Python
+* Send configuration commands to network devices programmatically
+* Retrieve show command output and parse it in Python
+* Handle multiple device connections efficiently
+* Use Python loops to configure multiple devices
+* Implement error handling for network automation scripts
+* Save and backup device configurations programmatically
+* Compare manual CLI configuration to automated Python scripts
+
+== Purpose
+
+[IMPORTANT]
+====
+**Foundation for the Automation Series:** This lab introduces network automation by leveraging what you already know—the Cisco CLI. Instead of typing commands manually, you'll write Python scripts to send those same commands via SSH.
+
+**Lab Progression:**
+* **Lab 1** (this lab): Automate CLI commands via SSH with Netmiko
+* **Lab 2**: Learn REST APIs with public endpoints  
+* **Lab 3**: RESTCONF API with JSON and YANG models
+* **Lab 4**: NETCONF protocol with XML and YANG models
+* **Lab 5**: Compare all three methods (SSH, RESTCONF, NETCONF) in multi-device scenarios
+====
+
+You already know how to configure Cisco routers and switches via CLI from your CCNA training. This lab teaches you to **automate those same configurations** using Python and SSH instead of typing commands manually.
+
+**Why automate with SSH?**
+* Configure dozens of devices in the time it takes to configure one manually
+* Ensure consistency—same configuration applied identically to all devices
+* Reduce human error—no typos, no forgotten commands
+* Save time on repetitive tasks
+* Create audit trails—scripts document what was configured
+* Works with any device that supports SSH (universal compatibility)
+
+**Real-world scenarios you'll learn:**
+* Configure hostname, domain, and user accounts across multiple devices
+* Deploy interface configurations (IP addresses, descriptions)  
+* Backup configurations from all devices automatically
+* Verify configurations programmatically (show commands)
+* Apply security policies (SSH, disable telnet, password policies)
+* Perform operational tasks like ping tests and TFTP file transfers
+
+== SSH/Netmiko Automation: Advantages and Trade-offs
+
+[IMPORTANT]
+====
+**Why Start with SSH Automation?** SSH/Netmiko is the most accessible entry point to network automation because you're using **the exact same CLI commands you already know** from CCNA training. There's no new syntax to learn for device interaction—just Python to send those familiar commands.
+====
+
+=== Advantages of SSH/Netmiko Automation
+
+**1. Leverages Existing CLI Knowledge**
+* **Zero learning curve for device commands** — You already know `interface GigabitEthernet0/0/1`, `ip address`, `show ip interface brief`
+* Same commands you type manually, now sent via Python
+* No need to learn new APIs, data formats, or protocols (yet!)
+* Immediate productivity for network engineers with CCNA background
+
+**2. Universal Device Compatibility**
+* **Works with any device that supports SSH** — old, new, any vendor
+* Doesn't require modern IOS-XE features (RESTCONF/NETCONF support)
+* Works with legacy devices that will never have API support
+* Single approach works across Cisco, Juniper, Arista, HP, and more (with appropriate `device_type`)
+
+**3. Can Automate ANY CLI Command**
+* **Not limited to configuration** — can automate operational commands too:
+  - `ping 8.8.8.8` — Test network connectivity programmatically
+  - `copy tftp:` — Download IOS images or config files from TFTP/FTP servers
+  - `traceroute` — Troubleshoot routing issues
+  - `show tech-support` — Collect diagnostic data
+  - Interactive commands like password changes, file deletions, reloads
+* RESTCONF/NETCONF focus on configuration data, not operational commands
+* Some operations (like TFTP transfers, pings, reload commands) have **no API equivalent**
+
+**4. Troubleshooting and Debugging**
+* Output looks exactly like manual CLI — easy to read and understand
+* Can copy commands from scripts and paste into CLI for verification
+* Familiar error messages
+* Easy to test commands manually before scripting
+
+**5. Quick Prototyping**
+* Fastest way to automate existing procedures
+* Take your documented CLI procedures and wrap them in Python loops
+* Minimal code changes needed to scale from 1 device to 100 devices
+
+=== Disadvantages and Limitations of SSH/Netmiko
+
+**1. Fragile Text Parsing (MAJOR ISSUE)**
+* **Output format changes break automation** — This is the biggest drawback
+* Example of brittleness:
++
+[source, text]
+----
+# IOS Version 15.x output:
+GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
+
+# IOS Version 17.x might show:
+GigabitEthernet0/0/1   10.10.20.10     YES manual up      up      
+
+# Your parsing script that expects 'up                    up' breaks!
+----
++
+* **Even minor IOS upgrades can break your scripts**
+* Cisco might add columns, reorder fields, change spacing in any IOS update
+* Commands you've relied on for years can suddenly format differently
+
+**2. Unstructured Data Requires Complex Parsing**
+* `show ip interface brief` returns text, not structured data
+* Must write parsing logic: split lines, extract columns, handle edge cases
+* Different commands have different formats — no consistent structure
+* Error-prone: What if an interface name is unexpectedly long? What if output wraps?
+
+**3. No Data Validation**
+* Devices accept any command syntax — no schema validation
+* Typos in commands might be accepted but do nothing: `ip adress` vs `ip address`
+* Must verify every change worked (round-trip verification required)
+* No built-in rollback capability
+
+**4. Limited Error Handling**
+* Error messages are text strings: `% Invalid input detected at '^' marker.`
+* Must parse error text to understand what went wrong
+* Different error messages for same problem across IOS versions
+* Hard to programmatically distinguish error types
+
+**5. No Transactional Support**
+* Changes apply immediately — no "test first, then commit" workflow
+* If script fails halfway through, device is in partial config state
+* Must manually back out changes if something goes wrong
+* No built-in rollback like NETCONF candidate datastore
+
+**6. Sequential Execution Performance**
+* Commands execute one at a time over SSH
+* Slow for large data retrieval (full running configs on many devices)
+* Each command has network round-trip latency
+* Can parallelize with threading, but adds complexity
+
+=== When to Use SSH/Netmiko (vs RESTCONF/NETCONF)
+
+**Choose SSH/Netmiko when:**
+* Working with older/legacy devices without API support
+* Need to automate operational commands (ping, traceroute, TFTP)
+* Team is comfortable with CLI but not ready for APIs
+* Quick one-off tasks or emergency fixes
+* Devices from multiple vendors (universal approach)
+* Prototyping automation before investing in API approach
+
+**Choose RESTCONF/NETCONF (Labs 3-4) when:**
+* Devices support these protocols (modern IOS-XE, NX-OS, IOS-XR)
+* Need structured, parsable data (JSON/XML) instead of text
+* Want resilience to IOS version changes (YANG models provide consistency)
+* Need transactional/rollback capability
+* Building long-term, maintainable automation
+* Require data validation before applying configs
+
+[TIP]
+====
+**Best Practice for Production:** Many organizations use a **hybrid approach**:
+* NETCONF/RESTCONF for routine configuration management (due to structured data)
+* SSH/Netmiko as fallback for legacy devices
+* SSH/Netmiko for operational tasks (ping, traceroute, file transfers)
+* SSH/Netmiko for emergency troubleshooting
+
+You'll explore this hybrid strategy in Lab 5!
+====
+
+== Prerequisites
+
+You should be comfortable with:
+* **CCNA-level Cisco IOS CLI:** Router and switch configuration, `show` commands, configuration modes
+* **Basic Python:** Variables, strings, lists, loops, conditionals, functions (Python Essentials 1 level)
+* **SSH concepts:** How SSH authentication works, SSH port 22
+* **Basic networking:** IP addressing, default gateways, VLANs
+
+You will need:
+* Python 3.7 or later installed on your workstation
+* Console access to Cisco 4331 routers and/or 3650 switches
+* Network connectivity to device management interfaces
+* Understanding of `enable`, `configure terminal`, and configuration commands
+
+[NOTE]
+====
+**Python Skills Required:** This is the first Python automation lab. We assume you've completed Python Essentials 1 or equivalent. You should know:
+* How to create variables and use strings
+* How to write `for` loops
+* How to use `if/else` conditionals
+* How to import and use Python libraries
+* Basic file I/O (reading/writing files)
+
+If you need a Python refresher, review Python Essentials 1 content before proceeding.
+====
+
+== Lab Environment & Device Access
+
+For this lab, you will work with **live Cisco network devices**:
+
+* **Cisco 4331 Routers** — You have access to at least 2 routers
+* **Cisco 3650 Switches** — You have access to at least 2 switches
+
+**Initial Setup:**
+All devices start with **basic connectivity configured**. You'll connect via console initially to set up SSH access, then switch to SSH automation.
+
+**Network Topology (Example):**
+[source, text]
+----
+Management Network: 10.10.20.0/24
+
+  [Your Workstation]
+  10.10.20.5/24
+        |
+   [Network]
+        |
+    +---+---+---+---+
+    |   |   |   |   |
+  [R1] [R2] [SW1][SW2]
+  .10  .20  .30  .40
+----
+
+**Device Addressing (adjust based on your lab):**
+* **R1:** GigabitEthernet0/0/1 - `10.10.20.10/24`
+* **R2:** GigabitEthernet0/0/1 - `10.10.20.20/24`  
+* **SW1:** VLAN 1 - `10.10.20.30/24`
+* **SW2:** VLAN 1 - `10.10.20.40/24`
+* **Your Workstation:** `10.10.20.5/24`
+* **Default Gateway:** `10.10.20.1` (provided by lab infrastructure)
+
+== Part A — Prepare Devices for SSH Access
+
+Before Python automation can work, devices must have SSH enabled and be reachable via network.
+
+[NOTE]
+====
+**CCNA Review:** These are standard commands you learned in CCNA. The difference is that after this initial setup, you'll automate everything else via Python instead of CLI.
+====
+
+=== Step 1: Console Connection and Basic Setup
+
+Connect to each device via console cable. Configure basic SSH requirements.
+
+==== Router Configuration Example (R1)
+
+[source, cisco-ios]
+----
+! Console in and enter privileged mode
+Router> enable
+Router# configure terminal
+
+! Set hostname
+Router(config)# hostname R1
+
+! Configure domain name (required for SSH key generation)
+Router(config)# ip domain-name lab.local
+
+! Disable DNS lookups (prevents CLI delays on typos)
+Router(config)# no ip domain-lookup
+
+! Create local user account for SSH authentication
+! Username: netadmin, Privilege: 15 (full access), Password: NetAuto123!
+Router(config)# username netadmin privilege 15 secret NetAuto123!
+
+! Generate RSA keys for SSH (2048-bit keys recommended)
+Router(config)# crypto key generate rsa modulus 2048
+! Type "yes" when prompted about replacing existing keys
+
+! Enable SSH version 2 only (more secure)
+Router(config)# ip ssh version 2
+
+! Configure VTY lines for SSH access
+Router(config)# line vty 0 15
+Router(config-line)# transport input ssh          ! SSH only, disable Telnet
+Router(config-line)# login local                  ! Use local username/password
+Router(config-line)# exec-timeout 30 0            ! 30-minute timeout
+Router(config-line)# exit
+
+! Configure management interface with IP address
+Router(config)# interface GigabitEthernet0/0/1
+Router(config-if)# description Management Interface
+Router(config-if)# ip address 10.10.20.10 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+
+! Set default route for management traffic (if needed)
+Router(config)# ip route 0.0.0.0 0.0.0.0 10.10.20.1
+
+! Save configuration
+Router(config)# end
+Router# write memory
+----
+
+**Verify SSH is working:**
+[source, cisco-ios]
+----
+R1# show ip ssh
+SSH Enabled - version 2.0
+Authentication timeout: 120 secs; Authentication retries: 3
+
+R1# show ip interface brief | include GigabitEthernet0/0/1
+GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
+----
+
+==== Switch Configuration Example (SW1)
+
+[source, cisco-ios]
+----
+! Console in and configure similar to router
+Switch> enable
+Switch# configure terminal
+Switch(config)# hostname SW1
+
+! Basic SSH configuration (same as router)
+Switch(config)# ip domain-name lab.local
+Switch(config)# no ip domain-lookup
+Switch(config)# username netadmin privilege 15 secret NetAuto123!
+Switch(config)# crypto key generate rsa modulus 2048
+Switch(config)# ip ssh version 2
+
+! VTY lines
+Switch(config)# line vty 0 15
+Switch(config-line)# transport input ssh
+Switch(config-line)# login local
+Switch(config-line)# exec-timeout 30 0
+Switch(config-line)# exit
+
+! Configure management VLAN interface (VLAN 1 by default)
+Switch(config)# interface vlan 1
+Switch(config-if)# description Management Interface
+Switch(config-if)# ip address 10.10.20.30 255.255.255.0
+Switch(config-if)# no shutdown
+Switch(config-if)# exit
+
+! Default gateway (switches need this to reach other networks)
+Switch(config)# ip default-gateway 10.10.20.1
+
+! Save configuration
+Switch(config)# end
+Switch# write memory
+----
+
+=== Step 2: Test SSH Access Manually
+
+From your workstation, test SSH connection before trying Python:
+
+[source, bash]
+----
+# Test SSH to R1
+ssh netadmin@10.10.20.10
+
+# Enter password: NetAuto123!
+# You should reach R1 CLI prompt: R1>
+----
+
+**Type `exit` to disconnect.**
+
+Repeat for all devices (R2, SW1, SW2) to verify SSH is working.
+
+[TIP]
+====
+**Troubleshooting SSH Issues:**
+* **Connection refused:** Check interface is up (`show ip interface brief`)
+* **Host key verification failed:** Use `ssh -o StrictHostKeyChecking=no netadmin@10.10.20.10` to bypass (lab only)
+* **Permission denied:** Verify username/password on device (`show run | include username`)
+* **Timeout:** Check network connectivity (`ping 10.10.20.10` from workstation)
+====
+
+=== Step 3: Install Netmiko on Your Workstation
+
+Netmiko is a Python library that simplifies SSH connections to network devices. It handles SSH session management, expects prompts, and simplifies sending commands.
+
+**Install Netmiko:**
+[source, bash]
+----
+pip install netmiko
+----
+
+**Verify installation:**
+[source, bash]
+----
+python -c "import netmiko; print(netmiko.__version__)"
+----
+
+Expected output: `4.x.x` (version number)
+
+[NOTE]
+====
+**What is Netmiko?**
+Netmiko is built on top of Paramiko (Python SSH library) and is specifically designed for network devices. It:
+* Handles Cisco IOS prompts automatically
+* Detects when commands finish executing
+* Sends commands in config mode correctly
+* Supports many vendors (Cisco, Juniper, Arista, HP, etc.)
+* Simplifies common network automation tasks
+
+Documentation: https://github.com/ktbyers/netmiko
+====
+
+=== Step 4: Create Device Inventory File
+
+Create a Python file to store device connection information:
+
+[source, python]
+----
+# device_inventory.py
+# Device connection parameters for SSH automation
+
+# Dictionary of devices with connection details
+devices = {
+    'R1': {
+        'device_type': 'cisco_ios',       # Netmiko device type
+        'host': '10.10.20.10',             # Management IP address
+        'username': 'netadmin',            # SSH username
+        'password': 'NetAuto123!',         # SSH password
+        'secret': 'NetAuto123!',           # Enable password (if different)
+        'port': 22,                        # SSH port
+    },
+    'R2': {
+        'device_type': 'cisco_ios',
+        'host': '10.10.20.20',
+        'username': 'netadmin',
+        'password': 'NetAuto123!',
+        'secret': 'NetAuto123!',
+        'port': 22,
+    },
+    'SW1': {
+        'device_type': 'cisco_ios',
+        'host': '10.10.20.30',
+        'username': 'netadmin',
+        'password': 'NetAuto123!',
+        'secret': 'NetAuto123!',
+        'port': 22,
+    },
+    'SW2': {
+        'device_type': 'cisco_ios',
+        'host': '10.10.20.40',
+        'username': 'netadmin',
+        'password': 'NetAuto123!',
+        'secret': 'NetAuto123!',
+        'port': 22,
+    }
+}
+
+# Convenience lists for iteration
+routers = ['R1', 'R2']
+switches = ['SW1', 'SW2']
+all_devices = ['R1', 'R2', 'SW1', 'SW2']
+----
+
+**Save this file** as `device_inventory.py` in your working directory.
+
+=== Step 5: Test Netmiko Connection
+
+Create a simple script to test SSH connectivity via Netmiko:
+
+[source, python]
+----
+# test_netmiko_connection.py
+# Test Netmiko SSH connection to R1
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+# Select device to test
+device = devices['R1']
+
+# Connect to device via SSH
+print(f"Connecting to {device['host']}...")
+try:
+    # ConnectHandler establishes SSH connection
+    connection = ConnectHandler(**device)
+    
+    print("✓ Connected successfully!")
+    
+    # Get the device prompt (hostname)
+    prompt = connection.find_prompt()
+    print(f"Device prompt: {prompt}")
+    
+    # Send a simple show command
+    output = connection.send_command("show version | include Software")
+    print(f"\nDevice Software Version:")
+    print(output)
+    
+    # Disconnect
+    connection.disconnect()
+    print("\n✓ Disconnected")
+    
+except Exception as e:
+    print(f"✗ Connection failed: {e}")
+----
+
+**Run the script:**
+[source, bash]
+----
+python test_netmiko_connection.py
+----
+
+**Expected output:**
+[source, text]
+----
+Connecting to 10.10.20.10...
+✓ Connected successfully!
+Device prompt: R1#
+
+Device Software Version:
+Cisco IOS Software, ISR Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.3.4...
+
+✓ Disconnected
+----
+
+[IMPORTANT]
+====
+**Understanding the Script:**
+1. `ConnectHandler(**device)` — Establishes SSH connection using credentials from dictionary
+2. `find_prompt()` — Returns the CLI prompt (verifies we're connected)
+3. `send_command()` — Sends a show command and returns output as string
+4. `disconnect()` — Closes SSH session properly
+
+**The `**device` syntax** unpacks the dictionary into keyword arguments. It's equivalent to:
+```python
+connection = ConnectHandler(
+    device_type='cisco_ios',
+    host='10.10.20.10',
+    username='netadmin',
+    password='NetAuto123!',
+    ...
+)
+```
+====
+
+**Part A Complete!** Your devices are accessible via SSH and Netmiko is working. You're ready to start automating!
+
+== Section 1 — Retrieving Show Command Output
+
+Now you'll use Netmiko to retrieve information from devices—the same information you'd get from `show` commands, but captured in Python for processing.
+
+[NOTE]
+====
+**Connection to Later Labs:** In Lab 3 (RESTCONF) and Lab 4 (NETCONF), you'll retrieve this same data as structured JSON/XML. Here, you're getting text output that requires parsing. This is the simplest approach but requires more work to extract specific fields.
+====
+
+=== 1.1 Basic Show Commands
+
+[source, python]
+----
+# show_interface_status.py
+# Retrieve interface status from R1
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+# Connect to R1
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+print(f"Connected to {connection.find_prompt()}\n")
+
+# Send show command and capture output
+output = connection.send_command("show ip interface brief")
+
+# Print the output
+print("Interface Status:")
+print("=" * 80)
+print(output)
+print("=" * 80)
+
+# Disconnect
+connection.disconnect()
+----
+
+**Run the script:**
+[source, bash]
+----
+python show_interface_status.py
+----
+
+**Expected output:**
+[source, text]
+----
+Connected to R1#
+
+Interface Status:
+================================================================================
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0/0   unassigned      YES unset  administratively down down
+GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
+GigabitEthernet0/1/0   unassigned      YES unset  administratively down down
+...
+================================================================================
+----
+
+[WARNING]
+====
+**Text Parsing Fragility Demonstrated**
+
+Notice the output above is just unstructured text. If you wanted to extract just the IP addresses programmatically, you'd need to parse this by:
+1. Splitting each line
+2. Extracting specific columns (column 2 is the IP address)
+3. Handling edge cases (what if an interface name is longer than expected?)
+
+**The critical problem:** This output format is **NOT guaranteed to stay consistent** across IOS versions. 
+
+**Real-world example of SSH automation breaking:**
+```python
+# Script written in 2020 for IOS 15.x
+lines = output.split('\n')
+for line in lines[1:]:  # Skip header
+    parts = line.split()  # Split by whitespace
+    if len(parts) >= 6:
+        interface = parts[0]
+        ip_address = parts[1]  # Assumes IP is always column 2
+        print(f"{interface}: {ip_address}")
+```
+
+**What happens in 2023 after IOS upgrade to 17.x:**
+* Cisco adds a "VRF" column between interface name and IP address
+* Now `parts[1]` is the VRF name, not the IP address!
+* Your script breaks — extracts wrong data without obvious errors
+* **Even worse:** Script continues running but with incorrect data
+
+This is why Labs 3-4 teach RESTCONF and NETCONF, which use **YANG data models** that provide consistent structure even across IOS versions. But for one-off tasks or legacy devices, text parsing is still useful—just understand the maintenance cost!
+
+**Mitigation strategies for this lab:**
+* Use TextFSM parsing (see Challenge Exercise 1)
+* Test scripts after any IOS upgrade
+* Keep automation simple — avoid complex parsing logic
+* Document which IOS versions scripts are tested on
+====
+
+=== 1.2 Multiple Show Commands
+
+[source, python]
+----
+# collect_device_info.py
+# Collect multiple pieces of information from R1
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+from datetime import datetime
+
+# Connect to device
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+print(f"Device Information Report: {connection.find_prompt()}")
+print(f"Collected: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+print("=" * 80)
+
+# List of show commands to run
+commands = [
+    "show version | include Software",
+    "show ip interface brief",
+    "show ip route | include Gateway",
+    "show running-config | include hostname"
+]
+
+# Execute each command and display results
+for command in commands:
+    print(f"\n### Command: {command}")
+    print("-" * 80)
+    output = connection.send_command(command)
+    print(output)
+    print("-" * 80)
+
+# Disconnect
+connection.disconnect()
+print("\n✓ Report complete")
+----
+
+=== 1.3 Saving Output to File
+
+[source, python]
+----
+# save_show_output.py
+# Save show command output to a file for later analysis
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+from datetime import datetime
+
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+# Get running configuration
+print("Retrieving running configuration...")
+config_output = connection.send_command("show running-config")
+
+# Create filename with timestamp
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+filename = f"R1_running_config_{timestamp}.txt"
+
+# Save to file
+with open(filename, 'w') as file:
+    file.write(f"Configuration Backup for R1\n")
+    file.write(f"Collected: {datetime.now()}\n")
+    file.write("=" * 80 + "\n\n")
+    file.write(config_output)
+
+print(f"✓ Configuration saved to: {filename}")
+
+connection.disconnect()
+----
+
+[TIP]
+====
+**Why save output to files?**
+* Configuration backups before making changes
+* Historical records for auditing
+* Offline analysis without connecting to devices
+* Compare configurations over time (diff tools)
+* Share with team members
+====
+
+=== 1.4 Collecting from Multiple Devices
+
+[source, python]
+----
+# collect_from_all_devices.py
+# Collect interface status from all devices
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+
+print("Collecting interface status from all devices...")
+print("=" * 80)
+
+# Loop through each device
+for device_name in all_devices:
+    print(f"\n### {device_name} ###")
+    
+    # Get device connection parameters
+    device = devices[device_name]
+    
+    try:
+        # Connect to device
+        connection = ConnectHandler(**device)
+        
+        # Get interface status
+        output = connection.send_command("show ip interface brief")
+        print(output)
+        
+        # Disconnect
+        connection.disconnect()
+        
+    except Exception as e:
+        print(f"✗ Error connecting to {device_name}: {e}")
+        continue  # Continue to next device even if one fails
+
+print("\n" + "=" * 80)
+print("✓ Collection complete")
+----
+
+**Key concept:** The loop connects to each device sequentially, executes the command, and moves to the next. This is the foundation for multi-device automation.
+
+=== 1.5 Practice Exercises
+
+Write scripts to:
+
+1. **Retrieve VLAN information from both switches:**
+   - Command: `show vlan brief`
+   - Print output from SW1 and SW2
+   - Compare: Are VLANs consistent across switches?
+
+2. **Check routing table on both routers:**
+   - Command: `show ip route`
+   - Save output to separate files per router
+   - Identify the default gateway on each
+
+3. **Collect CDP neighbors information:**
+   - Command: `show cdp neighbors`  
+   - Create a topology map based on output
+   - Document which devices are directly connected
+
+4. **Interface error checking:**
+   - Command: `show interfaces | include errors`
+   - Identify any interfaces with errors
+   - Print only lines containing non-zero error counts
+
+== Section 2 — Sending Configuration Commands
+
+Now you'll send configuration commands to devices via Python—automating what you'd normally type in configuration mode.
+
+[IMPORTANT]
+====
+**Comparison to Later Labs:** Here, you're sending CLI commands as strings. In Labs 3-4 (RESTCONF/NETCONF), you'll send structured data (JSON/XML) based on YANG models. CLI commands are simpler to start with because you already know them from CCNA.
+====
+
+=== 2.1 Single Configuration Command
+
+[source, python]
+----
+# configure_description.py
+# Add description to an interface on R1
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+# Connect to R1
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+print(f"Connected to {connection.find_prompt()}")
+
+# Configuration commands as a list
+config_commands = [
+    'interface GigabitEthernet0/0/0',
+    'description Configured by Python Script',
+    'exit'
+]
+
+print(f"\nSending configuration commands...")
+print(f"Commands: {config_commands}")
+
+# send_config_set() enters config mode, sends commands, exits config mode
+output = connection.send_config_set(config_commands)
+print("\nDevice Response:")
+print(output)
+
+# Verify the change
+print("\nVerifying configuration...")
+verify_output = connection.send_command("show running-config interface GigabitEthernet0/0/0")
+print(verify_output)
+
+# Save configuration
+print("\nSaving configuration...")
+save_output = connection.send_command("write memory")
+print(save_output)
+
+connection.disconnect()
+print("\n✓ Configuration complete")
+----
+
+**Run and observe:**
+[source, bash]
+----
+python configure_description.py
+----
+
+**Then verify on device CLI:**
+[source, cisco-ios]
+----
+R1# show running-config interface GigabitEthernet0/0/0
+Building configuration...
+
+Current configuration : 123 bytes
+!
+interface GigabitEthernet0/0/0
+ description Configured by Python Script
+ no ip address
+ shutdown
+end
+----
+
+[NOTE]
+====
+**Understanding send_config_set():**
+* Automatically enters `configure terminal` mode
+* Sends each command in the list
+* Waits for prompt after each command
+* Automatically exits config mode when done
+* Returns all output from the device
+
+This is much simpler than manually sending `conf t`, commands, and `exit`!
+====
+
+=== 2.2 Configuring IP Addresses
+
+[source, python]
+----
+# configure_loopback.py
+# Create loopback interface with IP address on R1
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+print("Creating Loopback99 on R1...")
+
+# Commands to create loopback and assign IP
+config_commands = [
+    'interface Loopback99',
+    'description Created via Netmiko Python',
+    'ip address 192.0.2.99 255.255.255.0',
+    'no shutdown',
+    'exit'
+]
+
+# Send configuration
+output = connection.send_config_set(config_commands)
+print("Configuration applied:")
+print(output)
+
+# Verify interface was created
+print("\nVerifying interface...")
+verify = connection.send_command("show ip interface brief | include Loopback99")
+print(verify)
+
+# Save config
+connection.send_command("write memory")
+connection.disconnect()
+
+print("\n✓ Loopback99 created successfully")
+----
+
+**Expected output:**
+[source, text]
+----
+Creating Loopback99 on R1...
+Configuration applied:
+configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface Loopback99
+R1(config-if)#description Created via Netmiko Python
+R1(config-if)#ip address 192.0.2.99 255.255.255.0
+R1(config-if)#no shutdown
+R1(config-if)#exit
+R1(config)#end
+R1#
+
+Verifying interface...
+Loopback99             192.0.2.99      YES manual up                    up
+
+✓ Loopback99 created successfully
+----
+
+=== 2.3 Bulk Configuration Across Multiple Devices
+
+[source, python]
+----
+# configure_all_devices.py
+# Apply consistent configuration to all devices
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+
+# Configuration to apply to ALL devices
+# These commands work on both routers and switches
+common_config = [
+    'banner login # Authorized Access Only - Managed by Automation #',
+    'service timestamps debug datetime msec',
+    'service timestamps log datetime msec',
+    'no ip domain-lookup'
+]
+
+print("Applying common configuration to all devices...")
+print(f"Configuration commands: {common_config}\n")
+print("=" * 80)
+
+# Track success/failure
+results = {'success': [], 'failed': []}
+
+# Loop through all devices
+for device_name in all_devices:
+    print(f"\n### Configuring {device_name} ###")
+    
+    device = devices[device_name]
+    
+    try:
+        # Connect
+        connection = ConnectHandler(**device)
+        print(f"✓ Connected to {connection.find_prompt()}")
+        
+        # Send configuration
+        output = connection.send_config_set(common_config)
+        print("Configuration applied")
+        
+        # Save configuration
+        connection.send_command("write memory")
+        print("✓ Configuration saved")
+        
+        # Disconnect
+        connection.disconnect()
+        
+        # Track success
+        results['success'].append(device_name)
+        
+    except Exception as e:
+        print(f"✗ Error: {e}")
+        results['failed'].append(device_name)
+
+# Print summary
+print("\n" + "=" * 80)
+print("Summary:")
+print(f"  Successful: {len(results['success'])} devices - {results['success']}")
+print(f"  Failed: {len(results['failed'])} devices - {results['failed']}")
+print("=" * 80)
+----
+
+This demonstrates the power of automation: applying consistent configuration to multiple devices in seconds that would take minutes per device manually.
+
+=== 2.4 Configuration from File (Templates)
+
+[source, python]
+----
+# configure_from_template.py
+# Read configuration commands from file and apply to device
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+# Create a template file first
+template_content = """interface Loopback100
+ description Template-Generated Interface
+ ip address 10.100.100.1 255.255.255.0
+ no shutdown
+!
+interface Loopback101
+ description Another Template Interface
+ ip address 10.101.101.1 255.255.255.0
+ no shutdown
+!
+"""
+
+# Save template to file
+with open('interface_template.txt', 'w') as f:
+    f.write(template_content)
+
+# Now apply template to R1
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+print("Applying configuration from template file...")
+
+# send_config_from_file() reads file and sends commands
+output = connection.send_config_from_file('interface_template.txt')
+print("Configuration output:")
+print(output)
+
+# Verify interfaces created
+print("\nVerifying interfaces...")
+verify = connection.send_command("show ip interface brief | include Loopback10")
+print(verify)
+
+# Save
+connection.send_command("write memory")
+connection.disconnect()
+
+print("\n✓ Template applied successfully")
+----
+
+[TIP]
+====
+**Configuration Templates:** In real environments, you'd use templates with variables (e.g., Jinja2 templates) to customize configurations per device. For example:
+
+```python
+# Device-specific variables
+device_vars = {
+    'hostname': 'R1',
+    'mgmt_ip': '10.10.20.10',
+    'loopback_ip': '192.0.2.1'
+}
+
+# Template with placeholders
+template = """
+hostname {{hostname}}
+interface Loopback0
+ ip address {{loopback_ip}} 255.255.255.0
+"""
+```
+
+We'll keep it simple for Lab 1, but this is a preview of advanced automation techniques.
+====
+
+=== 2.5 Practice Exercises
+
+Write scripts to:
+
+1. **Configure NTP server on all devices:**
+   - Command: `ntp server 0.pool.ntp.org`
+   - Apply to all 4 devices
+   - Verify with`: show ntp status`
+
+2. **Create VLANs on both switches:**
+   - VLAN 10: Engineering
+   - VLAN 20: Sales
+   - VLAN 30: Guest
+   - Verify with: `show vlan brief`
+
+3. **Configure syslog server:**
+   - Command: `logging host 10.10.20.100`
+   - Apply to all devices
+   - Set logging source interface
+
+4. **Disable unused interfaces on R2:**
+   - Interfaces: GigabitEthernet0/0/0, GigabitEthernet0/1/0-3
+   - Apply description: "UNUSED - Disabled by Policy"
+   - Put in shutdown state
+
+== Section 3 — Error Handling and Verification
+
+Professional automation scripts need robust error handling to deal with connection failures, command errors, and unexpected situations.
+
+=== 3.1 Basic Error Handling
+
+[source, python]
+----
+# error_handling_example.py
+# Demonstrate error handling in network automation
+
+from netmiko import ConnectHandler, NetmikoTimeoutException, NetmikoAuthenticationException
+from device_inventory import devices
+
+device = devices['R1']
+
+try:
+    print("Attempting connection...")
+    connection = ConnectHandler(**device)
+    print("✓ Connected successfully")
+    
+    # Try to send an invalid command
+    try:
+        output = connection.send_command("show invalid-command")
+        print(output)
+    except Exception as cmd_error:
+        print(f"⚠ Command error: {cmd_error}")
+    
+    connection.disconnect()
+    
+except NetmikoTimeoutException:
+    print("✗ Connection timeout - device not reachable")
+    print("  Check: IP address, network connectivity, firewall rules")
+    
+except NetmikoAuthenticationException:
+    print("✗ Authentication failed - wrong username or password")
+    print("  Check: credentials in device_inventory.py")
+    
+except Exception as e:
+    print(f"✗ Unexpected error: {e}")
+----
+
+=== 3.2 Configuration with Verification
+
+[source, python]
+----
+# configure_with_verification.py
+# Configure interface and verify change was applied correctly
+
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+# Define what we want to configure
+interface_name = "Loopback200"
+desired_ip = "10.200.200.1"
+desired_mask = "255.255.255.0"
+
+print(f"Configuring {interface_name} with IP {desired_ip}/{desired_mask}")
+
+# Step 1: Apply configuration
+config_commands = [
+    f'interface {interface_name}',
+    f'description Configured with Verification',
+    f'ip address {desired_ip} {desired_mask}',
+    'no shutdown'
+]
+
+print("\n[1/4] Applying configuration...")
+connection.send_config_set(config_commands)
+print("✓ Configuration commands sent")
+
+# Step 2: Verify interface exists
+print("\n[2/4] Verifying interface exists...")
+verify_output = connection.send_command(f"show ip interface brief | include {interface_name}")
+
+if interface_name in verify_output:
+    print(f"✓ Interface {interface_name} found")
+    print(f"  Status: {verify_output.strip()}")
+else:
+    print(f"✗ Interface {interface_name} not found!")
+    connection.disconnect()
+    exit(1)
+
+# Step 3: Verify IP address is correct
+print("\n[3/4] Verifying IP address...")
+ip_check = connection.send_command(f"show running-config interface {interface_name} | include ip address")
+
+if desired_ip in ip_check and desired_mask in ip_check:
+    print(f"✓ IP address configured correctly")
+    print(f"  Config: {ip_check.strip()}")
+else:
+    print(f"✗ IP address mismatch!")
+    print(f"  Expected: {desired_ip} {desired_mask}")
+    print(f"  Found: {ip_check.strip()}")
+
+# Step 4: Save configuration
+print("\n[4/4] Saving configuration...")
+save_output = connection.send_command("write memory")
+if "OK" in save_output or "[OK]" in save_output:
+    print("✓ Configuration saved successfully")
+else:
+    print("⚠ Save may have failed - check device")
+
+connection.disconnect()
+print("\n✓ Configuration and verification complete")
+----
+
+**This script demonstrates best practices:**
+1. Apply configuration
+2. Verify configuration was applied
+3. Check specific values are correct
+4. Save configuration
+5. Provide clear status messages
+
+=== 3.3 Device Reachability Check
+
+[source, python]
+----
+# check_device_status.py
+# Check which devices are reachable before attempting configuration
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+import socket
+
+def check_port_open(host, port=22, timeout=3):
+    """Check if TCP port is open on host"""
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.settimeout(timeout)
+    try:
+        result = sock.connect_ex((host, port))
+        sock.close()
+        return result == 0  # 0 means port is open
+    except:
+        return False
+
+print("Checking device reachability...")
+print("=" * 80)
+
+reachable = []
+unreachable = []
+
+for device_name in all_devices:
+    device = devices[device_name]
+    host = device['host']
+    
+    print(f"\nChecking {device_name} ({host})...", end=" ")
+    
+    # Check if SSH port is open
+    if check_port_open(host):
+        print("✓ Reachable")
+        
+        # Try to connect via SSH
+        try:
+            connection = ConnectHandler(**device)
+            prompt = connection.find_prompt()
+            connection.disconnect()
+            print(f"  ✓ SSH authentication successful ({prompt})")
+            reachable.append(device_name)
+        except Exception as e:
+            print(f"  ✗ SSH failed: {e}")
+            unreachable.append(device_name)
+    else:
+        print("✗ Unreachable (port 22 closed or filtered)")
+        unreachable.append(device_name)
+
+# Summary
+print("\n" + "=" * 80)
+print("Device Status Summary:")
+print(f"  Reachable: {len(reachable)} devices - {reachable}")
+print(f"  Unreachable: {len(unreachable)} devices - {unreachable}")
+
+if unreachable:
+    print("\n⚠ Some devices are unreachable. Check:")
+    print("  - Network connectivity (ping)")
+    print("  - SSH service enabled on device")
+    print("  - Credentials correct")
+    print("  - Firewall rules")
+----
+
+=== 3.4 Practice Exercises
+
+1. **Create a script that attempts to configure all devices but continues even if one fails:**
+   - Track which devices succeeded
+   - Track which devices failed and why
+   - Generate a final report
+
+2. **Configuration rollback script:**
+   - Save current config to file before making changes
+   - Make configuration changes
+   - If verification fails, restore from backup file
+
+3. **Connection retry logic:**
+   - If connection fails, retry 3 times with 5-second delay
+   - Only give up after all retries exhausted
+
+== Section 4 — Practical Automation Scenarios
+
+Real-world examples combining everything you've learned.
+
+=== 4.1 Configuration Backup Script
+
+
+[source, python]
+----
+# backup_all_configs.py
+# Backup running configurations from all devices
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+from datetime import datetime
+import os
+
+# Create backup directory with timestamp
+timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+backup_dir = f"config_backups_{timestamp}"
+os.makedirs(backup_dir, exist_ok=True)
+
+print(f"Backing up configurations to: {backup_dir}/")
+print("=" * 80)
+
+backup_count = 0
+
+for device_name in all_devices:
+    print(f"\nBacking up {device_name}...", end=" ")
+    
+    device = devices[device_name]
+    
+    try:
+        # Connect to device
+        connection = ConnectHandler(**device)
+        
+        # Get running configuration
+        config = connection.send_command("show running-config")
+        
+        # Save to file
+        filename = f"{backup_dir}/{device_name}_config_{timestamp}.txt"
+        with open(filename, 'w') as f:
+            f.write(f"# Configuration backup for {device_name}\n")
+            f.write(f"# Backup date: {datetime.now()}\n")
+            f.write(f"# Device: {device['host']}\n")
+            f.write("#" + "=" * 78 + "\n\n")
+            f.write(config)
+        
+        # Get file size
+        file_size = os.path.getsize(filename)
+        
+        print(f"✓ Saved ({file_size} bytes)")
+        backup_count += 1
+        
+        connection.disconnect()
+        
+    except Exception as e:
+        print(f"✗ Failed: {e}")
+
+print("\n" + "=" * 80)
+print(f"Backup Summary: {backup_count}/{len(all_devices)} devices backed up successfully")
+print(f"Backup location: {backup_dir}/")
+----
+
+=== 4.2 Deploy Standard Security Configuration
+
+[source, python]
+----
+# deploy_security_config.py
+# Apply security best practices to all devices
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+
+# Security configuration commands
+security_config = [
+    # Disable unused services
+    'no ip http server',
+    'no ip http secure-server',
+    'no ip bootp server',
+    'no service finger',
+    'no service pad',
+    
+    # Enable security features
+    'service password-encryption',
+    'service tcp-keepalives-in',
+    'service tcp-keepalives-out',
+    'no service dhcp',
+    
+    # Login security
+    'login block-for 300 attempts 3 within 120',
+    'login on-failure log',
+    'login on-success log',
+    
+    # VTY security  
+    'line vty 0 15',
+    ' exec-timeout 10 0',
+    ' transport input ssh',
+    ' logging synchronous',
+    ' exit',
+    
+    # Console security
+    'line console 0',
+    ' exec-timeout 10 0',
+    ' logging synchronous',
+    ' exit',
+    
+    # Enable secret (if not already set)
+    'enable algorithm-type scrypt secret SecureEnable123!',
+    
+    # Logging
+    'logging buffered 51200 warnings',
+]
+
+print("Deploying security configuration to all devices...")
+print("=" * 80)
+
+for device_name in all_devices:
+    print(f"\n### {device_name} ###")
+    print(f"Connecting...", end=" ")
+    
+    device = devices[device_name]
+    
+    try:
+        connection = ConnectHandler(**device)
+        print("✓")
+        
+        print("Applying security configuration...", end=" ")
+        output = connection.send_config_set(security_config)
+        print("✓")
+        
+        print("Saving configuration...", end=" ")
+        connection.send_command("write memory")
+        print("✓")
+        
+        connection.disconnect()
+        print(f"✓ {device_name} security configuration complete")
+        
+    except Exception as e:
+        print(f"\n✗ Error on {device_name}: {e}")
+
+print("\n" + "=" * 80)
+print("✓ Security deployment complete")
+----
+
+=== 4.3 Inventory Report Generation
+
+[source, python]
+----
+# generate_inventory_report.py
+# Create detailed inventory report from all devices
+
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+from datetime import datetime
+import csv
+
+print("Generating inventory report...")
+print("=" * 80)
+
+# Collect data from all devices
+inventory_data = []
+
+for device_name in all_devices:
+    print(f"Collecting from {device_name}...", end=" ")
+    
+    device = devices[device_name]
+    
+    try:
+        connection = ConnectHandler(**device)
+        
+        # Collect various information
+        version = connection.send_command("show version | include Software")
+        hostname = connection.send_command("show running-config | include hostname")
+        serial = connection.send_command("show version | include Processor board ID")
+        uptime = connection.send_command("show version | include uptime")
+        
+        # Parse data (simplified parsing)
+        device_info = {
+            'Device Name': device_name,
+            'IP Address': device['host'],
+            'Hostname': hostname.split()[-1] if 'hostname' in hostname else device_name,
+            'Software': version.strip(),
+            'Serial Number': serial.split(':')[-1].strip() if 'Processor board ID' in serial else 'N/A',
+            'Uptime': uptime.strip(),
+            'Last Checked': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        }
+        
+        inventory_data.append(device_info)
+        connection.disconnect()
+        
+        print("✓")
+        
+    except Exception as e:
+        print(f"✗ Error: {e}")
+        inventory_data.append({
+            'Device Name': device_name,
+            'IP Address': device['host'],
+            'Status': f'ERROR: {e}'
+        })
+
+# Save to CSV file
+csv_filename = f"network_inventory_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+
+with open(csv_filename, 'w', newline='') as csvfile:
+    fieldnames = ['Device Name', 'IP Address', 'Hostname', 'Software', 'Serial Number', 'Uptime', 'Last Checked']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    
+    writer.writeheader()
+    for device_info in inventory_data:
+        writer.writerow(device_info)
+
+print("\n" + "=" * 80)
+print(f"✓ Inventory report saved to: {csv_filename}")
+print(f"  Devices processed: {len(inventory_data)}")
+
+# Also print summary to screen
+print("\nInventory Summary:")
+for device_info in inventory_data:
+    print(f"  {device_info.get('Device Name')}: {device_info.get('Hostname', 'ERROR')}")
+----
+
+=== 4.4 Practice Scenarios
+
+Create scripts for these real-world scenarios:
+
+1. **Interface Audit:**
+   - Collect all interface configurations from all devices
+   - Identify interfaces without descriptions
+   - Generate report of non-compliant interfaces
+   - Optionally: Auto-add descriptions to missing ones
+
+2. **License Status Check:**
+   - Command: `show license status`
+   - Check all devices
+   - Report which licenses are about to expire
+   - Alert if any licenses are invalid
+
+3. **Firmware Version Check:**
+   - Collect IOS version from all devices
+   - Compare to approved version list
+   - Generate report of devices needing upgrade
+   - (Advanced: Download new IOS and upgrade)
+
+4. **Configuration Compliance Check:**
+   - Define required configuration elements (NTP, syslog, banner, etc.)
+   - Check each device for compliance
+   - Generate pass/fail report
+   - Auto-remediate non-compliant devices
+
+== Common Errors & Troubleshooting
+
+[cols="2,3,3", options="header"]
+|===
+|Error|Possible Cause|Solution
+|`socket.timeout`|Device not reachable on network|Check ping, verify IP address, check routing
+|`NetmikoTimeoutException`|SSH not responding|Verify SSH enabled: `show ip ssh`, check firewall
+|`NetmikoAuthenticationException`|Wrong username/password|Verify credentials on device: `show run \| include username`
+|`Connection refused`|SSH not enabled or wrong port|Enable SSH: `crypto key generate rsa`, `ip ssh version 2`
+|`Device prompt not found`|Unexpected prompt format|Specify prompt pattern in ConnectHandler
+|`Command failed: % Invalid input`|Wrong command syntax|Verify command works manually in CLI first
+|`Config pushed but not saved`|Forgot to run `write memory`|Always send `write memory` or `copy run start`
+|Script hangs on send_command|Command waiting for more input|Use `send_command_timing()` for interactive commands
+|Permission denied|User lacks privilege 15|Verify: `username X privilege 15`, or use `secret` parameter
+|StrictHostKeyChecking prompt|SSH host key not in known_hosts|Use `disabled_algorithms={'pubkeys': ['rsa-sha2-256', 'rsa-sha2-512']}` in device dict
+|**`IndexError` or parsing fails after IOS upgrade**|**Output format changed between IOS versions**|**Use TextFSM (built into Netmiko), or use APIs (Labs 3-4) for structured data that won't break**
+|===
+
+[WARNING]
+====
+**IOS Version Dependency Issue (Critical Limitation of SSH Automation)**
+
+The MOST COMMON long-term problem with SSH automation: **IOS software upgrades that change output formats break your scripts.**
+
+**Example:**
+```python
+# Script written for IOS 15.x
+output = connection.send_command("show ip interface brief")
+lines = output.split('\n')
+for line in lines[1:]:  # Skip header
+    columns = line.split()
+    interface = columns[0]
+    ip_address = columns[1]
+    # This assumes column positions never change!
+```
+
+**What breaks:**
+* IOS 16.x adds a new "VRF" column → all your column indices are wrong
+* IOS 17.x changes spacing in output → `split()` produces different results
+* Minor IOS patch changes "administratively down" to "admin-down" → string matching fails
+
+**Why this matters:**
+* Your script works for **years**, then suddenly breaks after routine IOS upgrade
+* You must **regression-test all scripts** after every IOS update
+* Hard to maintain in large networks with mixed IOS versions
+
+**Solutions:**
+* **Option 1:** Use TextFSM/NTC-Templates (Netmiko's `use_textfsm=True` parameter) — community-maintained parsers that handle version differences
+* **Option 2:** Switch to RESTCONF/NETCONF (Labs 3-4) — YANG data models provide **consistent structure** across IOS versions
+* **Option 3:** **Hybrid approach** (Lab 5) — Use APIs for configuration management, fall back to SSH only when necessary
+
+This is THE major reason modern network automation prefers API-based approaches!
+====
+
+=== Debugging Tips
+
+1. **Test commands manually first:**
+   - SSH to device manually
+   - Type commands to verify syntax
+   - Note exact output format
+
+2. **Enable Netmiko logging:**
+   ```python
+   import logging
+   logging.basicConfig(filename='netmiko_session.log', level=logging.DEBUG)
+   logger = logging.getLogger("netmiko")
+   ```
+
+3. **Print all output:**
+   ```python
+   output = connection.send_config_set(commands)
+   print(output)  # See what device returned
+   ```
+
+4. **Use send_command_timing() for interactive commands:**
+   ```python
+   output = connection.send_command_timing("reload")
+   # For commands that prompt for confirmation
+   ```
+
+5. **Check connection parameters:**
+   ```python
+   print(device)  # Verify dictionary has correct values
+   ```
+
+6. **Test connectivity before automation:**
+   - `ping <device_ip>`
+   - `ssh netadmin@<device_ip>`
+   - Verify manually before running script
+
+7. **Start simple, add complexity:**
+   - Get one device working first
+   - Then expand to multiple devices
+   - Add error handling last
+
+== Lab 1 Deliverables
+
+=== Required Python Scripts
+
+1. `test_netmiko_connection.py` — Test SSH connection to R1
+2. `show_interface_status.py` — Retrieve interface status from R1
+3. `collect_from_all_devices.py` — Collect data from all 4 devices
+4. `configure_loopback.py` — Create loopback interface on R1
+5. `configure_all_devices.py` — Apply common config to all devices
+6. `backup_all_configs.py` — Backup configurations from all devices
+7. `deploy_security_config.py` — Apply security best practices to all devices
+8. `generate_inventory_report.py` — Create CSV inventory of network
+
+=== Documentation Requirements
+
+Create a document named `lab1_report.txt` or `lab1_report.pdf` containing:
+
+1. **Device Configuration Evidence:**
+   - Show running-config excerpts proving SSH is enabled on all devices
+   - Usernames configured
+   - Output from `show ip ssh` on each device
+
+2. **Python Script Outputs:**
+   - Screenshots or text output from running each required script
+   - Show successful connection messages
+   - Show configuration being applied
+   - Show verification commands confirming changes
+
+3. **Backup Files:**
+   - Include the backup directory created by `backup_all_configs.py`
+   - Show at least one full configuration file
+
+4. **Inventory Report:**
+   - Include the CSV file generated by `generate_inventory_report.py`
+
+5. **Time Comparison:**
+   - Estimate: How long would it take to manually configure all 4 devices with the security configuration?
+   - Measure: How long did the Python script take?
+   - Calculate time savings
+
+6. **Answers to Reflection Questions** (see next section)
+
+== Reflection Questions
+
+Answer these questions in your `lab1_report` document:
+
+. **Automation Value:** You applied security configuration to 4 devices with one script. How much time did this save compared to doing it manually? If you had 50 devices instead of 4, how much more valuable would automation be?
+
+. **Error Prevention:** When configuring manually via CLI, what types of errors can occur (typos, forgotten commands, etc.)? How does automation reduce these errors?
+
+. **Consistency:** Why is it important that all devices have identical security configurations? How does automation ensure consistency better than manual configuration?
+
+. **CLI Command Familiarity (MAJOR ADVANTAGE):** The Python script sends the exact same CLI commands you already know from CCNA training. What are the advantages of this approach? Consider: learning curve, device compatibility, ability to automate **operational commands** like `ping`, `traceroute`, `copy tftp:`, `debug`, `reload`, etc. Do you think RESTCONF/NETCONF APIs can automate these operational tasks?
+
+. **Show Command Parsing (MAJOR DISADVANTAGE):** When you run `show ip interface brief`, the output is unstructured text. Suppose Cisco releases a new IOS version that changes the spacing or adds a new column to this output. What would happen to a Python script that parses this output by expecting specific column positions? How does this make SSH automation fragile compared to structured data formats like JSON/XML?
+
+. **Verification Importance:** Why is it important to verify configurations after applying them? Give an example where a command might succeed but not do what you intended.
+
+. **IOS Version Fragility:** Imagine you write a script that parses `show version` to extract the IOS version number. The script works perfectly on IOS 15.x devices. Two years later, your company upgrades to IOS 17.x, and the format of `show version` output changes slightly. Your script breaks. How is this different from using APIs with standardized YANG data models? Why might structured data (JSON/XML) be more resilient to software upgrades?
+
+. **Security Considerations:** Your `device_inventory.py` file contains passwords in plaintext. In a production environment, how should credentials be stored more securely?
+
+. **Device Types:** Netmiko supports many device types (`cisco_ios`, `cisco_nxos`, `arista_eos`, `juniper_junos`, etc.). Why do you think different device_types are needed? What might be different about CLI interactions across vendors?
+
+. **Scale Considerations:** Your scripts connect to devices sequentially (one at a time). If you had 100 devices, this would take a long time. Research Python's `threading` or `multiprocessing` modules. How could these speed up automation?
+
+. **Configuration Management:** You created a backup script that saves configs to files. In enterprise environments, how might these backups be used? (Think version control, compliance auditing, disaster recovery)
+
+. **Operational Commands Without APIs:** Some network operations like `ping <destination>`, `copy tftp:`, `traceroute`, and `reload` are operational commands, not configuration commands. These may not have equivalents in RESTCONF/NETCONF APIs (which focus on configuration data). Why is SSH/Netmiko still essential even in modern networks with API support? When would you need to fall back to SSH?
+
+. **Preparing for Lab 5:** In Lab 5, you'll compare SSH/Netmiko with RESTCONF and NETCONF. Based on your experience in this lab, what do you think are the biggest strengths of SSH-based automation (think: CLI familiarity, operational commands, universal compatibility)? What are the biggest weaknesses (think: text parsing, IOS version changes, unstructured data)?
+
+== Optional Challenge Exercises
+
+=== Challenge 1: Parse Structured Data from Show Commands
+
+Use the `textfsm` library to parse show command output into structured data:
+
+[source, bash]
+----
+pip install textfsm ntc-templates
+----
+
+[source, python]
+----
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+# Use TextFSM parsing (built into Netmiko)
+output = connection.send_command("show ip interface brief", use_textfsm=True)
+
+# Now output is a list of dictionaries instead of raw text!
+print(type(output))  # <class 'list'>
+print(output[0])     # {'interface': 'GigabitEthernet0/0/0', 'ip_address': 'unassigned', ...}
+
+# Extract specific data
+for interface in output:
+    if interface['status'] == 'up':
+        print(f"{interface['interface']}: {interface['ip_address']}")
+
+connection.disconnect()
+----
+
+Create a script that parses interface data and identifies:
+- All interfaces with IP addresses
+- All interfaces that are down
+- All interfaces without descriptions
+
+=== Challenge 2: Configuration Diff Tool
+
+Before and after making changes, save configurations and use `difflib` to show what changed:
+
+[source, python]
+----
+import difflib
+from netmiko import ConnectHandler
+from device_inventory import devices
+
+device = devices['R1']
+connection = ConnectHandler(**device)
+
+# Get config before changes
+config_before = connection.send_command("show running-config").splitlines()
+
+# Make changes
+connection.send_config_set(['interface Loopback99', 'description CHANGED'])
+
+# Get config after changes
+config_after = connection.send_command("show running-config").splitlines()
+
+# Generate diff
+diff = difflib.unified_diff(config_before, config_after, lineterm='')
+print('\n'.join(diff))
+
+connection.disconnect()
+----
+
+=== Challenge 3: Interactive Device Selector
+
+Create a script with a menu that lets you choose which device to configure:
+
+[source, python]
+----
+from device_inventory import devices, all_devices
+
+print("Available devices:")
+for i, device_name in enumerate(all_devices, 1):
+    print(f"  {i}. {device_name} ({devices[device_name]['host']})")
+
+choice = int(input("\nSelect device (1-4): "))
+selected_device = all_devices[choice - 1]
+
+print(f"\nYou selected: {selected_device}")
+# ... continue with configuration
+----
+
+=== Challenge 4: Parallel Device Connections
+
+Use Python's `concurrent.futures` to connect to multiple devices simultaneously:
+
+[source, python]
+----
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from netmiko import ConnectHandler
+from device_inventory import devices, all_devices
+
+def backup_device(device_name):
+    """Backup single device configuration"""
+    device = devices[device_name]
+    connection = ConnectHandler(**device)
+    config = connection.send_command("show running-config")
+    connection.disconnect()
+    
+    # Save to file
+    with open(f"{device_name}_backup.txt", 'w') as f:
+        f.write(config)
+    
+    return f"{device_name} backed up"
+
+# Execute backups in parallel (up to 4 simultaneous connections)
+with ThreadPoolExecutor(max_workers=4) as executor:
+    future_to_device = {executor.submit(backup_device, dev): dev for dev in all_devices}
+    
+    for future in as_completed(future_to_device):
+        device_name = future_to_device[future]
+        try:
+            result = future.result()
+            print(f"✓ {result}")
+        except Exception as e:
+            print(f"✗ {device_name} failed: {e}")
+----
+
+This dramatically speeds up operations on many devices!
+
+=== Challenge 5: Configuration Rollback
+
+Create a script that:
+1. Backs up current configuration
+2. Applies new configuration
+3. Waits 60 seconds
+4. Tests connectivity
+5. If connectivity fails, restores backup automatically
+
+=== Challenge 6: Jinja2 Configuration Templates
+
+Use Jinja2 templates to generate device-specific configurations:
+
+[source, bash]
+----
+pip install jinja2
+----
+
+[source, python]
+----
+from jinja2 import Template
+
+# Template with variables
+template = Template("""
+hostname {{ hostname }}
+!
+interface Loopback0
+ description {{ description }}
+ ip address {{ loopback_ip }} 255.255.255.0
+!
+ntp server {{ ntp_server }}
+""")
+
+# Device-specific variables
+device_vars = {
+    'hostname': 'R1',
+    'description': 'Router 1 Loopback',
+    'loopback_ip': '192.0.2.1',
+    'ntp_server': 'time.nist.gov'
+}
+
+# Generate configuration
+config = template.render(device_vars)
+print(config)
+
+# Send to device with Netmiko
+# connection.send_config_set(config.splitlines())
+----
+
+=== Challenge 7: YAML-Based Device Inventory
+
+Replace the Python dictionary with YAML file:
+
+[source, bash]
+----
+pip install pyyaml
+----
+
+Create `devices.yaml`:
+[source, yaml]
+----
+devices:
+  R1:
+    device_type: cisco_ios
+    host: 10.10.20.10
+    username: netadmin
+    password: NetAuto123!
+ 
+ R2:
+    device_type: cisco_ios
+    host: 10.10.20.20
+    username: netadmin
+    password: NetAuto123!
+----
+
+Read in Python:
+[source, python]
+----
+import yaml
+
+with open('devices.yaml', 'r') as f:
+    config = yaml.safe_load(f)
+
+devices = config['devices']
+----
+
+== Additional Resources
+
+* **Netmiko GitHub & Documentation:** https://github.com/ktbyers/netmiko
+* **Kirk Byers' Network Automation Course:** https://pynet.twb-tech.com/
+* **Netmiko Tutorial Series:** https://pynet.twb-tech.com/blog/netmiko.html
+* **TextFSM Templates for Parsing:** https://github.com/networktocode/ntc-templates
+* **Python for Network Engineers:** https://www.packetcoders.io/
+* **Cisco DevNet Learning Labs:** https://developer.cisco.com/learning/
+* **Automate the Boring Stuff with Python:** https://automatetheboringstuff.com/
+
+== What's Next?
+
+After mastering SSH automation with Netmiko, the course progression continues:
+
+**Lab 2 — REST API Fundamentals:**
+* Learn HTTP methods, JSON parsing
+* Practice with public REST APIs
+* Foundation for RESTCONF (Lab 3)
+
+**Lab 3 — RESTCONF + YANG Models:**
+* Use REST APIs built into Cisco devices
+* **Work with JSON instead of unstructured CLI text** — solves the text parsing problem!
+* Structured data from YANG models (consistent across IOS versions)
+* **Addresses the IOS fragility issue** you experienced with show commands
+
+**Lab 4 — NETCONF + ncclient:**
+* XML-based protocol for network automation
+* **Structured data resilient to IOS version changes**
+* Transaction support and rollback capability
+* More advanced than RESTCONF
+
+**Lab 5 — Multi-Device Automation Comparison:**
+* Configure 4-device network using all three methods
+* **Direct comparison:** Same task via SSH vs RESTCONF vs NETCONF
+* Discover when SSH is still the right choice (operational commands, legacy devices)
+* Discover when APIs are superior (structured data, version resilience, transactions)
+* Real-world hybrid automation strategy
+
+**Lab 1 Complete!** You now know how to automate Cisco devices via SSH and Netmiko. This is the foundation that makes Labs 3-5 easier to understand—you'll see the same tasks done with different protocols and compare their strengths and weaknesses.
+
+[IMPORTANT]
+====
+**Why Learn Other Methods?** You've experienced SSH automation's key limitation: **parsing unstructured text output that changes between IOS versions**. Labs 3-4 teach API-based methods that return **structured data (JSON/XML) with consistent formats defined by YANG models**—making your automation resilient to IOS upgrades.
+
+But SSH still has its place! **Operational commands** (`ping`, `traceroute`, `copy tftp:`, `reload`) often have no API equivalents. Lab 5 shows you when to use each approach.
+====
+
+The CLI commands you automated here translate directly to API operations in later labs. For example:
+* **Lab 1:** `show ip interface brief` via SSH → raw text output (fragile, version-dependent)
+* **Lab 3:** GET request to RESTCONF → structured JSON output (consistent, parsable)
+* **Lab 4:** get-config via NETCONF → structured XML output (transactional, rollback support)
+
+**Same data, different methods—different trade-offs!** Understanding SSH automation first makes the other methods easier to grasp, and helps you appreciate **why structured API data matters**.

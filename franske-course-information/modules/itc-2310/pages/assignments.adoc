@@ -49,7 +49,11 @@ NOTE: There are not lab activities embedded in the Cisco curriculum for module 1
 
 === For the Python Automation part of the course
 
-* Lab activities TBD
+* xref:python-automation-lab1.adoc[LAB 1 — Network Device Automation with SSH and Netmiko]
+* xref:python-automation-lab2.adoc[LAB 2 — Intro to HTTP & APIs with Python]
+* xref:python-automation-lab3.adoc[LAB 3 — RESTCONF + YANG Models (GET + PUT/PATCH/DELETE)]
+* xref:python-automation-lab4.adoc[LAB 4 — NETCONF + YANG Models (get/get-config/edit-config/delete-config)]
+* xref:python-automation-lab5.adoc[LAB 5 — Multi-Device Network Automation: Comparing SSH, RESTCONF, and NETCONF]
 
 === For the Infrastructure Automation Tools part of the course
 
