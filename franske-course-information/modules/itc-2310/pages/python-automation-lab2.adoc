@@ -1,5 +1,14 @@
 = LAB 2 — Intro to HTTP & APIs with Python
 
+== Readings and Videos to Prepare
+
+These readings and videos will introduce you to important concepts and details which will help you complete this lab activity:
+
+NOTE: You do not need to follow-along or complete any activities from these resources but you should watch/read them to prepare for the remainder of this lab.
+
+* https://youtu.be/Xnbef8F_Yfc[Master Python Requests In 15 Minutes. Call Any API by Tech with Tim]
+* https://realpython.com/python-requests/[Python's Requests Library (Guide)]
+
 == Learning Objectives
 
 By the end of this lab, you will:
@@ -7,6 +16,8 @@ By the end of this lab, you will:
 * Understand HTTP requests, status codes, and responses
 * Use Python's `requests` library to call REST APIs
 * Parse JSON responses into Python dictionaries
+* Understand YAML structure and how it maps to Python data types
+* Read and write YAML files using Python
 * Write functions that interact with APIs
 * Use HTTP POST requests to send data to APIs
 * Handle basic errors from API responses
@@ -38,8 +49,11 @@ You will need:
 
 * Python 3.7 or later
 * The `requests` library (install with: `pip install requests`)
+* The `PyYAML` library (install with: `pip install pyyaml`)
 
-== Background: REST APIs, HTTP, and JSON
+== Background: REST APIs, HTTP, JSON, and YAML
+
+REST APIs and YAML are two of the most common building blocks in modern automation. Nearly every cloud platform, SaaS product, and network device exposes a REST API, and many automation tools use YAML for configuration and inventory. Learning these formats now makes every later lab easier and mirrors real-world workflows.
 
 Before beginning the lab, understand these concepts:
 
@@ -56,9 +70,16 @@ Before beginning the lab, understand these concepts:
   - `400-499`: Client error (404 = Not Found, 401 = Unauthorized)
   - `500-599`: Server error
 
-*REST API*:: A web service that uses HTTP methods to allow programs to request and send data. APIs communicate using **endpoints** (URLs) and return structured data.
+*REST API*:: A web service that uses HTTP methods to allow programs to request and send data. APIs communicate using **endpoints** (URLs) and return structured data. REST is popular because it is simple, language-agnostic, and works over standard HTTP, so almost any programming language or tool can call it.
++
+In general programming, REST APIs are how applications integrate with services like maps, payments, messaging, and authentication. In systems and network administration, REST APIs power:
 
-*JSON (JavaScript Object Notation)*:: A text format for structured data. Similar to Python dictionaries:
+  - Cloud management (AWS, Azure, Google Cloud)
+  - Monitoring platforms (metrics, alerts, dashboards)
+  - Network device configuration (RESTCONF, vendor APIs)
+  - Infrastructure-as-code pipelines and automation tools
+
+*JSON (JavaScript Object Notation)*:: A text format for structured data. Similar to Python dictionaries. JSON is the most common data format returned by REST APIs because it is easy for machines to parse and easy for humans to read:
 +
 [source, json]
 ----
@@ -69,7 +90,39 @@ Before beginning the lab, understand these concepts:
 }
 ----
 
-In Python, `requests.json()` converts JSON strings into dictionaries you can work with.
+In Python, `requests.json()` converts JSON strings into dictionaries you can work with. This lets you write code that reads and updates specific fields, not just raw text.
+
+**Structured vs. Unstructured Data (Why APIs Matter):**
+In Lab 1, you used SSH/Netmiko and parsed CLI output meant for humans. That output is **unstructured text**, which means your code must guess where each field starts and ends. In contrast, REST APIs return **structured data** (JSON), where fields are clearly labeled and consistent.
+
+Structured data advantages:
+
+* **Reliable parsing**: `data["interface"]["name"]` is safer than splitting a line of text by spaces
+* **Resilient to formatting changes**: API fields stay consistent across software updates
+* **Cleaner automation logic**: Code focuses on data, not text formatting
+* **Easier validation**: You can check exact fields before/after changes
+
+This is a key reason modern automation prefers APIs for configuration tasks, while CLI automation remains useful for operational commands that have no API equivalents.
+
+*YAML (YAML Ain't Markup Language)*:: A human-friendly text format for structured data. YAML is popular because it is compact, supports comments, and is easy to edit by hand. YAML maps cleanly to Python dictionaries and lists:
++
+[source, yaml]
+----
+name: John
+age: 30
+courses:
+  - ITC 2310
+  - ITC 2300
+----
+
+In Python, the `yaml` module reads YAML into dictionaries/lists and can write dictionaries/lists back to YAML. In systems and network automation, YAML is widely used for:
+
+  - Inventory files (devices, IPs, roles, credentials)
+  - Configuration variables for templates
+  - Pipeline definitions (CI/CD workflows)
+  - Tool configuration files (Ansible, Salt, Kubernetes)
+
+Because YAML and REST APIs are so common, most real automation scripts combine both: YAML for local configuration and REST APIs for remote device/service interaction.
 
 == Section 1 — First API GET Request
 
@@ -108,12 +161,13 @@ print(json.dumps(data, indent=2))
 === What Happens Here
 
 When you run this script:
-1. Python imports the `requests` module (your HTTP client)
-2. You specify a URL pointing to a public test API (jsonplaceholder.typicode.com)
-3. `requests.get(url)` sends an HTTP GET request
-4. The server responds with HTTP status 200 (success) and JSON data
-5. `response.json()` converts the JSON string into a Python dictionary
-6. You access dictionary keys like `data["title"]` just like you learned in Python Essentials
+
+. Python imports the `requests` module (your HTTP client)
+. You specify a URL pointing to a public test API (jsonplaceholder.typicode.com)
+. `requests.get(url)` sends an HTTP GET request
+. The server responds with HTTP status 200 (success) and JSON data
+. `response.json()` converts the JSON string into a Python dictionary
+. You access dictionary keys like `data["title"]` just like you learned in Python Essentials
 
 This mirrors how RESTCONF will return JSON from Cisco devices in later labs.
 
@@ -185,7 +239,115 @@ Notice the `if r.status_code == 200:` check:
 * Loops and iteration over function calls
 * Accessing dictionary values returned from JSON
 
-== Section 3 — Writing API Data to a File
+== Section 3 — YAML Structure and Python Usage
+
+In this section, you'll learn YAML fundamentals and how to parse and create YAML using Python. YAML is common in network automation workflows because it's readable and works well for configuration files.
+
+=== 3.1 Read YAML into Python
+
+Create `yaml_intro.py`:
+
+[source, python]
+----
+import yaml
+
+# A sample YAML string (usually you'd read this from a file)
+yaml_text = """
+device:
+  hostname: R1
+  mgmt_ip: 10.10.20.10
+  roles:
+    - router
+    - edge
+"""
+
+# Load YAML into a Python dictionary
+data = yaml.safe_load(yaml_text)
+
+print(type(data))
+print(data)
+print("Hostname:", data["device"]["hostname"])
+print("First role:", data["device"]["roles"][0])
+----
+
+=== 3.2 Write Python Data to YAML
+
+Create `yaml_write_example.py`:
+
+[source, python]
+----
+import yaml
+
+inventory = {
+  "devices": [
+    {"name": "R1", "mgmt_ip": "10.10.20.10", "role": "router"},
+    {"name": "SW1", "mgmt_ip": "10.10.20.30", "role": "switch"}
+  ]
+}
+
+with open("inventory.yaml", "w", encoding="utf-8") as f:
+  yaml.safe_dump(inventory, f, sort_keys=False)
+
+print("Wrote inventory.yaml")
+----
+
+=== 3.3 Convert API JSON to YAML
+
+Create `api_to_yaml.py`:
+
+[source, python]
+----
+import requests
+import yaml
+
+url = "https://jsonplaceholder.typicode.com/posts/1"
+response = requests.get(url, timeout=10)
+data = response.json()
+
+with open("post_1.yaml", "w", encoding="utf-8") as f:
+  yaml.safe_dump(data, f, sort_keys=False)
+
+print("Saved API response to post_1.yaml")
+----
+
+=== 3.4 Use YAML as Input to an API Call
+
+Create `api_from_yaml.py` and an input file `post_payload.yaml`:
+
+[source, yaml]
+----
+title: ITC 2310 YAML Post
+body: Created from a YAML file
+userId: 1
+----
+
+[source, python]
+----
+import requests
+import yaml
+
+with open("post_payload.yaml", "r", encoding="utf-8") as f:
+  payload = yaml.safe_load(f)
+
+url = "https://jsonplaceholder.typicode.com/posts"
+headers = {"Content-Type": "application/json"}
+resp = requests.post(url, json=payload, headers=headers)
+
+print("Status:", resp.status_code)
+print("Response JSON:", resp.json())
+----
+
+=== Why YAML Matters for Automation
+
+YAML is often used for:
+
+* Device inventories (hostnames, IPs, roles)
+* Configuration templates and variable files
+* Tool configuration (pipelines, automation frameworks, CI/CD)
+
+You'll use YAML-based inventories and variables in later automation workflows.
+
+== Section 4 — Writing API Data to a File
 
 Modify `api_jokes.py` to log jokes to a file:
 
@@ -209,7 +371,7 @@ This pattern appears repeatedly in automation:
 
 You now have a permanent record of the jokes retrieved. In network automation, you'll log configuration changes, interface statistics, and device inventories the same way.
 
-== Section 4 — POST Request (Sending Data to an API)
+== Section 5 — POST Request (Sending Data to an API)
 
 Create `api_post_example.py`:
 
@@ -268,24 +430,17 @@ jsonplaceholder.typicode.com is a fake API—it doesn't actually store your data
 |===
 |Error|Solution
 |`ModuleNotFoundError: No module named 'requests'`|Install it: `pip install requests`
+|`ModuleNotFoundError: No module named 'yaml'`|Install it: `pip install pyyaml`
 |`ConnectionError` or timeout|API server is down or you have no internet. Check your connection and try a different public API if the first is unreachable.
 |`KeyError: 'title'` when accessing JSON|The API didn't return that key. Print the whole `response.json()` to see what keys actually exist.
 |`ValueError: No JSON object could be decoded`|The response isn't valid JSON. Check `response.status_code` first—if it's not 200-299, the server returned an error, not data.
 |`TypeError: object is not subscriptable`|You're trying to access `data[key]` but `data` isn't a dictionary. Verify you called `.json()` on the response.
+|YAML parse error|YAML is indentation-sensitive. Use spaces (not tabs) and verify consistent indentation.
 |===
-
-== Lab 1 Deliverables
-
-Submit the following files:
-
-* `api_get_basic.py` — Your first GET request script
-* `api_jokes.py` — Function-based API calls and file output
-* `api_post_example.py` — POST request example
-* `jokes_output.txt` — Output file from running `api_jokes.py` (containing 5 jokes)
 
 == Reflection Questions
 
-Answer the following questions:
+After completing this lab activity you should be able to answer these questions:
 
 . **Describe the HTTP request/response cycle:** When you call `requests.get(url)`, what travels from your computer to the server and back?
 
@@ -298,6 +453,10 @@ Answer the following questions:
 . **Real-world application:** When you automate network devices with RESTCONF in later labs, what role will understanding HTTP methods (GET, POST) and JSON parsing play?
 
 . **Challenge question:** What would change in your code if an API required sending authentication (username/password)? (Hint: Headers!)
+
+. **YAML vs. JSON:** Compare YAML and JSON in terms of readability and common automation use cases. Which is easier to read? Which is more common in APIs?
+
+. **YAML in automation:** Why do automation tools often use YAML files for inventory and configuration?
 
 == Optional Challenge Exercises
 
@@ -312,3 +471,5 @@ Try these if you finish early or want more practice:
 . **Multiple endpoints:** Write a script that fetches data from multiple different public APIs in a loop and combines the results into a summary file.
 
 . **Input validation:** Modify `api_post_example.py` to prompt the user for input, validate it (e.g., title isn't empty), and then POST it.
+
+. **YAML inventory:** Create a `devices.yaml` file with at least 4 devices (name, IP, role). Write a script that reads the file and prints a formatted inventory report.
