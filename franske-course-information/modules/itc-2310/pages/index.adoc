@@ -12,4 +12,7 @@ This is the homepage for the ITC-2310 classes taught by Dr. Ben Franske.
 
 == Resources
 
+* https://www.cisco.com/c/dam/en/us/products/collateral/enterprise-networks/nb-06-ios-xe-prog-ebook-cte-en.pdf[Cisco IOS XE Programmability
+Automating Device Lifecycle Management Book]
+
 include::program-info:ROOT:partial$stdfooter.adoc[]

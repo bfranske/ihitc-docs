@@ -1,5 +1,14 @@
 = LAB 3 - RESTCONF + YANG Models (GET + PUT/PATCH/DELETE)
 
+== Readings and Videos to Prepare
+
+These readings and videos will introduce you to important concepts and details which will help you complete this lab activity:
+
+NOTE: You do not need to follow-along or complete any activities from these resources but you should watch/read them to prepare for the remainder of this lab.
+
+* https://crossconnect.com/posts/navigating-restconf-for-cisco-network-engineers/[Navigating RESTCONF for Cisco Network Engineers]
+* https://networkop.co.uk/blog/2017/02/15/restconf-yang/[Introduction to YANG Programming and RESTCONF on Cisco IOS XE]
+
 == Learning Objectives
 
 By the end of this lab, you will:

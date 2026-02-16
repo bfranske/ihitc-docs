@@ -1,4 +1,14 @@
-= LAB 4 — NETCONF + YANG Models (get/get-config/edit-config/delete-config)
+= LAB 4  -  NETCONF + YANG Models (get/get-config/edit-config/delete-config)
+
+== Readings and Videos to Prepare
+
+These readings and videos will introduce you to important concepts and details which will help you complete this lab activity:
+
+NOTE: You do not need to follow-along or complete any activities from these resources but you should watch/read them to prepare for the remainder of this lab.
+
+* https://video.cisco.com/detail/video/6303888807001[NETCONF with YANG Suite]
+* https://networkop.co.uk/blog/2017/01/25/netconf-intro/[Getting Started With NETCONF and YANG on Cisco IOS XE]
+* https://anirudhkamath.github.io/network-automation-blog/notes/network-telemetry-using-netconf-telegraf-prometheus.html[Monitoring using NETCONF]
 
 == Learning Objectives
 
@@ -23,7 +33,7 @@ By the end of this lab, you will:
 
 [IMPORTANT]
 ====
-**Connection to Lab 3:** In Lab 3, you learned RESTCONF—a REST API using HTTP methods and JSON. In this lab, you'll learn NETCONF—an older, more feature-rich protocol using RPC (Remote Procedure Call), XML, and SSH transport. 
+**Connection to Lab 3:** In Lab 3, you learned RESTCONF - a REST API using HTTP methods and JSON. In this lab, you'll learn NETCONF - an older, more feature-rich protocol using RPC (Remote Procedure Call), XML, and SSH transport. 
 
 **You'll perform the same tasks** (create interfaces, modify configs, delete interfaces) **using NETCONF instead of RESTCONF**. This prepares you for Lab 5, where you'll compare both methods side-by-side and learn when to use each.
 ====
@@ -60,6 +70,7 @@ You **must complete Lab 3** before starting this lab. You should be comfortable 
 * The `requests` library and REST API concepts (from Labs 2-3)
 
 **New skills you'll learn:**
+
 * The `ncclient` Python library for NETCONF
 * Working with XML data instead of JSON
 * NETCONF RPC operations vs. HTTP methods
@@ -68,8 +79,8 @@ You **must complete Lab 3** before starting this lab. You should be comfortable 
 You will need:
 
 * Python 3.7 or later with `ncclient` library installed (`pip install ncclient`)
-* Console access to a Cisco 4331 router and/or 3650 switch
-* The devices will start with no configuration—you will configure them from scratch
+* Console access to Cisco 4331 routers and 3650 switches
+* The devices will start with no configuration - you will configure them from scratch
 * Understanding that NETCONF works with datastores (running, candidate, startup)
 
 [NOTE]
@@ -84,35 +95,27 @@ ncclient provides a Python interface to NETCONF operations. It handles the SSH c
 
 == Lab Environment & Device Access
 
-This lab uses the **same physical environment as Lab 3**:
+This lab uses the **same physical environment as Lab 1**:
 
-* **Cisco 4331 Router** — Management IP `10.10.20.30/24`
-* **Cisco 3650 Switch** — Management IP `10.10.20.40/24`
+* **Cisco 4331 Routers** - R1 `10.10.20.10/24`, R2 `10.10.20.20/24` on GigabitEthernet0/0/1
+* **Cisco 3650 Switches** - SW1 `10.10.20.30/24`, SW2 `10.10.20.40/24` on VLAN 1
 
-Both devices run **Cisco IOS-XE** and start with **no configuration**. You will:
+All devices run **Cisco IOS-XE** and start with **no configuration**. You will:
 
-1. Console into each device
-2. Configure management interfaces and IP addresses
-3. **Enable NETCONF** (instead of RESTCONF)
-4. Create user accounts for API access
-5. Test connectivity via Python with ncclient
+. Console into each device
+. Configure management interfaces and IP addresses
+. Enable NETCONF (instead of RESTCONF)
+. Create user accounts for API access
+. Test connectivity via Python with ncclient
 
 **Network Details:**
+
 * Management VLAN: `10.10.20.0/24`
 * Default Gateway: `10.10.20.1` (provided by instructor)
 * Your workstation IP: Assigned by instructor (e.g., `10.10.20.5/24`)
 * NETCONF Port: **830 (SSH)** vs. RESTCONF Port: 443 (HTTPS)
 
-[TIP]
-====
-**Key Difference from Lab 3:** 
-* Lab 3: RESTCONF over HTTPS (port 443), JSON data, HTTP authentication
-* Lab 4: NETCONF over SSH (port 830), XML data, SSH authentication
-
-Both use the **same YANG models** to define data structures!
-====
-
-== Part A — Initial Device Configuration via CLI
+== Section 1 - Initial Device Configuration via CLI
 
 Before you can use NETCONF, you must configure the devices to enable the protocol. Much of this is identical to Lab 3, but we'll enable NETCONF instead of RESTCONF.
 
@@ -156,7 +159,7 @@ Router(config-line)# exit
 ! Configure management interface
 Router(config)# interface GigabitEthernet0/0/1
 Router(config-if)# description Management Interface
-Router(config-if)# ip address 10.10.20.30 255.255.255.0
+Router(config-if)# ip address 10.10.20.10 255.255.255.0
 Router(config-if)# no shutdown
 Router(config-if)# exit
 
@@ -188,14 +191,16 @@ Expected output:
 [source, text]
 ----
 Interface              IP-Address      OK? Method Status                Protocol
-GigabitEthernet0/0/1   10.10.20.30     YES manual up                    up
+GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
 ----
 
 Test from your workstation:
 [source, bash]
 ----
-ping -c 3 10.10.20.30
+ping -c 3 10.10.20.10
 ----
+
+Repeat the same steps on R2 using IP `10.10.20.20/24` on GigabitEthernet0/0/1.
 
 === Step 2: Enable NETCONF on the Router
 
@@ -213,6 +218,7 @@ R1(config)# netconf-yang feature candidate-datastore
 [NOTE]
 ====
 **NETCONF vs RESTCONF commands:**
+
 * Lab 3 RESTCONF: `ip http secure-server` and `restconf`
 * Lab 4 NETCONF: `netconf-yang`
 
@@ -246,10 +252,11 @@ Look for `ncsshd` (NETCONF SSH daemon) with status "Running".
 [TIP]
 ====
 **Troubleshooting:** If NETCONF doesn't show as running:
-1. Verify SSH is working: `show ip ssh`
-2. Check RSA keys exist: `show crypto key mypubkey rsa`
-3. Re-enter the command: `netconf-yang`
-4. Wait 30-60 seconds for the process to start
+
+. Verify SSH is working: `show ip ssh`
+. Check RSA keys exist: `show crypto key mypubkey rsa`
+. Re-enter the command: `netconf-yang`
+. Wait 30-60 seconds for the process to start
 ====
 
 === Step 4: Configure the Switch (SW1)
@@ -271,7 +278,7 @@ Switch(config)# ip ssh version 2
 ! Configure management VLAN
 Switch(config)# interface vlan 1
 Switch(config-if)# description Management Interface
-Switch(config-if)# ip address 10.10.20.40 255.255.255.0
+Switch(config-if)# ip address 10.10.20.30 255.255.255.0
 Switch(config-if)# no shutdown
 Switch(config-if)# exit
 
@@ -290,23 +297,25 @@ Switch(config)# end
 Switch# write memory
 ----
 
+Repeat the same steps on SW2 using IP `10.10.20.40/24` on VLAN 1.
+
 === Step 5: Test Network Connectivity
 
 From your workstation, verify connectivity:
 
 [source, bash]
 ----
-ping -c 3 10.10.20.30  # R1
-ping -c 3 10.10.20.40  # SW1
+ping -c 3 10.10.20.10  # R1
+ping -c 3 10.10.20.30  # SW1
 ----
 
 **Check NETCONF port accessibility (optional):**
 [source, bash]
 ----
-nc -zv 10.10.20.30 830  # Test if port 830 is open on R1
+nc -zv 10.10.20.10 830  # Test if port 830 is open on R1
 ----
 
-Expected output: `Connection to 10.10.20.30 830 port [tcp/*] succeeded!`
+Expected output: `Connection to 10.10.20.10 830 port [tcp/*] succeeded!`
 
 === Step 6: Install ncclient and Test NETCONF Connection
 
@@ -329,7 +338,7 @@ import sys
 
 # Device connection parameters
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -342,7 +351,7 @@ try:
     
     # Establish NETCONF session
     with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
-        print("✓ NETCONF connection successful!")
+        print("OK: NETCONF connection successful!")
         
         # Display NETCONF capabilities (what the device supports)
         print("\nDevice NETCONF Capabilities:")
@@ -353,10 +362,10 @@ try:
                 module_name = capability.split('module=')[1].split('&')[0]
                 print(f"  - {module_name}")
         
-        print(f"\n✓ Device supports {len(list(m.server_capabilities))} capabilities")
+        print(f"\nOK: Device supports {len(list(m.server_capabilities))} capabilities")
         
 except Exception as e:
-    print(f"✗ Connection failed: {e}")
+    print(f"ERROR: Connection failed: {e}")
     sys.exit(1)
 ----
 
@@ -369,8 +378,8 @@ python test_netconf_connection.py
 **Expected output:**
 [source, text]
 ----
-Connecting to 10.10.20.30 via NETCONF...
-✓ NETCONF connection successful!
+Connecting to 10.10.20.10 via NETCONF...
+OK: NETCONF connection successful!
 
 Device NETCONF Capabilities:
 
@@ -381,16 +390,17 @@ Device NETCONF Capabilities:
   - Cisco-IOS-XE-vlan
   ... (many more)
 
-✓ Device supports 150+ capabilities
+OK: Device supports 150+ capabilities
 ----
 
 [IMPORTANT]
 ====
 **What just happened?**
-1. ncclient established an SSH connection to port 830
-2. NETCONF protocol handshake occurred
-3. Device sent its list of supported YANG models (capabilities)
-4. You're now ready to send NETCONF operations!
+
+. ncclient established an SSH connection to port 830
+. NETCONF protocol handshake occurred
+. Device sent its list of supported YANG models (capabilities)
+. You're now ready to send NETCONF operations!
 
 This is analogous to Lab 3's test where you made an HTTP GET request to RESTCONF. But NETCONF uses SSH transport and capabilities negotiation instead.
 ====
@@ -405,20 +415,20 @@ R1# write memory
 SW1# write memory
 ----
 
-**Part A Complete!** Your devices are now accessible via NETCONF. You're ready to start automating them with Python.
+**Section 1 Complete!** Your devices are now accessible via NETCONF. You're ready to start automating them with Python.
 
-== Section 1 — Understanding NETCONF and YANG (Critical Theory Section)
+== Section 2 - Understanding NETCONF and YANG (Critical Theory Section)
 
 [IMPORTANT]
 ====
-**Comparison to Lab 3:** In Lab 3, you learned RESTCONF—a REST API using HTTP and JSON. Now you're learning NETCONF—a protocol using RPC operations, SSH transport, and XML.
+**Comparison to Lab 3:** In Lab 3, you learned RESTCONF - a REST API using HTTP and JSON. Now you're learning NETCONF - a protocol using RPC operations, SSH transport, and XML.
 
 **Key insight:** Both RESTCONF and NETCONF expose the **same YANG models**. The data structures are identical; only the protocol and data format differ.
 ====
 
 **NETCONF (Network Configuration Protocol)** is an IETF standard protocol (RFC 6241) for network device configuration and management. It predates RESTCONF and offers more advanced features.
 
-=== 1.1 NETCONF vs RESTCONF Comparison
+=== 2.1 NETCONF vs RESTCONF Comparison
 
 [cols="2,3,3", options="header"]
 |===
@@ -442,6 +452,7 @@ SW1# write memory
 * Working with multiple vendors (broader support)
 * Need to test configurations before applying (candidate datastore)
 * Require detailed error reporting
+* Need persistent connections for telemetry streaming
 
 **When to use RESTCONF:**
 * Prefer JSON and REST APIs
@@ -449,7 +460,7 @@ SW1# write memory
 * Building web-based automation (HTTPS native)
 * Team more familiar with REST than XML/RPC
 
-=== 1.2 NETCONF Architecture
+=== 2.2 NETCONF Architecture
 
 NETCONF operates as a client-server protocol with four layers:
 
@@ -467,7 +478,7 @@ NETCONF operates as a client-server protocol with four layers:
 +---------------------+
 ----
 
-=== 1.3 NETCONF Datastores
+=== 2.3 NETCONF Datastores
 
 Unlike RESTCONF (which only accesses `running-config`), NETCONF supports multiple **datastores**:
 
@@ -480,15 +491,16 @@ Unlike RESTCONF (which only accesses `running-config`), NETCONF supports multipl
 |===
 
 **Typical workflow with candidate datastore:**
-1. Lock candidate datastore
-2. Edit candidate configuration (make changes)
-3. Validate candidate configuration
-4. Commit candidate to running (or discard if invalid)
-5. Unlock candidate datastore
+
+. Lock candidate datastore
+. Edit candidate configuration (make changes)
+. Validate candidate configuration
+. Commit candidate to running (or discard if invalid)
+. Unlock candidate datastore
 
 This provides transactional behavior: all changes succeed together or all fail together.
 
-=== 1.4 NETCONF RPC Operations
+=== 2.4 NETCONF RPC Operations
 
 NETCONF uses RPC (Remote Procedure Call) operations instead of HTTP methods:
 
@@ -501,16 +513,17 @@ NETCONF uses RPC (Remote Procedure Call) operations instead of HTTP methods:
 |`<delete-config>`|DELETE|Remove configuration|startup/candidate
 |`<copy-config>`|(none)|Copy entire config between datastores|any
 |`<lock>` / `<unlock>`|(none)|Lock datastore for exclusive access|any
-|`<commit>`|(none)|Commit candidate to running|candidate → running
+|`<commit>`|(none)|Commit candidate to running|candidate -> running
 |`<validate>`|(none)|Validate configuration without applying|candidate
 |===
 
 **In this lab, you'll focus on:**
-* `get-config` — retrieve interface configurations
-* `edit-config` — create and modify interfaces
-* `delete-config` or `edit-config` with delete operation — remove interfaces
 
-=== 1.5 NETCONF XML Structure
+* `get-config`  -  retrieve interface configurations
+* `edit-config`  -  create and modify interfaces
+* `delete-config` or `edit-config` with delete operation  -  remove interfaces
+
+=== 2.5 NETCONF XML Structure
 
 NETCONF operations use XML messages. Here's an example `<get-config>` RPC to retrieve all interfaces:
 
@@ -530,16 +543,16 @@ NETCONF operations use XML messages. Here's an example `<get-config>` RPC to ret
 
 Breaking it down:
 
-* `<rpc>` — wrapper for all NETCONF operations
-* `message-id` — unique identifier for tracking request/response
-* `<get-config>` — the operation we're performing
-* `<source>` — which datastore (running, candidate, or startup)
-* `<filter>` — what data to retrieve (analogous to RESTCONF URL path)
-* `xmlns` — XML namespace (equivalent to YANG module name)
+* `<rpc>`  -  wrapper for all NETCONF operations
+* `message-id`  -  unique identifier for tracking request/response
+* `<get-config>`  -  the operation we're performing
+* `<source>`  -  which datastore (running, candidate, or startup)
+* `<filter>`  -  what data to retrieve (analogous to RESTCONF URL path)
+* `xmlns`  -  XML namespace (equivalent to YANG module name)
 
 **The good news:** ncclient handles most XML construction for you!
 
-=== 1.6 YANG Models: Same Data, Different Format
+=== 2.6 YANG Models: Same Data, Different Format
 
 Remember the `ietf-interfaces` YANG model from Lab 3? It defines the **same data structure** for both RESTCONF and NETCONF:
 
@@ -588,7 +601,7 @@ Notice:
 * Namespaces are more explicit in XML (`xmlns=`)
 * The underlying data structure (from YANG) is **identical**
 
-=== 1.7 NETCONF Filtering
+=== 2.7 NETCONF Filtering
 
 To retrieve specific data (instead of entire config), NETCONF supports two filtering methods:
 
@@ -614,7 +627,7 @@ This retrieves only the `GigabitEthernet0/0/1` interface.
 
 We'll use subtree filtering in this lab because it's simpler and ncclient provides helper methods.
 
-=== 1.8 Error Handling in NETCONF
+=== 2.8 Error Handling in NETCONF
 
 NETCONF provides detailed error responses:
 
@@ -633,7 +646,7 @@ NETCONF provides detailed error responses:
 
 This is more detailed than RESTCONF HTTP status codes and includes the exact path where the error occurred.
 
-== Section 2 — NETCONF get-config: Reading Configuration via Python
+== Section 3 - NETCONF get-config: Reading Configuration via Python
 
 Now you'll use ncclient to retrieve interface configuration from the router.
 
@@ -642,7 +655,7 @@ Now you'll use ncclient to retrieve interface configuration from the router.
 **Comparison to Lab 3 Section 2:** In Lab 3, you used `requests.get()` with RESTCONF URLs. Here, you'll use `manager.get_config()` with XML filters. The data retrieved is the same, just in XML format instead of JSON.
 ====
 
-=== 2.1 Basic get-config: Retrieve All Interfaces
+=== 3.1 Basic get-config: Retrieve All Interfaces
 
 Create a Python script to retrieve all interfaces:
 
@@ -657,7 +670,7 @@ import json
 
 # Device connection parameters
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -723,7 +736,7 @@ python netconf_get_interfaces.py
             "ipv4": {
               "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-ip",
               "address": {
-                "ip": "10.10.20.30",
+                "ip": "10.10.20.10",
                 "netmask": "255.255.255.0"
               }
             }
@@ -738,15 +751,16 @@ python netconf_get_interfaces.py
 [TIP]
 ====
 **Understanding the Response:**
-* `rpc-reply` — wrapper for NETCONF responses
-* `data` — contains the actual configuration data
-* `interfaces/interface` — list of interfaces (from YANG model)
+
+* `rpc-reply`  -  wrapper for NETCONF responses
+* `data`  -  contains the actual configuration data
+* `interfaces/interface`  -  list of interfaces (from YANG model)
 * Each interface has `name`, `type`, `enabled`, and optional `ipv4`
 
 This is the **same data** you got from RESTCONF in Lab 3, just in XML/dict format instead of JSON!
 ====
 
-=== 2.2 Filtering for a Specific Interface
+=== 3.2 Filtering for a Specific Interface
 
 Retrieve only `GigabitEthernet0/0/1`:
 
@@ -760,7 +774,7 @@ import xmltodict
 import json
 
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -802,7 +816,7 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
         print("No IP address configured")
 ----
 
-=== 2.3 Verify NETCONF Data via CLI
+=== 3.3 Verify NETCONF Data via CLI
 
 **Critical:** Just like in Lab 3, verify that NETCONF data matches the CLI:
 
@@ -816,17 +830,18 @@ Expected output:
 ----
 Interface              IP-Address      OK? Method Status                Protocol
 GigabitEthernet0/0/0   unassigned      YES unset  administratively down down
-GigabitEthernet0/0/1   10.10.20.30     YES manual up                    up
+GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
 ----
 
 **Compare:**
-* NETCONF shows `GigabitEthernet0/0/1` with IP `10.10.20.30` and `enabled: true`
-* CLI shows the same interface as `up` with IP `10.10.20.30`
+
+* NETCONF shows `GigabitEthernet0/0/1` with IP `10.10.20.10` and `enabled: true`
+* CLI shows the same interface as `up` with IP `10.10.20.10`
 * NETCONF `enabled: false` = CLI `administratively down`
 
 The data is **identical**, proving NETCONF retrieves the actual device configuration.
 
-=== 2.4 Practice Exercises
+=== 3.4 Practice Exercises
 
 Modify the scripts to:
 
@@ -839,7 +854,7 @@ Modify the scripts to:
    - Check `enabled` field (true/false)
    - Print summary: "5 enabled, 3 disabled"
 
-3. **Find which interface has IP 10.10.20.30:**
+3. **Find which interface has IP 10.10.20.10:**
    - Loop through interfaces
    - Check if `ipv4` key exists
    - Print the interface name when IP matches
@@ -850,7 +865,7 @@ After each exercise, verify results with CLI commands:
 * `show interfaces status`
 * `show interface description`
 
-== Section 3 — NETCONF edit-config: Creating New Interfaces
+== Section 4 - NETCONF edit-config: Creating New Interfaces
 
 Now you'll use NETCONF to create a new loopback interface with an IP address, just like you did with RESTCONF PUT in Lab 3 Section 3.
 
@@ -859,7 +874,7 @@ Now you'll use NETCONF to create a new loopback interface with an IP address, ju
 **Comparison to Lab 3:** In Lab 3, you used `requests.put()` with JSON payload. Here, you'll use `manager.edit_config()` with XML payload. The result is the same: a new interface created on the device.
 ====
 
-=== 3.1 Create Loopback99 with IP Address
+=== 4.1 Create Loopback99 with IP Address
 
 [source, python]
 ----
@@ -869,7 +884,7 @@ Now you'll use NETCONF to create a new loopback interface with an IP address, ju
 from ncclient import manager
 
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -913,11 +928,11 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
     
     # Check if operation succeeded
     if "<ok/>" in netconf_reply.xml:
-        print("✓ Interface created successfully!")
+        print("OK: Interface created successfully!")
         print("\nYou can verify with CLI command:")
         print("  show ip interface brief | include Loopback99")
     else:
-        print("✗ Operation failed")
+        print("ERROR: Operation failed")
         print(netconf_reply)
 ----
 
@@ -931,13 +946,13 @@ python netconf_create_interface.py
 [source, text]
 ----
 Creating Loopback99 via NETCONF...
-✓ Interface created successfully!
+OK: Interface created successfully!
 
 You can verify with CLI command:
   show ip interface brief | include Loopback99
 ----
 
-=== 3.2 Understanding the XML Payload
+=== 4.2 Understanding the XML Payload
 
 Let's break down the XML configuration:
 
@@ -986,7 +1001,7 @@ Let's break down the XML configuration:
 
 **Same data, different format!** The YANG model defines the structure; NETCONF uses XML, RESTCONF uses JSON.
 
-=== 3.3 Verify the Change via CLI
+=== 4.3 Verify the Change via CLI
 
 On the router CLI:
 
@@ -1023,11 +1038,12 @@ end
 R1# show ip interface Loopback99
 ----
 
-You'll see the IP address, subnet mask, and interface status—all matching what you configured via NETCONF!
+You'll see the IP address, subnet mask, and interface status - all matching what you configured via NETCONF!
 
 [TIP]
 ====
 **Compare the three methods:**
+
 * **CLI:** Type commands manually (Lab 1 knowledge)
 * **RESTCONF:** HTTP PUT with JSON (Lab 3)
 * **NETCONF:** edit-config RPC with XML (Lab 4)
@@ -1035,7 +1051,7 @@ You'll see the IP address, subnet mask, and interface status—all matching what
 All three create the **exact same configuration** on the device. The difference is how you interact with the device programmatically.
 ====
 
-=== 3.4 edit-config Operations
+=== 4.4 edit-config Operations
 
 NETCONF supports different operations within edit-config:
 
@@ -1066,7 +1082,7 @@ Example using `operation="create"` to ensure interface doesn't already exist:
 
 If Loopback100 already exists, you'll get an error: `data-exists`.
 
-=== 3.5 Practice Exercises
+=== 4.5 Practice Exercises
 
 1. **Create Loopback100 with IP 10.99.100.1/24:**
    - Modify the script to use different interface name and IP
@@ -1086,7 +1102,7 @@ After each exercise, verify via CLI:
 * `show ip interface brief`
 * `show running-config interface <name>`
 
-== Section 4 — NETCONF edit-config: Modifying Existing Configuration
+== Section 5 - NETCONF edit-config: Modifying Existing Configuration
 
 Now you'll modify an existing interface using NETCONF, equivalent to RESTCONF PATCH in Lab 3 Section 4.
 
@@ -1095,7 +1111,7 @@ Now you'll modify an existing interface using NETCONF, equivalent to RESTCONF PA
 **Comparison to Lab 3:** In Lab 3, you used `requests.patch()` to modify only specific fields. With NETCONF `edit-config` using `operation="merge"`, you achieve the same result: only specified fields are updated, others remain unchanged.
 ====
 
-=== 4.1 Modify Loopback99 Description
+=== 5.1 Modify Loopback99 Description
 
 [source, python]
 ----
@@ -1105,7 +1121,7 @@ Now you'll modify an existing interface using NETCONF, equivalent to RESTCONF PA
 from ncclient import manager
 
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -1137,11 +1153,11 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
     )
     
     if "<ok/>" in netconf_reply.xml:
-        print("✓ Interface description updated successfully!")
+        print("OK: Interface description updated successfully!")
         print("\nVerify with CLI:")
         print("  show running-config interface Loopback99")
     else:
-        print("✗ Operation failed")
+        print("ERROR: Operation failed")
         print(netconf_reply)
 ----
 
@@ -1151,7 +1167,7 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
 python netconf_modify_interface.py
 ----
 
-=== 4.2 Add Secondary IP Address
+=== 5.2 Add Secondary IP Address
 
 You can also add additional configuration elements:
 
@@ -1163,7 +1179,7 @@ You can also add additional configuration elements:
 from ncclient import manager
 
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -1194,16 +1210,16 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
     netconf_reply = m.edit_config(target='running', config=config_secondary)
     
     if "<ok/>" in netconf_reply.xml:
-        print("✓ Secondary IP added successfully!")
+        print("OK: Secondary IP added successfully!")
         print("\nVerify with CLI:")
         print("  show running-config interface Loopback99")
         print("  show ip interface Loopback99 | include Secondary")
     else:
-        print("✗ Operation failed")
+        print("ERROR: Operation failed")
         print(netconf_reply)
 ----
 
-=== 4.3 Verify the Change via CLI
+=== 5.3 Verify the Change via CLI
 
 On the router:
 
@@ -1243,7 +1259,7 @@ You should see:
 
 **Key observation:** The merge operation **added** the secondary IP without removing the primary IP. This is equivalent to RESTCONF PATCH behavior.
 
-=== 4.4 Practice Exercises
+=== 5.4 Practice Exercises
 
 1. **Change Loopback99 description again:**
    - Update description to "Your Name - Lab 4"
@@ -1259,7 +1275,7 @@ You should see:
 
 After each exercise, verify with CLI commands and observe that only the fields you specified in XML were changed.
 
-== Section 5 — NETCONF delete-config: Removing Configuration
+== Section 6 - NETCONF delete-config: Removing Configuration
 
 Now you'll delete an interface using NETCONF, equivalent to RESTCONF DELETE in Lab 3 Section 5.
 
@@ -1268,7 +1284,7 @@ Now you'll delete an interface using NETCONF, equivalent to RESTCONF DELETE in L
 **Comparison to Lab 3:** In Lab 3, you used `requests.delete()` with a URL pointing to the resource. Here, you'll use `edit-config` with `operation="delete"` in the XML payload.
 ====
 
-=== 5.1 Delete Loopback99 Interface
+=== 6.1 Delete Loopback99 Interface
 
 [source, python]
 ----
@@ -1278,7 +1294,7 @@ Now you'll delete an interface using NETCONF, equivalent to RESTCONF DELETE in L
 from ncclient import manager
 
 device = {
-    'host': '10.10.20.30',
+    'host': '10.10.20.10',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -1307,12 +1323,12 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
     )
     
     if "<ok/>" in netconf_reply.xml:
-        print("✓ Interface deleted successfully!")
+        print("OK: Interface deleted successfully!")
         print("\nVerify with CLI:")
         print("  show ip interface brief | include Loopback99")
         print("  (should return no output)")
     else:
-        print("✗ Operation failed")
+        print("ERROR: Operation failed")
         print(netconf_reply)
 ----
 
@@ -1322,7 +1338,7 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
 python netconf_delete_interface.py
 ----
 
-=== 5.2 Verify Deletion via CLI
+=== 6.2 Verify Deletion via CLI
 
 On the router:
 
@@ -1332,7 +1348,7 @@ On the router:
 R1# show ip interface brief | include Loopback99
 ----
 
-Expected output: **(no output—interface no longer exists)**
+Expected output: **(no output - interface no longer exists)**
 
 **Step 2: Try to show interface config (should error):**
 [source, cisco-ios]
@@ -1357,7 +1373,7 @@ Loopback99 should not appear in the list.
 
 **Success!** The interface was completely removed from the running configuration via NETCONF.
 
-=== 5.3 Delete vs Remove Operations
+=== 6.3 Delete vs Remove Operations
 
 NETCONF provides two deletion operations:
 
@@ -1378,7 +1394,7 @@ Example using `remove` (safer):
 
 If Loopback99 doesn't exist, `remove` succeeds silently. With `delete`, you'd get an error.
 
-=== 5.4 Practice Exercises
+=== 6.4 Practice Exercises
 
 1. **Delete Loopback100 and Loopback101:**
    - Modify the script to delete both interfaces
@@ -1395,7 +1411,7 @@ If Loopback99 doesn't exist, `remove` succeeds silently. With `delete`, you'd ge
 
 After deletion, always verify with CLI commands to confirm the configuration is gone.
 
-== Section 6 — Working with Cisco 3650 Switch (VLANs Example)
+== Section 7 - Working with Cisco 3650 Switch (VLANs Example)
 
 Now you'll work with the Cisco 3650 switch using NETCONF to create and manage VLANs, just like you did with RESTCONF in Lab 3 Section 6.
 
@@ -1404,7 +1420,7 @@ Now you'll work with the Cisco 3650 switch using NETCONF to create and manage VL
 **Comparison to Lab 3:** In Lab 3, you used the `Cisco-IOS-XE-vlan` YANG model with RESTCONF. Here, you'll use the same YANG model with NETCONF XML instead of JSON.
 ====
 
-=== 6.1 Understanding Cisco VLAN YANG Model
+=== 7.1 Understanding Cisco VLAN YANG Model
 
 Cisco switches use a proprietary YANG model for VLANs:
 
@@ -1425,7 +1441,7 @@ module Cisco-IOS-XE-vlan {
 }
 ----
 
-=== 6.2 Create VLAN 100 on Switch
+=== 7.2 Create VLAN 100 on Switch
 
 [source, python]
 ----
@@ -1436,7 +1452,7 @@ from ncclient import manager
 
 # Switch connection parameters
 device = {
-    'host': '10.10.20.40',  # SW1 IP address
+    'host': '10.10.20.30',  # SW1 IP address
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -1467,11 +1483,11 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
     )
     
     if "<ok/>" in netconf_reply.xml:
-        print("✓ VLAN 100 created successfully!")
+        print("OK: VLAN 100 created successfully!")
         print("\nVerify with CLI on switch:")
         print("  show vlan brief | include 100")
     else:
-        print("✗ Operation failed")
+        print("ERROR: Operation failed")
         print(netconf_reply)
 ----
 
@@ -1481,7 +1497,7 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
 python netconf_create_vlan.py
 ----
 
-=== 6.3 Verify VLAN Creation via CLI
+=== 7.3 Verify VLAN Creation via CLI
 
 On the switch CLI:
 
@@ -1504,7 +1520,7 @@ SW1# show vlan brief
 
 You should see VLAN 100 in the list with name "Engineering" and status "active".
 
-=== 6.4 Retrieve VLANs via NETCONF
+=== 7.4 Retrieve VLANs via NETCONF
 
 [source, python]
 ----
@@ -1516,7 +1532,7 @@ import xmltodict
 import json
 
 device = {
-    'host': '10.10.20.40',
+    'host': '10.10.20.30',
     'port': 830,
     'username': 'admin',
     'password': 'Cisco123!',
@@ -1578,7 +1594,7 @@ SW1# show vlan brief
 
 The NETCONF data matches the CLI output exactly.
 
-=== 6.5 Practice Exercises
+=== 7.5 Practice Exercises
 
 1. **Create VLANs 200 and 300:**
    - VLAN 200: "Sales"
@@ -1611,7 +1627,7 @@ The NETCONF data matches the CLI output exactly.
 |`XMLSyntaxError`|Malformed XML in config string|Check for unclosed tags, missing namespaces
 |Config applied but doesn't work|Wrong YANG model namespace|Verify namespace URIs match device capabilities
 |Interface created but no IP|Missing `<ipv4>` section in XML|Add complete `<ipv4><address>` structure
-|VLAN operations fail on routers|VLANs are switch-specific|Use switch IP address (10.10.20.40), not router
+|VLAN operations fail on routers|VLANs are switch-specific|Use switch IP address (10.10.20.30), not router
 |===
 
 === Debugging Tips
@@ -1653,62 +1669,9 @@ The NETCONF data matches the CLI output exactly.
    ```
    Ensure you have version 0.6.9 or later
 
-== Lab 4 Deliverables
-
-=== Required Python Scripts
-
-1. `test_netconf_connection.py` — Test NETCONF connectivity and list capabilities
-2. `netconf_get_interfaces.py` — Retrieve all interfaces from router
-3. `netconf_get_specific_interface.py` — Retrieve single interface with filtering
-4. `netconf_create_interface.py` — Create Loopback99 with IP address
-5. `netconf_modify_interface.py` — Update interface description
-6. `netconf_delete_interface.py` — Delete Loopback99
-7. `netconf_create_vlan.py` — Create VLAN 100 on switch
-8. `netconf_get_vlans.py` — Retrieve VLAN configuration from switch
-
-=== Documentation Requirements
-
-Create a document named `lab4_report.txt` or `lab4_report.pdf` containing:
-
-1. **Configuration Evidence (Part A):**
-   - Copy of router configuration showing NETCONF enabled
-   - Copy of switch configuration showing NETCONF enabled
-   - Output from `show platform software yang-management process` on both devices
-   - Screenshot of successful `test_netconf_connection.py` output showing capabilities
-
-2. **Python Script Outputs (Sections 2-6):**
-   - Output from each script (items 2-8 above)
-   - **CLI verification screenshots for EACH operation:**
-     * After get-config: `show ip interface brief`
-     * After create interface: `show running-config interface Loopback99`
-     * After modify: `show running-config interface Loopback99` showing changed description
-     * After delete: `show ip interface brief | include Loopback99` (no output)
-     * After create VLAN: `show vlan brief` showing VLAN 100
-
-3. **NETCONF vs RESTCONF Comparison Table:**
-   Create a table comparing your experience with both protocols:
-   
-   [cols="2,3,3", options="header"]
-   |===
-   |Aspect|NETCONF (Lab 4)|RESTCONF (Lab 3)
-   |**Ease of Use**|Your assessment|Your assessment
-   |**Data Format**|XML|JSON
-   |**Error Messages**|Your assessment|Your assessment
-   |**Code Complexity**|Your assessment|Your assessment
-   |**Preferred for**|Your recommendation|Your recommendation
-   |===
-
-4. **XML to JSON Comparison:**
-   - Take the Loopback99 configuration from Section 3
-   - Show the XML payload used in NETCONF
-   - Show the equivalent JSON payload from Lab 3 RESTCONF
-   - Annotate how they map to each other
-
-5. **Answers to Reflection Questions** (see next section)
-
 == Reflection Questions
 
-Answer these questions in your `lab4_report` document:
+After completing this lab activity you should be able to answer these questions:
 
 . **NETCONF vs RESTCONF:** Based on your experience in Labs 3 and 4, which protocol do you prefer and why? Consider ease of use, error handling, and data format.
 
@@ -1856,9 +1819,9 @@ This demonstrates NETCONF's pub/sub capability for telemetry.
 
 In Lab 5, you'll combine everything you've learned:
 
-* **SSH automation (Lab 1)** — Direct CLI commands with Netmiko
-* **RESTCONF (Lab 3)** — REST API with JSON over HTTPS
-* **NETCONF (Lab 4)** — RPC operations with XML over SSH
+* **SSH automation (Lab 1)**  -  Direct CLI commands with Netmiko
+* **RESTCONF (Lab 3)**  -  REST API with JSON over HTTPS
+* **NETCONF (Lab 4)**  -  RPC operations with XML over SSH
 
 You'll configure a multi- device network (2 routers, 2 switches) and compare all three methods side-by-side for tasks like:
 
