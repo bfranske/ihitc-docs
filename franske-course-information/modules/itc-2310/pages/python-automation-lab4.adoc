@@ -1815,6 +1815,34 @@ This demonstrates NETCONF's pub/sub capability for telemetry.
 * **XML vs JSON Comparison:** https://www.w3schools.com/js/js_json_xml.asp
 * **NETCONF Tutorial:** https://ultraconfig.com.au/blog/learn-netconf-by-doing-with-cisco-ios-xe/
 
+== Other Automation Options: SNMP and gNMI
+
+NETCONF and RESTCONF are not the only ways to automate and observe networks. Two common alternatives are SNMP and gNMI.
+
+**SNMP (Simple Network Management Protocol):** A long-standing protocol focused on monitoring and basic configuration. It is widely supported and great for polling counters, but configuration workflows can be limited, difficult to understand, and vendor-specific.
+
+**gNMI (gRPC Network Management Interface):** A modern, model-driven API that uses gRPC and YANG models. It is strong for streaming telemetry and structured data at scale, but device support varies by platform and it is a relatively new protocol with somewhat limited tooling and support.
+
+[cols="1,3,3", options="header"]
+|===
+|Method|Advantages|Disadvantages
+|Netmiko (SSH CLI)
+|Easy to start, works on nearly any device with SSH, aligns with CLI knowledge
+|Unstructured text parsing, error handling is brittle, less safe for large scale changes
+|RESTCONF
+|Structured JSON, uses YANG models, standard HTTP tools and libraries
+|Model complexity, vendor differences in YANG support, HTTPS and authentication overhead
+|NETCONF
+|Transaction support, structured XML, strong error reporting, uses YANG models
+|XML verbosity, namespace complexity, client setup is heavier than REST
+|gNMI
+|Streaming telemetry, efficient at scale, model-driven with YANG
+|Platform support varies, requires gRPC tooling, fewer simple examples than REST/NETCONF
+|SNMP
+|Ubiquitous support, great for monitoring counters, lightweight polling
+|Limited configuration workflows, MIB complexity, security and version differences
+|===
+
 == What's Next?
 
 In Lab 5, you'll combine everything you've learned:
