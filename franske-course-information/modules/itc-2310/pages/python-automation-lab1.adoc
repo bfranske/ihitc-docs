@@ -1,5 +1,16 @@
 = LAB 1 — Network Device Automation with SSH and Netmiko
 
+== Readings and Videos to Prepare
+
+These readings and videos will introduce you to important concepts and details which will help you complete this lab activity:
+
+NOTE: You do not need to follow-along or complete any activities from these resources but you should watch/read them to prepare for the remainder of this lab.
+
+* https://ciscolearning.github.io/cisco-learning-codelabs/posts/netmiko-ios/[Configuring Cisco IOS with Netmiko]
+* https://www.packetswitch.co.uk/netmiko-intro/[https://www.packetswitch.co.uk/netmiko-intro/]
+* https://youtu.be/D-NPjb5P9Jw[From Manual to Automated: Using Netmiko for Cisco Networks by Andre King]
+* https://www.techtarget.com/searchnetworking/tip/Network-automation-with-Python-Paramiko-Netmiko-and-NAPALM[Compare Paramiko, Netmiko and NAPALM network automation]
+
 == Learning Objectives
 
 By the end of this lab, you will:
