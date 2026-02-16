@@ -3,6 +3,7 @@
 == Learning Objectives
 
 By the end of this lab, you will:
+
 * Configure RESTCONF and HTTPS on Cisco IOS-XE devices via CLI
 * Create user accounts for RESTCONF API access
 * Understand what YANG models are and why they matter for network automation
@@ -30,12 +31,14 @@ Students learn foundational model-driven automation using RESTCONF. This is the 
 == Prerequisites
 
 You should be comfortable with:
+
 * Everything from Lab 1 (HTTP methods, JSON parsing, `requests` library, functions)
 * CCNA-level Cisco IOS CLI configuration (interfaces, IP addressing, user accounts)
 * Basic networking concepts (IP addresses, interfaces, subnets, default gateways)
 * Understanding of configuration vs. operational data
 
 You will need:
+
 * Python 3.7 or later with `requests` library
 * Console access to a Cisco 4331 router and/or 3650 switch (via lab environment)
 * The devices will start with no configuration—you will configure them from scratch
@@ -399,6 +402,7 @@ write memory
 **RESTCONF is a REST API that exposes network device configuration and operational data as defined by YANG models.**
 
 Think of it like this:
+
 * **YANG** = a blueprint describing what configuration exists on a device (structure, types, constraints)
 * **RESTCONF** = a REST API that uses HTTP to read and write that configuration
 * **RESTCONF URLs** = built directly from YANG model structure
@@ -506,6 +510,7 @@ In Lab 1, you only used GET and POST. Here, you'll use all four.
 === 1.6 Cisco IOS-XE and YANG Models
 
 Cisco IOS-XE devices support:
+
 * **IETF standard models** (e.g., `ietf-interfaces`, `ietf-ip`, `ietf-routing`)
 * **Cisco proprietary models** (e.g., `Cisco-IOS-XE-native`, `Cisco-IOS-XE-vlan`)
 
@@ -924,6 +929,7 @@ When you use RESTCONF PUT, you're generating the same configuration you would en
 === 3.4 Understanding PUT Behavior
 
 **Important:** PUT replaces the entire resource. If Loopback99 already exists and you PUT new data:
+
 - The old configuration is **completely replaced**
 - Fields you don't specify might be reset to defaults
 - This is why status `409 Conflict` can occur
@@ -935,6 +941,7 @@ When you use RESTCONF PUT, you're generating the same configuration you would en
 === 4.1 Understanding PUT vs PATCH
 
 Imagine an interface with these attributes:
+
 - name: Loopback99
 - enabled: true
 - description: "Old description"
@@ -1207,6 +1214,7 @@ RESTCONF DELETE is equivalent to using `no interface Loopback99` in global confi
 === 5.3 DELETE Safety Considerations
 
 **Warning:** DELETE is permanent. Best practices:
+
 - Always verify the URL before deleting
 - Check that you're deleting the correct resource
 - Consider backing up configuration before mass deletions
@@ -1585,6 +1593,7 @@ Try these extensions if you finish early or want deeper practice:
 Write a script that creates multiple loopback interfaces at once (Loopback100, Loopback101, Loopback102) with sequential IP addresses (192.0.2.100, 192.0.2.101, 192.0.2.102).
 
 Hints:
+
 - Use a loop
 - Generate interface names and IPs programmatically
 - Check status codes for each creation
@@ -1596,6 +1605,7 @@ Write a script that:
 1. Retrieves all interfaces
 2. Identifies which interfaces have no IP addresses
 3. Writes a report to `interface_audit.txt` listing:
+
    - Total interface count
    - Interfaces without IPs
    - Interfaces that are admin down
@@ -1665,6 +1675,7 @@ Write two scripts that both create Loopback99 with IP 99.99.99.99/32:
 3. **Both scripts should verify the interface creation using `show ip interface brief`**
 
 Compare:
+
 - Lines of code
 - Error handling complexity
 - Which is more maintainable?
@@ -1681,6 +1692,7 @@ Compare:
 == What's Next?
 
 In Lab 3, you'll learn:
+
 * NETCONF (XML-based alternative to RESTCONF)
 * Jinja2 templating for generating configurations
 * Using Ansible for network automation at scale

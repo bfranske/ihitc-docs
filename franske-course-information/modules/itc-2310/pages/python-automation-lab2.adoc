@@ -3,6 +3,7 @@
 == Learning Objectives
 
 By the end of this lab, you will:
+
 * Understand HTTP requests, status codes, and responses
 * Use Python's `requests` library to call REST APIs
 * Parse JSON responses into Python dictionaries
@@ -27,12 +28,14 @@ This lab builds that foundation in a simple, safe environment using public test 
 == Prerequisites
 
 You should be comfortable with:
+
 * Basic Python syntax (variables, data types, loops, conditionals)
 * Functions and return values
 * Dictionaries and how to access their values
 * Basic file I/O
 
 You will need:
+
 * Python 3.7 or later
 * The `requests` library (install with: `pip install requests`)
 
@@ -41,12 +44,14 @@ You will need:
 Before beginning the lab, understand these concepts:
 
 *HTTP (Hypertext Transfer Protocol)*:: The protocol used to send requests and receive responses over the internet. Common HTTP methods are:
+
   - `GET`: Retrieve data from a server
   - `POST`: Send data to a server to create a resource
   - `PUT`/`PATCH`: Modify existing resources
   - `DELETE`: Remove a resource
 
 *Status Codes*:: Numbers in the HTTP response indicating success or failure:
+
   - `200-299`: Success (200 = OK, 201 = Created)
   - `400-499`: Client error (404 = Not Found, 401 = Unauthorized)
   - `500-599`: Server error
@@ -158,6 +163,7 @@ for i in range(3):
 === Why Use Functions?
 
 Wrapping API calls in functions makes your code:
+
 * **Reusable**: Call `get_joke()` as many times as you want
 * **Maintainable**: If the API changes, fix it in one place
 * **Testable**: You can test your function separately
@@ -166,6 +172,7 @@ Wrapping API calls in functions makes your code:
 === Error Handling for Beginners
 
 Notice the `if r.status_code == 200:` check:
+
 * If the server returns status code 200 (success), process the JSON
 * Otherwise, return an error message instead of crashing
 * This prevents your program from breaking if the API is down or unavailable
@@ -195,6 +202,7 @@ with open("jokes_output.txt", "w", encoding="utf-8") as f:
 ----
 
 This pattern appears repeatedly in automation:
+
 * Retrieve data from an API (or network device)
 * Process or format the data
 * Write results to a log file for auditing and troubleshooting
@@ -239,6 +247,7 @@ print("Response JSON:", resp.json())
 * **POST**: Send data to a server to create something new. Like saying "Create a new forum post with this text."
 
 In this example:
+
 * `payload` is a Python dictionary containing the data you want to send
 * `json=payload` tells requests to convert the dictionary to JSON and send it
 * `headers={"Content-Type": "application/json"}` tells the server "I'm sending JSON data"

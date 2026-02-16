@@ -3,6 +3,7 @@
 == Learning Objectives
 
 By the end of this lab, you will:
+
 * Configure NETCONF on Cisco IOS-XE devices via CLI
 * Understand the differences between NETCONF and RESTCONF
 * Use Python and ncclient to connect to network devices via NETCONF
@@ -36,11 +37,13 @@ This lab teaches NETCONF, a standards-based protocol for network device configur
 * **Better error handling:** More detailed error messages with error paths
 
 However, NETCONF also has trade-offs:
+
 * **XML complexity:** XML is more verbose than JSON
 * **Steeper learning curve:** RPC model vs. familiar REST/HTTP
 * **Requires different tools:** ncclient library instead of requests
 
 You will:
+
 * Connect to devices using NETCONF over SSH (port 830)
 * Retrieve configuration using get-config with filters
 * Create interfaces using edit-config with XML payloads
@@ -50,6 +53,7 @@ You will:
 == Prerequisites
 
 You **must complete Lab 3** before starting this lab. You should be comfortable with:
+
 * YANG models and how they define data structures (from Lab 3)
 * Creating interfaces and IP configurations (CCNA knowledge)
 * Python dictionaries, lists, XML parsing concepts
@@ -62,6 +66,7 @@ You **must complete Lab 3** before starting this lab. You should be comfortable 
 * XPath and subtree filtering
 
 You will need:
+
 * Python 3.7 or later with `ncclient` library installed (`pip install ncclient`)
 * Console access to a Cisco 4331 router and/or 3650 switch
 * The devices will start with no configuration—you will configure them from scratch
@@ -368,6 +373,7 @@ Connecting to 10.10.20.30 via NETCONF...
 ✓ NETCONF connection successful!
 
 Device NETCONF Capabilities:
+
   - ietf-interfaces
   - ietf-ip
   - ietf-netconf
@@ -523,6 +529,7 @@ NETCONF operations use XML messages. Here's an example `<get-config>` RPC to ret
 ----
 
 Breaking it down:
+
 * `<rpc>` — wrapper for all NETCONF operations
 * `message-id` — unique identifier for tracking request/response
 * `<get-config>` — the operation we're performing
@@ -575,6 +582,7 @@ Remember the `ietf-interfaces` YANG model from Lab 3? It defines the **same data
 ----
 
 Notice:
+
 * JSON uses `{}` and `[]`, XML uses `<tags>`
 * JSON keys become XML element names
 * Namespaces are more explicit in XML (`xmlns=`)
@@ -837,6 +845,7 @@ Modify the scripts to:
    - Print the interface name when IP matches
 
 After each exercise, verify results with CLI commands:
+
 * `show ip interface brief`
 * `show interfaces status`
 * `show interface description`
@@ -1073,6 +1082,7 @@ If Loopback100 already exists, you'll get an error: `data-exists`.
    - This demonstrates NETCONF error handling
 
 After each exercise, verify via CLI:
+
 * `show ip interface brief`
 * `show running-config interface <name>`
 
@@ -1226,6 +1236,7 @@ R1# show interfaces Loopback99
 ----
 
 You should see:
+
 * Description: "Modified via NETCONF - Lab 4"
 * Primary IP: 192.0.2.99/24
 * Secondary IP: 192.0.2.100/24
@@ -1396,6 +1407,7 @@ Now you'll work with the Cisco 3650 switch using NETCONF to create and manage VL
 === 6.1 Understanding Cisco VLAN YANG Model
 
 Cisco switches use a proprietary YANG model for VLANs:
+
 * **Module:** `Cisco-IOS-XE-vlan`
 * **Namespace:** `http://cisco.com/ns/yang/Cisco-IOS-XE-vlan`
 
@@ -1552,6 +1564,7 @@ with manager.connect(**device, device_params={'name': 'iosxe'}) as m:
 Retrieving VLANs from switch via NETCONF...
 
 VLANs configured on switch:
+
 ----------------------------------------
 VLAN 1: default
 VLAN 100: Engineering
@@ -1730,6 +1743,7 @@ Answer these questions in your `lab4_report` document:
 === Challenge 1: Batch Interface Creation with NETCONF
 
 Write a script that creates Loopback interfaces 100-110 using a loop. Use NETCONF edit-config. The script should:
+
 - Loop through interface numbers 100-110
 - Generate XML payload for each with IP 10.0.{id}.1/24
 - Send edit-config for each
@@ -1738,6 +1752,7 @@ Write a script that creates Loopback interfaces 100-110 using a loop. Use NETCON
 - **Verify with CLI:** `show ip interface brief | include Loopback`
 
 Hints:
+
 - Use Python f-strings to generate XML dynamically
 - Wrap each edit in try/except
 - Compare execution time to creating interfaces via CLI
@@ -1747,6 +1762,7 @@ Hints:
 Write a script that audits all interfaces on the router for security compliance:
 1. Use get-config to retrieve all interfaces
 2. Check each interface for:
+
    - Has description (best practice)
    - If unused (no IP, admin down), should have specific description "UNUSED"
 3. Generate report showing non-compliant interfaces
@@ -1792,6 +1808,7 @@ Write two scripts that create 20 loopback interfaces:
 Measure execution time for each. Which is faster? Why?
 
 Consider:
+
 - Network overhead (HTTP headers vs SSH framing)
 - Connection setup time (HTTPS handshake vs SSH handshake)
 - Payload size (XML vs JSON)
@@ -1838,17 +1855,20 @@ This demonstrates NETCONF's pub/sub capability for telemetry.
 == What's Next?
 
 In Lab 5, you'll combine everything you've learned:
+
 * **SSH automation (Lab 1)** — Direct CLI commands with Netmiko
 * **RESTCONF (Lab 3)** — REST API with JSON over HTTPS
 * **NETCONF (Lab 4)** — RPC operations with XML over SSH
 
 You'll configure a multi- device network (2 routers, 2 switches) and compare all three methods side-by-side for tasks like:
+
 * Deploying OSPF routing protocol
 * Creating VLANs across switches
 * Collecting operational data
 * Bulk configuration management
 
 You'll learn **when to use each method** based on:
+
 * Device support
 * Task requirements (transactions needed?)
 * Team skills

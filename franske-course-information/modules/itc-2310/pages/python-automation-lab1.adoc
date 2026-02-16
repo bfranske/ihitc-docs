@@ -3,6 +3,7 @@
 == Learning Objectives
 
 By the end of this lab, you will:
+
 * Understand how SSH can be used for programmatic device configuration
 * Install and use the Netmiko Python library for network automation
 * Connect to Cisco IOS devices via SSH using Python
@@ -62,12 +63,14 @@ You already know how to configure Cisco routers and switches via CLI from your C
 * Immediate productivity for network engineers with CCNA background
 
 **2. Universal Device Compatibility**
+
 * **Works with any device that supports SSH** — old, new, any vendor
 * Doesn't require modern IOS-XE features (RESTCONF/NETCONF support)
 * Works with legacy devices that will never have API support
 * Single approach works across Cisco, Juniper, Arista, HP, and more (with appropriate `device_type`)
 
 **3. Can Automate ANY CLI Command**
+
 * **Not limited to configuration** — can automate operational commands too:
   - `ping 8.8.8.8` — Test network connectivity programmatically
   - `copy tftp:` — Download IOS images or config files from TFTP/FTP servers
@@ -78,12 +81,14 @@ You already know how to configure Cisco routers and switches via CLI from your C
 * Some operations (like TFTP transfers, pings, reload commands) have **no API equivalent**
 
 **4. Troubleshooting and Debugging**
+
 * Output looks exactly like manual CLI — easy to read and understand
 * Can copy commands from scripts and paste into CLI for verification
 * Familiar error messages
 * Easy to test commands manually before scripting
 
 **5. Quick Prototyping**
+
 * Fastest way to automate existing procedures
 * Take your documented CLI procedures and wrap them in Python loops
 * Minimal code changes needed to scale from 1 device to 100 devices
@@ -91,6 +96,7 @@ You already know how to configure Cisco routers and switches via CLI from your C
 === Disadvantages and Limitations of SSH/Netmiko
 
 **1. Fragile Text Parsing (MAJOR ISSUE)**
+
 * **Output format changes break automation** — This is the biggest drawback
 * Example of brittleness:
 +
@@ -110,30 +116,35 @@ GigabitEthernet0/0/1   10.10.20.10     YES manual up      up
 * Commands you've relied on for years can suddenly format differently
 
 **2. Unstructured Data Requires Complex Parsing**
+
 * `show ip interface brief` returns text, not structured data
 * Must write parsing logic: split lines, extract columns, handle edge cases
 * Different commands have different formats — no consistent structure
 * Error-prone: What if an interface name is unexpectedly long? What if output wraps?
 
 **3. No Data Validation**
+
 * Devices accept any command syntax — no schema validation
 * Typos in commands might be accepted but do nothing: `ip adress` vs `ip address`
 * Must verify every change worked (round-trip verification required)
 * No built-in rollback capability
 
 **4. Limited Error Handling**
+
 * Error messages are text strings: `% Invalid input detected at '^' marker.`
 * Must parse error text to understand what went wrong
 * Different error messages for same problem across IOS versions
 * Hard to programmatically distinguish error types
 
 **5. No Transactional Support**
+
 * Changes apply immediately — no "test first, then commit" workflow
 * If script fails halfway through, device is in partial config state
 * Must manually back out changes if something goes wrong
 * No built-in rollback like NETCONF candidate datastore
 
 **6. Sequential Execution Performance**
+
 * Commands execute one at a time over SSH
 * Slow for large data retrieval (full running configs on many devices)
 * Each command has network round-trip latency
@@ -142,6 +153,7 @@ GigabitEthernet0/0/1   10.10.20.10     YES manual up      up
 === When to Use SSH/Netmiko (vs RESTCONF/NETCONF)
 
 **Choose SSH/Netmiko when:**
+
 * Working with older/legacy devices without API support
 * Need to automate operational commands (ping, traceroute, TFTP)
 * Team is comfortable with CLI but not ready for APIs
@@ -150,6 +162,7 @@ GigabitEthernet0/0/1   10.10.20.10     YES manual up      up
 * Prototyping automation before investing in API approach
 
 **Choose RESTCONF/NETCONF (Labs 3-4) when:**
+
 * Devices support these protocols (modern IOS-XE, NX-OS, IOS-XR)
 * Need structured, parsable data (JSON/XML) instead of text
 * Want resilience to IOS version changes (YANG models provide consistency)
@@ -171,12 +184,14 @@ You'll explore this hybrid strategy in Lab 5!
 == Prerequisites
 
 You should be comfortable with:
+
 * **CCNA-level Cisco IOS CLI:** Router and switch configuration, `show` commands, configuration modes
 * **Basic Python:** Variables, strings, lists, loops, conditionals, functions (Python Essentials 1 level)
 * **SSH concepts:** How SSH authentication works, SSH port 22
 * **Basic networking:** IP addressing, default gateways, VLANs
 
 You will need:
+
 * Python 3.7 or later installed on your workstation
 * Console access to Cisco 4331 routers and/or 3650 switches
 * Network connectivity to device management interfaces
@@ -202,6 +217,7 @@ For this lab, you will work with **live Cisco network devices**:
 * **Cisco 3650 Switches** — You have access to at least 2 switches
 
 **Initial Setup:**
+
 All devices start with **basic connectivity configured**. You'll connect via console initially to set up SSH access, then switch to SSH automation.
 
 **Network Topology (Example):**
@@ -221,6 +237,7 @@ Management Network: 10.10.20.0/24
 ----
 
 **Device Addressing (adjust based on your lab):**
+
 * **R1:** GigabitEthernet0/0/1 - `10.10.20.10/24`
 * **R2:** GigabitEthernet0/0/1 - `10.10.20.20/24`  
 * **SW1:** VLAN 1 - `10.10.20.30/24`
@@ -371,6 +388,7 @@ Repeat for all devices (R2, SW1, SW2) to verify SSH is working.
 Netmiko is a Python library that simplifies SSH connections to network devices. It handles SSH session management, expects prompts, and simplifies sending commands.
 
 **Install Netmiko:**
+
 [source, bash]
 ----
 pip install netmiko
@@ -570,6 +588,7 @@ connection.disconnect()
 ----
 
 **Run the script:**
+
 [source, bash]
 ----
 python show_interface_status.py
@@ -832,12 +851,14 @@ print("\n✓ Configuration complete")
 ----
 
 **Run and observe:**
+
 [source, bash]
 ----
 python configure_description.py
 ----
 
 **Then verify on device CLI:**
+
 [source, cisco-ios]
 ----
 R1# show running-config interface GigabitEthernet0/0/0
@@ -1740,6 +1761,7 @@ connection.disconnect()
 ----
 
 Create a script that parses interface data and identifies:
+
 - All interfaces with IP addresses
 - All interfaces that are down
 - All interfaces without descriptions

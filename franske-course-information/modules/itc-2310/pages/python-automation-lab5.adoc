@@ -3,6 +3,7 @@
 == Learning Objectives
 
 By the end of this lab, you will:
+
 * Compare and contrast SSH/Netmiko, RESTCONF, and NETCONF for network automation
 * Implement the same configuration task using all three methods
 * Understand when to use each automation method based on requirements
@@ -22,6 +23,7 @@ This lab is the capstone of the network automation sequence. You've learned thre
 * **Lab 4:** NETCONF with ncclient
 
 Now you'll compare them side-by-side in realistic scenarios to understand:
+
 * Why we need multiple automation methods
 * Which method works best for specific tasks
 * How to build hybrid solutions that use the right tool for each job
@@ -30,12 +32,14 @@ Now you'll compare them side-by-side in realistic scenarios to understand:
 == Prerequisites
 
 You must complete:
+
 * **Lab 1** — SSH/Netmiko automation
 * **Lab 2** — REST API fundamentals
 * **Lab 3** — RESTCONF/YANG with network devices
 * **Lab 4** — NETCONF/ncclient fundamentals
 
 You should be comfortable with:
+
 * Python dictionaries, lists, loops, and functions
 * SSH-based device configuration with Netmiko
 * RESTCONF API calls with requests library
@@ -44,6 +48,7 @@ You should be comfortable with:
 * Parsing structured (JSON/XML) and unstructured (CLI) data
 
 You will need:
+
 * Python 3.7+ with `netmiko`, `requests`, and `ncclient` libraries
 * Access to 2 x Cisco 4331 routers and 2 x Cisco 3650 switches
 * All four devices pre-configured for SSH, RESTCONF, and NETCONF access
@@ -78,6 +83,7 @@ In this lab, you will work with a **four-device network**:
 
 **Initial State:**
 Devices start with **no configuration**. In Part A, you will configure each device via console to enable:
+
 * SSH access (username/password authentication)
 * RESTCONF API (HTTPS on port 443)
 * NETCONF API (port 830)
@@ -165,6 +171,7 @@ R1(config)# ip route 0.0.0.0 0.0.0.0 10.10.99.1
 ==== Configure Management Interface (R2)
 
 Repeat the above but use:
+
 * Hostname: `R2`
 * Management IP: `10.10.99.20 255.255.255.0` on GigabitEthernet0/0/0
 
@@ -200,6 +207,7 @@ SW1(config)# ip default-gateway 10.10.99.1
 ==== Configure Management Interface (SW2)
 
 Repeat the above but use:
+
 * Hostname: `SW2`
 * Management IP: `10.10.99.40 255.255.255.0` on VLAN 99
 
@@ -273,6 +281,7 @@ ping -c 3 10.10.99.40  # SW2
 ----
 
 **Expected Result:** All pings should succeed. If not, troubleshoot:
+
 * Check interface status: `show ip interface brief`
 * Verify VLAN 99 is up on switches: `show vlan brief`
 * Check physical cable connections
@@ -439,6 +448,7 @@ R1 Details:
 **Objective:** Configure the same settings on R1 using SSH, RESTCONF, and NETCONF to directly compare the approaches.
 
 **Task:** On R1, configure:
+
 * Hostname: `R1-AUTOMATION`
 * Disable domain lookup
 * Create local user `automation` with privilege 15
@@ -496,6 +506,7 @@ R1 Details:
 **Objective:** Configure OSPF on both routers to enable dynamic routing.
 
 **Task:** Configure OSPF process 1, area 0, on both routers:
+
 * R1: Advertise 10.10.10.0/30 and 10.10.99.0/24
 * R2: Advertise 10.10.10.4/30 and 10.10.99.0/24
 
@@ -583,6 +594,7 @@ R1 Details:
 **Objective:** Apply port security policies to access switch ports.
 
 **Task:** On both switches, configure ports Gi1/0/5-10 with:
+
 * Switchport mode access
 * Port security maximum 2 MAC addresses
 * Violation mode restrict
@@ -604,6 +616,7 @@ R1 Details:
 **Objective:** Verify that all devices meet security and operational standards.
 
 **Task:** Audit all devices for:
+
 * NTP server configured
 * Logging to syslog server
 * AAA authentication configured
@@ -626,6 +639,7 @@ R1 Details:
 **Objective:** Build a smart automation script that uses the best method for each task.
 
 **Task:** Create a configuration management script that:
+
 * Attempts NETCONF first (preferred for transactional config)
 * Falls back to RESTCONF if NETCONF unavailable
 * Falls back to SSH if neither API available
@@ -745,6 +759,7 @@ R1 Details:
 == What's Next?
 
 After completing this capstone lab, you'll be prepared for:
+
 * Ansible network automation (declarative approach)
 * Infrastructure as Code with version control
 * Network CI/CD pipelines
