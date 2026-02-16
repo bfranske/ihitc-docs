@@ -589,6 +589,7 @@ Create a comparison table addressing:
 **Task:**
 
 1. Choose **one method** (SSH, RESTCONF, or NETCONF) from Section 3
+   * Reminder: Your overall lab choices must include at least one Netmiko, one RESTCONF, and one NETCONF solution.
 2. Refactor your code to:
    * Iterate over the `routers` list from `device_inventory.py`
    * Apply serial and subinterface configuration to each router
@@ -715,6 +716,7 @@ R2# show ip ospf neighbors
 **Your Task:**
 
 1. Choose ONE method (SSH, RESTCONF, or NETCONF) to configure OSPF
+   * Reminder: Your overall lab choices must include at least one Netmiko, one RESTCONF, and one NETCONF solution.
 2. Implement configuration for R1 and R2
 3. Your implementation must:
    * Detect which router is being configured (R1 vs. R2) and send appropriate networks (serial, management, VLANs)
@@ -816,6 +818,7 @@ interface range GigabitEthernet1/0/1-4
 **Your Task:**
 
 Choose ONE method (SSH, RESTCONF, or NETCONF) and implement switch VLAN and trunk configuration.
+* Reminder: Your overall lab choices must include at least one Netmiko, one RESTCONF, and one NETCONF solution.
 
 **Method-Specific Guidance:**
 
@@ -893,6 +896,8 @@ Try verifying VLANs using **both** structured (JSON/XML) and unstructured (CLI t
 **Objective:** Collect and compare operational data (interface status, OSPF neighbors, VLAN status) across all four devices using all three methods.
 
 **Why This Matters:** In real networks, automation isn't just about configuring devices—it's about verifying that configurations are actually working. You need to gather operational data to answer: "Is the network healthy?"
+
+**Method Choice:** You may implement Section 7 using Netmiko, RESTCONF, or NETCONF. This section can count toward the requirement to complete at least one solution with each method.
 
 === 7.1 Multi-Device Data Collection: Interfaces
 
@@ -986,6 +991,8 @@ interface GigabitEthernet1/0/5
 
 **Your Task:**
 
+**Method Choice:** You may implement Section 8 using Netmiko, RESTCONF, or NETCONF. This section can count toward the requirement to complete at least one solution with each method.
+
 1. Configure port security on **5 ports per switch** (e.g., Gi1/0/1-5 on both S1 and S2)
 2. Settings:
    * Maximum 2 MAC addresses per port
@@ -1035,6 +1042,8 @@ show port-security mac-address        # Learned MACs
 **Objective:** Build tools to verify that all devices have the expected configuration (no drift, no manual changes).
 
 **Context:** In a production network, devices may be manually changed, or configurations may drift due to bugs or failed automation. Auditing tools catch these issues.
+
+**Method Choice:** You may implement Section 9 using Netmiko, RESTCONF, or NETCONF. This section can count toward the requirement to complete at least one solution with each method.
 
 === 9.1 Configuration Snapshot
 
