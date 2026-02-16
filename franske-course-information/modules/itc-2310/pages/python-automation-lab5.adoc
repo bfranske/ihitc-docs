@@ -55,52 +55,76 @@ You will need:
 
 == Lab Environment & Network Topology
 
-In this lab, you will work with a **four-device network**:
+In this lab, you will work with a **four-device network** connected to a management PC:
 
 [source, text]
 ----
-        10.10.10.0/30              10.10.10.4/30
-    [R1]----------------[R2]
-     |                    |
-     | Gi0/0/0            | Gi0/0/0
-     | .1                 | .1
-     |                    |
-     | VLAN 99            | VLAN 99
-     | 10.10.99.0/24      | 10.10.99.0/24
-     |                    |
-    [SW1]---------------[SW2]
-         10.10.99.0/24
-         (Management VLAN)
+                    Management PC
+                    10.10.99.5/24
+                         |
+         ________________|________________
+         |                               |
+         |                               |
+    [R1] G0/0/0                    [R2] G0/0/0
+    10.10.99.10/24                10.10.99.20/24
+         |                               |
+         | S0/1/0 (10.10.10.0/30)       | S0/1/0 (10.10.10.0/30)
+         | S0/1/1 (10.10.10.4/30)       | S0/1/1 (10.10.10.4/30)
+         |_______________________________|
+    [R1]----------[R2]
+    | G0/0/1           | G0/0/1
+    | (Trunk)          | (Trunk)
+    |                  |
+    [S1] G0/0/1     [S2] G0/0/1
+    [S1] G1/0/23    [S2] G1/0/23
+    10.10.99.30/24  10.10.99.40/24
+       |             |
+       |  G1/0/1-4   |
+       |_4 LINKS_____|
+       (S1 <-> S2 trunk links)
 ----
 
 **Device Addressing:**
-* **R1:** Management IP `10.10.99.10/24`, OSPF Area 0
-* **R2:** Management IP `10.10.99.20/24`, OSPF Area 0
-* **SW1:** Management IP `10.10.99.30/24`, VLANs 10, 20, 30
-* **SW2:** Management IP `10.10.99.40/24`, VLANs 10, 20, 30
+* **R1:** Management IP `10.10.99.10/24` (G0/0/0), subinterface G0/0/1.10 `192.168.10.1/24` (VLAN 10)
+* **R2:** Management IP `10.10.99.20/24` (G0/0/0), subinterfaces G0/0/1.20 `192.168.20.1/24` (VLAN 20) and G0/0/1.30 `192.168.30.1/24` (VLAN 30)
+* **S1:** Management IP `10.10.99.30/24`, connected via G1/0/23
+* **S2:** Management IP `10.10.99.40/24`, connected via G1/0/23
 * **Your Workstation:** `10.10.99.5/24`
-* **Default Gateway:** `10.10.99.1` (provided by instructor)
+* **R1-R2 Serial Links:** `10.10.10.0/30` (S0/1/0) and `10.10.10.4/30` (S0/1/1)
+* **User VLAN Networks:**
+   - VLAN 10: `192.168.10.0/24` (gateway: R1 G0/0/1.10)
+   - VLAN 20: `192.168.20.0/24` (gateway: R2 G0/0/1.20)
+   - VLAN 30: `192.168.30.0/24` (gateway: R2 G0/0/1.30)
+* **Switch Trunk Links:**
+   - R1 G0/0/1 <-> S1 G0/0/1 (router-on-a-stick trunk)
+   - R2 G0/0/1 <-> S2 G0/0/1 (router-on-a-stick trunk)
+   - S1 G1/0/1-4 <-> S2 G1/0/1-4 (switch-to-switch quad trunk)
 
-**Initial State:**
-Devices start with **no configuration**. In Part A, you will configure each device via console to enable:
+**Lab Strategy:**
+Because the management network (10.10.99.0/24) is pre-configured on all devices, you can reach them via SSH, RESTCONF, and NETCONF immediately after minimal console setup. This lab demonstrates the **power of automation**:
 
-* SSH access (username/password authentication)
-* RESTCONF API (HTTPS on port 443)
-* NETCONF API (port 830)
-* Management network connectivity
+1. **Section 1:** Minimal console setup (only management interface + API enablement)
+2. **Section 2:** Verify connectivity and automation access
+3. **Sections 3-9:** Use automation to configure everything else:
+   * Serial link interfaces (R1/R2)
+   * Router-on-a-stick subinterfaces (R1/R2)
+   * User VLANs (S1/S2)
+   * Trunk links (routers and switch-to-switch)
+   * OSPF routing (R1/R2)
+   * Port security and advanced features
+   * Operational data collection and compliance audits
 
-**What You'll Build:**
-After enabling all three automation methods, you'll configure OSPF routing between routers, deploy VLANs across switches, apply security policies, and configure operational features—comparing SSH, RESTCONF, and NETCONF approaches throughout.
+This mirrors real-world scenarios where you get initial management access quickly, then automate the rest of the network build-out.
 
-== Part A — Initial Device Configuration via Console
+== Section 1 - Minimal Console Setup for Automation Access
 
-Before you can automate the network, all four devices must be accessible via SSH, RESTCONF, and NETCONF. You'll configure each device through the console port with the basic settings needed for remote management.
+In this section, you configure the absolute minimum on each device to enable management network access and remote automation APIs. After this step, all remaining configuration happens programmatically via SSH, RESTCONF, or NETCONF.
 
 [NOTE]
 ====
-**Time-Saving Tip:** This is repetitive work on four devices. In a production environment, you might use Zero-Touch Provisioning (ZTP) or network device templates. For this lab, manually configuring teaches you what settings are required for each automation method.
+**Key Principle:** Minimize manual console work. The goal is to get to the automation methods as quickly as possible, then use them for all subsequent configuration. This demonstrates the value of infrastructure-as-code and programmatic management.
 
-**Reference:** For detailed explanations of RESTCONF and NETCONF setup, see Lab 3 (RESTCONF) and Lab 4 (NETCONF). This section provides condensed configuration steps for all four devices.
+**What's NOT done here:** Serial interfaces, user VLANs, OSPF, port security, etc. All of these will be configured via automation in subsequent sections (Sections 3-9).
 ====
 
 === Step 1: Access Device Console
@@ -116,7 +140,7 @@ Connect to each device via console cable. You'll need to repeat Steps 2-5 for ea
 
 === Step 2: Basic Device Configuration (All Devices)
 
-Perform these steps on **R1, R2, SW1, and SW2**. The configuration is nearly identical except for hostnames and IP addresses.
+Perform these steps on **R1, R2, S1, and S2**. The configuration is nearly identical except for hostnames and IP addresses.
 
 ==== R1 Configuration Example
 
@@ -175,41 +199,60 @@ Repeat the above but use:
 * Hostname: `R2`
 * Management IP: `10.10.99.20 255.255.255.0` on GigabitEthernet0/0/0
 
-==== Configure Management Interface (SW1)
+==== Switch-Specific Configuration: VLAN 99 Isolation
 
-For switches, use a VLAN interface instead:
+**Important:** Management VLAN 99 must be isolated on switches to:
+* Prevent Spanning Tree Protocol (STP) from blocking the management interface (G1/0/23)
+* Ensure management traffic cannot flow over trunk links between S1 and S2
+* Maintain strict separation between management and user traffic networks
+* Prevent accidental management access or configuration via user VLANs
+
+==== Configure Management Interface (S1)
+
+For switches, configure the management interface port directly and ensure VLAN 99 is isolated:
 
 [source, cisco-ios]
 ----
 ! After completing basic config (hostname, domain, user, SSH)
-SW1(config)# vlan 99
-SW1(config-vlan)# name Management
-SW1(config-vlan)# exit
+! Configure GigabitEthernet1/0/23 as management interface (connects to management PC)
+S1(config)# interface GigabitEthernet1/0/23
+S1(config-if)# description Management Interface to PC
+S1(config-if)# switchport mode access
+S1(config-if)# switchport access vlan 99
+S1(config-if)# no shutdown
+S1(config-if)# exit
 
-SW1(config)# interface vlan 99
-SW1(config-if)# description Management Interface
-SW1(config-if)# ip address 10.10.99.30 255.255.255.0
-SW1(config-if)# no shutdown
-SW1(config-if)# exit
+! Assign management VLAN 99 and IP address
+S1(config)# vlan 99
+S1(config-vlan)# name Management
+S1(config-vlan)# exit
 
-! Assign access port to management VLAN (connect workstation here)
-SW1(config)# interface GigabitEthernet1/0/1
-SW1(config-if)# description Workstation Access
-SW1(config-if)# switchport mode access
-SW1(config-if)# switchport access vlan 99
-SW1(config-if)# no shutdown
-SW1(config-if)# exit
+S1(config)# interface vlan 99
+S1(config-if)# description Management VLAN
+S1(config-if)# ip address 10.10.99.30 255.255.255.0
+S1(config-if)# no shutdown
+S1(config-if)# exit
 
 ! Set default gateway
-SW1(config)# ip default-gateway 10.10.99.1
+S1(config)# ip default-gateway 10.10.99.1
+
+! Configure trunk ports (G1/0/1 through G1/0/4) to exclude VLAN 99 from user traffic
+S1(config)# interface range GigabitEthernet1/0/1-4
+S1(config-if-range)# description Trunk to S2 (user VLANs only)
+S1(config-if-range)# switchport mode trunk
+S1(config-if-range)# switchport trunk allowed vlan remove 99
+S1(config-if-range)# no shutdown
+S1(config-if-range)# exit
 ----
 
-==== Configure Management Interface (SW2)
+==== Configure Management Interface (S2)
 
-Repeat the above but use:
+Repeat the above configuration but use:
 
-* Hostname: `SW2`
+* Hostname: `S2`
 * Management IP: `10.10.99.40 255.255.255.0` on VLAN 99
+* Management interface: GigabitEthernet1/0/23
+* Same trunk port configuration (G1/0/1-4) excluding VLAN 99
 
 === Step 3: Enable RESTCONF (All Devices)
 
@@ -276,8 +319,8 @@ From your management workstation (10.10.99.5), verify network connectivity to al
 # Ping all devices
 ping -c 3 10.10.99.10  # R1
 ping -c 3 10.10.99.20  # R2
-ping -c 3 10.10.99.30  # SW1
-ping -c 3 10.10.99.40  # SW2
+ping -c 3 10.10.99.30  # S1
+ping -c 3 10.10.99.40  # S2
 ----
 
 **Expected Result:** All pings should succeed. If not, troubleshoot:
@@ -289,57 +332,7 @@ ping -c 3 10.10.99.40  # SW2
 
 === Step 7: Create Device Inventory File
 
-Create a Python file to store device information for use throughout the lab:
-
-[source, python]
-----
-# device_inventory.py
-# Device inventory for multi-device automation lab
-
-devices = {
-    'R1': {
-        'device_type': 'cisco_ios',
-        'host': '10.10.99.10',
-        'username': 'admin',
-        'password': 'Cisco123!',
-        'port': 22,  # SSH
-        'restconf_url': 'https://10.10.99.10',
-        'netconf_port': 830
-    },
-    'R2': {
-        'device_type': 'cisco_ios',
-        'host': '10.10.99.20',
-        'username': 'admin',
-        'password': 'Cisco123!',
-        'port': 22,
-        'restconf_url': 'https://10.10.99.20',
-        'netconf_port': 830
-    },
-    'SW1': {
-        'device_type': 'cisco_ios',
-        'host': '10.10.99.30',
-        'username': 'admin',
-        'password': 'Cisco123!',
-        'port': 22,
-        'restconf_url': 'https://10.10.99.30',
-        'netconf_port': 830
-    },
-    'SW2': {
-        'device_type': 'cisco_ios',
-        'host': '10.10.99.40',
-        'username': 'admin',
-        'password': 'Cisco123!',
-        'port': 22,
-        'restconf_url': 'https://10.10.99.40',
-        'netconf_port': 830
-    }
-}
-
-# Convenience lists for iteration
-routers = ['R1', 'R2']
-switches = ['SW1', 'SW2']
-all_devices = ['R1', 'R2', 'SW1', 'SW2']
-----
+Create a Python inventory file to store device information for use throughout the lab.
 
 **Save this file** as `device_inventory.py` in your lab working directory. You'll import it in all subsequent scripts:
 
@@ -360,7 +353,6 @@ Before proceeding, verify you have completed these tasks on **all four devices**
 - [ ] SSH version 2 enabled
 - [ ] VTY lines configured for SSH
 - [ ] GigabitEthernet0/0/0: IP `10.10.99.10/24`, up
-- [ ] Default route to `10.10.99.1`
 - [ ] RESTCONF enabled (`ip http secure-server`, `restconf`)
 - [ ] NETCONF enabled (`netconf-yang`)
 - [ ] Configuration saved to startup-config
@@ -369,8 +361,8 @@ Before proceeding, verify you have completed these tasks on **all four devices**
 **R2 Configuration Checklist:**
 - [ ] Same as R1 but hostname `R2`, IP `10.10.99.20/24`
 
-**SW1 Configuration Checklist:**
-- [ ] Hostname set to `SW1`
+**S1 Configuration Checklist:**
+- [ ] Hostname set to `S1`
 - [ ] Domain name: `lab.local`
 - [ ] User `admin` created with password `Cisco123!`
 - [ ] RSA keys generated (2048 bits)
@@ -378,33 +370,33 @@ Before proceeding, verify you have completed these tasks on **all four devices**
 - [ ] VTY lines configured for SSH
 - [ ] VLAN 99 created and named `Management`
 - [ ] Interface VLAN 99: IP `10.10.99.30/24`, up
-- [ ] GigabitEthernet1/0/1 assigned to VLAN 99
-- [ ] Default gateway: `10.10.99.1`
+- [ ] GigabitEthernet1/0/23: access port, VLAN 99 only
+- [ ] GigabitEthernet1/0/1-4: trunk ports with VLAN 99 removed
 - [ ] RESTCONF enabled
 - [ ] NETCONF enabled
 - [ ] Configuration saved to startup-config
 - [ ] Ping successful from workstation
 
-**SW2 Configuration Checklist:**
-- [ ] Same as SW1 but hostname `SW2`, IP `10.10.99.40/24`
+**S2 Configuration Checklist:**
+- [ ] Same as S1 but hostname `S2`, IP `10.10.99.40/24`
+- [ ] GigabitEthernet1/0/23 configured as management interface
 
 **Management Workstation:**
 - [ ] IP address `10.10.99.5/24` configured
-- [ ] Default gateway `10.10.99.1` configured
 - [ ] Can ping all four devices
 - [ ] `device_inventory.py` file created
 
 Once all checkboxes are complete, you're ready to proceed to Part B.
 
-== Part B — Environment Verification
+== Section 2 - Environment Verification
 
 === Step 1: Verify Device Connectivity
 
-// TODO: Add verification script that tests SSH, RESTCONF, and NETCONF to all 4 devices
+// TODO: Add verification instructions to test SSH, RESTCONF, and NETCONF to all 4 devices
 
 === Step 2: Create Device Inventory Structure
 
-You already created `device_inventory.py` in Part A, Step 7. Verify you can import it in a test script:
+You already created `device_inventory.py` in Section 1, Step 7. Verify you can import it in a test script:
 
 [source, python]
 ----
@@ -427,7 +419,7 @@ for key, value in devices['R1'].items():
 ----
 Total devices: 4
 Routers: ['R1', 'R2']
-Switches: ['SW1', 'SW2']
+Switches: ['S1', 'S2']
 
 R1 Details:
   device_type: cisco_ios
@@ -443,310 +435,687 @@ R1 Details:
 
 // TODO: Collect initial configs via all three methods to establish baseline
 
-== Section 1: Same Task, Three Methods
+[style=break]
 
-**Objective:** Configure the same settings on R1 using SSH, RESTCONF, and NETCONF to directly compare the approaches.
+== Sections 3-10: Automation-Driven Network Build-Out
 
-**Task:** On R1, configure:
+**From this point forward, all device configuration uses SSH, RESTCONF, or NETCONF.** You will not return to the console unless there's a critical failure. This approach mirrors real-world deployments where:
 
-* Hostname: `R1-AUTOMATION`
-* Disable domain lookup
-* Create local user `automation` with privilege 15
-* Configure logging buffered at debugging level
+1. Initial access is provisioned (Management network in Section 1)
+2. All subsequent configuration is automated
+3. Configuration is version-controlled, auditable, and repeatable
+4. Multiple methods are compared to select the optimal approach for each task
 
-=== 1.1 Method A: SSH with Netmiko
+**Configuration Sequence:**
 
-// TODO: Complete Netmiko implementation with send_config_set()
+* **Section 3-4:** Configure serial interfaces between routers (enables router-to-router communication)
+* **Section 5:** Deploy OSPF to establish dynamic routing
+* **Section 6:** Create VLANs on switches (user data network)
+* **Section 7:** Collect operational data to verify deployment
+* **Section 8:** Add security policies (port security)
+* **Section 9:** Build compliance and audit tools
+* **Section 10-12:** Advanced scenarios and decision frameworks
 
-=== 1.2 Method B: RESTCONF
+---
 
-// TODO: Complete RESTCONF implementation with appropriate YANG models
+== Section 3: Serial Interfaces and Router-on-a-Stick Subinterfaces via Three Methods
 
-=== 1.3 Method C: NETCONF
+**Objective:** Configure the R1↔R2 serial interfaces (S0/1/0 and S0/1/1) and router-on-a-stick subinterfaces (G0/0/1.x) using SSH, RESTCONF, and NETCONF to compare approaches for interface configuration.
 
-// TODO: Complete NETCONF implementation with edit-config
+**Context:** You've configured interfaces manually (Section 1, console) and via single-method scripts (Labs 1, 3, 4). Now you'll implement all three methods in one section to directly compare their differences, including subinterfaces for router-on-a-stick.
 
-=== 1.4 Comparison Analysis
+**Configuration Target:**
 
-// TODO: Add table comparing:
-// - Lines of code
-// - Error handling complexity
-// - Execution time
-// - Verification approach
-// - Configuration rollback capability
+[source, cisco-ios]
+----
+R1:
+  interface Serial0/1/0
+    ip address 10.10.10.1 255.255.255.252
+    no shutdown
+  interface Serial0/1/1
+    ip address 10.10.10.5 255.255.255.252
+    no shutdown
+   interface GigabitEthernet0/0/1
+      no shutdown
+   interface GigabitEthernet0/0/1.10
+      encapsulation dot1q 10
+      ip address 192.168.10.1 255.255.255.0
+      no shutdown
 
-=== 1.5 Verify Configuration via CLI
+R2:
+  interface Serial0/1/0
+    ip address 10.10.10.2 255.255.255.252
+    no shutdown
+  interface Serial0/1/1
+    ip address 10.10.10.6 255.255.255.252
+    no shutdown
+   interface GigabitEthernet0/0/1
+      no shutdown
+   interface GigabitEthernet0/0/1.20
+      encapsulation dot1q 20
+      ip address 192.168.20.1 255.255.255.0
+      no shutdown
+   interface GigabitEthernet0/0/1.30
+      encapsulation dot1q 30
+      ip address 192.168.30.1 255.255.255.0
+      no shutdown
+----
 
-// TODO: CLI verification commands for all three methods
+=== 3.1 Method A: SSH with Netmiko
 
-== Section 2: Bulk Device Configuration
+**Your Task:**
 
-**Objective:** Apply the same configuration to all four devices simultaneously.
+1. Review Lab 1 Section 3 (SSH with Netmiko) for the connection and configuration patterns
+2. Design a Python function that:
+   * Takes a device name and connect dictionary (from device_inventory)
+   * Generates the serial interface and subinterface commands for R1 and R2 (they differ!)
+   * For R1: Configure S0/1/0, S0/1/1, and subinterface G0/0/1.10 for VLAN 10
+   * For R2: Configure S0/1/0, S0/1/1, and subinterfaces G0/0/1.20 (VLAN 20) and G0/0/1.30 (VLAN 30)
+   * Sends them to the device using Netmiko's `send_config_set()` method
+   * Returns success/failure status and any error messages
+3. Test on R1 first, then R2
+4. Verify using `show ip interface brief` via Netmiko
 
-**Task:** Configure syslog server `10.10.99.100` on all devices with facility local7.
+**Hints:**
+* Use a loop or conditional to generate different commands based on which router you're configuring
+* The parent interface (G0/0/1) must be up before subinterfaces will pass traffic
+* Reference Lab 1 for how to handle Netmiko authentication and error handling
+* Capture the output from `send_config_set()` to detect configuration errors
 
-=== 2.1 Design Pattern: Device List Iteration
+=== 3.2 Method B: RESTCONF
 
-// TODO: Show loop structure over device inventory
+**Your Task:**
 
-=== 2.2 Implementation with Error Handling
+1. You'll use the **Cisco-IOS-XE-native** YANG model (used in Lab 3)
+2. The YANG paths for interfaces are:
+   * Serial: `/native/interface/Serial`
+   * GigabitEthernet: `/native/interface/GigabitEthernet`
+3. Design a Python function that:
+   * Constructs JSON representing a Serial interface with IP address and no shutdown state
+   * Constructs JSON for the parent physical interface (G0/0/1) and its subinterfaces
+   * Uses HTTP PATCH to apply the configuration to `https://<device>/restconf/data/...`
+   * Handles HTTPS certificate validation (TLS warnings from self-signed certs)
+   * Returns success/failure status
+4. Test on R1 first
 
-// TODO: Implement with try/except per device, continue on failure
+**Resources:**
+* Lab 3 Section 1-2 shows how to construct RESTCONF payloads
+* Use `requests.patch()` with proper headers: `Content-Type: application/yang-data+json`
+* Remember to include Basic Auth credentials
 
-=== 2.3 Results Collection and Reporting
+**Key Challenge:** Unlike Netmiko (which accepts traditional CLI), RESTCONF requires you to understand the YANG model structure for subinterfaces. Research the Cisco-IOS-XE-native model for encapsulation and subinterface layout on Cisco's DevNet or use `netconf_yang` on a device to inspect the model.
 
-// TODO: Generate report of success/failure per device
+=== 3.3 Method C: NETCONF
 
-=== 2.4 Compare Methods for Bulk Operations
+**Your Task:**
 
-// TODO: Which method handles multiple devices best? Why?
+1. Review Lab 4 Section 1-2 for NETCONF pattern and ncclient usage
+2. Design a Python function that:
+   * Connects via ncclient to port 830
+   * Constructs XML `<edit-config>` RPCs for serial interfaces and subinterfaces
+   * Applies it with operation="merge" (nondestructive)
+   * Returns success/failure status
+3. Test on R1 first
 
-== Section 3: Routing Protocol Deployment (OSPF)
+**Resources:**
+* Lab 4 shows the edit-config RPC structure
+* The XML structure differs from JSON but describes the same configuration
+* Use `manager.edit_config()` with the constructed XML
 
-**Objective:** Configure OSPF on both routers to enable dynamic routing.
+**Key Challenge:** NETCONF requires XML instead of JSON. Build the XML step-by-step on a test device using NETCONF get-config to inspect existing structure, then mimic it. Pay attention to how subinterfaces are nested under the parent interface.
 
-**Task:** Configure OSPF process 1, area 0, on both routers:
+=== 3.4 Comparison Analysis
 
-* R1: Advertise 10.10.10.0/30 and 10.10.99.0/24
-* R2: Advertise 10.10.10.4/30 and 10.10.99.0/24
+**Your Task:**
 
-=== 3.1 OSPF via RESTCONF
+Create a comparison table addressing:
 
-// TODO: Configure OSPF using Cisco-IOS-XE-native YANG model
+* **Lines of Code:** Which method required the least code?
+* **Readability:** Which is easiest to understand 6 months from now?
+* **Error Handling:** Which method provided the clearest error messages?
+* **Verification:** How did you verify the configuration was correct for each method?
+* **Learning Curve:** Which required the most research/documentation reading?
+* **Production Viability:** Which would you choose for a large-scale deployment? Why?
 
-=== 3.2 OSPF via NETCONF
+=== 3.5 Verify Configuration via All Three Methods
 
-// TODO: Configure OSPF using NETCONF edit-config
-// Highlight: Transaction capability, rollback on error
+**Your Task:**
 
-=== 3.3 OSPF via SSH/Netmiko
+1. Retrieve interface configuration using all three methods (SSH, RESTCONF, NETCONF)
+2. Verify that configured interfaces show:
+   * Serial interfaces (S0/1/0, S0/1/1): Correct IPs, "up" status, correct subnet mask
+   * Parent interface (G0/0/1): "up" status
+   * Subinterfaces (G0/0/1.10, .20, .30): Correct VLAN IDs, encapsulation dot1q, correct IPs
+3. Compare how verification output differs between methods:
+   * SSH returns text (requires parsing)
+   * RESTCONF returns JSON (structured)
+   * NETCONF returns XML (structured)
 
-// TODO: Configure OSPF using traditional CLI commands
+== Section 4: Bulk Interface Deployment across All Routers
 
-=== 3.4 Verification: OSPF Neighbors
+**Objective:** Apply your best implementation from Section 3 (serial interfaces and subinterfaces) to both R1 and R2 in a single, production-ready script with proper error handling.
 
-// TODO: Verify OSPF adjacencies using all three methods
-// Compare parsing structured vs unstructured data
-
-=== 3.5 Comparison: Complex Protocol Configuration
-
-// TODO: Discuss atomicity, rollback, partial configuration scenarios
-
-== Section 4: VLAN Deployment Across Switches
-
-**Objective:** Create VLANs 10, 20, 30 on both switches with descriptive names.
+**Context:** Section 3 tested single methods on one device. Section 4 focuses on **scalability, robustness, and reporting** across multiple devices—the hallmark of production automation.
 
 **Task:**
-* VLAN 10: `Engineering`
-* VLAN 20: `Sales`
-* VLAN 30: `Guest`
 
-=== 4.1 VLAN Creation via RESTCONF
+1. Choose **one method** (SSH, RESTCONF, or NETCONF) from Section 3
+2. Refactor your code to:
+   * Iterate over the `routers` list from `device_inventory.py`
+   * Apply serial and subinterface configuration to each router
+   * Handle per-device failures gracefully (don't abort if one device fails)
+   * Track which devices succeeded and which failed
+3. Generate a **structured report** (table, JSON, or CSV) showing:
+   * Device name
+   * Configuration status (success/failure)
+   * Timestamp
+   * Any error messages
 
-// TODO: Use Cisco-IOS-XE-vlan YANG model on both switches
+=== 4.1 Multi-Device Loop Structure
 
-=== 4.2 VLAN Creation via NETCONF
+**Your Task:**
 
-// TODO: Create VLANs using NETCONF on both switches
+1. Create a function that takes a method name ("ssh", "restconf", or "netconf") and a list of devices
+2. Iterate over each device and attempt to configure it
+3. Use try/except to catch errors per-device and continue (don't abort)
+4. Store results in a data structure (list of dicts, or similar) for reporting
 
-=== 4.3 VLAN Creation via SSH
+**Guidance:**
+* Review how Lab 1, 3, and 4 handled connection errors
+* Ensure connection objects are created/destroyed cleanly for each device
+* Consider: Should you reuse a connection for multiple operations? When should you open/close connections?
 
-// TODO: Send VLAN configuration commands via Netmiko
+=== 4.2 Error Handling and Logging
 
-=== 4.4 Verification and Consistency Check
+**Your Task:**
 
-// TODO: Verify VLANs exist on both switches
-// Check for configuration drift
+1. Your script must handle:
+   * Connection timeouts
+   * Authentication failures
+   * Missing device inventory entries
+   * Configuration rejection (device refuses the config)
+2. For each error, log:
+   * The device name
+   * The error type
+   * The error message
+   * Recovery action taken (e.g., "skipped device", "will retry", "aborted")
+3. Do not show raw credentials in logs or error output
 
-=== 4.5 Comparison: Structured vs Unstructured Data
+**Guidance:**
+* Python's built-in `logging` module is recommended
+* Alternatively, print to a file with timestamps
+* Consider: What errors are retryable vs. fatal?
 
-// TODO: Discuss VLAN verification - parsing show vlan vs JSON/XML
+=== 4.3 Results Collection and Reporting
 
-== Section 5: Operational Data Collection
+**Your Task:**
 
-**Objective:** Gather interface statistics and operational state from all devices.
+1. After all devices are processed, generate a report showing:
+   [source]
+   ----
+   Configuration Report: Serial and Subinterfaces (2024-02-16 14:30:00)
+   
+   Device    | Status  | Interfaces Configured | Notes
+   -----------+---------+----------------------+-----------
+   R1        | SUCCESS | S0/1/0, S0/1/1, G0/0/1.10 | Verified via SSH
+   R2        | SUCCESS | S0/1/0, S0/1/1, G0/0/1.20, G0/0/1.30 | Verified via SSH
+   -----------+---------+----------------------+-----------
+   Summary: 2/2 devices configured successfully (100%)
+   ----
 
-**Task:** Collect interface status (up/down, IP addresses) from all four devices.
+2. Include:
+   * Total devices attempted
+   * Total devices succeeded/failed
+   * Percentage success rate
+   * List of failed devices (if any)
 
-=== 5.1 Data Collection via SSH
+=== 4.4 Analysis: Single vs. Bulk Configuration
 
-// TODO: Use show ip interface brief, parse text output with TextFSM or regex
+**Your Task:**
 
-=== 5.2 Data Collection via RESTCONF
+1. Compare your experience configuring one device (Section 3) vs. multiple devices (Section 4)
+2. Document:
+   * What complexity was added by handling multiple devices?
+   * How did error handling change?
+   * What assumptions did you make (all devices reachable? Same config? Different configs?)?
+   * Would your code work if R1 and R2 needed slightly different configurations?
+   * How would you modify the code to support S1, S2, and future routers?
 
-// TODO: GET interface operational data as JSON
+**Reflection Questions:**
+* Why is error handling more important in bulk operations?
+* How would you handle a scenario where R1 succeeds but R2 fails?
+* Should partial success (1/2 devices configured) be treated as success or failure?
 
-=== 5.3 Data Collection via NETCONF
+== Section 5: Routing Protocol Deployment (OSPF)
+
+**Objective:** Configure OSPF on both routers to enable dynamic routing between R1 and R2.
+
+**Important:** This is your first encounter with OSPF via automation. You will NOT see complete code examples. Instead, you'll apply CCNA routing knowledge combined with automation techniques from Labs 1, 3, and 4.
+
+**Background:** OSPF (Open Shortest Path First) is a dynamic routing protocol. Both R1 and R2 need to:
+1. Enable OSPF process 1 in area 0
+2. Advertise their networks (serial links, management network, and VLAN networks)
+3. Form a neighbor relationship
+
+**Manual CLI Example (for reference—what you're automating):**
+
+[source, cisco-ios]
+----
+R1(config)# router ospf 1
+R1(config-router)# network 10.10.10.0 0.0.0.3 area 0
+R1(config-router)# network 10.10.99.0 0.0.0.255 area 0
+R1(config-router)# network 192.168.10.0 0.0.0.255 area 0
+R1(config-router)# exit
+R1# show ip ospf neighbors
+
+R2(config)# router ospf 1
+R2(config-router)# network 10.10.10.4 0.0.0.3 area 0
+R2(config-router)# network 10.10.99.0 0.0.0.255 area 0
+R2(config-router)# network 192.168.20.0 0.0.0.255 area 0
+R2(config-router)# network 192.168.30.0 0.0.0.255 area 0
+R2(config-router)# exit
+R2# show ip ospf neighbors
+----
+
+=== 5.1 OSPF Configuration via Your Chosen Method
+
+**Your Task:**
+
+1. Choose ONE method (SSH, RESTCONF, or NETCONF) to configure OSPF
+2. Implement configuration for R1 and R2
+3. Your implementation must:
+   * Detect which router is being configured (R1 vs. R2) and send appropriate networks (serial, management, VLANs)
+   * Handle errors gracefully
+   * Allow verification after configuration
+
+**Method Guidance:**
+
+**Option A (SSH/Netmiko):**
+* Reference Lab 1 for Netmiko patterns
+* Use `send_config_set()` with OSPF commands
+* Challenge: How do you verify OSPF came up successfully? Parse `show ip ospf neighbors` output?
+
+**Option B (RESTCONF):**
+* The Cisco-IOS-XE-native YANG model has paths under `/native/router/ospf`
+* You'll need to research the structure of the OSPF configuration in the YANG model
+* Challenge: OSPF configuration in YANG is complex; understand the hierarchy before you code
+
+**Option C (NETCONF):**
+* Similar to RESTCONF but using XML in edit-config RPCs
+* Lab 4 Section 3 shows OSPF examples (use them for reference, not copy-paste)
+* Challenge: XML structure can be tricky; build and test incrementally
+
+=== 5.2 Verification: OSPF Adjacencies
+
+**Your Task:**
+
+1. After configuring OSPF, verify it's working by:
+   * Retrieving OSPF neighbor status on both R1 and R2
+   * Checking that R1 and R2 see each other as neighbors
+   * Confirming neighbor state is "FULL"
+2. Use whichever method you chose (or a different one for comparison)
+
+**Verification Commands:**
+
+[source, cisco-ios]
+----
+show ip ospf neighbors    # Shows neighbor state
+show ip ospf               # Shows OSPF process status
+show ip route ospf         # Shows learned routes
+----
+
+**Challenge:** Parse the output to extract neighbor state. If using structured data (RESTCONF/NETCONF), navigate the JSON/XML to find the neighbor state. This is harder than CLI but more reliable.
+
+=== 5.3 Troubleshooting: What to Do If OSPF Doesn't Come Up
+
+**Debugging Checklist:**
+
+1. Verify serial interfaces are up: `show ip interface brief | include Serial`
+2. Verify IP addresses match your configuration from Section 3
+3. Verify subinterfaces are up: `show ip interface brief | include GigabitEthernet0/0/1`
+4. Check OSPF interfaces: `show ip ospf interface brief`
+5. Look for interface errors: `show ip ospf interface S0/1/0`
+6. Check OSPF process is enabled: `show ip ospf`
+
+**Common Issues:**
+* OSPF network statement uses inverse netmask (not CIDR)
+* Both sides must reference the same OSPF process number (1)
+* Both sides must use the same area number (0)
+* Interfaces must be up and have compatible IP addresses
+
+== Section 6: VLAN Deployment Across Switches
+
+**Objective:** Create user VLANs on both S1 and S2, configure trunk links, and verify consistency across both switches.
+
+**Configuration Target:**
+
+[source, cisco-ios]
+----
+vlan 10
+  name Engineering
+vlan 20
+  name Sales
+vlan 30
+  name Guest
+----
+
+**Reference Only (Trunk Expectations, Not a Solution):**
+
+[source, cisco-ios]
+----
+interface GigabitEthernet0/0/1
+   switchport mode trunk
+   switchport trunk allowed vlan 10,20,30
+
+interface range GigabitEthernet1/0/1-4
+   switchport mode trunk
+   switchport trunk allowed vlan 10,20,30
+----
+
+**Task:** Configure all three VLANs and the required trunk links on both S1 and S2 using your chosen method.
+
+=== 6.1 VLAN Configuration via Your Chosen Method
+
+**Your Task:**
+
+Choose ONE method (SSH, RESTCONF, or NETCONF) and implement switch VLAN and trunk configuration.
+
+**Method-Specific Guidance:**
+
+**Option A (SSH/Netmiko):**
+* Use Lab 1 patterns for Netmiko
+* Send VLAN configuration commands: `vlan X`, `name Y`, `exit`
+* Configure trunk ports for router uplinks (G0/0/1) and switch-to-switch links (G1/0/1-4)
+* Challenge: Ensure commands are sent in the correct global config context
+
+**Option B (RESTCONF):**
+* Use Cisco-IOS-XE-native YANG model with path `/native/vlan`
+* Structure your JSON payload to create multiple VLANs
+* Configure trunk ports under `/native/interface/GigabitEthernet`
+* Challenge: Can you create all three VLANs in a single PATCH request, or do you need three separate requests?
+
+**Option C (NETCONF):**
+* Use edit-config RPC with XML payload
+* Lab 4 Section 2 shows VLAN configuration examples (reference, don't copy-paste)
+* Configure trunk ports with XML under the GigabitEthernet interface tree
+* Challenge: Efficiently represent all three VLANs in a single edit-config
+
+**Implementation Requirements:**
+* Apply to both S1 and S2
+* Configure trunk links:
+   - S1 G0/0/1 and S2 G0/0/1 (router uplinks) as trunks
+   - S1 G1/0/1-4 and S2 G1/0/1-4 (switch-to-switch links) as trunks
+   - Allow VLANs 10, 20, 30 only (do not allow VLAN 99 on trunks)
+* Handle per-switch errors
+* Log which VLANs and trunk ports were configured on which switch
+
+=== 6.2 Verification and Consistency Check
+
+**Your Task:**
+
+1. **Verify on each switch:** Retrieve VLAN configuration from both S1 and S2 using your chosen method
+2. **Check consistency:** Do both switches have the exact same VLANs and names?
+3. **Generate a report:**
+
+   [source]
+   ----
+   VLAN Consistency Report
+   
+   S1 VLANs:
+     10 (Engineering)
+     20 (Sales)
+     30 (Guest)
+   
+   S2 VLANs:
+     10 (Engineering)
+     20 (Sales)
+     30 (Guest)
+   
+   Status: CONSISTENT
+   ----
+
+=== 6.3 Comparison: Structured vs. Unstructured Verification
+
+**Your Task:**
+
+Try verifying VLANs using **both** structured (JSON/XML) and unstructured (CLI text) methods:
+
+1. If you used SSH: Also retrieve VLAN data via RESTCONF and compare
+2. If you used RESTCONF/NETCONF: Also use SSH to get CLI `show vlan` output
+3. Document:
+   * Which method provided clearer output?
+   * Which was easier to parse programmatically?
+   * Which method caught errors better (e.g., if a VLAN wasn't created)?
+
+== Section 7: Operational Data Collection
+
+**Objective:** Collect and compare operational data (interface status, OSPF neighbors, VLAN status) across all four devices using all three methods.
+
+**Why This Matters:** In real networks, automation isn't just about configuring devices—it's about verifying that configurations are actually working. You need to gather operational data to answer: "Is the network healthy?"
+
+=== 7.1 Multi-Device Data Collection: Interfaces
+
+**Your Task:**
+
+1. Write a script that collects interface status from all 4 devices (R1, R2, S1, S2)
+2. For each interface, extract:
+   * Interface name
+   * IP address (if present)
+   * Status (up/down)
+   * Protocol status (up/down)
+3. Format output as a table or CSV for easy review
+
+**Method Guidance:**
+
+**SSH Method:**
+* Use `show ip interface brief` on routers, `show interfaces` on switches
+* Parse the text output using regex or the `textfsm` library (used in Labs 1-4)
+* Challenge: CLI output format differs between routers and switches—handle both
+
+**RESTCONF Method:**
+* Use GET on `/restconf/data/ietf-interfaces:interfaces` (standard YANG model)
+* Returns JSON with interface operational state
+* More consistent across device types than CLI
+
+**NETCONF Method:**
+* Use get-config to retrieve interface configuration
+* Use get to retrieve operational data
+* Parse XML to find interface status
+
+=== 7.2 Data Collection: OSPF Status
+
+**Your Task:**
+
+1. Retrieve OSPF neighbor status from both routers (R1 and R2)
+2. Extract:
+   * Neighbor router ID
+   * Neighbor IP address
+   * Neighbor state (should be FULL)
+   * Interface where neighbor is seen
+3. Verify both routers see each other as neighbors
+
+**Method Guidance:**
+
+**SSH:** Parse `show ip ospf neighbors` output
+**RESTCONF/NETCONF:** Navigate to OSPF operational state in the YANG model
+
+=== 7.3 Data Collection: VLAN Status
+
+**Your Task:**
+
+1. Verify that VLANs 10, 20, 30 exist on both S1 and S2
+2. Extract:
+   * VLAN ID
+   * VLAN name
+   * Number of ports in VLAN
+3. Check for consistency (same VLANs on both switches)
+
+**Method Guidance:**
+
+**SSH:** Parse `show vlan brief` output (tricky—different columns on different platforms)
+**RESTCONF/NETCONF:** Query VLAN operational data from YANG model
+
+=== 7.3 Data Collection via NETCONF
 
 // TODO: Use get-config or get with filters to retrieve interface state
 
-=== 5.4 Data Parsing Comparison
+=== 7.4 Data Parsing Comparison
 
 // TODO: Compare effort to extract specific fields
 // Structured data advantage for programmatic processing
 
-=== 5.5 Generate Interface Status Report
+=== 7.5 Generate Interface Status Report
 
 // TODO: Create unified report from all devices showing interface state
 
-== Section 6: Port Security Configuration
+== Section 8: Port Security Configuration
 
-**Objective:** Apply port security policies to access switch ports.
+**Objective:** Configure port security on switch ports to protect against MAC address spoofing attacks.
 
-**Task:** On both switches, configure ports Gi1/0/5-10 with:
+**Important:** This is your first encounter with port security configuration via automation. Like OSPF, you'll apply CCNA knowledge combined with automation techniques.
+
+**Background - Understand the Configuration**
+
+Port security protects switches from attacks where devices send traffic with forged MAC addresses. The typical configuration on an access port:
+
+[source, cisco-ios]
+----
+interface GigabitEthernet1/0/5
+  switchport mode access
+  switchport access vlan 10
+  switchport port-security
+  switchport port-security maximum 2          # Max devices (MACs) allowed
+  switchport port-security violation restrict # Action: drop frames if violation
+  switchport port-security mac-address sticky # Learn MACs dynamically
+----
 
-* Switchport mode access
-* Port security maximum 2 MAC addresses
-* Violation mode restrict
-
-=== 6.1 Port Security via RESTCONF
-
-// TODO: Configure using Cisco-IOS-XE-native YANG model
-
-=== 6.2 Port Security via SSH
-
-// TODO: Use Netmiko with config templates
-
-=== 6.3 Compare: Feature Support Across Methods
-
-// TODO: Discuss scenarios where certain features may not be available via API
-
-== Section 7: Configuration Audit and Compliance
-
-**Objective:** Verify that all devices meet security and operational standards.
-
-**Task:** Audit all devices for:
-
-* NTP server configured
-* Logging to syslog server
-* AAA authentication configured
-* SSH timeout set appropriately
-
-=== 7.1 Compliance Script Design
-
-// TODO: Design checking logic for multiple compliance requirements
-
-=== 7.2 Implement Multi-Method Audit
-
-// TODO: Use appropriate method per check based on availability
-
-=== 7.3 Generate Compliance Report
-
-// TODO: Output showing pass/fail per device per requirement
-
-== Section 8: Hybrid Automation Strategy
-
-**Objective:** Build a smart automation script that uses the best method for each task.
-
-**Task:** Create a configuration management script that:
-
-* Attempts NETCONF first (preferred for transactional config)
-* Falls back to RESTCONF if NETCONF unavailable
-* Falls back to SSH if neither API available
-* Handles device unreachability gracefully
-
-=== 8.1 Decision Logic Design
-
-// TODO: Flowchart for method selection
-
-=== 8.2 Implementation
-
-// TODO: Python code with method selection logic
-
-=== 8.3 Testing with Simulated Failures
-
-// TODO: Test script with different failure scenarios
-
-== Section 9: Performance Comparison
-
-**Objective:** Measure execution time and efficiency of each method.
-
-**Task:** Time each method for identical configuration tasks across all devices.
-
-=== 9.1 Benchmark Setup
-
-// TODO: Design fair performance test
-
-=== 9.2 Execute and Measure
-
-// TODO: Use Python time module to measure operations
-
-=== 9.3 Analysis
-
-// TODO: Graph/table of results, discuss factors affecting performance
-
-== Section 10: Real-World Decision Matrix
-
-=== 10.1 When to Use SSH/Netmiko
-
-// TODO: Scenarios where SSH is best choice
-// - Legacy device support
-// - Simple command execution
-// - Interactive troubleshooting
-
-=== 10.2 When to Use RESTCONF
-
-// TODO: Scenarios where RESTCONF excels
-// - RESTful architecture alignment
-// - JSON preference
-// - HTTP/HTTPS infrastructure
-
-=== 10.3 When to Use NETCONF
-
-// TODO: Scenarios where NETCONF is superior
-// - Transaction/rollback requirements
-// - Candidate configuration testing
-// - Vendor-neutral standardization
-
-=== 10.4 Decision Table
-
-// TODO: Create comprehensive decision matrix with criteria
-
-== Common Errors & Troubleshooting
-
-// TODO: Add common issues when working with multiple devices and methods
-
-== Lab Deliverables
-
-=== Required Python Scripts
-
-1. `verify_connectivity.py` — Test SSH, RESTCONF, NETCONF to all devices
-2. `compare_methods.py` — Same configuration task using all three methods (Section 1)
-3. `bulk_config.py` — Apply syslog configuration to all devices (Section 2)
-4. `deploy_ospf.py` — Configure OSPF on both routers (Section 3)
-5. `deploy_vlans.py` — Create VLANs on both switches (Section 4)
-6. `collect_interfaces.py` — Gather interface data from all devices (Section 5)
-7. `hybrid_automation.py` — Intelligent method selection with fallback (Section 8)
-
-=== Documentation Requirements
-
-// TODO: Specify report format and required elements
-
-== Reflection Questions
-
-// TODO: Add reflection questions comparing methods, discussing trade-offs, and real-world application
-
-== Optional Challenge Exercises
-
-=== Challenge 1: Configuration Rollback Comparison
-
-// TODO: Test rollback capabilities of each method
-
-=== Challenge 2: Parallel Execution
-
-// TODO: Use Python threading/multiprocessing to configure devices in parallel
-
-=== Challenge 3: Error Recovery Strategies
-
-// TODO: Implement sophisticated error handling and retry logic
-
-=== Challenge 4: Configuration Templating
-
-// TODO: Use Jinja2 templates with all three methods
-
-=== Challenge 5: Ansible Integration
-
-// TODO: Compare custom Python scripts to Ansible playbooks
+=== 8.1 Port Security Configuration
+
+**Your Task:**
+
+1. Configure port security on **5 ports per switch** (e.g., Gi1/0/1-5 on both S1 and S2)
+2. Settings:
+   * Maximum 2 MAC addresses per port
+   * Violation action: `restrict` (silent drop)
+   * MAC learning: `sticky` (dynamic learning)
+3. Ports should already be in VLAN 10 from Section 6
+
+**Method Guidance:**
+
+Choose your approach, but note:
+* **SSH:** Interface range configuration works: `interface range Gi1/0/1-5`
+* **RESTCONF:** May require per-interface iteration (no range support in API)
+* **NETCONF:** Same as RESTCONF—per-interface is more straightforward
+
+**Implementation Requirements:**
+* Create a function that takes a switch name and port range
+* Apply port-security settings
+* Handle errors gracefully
+
+=== 8.2 Verification: Port Security Status
+
+**Your Task:**
+
+1. Retrieve port-security configuration from both switches
+2. Verify all configured ports have:
+   * Port-security enabled
+   * Maximum set to 2
+   * Violation action set to restrict
+   * MAC address learning enabled
+3. Create a report comparing configured vs. actual settings
+
+**Verification Commands (reference):**
+
+[source, cisco-ios]
+----
+show port-security                    # Summary
+show port-security interface Gi1/0/5  # Detailed per-port
+show port-security mac-address        # Learned MACs
+----
+
+== Section 9: Configuration Audit and Compliance
+
+**Objective:** Build tools to verify that all devices have the expected configuration (no drift, no manual changes).
+
+**Context:** In a production network, devices may be manually changed, or configurations may drift due to bugs or failed automation. Auditing tools catch these issues.
+
+=== 9.1 Configuration Snapshot
+
+**Your Task:**
+
+1. Create a function that gathers the current configuration from all devices
+2. Store it in a structured format (JSON or YAML)
+3. Include:
+   * Hostname
+   * Interface configuration (IP addresses)
+   * OSPF configuration
+   * VLAN configuration
+   * Port-security settings
+
+**Guidance:**
+* Use your preferred method (SSH, RESTCONF, NETCONF) to gather config
+* Structure the output so it's easy to query and compare
+* Consider: What's the difference between `show running-config` and YANG model inspection?
+
+=== 9.2 Compliance Check
+
+**Your Task:**
+
+1. Define expected configuration (what "correct" looks like):
+   [source, python]
+   ----
+   expected_config = {
+       'R1': {
+           'hostname': 'R1',
+           'interfaces': {
+               'S0/1/0': {'ip': '10.10.10.1', 'mask': '255.255.255.252'},
+               'S0/1/1': {'ip': '10.10.10.5', 'mask': '255.255.255.252'},
+               'G0/0/0': {'ip': '10.10.99.10', 'mask': '255.255.255.0'}
+           },
+           'ospf': {'enabled': True, 'process_id': 1}
+       },
+       # ... similar for R2, S1, S2
+   }
+   ----
+
+2. Write a comparison function that:
+   * Retrieves actual configuration
+   * Compares it to expected configuration
+   * Reports differences (drift)
+
+=== 9.3 Remediation Report
+
+**Your Task:**
+
+1. If drift is detected, generate a report showing:
+   * Device name
+   * Configuration item that drifted
+   * Expected value
+   * Actual value
+   * Resolution (e.g., "auto-correct available" or "manual review required")
+2. Include suggestions for how to fix drift
+
+**Example Output:**
+
+[source]
+----
+Compliance Audit Report (2024-02-16 15:00:00)
+
+Device R1:
+  ✓ Hostname: COMPLIANT
+  ✓ Serial Interface S0/1/0: COMPLIANT (IP: 10.10.10.1)
+  ✓ Serial Interface S0/1/1: COMPLIANT (IP: 10.10.10.5)
+  ✓ OSPF: COMPLIANT
+  
+Device R2:
+  ✓ Hostname: COMPLIANT
+  ✗ Serial Interface S0/1/0: DRIFT
+      Expected IP: 10.10.10.2
+      Actual IP: 192.168.1.1
+      Suggestion: Reconfigure using Section 3/4 scripts
+  
+Summary: 3/4 devices compliant (75%)
+----
 
 == Additional Resources
 
