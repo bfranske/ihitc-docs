@@ -61,10 +61,10 @@ Write a 250-400 word explanation in your own words that demonstrates your unders
 
 Your summary should include:
 
-* A clear explanation of what Agile is and why IT teams use it
-* The key Agile roles (e.g. Product Owner, Scrum Master, team members)
-* Core Agile ceremonies (e.g. standups, sprint planning, retrospectives)
-* A brief example of how an IT team, not just software developers, might use Agile methods
+* A clear explanation of what Agile is, how it differs from traditional project management, and why IT teams use it
+* A description of the key Scrum roles (e.g. Product Owner, Scrum Master, team members)
+* A description of core Scrum ceremonies (e.g. standups, sprint planning, retrospectives)
+* A brief example of how an IT team, not just software developers, might use Agile and/or Scrum methods
 ** Such as for infrastructure updates, helpdesk process improvements, cloud migrations
 
 Requirements:
