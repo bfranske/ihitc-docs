@@ -171,6 +171,9 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * *There are no new activities and nothing due today, it is Spring Break*
 
 == Mar 18: Week 9
+
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+
 === Readings to do before the next date
 * https://www.zytrax.com/books/dns/ch2/[DNS Concepts]
 * https://www.zytrax.com/books/dns/ch4/[DNS Configuration Types]
@@ -190,7 +193,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 
 == Mar 25: Week 10
 
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
 
 === Readings to do before the next date
 * https://docs.docker.com/get-started/docker-overview/[What is Docker?]
@@ -209,7 +212,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 
 == Apr 1: Week 11
 
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
 
 === Readings to do before the next date
 * None
@@ -228,7 +231,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 
 == Apr 8: Week 12
 
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
 
 === Readings to do before the next date
 * Chapter 15 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
@@ -247,7 +250,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 
 == Apr 15: Week 13
 
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
 
 === Readings to do before the next date
 * Chapter 24 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
@@ -267,7 +270,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 
 == Apr 22: Week 14
 
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
+IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
 
 === Readings to do before the next date
 * https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Instant Hacking]
@@ -287,7 +290,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 
 == Apr 29: Week 15
 
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
 
 === Readings to do before the next date
 * None
