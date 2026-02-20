@@ -86,9 +86,14 @@ NOTE: All systemd.network files end in _.network_ and are processed in alphabeti
 --
 +
 . The two IPv6 lines enable SLAAC IPv6 addressing for your server if the network is configured to provide IPv6 router advertisements.
+. Before continuing it is important to install the *systemd-resolved* package on your system using the appropriate *apt* command. This package will be used in a future step to get DNS working again on your system which will stop working temporarily after changing to the Networkd style configuration. The issue is that we need working DNS in order to download and install APT packages so we want to make sure we have installed this package before switching over our network configuration.
 . Because we are changeing from the old-style network configuration we need to specifically enable the Networkd service using the `systemctl enable systemd-networkd` command and disable the old-style network configuration with the `systemctl disable networking` command. You will need to do this as the root user.
 . To apply the changes to our network configuration run the `systemctl restart systemd-networkd` command as the root user.
 . You will also want to stop the old-style network configuration with the `systemctl stop networking` command as the root user.
++
+--
+IMPORTANT: Once you stop `networking` and start `systemd-networkd` your system will let it's DHCP address lease expire. When that happens your system will loose it's DNS server address (which had come from DHCP) and you will no longer have the ability to look up domain names on the system. You will rectify this later in this section of the lab but make sure you do so as soon as possible!
+--
 . Rename the _/etc/network/interfaces_ file so you still have a backup but it is no longer going to start automatically. You can do this by running the `mv /etc/network/interfaces /etc/network/interfaces.bak` command as the root user.
 . You should notice that your SSH connection to your server becomes unresponsive shortly after running this command. That is because the IP address has changed and your SSH connection is still to the old IP address. Start a new SSH connection to your new static IP address (this is the address you will use for connecting to your server going forward). 
 +
@@ -109,8 +114,11 @@ DHCP=ipv4
 You would then need to restart networkd like `systemctl restart systemd-networkd` command as the root user to apply the change and would have to log in through the console of the virtual maching to check the IP before being able to connect remotely.
 ====
 --
-. Although we set nameservers in the _/etc/systemd/network/10-primary.network_ file they are not actually in use yet. DNS servers have traditionally be stored in the _/etc/resolv.conf_ file which is edited manually when they need to be changed. However, this presents a problem for mobile devices which may need to frequently change DNS servers as they are connected to different networks. While there have been multiple schemes for doing this in the past including having the DHCP client software edit the _/etc/resolv.conf_ file or using an intermediate software package such as *openrsolv* or *resolfconf* to manage this file with new-style networkd configuration there is also a new way to manage DNS settings using the *systemd-resolved* program.
-* Install the *systemd-resolved* package on your system using the appropriate *apt* command.
+. Although we set nameservers in the _/etc/systemd/network/10-primary.network_ file they are not actually in use yet. DNS servers have traditionally be stored in the _/etc/resolv.conf_ file which is edited manually when they need to be changed. However, this presents a problem for mobile devices which may need to frequently change DNS servers as they are connected to different networks. While there have been multiple schemes for doing this in the past including having the DHCP client software edit the _/etc/resolv.conf_ file or using an intermediate software package such as *openresolv* or *resolvconf* to manage this file with new-style networkd configuration there is also a new way to manage DNS settings using the *systemd-resolved* program.
++
+--
+NOTE: You should have previously installed the *systemd-resolved* package on your system using the appropriate *apt* command. If not you can try doing it now but if it has been too long since you disabled your DHCP address your system will have lost it's DNS server and will be unable to contact the Debian APT package servers to download and install software. If this happens you will need to temporarily set a manual DNS server in the `/etc/resolv.conf` file to `nameserver 172.17.50.1` in order to download and install `systemd-resolved`.
+--
 * Enable the systemd-resolved service with the `systemctl enable systemd-resolved` command and start with with the `systemctl start systemd-resolved` command. Both of these will need to be run as the root user.
 . Make sure that you can SSH to your Linux server's new static IP address and that you can `ping google.com` from your Linux server (press CTRL+C to stop the ping).
 
