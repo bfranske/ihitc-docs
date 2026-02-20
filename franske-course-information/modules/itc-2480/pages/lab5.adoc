@@ -102,7 +102,7 @@ NOTE: If you have problems connecting it is likely that there is an issue with t
 
 [NOTE]
 ====
-If you need to set the machine back to using DHCP after activating networkd you would do so with a configuration file like:
+If you need to set the machine back to using DHCP after activating systemd-networkd you could do so with a networkd configuration file like:
 [source,console]
 ----
 [Match]
@@ -119,7 +119,7 @@ You would then need to restart networkd like `systemctl restart systemd-networkd
 --
 NOTE: You should have previously installed the *systemd-resolved* package on your system using the appropriate *apt* command. If not you can try doing it now but if it has been too long since you disabled your DHCP address your system will have lost it's DNS server and will be unable to contact the Debian APT package servers to download and install software. If this happens you will need to temporarily set a manual DNS server in the `/etc/resolv.conf` file to `nameserver 172.17.50.1` in order to download and install `systemd-resolved`.
 --
-* Enable the systemd-resolved service with the `systemctl enable systemd-resolved` command and start with with the `systemctl start systemd-resolved` command. Both of these will need to be run as the root user.
+. Enable the systemd-resolved service with the `systemctl enable systemd-resolved` command and start with with the `systemctl start systemd-resolved` command. Both of these will need to be run as the root user.
 . Make sure that you can SSH to your Linux server's new static IP address and that you can `ping google.com` from your Linux server (press CTRL+C to stop the ping).
 
 == Install and Serve a Basic Website with the Nginx Web Server
