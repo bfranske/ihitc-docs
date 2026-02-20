@@ -58,8 +58,7 @@ In this section of the lab you will be changing the IP address of your Linux Ser
 
 |Subnet Mask / Prefix|255.255.254.0 (/23)
 |Gateway Address|172.17.50.1
-|Nameserver 1|172.17.139.11
-|Nameserver 2|172.17.139.111
+|Nameserver|172.17.50.1
 |===
 +
 --
