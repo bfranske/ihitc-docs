@@ -124,8 +124,6 @@ NOTE: You will install the printer to your desktop computer.
 * 8.4.1.3 Lab - Share a Printer in Windows
 +
 --
-NOTE: For Spring 2024 you can skip this lab activity. Microsoft has made some security changes to Windows which prevent this from working in many cases without changing many advanced options which are beyond the scope of the A+ certification.
-
 NOTE: In this lab use a laptop as the second device (the one which is not directly connected to the printer). Both the laptop and your desktop will need to be connected to the same network so setup your network routers with a connection to both computers. Do not connect the printer directly to the router at this point.
 
 NOTE: Because of a security issue called "Print Nightmare" Microsoft has made some patches to Windows printer sharing which may prevent you from adding a network printer on a the client (Laptop in this case) through the traditional means (such as just double clicking on the shared printer or by searching and installing it as a network printer on the client. Instead you may need to download and install the printer driver on the client computer first (like you would for a local USB printer) and then manually add the shared printer on the client, specifying the driver to use.
@@ -136,10 +134,6 @@ NOTE: Because of a security issue called "Print Nightmare" Microsoft has made so
 NOTE: In this lab you will not actually install any new parts, just find and remove the existing parts on the printer and then re-install them. Also, you should locate the fuser on the printer and find and watch a video showing how to remove and replace it but do not actually do it because on our particular printer model it requires disassembling most of the printer to get to the fuser.
 --
 * xref:lab-networkprinting.adoc[Lab - Setup and Connect to Network Printers]
-+
---
-NOTE: For Spring 2024 you can skip the second part of this lab activity. Microsoft has made some security changes to Windows which prevent this from working in many cases without changing many advanced options which are beyond the scope of the A+ certification.
---
 
 === Virtualization/Linux Labs (Module 9)
 xref:lab-virtualization.adoc[Virtualization and Linux GUI exploration lab activity instructions]
