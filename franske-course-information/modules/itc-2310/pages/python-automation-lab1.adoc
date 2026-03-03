@@ -235,32 +235,18 @@ For this lab, you will work with **live Cisco network devices**:
 
 **Initial Setup:**
 
-All devices start with **basic connectivity configured**. You'll connect via console initially to set up SSH access, then switch to SSH automation.
+You'll initally connect via console to devices to set up SSH access, then switch to SSH automation.
 
-**Network Topology (Example):**
-[source, text]
-----
-Management Network: 10.10.20.0/24
+**Device Addressing (management network):**
 
-  [Your Workstation]
-  10.10.20.5/24
-        |
-   [Network]
-        |
-    +---+---+---+---+
-    |   |   |   |   |
-  [R1] [R2] [SW1][SW2]
-  .10  .20  .30  .40
-----
-
-**Device Addressing (adjust based on your lab):**
-
-* **R1:** GigabitEthernet0/0/1 - `10.10.20.10/24`
-* **R2:** GigabitEthernet0/0/1 - `10.10.20.20/24`  
-* **SW1:** VLAN 1 - `10.10.20.30/24`
-* **SW2:** VLAN 1 - `10.10.20.40/24`
-* **Your Workstation:** `10.10.20.5/24`
-* **Default Gateway:** `10.10.20.1` (provided by lab infrastructure)
+* **Your Linux Management PC Workstation (ens18):** `10.10.20.5/24`
+* **Your Linux Management PC Workstation (ens19):** DHCP
+* **Your Windows Admin PC LAN (Ethernet 1):** `10.10.20.4/24`
+* **Your Windows Admin PC LAN (Ethernet 2):** DHCP
+* **R1:** GigabitEthernet0/0/0 - `10.10.20.10/24`
+* **R2:** GigabitEthernet0/0/0 - `10.10.20.20/24`  
+* **S1:** VLAN 1 - `10.10.20.30/24`
+* **S2:** VLAN 1 - `10.10.20.40/24`
 
 == Section 1 — Prepare Devices for SSH Access
 
@@ -287,10 +273,10 @@ Router# configure terminal
 Router(config)# hostname R1
 
 ! Configure domain name (required for SSH key generation)
-Router(config)# ip domain-name lab.local
+Router(config)# ip domain name lab.local
 
 ! Disable DNS lookups (prevents CLI delays on typos)
-Router(config)# no ip domain-lookup
+Router(config)# no ip domain lookup
 
 ! Create local user account for SSH authentication
 ! Username: netadmin, Privilege: 15 (full access), Password: NetAuto123!
@@ -311,14 +297,11 @@ Router(config-line)# exec-timeout 30 0            ! 30-minute timeout
 Router(config-line)# exit
 
 ! Configure management interface with IP address
-Router(config)# interface GigabitEthernet0/0/1
+Router(config)# interface GigabitEthernet0/0/0
 Router(config-if)# description Management Interface
 Router(config-if)# ip address 10.10.20.10 255.255.255.0
 Router(config-if)# no shutdown
 Router(config-if)# exit
-
-! Set default route for management traffic (if needed)
-Router(config)# ip route 0.0.0.0 0.0.0.0 10.10.20.1
 
 ! Save configuration
 Router(config)# end
@@ -332,22 +315,23 @@ R1# show ip ssh
 SSH Enabled - version 2.0
 Authentication timeout: 120 secs; Authentication retries: 3
 
-R1# show ip interface brief | include GigabitEthernet0/0/1
-GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
+R1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0/0   10.10.20.10     YES manual up                    up      
 ----
 
-==== Switch Configuration Example (SW1)
+==== Switch Configuration Example (S1)
 
 [source, cisco-ios]
 ----
 ! Console in and configure similar to router
 Switch> enable
 Switch# configure terminal
-Switch(config)# hostname SW1
+Switch(config)# hostname S1
 
 ! Basic SSH configuration (same as router)
-Switch(config)# ip domain-name lab.local
-Switch(config)# no ip domain-lookup
+Switch(config)# ip domain name lab.local
+Switch(config)# no ip domain lookup
 Switch(config)# username netadmin privilege 15 secret NetAuto123!
 Switch(config)# crypto key generate rsa modulus 2048
 Switch(config)# ip ssh version 2
@@ -366,15 +350,27 @@ Switch(config-if)# ip address 10.10.20.30 255.255.255.0
 Switch(config-if)# no shutdown
 Switch(config-if)# exit
 
-! Default gateway (switches need this to reach other networks)
-Switch(config)# ip default-gateway 10.10.20.1
-
 ! Save configuration
 Switch(config)# end
 Switch# write memory
 ----
 
 === Step 2: Test SSH Access Manually
+
+Because Cisco devices use older SSH key algorithms than OpenSSH accepts by default on Linux we need to modify the `~/.ssh/config` file to support some older algorithms.
+
+. Make the directory `~/.ssh` if it does not already exist with the `mkdir ~/.ssh` command
+. Use `nano ~/.ssh/config` to create/edit the `~/.ssh/config` file (or use another text editor of your choice)
+. Paste this into the file:
++
+--
+[source]
+----
+Host *
+    KexAlgorithms +diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1
+    HostkeyAlgorithms +ssh-rsa
+----
+--
 
 From your workstation, test SSH connection before trying Python:
 
@@ -401,11 +397,21 @@ Repeat for all devices (R2, SW1, SW2) to verify SSH is working.
 * **Timeout:** Check network connectivity (`ping 10.10.20.10` from workstation)
 ====
 
-=== Step 3: Install Netmiko on Your Workstation
+=== Step 3: Create a Python Virtual Environment and Install Netmiko in it
 
-Netmiko is a Python library that simplifies SSH connections to network devices. It handles SSH session management, expects prompts, and simplifies sending commands.
+**Create a Pyhon Virtual Environment**
+
+Python virtual environments (venvs) are essential tools for isolating project-specific packages and dependencies, which
+prevents conflicts between different projects and avoids issues with the system's global Python installation. Each project/lab should have it's own virtual environment. Before installing Python libraries or running a python script you should activate its venv and then deactivate it with the `deactivate` command when you want to switch to another venv or are done.
+
+. Create a new directory for your Python project `mkdir netmiko-experiments`
+. Enter the directory `cd netmiko-experiments`
+. Create a Python virtual environment `python -m venv .venv`
+. Activate your Python virtual environment `source .venv/bin/activate`
 
 **Install Netmiko:**
+
+Netmiko is a Python library that simplifies SSH connections to network devices. It handles SSH session management, expects prompts, and simplifies sending commands.
 
 [source, bash]
 ----
@@ -832,7 +838,7 @@ Now you'll send configuration commands to devices via Python—automating what y
 
 === 3.1 Single Configuration Command
 
-Try running this script to set the interface description on G0/0/0 of R1.
+Try running this script to set the interface description on G0/0/1 of R1.
 
 [source, python]
 ----
@@ -850,7 +856,7 @@ print(f"Connected to {connection.find_prompt()}")
 
 # Configuration commands as a list
 config_commands = [
-    'interface GigabitEthernet0/0/0',
+    'interface GigabitEthernet0/0/1',
     'description Configured by Python Script',
     'exit'
 ]
@@ -865,7 +871,7 @@ print(output)
 
 # Verify the change
 print("\nVerifying configuration...")
-verify_output = connection.send_command("show running-config interface GigabitEthernet0/0/0")
+verify_output = connection.send_command("show running-config interface GigabitEthernet0/0/1")
 print(verify_output)
 
 # Save configuration
@@ -888,12 +894,12 @@ python configure_description.py
 
 [source, cisco-ios]
 ----
-R1# show running-config interface GigabitEthernet0/0/0
+R1# show running-config interface GigabitEthernet0/0/1
 Building configuration...
 
 Current configuration : 123 bytes
 !
-interface GigabitEthernet0/0/0
+interface GigabitEthernet0/0/1
  description Configured by Python Script
  no ip address
  shutdown
@@ -1142,7 +1148,7 @@ Write scripts to:
    - Set logging source interface
 
 4. **Disable unused interfaces on R2:**
-   - Interfaces: GigabitEthernet0/0/0, GigabitEthernet0/1/0-3
+   - Interfaces: GigabitEthernet0/0/1, Serial0/1/0-0/1/1
    - Apply description: "UNUSED - Disabled by Policy"
    - Put in shutdown state
 

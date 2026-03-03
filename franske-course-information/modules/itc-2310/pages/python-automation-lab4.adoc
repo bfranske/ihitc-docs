@@ -95,10 +95,18 @@ ncclient provides a Python interface to NETCONF operations. It handles the SSH c
 
 == Lab Environment & Device Access
 
-This lab uses the **same physical environment as Lab 1**:
+This lab uses the **same physical environment as Lab 1 and Lab 3**:
 
-* **Cisco 4331 Routers** - R1 `10.10.20.10/24`, R2 `10.10.20.20/24` on GigabitEthernet0/0/1
-* **Cisco 3650 Switches** - SW1 `10.10.20.30/24`, SW2 `10.10.20.40/24` on VLAN 1
+**Device Addressing (management network):**
+
+* **Your Linux Management PC Workstation (ens18):** `10.10.20.5/24`
+* **Your Linux Management PC Workstation (ens19):** DHCP
+* **Your Windows Admin PC LAN (Ethernet 1):** `10.10.20.4/24`
+* **Your Windows Admin PC LAN (Ethernet 2):** DHCP
+* **R1:** GigabitEthernet0/0/0 - `10.10.20.10/24`
+* **R2:** GigabitEthernet0/0/0 - `10.10.20.20/24`  
+* **S1:** VLAN 1 - `10.10.20.30/24`
+* **S2:** VLAN 1 - `10.10.20.40/24`
 
 All devices run **Cisco IOS-XE** and start with **no configuration**. You will:
 
@@ -107,13 +115,6 @@ All devices run **Cisco IOS-XE** and start with **no configuration**. You will:
 . Enable NETCONF (instead of RESTCONF)
 . Create user accounts for API access
 . Test connectivity via Python with ncclient
-
-**Network Details:**
-
-* Management VLAN: `10.10.20.0/24`
-* Default Gateway: `10.10.20.1` (provided by instructor)
-* Your workstation IP: Assigned by instructor (e.g., `10.10.20.5/24`)
-* NETCONF Port: **830 (SSH)** vs. RESTCONF Port: 443 (HTTPS)
 
 == Section 1 - Initial Device Configuration via CLI
 
@@ -725,12 +726,12 @@ python netconf_get_interfaces.py
         "@xmlns": "urn:ietf:params:xml:ns:yang:ietf-interfaces",
         "interface": [
           {
-            "name": "GigabitEthernet0/0/0",
+            "name": "GigabitEthernet0/0/1",
             "type": "iana-if-type:ethernetCsmacd",
             "enabled": "false"
           },
           {
-            "name": "GigabitEthernet0/0/1",
+            "name": "GigabitEthernet0/0/0",
             "type": "iana-if-type:ethernetCsmacd",
             "enabled": "true",
             "ipv4": {
@@ -829,8 +830,8 @@ Expected output:
 [source, text]
 ----
 Interface              IP-Address      OK? Method Status                Protocol
-GigabitEthernet0/0/0   unassigned      YES unset  administratively down down
-GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up
+GigabitEthernet0/0/1   unassigned      YES unset  administratively down down
+GigabitEthernet0/0/0   10.10.20.10     YES manual up                    up
 ----
 
 **Compare:**

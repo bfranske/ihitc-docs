@@ -57,7 +57,7 @@ You will need:
 
 For this lab, you will work with **live Cisco network devices**:
 
-* **Cisco 4331 Routers** - R1 `10.10.20.10/24`, R2 `10.10.20.20/24` on GigabitEthernet0/0/1
+* **Cisco 4331 Routers** - R1 `10.10.20.10/24`, R2 `10.10.20.20/24` on GigabitEthernet0/0/0
 * **Cisco 3650 Switches** - SW1 `10.10.20.30/24`, SW2 `10.10.20.40/24` on VLAN 1
 
 All devices run **Cisco IOS-XE** and start with **no configuration**. You will:
@@ -70,11 +70,16 @@ All devices run **Cisco IOS-XE** and start with **no configuration**. You will:
 
 *Important:* This is a lab environment. HTTPS certificates will be self-signed and untrusted. In production, you would verify certificates properly, but for this lab, we disable verification with `verify=False`.
 
-**Network Details:**
+**Device Addressing (management network):**
 
-* Management VLAN: `10.10.20.0/24`
-* Default Gateway: `10.10.20.1` (provided by instructor)
-* Your workstation IP: Assigned by instructor (e.g., `10.10.20.5/24`)
+* **Your Linux Management PC Workstation (ens18):** `10.10.20.5/24`
+* **Your Linux Management PC Workstation (ens19):** DHCP
+* **Your Windows Admin PC LAN (Ethernet 1):** `10.10.20.4/24`
+* **Your Windows Admin PC LAN (Ethernet 2):** DHCP
+* **R1:** GigabitEthernet0/0/0 - `10.10.20.10/24`
+* **R2:** GigabitEthernet0/0/0 - `10.10.20.20/24`  
+* **S1:** VLAN 1 - `10.10.20.30/24`
+* **S2:** VLAN 1 - `10.10.20.40/24`
 
 == Section 1 - Initial Device Configuration via CLI
 
@@ -114,22 +119,19 @@ Router(config-line)# logging synchronous
 Router(config-line)# exec-timeout 0 0
 Router(config-line)# exit
 
-! Configure the management interface (GigabitEthernet0/0/1)
-Router(config)# interface GigabitEthernet0/0/1
+! Configure the management interface (GigabitEthernet0/0/0)
+Router(config)# interface GigabitEthernet0/0/0
 Router(config-if)# description Management Interface
 Router(config-if)# ip address 10.10.20.10 255.255.255.0
 Router(config-if)# no shutdown
 Router(config-if)# exit
 
-! Set default gateway (for management traffic and RESTCONF)
-Router(config)# ip route 0.0.0.0 0.0.0.0 10.10.20.1
-
 ! Wait a few seconds for the interface to come up
-! Verify interface is up: you should see "GigabitEthernet0/0/1 is up, line protocol is up"
+! Verify interface is up: you should see "GigabitEthernet0/0/0 is up, line protocol is up"
 Router(config)# do show ip interface brief
 ----
 
-Repeat the same steps on R2 using IP `10.10.20.20/24` on GigabitEthernet0/0/1.
+Repeat the same steps on R2 using IP `10.10.20.20/24` on GigabitEthernet0/0/0.
 
 ==== Cisco 3650 Switch Initial Configuration
 
@@ -171,9 +173,6 @@ Switch(config-if)# switchport mode access
 Switch(config-if)# switchport access vlan 1
 Switch(config-if)# no shutdown
 Switch(config-if)# exit
-
-! Set default gateway
-Switch(config)# ip default-gateway 10.10.20.1
 
 ! Verify interface is up
 Switch(config)# do show ip interface brief
@@ -380,10 +379,9 @@ hostname R1
 no ip domain-lookup
 ip domain-name lab.local
 username admin privilege 15 secret Cisco123!
-interface GigabitEthernet0/0/1
+interface GigabitEthernet0/0/0
  ip address 10.10.20.10 255.255.255.0
  no shutdown
-ip route 0.0.0.0 0.0.0.0 10.10.20.1
 crypto key generate rsa modulus 2048
 ip http secure-server
 ip http authentication local
@@ -406,7 +404,6 @@ interface GigabitEthernet1/0/1
  switchport mode access
  switchport access vlan 1
  no shutdown
-ip default-gateway 10.10.20.1
 crypto key generate rsa modulus 2048
 ip http secure-server
 ip http authentication local
@@ -673,7 +670,7 @@ HTTP Status: 200
 {
   "ietf-interfaces:interface": [
     {
-      "name": "GigabitEthernet0/0/1",
+      "name": "GigabitEthernet0/0/0",
       "enabled": true,
       "ietf-ip:ipv4": {
         "address": [
@@ -695,7 +692,7 @@ HTTP Status: 200
 }
 
 === INTERFACE SUMMARY ===
-GigabitEthernet0/0/1      enabled=true  ipv4=['10.10.20.10']
+GigabitEthernet0/0/0      enabled=true  ipv4=['10.10.20.10']
 Loopback0                 enabled=true  ipv4=[]
 ----
 
@@ -709,7 +706,7 @@ Console into your router and run these commands:
 ----
 R1# show ip interface brief
 Interface              IP-Address      OK? Method Status                Protocol
-GigabitEthernet0/0/1   10.10.20.10     YES manual up                    up      
+GigabitEthernet0/0/0   10.10.20.10     YES manual up                    up      
 Loopback0              unassigned      YES unset  up                    up      
 
 ! Compare this to your Python output - notice:
@@ -728,7 +725,7 @@ Building configuration...
 
 Current configuration : 106 bytes
 !
-interface GigabitEthernet0/0/1
+interface GigabitEthernet0/0/0
  description Management Interface
  ip address 10.10.20.10 255.255.255.0
  no shutdown
@@ -747,9 +744,9 @@ end
 Try these variations:
 
 1. **Get a single interface:** Replace the URL with:
-  `https://10.10.20.10/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet0/0/1`
+  `https://10.10.20.10/restconf/data/ietf-interfaces:interfaces/interface=GigabitEthernet0/0/0`
    
-   Then verify with: `show running-config interface GigabitEthernet0/0/1`
+   Then verify with: `show running-config interface GigabitEthernet0/0/0`
 
 2. **Get IPv4 addresses only on one interface:**
   `https://10.10.20.10/restconf/data/ietf-interfaces:interfaces/interface=Loopback0/ietf-ip:ipv4/address`
@@ -876,7 +873,7 @@ After running the script, console into the router and verify:
 ----
 R1# show ip interface brief
 Interface              IP-Address      Status    Protocol
-GigabitEthernet0/0/1   10.10.20.10     up        up
+GigabitEthernet0/0/0   10.10.20.10     up        up
 Loopback0              unassigned      up        up
 Loopback99             192.0.2.99      up        up      <-- Created by RESTCONF!
 
