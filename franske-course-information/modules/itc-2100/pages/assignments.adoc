@@ -103,11 +103,11 @@ Create a 250-400 word career development plan that explains your next steps in p
 Your roadmap should include:
 
 * The IT role (or roles) you are targeting in the next 1–2 years
-* Skills you need to develop or improve based on earlier assignments
+* Skills (technical and non-technical) you want to develop or improve
 * Certifications you plan to pursue
-** Examples: CompTIA ITF+, A+, CCNA, Cisco Cybersecurity Associate, Azure, AWS Cloud Practitioner, ITIL Foundation, etc.
+** Examples: CompTIA A+, CCNA, Cisco Cybersecurity Associate, Azure, AWS, ITIL Foundation, etc.
 * A simple 1‑year timeline showing when you plan to learn, study, or complete each milestone
-* Any free or low‑cost resources you plan to use (optional but recommended)
+* Explanation of how you will achieve your professional development goals
 
 This section is both reflective and forward‑thinking: it should connect what you have learned in this course to your real career goals.
 
