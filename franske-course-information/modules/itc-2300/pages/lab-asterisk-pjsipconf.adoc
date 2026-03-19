@@ -16,6 +16,9 @@ Don't forget to modify for the information specific to your Pod:
 type=transport
 protocol=udp
 bind=0.0.0.0
+local_net=192.168.1.0/24
+external_media_address=1.2.3.4 ; Replace with your public IP (check OpnSense)
+external_signaling_address=1.2.3.4 ; Replace with your public IP (check OpnSense)
 
 [2903] ; The value inside the [] will be the SIP line user name on the endpoint
 type=endpoint
@@ -115,13 +118,13 @@ aors=ISDNrouter
 [ISDNrouter]
 ; This will send SIP traffic to our router’s IP address if it’s sent to the ISDNrouter SIP device
 type=aor
-contact=sip:192.168.10.1:5060
+contact=sip:192.168.1.5:5060
 
 [ISDNrouter]
 ; This will match the SIP traffic incoming from the ISDN line attached to our router
 type=identify
 endpoint=ISDNrouter
-match=192.168.10.1
+match=192.168.1.5
 ----
 
 == IP Telephony Service Provider (ITSP) PSTN pjsip.conf File Changes
@@ -137,9 +140,9 @@ NOTE: You will need to modify the username for registration, the authentication 
 type=registration
 transport=simpletrans
 outbound_auth=sipPSTN
-server_uri=sip:172.17.219.2 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
+server_uri=sip:172.17.139.17 ; The IP address of the ITSP where we should register our IP address so they know where to send calls
 ; Update the username in the following line for your pod!
-client_uri=sip:podX@172.17.219.2 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
+client_uri=sip:podX@172.17.139.17 ; The username we need to provide to register with the ITSP as well as the IP address of the ITSP registration server
 endpoint=sipPSTN
 line=yes
 
@@ -163,12 +166,12 @@ from_user=podX ; The username to use in the SIP messages for calls out to the PS
 
 [sipPSTN]
 type=aor
-contact=sip:172.17.219.2:5060 ; All calls to the ITSP will go to this IP address and port
+contact=sip:172.17.139.17:5060 ; All calls to the ITSP will go to this IP address and port
 
 [sipPSTN]
 type=identify
 endpoint=sippstn
-match=172.17.219.2 ; All calls from the ITSP will come from this IP address
+match=172.17.139.17 ; All calls from the ITSP will come from this IP address
 ----
 
 == Reloading After Configuration Changes

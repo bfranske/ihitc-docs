@@ -20,36 +20,12 @@ You may want to make some additional changes for administration ease:
 ----
 hostname PodX-Router
 !
-ip dhcp excluded-address 192.168.10.1 192.168.10.20
-!
-ip dhcp pool internal-voip
-   network 192.168.10.0 255.255.255.0
-   dns-server 172.17.139.11
-   default-router 192.168.10.1
-   ! Option 150 is used by Cisco phones to find the TFTP server where they get their configuration.
-   ! We are running the TFTP server on our Asterisk server so we can use the IP of that server.
-   option 150 ip 192.168.10.3
-!
-interface FastEthernet0/0
- ! Rememeber to change the IP address on this interface to match the IP address assigned to your pod.
- ip address 172.17.144.XX 255.255.255.0
- ip nat outside
+interface GigabitEthernet0/0/0
+ ip address 192.168.1.5 255.255.255.0
  no shutdown
 !
-interface FastEthernet0/1
- no shutdown
+ip route 0.0.0.0 0.0.0.0 192.168.1.1
 !
-interface FastEthernet0/1.10
- encapsulation dot1Q 10
- ip address 192.168.10.1 255.255.255.0
- ip nat inside
- no shutdown
-!
-ip route 0.0.0.0 0.0.0.0 172.17.144.1
-!
-ip nat inside source list 1 interface FastEthernet0/0 overload
-!
-access-list 1 permit 192.168.10.0 0.0.0.255
 ----
 
 == Basic Switch Configuration
@@ -59,46 +35,7 @@ hostname PodX-Switch
 !
 vtp mode transparent
 !
-vlan 10
-!
 spanning-tree portfast default
-!
-!
-interface GigabitEthernet1/0/1
- description Lab PC
- switchport access vlan 10
- switchport mode access
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/2
- description VoIP Phone 1
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/3
- description VoIP Phone 2
- switchport access vlan 10
- switchport mode access
- switchport voice vlan 10
- spanning-tree portfast
-!
-interface GigabitEthernet1/0/23
- description Layer 2 connection to Asterisk server ens224 interface on internal 192.168.10.0/24 subnet
- switchport access vlan 10
- switchport mode access
- no shutdown
-!
-interface GigabitEthernet1/0/24
- description Trunk Connection to Router
- switchport mode trunk
- no shutdown
-!
-interface Vlan10
- ip address 192.168.10.2 255.255.255.0
-!
-ip route 0.0.0.0 0.0.0.0 192.168.10.1
 !
 ----
 
@@ -110,56 +47,34 @@ NOTE: You will not need this configuration until you get to the T1 gateway lab.
 These additions to the configuration of your router allow it to act as a VoIP gateway which converts a digital ISDN PRI trunk from the Public Switched Telephone Network (PSTN) to a SIP trunk which Asterisk can send and receive calls on. This means that calls sent to the router (only from the IP of our Asterisk server thanks to the ACLs) are able to be sent to the PSTN over a T1 PRI voice trunk with guaranteed quality and calls coming from the PSTN can be converted into VoIP by the router and sent on to Asterisk.
 
 ----
-! Put the T1/E1 card found in slot 0 , subslot 3 into T1 mode
-card type t1 0 3
+! Put the T1/E1 card found in slot 0 , subslot 1 into T1 mode
+card type t1 0 1
 !
 ! Setup ISDN on the router to use signaling for PRI connections to a National ISDN switch
 isdn switch-type primary-ni
 !
-! Tell the router to synchronize the DSP clock to the card in WIC slot 3
-network-clock-participate wic 3
+! Tell the router to synchronize the DSP clock to the T1 card
+network-clock synchronization automatic
 !
-! Enable SIP VoIP capabilities on the router and set the router to use the IP outside network for SIP signalling because that is where Asterisk is
+! Enable SIP VoIP capabilities on the router and set the router to use the correct interface for SIP signalling
 voice service voip
  sip
-  bind control source-interface FastEthernet0/1.10
-  bind media source-interface FastEthernet0/1.10
+  bind control source-interface GigabitEthernet 0/0/0
+  bind media source-interface GigabitEthernet 0/0/0
 !
-! Configure the T1 settings on port 0 in subslot 3, slot 0 to use the correct modes for the ISDN switch and to use only the first 6 channels on the T1 PRI (due to limited DSP resources on our routers)
-controller T1 0/3/0
+! Configure the T1 settings for slot 0, in subslot 1, on port 0 to use the correct modes for the ISDN switch and to use all 24 timeslots in the ISDN PRI T1 connection
+controller T1 0/1/0
  framing esf
+ clock source line primary
  linecode b8zs
- clock source line
- pri-group timeslots 1-6
-!
-! Prevent any connections to the router's SIP port from the outside network
-ip access-list extended block-sip-outside
- ! change the next two lines to have the correct outside IP address for your router
- deny   tcp any host 172.17.144.XX eq 5060
- deny   udp any host 172.17.144.XX eq 5060
- permit ip any any
-!
-! Prevent any connections to the router's SIP port from the inside EXCEPT from the Asterisk server
-ip access-list extended block-sip-inside
- permit udp host 192.168.10.3 host 192.168.10.1 eq 5060
- deny   tcp any host 192.168.10.1 eq 5060
- deny   udp any host 192.168.10.1 eq 5060
- permit ip any any
-!
-! Apply the outside ACL
-interface FastEthernet0/0
- ip access-group block-sip-outside in
-!
-! Apply the inside ACL
-interface FastEthernet0/1.10
- ip access-group block-sip-inside in
+ cablelength short 110
+ pri-group timeslots 1-24
 !
 ! Send calls to any phone number received by the router (from Asterisk) to the PSTN over the T1.
-!   Note this is why we need the ACLs to only allow access from Asterisk, otherwise anyone could send a SIP call to the router out over our T1 which could cause us to be charged!
 dial-peer voice 1 pots
  description Calls from Asterisk to PSTN
  destination-pattern .T
- port 0/3/0:23
+ port 0/1/0:23
 !
 ! Send calls to 510555ZZ.. numbers to the Asterisk server using SIP to route further
 dial-peer voice 2 voip
@@ -168,7 +83,7 @@ dial-peer voice 2 voip
  destination-pattern 510555ZZ..
  session protocol sipv2
  ! The IP in the next line should be the internal network IP of your Asterisk server
- session target ipv4:192.168.10.3:5060
+ session target ipv4:192.168.1.10:5060
  incoming called-number .T
  dtmf-relay rtp-nte
  codec g711ulaw
@@ -179,7 +94,7 @@ dial-peer voice 3 pots
  ! change the two ZZs in the next line to match the incoming numbers for your pod (the last two characters should be periods to match any number)
  incoming called-number 510555ZZ..
  direct-inward-dial
- port 0/3/0:23
+ port 0/1/0:23
 !
 ----
 
