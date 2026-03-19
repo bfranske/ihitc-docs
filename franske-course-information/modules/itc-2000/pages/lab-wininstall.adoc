@@ -106,6 +106,21 @@ IMPORTANT: You will see two PCs in your Netlab environment. You will need to do 
 .. In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. From now on we do want network access so choose the lab named "2 Windows PCs with Network Access". Click on this lab title and make a reservation.
 .. Enter the lab as you have before and ensure the VMs are both booting.
 .. Login to both VMs once they have booted.
+. Check for Device Problems
++
+--
+After installation, verify that all hardware is installed correctly. The Device Manager utility is used to locate device problems and install the correct or updated drivers
+--
+.. Open Device Manager by typing "Device Manager" in the Windows search. 
+.. In Device Manager, you will see a list of device categories. Click a category to expand it and see all devices within that category. A yellow triangle with an exclamation point indicates a problem with a device. To view a description of the problem, right-click the device and select Properties. A gray circle with a downward pointing arrow indicates that a device is disabled. To enable the device, right-click the device and select Enable.
+.. Pick a device inside a category and double-click the device. The device properties window will open with tabs allowing you to view information about the device. Click the Driver tab. From here notice that you have many options such as view driver details, update the driver, or uninstall the device.
+. Install VirtIO Drivers and QEMU Guest Agent
+.. You may hvae noticed a problem with one or more unknown devices or devices with driver errors in the device manager. This is part of the virtual machine hardware that your system is running on. To correct this (and also drastically improve the VM experience) we need to install the VirtIO drivers and QEMU Guest Agent which are required for the hypervisor we are using.
+.. Open the Windows Explorer and navigate to the CD-ROM drive which already has the VirtIO driver CD loaded.
+.. Run the virtio-win-gt-x64 program and follow the installation wizard.
+.. Reboot your system after the tools are installed.
+.. Make sure you have done this on *both PC 1 and PC 2*!
+.. Once the system is rebooted you should be able to look in Device Manager again now and see there are no devices with an error.
 . Enable Internet access to your virtual machines
 .. Even though our lab reservation includes Internet access it's still disabled by default until we turn on the WAN interface of the router in front of your two virtual machines.
 .. Open the Edge web browser on your remote lab PC and connect to http://192.168.1.1 and log in with the username "root" and password "pchardware"
@@ -131,21 +146,6 @@ To update the OS after the initial installation, Microsoft Windows Update is use
 --
 .. To get to the Windows Update utility, type Update in the Windows search at the bottom of the desktop. Select Check for Updates.
 .. In the Windows Update window, you can click Check for updates to scan for needed Windows updates. Instead of the Check for updates button, you may see a list of missing important updates that need to be installed or require a restart. You can select the updates to install and click Restart now or Schedule the restart to have the computer restart later.
-. Check for Device Problems
-+
---
-After installation, verify that all hardware is installed correctly. The Device Manager utility is used to locate device problems and install the correct or updated drivers
---
-.. Open Device Manager by typing "Device Manager" in the Windows search. 
-.. In Device Manager, you will see a list of device categories. Click a category to expand it and see all devices within that category. A yellow triangle with an exclamation point indicates a problem with a device. To view a description of the problem, right-click the device and select Properties. A gray circle with a downward pointing arrow indicates that a device is disabled. To enable the device, right-click the device and select Enable.
-.. Pick a device inside a category and double-click the device. The device properties window will open with tabs allowing you to view information about the device. Click the Driver tab. From here notice that you have many options such as view driver details, update the driver, or uninstall the device.
-. Install VirtIO Drivers and QEMU Guest Agent
-.. You may hvae noticed a problem with one or more unknown devices or devices with driver errors in the device manager. This is part of the virtual machine hardware that your system is running on. To correct this (and also drastically improve the VM experience) we need to install the VirtIO drivers and QEMU Guest Agent which are required for the hypervisor we are using.
-.. Open the Windows Explorer and navigate to the CD-ROM drive which already has the VirtIO driver CD loaded.
-.. Run the virtio-win-gt-x64 program and follow the installation wizard.
-.. Reboot your system after the tools are installed.
-.. Make sure you have done this on *both PC 1 and PC 2*!
-.. Once the system is rebooted you should be able to look in Device Manager again now and see there are no devices with an error.
 
 == Part 4: Create a Partition in Windows
 --
