@@ -24,7 +24,7 @@ NOTE: Your username is typically the same as your StarID unless you have been in
 .. In the lower left corner of the screen, select "Schedule a Lab for Myself". Reservations are used to hold a place on the Netlab system to work on labs during a specific time. All of our lab work in this class is done in a single "Lab Environment" and your progress will be saved from one reservation to another. For the installation of Windows 10 we do not want the network connected so we can use a local account instead of a Microsoft account so choose the lab named "2 Windows PCs with NO Network Access". Click on this lab title.
 +
 --
-NOTE: If you are enrolled in more than one class that is using Netlab you will be presented with a list of classes you are enrolled in, click on your Linux System Administration course of you see this screen.
+NOTE: If you are enrolled in more than one class that is using Netlab you will be presented with a list of classes you are enrolled in, click on your PC Hardware and Software course if you see this screen.
 --
 .. Use the calendar to choose a date, time, and specific pod to reserve for your lab activity (see the tip below to start right away).
 +
@@ -40,10 +40,10 @@ TIP: The red line on this screen indicates the current time. If you want to get 
 .. Once you are in your pod you can either click on the image of the "Windows 10 PC 1" or "Windows 10 PC 2" on the topology diagram or use the tabs across the top of your screen to access the console of your two PCs.
 .. The console shows the display of your VM and allows you to type and interact with your VM just as if you were physically sitting down in front of a server with a monitor, keyboard, and mouse attached. Think of a virtual machine console window as a window to a seaparte computer that you are able to see in your web browser. You can see the "virtual monitor" and interact with a keyboard and mouse but just like a separate physical machine you will not be able to copy and paste text or drag and drop files in and out of this console window.
 . Learn to "Power Cycle" your virtual machine
-.. By now your VM has likely already booted and is sitting at a "Boot Manager" screen. Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the VMware Tools software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
+.. By now your VM has likely already booted loading the Windows Installer. Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the QEMU Guest Agent software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
 .. Try powering off your virtual machine
 . Power on your Virtual machine
-.. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system. If you give it a few minutes you'll end back up at the blue "Boot Manager" screen.
+.. Click the down arrow button on the right side of the "PC 1" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system. You should see the system start to boot. Note that in this virtual environment it can take several minutes for the Windows Installed to load (you will just see a flashing cursor in the upper-left corner of your screen). Don't panic, give it at least 3-5 minutes and the Windows Installer should start.
 
 == Part 2: Clean Install Windows 10
 --
@@ -52,9 +52,7 @@ In Part 2, you will do a clean installation of Windows 10 on two virtual machine
 IMPORTANT: You will see two PCs in your Netlab environment. You will need to do this part of the lab on *both* virtual machines! It is fastest if you get one PC started installing and then while it is copying files, get the second PC started. You can switch between the two virtual machines using the "PC 1" and "PC 2" tabs at the top of your screen.
 --
 . Starting the Installation Media
-.. From the blue "Boot Manager" screen (which is part of the BIOS/UEFI system on these virtual machines) use the arrow keys on your keyboard to move down to highlight the "EFI VMware Virtual SATA CDROM Drive (0.0)" option. You may need to move your mouse into the console display section of the screen to move the highlighted line with your arrow keys, your mouse cursor will disappear in this part of the screen (because the BIOS/UEFI has no mouse support).
-.. Press the "Enter" key to boot from the virtual CDROM Drive, watch for the message Press any key to boot from CD or DVD. If the message appears, press any key on the keyboard to boot the computer from the virtual DVD. If you miss the opportunity to press a key and the message goes away you'll have to wait a few minutes for things to timeout and you should end up back at the "Boot Manager" screen and be able to try again or you can power off the virtual machine, power it back on, and try again.
-.. The VM starts loading files from the virtual DVD drive.
+.. The VM will start loading the Windows Installer from the virtual DVD drive as soon as it boots up. Be patient, in the virtual environment it can take 3-5 minutes to load the installer while you just see a flashing cursor in the upper-left corner of your screen but the installer should eventually load.
 . Configuring Initial settings
 .. The Windows Setup window opens. Click "Next" to continue unless you need to change the default settings.
 .. Click "Install now" to continue the installation.
@@ -141,14 +139,13 @@ After installation, verify that all hardware is installed correctly. The Device 
 .. Open Device Manager by typing "Device Manager" in the Windows search. 
 .. In Device Manager, you will see a list of device categories. Click a category to expand it and see all devices within that category. A yellow triangle with an exclamation point indicates a problem with a device. To view a description of the problem, right-click the device and select Properties. A gray circle with a downward pointing arrow indicates that a device is disabled. To enable the device, right-click the device and select Enable.
 .. Pick a device inside a category and double-click the device. The device properties window will open with tabs allowing you to view information about the device. Click the Driver tab. From here notice that you have many options such as view driver details, update the driver, or uninstall the device.
-. Install VMWare Tools
-.. You may hvae noticed a problem with a "Base System Device" in device manager. This is part of the virtual machine hardware that your system is running on. TO correct this (and also drastically improve the VM experience) we need to install the VMWare drivers which they call "VMWare Tools".
-.. Open your Edge web browser to http://172.17.139.70:8080 and click the link to download the VMware Tools in ZIP format.
-.. Open the ZIP file you downloaded and run the "setup64" program, click "Run" when prompted.
-.. When asked "Do you want to allow this app to make changes to your device?" click "Yes"
-.. Complete a "Typical" installation of the VMware tools and allow it to restart the PC. Make sure you have done this on *both PC 1 and PC 2*!
-.. Once the system is rebooted you should be able to click the down arrow next to the "PC 1" or "PC 2" tab and choose "Resize Display" which will give you larger and more high-quality desktop image.
-.. You should be able to look in Device Manager again now and see there is no "Base System Device" with an error and also that under the "Display adapters" there is a "VMware SVGA 3D" adapter where there previously was a generic display adapter.
+. Install VirtIO Drivers and QEMU Guest Agent
+.. You may hvae noticed a problem with one or more unknown devices or devices with driver errors in the device manager. This is part of the virtual machine hardware that your system is running on. To correct this (and also drastically improve the VM experience) we need to install the VirtIO drivers and QEMU Guest Agent which are required for the hypervisor we are using.
+.. Open the Windows Explorer and navigate to the CD-ROM drive which already has the VirtIO driver CD loaded.
+.. Run the virtio-win-gt-x64 program and follow the installation wizard.
+.. Reboot your system after the tools are installed.
+.. Make sure you have done this on *both PC 1 and PC 2*!
+.. Once the system is rebooted you should be able to look in Device Manager again now and see there are no devices with an error.
 
 == Part 4: Create a Partition in Windows
 --
@@ -248,7 +245,7 @@ When the volume was FAT32, there were three tabs. What is the name of the new ta
 .. Close all open windows.
 
 == Part 5: Shut Down the Virtual Machines and End Your Reservation
-. To properly shut down the virtual machine you should shut down the guest operating system (both PC 1 and PC 2) as normal. Do NOT just close your browser window which will kill power to the VMs when the reservation ends or end your reservation now which is similar to yanking out the power plug of a physcial machine.
+. To properly shut down the virtual machine you should shut down the guest operating system (both PC 1 and PC 2) as normal. Do NOT just close your browser window which will kill power to the VMs when the reservation ends or end your reservation now. If you do not have the VirtIO drivers and QEMU Agent properly installed these would turn off the systems in a way similar to yanking out the power plug of a physcial machine.
 . Use the shutdown option in the Start menu on both PC 1 and PC 2 to shut down the systems
 . After both systems are safely shut down use the "Reservation" menu in the upper right corner of the screen to select "End Reservation Now"
 
