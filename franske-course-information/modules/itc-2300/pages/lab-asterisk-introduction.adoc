@@ -10,51 +10,43 @@ These are the IP addresses and phone extension numbers assigned to your pod whic
 
 [%autowidth,options="header"]
 |===
-|Pod |Asterisk ens192 IP |Pod Router Fa0/0 IP |Phone Extension Range |Classroom Switch Asterisk Port
+|Pod |Phone Extension Range |VoIP Classroom Switch Uplink Port
 
-|Pod A |172.17.219.11/24 |172.17.144.11/24 |2100-2199 |Gi1/0/31
+|Pod A |0100-0199 |Gi1/0/1
 
-|Pod B |172.17.219.12/24 |172.17.144.12/24 |2200-2299 |Gi1/0/32
+|Pod B |0200-0299 |Gi1/0/2
 
-|Pod C |172.17.219.13/24 |172.17.144.13/24 |2300-2399 |Gi1/0/33
+|Pod C |0300-0399 |Gi1/0/3
 
-|Pod D |172.17.219.14/24 |172.17.144.14/24 |2400-2499 |Gi1/0/34
+|Pod D |0400-0499 |Gi1/0/4
 
-|Pod E |172.17.219.15/24 |172.17.144.15/24 |2500-2599 |Gi1/0/35
+|Pod E |0500-0599 |Gi1/0/5
 
-|Pod F |172.17.219.16/24 |172.17.144.16/24 |2600-2699 |Gi1/0/36
+|Pod F |0600-0699 |Gi1/0/6
 
-|Pod G |172.17.219.17/24 |172.17.144.17/24 |2700-2799 |Gi1/0/37
+|Pod G |0700-0799 |Gi1/0/7
 
-|Pod H |172.17.219.18/24 |172.17.144.18/24 |2800-2899 |Gi1/0/38
+|Pod H |0800-0899 |Gi1/0/8
 
-|Pod I |172.17.219.19/24 |172.17.144.19/24 |2900-2999 |Gi1/0/39
+|Pod I |0900-0999 |Gi1/0/9
 
-|Pod J |172.17.219.20/24 |172.17.144.20/24 |3000-3099 |Gi1/0/40
+|Pod J |1000-1099 |Gi1/0/10
 |===
 
 Asterisk Server ens192 Interface:
 
 --
-NOTE: The ens192 interface on your Asterisk server is used to connect with other pods, the Internet, and your SIP PSTN provider.
+NOTE: The ens192 interface on your Asterisk server is used to connect to the network.
 --
 
-* Default Gateway: 172.17.219.1
-* DNS Server: 172.17.139.11
+* Static IP Address: 192.168.1.10/24
+* Default Gateway: 192.168.1.1
+* DNS Server: 192.168.1.1
 
-Asterisk Server ens224 Interface:
+Pod T1 Gatewway Router:
 
---
-NOTE: The ens224 interface on your Asterisk server is used to connect with your IP phones on the same layer 2 network as the phones and without going through NAT which simplifies the configuration.
---
-
-* IP Address (same for all pods because it's inside behind your NAT): 192.168.10.3/24
-* No default gateway or DNS servers for this interface
-
-Pod Router:
-
-* Default Gateway: 172.17.144.1
-* DNS Server: 172.17.139.11
+* G0/0/0 IP Address: 192.168.1.5/24
+* Default Gateway: 192.168.1.1
 
 --
 NOTE: The XX99 extension will be used for future voicemail capability so that one should not be used for a regular phone/line.
