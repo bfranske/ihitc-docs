@@ -117,7 +117,6 @@ After installation, verify that all hardware is installed correctly. The Device 
 . Install VirtIO Drivers and QEMU Guest Agent
 .. You may hvae noticed a problem with one or more unknown devices or devices with driver errors in the device manager. This is part of the virtual machine hardware that your system is running on. To correct this (and also drastically improve the VM experience) we need to install the VirtIO drivers and QEMU Guest Agent which are required for the hypervisor we are using.
 .. Open the Windows Explorer and navigate to the CD-ROM drive which already has the VirtIO driver CD loaded.
-.. Run the virtio-win-gt-x64 program and follow the installation wizard.
 .. Run the virtio-win-guest-tools program and follow the installation wizard.
 .. Reboot your system after the tools are installed.
 .. Make sure you have done this on *both PC 1 and PC 2*!
