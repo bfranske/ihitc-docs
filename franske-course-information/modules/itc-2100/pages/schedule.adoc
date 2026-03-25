@@ -49,7 +49,7 @@
 
 === Assignments Due At Week Beginning
 * Week 3 Discussion
-* week 3 Quiz
+* Week 3 Quiz
 
 == Week 5: Feb 11-17
 === Topic & Content This Week
@@ -62,7 +62,7 @@
 
 === Assignments Due At Week Beginning
 * Week 4 Discussion
-* week 4 Quiz
+* Week 4 Quiz
 
 == Week 6: Feb 18-24
 === Topic & Content This Week
@@ -75,7 +75,7 @@
 
 === Assignments Due At Week Beginning
 * Week 5 Discussion
-* week 5 Quiz
+* Week 5 Quiz
 * IT Workplace Essentials Assignment Parts 1 & 2 Must Be Submitted!
 
 == Week 7: Feb 25-Mar 3
@@ -89,7 +89,7 @@
 
 === Assignments Due At Week Beginning
 * Week 6 Discussion
-* week 6 Quiz
+* Week 6 Quiz
 
 == Week 8: Mar 4-Mar 17
 === Topic & Content This Week
@@ -105,7 +105,7 @@ NOTE: This "week" includes spring break which is why the dates are listed for 2 
 
 === Assignments Due At Week Beginning
 * Week 7 Discussion
-* week 7 Quiz
+* Week 7 Quiz
 
 == Week 9: Mar 18-24
 === Topic & Content This Week
@@ -117,7 +117,7 @@ NOTE: This "week" includes spring break which is why the dates are listed for 2 
 
 === Assignments Due At Week Beginning
 * Week 8 Discussion
-* week 8 Quiz
+* Week 8 Quiz
 * IT Methodologies & Professional Development Assignment
 
 == Week 10: Mar 25-31
@@ -131,7 +131,7 @@ NOTE: This "week" includes spring break which is why the dates are listed for 2 
 
 === Assignments Due At Week Beginning
 * Week 9 Discussion
-* week 9 Quiz
+* Week 9 Quiz
 
 == Week 11: Apr 1-7
 === Topic & Content This Week
@@ -144,7 +144,7 @@ NOTE: This "week" includes spring break which is why the dates are listed for 2 
 
 === Assignments Due At Week Beginning
 * Week 10 Discussion
-* week 10 Quiz
+* Week 10 Quiz
 
 == Week 12: Apr 8-14
 === Topic & Content This Week
@@ -156,6 +156,7 @@ NOTE: This "week" includes spring break which is why the dates are listed for 2 
 * Begin Professional Branding Package Assignment
 
 === Assignments Due At Week Beginning
+* IT Career Exploration & Skills Inventory Assignment
 * Week 11 Discussion
 * week 11 Quiz
 
