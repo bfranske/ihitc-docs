@@ -1,32 +1,38 @@
 = T1 and PSTN Access Labs
 
-== IP Addressing & Phone Extensions
+== Physical Wiring
+
+For the T1 portion of this lab you will need to physically connect the router serving as a T1 gateway for your pod to the "phone company" which is the T1 PSTN Simulator. There is a specific port on the T1 PSTN Simulator which has the correct phone numbers assigned to it for your pod (this would be the set of T1 wires coming into your business) so it is important you connect to the correct port. See the diagram below which indicates which port on your T1 gateway router should be connected to the T1 PSTN Simulator.
+
+image::Voice_Router_T1_Physical.png[]
+
+== IP Addressing & Phone Numbers
 
 These are the IP addresses and phone extension numbers assigned to your pod which you can use for your pod.
 
 [%autowidth,options="header"]
 |===
-|Pod |Phone Extension Range |VoIP Classroom Switch Uplink Port
+|Pod |Phone Extension Range |VoIP Classroom Switch Uplink Port |T1 PSTN Numbers Assigned |ITSP PSTN Numbers Assigned
 
-|Pod A |0100-0199 |Gi1/0/1
+|Pod 1 |0100-0199 |Gi1/0/1 |5105550100-5105550199 |5104440100-5104440199
 
-|Pod B |0200-0299 |Gi1/0/2
+|Pod 2 |0200-0299 |Gi1/0/2 |5105550200-5105550299 |5104440200-5104440299
 
-|Pod C |0300-0399 |Gi1/0/3
+|Pod 3 |0300-0399 |Gi1/0/3 |5105550300-5105550399 |5104440300-5104440399
 
-|Pod D |0400-0499 |Gi1/0/4
+|Pod 4 |0400-0499 |Gi1/0/4 |5105550400-5105550499 |5104440400-5104440499
 
-|Pod E |0500-0599 |Gi1/0/5
+|Pod 5 |0500-0599 |Gi1/0/5 |5105550500-5105550599 |5104440500-5104440599
 
-|Pod F |0600-0699 |Gi1/0/6
+|Pod 6 |0600-0699 |Gi1/0/6 |5105550600-5105550699 |5104440600-5104440699
 
-|Pod G |0700-0799 |Gi1/0/7
+|Pod 7 |0700-0799 |Gi1/0/7 |5105550700-5105550799 |5104440700-5104440799
 
-|Pod H |0800-0899 |Gi1/0/8
+|Pod 8 |0800-0899 |Gi1/0/8 |5105550800-5105550899 |5104440800-5104440899
 
-|Pod I |0900-0999 |Gi1/0/9
+|Pod 9 |0900-0999 |Gi1/0/9 |5105550900-5105550999 |5104440900-5104440999
 
-|Pod J |1000-1099 |Gi1/0/10
+|Pod 10 |1000-1099 |Gi1/0/10 |5105551000-5105551099 |5104441000-5104441099
 |===
 
 Asterisk Server ens192 Interface:
@@ -111,7 +117,7 @@ NOTE: Most states now require phone systems to allow people to dial 911 directly
 . While you are placing test calls monitor the output from your router's console port, you should see the calls being placed over the T1 connection. You should also try placing calls and while the call is active running the *show voice call status* command on the router. Finally try turning on ISDN Q.931 debugging with the *debug isdn q931* command before placing a test call. You should see the router dialing the phone number on the ISDN T1 connection to the PSTN as the call is being setup. Run *undebug all* on your router to disable the debugging.
 . It's important to think about toll fraud and you should setup your dialplan (at least after initial testing) to restrict callers from places like elevators calling certain numbers. In Asterisk you can do this using a variety of different dialplan contexts. Follow the xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] instructions for dividing up your extensions into elevator/lobby/general staff/executive restrictions on calls. Put one of your extensions in each of these different contexts and verify the restrictions are working.
 . Modify your xref:lab-asterisk-extensionsconf.adoc[sample *extensions.conf* file] to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510555XXXX where XXXX is the extension number when calls come in over the T1 PSTN connection).
-. Find another pod who has calling out to the PSTN working over their T1 and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.
+. Find another pod who has calling out to the PSTN working and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.  You can also try calling the the test number at 510-555-0000 and hanging up as soon as the call is answered and you should get a call back from the phone company test system.
 
 == ITSP SIP PSTN Access
 
@@ -140,8 +146,8 @@ NOTE: Most states now require phone systems to allow people to dial 911 directly
 ... Directory Assistance (411)
 ... International Numbers (Numbers beginning with 011)
 . Verify all your toll-fraud preventions you had in place for calling out from various types of extensions to the PSTN for the T1 gateway are still working.
-. Verify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] is still setup to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510556XXXX where XXXX is the extension number when calls come through the SIP PSTN provider). Note that the phone number for calls coming in over SIP starts with 510-556-XXXX which is a different prefix then when calls came in over the T1. This will require adding these new incoming numbers to your dialplan so that Asterisk can route the calls appropriately.
-. Find another pod who has calling out to the PSTN working over the ITSP and try placing calls from each pod to the other pod to verify incoming PSTN calls are working.
+. Verify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] is still setup to allow calls FROM the PSTN to your internal phones (each extension has a phone number like 510444XXXX where XXXX is the extension number when calls come through the SIP PSTN provider). Note that the phone number for calls coming in over SIP starts with 510-444-XXXX which is a different prefix then when calls came in over the T1. This will require adding these new incoming numbers to your dialplan so that Asterisk can route the calls appropriately.
+. Find another pod who has calling out to the PSTN working and try placing calls from each pod to the other pod to verify incoming PSTN calls are working. You can also try calling the the test number at 510-555-0000 and hanging up as soon as the call is answered and you should get a call back from the phone company test system.
 
 == Cleanup
 
