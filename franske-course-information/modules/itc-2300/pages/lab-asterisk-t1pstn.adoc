@@ -4,7 +4,7 @@
 
 For the T1 portion of this lab you will need to physically connect the router serving as a T1 gateway for your pod to the "phone company" which is the T1 PSTN Simulator. There is a specific port on the T1 PSTN Simulator which has the correct phone numbers assigned to it for your pod (this would be the set of T1 wires coming into your business) so it is important you connect to the correct port. See the diagram below which indicates which port on your T1 gateway router should be connected to the T1 PSTN Simulator.
 
-image::Voice_Router_T1_Physical.png[]
+image::Voice_Router_T1_Physcial.png[T1 Physical Port Connection Diagram,400,align=left,link=self]
 
 == IP Addressing & Phone Numbers
 
