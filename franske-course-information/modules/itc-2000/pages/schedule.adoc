@@ -515,8 +515,6 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Practice Final Exam Ch 10-14
 
 === Assignments Due at the start of class today
-* Module 14 Online Discussion Response Posts
-* Module 14 Exam - The IT Professional
 * Scripting & Troubleshooting Lab Report
 * Weekly Progress Self-Evaluation
 

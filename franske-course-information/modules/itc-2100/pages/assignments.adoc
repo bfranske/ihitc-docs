@@ -280,18 +280,28 @@ Your project page may be hosted on LinkedIn (Featured section), GitHub/GitHub Pa
 
 === Part 5: Mock Interview Video (5–7 minutes)
 
-Record a 5–7 minute mock interview video in which you answer:
+Create a 5–7 minute mock interview video demonstrating how you would present yourself in an interview for an entry‑level IT position in your chosen pathway (tech support, networking, sysadmin, cybersecurity, etc.) by answering all of the interview questions below:
 
 . "Tell me about yourself."
 . One behavioral question (choose one):
 ** "Tell me about a time you solved a problem."
 ** "Describe a time you learned something quickly."
-. One technical question related to your chosen IT pathway
+. Answer one technical question related to your chosen IT pathway (explain the question as well) For example:
+** "A user can’t connect to the network. How would you troubleshoot?"
+** "A system is running slowly. What would you check first?"
+** "How would you approach securing a new workstation?"
 
-Technical requirements:
+Additional requirements:
 
+* Demonstrate use of the STAR technique
+* Demonstrate the use of other interview skills described in the class session such as:
+** Speak professionally and clearly
+** Narrate your thought process
+** Treat this as a real interview
+** Business‑casual appearance recommended
 * Clear audio and reasonable lighting
 * May be recorded on phone, webcam, or laptop
+* Seated, stable camera angle
 * Submit as an unlisted YouTube link or a OneDrive/Google Drive link in your final assignment document.
 
 === Submission Requirements
@@ -312,7 +322,12 @@ Your assignment will be evaluated on:
 * Completeness and clarity of the online profile
 * Relevance and strength of the cover letter
 * Clarity and completeness of the portfolio project page
-* Communication skills and professionalism in the interview video
+* For the interview video:
+** Professional communication & clarity
+** Behavioral answer structure
+** Problem‑solving approach
+** Technical reasoning appropriate for entry‑level IT
+** Confidence & preparedness
 * Organization, formatting, and overall presentation
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
