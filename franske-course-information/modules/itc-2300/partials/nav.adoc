@@ -1,5 +1,5 @@
 * xref:itc-2300:index.adoc[ITC-2300]
 ** xref:itc-2300:index.adoc[Course Home]
-** xref:itc-2300:syllabus.adoc[Syllabus]
-** xref:itc-2300:schedule.adoc[Schedule]
-** xref:itc-2300:assignments.adoc[Assignments]
+** xref:itc-2300:syllabus26.adoc[Syllabus]
+** xref:itc-2300:schedule26.adoc[Schedule]
+** xref:itc-2300:assignments26.adoc[Assignments]

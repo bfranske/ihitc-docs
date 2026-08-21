@@ -1,0 +1,18 @@
+= ITC-2300 Official Course Schedule Fall 2026
+
+== Aug 24
+Class kick-off
+
+== Sep 7
+NO CLASS: Labor Day
+
+== Nov 11
+NO CLASS: Veteran's Day
+
+== Nov 23
+Last Day of regular class, project work begins
+
+== Dec 9
+Project Presentations
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

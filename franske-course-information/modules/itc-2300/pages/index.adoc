@@ -1,12 +1,12 @@
 = Dr. Franske's ITC-2300 Home Page
 
-This is the homepage for the ITC-2300 classes taught by Dr. Ben Franske. 
+This is the homepage for the ITC-2300: Information Technology Services and Applications classes taught by Dr. Ben Franske. 
 
 == General Course Information
 
-* xref:syllabus.adoc[Course Syllabus]
-* xref:schedule.adoc[Official Course Schedule]
-* xref:assignments.adoc[Course Assignment List and Instructions (Includes Labs & Homework)]
+* xref:syllabus26.adoc[Course Syllabus for Fall 2026]
+* xref:schedule26.adoc[Official Course Schedule]
+* xref:assignments26.adoc[Course Assignment List and Instructions (Includes Labs & Homework) for Fall 2026]
 * xref:lab-reports:index.adoc[Instructions for Writing Lab Reports and Sample Lab Reports]
 * xref:forum-posting:index.adoc[Instructions for Participating in Forum Discussions and Example Posts]
 * Assessments, discussion forums, labs, gradebook, readings, available at http://class.ihitc.net (access via D2L link if you are logged out)
