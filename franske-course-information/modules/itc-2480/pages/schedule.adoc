@@ -1,8 +1,6 @@
 = ITC-2480 Official Course Schedule and Readings
 
-== Jan 14: Week 1
-
-IMPORTANT: There is a required course meeting tonight! All students must attend.
+== Aug 26: Week 1
 
 === Readings to do before the next date
 * Review the course syllabus
@@ -27,10 +25,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 === Assignments Due at 11:59pm today
 * None
 
-== Jan 21: Week 2
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Sep 2: Week 2
 === Readings to do before the next date
 * Chapters 2, 3, 4, and 18 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 
@@ -46,10 +41,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * First discussion first post about the Topic 1: Linux Installation and First Steps readings and lab activity
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Jan 28: Week 3
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Sep 9: Week 3
 === Readings to do before the next date
 * Chapters 9, 14 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 
@@ -65,10 +57,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about the Topic 2: Command Line Basics, Filesystem Navigation readings and lab activity
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Feb 4: Week 4
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Sep 16: Week 4
 === Readings to do before the next date
 * Chapters 6, 8, 12 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 * https://web.archive.org/web/20240606001921/https://staffwww.fullcoll.edu/sedwards/Nano/IntroToNano.html[Introduction to the nano Text Editor]
@@ -85,10 +74,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 3: User Accounts, Permissions, and Package Management
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Feb 11: Week 5
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Sep 23: Week 5
 === Readings to do before the next date
 * http://nginx.org/en/docs/beginners_guide.html[The Nginx Beginner's Guide]
 
@@ -104,10 +90,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 4: Text Manipulation
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Feb 18: Week 6
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Sep 30: Week 6
 === Readings to do before the next date
 * https://web.archive.org/web/20240812183254/https://www.guru99.com/introduction-to-database-sql.html[What is a Database? Definition, Meaning, Types]
 * https://web.archive.org/web/20200813163323/http://zetcode.com/mysql/introduction[Introduction to MySQL]
@@ -127,10 +110,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 5: Webserver and PHP Installation and Use
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Feb 25: Week 7
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Oct 7: Week 7
 === Readings to do before the next date
 * None
 
@@ -146,10 +126,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 6: SQL Databases and Web Applications
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Mar 4: Week 8
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Oct 14: Week 8
 === Readings to do before the next date
 * https://www.linux.com/training-tutorials/scheduling-magic-intro-cron-linux/[Scheduling Magic: Intro to Cron on Linux]
 * https://documentation.suse.com/smart/systems-management/html/systemd-working-with-timers/index.html[Working with systemd Timers]
@@ -167,13 +144,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 7: Firewall Configuration and System Security
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Mar 11: Spring Break
-* *There are no new activities and nothing due today, it is Spring Break*
-
-== Mar 18: Week 9
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Oct 21: Week 9
 === Readings to do before the next date
 * https://www.zytrax.com/books/dns/ch2/[DNS Concepts]
 * https://www.zytrax.com/books/dns/ch4/[DNS Configuration Types]
@@ -191,10 +162,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 8: Linux System Administration Utilities
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Mar 25: Week 10
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Oct 28: Week 10
 === Readings to do before the next date
 * https://docs.docker.com/get-started/docker-overview/[What is Docker?]
 
@@ -210,10 +178,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 9: DNS Server Installation and Configuration
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Apr 1: Week 11
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Nov 4: Week 11
 === Readings to do before the next date
 * None
 
@@ -229,9 +194,9 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 10: An Introduction to Containers
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Apr 8: Week 12
+== Nov 11: Week 12
 
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
+IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments normally due on Wednesday (tonight) at 11:59pm are delayed by one day and can be turned in tomorrow, Nov 12 by 11:59pm.
 
 === Readings to do before the next date
 * Chapter 15 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
@@ -248,10 +213,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 11: Practical Applications of Containers
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Apr 15: Week 13
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Nov 18: Week 13
 === Readings to do before the next date
 * Chapter 24 from https://sourceforge.net/projects/linuxcommand/files/TLCL/24.11/TLCL-24.11.pdf/download[The Linux Command Line (3rd Edition or 6th Internet Edition) by William Shotts]
 * Sections 1-8 of the https://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html[BASH Programming - Introduction HOW-TO]
@@ -268,10 +230,7 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 12: Filesystem Management and Hardware Utilities
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Apr 22: Week 14
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Nov 25: Week 14
 === Readings to do before the next date
 * https://folk.idi.ntnu.no/mlh/hetland_org/writing/instant-hacking.html[Instant Hacking]
 * All 9 sections of https://web.archive.org/web/20210424072311/http://www.dreamsyssoft.com/python-scripting-tutorial/index.php[Python for Shell Scripting]
@@ -288,10 +247,7 @@ IMPORTANT: This is a hybrid week and there will be no on campus scheduled sessio
 * Discussion first post about Topic 13: BASH Scripting
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== Apr 29: Week 15
-
-IMPORTANT: This is an on-campus scheduled week. You are not required to attend but assistance on your classwork will be available during the scheduled class session in the classroom on campus. If you do have questions or need help please attend!
-
+== Dec 2: Week 15
 === Readings to do before the next date
 * None
 
@@ -307,23 +263,20 @@ IMPORTANT: This is an on-campus scheduled week. You are not required to attend b
 * Discussion first post about Topic 14: Python Scripting for System Administration
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== May 6: Week 16
-
-IMPORTANT: This is a hybrid week and there will be no on campus scheduled session. If you need assistance with your classwork please contact and make arrangements with the instructor for an individual session either on Zoom or in person.
-
+== Dec 9: Week 16
 === Readings to do before the next date
 * None
 
 === Other Work to do before the next date
-* Complete the Final Skills Exam (DUE on May 10 at 11:59pm!)
-** Detailed instuctions will be emailed to you by/on May 4.
+* Complete the Final Skills Exam (DUE on May 14 at 11:59pm!)
+** Detailed instuctions will be emailed to you by/on Dec 8.
 
 === Assignments Due at 11:59pm today
 * Lab 14 Report
 * Discussion response posts about Topic 14: Python Scripting for System Administration
 * Weekly Progress Self-Evaluation (on D2L site)
 
-== May 13
+== Dec 16
 Congratulations, you have finished the coursework!
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
