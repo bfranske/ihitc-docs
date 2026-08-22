@@ -1,0 +1,154 @@
+= ITC-2516 Official Course Schedule
+
+== Aug 24
+=== Work to do in class today
+* Overview of class
+* Sign up for Cisco Netacad
+* Tour of Cisco Netacad
+
+=== Readings to do before next class
+* Module 1: Networking Today
+* Module 2: Basic Switch and End Device Configuration
+
+TIP: Be sure to watch the videos that go along with the chapters you read each week. A link to the video playlist can be found on the course home/announcements page on D2L.
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+
+TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+IMPORTANT: Labs in this class will be done one of two ways: on campus using physical lab equipment, or in the Packet Tracer software. For some activities you will write a lab report and for others you will submit the Packet Tracer work using the ScoreUP plugin to Packet Tracer. See the assignments page of this info site for more details and what labs should be completed in what way.
+
+=== Assignments Due at the start of class today
+* None
+
+== Aug 27
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Tour of lab
+* Demonstration of Packet Tracer
+* Start Module 2 Lab Report Activities
+
+=== Readings to do before next class
+* No new readings
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 2 Packet Tracer Online Submission Activities
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+* Module 1 Exam
+* Module 2 Exam
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+* Module 2 Online Discussion First Post
+* Online Course Introduction Exam
+
+== Aug 31
+=== Work to do in class today
+* Complete Module 2 Lab Report Activities
+* Complete online check-in form for 8/31 or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 3
+
+=== Other Work to do before next class
+* Module 3 Online Discussion First Post
+* Module 2 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion Response Posts
+* Module 2 Packet Tracer Online Submission Activities
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+
+== Sep 2
+=== Work to do in class today
+* Module 3 Lab Report Activities
+
+=== Readings to do before next class
+* Module 4
+* Module 5
+
+=== Other Work to do before next class
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Posts
+* Module 5 Online Discussion First Posts
+* Module 4 Packet Tracer Online Submission Activities
+* Module 3 Exam
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion First Post
+* Module 2 Lab Report
+
+== Sep 7
+*NO CLASS: Labor Day*
+
+== Sep 9
+=== Work to do in class today
+* Module 4 Lab Report Activities
+* Complete online check-in form for 9/9 or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 6
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Post
+* Module 4 Lab Report
+* Module 4 Exam
+* Module 5 Exam
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Posts
+* Module 5 Online Discussion First Posts
+* Module 4 Packet Tracer Online Submission Activities
+* Module 3 Exam
+
+== Sep 14
+=== Work to do in class today
+* Review Module 5 Content on Number Systems
+* Review Lab Wiring
+
+=== Readings to do before next class
+* Module 7
+
+=== Other Work to do before next class
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Post
+* Module 6 Exam
+
+=== Assignments Due at the start of class today
+* Module 3 Exam
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Post
+* Module 4 Lab Report
+* Module 4 Exam
+* Module 5 Exam
+
+== Sep 16
+=== Work to do in class today
+* Module 7 Lab Report Activities
+* Complete online check-in form for 9/16 or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 8
+
+=== Other Work to do before next class
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Post
+* Module 7 Lab Report
+* Module 7 Exam
+
+=== Assignments Due at the start of class today
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Post
+* Module 6 Exam
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
