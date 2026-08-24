@@ -4,6 +4,7 @@
 
 === Packet Tracer Online Submissions
 Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
+
 . PT 2.5.5 - Configure Initial Switch Settings (5 points)
 . PT 2.7.6 - Implement Basic Connectivity (5 points)
 . PT 2.9.1 - Basic Switch and End Device Configuration (5 points)
