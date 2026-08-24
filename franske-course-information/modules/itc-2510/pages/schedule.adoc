@@ -1,4 +1,4 @@
-= ITC-2516 Official Course Schedule
+= ITC-2510 Official Course Schedule
 
 == Aug 24
 === Work to do in class today
