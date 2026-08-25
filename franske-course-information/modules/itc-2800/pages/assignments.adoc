@@ -1,0 +1,114 @@
+= ITC-2800 Assignment Details and Directions
+
+== Lab & Homework Assignments
+
+=== Packet Tracer Online Submissions
+Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
+
+. 5.3.10 Packet Tracer Configure Basic Wireless Security
+. 5.3.10-Packet Tracer - Configure Basic Wireless Security
+. 5.3.11-Packet Tracer - Troubleshoot a Wireless Connection
+. 6.2.4 Packet Tracer - Access Control List Demonstration
+. 10.1.13 Packet Tracer - File and Data Integrity Checks
+. 10.1.15 Packet Tracer - Explore File and Data Encryption
+. 11.0.7-Packet Tracer - Logical and Physical Mode Exploration
+. 12.5.4 Packet Tracer - Configure Wireless Router Hardening and Security
+ .12.7.13 Packet Tracer - Implement Physical Security with IoT Devices
+. 13.1.14 Packet Tracer - Configure Access Control
+. 13.4.5 Packet Tracer - Configure Server-Based Authentication with TACACS+ and RADIUS
+. 14.5.12 Packet Tracer - Configure Extended ACLs Scenario 1
+. 14.5.13 Packet Tracer - Configure Extended ACLs Scenario 2
+. 14.5.5 Packet Tracer - Configure Named Standard IPv4 ACLs
+. 14.5.6 Packet Tracer - Configure Numbered Standard IPv4 ACLs
+. 14.6.5-Packet Tracer - Configure IP ACLs to Mitigate Attacks
+. 14.7.4 Packet Tracer - Configure IPv6 ACLs
+. 16.3.11-Packet Tracer - Configure a ZPF
+
+
+=== Lab Reports
+For each module having lab activities you will need to submit one xref:lab-reports:index.adoc[lab report] which covers all of the lab activities listed below in the module. Submissions are made through the IHCC D2L site. You do not need to submit answers to the questions in the activities, those are for your own learning use only. Lab activities may include remote equipment access, campus equipment, or packet tracer activities. *Good lab reports in this class are typically 325-650 words long.* If you work with a partner on a lab you only need to submit a single lab report for the two of you but it must have both your names on it. Each lab report is worth up to 20 points.
+
+TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
+
+. 4.1.7 Lab - Exploring DNS Traffic
+. 4.2.8 Lab - Attacking a mySQL Database
+. 4.2.9 Lab - Reading Server Logs
+. 4.3.7 Lab - Recommend Threat Mitigation Measures
+. 7.2.11 Lab - Exploring Processes, Threads, Handles, and Windows Registry
+. 7.3.10 Lab - Create User Accounts
+. 7.3.11 Lab - Using Windows PowerShell
+. 7.3.12 Lab - Windows Task Manager
+. 7.3.13 Lab - Monitor and Manage System Resources in Windows
+. 8.2.6 Lab - Working with Text Files in the CLI
+. 8.2.7 Lab - Getting Familiar with the Linux Shell
+. 8.3.5 Lab - Use a Port Scanner to Detect Open Ports
+. 8.3.6 Lab - Linux Servers
+. 8.4.4 Lab - Locating Log Files
+. 8.5.4 Lab - Navigating the Linux Filesystem and Permission Settings
+. 8.7.8 Lab - Configure Security Features in Windows and Linux
+. 9.1.14 Lab - Harden a Linux System
+. 9.1.16 Lab - Recover Passwords
+. 9.3.6 Lab - Recommend Endpoint Security Measures
+. 9.4.5 Lab - Online Malware Investigation Tools
+. 10.2.10 Lab - Data Security Challenges
+. 12.2.11 Lab - Investigating OWASP
+. 13.1.17 Lab - Configure Authentication and Authorization in Linux
+. 18.1.11 Lab - Use Classic and Modern Encryption Algorithms
+. 18.1.12 Lab - Encrypting and Decrypting Data Using OpenSSL
+. 18.1.13 Lab - Encrypting and Decrypting Data Using a Hacker Tool
+. 18.1.14 Lab - Examining Telnet and SSH in Wireshark
+. 18.1.15 Lab - Determine the Encryption Algorithm to Use
+. 18.2.5 Lab - Use Steganography to Hide Data
+. 18.4.10 Lab - Hashing Things Out
+. 18.5.5 Lab - Generate and Use a Digital Signature
+. 18.6.8 Lab - Certificate Authority Stores
+
+=== Homework
+Homework activities will require submitting the actual answers to each question in the activity and may require showing your work as well. Homework assignment are individual, you and your lab partner need to both turn them in separately even if you work on them together.
+
+* Participate in an online forum discussion (typically 3 quality posts or more) of each module on the IHCC D2L site. See the xref:forum-posting:index.adoc[forum posting page] for details. (up to 10 points each module based on quality)
+
+TIP: Discussion forum posts are usually worth a larger portion of your final grade than most students expect! If you have not done discussion posts in one of Dr. Franske's classes before, or you want to try and score better on discussion forum postings, be sure to check out the xref:forum-posting:index.adoc[instructions for participating in forum discussions and example posts]!
+
+== Participation Activities
+Any participation activities completed in the course will go here. This falls into the participation category of your course grade. Note that participation activities are not always that you get all the points just for dong them. These are just activities which measure your participation and engagement in the class. How each activity is graded is noted after the activity in the list below.
+
+* Complete a Course Introduction exam (20 points based on your score)
+* Complete the online practice final exam (10 points for attempting)
+* Complete a weekly online check-in form or meet with the instructor during class to discuss course progress and ask questions (up to 10 points each based on progress)
+
+== Module Assessments
+You are responsible for completing all of the online module assessments listed below. These exams fall into the module assessments category of your course grade. *If you are not able to complete an exam by the due date listed on the course schedule it is your reponsibility to contact the instructor prior to the due date for the exam. Contacting the instructor after the due date for the exam will usually mean the late work policy will apply (see the syllabus).* For example, if the exam reports as not activated, or the website is down, you have lost Internet access, etc. contact the instructor as soon as possible for assistance.
+
+* Module 1: Cybersecurity Threats, Vulnerabilities, and Attacks
+* Module 2: Securing Networks
+* Module 3: Attacking the Foundation
+* Module 4: Attacking What We Do
+* Module 5: Wireless Network Communication
+* Module 6: Network Security Infrastructure
+* Module 7: The Windows Operating System
+* Module 8: Linux Overview
+* Module 9: System and Endpoint Protection
+* Module 10: Cybersecurity Principles, Practices, and Processes
+* Module 11: Understanding Defense
+* Module 12: System and Network Defense
+* Module 13: Access Control
+* Module 14: Access Control Lists
+* Module 15: Firewall Technologies
+* Module 16: Zone-Based Policy Firewalls
+* Module 17: Cloud Security
+* Module 18: Cryptography
+* Module 19: Technologies and Protocols
+* Module 20: Network Security Data
+* Module 21: Evaluating Alerts
+* Module 22: Governance and Compliance
+* Module 23: Network Security Testing
+* Module 24: Threat Intelligence
+* Module 25: Endpoint Vulnerability Assessment
+* Module 26: Risk Management and Security Controls
+* Module 27: Digital Forensics and Incident Analysis and Response
+
+== Regular Final Exams
+You will need to complete an online final exam
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

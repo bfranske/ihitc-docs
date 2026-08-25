@@ -1,0 +1,158 @@
+= ITC-2800 Official Course Schedule
+
+== Aug 25
+=== Work to do in class today
+* Overview of class
+* Sign up for Cisco Netacad
+* Tour of Cisco Netacad
+
+=== Readings to do before next class
+* Module 1: Cybersecurity Threats, Vulnerabilities, and Attacks
+
+=== Other Work to do before next class
+* Module 1 Online Discussion First Post
+
+TIP: Discussion posts are done through the D2L site in this class. Instructions on how to write a discussion post are on the assignments page of this info site.
+
+
+=== Assignments Due at the start of class today
+* None
+
+== Aug 27
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+
+=== Readings to do before next class
+* Module 2: Securing Networks
+
+=== Other Work to do before next class
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion First Posts
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+* Module 1 Exam
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion First Post
+
+== Sep 1
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+
+=== Readings to do before next class
+* Module 3: Attacking the Foundation
+
+=== Other Work to do before next class
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion First Posts
+* Module 2 Exam
+
+=== Assignments Due at the start of class today
+* Module 1 Online Discussion Response Posts
+* Module 2 Online Discussion First Posts
+* Course Introduction Exam (Quiz on D2L about syllabus, schedule, etc.)
+* Module 1 Exam
+
+== Sep 3
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+
+=== Readings to do before next class
+* Module 4: Attacking What We Do
+
+=== Other Work to do before next class
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Posts
+* Module 3 Exam
+
+=== Assignments Due at the start of class today
+* Module 2 Online Discussion Response Posts
+* Module 3 Online Discussion First Posts
+* Module 2 Exam
+
+== Sep 8
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 4 Lab Activities
+
+=== Readings to do before next class
+* Module 5: Wireless Network Communication
+
+=== Other Work to do before next class
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Posts
+* Module 4 Exam
+* Module 4 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 3 Online Discussion Response Posts
+* Module 4 Online Discussion First Posts
+* Module 3 Exam
+
+== Sep 10
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 5 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 6: Network Security Infrastructure
+
+=== Other Work to do before next class
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Posts
+* Module 5 Exam
+* Module 5 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 4 Online Discussion Response Posts
+* Module 5 Online Discussion First Posts
+* Module 4 Exam
+* Module 4 Lab Report
+
+== Sep 15
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 6 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 7: The Windows Operating System
+
+=== Other Work to do before next class
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Posts
+* Module 6 Exam
+* Module 6 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 5 Online Discussion Response Posts
+* Module 6 Online Discussion First Posts
+* Module 5 Exam
+* Module 5 Packet Tracer Activities
+
+== Sep 17
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 7 Lab Activities
+
+=== Readings to do before next class
+* Module 8: Linux Overview
+
+=== Other Work to do before next class
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Posts
+* Module 7 Exam
+* Module 7 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 6 Online Discussion Response Posts
+* Module 7 Online Discussion First Posts
+* Module 6 Exam
+* Module 6 Packet Tracer Activities
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
