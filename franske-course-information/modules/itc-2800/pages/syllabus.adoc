@@ -5,7 +5,7 @@ Course Number: ITC-2800-50 +
 Instructor: Dr. Ben Franske +
 Term: Fall 2026 (8/24/2026-12/17/2026) +
 Meetings: T Th 3:30-4:45pm +
-Location: B205
+Location: B225
 
 == Instructor Contact Information
 include::ROOT:partial$instructor-contact.adoc[]
