@@ -1,4 +1,4 @@
-* xref:itc-2800:index.adoc[ITC-2850]
+* xref:itc-2800:index.adoc[ITC-2800]
 ** xref:itc-2800:index.adoc[Course Home]
 ** xref:itc-2800:syllabus.adoc[Syllabus]
 ** xref:itc-2800:schedule.adoc[Schedule]
