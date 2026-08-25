@@ -1,0 +1,136 @@
+= ITC-2850 Syllabus
+
+Course Name: Network Security, Identity, and Authentication +
+Course Number: ITC-2850-50 +
+Instructor: Dr. Ben Franske +
+Term: Fall 2026 (8/24/2026-12/17/2026) +
+Meetings: T Th 12:00-1:50pm +
+Location: B205
+
+== Instructor Contact Information
+include::ROOT:partial$instructor-contact.adoc[]
+
+== General Course Information
+=== Prerequisite(s)
+* ITC 2536 OR (ITC 2530 AND ITC 2800)
+
+=== Course Description
+Learn to use and configure network defense technologies including firewalls, virtual private networks, secure overlay networks, and intrusion detection and prevention on unified threat management platforms. This course also covers network and system authentication methods and protocols such as passwords, passkeys, certificates, multi-factor authentication, LDAP, SAML, OpenID, OAuth, Kerberos, and RADIUS. 
+
+=== Required Resources
+* External USB Drive, 8GB free minimum, flash drive or hard drive
+
+=== Optional Resources
+* None
+* USB to Ethernet Adater (https://www.amazon.com/dp/B00M77HMU0[such as this $9 one])
+
+=== Course Website(s)
+* ITC Info (https://info.ihitc.net)
+* IHCC D2L Site (https://inverhills.learn.minnstate.edu/d2l/home)
+
+== Lab Time
+* Equipment access, both physical on campus and remote Netlab, is on a first come, first served basis.
+* Additional open on campus lab time may also be available under the supervision of the lab assistant or ITC department instructors, contact the instructor or ITC lab assistant for more information. Students who do not show up for open lab hours they have scheduled may be restricted from registering for open lab hours in the future.  
+
+== Course Objectives
+The student will be able to:
+
+* Explain how network defense tools (firewalls, VPNs, secure overlay networks, IDS, etc.) are used to defend against attacks and mitigate vulnerabilities
+* Implement firewall, routing, and network access translation technologies as a part of unified threat management
+* Implement multiple virtual private network or secure overlay network technologies such as IPSEC, SSL/TLS VPNs, Wireguard, Tailscale, Nebula, Netbird, and Zerotier
+* Implement intrusion detection/prevention systems
+* Analyze how security policies are implemented on systems to protect a network
+* Evaluate how network operational procedures relate to network security
+* Explain and implement authentication methods such as username/password, passwordless/passkeys, single-sign-on, multi-factor authentication, bearer token authentication, JWT access tokens, certificate-based authentication, and basic HTTP authentication
+* Explain the features of and implement identity and access management protocols such as LDAP, SAML, OpenID, OAuth, Kerberos, and RADIUS
+
+
+== Course Design
+This course will be taught in a lab seminar style where the class will be working collaboaratively with the instructor to explore different technologies through practical lab implementations. Portions of some units and activities may be completed online but others may require on campus lab work. Attendance at campus or online synchronous sessions is required unless it has been discussed with the instructor prior to the class session.
+
+== Assignments and Grading
+As a lab seminar style class grading will be based primarily on attendance and active participation in the class activities. You will be required to maintain and submit an engineering journal in support of this. At the end of the course there will be a final project which will also be a component of your grade. It is expected that assignments will be completed and turned in on time and as specified.
+
+Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
+
+Failure to turn in one or more assignments without approval from the instructor may result in an additional lack of participation penalty of up to 20% of your overall course grade depending on the type of the assignment.
+
+=== Late Assignments and Extensions
+If assignments are turned in late 10% will be deducted for each day or partial day the assignment is late. *If you are turning in an assignment late you must contact the instructor for information before the due date. Failure to do so may result in additional penalties.* The grading of late assignments is given a lower priority and may take longer so students are encouraged to plan ahead and turn in assignments on time. Penalty-free deadline extensions will not be given without written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor.
+
+Some assignments cannot be turned in late. These assignments are indicated as such on the ITC Info site course assignments page. If one of these must be turned in late because of written documentation from a licensed medical practitioner or other extenuating circumstances at the discretion of the instructor an alternative assignment may be given instead.
+
+If you miss or do poorly on a regular unit/module/chapter exam (not a final exam or skills final exam) you may petition the instructor to retake the exam once. You will need to write a 400-500 word summary of the unit/module/chapter which is covered by the exam. This summary must be written by you personally, the use of any automatic summarization tools or summaries by others will be considered cheating on the exam and is subject to the academic integrity policies covered elsewhere. Your summary must also be written to the satisfaction of the instructor. Retakes or make-ups must be completed by the date specified by the instructor. There is generally no additional late penalty for an exam retake other than needing to write and submit the summary. 
+
+=== Grading Scale
+[%autowidth,options="header"]
+|===
+|Letter Grade |Percentage Range |Description
+|A
+|100%-90%
+|achievement that is outstanding relative to the level necessary to meet course requirements
+|B
+|89%-80%
+|achievement that is significantly above the level necessary to meet course requirements
+|C
+|79%-70%
+|achievement that meets the course requirements in every respect
+|D
+|69%-65%
+|achievement that is worthy of credit even though it fails to meet fully the course requirements
+|F
+|64%-0%
+|Represents failure and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|N
+|
+|Represents no credit and signifies that the work was either (1) completed but at a level of achievement that is not worthy of credit or (2) was not completed and there was no agreement between the instructor and the student that the student would be awarded an I (see also I)
+|I
+|
+|Represents incomplete and is assigned at the discretion of the instructor when, due to extraordinary circumstances, e.g., hospitalization, a student is prevented from completing the work of the course on time. Requires a written agreement between instructor and student. Students must request an incomplete from the instructor.
+|===
+
+=== Grading Method and Availability
+
+Grades for this course are calculated based on a weighted points system. Each assignment, quiz or test is assigned to one of the weighted categories below and is graded on a points system. Your percentage is calculated for each category by dividing the points earned in that category by the points available. Finally, your percentage earned in each category is multiplied by the weight of that category and these are added together. The instructor may round up based on student participation and individual improvement. 
+ 
+[%autowidth,options="header"]
+|===
+|Category |Percent of Final Grade
+|Class Participation
+|40%
+|Engineering Journal 
+|40%
+|Course Project
+|20%
+|===
+
+Detailed information about assignments and which category they are included in is on the "Assignments" page of the course website.
+
+Mid-Term grades are not officially distributed but assignment scores are made available in the online grade book as assignments are graded and you may calculate your current course grade at any time using the above instructions and weighting. It is strongly suggested that if you want to know where you stand in the class you re-create your own copy of the gradebook with appropriate weights in a spreadsheet program such as OpenOffice Calc, Microsoft Excel, or Google Sheets where you can estimate scores you will likely get on future assignments and run other "what-if" scenarios.
+
+CAUTION: Be aware that the final grade in online gradebooks may be calculated in a way which ignores any assignments you have not turned in. At the end of the semester assignments which have not been turned in will have scores of 0 recorded in the gradebook. If you have missing assignments this may cause your grade to suddenly drop from what was previously shown. It is your responsibility to know what assignments you have not completed, that those will become 0s if not turned in, and how that will affect your grade. 
+
+=== Extra Credit
+Students should not rely on extra credit to boost their grade and should instead complete each assignment to the best of their ability. However, from time to time extra credit opportunities may arise at which time they will be announced in class, by email and/or through the course website. Unless otherwise noted extra credit will be added to the Lab/Homework Assignments category. 
+
+=== Special Note on Exam Cheating
+It is unacceptable to look for or find copies of exams, exam questions, or scenarios online and use them to complete your exam. Answering a question or scenario incorrectly based on the exam you are taking but in a way that was indicated as correct on a version of the exam which was found online will be seen as evidence of intentional cheating. You will receive a penalty and it will be reported as indicated in the course and campus policies section below.
+
+In plain English... I know some copies of exams for this course circulate online. I look at these and may modify the exam you are given so that a different answer is correct for what looks to be a similar question. You may call these "trick questions" but in this case they are only a trick question if you have seen a stolen copy of an old exam. If you answer one or more of these as shown on the stolen exam this will be evidence of cheating and you will be punished according to cheating policies. Do not cheat, do not look for or use stolen exams.
+
+See the course and campus policies section below for additional information on cheating policies. 
+
+=== Special Note on Lab Cheating
+In the case of Packet Tracer activities this means you must start with the file provided by your instructor or as part of the curriculum and complete the activity yourself. You may of course ask others for help figuring something out but you must do the work yourself. Do not simply follow tutorials or videos from start to finish showing how to complete the activity as that will not allow you to learn the process and you will likely score poorly on lab exams. You may never ask anyone else to complete an activity for you or turn in an activity completed by someone else, this will be treated as cheating.
+
+In the case of lab activities which are designed to use physical lab equipment you must work on physical lab equipment, no simulators are allowed. Unless specific permission is given by the instructor this means you must use the IHCC lab equipment on campus or the IHCC Netlab remote lab system. Any evidence that you have turned in a lab report for a lab which is designed to be completed on physical equipment without using physical equipment will be treated as cheating.
+
+See the course and campus policies section below for additional information on cheating policies. 
+
+== Course and Campus Policies
+include::ROOT:partial$campus-policies.adoc[]
+
+== Updates to this Syllabus
+The instructor reserves the right to modify and adjust this syllabus as needed during the course of this class. The most up to date version will always be available on the course website or from the instructor. 
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

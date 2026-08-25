@@ -1,0 +1,21 @@
+= ITC-2850 Official Course Schedule
+
+== Aug 24
+Class kick-off
+
+== Sep 22
+NO CLASS: Student Success Day
+
+== Oct 15
+NO CLASS: MEA
+
+== Nov 24
+Last Day of regular class, project work begins
+
+== Nov 26
+NO CLASS: Thanksgiving
+
+== Dec 10
+Project Presentations
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

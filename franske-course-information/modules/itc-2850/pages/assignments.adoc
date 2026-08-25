@@ -1,0 +1,24 @@
+= ITC-2850 Assignment Details and Directions
+
+== Class Participation
+Active, direct engagement is the core driver of this course. Because of our small seminar format, class meetings rely entirely on collaborative problem-solving, open discussion, and real-time lab work. Your participation grade evaluates three key areas:
+
+* *Preparation:* Arriving having thoroughly read assigned materials, documentation, and RFCs, ready to discuss underlying concepts without preliminary lecture.
+* *Active Lab Collaboration:* Engaging fully during hands-on lab sessions—talking through technical logic out loud, testing configurations alongside your peers, and asking probing questions when encountering unexpected system behavior.
+* *Architectural Dialogue:* Contributing meaningfully to whiteboard sessions, technical trade-off debates, and live troubleshooting exercises as both an engineer and an active listener.
+
+== Engineering Journal
+Throughout the semester, you will maintain a running, professional Engineering Journal documenting every technology, system topology, and lab deployment we explore. This is not a formal academic paper, but rather an industry-standard engineering log capturing your technical process, choices, and failures. For each lab topic, your journal must include:
+
+* *System Topology & Architecture:* Clear diagrams and explanations of the underlying network flow, protocols involved, and system boundaries.
+* *Configuration & Implementation:* Key command-line entries, configuration file snippets, scripts, and deployment steps with notes on why specific settings were chosen.
+* *Troubleshooting & Root-Cause Analysis:* Detailed accounts of issues encountered during labs, packet captures analyzed, fault injections diagnosed, and how solutions were derived.
+* *Key Takeaways & Best Practices:* Personal reflections on security implications, operational edge cases, and performance trade-offs for each technology.
+
+== Course Project
+For your final assessment, you and a partner will design, build, and demonstrate a complete, integrated infrastructure solution that combines multiple core technologies covered throughout the term (e.g., firewalls, VPNs, IDS/IPS, identity providers/protocols, and authentication providers/protocols). The project consists of three deliverables:
+
+* *Live Infrastructure Demonstration:* A functional, end-to-end demonstration of your built system running live in the lab environment.
+* *Socratic Technical Defense:* A presentation to the instructor detailing your architectural decisions, traffic flows, and security considerations, followed by an interactive Q&A where you defend your design choices against alternative engineering approaches.
+
+include::program-info:ROOT:partial$stdfooter.adoc[]
