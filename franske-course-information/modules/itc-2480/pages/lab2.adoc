@@ -232,7 +232,6 @@ NOTE: Pay attention to case, Linux is a case sensitive operating system. You can
 ben@2480-Z:~$ cd sample-files/
 ben@2480-Z:~/sample-files$
 ----
-. Copy the _shakespeare.tar.gz_ file from the current directory into the _sample-files_ directory using the `cp` (copy) command.
 . Verify your directory change using the print working directory command
 . Verify the file has been copied by using the `ls -al` command inside the sample-files directory.
 +
