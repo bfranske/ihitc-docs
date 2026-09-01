@@ -63,7 +63,7 @@ TIP: The red line on this screen indicates the current time. If you want to get 
 NOTE: There are some things special about physical access to a typical computer compared with network access. These same things hold true for access to the console of a virtual machine compared with network acces to the virtual machine. In particular, you can observe the full boot process, work with the machine even if the network settings are incorrect or the system is disconnected from a network, and do things like enter "single user mode" or change GRUB boot settings for root account password recovery.
 --
 . Learn to "Power Cycle" your virtual machine
-.. By now your VM has likely already booted from it's virtual CD/DVD drive and should be at the "Debian GNU/Linux installer menu". Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the VMware Tools software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
+.. By now your VM has likely already booted from it's virtual CD/DVD drive and should be at the "Debian GNU/Linux installer menu". Before continuing let's practice rebooting your system so you can watch the system boot and see how to reboot the system if needed. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power Off" then click the red "Power Off" button on the popup to power off your VM. This is the equivalent of just pulling out the power cord, at least until we install the QEMU Guest Agent software which allows for a graceful shutdown, so you'll want to be careful to only do this if absolutely needed until then.
 .. Try powering off your virtual machine
 . Power on you Virtual machine
 .. Click the down arrow button on the right side of the "Linux Server" tab at the top of your screen and choose "Power On", or press the blue "Power On" button in the middle of your screen, then press the green "Power On" button to boot your system.
@@ -270,7 +270,7 @@ As we complete labs for this class we'll be installing a variety of additional s
 NOTE: The Debian installer may have figured out we're running on a Proxmox server and pre-installed the _qemu-guest-agent_ package for you. If that's the case there is no harm in running the command to install it. You'll just receive a message that "qemu-guest-agent is already the newest version"
 --
 . Install the *python3* package which is used for some automated scripts in this course. We'll also explore this scripting language more at the end of this course.
-.. Use the same command you used to install open-vm-tools above but modify it for the python3 package instead of open-vm-tools.
+.. Use the same command you used to install qemu-guest-agent above but modify it for the python3 package instead of qemu-guest-agent.
 +
 --
 NOTE: Recent versions of Debian have started including Python in their default installation so this may also already be installed. If that is the case you'll just receive a message that "python3 is already the newest version"
@@ -349,7 +349,7 @@ Effectively this means if you divide the load average by the number of cores in 
 
 == Shutting Down Safely
 
-We will normally leave our Linux server VM running but it is important that you know how to shutdown a Linux system correctly so just this time we'll turn it off. Failure to safely shut down a Linux system can cause the same types of issues that it can with any other system, most notably filesystem corruption if the power is just suddenly cut off to the system. Note that in a virtual machine environment the power doesn't literally have to go off for this to happen, if the if the virtual machine is "powered off" by Netlab or VMware and the open-vm-tools are not installed or if the virtual machine is force powered off by Netlab or VMware it has the same effect as pulling out the power cable on a physical system.
+We will normally leave our Linux server VM running but it is important that you know how to shutdown a Linux system correctly so just this time we'll turn it off. Failure to safely shut down a Linux system can cause the same types of issues that it can with any other system, most notably filesystem corruption if the power is just suddenly cut off to the system. Note that in a virtual machine environment the power doesn't literally have to go off for this to happen, if the if the virtual machine is "powered off" by Netlab or Proxmox and the qemu-guest-agent is not installed or if the virtual machine is force powered off by Netlab or Proxmox it has the same effect as pulling out the power cable on a physical system.
 
 . Open a SSH session to your Linux server using your standard user account
 .. Connect to your system from your administrative PC using the remote SSH console method explained above.
