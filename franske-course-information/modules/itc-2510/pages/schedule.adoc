@@ -77,6 +77,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 4 Online Discussion First Posts
 * Module 5 Online Discussion First Posts
 * Module 4 Packet Tracer Online Submission Activities
+* Module 3 Lab Report
 * Module 3 Exam
 
 === Assignments Due at the start of class today
@@ -107,6 +108,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 4 Online Discussion First Posts
 * Module 5 Online Discussion First Posts
 * Module 4 Packet Tracer Online Submission Activities
+* Module 3 Lab Report
 * Module 3 Exam
 
 == Sep 14
