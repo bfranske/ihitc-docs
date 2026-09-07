@@ -33,7 +33,6 @@ TIP: If you have not done lab reports in one of Dr. Franske's classes before, or
 . 4.1.7 Lab - Exploring DNS Traffic
 . 4.2.8 Lab - Attacking a mySQL Database
 . 4.2.9 Lab - Reading Server Logs
-. 4.3.7 Lab - Recommend Threat Mitigation Measures
 . 7.2.11 Lab - Exploring Processes, Threads, Handles, and Windows Registry
 . 7.3.10 Lab - Create User Accounts
 . 7.3.11 Lab - Using Windows PowerShell
