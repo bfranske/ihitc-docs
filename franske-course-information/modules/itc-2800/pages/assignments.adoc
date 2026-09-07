@@ -31,8 +31,22 @@ For each module having lab activities you will need to submit one xref:lab-repor
 TIP: If you have not done lab reports in one of Dr. Franske's classes before, or you want to try and score better on lab reports, be sure to check out the xref:lab-reports:index.adoc[instructions for writing lab reports page and example reports]!
 
 . 4.1.7 Lab - Exploring DNS Traffic
++
+--
+NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity LabVM with the Cybersecurity Analyst account to complete the lab.
+
+NOTE: The VM is using the systemd-resolved software for DNS but it is a newer version than the lab expects. Use the `resolvectl flush-caches` command to flush the DNS cache as requried.
+--
 . 4.2.8 Lab - Attacking a mySQL Database
++
+--
+NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity LabVM with the SOC Analyst account to complete the lab.
+--
 . 4.2.9 Lab - Reading Server Logs
++
+--
+NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity LabVM with the SOC Analyst account to complete the lab.
+--
 . 7.2.11 Lab - Exploring Processes, Threads, Handles, and Windows Registry
 . 7.3.10 Lab - Create User Accounts
 . 7.3.11 Lab - Using Windows PowerShell
