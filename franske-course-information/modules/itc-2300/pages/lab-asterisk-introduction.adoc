@@ -2,7 +2,7 @@
 
 == Topology Diagram
 
-image::Netlab_Asterisk_Basic_Topology.png[]
+image::VoIP_Labs_Logical_Topology.png[]
 
 == IP Addressing & Phone Extensions
 
@@ -33,17 +33,21 @@ These are the IP addresses and phone extension numbers assigned to your pod whic
 |Pod J |1000-1099 |Gi1/0/10
 |===
 
-Asterisk Server ens192 Interface:
+Asterisk Server Network Interface:
 
 --
-NOTE: The ens192 interface on your Asterisk server is used to connect to the network.
+NOTE: The ens192 interface on your Asterisk server is used to connect to the network. It is a DHCP address by default but you will want to set it to a static address.
 --
 
 * Static IP Address: 192.168.1.10/24
 * Default Gateway: 192.168.1.1
 * DNS Server: 192.168.1.1
 
-Pod T1 Gatewway Router:
+Pod T1 Gateway Router:
+
+--
+NOTE: We will not be configuring the router yet, this is just here so that you have a record of it's eventual IP addressing.
+--
 
 * G0/0/0 IP Address: 192.168.1.5/24
 * Default Gateway: 192.168.1.1
@@ -56,110 +60,50 @@ NOTE: The XX99 extension will be used for future voicemail capability so that on
 
 === Important information to read
 
-The VoIP labs in this class use a bit of an unusual network setup. In particular the Asterisk server has two NICs, one of which is connected directly out to the "Internet" outside of your company (ens192) and the other is connected inside your company directly to your pod switch (ens224). You would probably never use such as setup in real world applications and there would be additional security implications if you did. Normally, the Asterisk server would be fully behind your firewall/router and you would do port forwarding to make the ports needed for SIP signalling and RTP audio available from the outside. In the case of "hosted" or "cloud" PBX servers the entire server would be on the outside network. The unusal part we do is to have the server straddle the line with one outside and one inside interface.
+When putting a VoIP server behind your firewall you will need to eventually open some ports to it for SIP and RTP audio in order to exchange calls with the VoIP provider but on the Internet there are a lot of attempts at VoIP fraud by hackers looking to take advantage of SIP ports open to the Internet so if you were actually put a SIP server on ther Internet  you would need to use appropriate security features to blacklist IPs which are making failed connection attempts (attempted brute forcing SIP credentials) along with other precautions within your dialplan to prevent hopping through your PBX (and either impersonating your company or racking up charges). 
 
-Even with putting a VoIP server behind your firewall and opening only the required ports there are a lot of attempts at VoIP fraud online by hackers looking to take advantage of SIP ports open to the Internet so if you were do that you would need to use appropriate security features to blacklist IPs which are making failed connection attempts (attempted brute forcing SIP credentials) along with other precautions within your dialplan to prevent hopping through your PBX (and either impersonating your company or racking up charges. 
+=== Access your VoIP Pod via Netlab and Verify Functionality
 
-The reason for this unusual network setup in our case is to simplify the amount of network configuration you need to do for this course. We are able to avoid dealing with NAT forwarding rules which are cumbersome on Cisco routers (and which do not allow just port forwarding). This also allows us to give you SSH and Filezilla access to your Asterisk server over the ITCnet VPN which makes transferring configuration files much easier when working on them remotely.
+. Verify which pod letter you have and connect to the pod via Netlab
+. Ensure both Debian and Asterisk have been installed to your Asterisk server
+. Configure a static IP address, gateway, and nameserver on the Debian server 
+. Ensure you have working access out to the Internet.
 
-=== Install Debian Linux
+=== Basic Asterisk configuration
 
-. Start the Debian Linux *non-graphical* installer
-. Choose the appropriate language, country, and keymap
-. Set the hostname of the system to *podX-asterisk* where X is replaced by your pod ID letter.
-. Set the domain name to *podX.local* where X is replaced by your pod ID letter.
-. Set the root password to something you will not forget. It is suggested you write it down and/or use the password *itc2300#voip*
-. Create a new user with a username of your choice and password of your choice which you will not forget. Write these down somewhere.
-. Select the correct timezone
-. Use guided partitioning entire disk with all files in one partition and write the changes to disk to begin the installation
-. There is no extra installation media for you to scan
-. Select the US Debian Archive mirror *deb.debian.org* from the list with no HTTP proxy
-. Choose whether you want to participate in the package usage survey, for our purposes either choice is just fine.
-. On the software selection screen *unselect* "Debian desktop environment" and "GNOME" and make sure that "SSH server" and "Standard system utilities" are the only two selected options.
-+
---
-IMPORTANT: To select and unselect options move your cursor over the option and press the _space bar_ *do not* press the _enter key_ until after you have selected the correct options or you will move to the next screen and begin installing incorrect things. You will need to ask your instructor to reset your system and start over again if you do this.
---
-. Choose *Yes* that you want to install GRUB on your primary drive which is */dev/sda*.
-. Choose *Continue* to reboot into your new installation of Debian
-. Log in with the username *root* and password you set.
-+
---
-WARNING: If you are not continuing past this point be sure to safely shutdown your Linux server with the `*shutdown -h now*` command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
---
+In this section of the lab you will manually provision two generic SIP phones and set them up for internal calling through Asterisk. You will use on Digium A25 phone and one Grandstream GXP2160 as the phones. 
 
-=== Install the Asterisk PBX Server and Other Software
+We will manually configure the SIP phones with settings through the web user interface instead of using TFTP configuration methods. Most generic SIP phones can be configured this way through a web interface though it is typically only feasible for very small VoIP installations as it is simple to do but slow.
 
-. Log in to your Debian server with the username *root* and password you set if you are not already logged in.
-. Update the package manager with the latest software lists on your Debian server by running `*apt update*`
-. Install the sudo package with `*apt install sudo*`
-. Add your user to the sudo group with a command like `*adduser _YOURUSERNAMEHERE_ sudo`*
-. Install the *asterisk* and *tftpd-hpa* packages in a similar manner to how you installed sudo.
-. Download the chan-sccp plugin to your Debian system like `*wget xref:attachment$chan-sccp_4.3.4-1_amd64.deb[https://info.ihitc.net/franske-courses/current/itc-2300/_attachments/chan-sccp_4.3.4-1_amd64.deb]*`
-+
---
-NOTE: To save time and reduce complexity in our lab I have built this packaged version of the chan-sccp-b plugin which works with our Debian systems and version of Asterisk. The actual plugin and normal installation instructions are at https://github.com/chan-sccp/chan-sccp
---
-. Install the *gettext* package which is required by chan-sccp
-. Install chap-sccp with `*dpkg -i chan-sccp_4.3.4-1_amd64.deb*`
-+
---
-NOTE: The reason this package is installed with dpkg instead of with apt is that we have manually downloaded the package from an independent website instead of automatically downloading it from the official Debian repository we selected during the installation process. We need to do this because Debian does not have an official chan-sccp package.
---
-. Edit the */etc/asterisk/modules.conf* file and disable loading of chan_skinny.so and enable loading of chan_sccp.so
-+
---
-NOTE: Changes to which modules are loaded and not loaded need to be in the [modules] section of this file and not the [global] section
---
-. Restart the Asterisk software to change the loaded modules. This can be done with the `*systemctl restart asterisk*` command.
-. Set the IP address on your Debian server's outside ens192 interface to the static address for your pod indicated in the table at the top of this lab. These changes should be made in your /etc/network/interfaces file.
-. Set the IP address on your Debian server's inside ens224 interface to the static address indicated at the top of this lab. Note that all pods use the same IP address on the inside interface and do not need a gateway or DNS server on this interface. These changes should be made in your /etc/network/interfaces file.
-. Apply the new network addresses by rebooting your server then verify it is set correctly by using the `*ip address show*` command and `*ping google.com*`
-. This is about all you can reasonably do from off campus. Be sure to safely shutdown your Linux server with the `*shutdown -h now*` command. Otherwise you can continue on but be sure to safely shutdown your system every time before your reservation ends or you may corrupt the data on your system and need to start over.
+. Edit your `*pjsip.conf*` file as required to create a new transport, line, authentication, and AoR section to use on the phones at extension xx01 and xx02. See the xref:lab-asterisk-pjsipconf.adoc[sample pjsip.conf file] for some hints.
+. Modify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] to add the two phone extensions to the default context and allow calling between phones
+
 
 == Work you need to do on campus
 
-=== Network device configuration and testing connectivity
+=== Physical Wiring
 
-. In order to connect your IP phones to your Asterisk server you will need to setup a LAN with a router and switch.
-. Use the xref:lab-asterisk-basic-swrconfigs.adoc[sample switch and router configurations] (need to be modified with correct IP addressing for your pod) to configure the router as a NAT device and DHCP server for your pod LAN.
-. Connect port Fa0/0 on your pod router to an available port on the B144 ITCnet classroom switch.
-. Connect for Fa0/1 on your pod router to port Gi1/0/24 on your pod switch.
-. Connect for port Gi1/0/23 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your Asterisk server's ens224 interface to your internal pod network (the 192.168.10.0/24 subnet).
-. Sign in to a second PC in the classroom. _After_ you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch.
-. Because of our NAT and DHCP setup on the router even after connecting to the pod LAN the second PC should still have working Internet access. It should also be able to now ping both the inside and outside IP addresses of your pod's Asterisk server and access the server using PuTTY (SSH) and Filezilla (SCP).
+. Connect for port Gi1/0/24 on your pod switch to the correct port on the classroom switch identified in the table at the top of the lab. This connection will make a layer 2 connection from your virtual VoIP Pod LAN on Netlab to your physical network switch.
+. Sign in to a PC in the classroom. _After_ you have successfully signed in connect that PC to port Gi1/0/1 on your pod switch. The PC should now be on your VoIP Pod LAN and be able to ping your Asterisk server and access your OPNSense Pod Router.
 +
 --
-NOTE: Of course, make sure that your Asterisk server is up and running!
+NOTE: Of course, make sure you have an active reservation in Netlab and that your Asterisk server is up and running!
 --
 +
 --
-NOTE: It's strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla.
+NOTE: It's strongly suggested you connect to and work on your Asterisk server over SSH from this point on instead of trying to use the Netlab console. Cut and paste support works in PuTTY which it does not in the Netlab console and can transfer files in and out of your server using Filezilla. You can use either your classroom PC (once connected to your VoIP Pod LAN or the Admin PC in Netlab which is always on that network).
 --
+. Connect both of the VoIP phones to your VoIP Pod Switch as well and ensure they have IP addresses from your router.
 
-=== Asterisk confgiuration
-. Create a file XMLDefault.cnf.xml on your lab PC xref:lab-asterisk-xmldefault.adoc[following the template and instructions here] and transfer it to the /srv/tftp/XMLDefault.cnf.xml location on your Asterisk server. The transfer can be done using the Filezilla software which will allow you to create and edit the file in Notepad on your lab PC first.
-. Open the Asterisk console on your Debian system `*asterisk -rvvvvvc*`
-. Connect two Cisco IP phones to ports Gi1/0/2 & Gi1/0/3 of your switch
-. After the phones boot and attempt to connect to your Asterisk server (you should see notifications of this in your Asterisk console window) use the `*sccp show devices*` Asterisk CLI command to see a list of the phones.
-+
---
-NOTE: If one or more of your phones does not register it may be locked to a previous sever see the instructions for xref:tech-info:voip:cisco-phone-security.adoc[clearing Cisco IP phone security files]
---
-. Configure your two IP phones in the SCCP configuration file see the example xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
-. Setup one line button on each phone with an extension number for your pod (xx01 and xx02) based on the chart at the beginning of this lab. Assign these lines to the default context.
-+
---
-NOTE: This requires putting a button line in for the phone device section as well as creating a line configuration section in the xref:lab-asterisk-sccpconf.adoc[*sccp.conf* file].
---
---
-NOTE: It is suggested that you create fresh phone device sections and line sections in the sccp.conf file with only the required items instead of modifying the existing samples. Putting in more configuration than needed can cause things not to work or work in unexpected ways.
---
-. Connect to the Asterisk CLI and issue the `*reload*` command
+=== Phone confgiuration
+. Since we will be manually provisioning the phone using the web interface open a web browser on a PC attached to your VoIP Pod LAN network (either your classroom PC or the Admin PC in Netlab) and browse to the IP address of the Digium A25 phone. Login with the username *admin* and password *789*
+. On the phone admin line settings webpage configure SIP Line 1 with the required user name, display name, authentication name, authentication password, SIP Proxy server address (the IP of your Asterisk server), and check the box to activate the line.
+. Connect to the Asterisk CLI and issue the `*reload*` command.
+. Ensure the phone is registering correctly to Asterisk
 . Verify you can successfully place a call to extension 1000 from the phones. This is a pre-built demo extension.
-. Modify your xref:lab-asterisk-extensionsconf.adoc[*extensions.conf* file] to add the two phone extensions and allow calling between phones
+. Configure the Grandstream GXP 2160 phone in a similar way for the other extension number you set up in your PJSIP configuration file.
 . Test calling between phones
-. Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables. Be sure to note which phones you have so that next week you'll be able to get the same two phones.
+. Safely shutdown your Debian system, erase your switch/router configuration, and put away all equipment and cables including to re-connect your classroom PC to the "B" campus network connection.
 
 
 include::program-info:ROOT:partial$stdfooter.adoc[]

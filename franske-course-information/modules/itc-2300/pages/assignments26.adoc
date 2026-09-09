@@ -26,4 +26,9 @@ For your final assessment, you and your partner will design, build, and demonstr
 * *Socratic Technical Defense:* A presentation to the instructor detailing your architectural decisions, traffic flows, and security considerations, followed by an interactive Q&A where you defend your design choices against alternative engineering approaches.
 * *Live Fault Resolution:* During your demonstration, the instructor may inject a real-time configuration failure or system break into your environment. You will be evaluated on your ability to systematically diagnose, isolate, and resolve the issue on the spot using standard troubleshooting workflows.
 
+== Lab Instructions
+
+=== VoIP Labs
+* xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab]
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
