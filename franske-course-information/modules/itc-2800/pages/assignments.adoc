@@ -12,7 +12,7 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . 10.1.15 Packet Tracer - Explore File and Data Encryption
 . 11.0.7-Packet Tracer - Logical and Physical Mode Exploration
 . 12.5.4 Packet Tracer - Configure Wireless Router Hardening and Security
- .12.7.13 Packet Tracer - Implement Physical Security with IoT Devices
+. 12.7.13 Packet Tracer - Implement Physical Security with IoT Devices
 . 13.1.14 Packet Tracer - Configure Access Control
 . 13.4.5 Packet Tracer - Configure Server-Based Authentication with TACACS+ and RADIUS
 . 14.5.12 Packet Tracer - Configure Extended ACLs Scenario 1
