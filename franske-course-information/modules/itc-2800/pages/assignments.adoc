@@ -5,9 +5,8 @@
 === Packet Tracer Online Submissions
 Each of these activities will be submitted using the Packet Tracer ScoreUP Online Submission process. Points will be earned for each submitted activity based on correctness and completion of the activity. You will see a completion percentage for each activity in the Packet Tracer software before submitting. Remember to submit through ScoreUP inside of Packet Tracer and to save for yourself a copy of your finished activity file in case it's requested by your instructor.
 
-. 5.3.10 Packet Tracer Configure Basic Wireless Security
-. 5.3.10-Packet Tracer - Configure Basic Wireless Security
-. 5.3.11-Packet Tracer - Troubleshoot a Wireless Connection
+. 5.3.10 Packet Tracer - Configure Basic Wireless Security
+. 5.3.11 Packet Tracer - Troubleshoot a Wireless Connection
 . 6.2.4 Packet Tracer - Access Control List Demonstration
 . 10.1.13 Packet Tracer - File and Data Integrity Checks
 . 10.1.15 Packet Tracer - Explore File and Data Encryption
