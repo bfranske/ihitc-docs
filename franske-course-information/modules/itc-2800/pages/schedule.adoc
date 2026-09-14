@@ -157,4 +157,76 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 6 Exam
 * Module 6 Packet Tracer Activities
 
+== Sep 22
+NO CLASS: Student Success Day
+
+== Sep 24
+* Module 8 Lab Activities
+
+== Sep 29
+* Module 9 Lab Activities
+
+== Oct 1
+* Module 10 Lab Activities
+
+== Oct 6
+* Module 11 Lab Activities
+
+== Oct 8
+* Module 12 Lab Activities
+
+== Oct 13
+* Module 13 Lab Activities
+
+== Oct 15
+NO CLASS: MEA
+
+== Oct 20
+* Module 14 Lab Activities
+
+== Oct 22
+* Discuss Module 15
+
+== Oct 27
+* Module 16 Lab Activities
+
+== Oct 29
+* Discuss Module 17
+
+== Nov 3
+* Module 18 Lab Activities
+
+== Nov 5
+* Discuss Module 19
+
+== Nov 10
+* Discuss Module 20
+
+== Nov 12
+* Discuss Module 21
+
+== Nov 17
+* Discuss Module 22
+
+== Nov 19
+* Discuss Module 23
+
+== Nov 24
+* Discuss Module 24
+
+== Nov 26
+NO CLASS: Thanksgiving
+
+== Dec 1
+* Discuss Module 25
+
+== Dec 3
+* Discuss Module 26
+
+== Dec 8
+* Discuss Module 27
+
+== Dec 10
+* Final Exam (In Class)
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
