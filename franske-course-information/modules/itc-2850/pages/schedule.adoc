@@ -1,13 +1,80 @@
 = ITC-2850 Official Course Schedule
 
-== Aug 24
+== Aug 25
 Class kick-off
+
+== Aug 27
+* Lecture: Security Pod Design and Configuration I
+
+== Sep 1
+* Lecture: Security Pod Design and Configuration II
+
+== Sep 3
+* Lecture/Demonstration: OPNSense Basic Setup
+
+== Sep 8
+* Lab: OPNSense Basic Setup
+
+== Sep 10
+* Lecture/Demonstration: OpenVPN Road Warrior Configuration
+
+== Sep 15
+* Lab: OpenVPN Road Warrior Configuration
+
+== Sep 17
+* Lecture/Demonstration: Wireguard Site-to-Site VPN Configuration
 
 == Sep 22
 NO CLASS: Student Success Day
 
+== Sep 24
+* Lab: Wireguard Site-to-Site VPN Configuration
+
+== Sep 29
+* Lecture/Demonstration: IDS/IPS with Suricata
+
+== Oct 1
+* Lab: IDS/IPS with Suricata
+
+== Oct 6
+* Lecture/Demonstration: Implementing Basic TOTP VPN Authentication
+
+== Oct 8
+* Lab: Implementing Basic TOTP VPN Authentication
+
+== Oct 13
+* Lecture: Introduction to Authentication Protocols
+
 == Oct 15
 NO CLASS: MEA
+
+== Oct 20
+* Lecture/Demonstration: Centralized Identity Provider with Authentik
+
+== Oct 22
+* Lab: Authentik Setup
+
+== Oct 27
+* Lecture/Demonstration: Centralized VPN Authentication over RADIUS and/or LDAP
+
+== Oct 29
+* Lab: OpenVPN Authentication over RADIUS and/or LDAP
+
+== Nov 3
+* Lecture/Demonstration: Modern Authentication with OAUTH
+
+== Nov 5
+* Lab: Basic OAUTH for Web App
+
+== Nov 10
+* Lecture/Demonstration: Modern OAUTH Authentication for OpenVPN
+
+== Nov 12
+* Lab: OAUTH for OpenVPN
+
+== Nov 17
+
+== Nov 19
 
 == Nov 24
 Last Day of regular class, project work begins
