@@ -122,7 +122,6 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Other Work to do before next class
 * Module 6 Online Discussion Response Posts
 * Module 7 Online Discussion First Post
-* Module 6 Exam
 
 === Assignments Due at the start of class today
 * Module 3 Exam
@@ -135,21 +134,272 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 
 == Sep 16
 === Work to do in class today
-* Module 7 Lab Report Activities
+* Discuss Module 6 & 7
 * Complete online check-in form for 9/16 or meet with instructor to check-in
 
 === Readings to do before next class
-* Module 8
+* None
 
 === Other Work to do before next class
 * Module 7 Online Discussion Response Posts
-* Module 8 Online Discussion First Post
-* Module 7 Lab Report
+* Module 6 Exam
 * Module 7 Exam
 
 === Assignments Due at the start of class today
 * Module 6 Online Discussion Response Posts
 * Module 7 Online Discussion First Post
+
+== Sep 21
+=== Work to do in class today
+* Module 7 Labs
+
+=== Readings to do before next class
+* Module 8
+
+=== Other Work to do before next class
+* Module 8 Online Discussion First Post
+* Module 7 Lab Reports
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion Response Posts
 * Module 6 Exam
+* Module 7 Exam
+
+= Sep 23
+=== Work to do in class today
+* NO IN PERSON CLASS TODAY: Ben is Gone
+* OPEN LAB TIME AVAILABLE
+
+=== Readings to do before next class
+* Watch Video on Ethernet History
+
+=== Other Work to do before next class
+* Complete Ethernet History Exam
+* Module 8 Online Discussion Response Posts
+
+=== Assignments Due at the start of class today
+* Module 8 Online Discussion First Post
+* Module 7 Lab Reports
+
+== Sep 30
+=== Work to do in class today
+* Module 9 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 5
+=== Work to do in class today
+* Demonstration of Module 10 Router Configuration
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 7
+=== Work to do in class today
+* Module 10 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 12
+=== Work to do in class today
+* Discuss Subnetting
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 14
+=== Work to do in class today
+* Discuss/Practice Subnetting
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 19
+=== Work to do in class today
+* Discuss Module 12
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 21
+=== Work to do in class today
+* Module 12 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 26
+=== Work to do in class today
+* Module 13 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Oct 28   
+=== Work to do in class today
+* Discuss Module 14
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 2
+=== Work to do in class today
+* Module 14 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 4
+=== Work to do in class today
+* Module 15 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 9
+=== Work to do in class today
+* Discuss Module 16
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 11
+=== Work to do in class today
+* NO CLASS: Veterans' Day
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 16
+=== Work to do in class today
+* Module 16 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 18
+=== Work to do in class today
+* Discuss & Demonstrate Module 17
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 23
+=== Work to do in class today
+* Module 17 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 25
+=== Work to do in class today
+* Module 17 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Nov 30
+=== Work to do in class today
+* Module 17 Labs
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Dec 2
+=== Work to do in class today
+* Internet History
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Dec 7
+=== Work to do in class today
+* Written Final Exam (In-Class)
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+== Dec 9
+=== Work to do in class today
+* Subentting Final Exam (In-Class)
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
+
+
+== Dec 11
+=== Work to do in class today
+* Lab Equipment Final Exam
+
+=== Readings to do before next class
+
+=== Other Work to do before next class
+
+=== Assignments Due at the start of class today
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
