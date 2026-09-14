@@ -165,7 +165,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 6 Exam
 * Module 7 Exam
 
-= Sep 23
+== Sep 23
 === Work to do in class today
 * NO IN PERSON CLASS TODAY: Ben is Gone
 * OPEN LAB TIME AVAILABLE
