@@ -3,8 +3,65 @@
 == Aug 24
 Class kick-off
 
+== Aug 26
+* VoIP Lecture 1 - Introduction to VoIP
+
+== Aug 31
+* VoIP Lecture 2 - Introduction to Asterisk 
+
+==Sep 2
+* VoIP Lecture 3 - Demonstrate VoIP Initial Setup & SIP Phone Internal Calling
+
 == Sep 7
 NO CLASS: Labor Day
+
+== Sep 9
+* Lab: VoIP Initial Setup & SIP Phone Internal Calling
+
+== Sep 14
+* Lab: VoIP Initial Setup & SIP Phone Internal Calling
+
+== Sep 16
+* VoIP Lecture 4 - Voicemail & Automatic Provisioning
+
+== Sep 21
+* Lab: Voicemail & Automatic Provisioning
+
+== Sep 23
+* VoIP Lecture 5 - SIP Trunks & PSTN Access
+
+== Sep 28
+* Lab: SIP Trunks & PSTN Access
+
+== Sep 30
+* VoIP Lecture 6 - T1 PSTN Access
+
+== Oct  5
+* Lab: T1 PSTN Access
+
+== Oct 7
+* MDM/Remote Management Lecture 1 - Introduction
+
+== Oct 12
+* MDM/Remote Management Lecture 2 - MeshCentral Remote Access Setup
+
+== Oct 14
+* Lab: MeshCentral Remote Access Setup
+
+== Oct 19
+* MDM/Remote Management Lecture 3 - Fleet DM
+
+== Oct 21
+* Lab: Fleet DM Setup
+
+== Oct 26
+* MDM/Remote Management Lecture 4 - TBD
+
+== Oct 28
+* Lab: MDM/Remote Management TBD
+
+== Nov 2
+* Cloud/Containers Lecture 1 - Introduction
 
 == Nov 11
 NO CLASS: Veteran's Day
