@@ -7,7 +7,6 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 
 . 5.3.10 Packet Tracer - Configure Basic Wireless Security
 . 5.3.11 Packet Tracer - Troubleshoot a Wireless Connection
-. 6.2.4 Packet Tracer - Access Control List Demonstration
 . 10.1.13 Packet Tracer - File and Data Integrity Checks
 . 10.1.15 Packet Tracer - Explore File and Data Encryption
 . 11.0.7-Packet Tracer - Logical and Physical Mode Exploration
@@ -46,6 +45,7 @@ NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity La
 --
 NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity LabVM with the SOC Analyst account to complete the lab.
 --
+. 6.2.4 Packet Tracer - Access Control List Demonstration
 . 7.2.11 Lab - Exploring Processes, Threads, Handles, and Windows Registry
 . 7.3.10 Lab - Create User Accounts
 . 7.3.11 Lab - Using Windows PowerShell

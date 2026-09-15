@@ -128,7 +128,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 6 Online Discussion Response Posts
 * Module 7 Online Discussion First Posts
 * Module 6 Exam
-* Module 6 Packet Tracer Activities
+* Write Lab Report on Module 6 Packet Tracer Activities
 
 === Assignments Due at the start of class today
 * Module 5 Online Discussion Response Posts
@@ -155,34 +155,169 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 6 Online Discussion Response Posts
 * Module 7 Online Discussion First Posts
 * Module 6 Exam
-* Module 6 Packet Tracer Activities
+* Write Lab Report on Module 6 Packet Tracer Activities
 
 == Sep 22
 NO CLASS: Student Success Day
 
 == Sep 24
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Module 8 Lab Activities
 
+=== Readings to do before next class
+* Module 9: System and Endpoint Protection
+
+=== Other Work to do before next class
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Posts
+* Module 8 Exam
+* Module 8 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 7 Online Discussion Response Posts
+* Module 8 Online Discussion First Posts
+* Module 7 Exam
+* Module 7 Lab Report
+
 == Sep 29
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Module 9 Lab Activities
 
+=== Readings to do before next class
+* Module 10: Cybersecurity Principles, Practices, and Processes
+
+=== Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Posts
+* Module 9 Exam
+* Module 9 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Posts
+* Module 8 Exam
+* Module 8 Lab Report
+
 == Oct 1
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Module 10 Lab Activities
+* Module 10 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 11: Understanding Defense
+
+=== Other Work to do before next class
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion First Posts
+* Module 10 Exam
+* Module 10 Lab Report
+* Module 10 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Posts
+* Module 9 Exam
+* Module 9 Lab Report
 
 == Oct 6
-* Module 11 Lab Activities
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 11 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 12: System and Network Defense
+
+=== Other Work to do before next class
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion First Posts
+* Module 11 Exam
+* Module 11 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 10 Online Discussion Response Posts
+* Module 11 Online Discussion First Posts
+* Module 10 Exam
+* Module 10 Lab Report
+* Module 10 Packet Tracer Activities
 
 == Oct 8
-* Module 12 Lab Activities
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 12 Lab Activites
+* Module 12 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 13: Access Control
+
+=== Other Work to do before next class
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion First Posts
+* Module 12 Exam
+* Module 12 Lab Report
+* Module 12 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 11 Online Discussion Response Posts
+* Module 12 Online Discussion First Posts
+* Module 11 Exam
+* Module 11 Lab Report
 
 == Oct 13
-* Module 13 Lab Activities
+
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 13 Lab Activites
+* Module 13 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 14: Access Control Lists
+
+=== Other Work to do before next class
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion First Posts
+* Module 13 Exam
+* Module 13 Lab Report
+* Module 13 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 12 Online Discussion Response Posts
+* Module 13 Online Discussion First Posts
+* Module 12 Exam
+* Module 12 Lab Report
+* Module 12 Packet Tracer Activities
 
 == Oct 15
 NO CLASS: MEA
 
 == Oct 20
-* Module 14 Lab Activities
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 14 Packet Tracer Activities
+
+=== Readings to do before next class
+* Module 15: Firewall Technologies
+
+=== Other Work to do before next class
+* Module 14 Online Discussion Response Posts
+* Module 15 Online Discussion First Posts
+* Module 14 Exam
+* Module 14 Lab Report
+* Module 14 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 13 Online Discussion Response Posts
+* Module 14 Online Discussion First Posts
+* Module 13 Exam
+* Module 13 Lab Report
+* Module 13 Packet Tracer Activities
 
 == Oct 22
 * Discuss Module 15
