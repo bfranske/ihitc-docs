@@ -174,42 +174,78 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Watch Video on Ethernet History
 
 === Other Work to do before next class
-* Complete Ethernet History Exam
-* Module 8 Online Discussion Response Posts
+* Ethernet History Video Exam
 
 === Assignments Due at the start of class today
 * Module 8 Online Discussion First Post
 * Module 7 Lab Reports
+
+== Sep 28
+=== Work to do in class today
+* Discuss Module 8
+
+=== Readings to do before next class
+* Module 9
+
+=== Other Work to do before next class
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 8 Exam
+
+=== Assignments Due at the start of class today
+* Ethernet History Video Exam
 
 == Sep 30
 === Work to do in class today
 * Module 9 Labs
 
 === Readings to do before next class
+* Module 10
 
 === Other Work to do before next class
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Post
+* Module 9 Exam
+* Module 9 Lab Report
 
 === Assignments Due at the start of class today
+* Module 8 Online Discussion Response Posts
+* Module 9 Online Discussion First Post
+* Module 8 Exam
 
 == Oct 5
 === Work to do in class today
 * Demonstration of Module 10 Router Configuration
 
 === Readings to do before next class
+* Start Reading Module 11 (You do not need to finish yet, take your time reading this module it is important!)
 
 === Other Work to do before next class
+* Module 10 Online Discussion Response Posts
 
 === Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Post
+* Module 9 Exam
+* Module 9 Lab Report
 
 == Oct 7
 === Work to do in class today
 * Module 10 Labs
 
 === Readings to do before next class
+* Finish Reading Module 11
 
 === Other Work to do before next class
+* Module 11 Online Discussion First Post
+* Module 10 Exam
+* Module 10 Lab Report
 
 === Assignments Due at the start of class today
+* Module 9 Online Discussion Response Posts
+* Module 10 Online Discussion First Post
+* Module 9 Exam
+* Module 9 Lab Report
 
 == Oct 12
 === Work to do in class today
