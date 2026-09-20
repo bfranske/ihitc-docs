@@ -43,7 +43,7 @@ This section of the lab will explain some things you should try and make sure yo
 . Open a new file named _grocery-list.txt_ in the _nano_ text editor like `nano grocery-list.txt`
 +
 --
-NOTE: Linux does not require file extensions (the part after the period in a file name) to know what type a file is in the way that Windows/DOS historically have. File extensions are commonly used but are not required. When file extensions are used they can also be more or less than the three letters that are typical on Windows (and required in DOS) so things like _.html_, _.conf_, _.config_, _.py_, and of course _.tar.gz_ are all examples of commonly found file extensions in Linux. There are also plenty of files you'll run across in Linux with no file extension at all. This flexibility with file extensions is becoming more common to see in Windows as well but because they were required for so long it's still less common than in Linux and the defauly in Windows is definitely to have a file extension and usually a three character one.
+NOTE: Linux does not require file extensions (the part after the period in a file name) to know what type a file is in the way that Windows/DOS historically have. File extensions are commonly used but are not required. When file extensions are used they can also be more or less than the three letters that are typical on Windows (and required in DOS) so things like _.html_, _.conf_, _.config_, _.py_, and of course _.tar.gz_ are all examples of commonly found file extensions in Linux. There are also plenty of files you'll run across in Linux with no file extension at all. This flexibility with file extensions is becoming more common to see in Windows as well but because they were required for so long it's still less common than in Linux and the default in Windows is definitely to have a file extension and usually a three character one.
 --
 +
 image::lab04/001.png[Blank grocery-list.txt file open in nano]
@@ -142,7 +142,7 @@ echo "We are about to try and access a file that does not really exist"
 cat doesnotexist.txt
 ----
 .. Set the permissions on the _error.sh_ file so that it can be executed by your regular user like `chmod +x error.sh`
-.. This script does two things when you run it. First, it prints a message stating that it is about to try and access a file that doesn't exist. This message is sent to the standard output. Second, it tries to use the `cat` command to access a file that does not exist which will generate a standard error message. Try runnung the script like `./error.sh` to see this in action.
+.. This script does two things when you run it. First, it prints a message stating that it is about to try and access a file that doesn't exist. This message is sent to the standard output. Second, it tries to use the `cat` command to access a file that does not exist which will generate a standard error message. Try running the script like `./error.sh` to see this in action.
 +
 [source,console]
 ----
@@ -169,7 +169,7 @@ ben@2480-Z:~$ cat output.txt
 We are about to try and access a file that does not really exist
 ben@2480-Z:~$
 ----
-.. Here you can see the _stdout.txt_ file contains the first line we would have gotten, the line which was send to the standard output. So the `>` operator only redirects the standard output by defauly, not the standard error messages. However, we can redirect the standard output and standard error messages if we want to. Try running `./error.sh 2> output.txt` this time and check both what happens on your terminal as well as what ends up in the _output.txt_ file. 
+.. Here you can see the _stdout.txt_ file contains the first line we would have gotten, the line which was send to the standard output. So the `>` operator only redirects the standard output by default, not the standard error messages. However, we can redirect the standard output and standard error messages if we want to. Try running `./error.sh 2> output.txt` this time and check both what happens on your terminal as well as what ends up in the _output.txt_ file. 
 +
 [source,console]
 ----
