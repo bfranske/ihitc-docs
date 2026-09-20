@@ -159,6 +159,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Other Work to do before next class
 * Module 8 Online Discussion First Post
 * Module 7 Lab Reports
+* Complete online check-in form for 9/23 or do an in-person check-in today
 
 === Assignments Due at the start of class today
 * Module 7 Online Discussion Response Posts
@@ -179,6 +180,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Assignments Due at the start of class today
 * Module 8 Online Discussion First Post
 * Module 7 Lab Reports
+* Complete online check-in form for 9/23 or have meet with instructor on 9/21
 
 == Sep 28
 === Work to do in class today
@@ -191,6 +193,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 8 Online Discussion Response Posts
 * Module 9 Online Discussion First Post
 * Module 8 Exam
+* Complete online check-in form for 9/30 or meet with instructor then to check-in
 
 === Assignments Due at the start of class today
 * Ethernet History Video Exam
@@ -212,6 +215,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 8 Online Discussion Response Posts
 * Module 9 Online Discussion First Post
 * Module 8 Exam
+* Complete online check-in form for 9/30 or meet with instructor today during class to check-in
 
 == Oct 5
 === Work to do in class today
@@ -222,6 +226,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 
 === Other Work to do before next class
 * Module 10 Online Discussion Response Posts
+* Complete online check-in form for 10/7 or meet with instructor then to check-in
 
 === Assignments Due at the start of class today
 * Module 9 Online Discussion Response Posts
@@ -246,34 +251,50 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 10 Online Discussion First Post
 * Module 9 Exam
 * Module 9 Lab Report
+* Complete online check-in form for 10/7 or meet with instructor today during class to check-in
 
 == Oct 12
 === Work to do in class today
 * Discuss Subnetting
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Try completing Module 11 Homework Assignments
+* Complete online check-in form for 10/14 or meet with instructor then to check-in
 
 === Assignments Due at the start of class today
+* Module 11 Online Discussion First Post
+* Module 10 Exam
+* Module 10 Lab Report
 
 == Oct 14
 === Work to do in class today
 * Discuss/Practice Subnetting
 
 === Readings to do before next class
+* Module 12
 
 === Other Work to do before next class
+* Module 12 Online Discussion First Post
+* Module 11 Online Discussion Response Posts
+* Module 11 Exam
+* Module 11 Homework Assignments
 
 === Assignments Due at the start of class today
+* Complete online check-in form for 10/14 or meet with instructor today in class to check-in
 
 == Oct 19
 === Work to do in class today
+* Finish IPv4 Subnetting Discussion/Practice
 * Discuss Module 12
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Complete online check-in form for 10/21 or meet with instructor then to check-in
 
 === Assignments Due at the start of class today
 
@@ -282,10 +303,14 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 12 Labs
 
 === Readings to do before next class
+* Module 13
 
 === Other Work to do before next class
+* Module 12 Online Discussion Response Posts
+* Module 12 Homework Assignments
 
 === Assignments Due at the start of class today
+* Complete online check-in form for 10/21 or meet with instructor today in class to check-in
 
 == Oct 26
 === Work to do in class today
