@@ -30,5 +30,6 @@ For your final assessment, you and your partner will design, build, and demonstr
 
 === VoIP Labs
 * xref:lab-asterisk-introduction.adoc[Introduction to VoIP with Asterisk Lab]
+* xref:lab-asterisk-sippstn.adoc[SIP ITSP PSTN Access Lab]
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
