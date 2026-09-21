@@ -25,10 +25,10 @@ NO CLASS: Labor Day
 * VoIP Lecture 4 - Voicemail & Automatic Provisioning
 
 == Sep 21
-* Lab: Voicemail & Automatic Provisioning
+* VoIP Lecture 5 - SIP Trunks & PSTN Access
 
 == Sep 23
-* VoIP Lecture 5 - SIP Trunks & PSTN Access
+* Lab: Voicemail & Automatic Provisioning
 
 == Sep 28
 * Lab: SIP Trunks & PSTN Access
