@@ -51,6 +51,8 @@ These are the IP addresses and phone extension numbers assigned to your pod whic
 |Pod J |1000-1099 |Gi1/0/10 |5105551000-5105551099 |5104441000-5104441099
 |===
 
+NOTE: If you previously used different extension numbers for your phones you should probably change to using these extension numbers for simplicity.
+
 == Instructions
 
 . Update your xref:lab-asterisk-pjsipconf.adoc[pjsip.conf file] to add the required registration, endpoint, aors, auth, and identity sections required to connect to your ITSP.
