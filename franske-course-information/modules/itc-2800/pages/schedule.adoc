@@ -108,6 +108,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 6 Online Discussion First Posts
 * Module 5 Exam
 * Module 5 Packet Tracer Activities
+* Complete online check-in form for 9/15 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 4 Online Discussion Response Posts
@@ -120,6 +121,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 === Work to do in class today
 * Ask questions about content you are unsure about
 * Module 6 Lab Activities (Done in Packet Tracer but write a lab report)
+* Complete online check-in form for 9/15 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 7: The Windows Operating System
@@ -150,6 +152,7 @@ TIP: Discussion posts are done through the D2L site in this class. Instructions 
 * Module 8 Online Discussion First Posts
 * Module 7 Exam
 * Module 7 Lab Report
+* Complete online check-in form for 9/24 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 6 Online Discussion Response Posts
@@ -165,6 +168,7 @@ NO CLASS: Student Success Day
 === Work to do in class today
 * Ask questions about content you are unsure about
 * Module 8 Lab Activities
+* Complete online check-in form for 9/24 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 9: System and Endpoint Protection
@@ -195,6 +199,7 @@ NO CLASS: Student Success Day
 * Module 10 Online Discussion First Posts
 * Module 9 Exam
 * Module 9 Lab Report
+* Complete online check-in form for 10/1 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 8 Online Discussion Response Posts
@@ -208,6 +213,7 @@ NO CLASS: Student Success Day
 * Ask questions about content you are unsure about
 * Module 10 Lab Activities
 * Module 10 Packet Tracer Activities
+* Complete online check-in form for 10/1 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 11: Understanding Defense
@@ -239,6 +245,7 @@ NO CLASS: Student Success Day
 * Module 12 Online Discussion First Posts
 * Module 11 Exam
 * Module 11 Lab Report
+* Complete online check-in form for 10/8 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 10 Online Discussion Response Posts
@@ -253,6 +260,7 @@ NO CLASS: Student Success Day
 * Ask questions about content you are unsure about
 * Module 12 Lab Activites
 * Module 12 Packet Tracer Activities
+* Complete online check-in form for 10/8 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 13: Access Control
@@ -263,6 +271,7 @@ NO CLASS: Student Success Day
 * Module 12 Exam
 * Module 12 Lab Report
 * Module 12 Packet Tracer Activities
+* Complete online check-in form for 10/13 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 11 Online Discussion Response Posts
@@ -276,6 +285,7 @@ NO CLASS: Student Success Day
 * Ask questions about content you are unsure about
 * Module 13 Lab Activites
 * Module 13 Packet Tracer Activities
+* Complete online check-in form for 10/13 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 14: Access Control Lists
@@ -286,6 +296,7 @@ NO CLASS: Student Success Day
 * Module 13 Exam
 * Module 13 Lab Report
 * Module 13 Packet Tracer Activities
+* Complete online check-in form for 10/20 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
 * Module 12 Online Discussion Response Posts
@@ -301,6 +312,7 @@ NO CLASS: MEA
 === Work to do in class today
 * Ask questions about content you are unsure about
 * Module 14 Packet Tracer Activities
+* Complete online check-in form for 10/20 (before class) or meet with instructor to check-in
 
 === Readings to do before next class
 * Module 15: Firewall Technologies
