@@ -9,7 +9,6 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 . 5.3.11 Packet Tracer - Troubleshoot a Wireless Connection
 . 10.1.13 Packet Tracer - File and Data Integrity Checks
 . 10.1.15 Packet Tracer - Explore File and Data Encryption
-. 11.0.7-Packet Tracer - Logical and Physical Mode Exploration
 . 12.5.4 Packet Tracer - Configure Wireless Router Hardening and Security
 . 12.7.13 Packet Tracer - Implement Physical Security with IoT Devices
 . 13.1.14 Packet Tracer - Configure Access Control

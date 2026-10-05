@@ -235,7 +235,6 @@ NO CLASS: Student Success Day
 
 === Work to do in class today
 * Ask questions about content you are unsure about
-* Module 11 Packet Tracer Activities
 
 === Readings to do before next class
 * Module 12: System and Network Defense
@@ -244,7 +243,6 @@ NO CLASS: Student Success Day
 * Module 11 Online Discussion Response Posts
 * Module 12 Online Discussion First Posts
 * Module 11 Exam
-* Module 11 Lab Report
 * Complete online check-in form for 10/8 (before class) or meet with instructor to check-in
 
 === Assignments Due at the start of class today
@@ -277,7 +275,6 @@ NO CLASS: Student Success Day
 * Module 11 Online Discussion Response Posts
 * Module 12 Online Discussion First Posts
 * Module 11 Exam
-* Module 11 Lab Report
 
 == Oct 13
 
