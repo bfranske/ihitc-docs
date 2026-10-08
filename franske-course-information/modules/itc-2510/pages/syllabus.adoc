@@ -21,7 +21,7 @@ Introduces the architecture, structure, functions, components, and models of the
 Course Note: The prerequisite for this course can  be waived upon proof of passing an IT fundamentals examination administered by the department. Contact the instructor or department for more information.
 
 === Required Resources
-* CCNA Routing and Switching Portable Command Guide (5th Edition) (Empson) ISBN: 978013593782-2
+* CCNA Routing and Switching Portable Command Guide (6th Edition) (Empson) ISBN: 9780138208769
 * External USB Drive, 8GB free minimum, flash drive or hard drive
 
 === Optional Resources

@@ -20,7 +20,7 @@ include::ROOT:partial$instructor-contact.adoc[]
 Explores the architecture, components, operations, and security required for large, complex networks, including wide area network (WAN) technologies, and foundational cybersecurity concepts. This includes the ability to configure the OSPF routing protocol, access control lists, NAT, and firewalls. The course emphasizes network security concepts and introduces network virtualization and automation. Students learn how to configure, troubleshoot, and secure enterprise network devices, understand how application programming interfaces (API) and configuration management tools enable network automation, and how to provide for the confidentiality, integrity, and availability of data and network systems including endpoints. This course completes the coursework preparation for the CCNA professional certification exam as well as the CCST Cybersecurity professional certification exam.
 
 === Required Resources
-* CCNA Routing and Switching Portable Command Guide (5th Edition) (Empson) ISBN: 978013593782-2
+* CCNA Routing and Switching Portable Command Guide (6th Edition) (Empson) ISBN: 9780138208769
 * External USB Drive, 8GB free minimum, flash drive or hard drive
 * USB to Serial Converter (https://www.amazon.com/dp/B00IDSM6BW[such as this $10 one])
 * USB to *Mini* (not micro) USB cable (https://www.amazon.com/dp/B0B3J6RD34[such as this $4 one])
