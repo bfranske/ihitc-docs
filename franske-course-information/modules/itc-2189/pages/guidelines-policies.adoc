@@ -7,7 +7,10 @@ The purpose of this internship experience is to augment formal classroom instruc
 Internships provide an invaluable addition to your curriculum. They introduce you to professional work environments, enable you to apply specific technical and interpersonal skills, and help you evaluate your long-term career goals within Information Technology. For many interns, these experiences also create pathways to future full-time employment.
 
 === Oversight and Evaluation Overview
+
 During your internship:
+
+* **If You Have Concerns:** If you have specific conerns about your work, working conditions, or how the internship is progressing contact the ITC Internship Supervisor as soon as possible.
 * **Faculty Meetings:** Your supervising faculty member will hold at least one meeting with you and your on-site supervisor (typically at your primary work site or via video conference).
 * **Final Evaluation:** At the conclusion of the internship, your on-site supervisor will complete a written performance evaluation assessing your progress and growth.
 
@@ -17,14 +20,17 @@ During your internship:
 * **Workplace Hours:** You must complete a minimum of **192 hours** of approved IT work experience for a 3-credit internship course.
 * **Grading Options:** You may enroll on either a standard letter-grade basis or a Pass/Fail (P/NC) basis.
 * **Grading Criteria:** At a mimimum grades are based on:
-.. Goals and Expectations Paper
-.. Weekly Work Reflection Logs
-.. End-of-Internship Reflection Paper
-.. Faculty Supervisor Meeting(s)
-.. Employer Performance Evaluation
++
+--
+. Goals and Expectations Paper
+. Weekly Work Reflection Logs
+. End-of-Internship Reflection Paper
+. Faculty Supervisor Meeting(s)
+. Employer Performance Evaluation
+--
 
 === Job Eligibility Standards
-* **Paid Positions:** In accordance with U.S. Department of Labor guidelines (Fact Sheet #71), internships must be paid positions meeting at least minimum wage requirements. Unpaid internships are not permitted.
+* **Paid Positions:** In accordance with https://www.dol.gov/agencies/whd/fact-sheets/71-flsa-internships[U.S. Department of Labor guidelines (Fact Sheet #71)], internships must be paid positions meeting at least minimum wage requirements if you are doing work that provides a benefit to the employer. Unpaid internships are not permitted at "for-profit" employers.
 * **IT Core Focus:** The position must be in the IT career field. While non-IT tasks may occur occasionally, the vast majority of your duties during the 192 hours must involve core IT functions.
 ** *Qualifying Role Examples:* IT Helpdesk / Service Desk, Systems Administrator, Network Administrator, Cybersecurity Analyst, Managed Services Technician, IT Consultant.
 ** *Non-Qualifying Role Examples:* Data Entry, standard Microsoft Office desktop application usage (Word/Excel/PowerPoint), line-of-business application usage, or administrative office support.
@@ -32,7 +38,9 @@ During your internship:
 * **Project Collaboration Requirement:** You must participate in at least one collaborative IT project involving team interaction, project meetings, or change management workflows. Shadowing senior IT personnel on major project implementations can fulfill this requirement if active participation is not feasible.
 
 === Non-Qualifying Positions
+
 If the ITC Internship Supervisor determines a position is found not to meet internship criteria:
+
 * If you have not yet registered your registration request may be declined.
 * If discovered after enrollment, you may receive a lower grade, be granted up to one additional semester to secure a qualifying position, or fail the course, depending on when and why the position fell short of requirements.
 
@@ -93,31 +101,39 @@ The following section will describe the core required assignments for successful
 === Goals and Expectations Paper
 
 **Timing:** Complete and submit this paper **before** you begin logging your 192 internship hours.  
-**Length:** Approximately 3 pages (double-spaced).  
+
+**Length:** Approximately 3 pages (double-spaced).
+
 **Recipients:** Submit to both your ITC Faculty Supervisor and your On-Site Supervisor.
 
 *Minimum Required Content:*
-1. **Header Information:** Name, employer name, project start/end dates, on-site supervisor contact info.
-2. **Work Overview:** Expected technical tasks and project responsibilities.
-3. **Interpersonal Skills:** Non-technical / soft skills crucial for success in this role.
-4. **Broad Career Goals:** Overall outcomes you hope to achieve through this experience.
-5. **Target Skills:** Specific technical tools, platforms, or skills you want to learn or strengthen.
+
+. **Header Information:** Name, employer name, project start/end dates, on-site supervisor contact info.
+. **Work Overview:** Expected technical tasks and project responsibilities.
+. **Interpersonal Skills:** Non-technical / soft skills crucial for success in this role.
+. **Broad Career Goals:** Overall outcomes you hope to achieve through this experience.
+. **Target Skills:** Specific technical tools, platforms, or skills you want to learn or strengthen.
 
 === Work Reflection Log
 
-**Frequency:** Minimum of one detailed entry per week (2–3 paragraphs).  
+**Frequency:** Minimum of one detailed entry per week (2–3 paragraphs) plus additional professional development reflection every two weeks.
+
+**Format:** Keep all work reflection log entries in a single file rather than as separate files. Use headings to indentify separate entries.
+
 **Submission Schedule:** Submit your full consolidated log file to the ITC Internship Supervisor:
+
 * At least **once per month**
 * **2 days prior** to any meeting with your faculty supervisor
 * As a **final complete submission** at the end of your internship hours
 
 [NOTE]
 ====
-You must continue logging weekly reflections until all course requirements (including final faculty meetings and reflection papers) are fulfilled, even if your total exceeds 192 hours.
+You must continue logging weekly reflections until all course requirements (including final faculty meetings and reflection papers) are fulfilled, even if this means you exceed 192 hours.
 ====
 
-==== Required Weekly Log Components
-Each weekly entry must summarize hours and reflect on your experiences:
+==== Required Miminum Weekly Log Components
+
+Each minimum weekly entry (2-3 paragraphs) must summarize hours and reflect on your experiences:
 
 . **Hours Tracked:** Date of entry, daily hours worked, and weekly total.
 . **Positive Highlight:** A positive experience or achievement and why it occurred.
@@ -127,7 +143,8 @@ Each weekly entry must summarize hours and reflect on your experiences:
 . **Key Interactions:** Notable discussions with supervisors, mentors, or team members.
 
 ==== Bi-Weekly Professional Development Reflection
-**Every two weeks**, add a second 2–3 paragraph section reflecting on one of the following broader IT industry topics:
+
+**Every two weeks**, add a second 2–3 paragraph section reflecting on one of the following broader IT industry topics, make sure this is clearly identified:
 
 * **Interview Process:** Reflections on your interview experience and lessons learned.
 * **IT Organizational Structure:** Roles, career pathways, and team dynamics within your company's IT department.
@@ -139,8 +156,10 @@ Each weekly entry must summarize hours and reflect on your experiences:
 
 === Faculty Supervisor Meetings
 
-**Timing:** Held approximately midway through your 192 hours.  
-**Participants:** Student Intern, On-Site Supervisor, and ITC Faculty Supervisor.  
+**Timing:** Held approximately midway through your 192 hours.
+
+**Participants:** Student Intern, On-Site Supervisor, and ITC Faculty Supervisor.
+
 **Format:** On-site at your workplace or via video conference (at faculty discretion).
 
 *Meeting Agenda (20–30 minutes total):*
@@ -156,8 +175,10 @@ Coordinate and schedule this meeting early! Both faculty and employer schedules 
 
 === End of Internship Reflection Paper
 
-**Timing:** Submitted after completing 192 hours and all faculty meetings.  
-**Length:** 5–8 pages (double-spaced).  
+**Timing:** Submitted after completing 192 hours and all faculty meetings.
+
+**Length:** 5–8 pages (double-spaced).
+
 **Recipients:** Submit to your ITC Faculty Supervisor
 
 *Key Sections to Cover:*
