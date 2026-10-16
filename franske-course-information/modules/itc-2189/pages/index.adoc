@@ -11,4 +11,7 @@ You are responsible for reading and understanding all of the internship course h
 
 All of these can be viewed as a xref:unified-handbook.adoc[single handbook document] for saving/printing.
 
+== Additional Resources
+* xref:performance-review.adoc[Example Employer Performance Review]
+
 include::program-info:ROOT:partial$stdfooter.adoc[]

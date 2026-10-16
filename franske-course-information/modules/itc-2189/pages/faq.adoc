@@ -7,7 +7,7 @@ IMPORTANT: **You cannot register for this class until you have secured an approv
 *Step-by-step registration flow:*
 
 . **Fully read the ITC Internship Handbook and Syllabus:** Make certain you understand all of the requirements and expectations for the course. Discuss any questions or concerns with the ITC Internship Supervisor after reading everything and before continuing. 
-. **Secure an IT position:** Review xref:_how_do_i_find_an_internship_position[How do I find an internship position?] and Step 1 of the "ITC Internship Course Enrollment Steps."
+. **Secure an IT position:** Review xref:_how_do_i_find_an_internship_position[How do I find an internship position?] and the "ITC Internship Course Enrollment Steps" from the ITC internship guidelines and policies.
 . **Submit for approval:** Once hired, submit your position details to the ITC Internship Supervisor.
 . **Enroll in the course:** Upon approval, you will receive permission to register in eServices.
 

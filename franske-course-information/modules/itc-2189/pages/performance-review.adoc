@@ -1,0 +1,170 @@
+= Example Performance Review Template & Framework
+
+When an employer does not provide a standardized internal performance review form this can be used.
+
+== Key Sections of a Standard Performance Review
+
+. *Employee & Review Information* -- Establishes review boundaries, role expectations, and assessment timeframes.
+. *Core Responsibilities & Accomplishments* -- Focuses on concrete deliverables, key milestones, and business impacts achieved during the review period.
+. *Competency Evaluation* -- Rates quantitative and qualitative behaviors (communication, execution, problem-solving, initiative).
+. *Strengths & Areas for Growth* -- Provides targeted praise and identifies specific, actionable opportunities for performance enhancement.
+. *SMART Goals & Objectives* -- Sets clear, measurable, and time-bound goals for the upcoming review period.
+. *Professional Development Plan* -- Defines concrete training, resources, and managerial support required to foster growth.
+. *Employee Self-Evaluation & Comments* -- Provides a formal space for employee perspective, self-reflection, and feedback.
+. *Sign-Off & Acknowledgments* -- Captures formal acknowledgment from both parties that the evaluation took place.
+
+== Rating Scale Reference
+
+[cols="1,2,4", options="header"]
+|===
+| Rating | Descriptor | Definition
+
+| 5
+| Exceeds Expectations
+| Consistently surpasses objectives and standards; serves as a benchmark for excellence.
+
+| 4
+| Meets Expectations
+| Consistently satisfies all primary duties, expectations, and established criteria.
+
+| 3
+| Needs Improvement
+| Partially meets requirements; inconsistent results warrant targeted adjustments.
+
+| 2
+| Unsatisfactory
+| Consistently falls below minimum job requirements; immediate action required.
+|===
+
+== Performance Review Form
+
+[sidebar]
+****
+*Instructions for Managers:* Complete sections 1 through 6 prior to the review meeting. Share the draft with the employee for review, conduct the meeting, allow space for employee comments in section 7, and capture signatures in section 8.
+****
+
+=== 1. Review Information
+
+[cols="1s,3"]
+|===
+| Employee Name
+| 
+
+| Job Title
+| 
+
+| Department
+| 
+
+| Manager / Evaluator Name
+| 
+
+| Review Period
+| e.g., Q3 2026 / Annual 2026
+
+| Date of Evaluation
+| 
+|===
+
+=== 2. Key Accomplishments & Deliverables
+
+_Summarize major achievements, key initiatives completed, and measurable metrics hit during this period._
+
+. *Accomplishment 1:*
+. *Accomplishment 2:*
+. *Accomplishment 3:*
+
+=== 3. Core Competency Assessment
+
+[cols="2,1,4", options="header"]
+|===
+| Competency | Rating (1-5) | Manager Comments & Examples
+
+| *Job Knowledge & Execution* +
+Demonstrates technical proficiency and consistently produces quality work.
+| 
+| 
+
+| *Communication & Collaboration* +
+Communicates effectively across teams, actively listens, and builds positive working relationships.
+| 
+| 
+
+| *Problem Solving & Adaptability* +
+Identifies root causes, proposes constructive solutions, and adapts well to changing priorities.
+| 
+| 
+
+| *Time Management & Reliability* +
+Meets deadlines, manages workload effectively, and delivers reliably.
+| 
+| 
+
+| *Leadership & Initiative* +
+Takes ownership of tasks, drives improvements, and supports team members.
+| 
+| 
+|===
+
+=== 4. Strengths & Areas for Growth
+
+==== Key Strengths
+* 
+* 
+
+==== Opportunities for Improvement
+* 
+* 
+
+=== 5. SMART Goals for the Next Period
+
+[cols="2,3,1", options="header"]
+|===
+| Goal | Success Metric / Target | Completion Date
+
+| *Goal 1:*
+| 
+| 
+
+| *Goal 2:*
+| 
+| 
+
+| *Goal 3:*
+| 
+| 
+|===
+
+=== 6. Professional Development Plan
+
+_Detail specific training, coursework, certifications, mentorship, or organizational support to be provided._
+
+* *Target Skills / Areas:*
+* *Required Resources or Budget:*
+* *Managerial Support / Action Items:*
+
+=== 7. Employee Self-Evaluation & Feedback
+
+_Space for employee comments, additional context, or feedback on organizational support._
+
+[quote, Employee Response]
+____
+
+____
+
+=== 8. Formal Sign-Off
+
+NOTE: Signature indicates that the performance evaluation was conducted and discussed. It does not necessarily indicate full agreement with all assessments made.
+
+[cols="1,2,1", options="header"]
+|===
+| Role | Printed Name & Signature | Date
+
+| *Employee*
+| 
+| 
+
+| *Manager*
+| 
+| 
+|===
