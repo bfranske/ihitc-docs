@@ -5,6 +5,7 @@
 IMPORTANT: **You cannot register for this class until you have secured an approved IT position.** Unlike traditional courses, the ITC Internship class awards credit for active, hands-on work experience. Instructor approval is required to enroll.
 
 *Step-by-step registration flow:*
+
 . **Fully read the ITC Internship Handbook and Syllabus:** Make certain you understand all of the requirements and expectations for the course. Discuss any questions or concerns with the ITC Internship Supervisor after reading everything and before continuing. 
 . **Secure an IT position:** Review xref:_how_do_i_find_an_internship_position[How do I find an internship position?] and Step 1 of the "ITC Internship Course Enrollment Steps."
 . **Submit for approval:** Once hired, submit your position details to the ITC Internship Supervisor.
