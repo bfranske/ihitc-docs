@@ -2,9 +2,9 @@
 
 == How do I register for the ITC Internship class?
 
-First, you need to find an IT position you can use for internship credit. See FAQ #3 below and step 1 of the "ITC Internship Course Enrollment Steps" for more on that. Once you have a position see the section “ITC Internship Course Enrollment Steps” in the xref:guidelines-policies.adoc[guidelines and policies] section for detailed steps to get registered.
+First, you need to find an IT position you can use for internship credit. See xref:_how_do_i_find_an_internship_position[How do I find an internship position?] below and Step 1 of the "ITC Internship Course Enrollment Steps" for details. Once you have secured a position, see the section “ITC Internship Course Enrollment Steps” in the xref:guidelines-policies.adoc[Guidelines and Policies] section for detailed registration steps.
 
-The ITC Internship course is not a course where you register and then you find or are placed at an internship. Instead, you take this course to receive credit for internship work experience so you need to have an internship position accepted before you register, this is why instructor approval is required to register.
+The ITC Internship course is not a course where you register and then find or get placed at an internship. Instead, you take this course to receive credit for internship work experience; therefore, you must have an accepted position before registering. This is why instructor approval is required to register.
 
 The ITC Internship course is offered every term and, although it only shows a limited number of seats, the course will not fill up as we will expand the course as needed. You can also register for this course even after a term starts so there is not a rush to register for the course. See FAQ #6 for more details.
 
@@ -12,36 +12,38 @@ The ITC Internship course is offered every term and, although it only shows a li
 
 We normally recommend that you start looking for internship positions anytime after you have completed the ITC 2000 PC Hardware & Software course. The ITC Internship course is offered every term (including summer) and you can also register for this course even after a term starts so as soon as you are hired for a position and have approval from the ITC internship supervisor you can start.
 
-It's easier to get hired if you have previous experience in IT. However, we realize this is not normally the case for students! Especially if you do not have previous experience you will probably find it easier to get hired if you have passed professional certification exams so that people know you have some knowledge, skills, and abilities in the IT area. The CompTIA A+ professional certification is a good place to start. If you've taken the ITC PC Hardware & Software course you should be well on your way to passing that certification. It's suggested you contact your PC Hardware & Software instructor for advice on passing the certification and take some practice exams to help prepare you. If you already have the CompTIA A+ and have also completed all our CCNA courses passing the CCNA certification is another great way to show you know your way around even more complex IT systems.
-
 == How do I find an internship position?
 
-You will find your internship position through the same search strategies used to find any IT role. IHCC does not directly place students in internships; you are responsible for seeking and securing a suitable position. We strongly recommend working with the https://www.inverhills.edu/careerdevelopment[IHCC Career Development Center] to review your résumé, practice interview skills, and refine your search strategy. If you have not yet completed it taking the ITC-2100: IT Career Success Skills and Strategies class (typically offered in the Spring) can also assist you in providing some IT specific job search, application, and interview advice.
+You will find your internship position through the same search strategies used to find any IT role. IHCC does not directly place students in internships; you are responsible for seeking and securing a suitable position. We strongly recommend working with the https://www.inverhills.edu/careerdevelopment[IHCC Career Development Center] to review your resume, practice interview skills, and refine your search strategy. If you have not yet completed it taking the ITC-2100: IT Career Success Skills and Strategies class (typically offered in the Spring) can also assist you in providing some IT specific job search, application, and interview advice.
+
+It's easier to get hired if you have previous experience in IT. However, we realize this is not normally the case for students! Especially if you do not have previous experience, you will probably find it easier to get hired if you have passed professional certification exams so that employers know you have demonstrated knowledge, skills, and abilities. The CompTIA A+ professional certification is a good place to start. If you've taken the ITC PC Hardware & Software course, you should be well on your way to passing that certification. We suggest contacting your instructor for advice and taking practice exams to prepare. If you already have the CompTIA A+ and have completed our CCNA courses, passing the official CCNA exam is another great way to prove your technical capabilities.
 
 === What kinds of positions count?
 
 In the IT field, very few entry-level roles are explicitly advertised as "internships." *Most standard, paid IT jobs qualify for internship credit as long as you are able to meet all the requirements laid out in our internship handbook.*
 
 * *Common Roles:* Most students securing their first IT position land in roles like _IT Helpdesk, Service Desk Analyst, or Desktop Support._
-
 * *Internal vs. External Support:* Positions providing *internal support* (supporting a company’s own employees) typically work best because they allow opportunities for small project work or job-shadowing with higher-tier IT staff. *External support roles* (supporting outside customers or call centers) often lack these cross-training opportunities.
-
++
+--
+NOTE: MSP (Managed Service Provider) entry roles, even when client-facing, often act like internal support and provide strong broad-spectrum technical exposure.
+--
 * *Requirements Check:* See the Internship Guidelines and Step 1 of the _ITC Internship Course Enrollment Steps_ later in this handbook for detailed criteria. Contact your IHCC ITC internship supervisor if you are unsure whether a specific position qualifies.
 
 === Where should I look for a job?
 
 . *Local & Regional Job Board Searches:*
-.* *Dice.com:* Tech-focused job board with strong Twin Cities listings.
-.* *Ziprecuriter:* Currently one of the most popular job posting sites
-.* *LinkedIn & Indeed:* Set your location search radius to Minneapolis–St. Paul (or within your commuting distance, e.g., 25–30 miles of home).
-.* *Handshake:* Accessible through IHCC Career Development to find employers specifically recruiting college talent.
+** *Dice.com:* Tech-focused job board with strong Twin Cities listings.
+** *ZipRecruiter:* Popular job posting board used by many regional employers.
+** *LinkedIn & Indeed:* Set your location search radius to Minneapolis–St. Paul (or within your commuting distance, e.g., 25–30 miles of home).
+** *Handshake:* Accessible through IHCC Career Development to find employers specifically recruiting college talent.
 . *Tech Staffing Agencies:*
 +
 --
 A large percentage of entry-level IT roles in the MSP metro area are contract-to-hire positions filled through IT staffing firms (such as _Robert Half, Apex Systems, Insight Global, Kforce, or TekSystems_).
 --
-.* *Pros:* They can get your résumé in front of hiring managers quickly and offer valuable interview coaching.
-.* *Cons:* Be mindful of your time, ensure the recruiter is matching you with roles aligned with your actual skill level and not just trying to fill interview quotas. Also make sure the job opportunities they are presenting you with are interesting and appropriate for your skills.
+** *Pros:* They can get your resume in front of hiring managers quickly and offer valuable interview coaching.
+** *Cons:* Be mindful of your time, ensure the recruiter is matching you with roles aligned with your actual skill level and not just trying to fill interview quotas. Also make sure the job opportunities they are presenting you with are interesting and appropriate for your skills.
 +
 --
 NOTE: A 3- to 6-month contract position is a fantastic way to gain early experience and counts toward internship requirements.
@@ -51,26 +53,26 @@ NOTE: A 3- to 6-month contract position is a fantastic way to gain early experie
 --
 TIP: Networking remains the single most effective way to land any job whether an IT position or something else.
 --
-.* Talk to family, friends, former coworkers, and classmates to let them know you are seeking an entry-level IT role.
-.* Explore local tech networks like the Minnesota Tech Association (MnTech), local LinkedIn tech groups, or the MSP Tech Slack community.
-.* Attend campus career fairs hosted by IHCC or regional college networks.
+** Talk to family, friends, former coworkers, and classmates to let them know you are seeking an entry-level IT role.
+** Explore local tech networks like https://www.hdimn.com[HDI Minnesota], https://mntech.org/[Minnesota Tech Association (MnTech)], local LinkedIn tech groups, or the https://discord.gg/3srdSetPuP[MSP Tech Discord community].
+** Attend campus career fairs hosted by IHCC or regional college networks.
 
 === Search Terms to Try
 
 Job titles in IT are not standardized. A position with the exact same duties might be called _Service Desk Analyst I_ at one company and _PC Technician_ at another. Try combining these keywords in your searches:
 
 * *Role Titles:* _Helpdesk_, _Service Desk_, _IT Support Specialist_, _Desktop Support_, _PC Technician_, _Support Analyst_, _ITSM / ITIL_, _NOC Technician_
-
-* *Certification / Skill Keywords:* _CompTIA A+_, _Network+_, _Active Directory_, _Office 365 / M365_, _Windows 11_, _Ticketing System_
+* *Certification / Skill Keywords:* _CompTIA A+_, _Network+_, _Active Directory_, _Entra ID_, _Office 365 / M365_, _Windows 11_, _Ticketing System_
 
 TIP: Always read the full job description before skipping a posting, a job title that sounds overly specialized or unfamiliar might actually be an entry-level support role underneath!
 
-== What if I am unable to find a position titled intern or described as an internship?
+== What if I am unable to find a position titled "intern" or described as an internship?
 
 No problem! We realize there are very few positions advertised specifically as internships in the IT field. Most IT jobs can be used for credit in the internship course. See details elsewhere in this handbook for specific requirements for positions. For advice on looking for a position see the above question.
 
 == What about jobs that list a requirement for a degree or experience?
-You are encouraged to apply for jobs you think you're qualified for even if they list a degree (2 year or 4 year) or experience as a requirement which you don't have yet. In many cases these requirements are listed in the hopes they can get someone who has that qualification but that is often times wishful thinking on the part of employers. There is nothing about an entry level IT position, such as a helpdesk position, at most companies which requires a degree. Of course, you will be at an advantage if you do have a degree and apply. The same goes for experience or professional certifications. These things will give you a "leg up" during the hiring process but "requirements" are usually negotiable. If you don't have a degree or previous experience it is helpful to have one or more professional certifications though. This is why you are strongly encouraged in your classes to complete professional certifications such as the CompTIA A+ and CCNA. Once you have these certifications you should certainly include them on your resume and applications/interviews.
+
+You are encouraged to apply for jobs you think you're qualified for even if they list a degree (2-year or 4-year) or experience as a requirement which you don't have yet. In many cases, these requirements are listed in the hopes of finding someone with those exact credentials, but they are often preferences rather than strict requirements. Most entry-level helpdesk positions do not strictly require a completed degree to start. Having certifications (such as CompTIA A+ or CCNA) on your resume demonstrates that you have the required knowledge, making employer "requirements" negotiable.
 
 == What if I don't have an internship position when classes start for the term or I won't have 192 hours done by the end of the term?
 
