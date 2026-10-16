@@ -16,25 +16,54 @@ It's easier to get hired if you have previous experience in IT. However, we real
 
 == How do I find an internship position?
 
-You will find your internship position the same way you would find any job in the IT field. IHCC does not normally place students at internships, you will seek and find a suitable position yourself. It is strongly suggested you work with the IHCC Career Development office to review your resume, brush up on interview skills, and get tips on job searching https://www.inverhills.edu/careerdevelopment 
+You will find your internship position through the same search strategies used to find any IT role. IHCC does not directly place students in internships; you are responsible for seeking and securing a suitable position. We strongly recommend working with the https://www.inverhills.edu/careerdevelopment[IHCC Career Development Center] to review your résumé, practice interview skills, and refine your search strategy. If you have not yet completed it taking the ITC-2100: IT Career Success Skills and Strategies class (typically offered in the Spring) can also assist you in providing some IT specific job search, application, and interview advice.
 
-We realize there are very few positions advertised specifically as internships in the IT field. Most IT jobs can be used for credit in the internship course. See details elsewhere in this handbook for specific requirements for positions.
+=== What kinds of positions count?
 
-Many ITC internship students are just getting into the IT field, in that case it is most likely that you will be looking for and hired into an IT Helpdesk type position. Those can work just fine for your internship as long as the position allow you to do a little bit of project work or job shadowing with other IT positions as well. In particular inside support positions (where you are providing support to other employees) usually have these kinds of opportunities, outside support positions (where you are providing support to customers of the company) usually do not allow for the required opportunities. See detailed position requirements in the Internship Guidelines and step 1 of the “ITC Internship Course Enrollment Steps” both of which are later in this handbook. Ask your IHCC ITC internship supervisor if you have questions about whether a specific job will meet the internship requirements.
+In the IT field, very few entry-level roles are explicitly advertised as "internships." *Most standard, paid IT jobs qualify for internship credit as long as you are able to meet all the requirements laid out in our internship handbook.*
 
-When searching for job openings it is useful to know that there are not standardized names for IT positions across companies. Some companies have titles like “Service Desk Analyst I” while others call the same position “IT Support”, “PC Technician”, “Level I Support Analyst”, etc. So, if it at first appears there aren't many open jobs try searching with some other terms and also be sure to read through job descriptions, even of jobs that have titles that don't sound like what you're looking for as they may still work.
+* *Common Roles:* Most students securing their first IT position land in roles like _IT Helpdesk, Service Desk Analyst, or Desktop Support._
 
-Your first IT position might be a "contract" position with a defined length (such as 6 months) instead of an open-ended job you keep until you leave, are fired, etc. Those contract positions are often easier to get as they typically do not offer benefits and are great options for getting early career experience like with the internship.
+* *Internal vs. External Support:* Positions providing *internal support* (supporting a company’s own employees) typically work best because they allow opportunities for small project work or job-shadowing with higher-tier IT staff. *External support roles* (supporting outside customers or call centers) often lack these cross-training opportunities.
 
-Sometimes positions are advertised through a third party (not the company you will work for) sometimes called a recruiting firm, staffing agency, or headhunting firm. This is especially the case with entry level positions. In fact, you will often see the same position advertised by multiple different recruiting firms with slightly different language. These types positions can also work as internship positions and the recruiting firms can sometimes be of assistance in preparing you for interviews, etc. However, they can also sometimes lead you to apply for jobs which you're really not qualified for just so they can get some credit for bringing in people to interview. Be sure you’re not letting them waste too much of your time.
+* *Requirements Check:* See the Internship Guidelines and Step 1 of the _ITC Internship Course Enrollment Steps_ later in this handbook for detailed criteria. Contact your IHCC ITC internship supervisor if you are unsure whether a specific position qualifies.
 
-The best way to find open jobs in IT is to “network”. Ask your friends, family, social media friends, etc. if they know of any open entry level IT positions. It never hurts to make a profile on job networking sites like LinkedIn as well. A good resource for looking for IT jobs is a job search website focused on the tech area. One example of such as site is https://www.dice.com It’s suggested that you upload your resume to these sites and you search the sites for jobs and apply to jobs. As mentioned above there are a lot of different titles for entry level IT jobs so you will probably need to search a lot of terms. Some suggested terms are:
+=== Where should I look for a job?
 
-* Support
-* Technical Support
-* CompTIA A+
-* Helpdesk
-* Service Desk
+. *Local & Regional Job Board Searches:*
+.* *Dice.com:* Tech-focused job board with strong Twin Cities listings.
+.* *Ziprecuriter:* Currently one of the most popular job posting sites
+.* *LinkedIn & Indeed:* Set your location search radius to Minneapolis–St. Paul (or within your commuting distance, e.g., 25–30 miles of home).
+.* *Handshake:* Accessible through IHCC Career Development to find employers specifically recruiting college talent.
+. *Tech Staffing Agencies:*
++
+--
+A large percentage of entry-level IT roles in the MSP metro area are contract-to-hire positions filled through IT staffing firms (such as _Robert Half, Apex Systems, Insight Global, Kforce, or TekSystems_).
+--
+.* *Pros:* They can get your résumé in front of hiring managers quickly and offer valuable interview coaching.
+.* *Cons:* Be mindful of your time, ensure the recruiter is matching you with roles aligned with your actual skill level and not just trying to fill interview quotas. Also make sure the job opportunities they are presenting you with are interesting and appropriate for your skills.
++
+--
+NOTE: A 3- to 6-month contract position is a fantastic way to gain early experience and counts toward internship requirements.
+--
+. *Networking in the Twin Cities:*
++
+--
+TIP: Networking remains the single most effective way to land any job whether an IT position or something else.
+--
+.* Talk to family, friends, former coworkers, and classmates to let them know you are seeking an entry-level IT role.
+.* Explore local tech networks like the Minnesota Tech Association (MnTech), local LinkedIn tech groups, or the MSP Tech Slack community.
+.* Attend campus career fairs hosted by IHCC or regional college networks.
+
+=== Search Terms to Try
+
+Job titles in IT are not standardized. A position with the exact same duties might be called _Service Desk Analyst I_ at one company and _PC Technician_ at another. Try combining these keywords in your searches:
+
+* *Role Titles:* _Helpdesk_, _Service Desk_, _IT Support Specialist_, _Desktop Support_, _PC Technician_, _Support Analyst_, _ITSM / ITIL_, _NOC Technician_
+
+* *Certification / Skill Keywords:* _CompTIA A+_, _Network+_, _Active Directory_, _Office 365 / M365_, _Windows 11_, _Ticketing System_
+
+TIP: Always read the full job description before skipping a posting, a job title that sounds overly specialized or unfamiliar might actually be an entry-level support role underneath!
 
 == What if I am unable to find a position titled intern or described as an internship?
 
