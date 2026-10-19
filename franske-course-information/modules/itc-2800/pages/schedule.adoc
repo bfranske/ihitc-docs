@@ -329,13 +329,62 @@ NO CLASS: MEA
 * Module 13 Packet Tracer Activities
 
 == Oct 22
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 15
 
+=== Readings to do before next class
+* Module 16
+
+=== Other Work to do before next class
+* Module 15 Online Discussion Response Posts
+* Module 16 Online Discussion First Posts
+* Module 15 Exam
+
+=== Assignments Due at the start of class today
+* Module 14 Online Discussion Response Posts
+* Module 15 Online Discussion First Posts
+* Module 14 Exam
+* Module 14 Packet Tracer Activities
+
 == Oct 27
-* Module 16 Lab Activities
+=== Work to do in class today
+* Ask questions about content you are unsure about
+* Module 16 Packet Tracer Activities
+* Complete online check-in form for 10/27 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 17
+
+=== Other Work to do before next class
+* Module 16 Online Discussion Response Posts
+* Module 17 Online Discussion First Posts
+* Module 16 Exam
+* Module 16 Packet Tracer Activities
+
+=== Assignments Due at the start of class today
+* Module 15 Online Discussion Response Posts
+* Module 16 Online Discussion First Posts
+* Module 15 Exam
 
 == Oct 29
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 17
+
+=== Readings to do before next class
+* Module 18
+
+=== Other Work to do before next class
+* Module 17 Online Discussion Response Posts
+* Module 18 Online Discussion First Posts
+* Module 17 Exam
+
+=== Assignments Due at the start of class today
+* Module 16 Online Discussion Response Posts
+* Module 17 Online Discussion First Posts
+* Module 16 Exam
+* Module 16 Packet Tracer Activities
 
 == Nov 3
 * Module 18 Lab Activities
