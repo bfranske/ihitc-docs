@@ -310,6 +310,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 12 Online Discussion Response Posts
 * Module 12 Homework Assignments
 * Module 12 Lab Report
+* Module 13 Online Packet Tracer Submissions
 * All Module 11 Work (Homework, PTs, Exam)
 
 === Assignments Due at the start of class today
@@ -334,6 +335,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 12 Online Discussion Response Posts
 * Module 12 Homework Assignments
 * Module 12 Lab Report
+* Module 13 Online Packet Tracer Submissions
 * All Module 11 Work (Homework, PTs, Exam)
 
 == Oct 28   
@@ -397,6 +399,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Other Work to do before next class
 * Module 16 Online Discussion Response Posts
 * Module 16 Exam
+* Module 16 Online Packet Tracer Submissions
 * Complete online check-in form for 11/16
 
 === Assignments Due at the start of class today
@@ -432,6 +435,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Assignments Due at the start of class today
 * Module 16 Online Discussion Response Posts
 * Module 16 Exam
+* Module 16 Online Packet Tracer Submissions
 * Complete online check-in form for 11/16  or meet with instructor today in class to check-in
 
 == Nov 18
