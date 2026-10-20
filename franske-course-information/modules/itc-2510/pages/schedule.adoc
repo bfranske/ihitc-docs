@@ -310,6 +310,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 12 Online Discussion Response Posts
 * Module 12 Homework Assignments
 * Module 12 Lab Report
+* Module 12 Exam
 * Module 13 Online Packet Tracer Submissions
 * All Module 11 Work (Homework, PTs, Exam)
 
@@ -335,6 +336,7 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 12 Online Discussion Response Posts
 * Module 12 Homework Assignments
 * Module 12 Lab Report
+* Module 12 Exam
 * Module 13 Online Packet Tracer Submissions
 * All Module 11 Work (Homework, PTs, Exam)
 
