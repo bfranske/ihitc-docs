@@ -7,7 +7,6 @@ Each of these activities will be submitted using the Packet Tracer ScoreUP Onlin
 
 . 5.3.10 Packet Tracer - Configure Basic Wireless Security
 . 5.3.11 Packet Tracer - Troubleshoot a Wireless Connection
-. 10.1.13 Packet Tracer - File and Data Integrity Checks
 . 10.1.15 Packet Tracer - Explore File and Data Encryption
 . 12.5.4 Packet Tracer - Configure Wireless Router Hardening and Security
 . 12.7.13 Packet Tracer - Implement Physical Security with IoT Devices
@@ -61,6 +60,7 @@ NOTE: In this lab activity you will need to log in to the Cisco Cybersecurity La
 . 9.1.16 Lab - Recover Passwords
 . 9.3.6 Lab - Recommend Endpoint Security Measures
 . 9.4.5 Lab - Online Malware Investigation Tools
+. 10.1.13 Packet Tracer - File and Data Integrity Checks
 . 10.2.10 Lab - Data Security Challenges
 . 12.2.11 Lab - Investigating OWASP
 . 13.1.17 Lab - Configure Authentication and Authorization in Linux

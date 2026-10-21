@@ -389,7 +389,7 @@ NO CLASS: MEA
 * Module 16 Packet Tracer Activities
 
 == Nov 3
-* Module 18 Lab Activities
+* Module 18 Lab Activities (due Nov 17)
 
 == Nov 5
 * Discuss Module 19
