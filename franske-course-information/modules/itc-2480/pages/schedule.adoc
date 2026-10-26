@@ -157,7 +157,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 7 Report
+* Lab 8 Report
 * Discussion response posts about Topic 7: Firewall Configuration and System Security
 * Discussion first post about Topic 8: Linux System Administration Utilities
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -173,7 +173,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 8 Report
+* Lab 9 Report
 * Discussion response posts about Topic 8: Linux System Administration Utilities
 * Discussion first post about Topic 9: DNS Server Installation and Configuration
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -189,7 +189,7 @@ TIP: Labs in this class will be done remotely or on campus using the Netlab syst
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 9 Report
+* Lab 10 Report
 * Discussion response posts about Topic 9: DNS Server Installation and Configuration
 * Discussion first post about Topic 10: An Introduction to Containers
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -208,7 +208,7 @@ IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments norma
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 10 Report
+* Lab 11 Report
 * Discussion response posts about Topic 10: An Introduction to Containers
 * Discussion first post about Topic 11: Practical Applications of Containers
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -225,7 +225,7 @@ IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments norma
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 11 Report
+* Lab 12 Report
 * Discussion response posts about Topic 11: Practical Applications of Containers
 * Discussion first post about Topic 12: Filesystem Management and Hardware Utilities
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -242,7 +242,7 @@ IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments norma
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 12 Report
+* Lab 13 Report
 * Discussion response posts about Topic 12: Filesystem Management and Hardware Utilities
 * Discussion first post about Topic 13: BASH Scripting
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -258,7 +258,7 @@ IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments norma
 * Weekly Progress Self-Evaluation (on D2L site)
 
 === Assignments Due at 11:59pm today
-* Lab 13 Report
+* Lab 14 Report
 * Discussion response posts about Topic 13: BASH Scripting
 * Discussion first post about Topic 14: Python Scripting for System Administration
 * Weekly Progress Self-Evaluation (on D2L site)
@@ -272,7 +272,6 @@ IMPORTANT: Today is Veteran's Day, which is a college holiday. Assignments norma
 ** Detailed instuctions will be emailed to you by/on Dec 8.
 
 === Assignments Due at 11:59pm today
-* Lab 14 Report
 * Discussion response posts about Topic 14: Python Scripting for System Administration
 * Weekly Progress Self-Evaluation (on D2L site)
 

@@ -5,7 +5,6 @@
 Don't forget to modify for the information specific to your Pod:
 
 * Change the hostname of both the Router and Switch to include your Pod ID
-* Change the IP Address on the Router Fa0/0 interface to the correct IP for your pod
 * Change the extension numbers/phone numbers to those appropriate for your pod
 * Read through all lines in the configurations, especially comment lines starting with a !
 
