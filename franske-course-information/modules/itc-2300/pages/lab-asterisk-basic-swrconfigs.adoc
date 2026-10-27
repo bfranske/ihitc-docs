@@ -40,9 +40,45 @@ spanning-tree portfast default
 
 == Adding ISDN <-> SIP Gateway Support to the Router
 
---
-NOTE: You will not need this configuration until you get to the T1 gateway lab.
---
+[IMPORTANT]
+====
+In order to setup VoIP services on your router you will need to verify the uck9 features are enabled. In our lab environment you want to see that RightToUse is yes for uck9.
+
+. Verify uck9 is yes for RightToUse
+[source,ios]
+----
+Router#show license feature
+Feature name             Enforcement  Evaluation  Subscription   Enabled  RightToUse
+appxk9                   yes          yes         no             yes      yes
+uck9                     yes          yes         no             yes      yes
+securityk9               yes          yes         no             yes      yes
+ipbasek9                 no           no          no             yes      no
+FoundationSuiteK9        yes          yes         no             yes      yes
+AdvUCSuiteK9             yes          yes         no             no       yes
+cme-srst                 yes          yes         no             no       yes
+hseck9                   yes          no          no             no       no
+throughput               yes          yes         no             no       yes
+internal_service         yes          no          no             no       no
+
+Router#
+----
++
+.If uck9 is not yes for RightToUse set it up
+[source,ios]
+----
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#license boot level uck9
+% use 'write' command to make license boot config take effect on next boot
+Router(config)#exit
+Router#write memory
+Router#reload
+----
+
+Note that you may need to accept a EULA after running the `license boot level uck9` command. Also you must save the configuation `write memory` or `copy running-config startup-config` and reload the router in order to activate the license.
+
+====
+
 These additions to the configuration of your router allow it to act as a VoIP gateway which converts a digital ISDN PRI trunk from the Public Switched Telephone Network (PSTN) to a SIP trunk which Asterisk can send and receive calls on. This means that calls sent to the router (only from the IP of our Asterisk server thanks to the ACLs) are able to be sent to the PSTN over a T1 PRI voice trunk with guaranteed quality and calls coming from the PSTN can be converted into VoIP by the router and sent on to Asterisk.
 
 ----
