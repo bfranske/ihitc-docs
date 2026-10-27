@@ -45,6 +45,7 @@ spanning-tree portfast default
 In order to setup VoIP services on your router you will need to verify the uck9 features are enabled. In our lab environment you want to see that RightToUse is yes for uck9.
 
 . Verify uck9 is yes for RightToUse
+
 [source,ios]
 ----
 Router#show license feature
@@ -63,7 +64,8 @@ internal_service         yes          no          no             no       no
 Router#
 ----
 +
-.If uck9 is not yes for RightToUse set it up
+. If uck9 is not yes for RightToUse set it up
+
 [source,ios]
 ----
 Router#configure terminal
