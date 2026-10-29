@@ -389,39 +389,210 @@ NO CLASS: MEA
 * Module 16 Packet Tracer Activities
 
 == Nov 3
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Module 18 Lab Activities (due Nov 17)
+* Complete online check-in form for 11/3 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 19
+
+=== Other Work to do before next class
+* Module 18 Online Discussion Response Posts
+* Module 19 Online Discussion First Posts
+* Module 18 Exam
+
+=== Assignments Due at the start of class today
+* Module 17 Online Discussion Response Posts
+* Module 18 Online Discussion First Posts
+* Module 17 Exam
 
 == Nov 5
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 19
+* Module 18 Lab Activities (due Nov 17)
+
+=== Readings to do before next class
+* Module 20
+
+=== Other Work to do before next class
+* Module 19 Online Discussion Response Posts
+* Module 20 Online Discussion First Posts
+* Module 19 Exam
+
+=== Assignments Due at the start of class today
+* Module 18 Online Discussion Response Posts
+* Module 19 Online Discussion First Posts
+* Module 18 Exam
 
 == Nov 10
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 20
+* Module 18 Lab Activities (due Nov 17)
+* Complete online check-in form for 11/10 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 21
+
+=== Other Work to do before next class
+* Module 20 Online Discussion Response Posts
+* Module 21 Online Discussion First Posts
+* Module 20 Exam
+
+=== Assignments Due at the start of class today
+* Module 19 Online Discussion Response Posts
+* Module 20 Online Discussion First Posts
+* Module 19 Exam
 
 == Nov 12
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 21
+* Module 18 Lab Activities (due Nov 17)
+
+=== Readings to do before next class
+* Module 22
+
+=== Other Work to do before next class
+* Module 21 Online Discussion Response Posts
+* Module 22 Online Discussion First Posts
+* Module 21 Exam
+* Complete Module 18 Lab Report
+
+=== Assignments Due at the start of class today
+* Module 20 Online Discussion Response Posts
+* Module 21 Online Discussion First Posts
+* Module 20 Exam
 
 == Nov 17
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 22
+* Complete online check-in form for 11/17 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 23
+
+=== Other Work to do before next class
+* Module 22 Online Discussion Response Posts
+* Module 23 Online Discussion First Posts
+* Module 22 Exam
+
+=== Assignments Due at the start of class today
+* Module 21 Online Discussion Response Posts
+* Module 22 Online Discussion First Posts
+* Module 21 Exam
+* Module 18 Lab Report
 
 == Nov 19
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 23
 
+=== Readings to do before next class
+* Module 24
+
+=== Other Work to do before next class
+* Module 23 Online Discussion Response Posts
+* Module 24 Online Discussion First Posts
+* Module 23 Exam
+
+=== Assignments Due at the start of class today
+* Module 22 Online Discussion Response Posts
+* Module 23 Online Discussion First Posts
+* Module 22 Exam
+
 == Nov 24
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 24
+* Complete online check-in form for 11/24 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 25
+
+=== Other Work to do before next class
+* Module 24 Online Discussion Response Posts
+* Module 25 Online Discussion First Posts
+* Module 24 Exam
+
+=== Assignments Due at the start of class today
+* Module 23 Online Discussion Response Posts
+* Module 24 Online Discussion First Posts
+* Module 23 Exam
 
 == Nov 26
 NO CLASS: Thanksgiving
 
 == Dec 1
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 25
+* Complete online check-in form for 12/1 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* Module 26
+
+=== Other Work to do before next class
+* Module 25 Online Discussion Response Posts
+* Module 26 Online Discussion First Posts
+* Module 25 Exam
+
+=== Assignments Due at the start of class today
+* Module 24 Online Discussion Response Posts
+* Module 25 Online Discussion First Posts
+* Module 24 Exam
 
 == Dec 3
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 26
 
+=== Readings to do before next class
+* Module 27
+
+=== Other Work to do before next class
+* Module 26 Online Discussion Response Posts
+* Module 27 Online Discussion First Posts
+* Module 26 Exam
+
+=== Assignments Due at the start of class today
+* Module 25 Online Discussion Response Posts
+* Module 26 Online Discussion First Posts
+* Module 25 Exam
+
 == Dec 8
+=== Work to do in class today
+* Ask questions about content you are unsure about
 * Discuss Module 27
+* Complete online check-in form for 12/8 (before class) or meet with instructor to check-in
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* Module 27 Online Discussion Response Posts
+* Module 27 Exam
+
+=== Assignments Due at the start of class today
+* Module 26 Online Discussion Response Posts
+* Module 27 Online Discussion First Posts
+* Module 26 Exam
 
 == Dec 10
-* Final Exam (In Class)
+=== Work to do in class today
+* Final Exam (In-Class)
+
+=== Readings to do before next class
+* None
+
+=== Other Work to do before next class
+* None
+
+=== Assignments Due at the start of class today
+* Module 27 Online Discussion Response Posts
+* Module 27 Exam
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
