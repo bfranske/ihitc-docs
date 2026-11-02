@@ -389,6 +389,10 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Complete online check-in form for 11/9
 
 === Assignments Due at the start of class today
+* Module 15 Online Discussion First Post
+* Module 14 Online Discussion Response Posts
+* Module 14 Lab Report
+* Module 14 Exam
 * Complete online check-in form for 11/4 or meet with instructor today in class to check-in
 
 == Nov 9
@@ -445,28 +449,38 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Discuss & Demonstrate Module 17
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Module 17 Online Discussion Response Post
 
 === Assignments Due at the start of class today
+* Module 17 Online Discussion First Post
 
 == Nov 23
 === Work to do in class today
-* Module 17 Labs
+* Module 17 Labs (Due Dec 2)
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Module 17 Packet Tracer Activities (Due Dec 2)
 
 === Assignments Due at the start of class today
+* Module 17 Online Discussion Response Post
+* Complete online check-in form for 11/23  or meet with instructor today in class to check-in
 
 == Nov 25
 === Work to do in class today
 * Module 17 Labs
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Module 17 Exam
+* Module 17 Packet Tracer Activities (Due Dec 2)
 
 === Assignments Due at the start of class today
 
@@ -475,10 +489,15 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 * Module 17 Labs
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* Module 17 Packet Tracer Activities (Due Dec 2)
+* Finish Module 17 Lab Report
 
 === Assignments Due at the start of class today
+* Module 17 Exam
+* Complete online check-in form for 11/30  or meet with instructor today in class to check-in
 
 == Dec 2
 === Work to do in class today
@@ -487,18 +506,26 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Readings to do before next class
 
 === Other Work to do before next class
+* Introduction to Networks Practice Final Exam (on Netacad Site, NOT D2L)
+* Complete Cisco End of Course Survey on Netacad
 
 === Assignments Due at the start of class today
+* Module 17 Packet Tracer Activities
+* Module 17 Lab Report
 
 == Dec 7
 === Work to do in class today
-* Written Final Exam (In-Class)
+* Written Final Exam (In-Class, on Netacad Site, NOT D2L)
+** Requires completing Cisco End of Course Survey first
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* ITN Practice Packet Tracer Assessment (on Netacad Site, NOT D2L)
 
 === Assignments Due at the start of class today
+* Introduction to Networks Practice Final Exam (on Netacad Site, NOT D2L)
 
 == Dec 9
 === Work to do in class today
@@ -507,18 +534,22 @@ IMPORTANT: Labs in this class will be done one of two ways: on campus using phys
 === Readings to do before next class
 
 === Other Work to do before next class
+* ITN Final Packet Tracer Assessment (on Netacad Site, NOT D2L)
 
 === Assignments Due at the start of class today
-
+* ITN Practice Packet Tracer Assessment (on Netacad Site, NOT D2L)
 
 == Dec 11
 === Work to do in class today
-* Lab Equipment Final Exam
+* Lab Equipment Final Exam (In-Class)
 
 === Readings to do before next class
+* None
 
 === Other Work to do before next class
+* None
 
 === Assignments Due at the start of class today
+* ITN Final Packet Tracer Assessment (on Netacad Site, NOT D2L)
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
