@@ -68,13 +68,13 @@ NO CLASS: Labor Day
 
 == Nov 9
 * Cloud/Containers Lab - Blob Storage Backup and Restore
-* Before Nov 16 Watch Cloud/Containers Demonstration - Podman
+* Before Nov 16 Watch Cloud/Containers Demonstration - Multi-Contrainer Management with Arcane
 
 == Nov 11
 NO CLASS: Veteran's Day
 
 == Nov 16
-* Cloud/Containers Lab - Podman
+* Cloud/Containers Lab - Multi-Container Management with Arcane
 
 == Nov 18
 * Cloud/Containers Demonstration - OpenTofu or Serverless
