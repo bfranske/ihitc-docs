@@ -52,19 +52,19 @@ NO CLASS: MEA
 * Lecture/Demonstration: Centralized Identity Provider with Authentik
 
 == Oct 22
-* Lab: Authentik Setup
+* Lab: Authentik Setup & OAUTH Web App Setup
 
 == Oct 27
-* Lecture/Demonstration: Centralized VPN Authentication over RADIUS and/or LDAP
+* Lecture/Demonstration: Centralized VPN Authentication over LDAP
 
 == Oct 29
-* Lab: OpenVPN Authentication over RADIUS and/or LDAP
+* Lab: OpenVPN Authentication over LDAP
 
 == Nov 3
-* Lecture/Demonstration: Modern Authentication with OAUTH
+* Lecture/Demonstration: Centralized VPN Authentication over RADIUS and LDAP Group Sync
 
 == Nov 5
-* Lab: Basic OAUTH for Web App
+* Lab: OPNsense Authentication via RADIUS, also LDAP Group Sync
 
 == Nov 10
 * Lecture/Demonstration: Modern OAUTH Authentication for OpenVPN
@@ -73,14 +73,27 @@ NO CLASS: MEA
 * Lab: OAUTH for OpenVPN
 
 == Nov 17
+* Lecture/Demonstration: Microsoft Entra ID Introduction
 
 == Nov 19
+* Lab: Entra ID Part I
 
 == Nov 24
-Last Day of regular class, project work begins
+* Lab: Entra ID Part II
+* Decide on a project and get it approved
+* Last Day of regular class, project work begins next week
 
 == Nov 26
 NO CLASS: Thanksgiving
+
+== Dec 1
+* Project Work Time
+
+== Dec 3
+* Project Work Time
+
+== Dec 8
+* Project Work Time
 
 == Dec 10
 Project Presentations
