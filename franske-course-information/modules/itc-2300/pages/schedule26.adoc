@@ -63,13 +63,40 @@ NO CLASS: Labor Day
 == Nov 2
 * Cloud/Containers Lecture 1 - Introduction
 
+== Nov 4
+* Cloud/Containers Demonstration - Blob Storage Backup and Restore
+
+== Nov 9
+* Cloud/Containers Lab - Blob Storage Backup and Restore
+* Before Nov 16 Watch Cloud/Containers Demonstration - Podman
+
 == Nov 11
 NO CLASS: Veteran's Day
 
+== Nov 16
+* Cloud/Containers Lab - Podman
+
+== Nov 18
+* Cloud/Containers Demonstration - OpenTofu or Serverless
+
 == Nov 23
-Last Day of regular class, project work begins
+* Cloud/Containers Lab - OpenTofu or Serverless
+* Get projects approved
+* Last Day of regular class, project work begins next
+
+== Nov 25
+* Project Work time
+
+== Nov 30
+* Project Work Time
+
+== Dec 2
+* Project Work Time
+
+== Dec 7
+* Project Work Tme
 
 == Dec 9
-Project Presentations
+* Project Presentations
 
 include::program-info:ROOT:partial$stdfooter.adoc[]
