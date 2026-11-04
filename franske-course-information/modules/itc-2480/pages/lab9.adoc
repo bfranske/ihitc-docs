@@ -25,35 +25,29 @@ NOTE: Remember that if you do not have a Windows computer to connect from you ca
 
 == Install BIND and Configure as a Caching Nameserver
 . As the number of hosts you may want to connect to on networks has grown and especially as IP addressing schemes have become longer (such as with IPv6) and more complex (such as with subnetting) the domain name system (DNS) has become an essential part of networking and the Internet. As such, it is often the case that a system administrator will need to run a DNS server on their network.
-. There are two primary uses for DNS servers, either _authoritative servers_ or _caching servers_ (also sometimes called _recursive servers). _Authoritative servers_ are used to publish DNS records for a domain name which are often used to to tie a host and domain name to a certain IP address. These are called _authoritative servers_ as they are assigned to one or more specific domain names and can provide official, definitive responses for that domain. _Caching servers_ are used to reduce the load on authoritative servers by sitting between DNS clients and the authoritative server so that the client devices ask the _caching server_ for DNS records which it can forward on to another upstream server (until the authoritative server is reached), but if the same record has been recently requested the caching server will be able to reply immediately to the client using a copy of the previously retrieved record stored in its _cache_. While the DNS server software used is often the same, it is configured in different ways to support either the _authoritative server_, _caching server_, or both functions.
+. There are two primary uses for DNS servers, either _authoritative servers_ or _caching servers_ (also sometimes called _recursive servers_). _Authoritative servers_ are used to publish DNS records for a domain name which are often used to to tie a host and domain name to a certain IP address. These are called _authoritative servers_ as they are assigned to one or more specific domain names and can provide official, definitive responses for that domain. _Caching servers_ are used to reduce the load on authoritative servers by sitting between DNS clients and the authoritative server so that the client devices ask the _caching server_ for DNS records which it can forward on to another upstream server (until the authoritative server is reached), but if the same record has been recently requested the caching server will be able to reply immediately to the client using a copy of the previously retrieved record stored in its _cache_. While the DNS server software used is often the same, it is configured in different ways to support either the _authoritative server_, _caching server_, or both functions.
 . There are many different DNS server applications that exist today but the one we'll focus on in this lab activity is the Berkely Internet Name Domain (_BIND_) version 9 (_BIND9_) which is the de facto standard DNS server software used today, especially on Linux and other *NIX based systems. It is particularly feature rich and works well as both a caching and authoritative DNS server. We'll configure both of these functions starting with the caching server functionality.
 . Use `apt` to install the _bind9_ package as well as the _dnsutils_ package. The _bind9_ package includes the BIND9 server software itself while the _dnsutils_ package includes the `nslookup` and `dig` utilities which are critical for testing and troubslehooting DNS (even if you're not running a DNS server).
 . By default BIND9 is setup as a caching nameserver. Any clients that connect to it and ask for a DNS record will get it either from the local cache if a recent enough record copy is there or BIND will look up the authoritative server for the domain starting from the _DNS root servers_ and pass back the requested record to the client once BIND has it. However, sometimes you don't want to have BIND request records starting directly at the root servers. Instead you may want (or need) them to flow to another caching DNS server upstream. This is sometimes the case on campus where we are sometimes blocked from making direct DNS requests out to the Internet by the campus firewall. To fix this we need to adjust the BIND configuration to use a specific _DNS forwarder_ which is an upstream caching DNS server.
-.. Open the _/etc/bind/named.conf.options_ file in a text editor with administrative permissions. Find the section of the file that looks like:
+.. Open the _/etc/bind/named.conf.options_ file in a text editor with administrative permissions. You should see a file that looks like:
 +
 [source]
 ----
-        // If your ISP provided one or more IP addresses for stable
-        // nameservers, you probably want to use them as forwarders.
-        // Uncomment the following block, and insert the addresses replacing
-        // the all-0's placeholder.
-
-        // forwarders {
-        //      0.0.0.0;
-        // };
+options {
+        directory "/var/cache/bind";
+};
 ----
-.. In this configuration file the lines starting with `//` are comment lines and not being applied. Following the instructions we want to set the DNS forwarder to _172.17.50.1_ which is an upstream DNS caching server and we want to activate the forwarding by uncommenting the _forwarders_ configuration block. Change the file like this:
+.. We will modify this configuration file to set BIND up ad a caching nameserver which forwards requests to an upstream nameserver on our network _172.17.50.1_ Change the file like this:
 +
 [source]
 ----
-        // If your ISP provided one or more IP addresses for stable
-        // nameservers, you probably want to use them as forwarders.
-        // Uncomment the following block, and insert the addresses replacing
-        // the all-0's placeholder.
-
+options {
+        directory "/var/cache/bind";
         forwarders {
                172.17.50.1;
         };
+};
+        
 ----
 .. Save and close the file after making the change.
 .. Run the `systemctl restart bind9` command to apply the change.
