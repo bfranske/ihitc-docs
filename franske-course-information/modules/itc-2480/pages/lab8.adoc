@@ -1081,21 +1081,26 @@ deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware no
 [source,console]
 ----
 # Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
+sudo apt update
+sudo apt install ca-certificates curl
 sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
+sudo apt update
 ----
 .. For security reasons many modern package repositories are signed with a cryptographic signature, this is desirable from a security standpoint so you know you are getting an unmodified package from the provider. In this case the first step is to install the signing key from the publisher so you can validate their packages.
-... First, they want you to update all your package lists, a best practice before you install anay packages, with the `apt-get update` command, the `apt update` command is equivalent but uses the slightly newer `apt` command so we'll use it instead. Run `apt update` now (this and future commands in this section are being run as an administrator).
+... First, they want you to update all your package lists, a best practice before you install any packages, with the `apt-get update` command, the `apt update` command is equivalent but uses the slightly newer `apt` command so we'll use it instead. Run `apt update` now (this and future commands in this section are being run as an administrator).
 ... Next, you are to install the `ca-certificates` and `curl` packages. The _ca-certificates_ package includes security certificates for _Certificate Authorities_ which have been approved by Debian and the _curl_ program is used to download files from the Internet (similar to the `wget` program we have used in the past but a bit more powerful). Run `apt install ca-certificates curl` now.
 ... The `install -m 0755 -d /etc/apt/keyrings` is really just being used as a quick way to create a new directory _/etc/apt/keyrings_ with the and `chmod 755 /etc/apt/keyrings` in one step. Run `install -m 0755 -d /etc/apt/keyrings` now.
 ... The `curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc` command is just downloading the https://download.docker.com/linux/debian/gpg file and saving it to the _/etc/apt/keyrings/docker.asc_ file. Run `curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc` now.
@@ -1104,35 +1109,45 @@ sudo apt-get update
 +
 [source,console]
 ----
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
 ----
-... If we take a closer look at what is going on they are running serveral commands inside this one command line like `dpkg --print-architecture` and `. /etc/os-release && echo "$VERSION_CODENAME"` and putting them all together into a new line which they are merging into (or creating if it doesn't already exist) the _/etc/apt/sources.list.d/docker.list_ file with the `tee` command. If we want to see what's really going on we could get rid of everything after the pipe to the `tee` command and just run that and see what gets output. Run the `echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable"` command now:
+... If we take a closer look at what is going on they are running serveral commands inside this one command line like `dpkg --print-architecture` and `. /etc/os-release && echo "$VERSION_CODENAME"` and putting them all together into a sort of template to create a new file the _/etc/apt/sources.list.d/docker.sources_ file with the `tee` command. We can view the created file with the `cat` command and see what it looks like but `tee` will also otput it to the screen as it is created. Run the commands to create and view the file now:
 +
 [source,console]
 ----
-ben@2480-Z:~$ echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable"
-deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian   bookworm stable
+ben@2480-Z:~$ sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: trixie
+Components: stable
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/docker.asc
+ben@2480-Z:~$
+ben@2480-Z:~$ cat /etc/apt/sources.list.d/docker.sources
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: trixie
+Components: stable
+Architectures: amd64
+Signed-By: /etc/apt/keyrings/docker.asc
 ben@2480-Z:~$
 ----
-... Notice the _deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian   bookworm stable_ line come back which looks something like a regular _deb_ package repo line come back out ithger than that it has a specific _CPU architecture_ (_arch_) specified of _amd64_ and a signing key set. We could just paste this line into the _tee /etc/apt/sources.list.d/docker.list_ file but let's run the original command they specified where the `tee` command does that for us:
-+
-[source,console]
-----
-ben@2480-Z:~$ echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-ben@2480-Z:~$
-----
-... Now try opening the _/etc/apt/sources.list.d/docker.list_ file in a text editor and you should see the same _deb_ repo line we saw before. After you verify this you can exit the text editor.
-.. Run the `apt update` command to get the available package lists from the new repository. You should see in the output from `apt update` that it has downloaded package lists from the _https://download.docker.com/linux/debian bookworm/stable_ repository now.
+... Notice the contents of the file are just a new-style _deb_ package repository file with a specific _CPU architecture_ specified of _amd64_ and a signing key set. 
+.. Run the `apt update` command to get the available package lists from the new repository. You should see in the output from `apt update` that it has downloaded package lists from the _https://download.docker.com/linux/debian trixie/stable_ repository now.
 .. Make sure you have the _Docker_ repository setup and working, we'll be using it in a future lab.
 
 == Wrapping Up
