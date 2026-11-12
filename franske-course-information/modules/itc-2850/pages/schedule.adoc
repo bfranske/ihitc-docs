@@ -70,12 +70,13 @@ NO CLASS: MEA
 * Lecture/Demonstration: Modern OAUTH Authentication for OpenVPN
 
 == Nov 12
-* Lab: OAUTH for OpenVPN
+* Lecture/Demonstration: Modern OAUTH Authentication for OpenVPN Continued
 
 == Nov 17
-* Lecture/Demonstration: Microsoft Entra ID Introduction
+* Lab: OAUTH for OpenVPN
 
 == Nov 19
+* Introduction: Microsoft Entra ID
 * Lab: Entra ID Part I
 
 == Nov 24
