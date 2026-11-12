@@ -451,6 +451,7 @@ NO CLASS: MEA
 * Ask questions about content you are unsure about
 * Discuss Module 21
 * Module 18 Lab Activities (due Nov 17)
+* Module 21 Lab Activities (due Nov 19)
 
 === Readings to do before next class
 * Module 22
@@ -460,6 +461,7 @@ NO CLASS: MEA
 * Module 22 Online Discussion First Posts
 * Module 21 Exam
 * Complete Module 18 Lab Report
+* Start Module 21 Lab Report
 
 === Assignments Due at the start of class today
 * Module 20 Online Discussion Response Posts
@@ -479,12 +481,14 @@ NO CLASS: MEA
 * Module 22 Online Discussion Response Posts
 * Module 23 Online Discussion First Posts
 * Module 22 Exam
+* Complete Module 21 Lab Report
 
 === Assignments Due at the start of class today
 * Module 21 Online Discussion Response Posts
 * Module 22 Online Discussion First Posts
 * Module 21 Exam
 * Module 18 Lab Report
+
 
 == Nov 19
 === Work to do in class today
@@ -503,6 +507,7 @@ NO CLASS: MEA
 * Module 22 Online Discussion Response Posts
 * Module 23 Online Discussion First Posts
 * Module 22 Exam
+* Module 21 Lab Report
 
 == Nov 24
 === Work to do in class today
