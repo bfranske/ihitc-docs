@@ -46,9 +46,8 @@ Because you cannot install Python, the Azure CLI, or Azure Functions tools on th
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
   "features": {
     "ghcr.io/devcontainers/features/azure-cli:1": {},
-    "ghcr.io/devcontainers/features/node:1": {}
+    "ghcr.io/jlaundry/devcontainer-features/azure-functions-core-tools:1": {}
   },
-  "postCreateCommand": "npm install -g azure-functions-core-tools@4 --unsafe-perm true",
   "forwardPorts": [7071],
   "customizations": {
     "vscode": {
