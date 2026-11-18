@@ -1,0 +1,470 @@
+= Lab: Serverless Web Applications with Azure Functions & Python
+:experimental:
+:sectnums:
+:sectnumlevels: 2
+
+== Lab Overview & Infrastructure Context
+
+In previous labs, you deployed workloads on *Virtual Machines* (where you manage the OS, runtime, patches, and scaling) and *Containers* (where you package the application and runtime, and manage container instances or orchestrators).
+
+In this lab, you will deploy a web application using *Serverless / Function-as-a-Service (FaaS)* on Microsoft Azure. With FaaS, the cloud provider dynamically provisions micro-environments ("workers") on demand when HTTP requests arrive, scales them out automatically under load, and scales them down to zero when idle. Because your lab workstations do not allow local software installation, you will do all development inside *GitHub Codespaces*—a cloud-hosted development container accessed through your web browser.
+
+== Part 1: Set Up GitHub Student Developer Pack & Azure for Students
+
+[IMPORTANT]
+====
+Complete this section at least 48–72 hours before lab day if your school email domain is not automatically recognized by GitHub.
+====
+
+. *Create a GitHub Account:* Go to https://github.com[github.com] and sign up using a personal email address you will keep after graduation.
+. *Add Your School Email:* In GitHub, navigate to menu:Settings[Emails], add your `.edu` (or institution-issued) email address, and verify it via the confirmation link sent to your school inbox.
+. *Apply for the GitHub Student Developer Pack:*
+.. Go to https://education.github.com/pack[education.github.com/pack] and click btn:[Sign up for Student Developer Pack].
+.. Select your school and submit your school email (or upload a dated photo of your student ID or current enrollment letter). *No credit card is required.*
+.. Once approved, your account includes GitHub Pro and *180 core-hours per month of GitHub Codespaces* for free.
+. *Activate Azure for Students ($100 Credit, No Credit Card):*
+.. On the approved https://education.github.com/pack[GitHub Student Developer Pack] page, scroll to the *Microsoft Azure* offer card and click the activation link (or visit https://azure.microsoft.com/free/students[azure.microsoft.com/free/students]).
+.. Sign in with a Microsoft account (you can create a free one using any email) and verify your student status.
+.. Confirm that your *Azure for Students* subscription ($100 credit for 12 months, *no credit card required*) appears in the https://portal.azure.com[Azure Portal] under *Subscriptions*.
+
+== Part 2: Set Up a GitHub Repository & VS Code Codespace
+
+Because you cannot install Python, the Azure CLI, or Azure Functions tools on the lab computers, you will define a *Dev Container* in GitHub. When you launch a Codespace, GitHub spins up a Linux container in the cloud with all required tools pre-installed.
+
+. *Create a New Repository:*
+.. On GitHub, click btn:[+] (top right) and select *New repository*.
+.. Name it `serverless-lab`, set visibility to *Private*, check *Add a README file*, and click btn:[Create repository].
+. *Add the Dev Container Configuration:*
+.. In your new repository, select menu:Add file[Create new file].
+.. In the file name box, type `.devcontainer/devcontainer.json` (typing `/` automatically creates the `.devcontainer` folder).
+.. Paste the following configuration into the editor:
++
+[source,json]
+----
+{
+  "name": "Azure Functions Python Lab",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/azure-cli:1": {},
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": "npm install -g azure-functions-core-tools@4 --unsafe-perm true",
+  "forwardPorts": [7071],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-azurefunctions"
+      ]
+    }
+  }
+}
+----
+.. Click btn:[Commit changes...] and confirm with btn:[Commit changes].
+. *Launch Your Codespace:*
+.. Return to the main page of your `serverless-lab` repository.
+.. Click the green btn:[<> Code] button, select the *Codespaces* tab, and click btn:[Create codespace on main].
+.. Wait approximately 2 minutes while GitHub builds your container and installs the Azure CLI and Azure Functions Core Tools. When ready, VS Code will open in your browser tab.
+. *Verify Your Cloud Environment:*
+.. Open the terminal inside VS Code via menu:Terminal[New Terminal] (or press kbd:[Ctrl+&#96;]) and run:
++
+[source,bash]
+----
+python --version
+az --version
+func --version
+----
++
+[NOTE]
+====
+*Infrastructure Check:* None of these tools are installed on your local lab PC—they are executing inside an ephemeral Linux container hosted by GitHub.
+====
+
+== Part 3: Create and Deploy a "Hello World" Serverless Web App
+
+=== Step 3A: Create the Minimal Project Files
+
+In your Codespace terminal, create a Python virtual environment and install the Azure Functions library:
+
+[source,bash]
+----
+python -m venv .venv
+source .venv/bin/activate
+pip install azure-functions
+----
+
+Create the following four files in the root of your workspace using menu:File[New File] or the Explorer sidebar:
+
+. `requirements.txt` _(tells Azure which Python packages to install on the cloud worker)_:
++
+[source,text]
+----
+azure-functions
+----
+
+. `host.json` _(configures the Azure Functions v4 runtime host)_:
++
+[source,json]
+----
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+----
+
+. `local.settings.json` _(used only when testing locally in Codespaces; ignored when deploying to Azure)_:
++
+[source,json]
+----
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python"
+  }
+}
+----
+
+. `function_app.py` _(your serverless application code)_:
++
+[source,python]
+----
+import azure.functions as func
+
+# Create the Function App. ANONYMOUS allows anyone to visit the URL in a browser.
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+# Map the URL path "/api/hello" to this Python function
+@app.route(route="hello")
+def hello(req: func.HttpRequest) -> func.HttpResponse:
+    return func.HttpResponse(
+        "Hello from Azure Functions! This ran on a serverless worker.",
+        status_code=200
+    )
+----
+
+=== Step 3B: Test Locally in Codespaces
+
+. In the terminal, start the local Functions host:
++
+[source,bash]
+----
+func start
+----
+. VS Code will detect port `7071` and display a notification—click btn:[Open in Browser] (or open the *Ports* tab and click the globe icon next to port `7071`).
+. Append `/api/hello` to the URL in your browser's address bar. You should see:
++
+`Hello from Azure Functions! This ran on a serverless worker.`
+. Press kbd:[Ctrl+C] in the Codespace terminal to stop the local host.
+
+=== Step 3C: Provision Azure Resources & Deploy to the Cloud
+
+. *Log in to Azure* from the Codespace terminal (use `--use-device-code` so authentication works cleanly inside a browser IDE):
++
+[source,bash]
+----
+az login --use-device-code
+----
++
+Follow the prompt to open `https://microsoft.com/devicelogin` and enter the displayed code.
+
+. *Create a Resource Group, Storage Account, and Serverless Function App:*
++
+Replace `<UNIQUE_ID>` with your initials and random numbers (e.g., `jd9021`) so the names are globally unique across Azure:
++
+[source,bash]
+----
+RG="rg-serverless-lab"
+LOC="eastus"
+STORAGE="stlab<UNIQUE_ID>"
+APP="func-lab-<UNIQUE_ID>"
+
+# 1. Create a Resource Group (logical container for your Azure resources)
+az group create --name $RG --location $LOC
+
+# 2. Create a Storage Account (required by Azure Functions to store code and host metadata)
+az storage account create --name $STORAGE --location $LOC --resource-group $RG --sku Standard_LRS
+
+# 3. Create the Linux Python Function App on a Serverless Consumption plan
+az functionapp create --resource-group $RG --consumption-plan-location $LOC \
+  --runtime python --runtime-version 3.11 --functions-version 4 \
+  --name $APP --storage-account $STORAGE --os-type Linux
+----
+
+. *Deploy Your Code to Azure:*
++
+[source,bash]
+----
+func azure functionapp publish $APP
+----
+
+. Copy the live ``https://func-lab-<UNIQUE_ID>.azurewebsites.net/api/hello`` URL printed in the terminal output and open it in any browser tab. Your serverless app is now live on the public internet.
+
+== Part 4: Form Processing with HTTP `GET` and `POST` Requests
+
+From an infrastructure and networking perspective, web forms send data to servers in two primary ways:
+
+* *`GET` requests* append form inputs to the URL as a *query string* (e.g., `/api/greet?username=Alice`). These parameters are visible in browser history, proxy logs, and web server access logs.
+* *`POST` requests* place form inputs inside the *HTTP message body*, keeping them out of the URL and allowing larger payloads.
+
+=== Step 4A: Update `function_app.py`
+
+Replace the contents of `function_app.py` with the following code (keeping the HTML minimal so you can focus on the HTTP mechanics):
+
+[source,python]
+----
+import urllib.parse
+import azure.functions as func
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+@app.route(route="hello")
+def hello(req: func.HttpRequest) -> func.HttpResponse:
+    return func.HttpResponse("Hello from Azure Functions!", status_code=200)
+
+# Accept both GET and POST requests on /api/greet
+@app.route(route="greet", methods=["GET", "POST"])
+def greet(req: func.HttpRequest) -> func.HttpResponse:
+    message = ""
+
+    # 1. Check if data arrived via GET query string (?username=...)
+    if req.method == "GET" and "username" in req.params:
+        user = req.params.get("username")
+        message = f"<p><b>Received via GET (URL Query String):</b> Hello, {user}!</p>"
+
+    # 2. Check if data arrived via POST request body
+    elif req.method == "POST":
+        # Decode raw URL-encoded form body (e.g., "username=Alice") into a dictionary
+        raw_body = req.get_body().decode("utf-8")
+        form_data = urllib.parse.parse_qs(raw_body)
+        user = form_data.get("username", ["Guest"])[0]
+        message = f"<p><b>Received via POST (HTTP Request Body):</b> Hello, {user}!</p>"
+
+    # Barebones HTML page with two forms: one GET and one POST
+    html = f"""
+    <html>
+    <body>
+        <h2>Serverless Form Processing</h2>
+        {message}
+        <form method="get" action="/api/greet">
+            <label>GET Name:</label>
+            <input type="text" name="username" required>
+            <button type="submit">Submit via GET</button>
+        </form>
+        <br>
+        <form method="post" action="/api/greet">
+            <label>POST Name:</label>
+            <input type="text" name="username" required>
+            <button type="submit">Submit via POST</button>
+        </form>
+    </body>
+    </html>
+    """
+    return func.HttpResponse(html, mimetype="text/html", status_code=200)
+----
+
+=== Step 4B: Deploy and Observe the Network Difference
+
+. Publish the updated code to Azure:
++
+[source,bash]
+----
+func azure functionapp publish $APP
+----
+. Open ``https://func-lab-<UNIQUE_ID>.azurewebsites.net/api/greet`` in your browser.
+. Submit a name using the *GET* form. Observe your browser's address bar—you will see `?username=...` appended to the URL.
+. Submit a name using the *POST* form. Observe the address bar—the URL stays clean (`/api/greet`) because the payload traveled inside the HTTP request body.
+
+== Part 5: Ephemeral Worker Storage vs. Persistent Cloud Storage
+
+On a traditional VM, applications routinely save files to the local disk (e.g., `./notes.txt`). In a serverless environment, local disk storage behaves very differently:
+
+. *Read-Only App Directory:* Azure mounts your deployed application folder (`/home/site/wwwroot`) as *read-only*. Attempting to write a file in the same folder as `function_app.py` fails with a `Read-only file system` error.
+. *Ephemeral `/tmp` Storage:* Each worker instance provides a writable `/tmp` directory, *but it is instance-local and temporary*. If Azure recycles the worker after an idle period ("scale to zero"), restarts the app, or spins up a second worker instance during a traffic spike, files in `/tmp` vanish or are invisible to other workers.
+
+To make a serverless app stateful, you must decouple *compute* (stateless workers) from *storage* (an external managed service such as Azure Blob Storage).
+
+=== Step 5A: Add Ephemeral (`/tmp`) and Persistent (Blob Storage) Endpoints
+
+. *Install the Azure Blob Storage SDK:*
++
+Update `requirements.txt` so it contains both lines:
++
+[source,text]
+----
+azure-functions
+azure-storage-blob
+----
++
+Install the package in your Codespace virtual environment as well:
++
+[source,bash]
+----
+pip install azure-storage-blob
+----
+
+. *Update `function_app.py`* to add `/api/ephemeral` (writes to `/tmp/notes.txt`) and `/api/persistent` (writes to Azure Blob Storage using the `AzureWebJobsStorage` connection string already configured on your Function App):
++
+[source,python]
+----
+import os
+import socket
+import urllib.parse
+import azure.functions as func
+from azure.storage.blob import BlobServiceClient
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+def render_page(title: str, warning: str, action_url: str, notes: str) -> func.HttpResponse:
+    # socket.gethostname() reveals the exact underlying worker container/VM ID
+    worker_id = socket.gethostname()
+    html = f"""
+    <html>
+    <body>
+        <h2>{title}</h2>
+        <p><b>Handled by Worker Hostname:</b> <code>{worker_id}</code></p>
+        <p><i>{warning}</i></p>
+        <form method="post" action="{action_url}">
+            <input type="text" name="note" placeholder="Enter a note..." required>
+            <button type="submit">Save Note</button>
+        </form>
+        <h3>Saved Notes:</h3>
+        <pre>{notes}</pre>
+    </body>
+    </html>
+    """
+    return func.HttpResponse(html, mimetype="text/html", status_code=200)
+
+# --- 1. EPHEMERAL STORAGE (/tmp on the local serverless worker) ---
+@app.route(route="ephemeral", methods=["GET", "POST"])
+def ephemeral_notes(req: func.HttpRequest) -> func.HttpResponse:
+    temp_file = "/tmp/notes.txt"
+
+    if req.method == "POST":
+        form_data = urllib.parse.parse_qs(req.get_body().decode("utf-8"))
+        note = form_data.get("note", [""])[0]
+        # Append the note to the worker's local /tmp filesystem
+        with open(temp_file, "a", encoding="utf-8") as f:
+            f.write(note + "\n")
+
+    # Read existing notes from /tmp if the file exists on THIS worker
+    if os.path.exists(temp_file):
+        with open(temp_file, "r", encoding="utf-8") as f:
+            notes = f.read()
+    else:
+        notes = "(No notes found on this worker)"
+
+    return render_page(
+        title="Ephemeral Worker Storage (/tmp/notes.txt)",
+        warning="Stored locally on this worker instance. Lost on restart or scale-to-zero!",
+        action_url="/api/ephemeral",
+        notes=notes
+    )
+
+# --- 2. PERSISTENT STORAGE (Azure Blob Storage) ---
+@app.route(route="persistent", methods=["GET", "POST"])
+def persistent_notes(req: func.HttpRequest) -> func.HttpResponse:
+    # Read the storage connection string automatically injected by Azure
+    conn_str = os.environ["AzureWebJobsStorage"]
+    blob_service = BlobServiceClient.from_connection_string(conn_str)
+    container = blob_service.get_container_client("lab-notes")
+
+    # Create the blob container on first run if it does not exist yet
+    if not container.exists():
+        container.create_container()
+
+    blob = container.get_blob_client("notes.txt")
+
+    # Download existing notes from cloud storage (if any)
+    existing_notes = blob.download_blob().readall().decode("utf-8") if blob.exists() else ""
+
+    if req.method == "POST":
+        form_data = urllib.parse.parse_qs(req.get_body().decode("utf-8"))
+        note = form_data.get("note", [""])[0]
+        existing_notes += note + "\n"
+        # Overwrite the blob in Azure Storage with the updated text
+        blob.upload_blob(existing_notes, overwrite=True)
+
+    display_notes = existing_notes if existing_notes else "(No notes in Blob Storage yet)"
+
+    return render_page(
+        title="Persistent Cloud Storage (Azure Blob Storage)",
+        warning="Stored externally in Azure Storage. Survives worker restarts and scaling!",
+        action_url="/api/persistent",
+        notes=display_notes
+    )
+----
+
+. *Deploy to Azure:*
++
+[source,bash]
+----
+func azure functionapp publish $APP
+----
+
+=== Step 5B: Trigger a Worker Replacement Experiment
+
+. Open *both* endpoints in separate browser tabs:
+** ``https://func-lab-<UNIQUE_ID>.azurewebsites.net/api/ephemeral``
+** ``https://func-lab-<UNIQUE_ID>.azurewebsites.net/api/persistent``
+. Save 2–3 notes on *each* page. Note the *Handled by Worker Hostname* displayed at the top of the page.
+. Simulate a worker recycle / cold start by restarting the Function App from your Codespace terminal (alternatively, wait ~20 minutes with no traffic for Azure to scale your app down to zero workers):
++
+[source,bash]
+----
+az functionapp restart --name $APP --resource-group $RG
+----
+. Refresh *both* browser tabs:
+** Notice that the *Worker Hostname* has changed—Azure destroyed the old worker and spun up a fresh one.
+** On `/api/ephemeral`, your notes are *completely gone*.
+** On `/api/persistent`, all your notes are *still intact*.
+
+=== Step 5C: Clean Up Resources
+
+[WARNING]
+====
+Delete your Azure Resource Group and stop your GitHub Codespace when finished so background storage charges do not deplete your $100 student credit.
+====
+
+[source,bash]
+----
+az group delete --name $RG --yes --no-wait
+----
+
+== Part 6: Infrastructure Comparison & Deliverable Questions
+
+[cols="1,2,2,2",options="header"]
+|===
+| Infrastructure Dimension | Virtual Machines (IaaS) | Containers (CaaS) | Serverless Functions (FaaS)
+
+| *Unit of Scaling*
+| Entire OS + App
+| Container Image + App
+| Individual Function Execution
+
+| *Idle Cost*
+| Paid while VM is running
+| Paid while container is running
+| $0 when idle (scales to zero)
+
+| *Startup Latency*
+| Minutes
+| Seconds
+| Milliseconds to a few seconds (Cold Start)
+
+| *Local Filesystem*
+| Persistent virtual disk (OS disk / data disk)
+| Ephemeral container layer unless Volumes are mounted
+| Read-only app directory; `/tmp` is ephemeral & instance-local
+
+| *OS & Patch Management*
+| Student / Admin manages OS & runtime
+| Admin manages base image; provider manages host
+| Cloud provider manages OS, runtime, & scaling
+|===
+
+
+include::program-info:ROOT:partial$stdfooter.adoc[]

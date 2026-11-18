@@ -13,6 +13,10 @@ This is the homepage for the ITC-2300: Information Technology Services and Appli
 
 == Resources
 
+=== Cloud and Containers
+
+* xref:lab-cloud-serverless.adoc[Lab: Serverless Web Applications with Azure Functions & Python]
+
 === Voice over IP
 
 * https://www.cisco.com/c/en/us/support/docs/voice/voice-quality/7934-bwidth-consume.html[Voice Over IP - Per Call Bandwidth Consumption]
