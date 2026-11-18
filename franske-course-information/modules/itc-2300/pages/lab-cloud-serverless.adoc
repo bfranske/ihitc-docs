@@ -146,6 +146,18 @@ def hello(req: func.HttpRequest) -> func.HttpResponse:
     )
 ----
 
+[TIP]
+====
+*Reading the Python Function Header (`def hello(req: func.HttpRequest) -> func.HttpResponse:`)*
+
+If you have not used Python extensively before, the extra labels on the `def` line are *type hints*—optional annotations that describe what goes into and comes out of the function:
+
+* `req: func.HttpRequest` tells the editor and Azure Functions that the incoming parameter `req` is an HTTP request object (containing the URL, HTTP method, and form data).
+* `-> func.HttpResponse` indicates that the function returns an HTTP response (the web page content and status code) back to the visitor's browser.
+
+Python does not strictly require type hints for the code to run, but including them lets VS Code provide autocomplete suggestions (such as `req.method` and `req.params`) and helps Azure's runtime bind incoming web traffic to your function.
+====
+
 === Step 3B: Test Locally in Codespaces
 
 . In the terminal, start the local Functions host:
