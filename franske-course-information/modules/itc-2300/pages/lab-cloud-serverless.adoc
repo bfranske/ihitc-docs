@@ -173,12 +173,26 @@ func start
 
 === Step 3C: Provision Azure Resources & Deploy to the Cloud
 
-. Because of restrictions on our Minnstate Azure Tenant we need to go through a bit of a convoluted process to login to the Azure CLI tools in the Github Codespace. First, login to https://portal.azure.com
-. Next, click the graphical link in the upper right to open the Azure Cloud Shell and select to create a bash shell
-. In the Azure cloud shell run the command `az account show` and make note of the "id" value as the subscription ID which you will use in the next command.
-. In the Azure cloud shell run the command `az ad sp create-for-rbac --name "codespaces-func-deploy" --role contributor --scopes /subscriptions/<insert_subscription_id_here>.
-. Make a note of the appId, password, and tenant which you will enter into the next command in the codespace terminal.
-. *Log in to Azure* from the Codespace terminal (fill in the appId, password, and tenant you just got from the Azure Cloud Shell):
+. *Create a Service Principal & Log in to Azure:*
++
+Because our MinnState Azure tenant blocks device-code logins from external environments, you will generate a temporary Service Principal credential inside Azure Cloud Shell and use it to authenticate your Codespace:
++
+.. Log in to the https://portal.azure.com[Azure Portal] in your browser using your MinnState account.
+.. Click the *Cloud Shell* icon (`>_`) in the top-right toolbar. If prompted, choose *Bash* (and select *No storage account required* if offered).
+.. In the Cloud Shell terminal, run the following command to verify your *Azure for Students* subscription and copy the `"id"` value (your Subscription ID):
++
+[source,bash]
+----
+az account show
+----
+.. Create a Contributor Service Principal scoped to your subscription (replace `<SUBSCRIPTION_ID>` with the `"id"` from the previous step and `<UNIQUE_ID>` with your initials and numbers):
++
+[source,bash]
+----
+az ad sp create-for-rbac --name "codespaces-func-<UNIQUE_ID>" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>
+----
+.. Copy the `appId`, `password`, and `tenant` values from the JSON output.
+.. Back in your *GitHub Codespace terminal*, log in using those three values:
 +
 [source,bash]
 ----
@@ -443,13 +457,48 @@ az functionapp restart --name $APP --resource-group $RG
 
 [WARNING]
 ====
-Delete your Azure Resource Group and stop your GitHub Codespace when finished so background storage charges do not deplete your $100 student credit.
+Complete all three cleanup steps below when you finish the lab. Leaving cloud resources running will continue to consume your $100 Azure credit and your monthly GitHub Codespaces core-hour allowance.
 ====
 
+. *Delete Your Azure Resource Group (App, Plan, and Storage):*
++
+In your *GitHub Codespace terminal*, delete the entire resource group (`$RG`). This single command removes your Function App, App Service Consumption Plan, and Storage Account together:
++
 [source,bash]
 ----
 az group delete --name $RG --yes --no-wait
 ----
++
+[NOTE]
+====
+If your Codespace terminal restarted or timed out and `$RG` is no longer set in your shell variables, run `az group delete --name rg-serverless-lab --yes --no-wait` instead.
+====
+
+. *Delete Your Service Principal Credential:*
++
+Because Service Principals live at the Entra ID (Azure AD) tenant level rather than inside a Resource Group, deleting `$RG` does not remove your login credential. Delete the Service Principal using the `appId` you saved in Step 3C:
++
+[source,bash]
+----
+az ad sp delete --id <appId>
+----
++
+Log out of the Azure CLI session in your Codespace:
++
+[source,bash]
+----
+az logout
+----
+
+. *Stop (or Delete) Your GitHub Codespace:*
++
+GitHub Codespaces bills against your free monthly student quota (180 core-hours/month) for as long as the container is running—and also charges a small amount of storage quota while a stopped Codespace is retained.
++
+.. Before closing your browser, commit and push any code changes you want to keep in your GitHub repository (`git add .`, `git commit -m "Complete serverless lab"`, `git push`).
+.. Navigate to https://github.com/codespaces[github.com/codespaces] in your browser.
+.. Locate your active `serverless-lab` Codespace, click the *three dots (`...`)* menu on the right, and select:
+*** *Stop codespace* if you plan to reopen this exact container later (stops compute core-hour usage immediately), *or*
+*** *Delete* if you have pushed your code and no longer need the container (frees both compute and storage quota).
 
 == Part 6: Infrastructure Comparison & Deliverable Questions
 
