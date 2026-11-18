@@ -173,14 +173,17 @@ func start
 
 === Step 3C: Provision Azure Resources & Deploy to the Cloud
 
-. *Log in to Azure* from the Codespace terminal (use `--use-device-code` so authentication works cleanly inside a browser IDE):
+. Because of restrictions on our Minnstate Azure Tenant we need to go through a bit of a convoluted process to login to the Azure CLI tools in the Github Codespace. First, login to https://portal.azure.com
+. Next, click the graphical link in the upper right to open the Azure Cloud Shell and select to create a bash shell
+. In the Azure cloud shell run the command `az account show` and make note of the "id" value as the subscription ID which you will use in the next command.
+. In the Azure cloud shell run the command `az ad sp create-for-rbac --name "codespaces-func-deploy" --role contributor --scopes /subscriptions/<insert_subscription_id_here>.
+. Make a note of the appId, password, and tenant which you will enter into the next command in the codespace terminal.
+. *Log in to Azure* from the Codespace terminal (fill in the appId, password, and tenant you just got from the Azure Cloud Shell):
 +
 [source,bash]
 ----
-az login --use-device-code
+az login --service-principal -u <appId> -p <password> --tenant <tenant>
 ----
-+
-Follow the prompt to open `https://microsoft.com/devicelogin` and enter the displayed code.
 
 . *Create a Resource Group, Storage Account, and Serverless Function App:*
 +
@@ -199,7 +202,10 @@ az group create --name $RG --location $LOC
 # 2. Create a Storage Account (required by Azure Functions to store code and host metadata)
 az storage account create --name $STORAGE --location $LOC --resource-group $RG --sku Standard_LRS
 
-# 3. Create the Linux Python Function App on a Serverless Consumption plan
+# 3. Enable the Microsoft.Web resource provider on your Azure subscription
+az provider register --namespace Microsoft.Web --wait
+
+# 4. Create the Linux Python Function App on a Serverless Consumption plan
 az functionapp create --resource-group $RG --consumption-plan-location $LOC \
   --runtime python --runtime-version 3.11 --functions-version 4 \
   --name $APP --storage-account $STORAGE --os-type Linux
