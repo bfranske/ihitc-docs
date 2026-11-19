@@ -494,6 +494,7 @@ NO CLASS: MEA
 === Work to do in class today
 * Ask questions about content you are unsure about
 * Discuss Module 23
+* Module 23 Lab
 
 === Readings to do before next class
 * Module 24
@@ -501,6 +502,7 @@ NO CLASS: MEA
 === Other Work to do before next class
 * Module 23 Online Discussion Response Posts
 * Module 24 Online Discussion First Posts
+* Finish Module 23 Lab and Lab Report
 * Module 23 Exam
 
 === Assignments Due at the start of class today
@@ -526,6 +528,7 @@ NO CLASS: MEA
 === Assignments Due at the start of class today
 * Module 23 Online Discussion Response Posts
 * Module 24 Online Discussion First Posts
+* Module 23 Lab Report
 * Module 23 Exam
 
 == Nov 26
