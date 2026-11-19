@@ -13,4 +13,17 @@ This is the homepage for the ITC-2850: Network Security, Identity, and Authentic
 
 == Resources
 
+=== Microsoft Entra ID Labs:
+
+* Lab 1: https://learn.microsoft.com/en-us/training/modules/explore-identity-azure-active-directory/[Explore identity in Microsoft Entra ID]
+* Lab 2: https://learn.microsoft.com/en-us/training/modules/guided-project-new-employee-access/[Guided Project: Set up new employee access (Entra ID and RBAC)]
+* Lab 3: https://learn.microsoft.com/en-us/training/modules/secure-aad-users-with-mfa/[Secure Microsoft Entra users with multifactor authentication]
+* Lab 4: https://learn.microsoft.com/en-us/training/modules/get-started-identity-access-labs/[Get started with identity and access labs]
++
+[NOTE]
+====
+Open Microsoft Entra admin center (entra.microsoft.com) > Getting started (or Identity > Overview) and activate the free Microsoft Entra ID P2 trial before starting Lab 4. While Azure for Students includes a free Entra ID tenant, Conditional Access and advanced group/password features in Module 4 require a P1/P2 trial license.
+====
+* Lab 5: https://learn.microsoft.com/en-us/training/modules/manage-application-access-microsoft-entra-id/[Manage Microsoft Entra application access]
+
 include::program-info:ROOT:partial$stdfooter.adoc[]
